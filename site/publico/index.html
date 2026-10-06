@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="DARK PASSAGE: MMORPG isométrico no impasse do Apocalipse. Crie sua conta e escolha seu lado.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23070606'/%3E%3Cpath d='M16 5c4 5 5 8 5 10a5 5 0 0 1-10 0c0-2 1-5 5-10z' fill='%23ff7a1a'/%3E%3Crect x='13' y='19' width='6' height='9' fill='%23c99a3e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Cinzel:wght@500;700&family=Spectral:ital,wght@0,300;0,400;0,600;1,300&display=swap">
+<title>Dark Passage</title>
+<style>
+/* Layout: dossiê vertical da Vigília — faixas escuras separadas por filetes de ferrugem,
+   cada seção com uma única poça de luz, como a iluminação local do jogo. */
+:root{
+  color-scheme: dark;
+  --breu:#070606; --noite:#0c0a0a; --pedra:#171414; --ferro:#231f1f; --nevoa:#3a3338;
+  --osso:#d8cfbb; --cinza:#948a7e; --ferrugem:#6a3a22;
+  --ouro:#c99a3e; --sangue:#8d1a15; --aco:#4a6880; --brasa:#ff7a1a; --acido:#9cff3a;
+  --display:"Cinzel", "Times New Roman", serif;
+  --corpo:"Spectral", Georgia, serif;
+  --rotulo:"Barlow Condensed", "Arial Narrow", sans-serif;
+  --faixa: clamp(48px, 7vw, 96px);
+  --larg: 1120px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+[hidden]{display:none !important}
+body{
+  background:var(--breu); color:var(--osso);
+  font-family:var(--corpo); font-weight:300; font-size:17px; line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:var(--ouro); text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--brasa); outline-offset:3px}
+
+.env{width:100%; max-width:var(--larg); margin-inline:auto; padding-inline:clamp(18px,4vw,32px)}
+.rotulo{font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.22em; font-size:13px; color:var(--cinza)}
+h1,h2,h3{font-family:var(--display); font-weight:700; text-wrap:balance; margin:0; line-height:1.14; letter-spacing:.02em}
+h2{font-size:clamp(28px,4vw,42px); color:var(--osso)}
+h3{font-size:19px; letter-spacing:.06em; text-transform:uppercase; font-weight:500}
+p{margin:0}
+.prosa{display:flex; flex-direction:column; gap:1.1em; max-width:62ch}
+.prosa strong{color:var(--osso); font-weight:600}
+.sumido{color:var(--cinza)}
+
+/* ------------------------------------------------------------------ topo */
+.topo{
+  position:sticky; top:env(safe-area-inset-top,0px); z-index:40;
+  background:linear-gradient(180deg, rgba(7,6,6,.96), rgba(7,6,6,.82) 70%, transparent);
+  backdrop-filter:blur(6px); border-bottom:1px solid rgba(106,58,34,.35);
+}
+.topo .env{display:flex; align-items:center; gap:22px; height:62px}
+.marca{font-family:var(--display); font-weight:700; font-size:15px; letter-spacing:.3em; color:var(--osso); white-space:nowrap}
+.marca span{color:var(--sangue)}
+.menu{display:flex; gap:20px; margin-left:auto; align-items:center}
+.menu a{font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.16em; font-size:13px; color:var(--cinza)}
+.menu a:hover{color:var(--osso); text-decoration:none}
+@media (max-width:760px){ .menu a[data-opcional]{display:none} }
+
+/* ------------------------------------------------------------------ botões */
+.btn{
+  font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.18em; font-size:14px;
+  padding:13px 26px; border:1px solid var(--ferrugem); background:linear-gradient(180deg,#1d1817,#120f0f);
+  color:var(--osso); cursor:pointer; display:inline-block; transition:border-color .2s, color .2s, box-shadow .2s;
+}
+.btn:hover{border-color:var(--ouro); color:#fff; text-decoration:none; box-shadow:0 0 24px -8px rgba(255,122,26,.55)}
+.btn-forte{background:linear-gradient(180deg,#7a1c12,#4a0f0a); border-color:#a8371f; color:#fff8ee}
+.btn-forte:hover{box-shadow:0 0 30px -6px rgba(255,122,26,.7)}
+
+/* ------------------------------------------------------------------ herói */
+.heroi{position:relative; overflow:hidden; border-bottom:1px solid rgba(106,58,34,.4)}
+.heroi img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:saturate(.82) contrast(1.04) brightness(.95);
+}
+.heroi .veu{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(90% 70% at 22% 48%, rgba(255,122,26,.12), transparent 62%),
+    linear-gradient(100deg, rgba(7,6,6,.92) 10%, rgba(7,6,6,.6) 48%, rgba(7,6,6,.22) 100%),
+    linear-gradient(0deg, var(--breu) 1%, transparent 36%);
+}
+.heroi .env{position:relative; padding-block:clamp(70px,11vw,124px)}
+.heroi-txt{max-width:min(48ch,100%); display:flex; flex-direction:column; gap:20px}
+.titulao{
+  font-family:var(--display); font-weight:700; font-size:clamp(42px,8vw,84px); line-height:.96;
+  letter-spacing:.04em; margin:0;
+  background:linear-gradient(176deg,#f1e7d2 8%, #cdbb97 38%, #8e6a3c 76%, #5d3620 100%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+  text-shadow:0 10px 50px rgba(0,0,0,.8);
+}
+.heroi .chamada{font-size:clamp(18px,2.2vw,21px); color:#cdc4b4; max-width:40ch; text-shadow:0 2px 14px rgba(0,0,0,.9)}
+.heroi .acoes{display:flex; gap:14px; flex-wrap:wrap; margin-top:4px}
+
+/* ------------------------------------------------------------------ seções */
+section{position:relative; border-top:1px solid rgba(106,58,34,.28)}
+section > .env{padding-block:var(--faixa)}
+.cab{display:flex; flex-direction:column; gap:14px; margin-bottom:38px}
+.cab .rotulo{display:flex; align-items:center; gap:12px}
+.cab .rotulo::after{content:""; flex:1; height:1px; background:linear-gradient(90deg, var(--ferrugem), transparent)}
+.fundo-pedra{background:
+  radial-gradient(120% 80% at 50% -10%, rgba(74,104,128,.07), transparent 60%), var(--noite)}
+.fundo-breu{background:var(--breu)}
+
+/* duas colunas texto + figura */
+.dupla{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(28px,4vw,56px); align-items:center}
+@media (max-width:860px){ .dupla{grid-template-columns:1fr} }
+.quadro{position:relative; border:1px solid rgba(106,58,34,.5); background:#000}
+.quadro img{filter:saturate(.8) contrast(1.06)}
+.quadro figcaption{
+  font-family:var(--rotulo); text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--cinza);
+  padding:10px 14px; border-top:1px solid rgba(106,58,34,.4); background:#0a0909;
+}
+
+/* ------------------------------------------------------------------ facções */
+.faccoes{display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3vw,34px)}
+@media (max-width:760px){ .faccoes{grid-template-columns:1fr} }
+.faccao{
+  position:relative; padding:34px clamp(22px,3vw,34px) 32px; border:1px solid rgba(106,58,34,.45);
+  background:linear-gradient(180deg, rgba(23,20,20,.9), rgba(7,6,6,.9));
+  display:flex; flex-direction:column; gap:16px; min-width:0;
+}
+.faccao::before{content:""; position:absolute; inset:0 0 auto 0; height:2px}
+.faccao.arautos::before{background:linear-gradient(90deg, var(--sangue), var(--ouro), transparent)}
+.faccao.vigilia::before{background:linear-gradient(90deg, var(--aco), var(--acido), transparent)}
+.faccao svg{width:92px; height:92px}
+.faccao h3{font-size:22px; text-transform:none; letter-spacing:.05em; font-weight:700}
+.faccao .lema{font-style:italic; color:var(--cinza)}
+.faccao ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:7px; font-size:16px}
+.faccao li::marker{color:var(--ferrugem)}
+
+/* ------------------------------------------------------------------ classes */
+.classes{display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2.2vw,26px)}
+@media (max-width:900px){ .classes{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:520px){ .classes{grid-template-columns:1fr} }
+.classe{
+  border:1px solid rgba(106,58,34,.4); background:linear-gradient(180deg,#141111,#090808);
+  display:flex; flex-direction:column; min-width:0; transition:border-color .25s, transform .25s;
+}
+.classe:hover{border-color:rgba(201,154,62,.55); transform:translateY(-3px)}
+.palco{
+  position:relative; height:232px; display:flex; align-items:flex-end; justify-content:center; overflow:hidden;
+  background:radial-gradient(60% 55% at 50% 92%, rgba(255,122,26,.13), transparent 70%), #0a0909;
+}
+.palco img{height:206px; width:auto; image-rendering:pixelated; filter:drop-shadow(0 6px 18px rgba(0,0,0,.9))}
+.classe .corpo{padding:18px 20px 22px; display:flex; flex-direction:column; gap:9px; border-top:1px solid rgba(106,58,34,.35)}
+.classe h3{font-size:20px; text-transform:none; letter-spacing:.04em; font-weight:700}
+.tag{font-family:var(--rotulo); text-transform:uppercase; letter-spacing:.18em; font-size:11.5px; font-weight:600}
+.tag.a{color:var(--ouro)} .tag.v{color:#7fa6c4}
+.classe p{font-size:15.5px; line-height:1.6; color:#bdb4a6}
+.ficha{display:flex; gap:8px; flex-wrap:wrap; margin-top:3px}
+.ficha span{
+  font-family:var(--rotulo); font-size:12px; text-transform:uppercase; letter-spacing:.12em;
+  border:1px solid rgba(106,58,34,.55); padding:3px 9px; color:var(--cinza);
+}
+
+/* ------------------------------------------------------------------ cripta */
+.chefes{display:flex; flex-direction:column; gap:0; margin-top:30px; border-top:1px solid rgba(106,58,34,.3)}
+.chefe{display:grid; grid-template-columns:auto 1fr; gap:6px 20px; padding:18px 2px; border-bottom:1px solid rgba(106,58,34,.3); align-items:baseline}
+.chefe .andar{font-family:var(--rotulo); font-weight:600; letter-spacing:.2em; font-size:12px; color:var(--sangue); text-transform:uppercase; white-space:nowrap}
+.chefe b{font-family:var(--display); font-weight:700; font-size:18px; letter-spacing:.03em}
+.chefe p{grid-column:2; font-size:15.5px; color:#b3aa9d}
+@media (max-width:560px){ .chefe{grid-template-columns:1fr} .chefe p{grid-column:1} }
+
+/* ------------------------------------------------------------------ conta */
+.conta-secao{background:
+  radial-gradient(70% 60% at 50% 0%, rgba(201,154,62,.08), transparent 65%),
+  linear-gradient(180deg,#0d0b0b,#070606)}
+.painel{
+  max-width:560px; margin-inline:auto; border:1px solid rgba(106,58,34,.55);
+  background:linear-gradient(180deg, rgba(26,22,21,.95), rgba(10,9,9,.98));
+  box-shadow:0 40px 90px -40px #000, inset 0 1px 0 rgba(216,207,187,.06);
+}
+.painel-topo{display:flex; border-bottom:1px solid rgba(106,58,34,.5)}
+.aba{
+  flex:1; padding:16px 10px; background:transparent; border:0; cursor:pointer; color:var(--cinza);
+  font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.2em; font-size:13px;
+  border-bottom:2px solid transparent; transition:color .2s, border-color .2s;
+}
+.aba[aria-selected="true"]{color:var(--osso); border-bottom-color:var(--ouro); background:rgba(201,154,62,.05)}
+form{padding:clamp(24px,4vw,34px); display:flex; flex-direction:column; gap:17px}
+.campo{display:flex; flex-direction:column; gap:7px}
+.campo label{font-family:var(--rotulo); text-transform:uppercase; letter-spacing:.17em; font-size:12.5px; font-weight:600; color:var(--cinza)}
+.campo input{
+  font-family:var(--corpo); font-size:16px; color:var(--osso); background:#0a0908;
+  border:1px solid rgba(106,58,34,.6); padding:12px 14px; transition:border-color .2s, box-shadow .2s;
+}
+.campo input:focus{outline:none; border-color:var(--ouro); box-shadow:0 0 0 1px rgba(201,154,62,.35)}
+.campo .dica{font-size:13.5px; color:#7e766d; line-height:1.5}
+.aviso{
+  font-size:14.5px; line-height:1.6; padding:13px 15px; border-left:2px solid var(--ferrugem);
+  background:rgba(106,58,34,.12); color:#bdb4a6;
+}
+.aviso.erro{border-left-color:#c0392b; background:rgba(141,26,21,.16); color:#eec9c4}
+.aviso.bom{border-left-color:var(--acido); background:rgba(156,255,58,.08); color:#d3e8bb}
+.aviso code{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13px; color:var(--ouro); word-break:break-all}
+.pe-form{font-size:13.5px; color:#7e766d; line-height:1.6; border-top:1px solid rgba(106,58,34,.35); padding-top:14px}
+
+/* ------------------------------------------------------------------ rodapé */
+footer{border-top:1px solid rgba(106,58,34,.4); background:var(--breu)}
+footer .env{padding-block:40px; display:flex; flex-wrap:wrap; gap:18px 36px; align-items:center; justify-content:space-between}
+footer p{font-size:14px; color:#6f675f}
+
+@media (prefers-reduced-motion:reduce){ *{transition:none !important} }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="env">
+    <div class="marca">DARK<span>·</span>PASSAGE</div>
+    <nav class="menu">
+      <a href="#mundo">O mundo</a>
+      <a href="#faccoes" data-opcional>Facções</a>
+      <a href="#classes">Classes</a>
+      <a href="#cripta" data-opcional>A cripta</a>
+      <a href="#conta">Conta</a>
+    </nav>
+  </div>
+</header>
+
+<div class="heroi">
+  <img src="img/cena_deserto.jpg" alt="Acampamento da Vela à noite, entre dunas e prédios soterrados do Deserto de Absinto">
+  <div class="veu"></div>
+  <div class="env">
+    <div class="heroi-txt">
+      <p class="rotulo">MMORPG isométrico · em desenvolvimento</p>
+      <h1 class="titulao">DARK<br>PASSAGE</h1>
+      <p class="chamada">As trombetas soaram, o céu rachou e os homens seguraram o golpe. O fim do mundo começou e travou — e alguém ainda vai decidir se ele continua.</p>
+      <div class="acoes">
+        <a class="btn btn-forte" href="#conta">Criar conta</a>
+        <a class="btn" href="#mundo">Conhecer o mundo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="mundo" class="fundo-pedra">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">O impasse</p>
+      <h2>O Juízo começou e parou no meio</h2>
+    </div>
+    <div class="dupla">
+      <div class="prosa">
+        <p>Deus ordenou o fim e mandou suas forças numa <strong>Guerra de Extermínio</strong>. As pragas vieram, os anjos desceram e, pela promessa das ruínas da Terra, até o Inferno marchou ao lado deles.</p>
+        <p>Contra toda expectativa, os homens resistiram. Levantaram ogivas contra a hoste celeste e seguraram o Apocalipse no lugar. Desde então nenhum lado consegue vencer: o mundo acabou pela metade, e cada relíquia, cada território e cada trombeta selada pode desempatar a guerra.</p>
+        <p>Você entra nesse empate, numa paróquia enterrada na areia, onde os mortos esperam de pé um julgamento que não chega.</p>
+      </div>
+      <figure class="quadro">
+        <img src="img/rua.jpg" alt="Rua em ruínas iluminada por fogueiras, com sobreviventes das seis classes">
+        <figcaption>Paróquia de São Lázaro · captura do jogo</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="deserto" class="fundo-breu">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">Área inicial</p>
+      <h2>Deserto de Absinto</h2>
+    </div>
+    <div class="prosa">
+      <p>Dizem que a estrela <strong>Absinto</strong> caiu no terceiro toque e amargou a água. O que ficou dela o povo chama de <strong>Amargo</strong>: a doença que queima a pele, deforma os vivos e segura os mortos de pé, com o selo de cera ainda intacto no peito.</p>
+      <p>A areia subiu até o quarto andar de São Lázaro — <em>a rua de hoje é o telhado de ontem</em>. A maré de areia muda as dunas de lugar, os bondes viram veleiros sobre os trilhos que o vento descobre, e o Rio Amargo, verde e quase seco, é a única água corrente que sobrou. Na beira dele ainda nasce alguma coisa: um oásis torto, no meio de um mundo que já devia ter acabado.</p>
+      <p class="sumido">Mesmo que seja o fim do mundo, ainda pode ser bonito.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faccoes" class="fundo-pedra">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">Escolha um lado</p>
+      <h2>Duas facções, um fim do mundo</h2>
+    </div>
+    <div class="faccoes">
+      <article class="faccao arautos">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="none" stroke="#c99a3e" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="14" cy="60" r="5"/>
+            <path d="M19 60h18l4 4"/>
+            <path d="M49 64l4-4h5"/>
+            <path d="M58 44l24-12v56L58 76z"/>
+            <path d="M58 44v32" opacity=".45"/>
+          </g>
+          <g fill="none" stroke="#f3e8d0" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M74 30c-7-7-7-15-1-22 0 7 5 9 8 6-3 8 0 12 4 15" stroke-width="2.2"/>
+            <path d="M60 36c-5-5-5-10-1-15 0 5 3 6 6 4-2 5 0 8 3 10" stroke-width="1.8" opacity=".6"/>
+          </g>
+        </svg>
+        <h3>Arautos do Juízo</h3>
+        <p class="lema">“O fim foi ordenado. Falta cumprir.”</p>
+        <p>Anjos, demônios e cultistas servem à mesma ordem por motivos diferentes — obediência, cobiça e fé. Ninguém ali confia em ninguém.</p>
+        <ul>
+          <li>Objetivo: consumar o Apocalipse</li>
+          <li>Símbolo: trombeta partida em chamas brancas</li>
+          <li>Cores: branco osso, ouro sujo, vermelho sangue</li>
+        </ul>
+      </article>
+      <article class="faccao vigilia">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g fill="none" stroke="#7fa6c4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="50" cy="50" r="33" stroke-width="11" stroke-dasharray="7 12.3" opacity=".9"/>
+            <circle cx="50" cy="50" r="26"/>
+            <rect x="43" y="48" width="14" height="24" rx="1.5"/>
+            <path d="M50 46v-4"/>
+            <path d="M50 24c6 7 7 11 7 14a7 7 0 0 1-14 0c0-3 1-7 7-14z" stroke="#9cff3a" stroke-width="2.2"/>
+            <path d="M39 72h22" />
+          </g>
+        </svg>
+        <h3>Vigília</h3>
+        <p class="lema">“A vela acesa é teimosia, não esperança.”</p>
+        <p>Humanos, mutantes e tecnomancers sobrevivem no mundo apocalíptico e procuram um jeito de cancelar o fim — mesmo que precisem herdar as ruínas.</p>
+        <ul>
+          <li>Objetivo: cancelar o Apocalipse</li>
+          <li>Símbolo: vela acesa dentro de uma engrenagem</li>
+          <li>Cores: azul aço, verde ácido, laranja brasa</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="classes" class="fundo-breu">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">Seis classes · três papéis de cada lado</p>
+      <h2>Quem você vai ser no fim do mundo</h2>
+    </div>
+    <div class="classes">
+      <article class="classe">
+        <div class="palco"><img src="img/classe_anjo.png" alt="Anjo: asas de penas sujas, sobretudo-batina branco osso e halo de ferro quebrado"></div>
+        <div class="corpo">
+          <p class="tag a">Arautos · Suporte</p>
+          <h3>Anjo</h3>
+          <p>Soldado frio da ordem divina. Cura os seus enquanto julga todo o resto.</p>
+          <div class="ficha"><span>Graça</span><span>ESP · FOR</span></div>
+        </div>
+      </article>
+      <article class="classe">
+        <div class="palco"><img src="img/classe_demonio.png" alt="Demônio: asas de morcego rasgadas, couro preto e rachaduras de brasa no peito"></div>
+        <div class="corpo">
+          <p class="tag a">Arautos · Tanque</p>
+          <h3>Demônio</h3>
+          <p>Marcha ao lado dos anjos pela promessa das ruínas. Quanto mais bate, mais queima.</p>
+          <div class="ficha"><span>Brasa Infernal</span><span>FOR · VIT</span></div>
+        </div>
+      </article>
+      <article class="classe">
+        <div class="palco"><img src="img/classe_cultista.png" alt="Cultista: túnica vinho remendada, máscara de gás de osso e grimório acorrentado"></div>
+        <div class="corpo">
+          <p class="tag a">Arautos · Dano mágico</p>
+          <h3>Cultista</h3>
+          <p>Humano que viu salvação no fim do mundo. Paga cada magia com o próprio sangue.</p>
+          <div class="ficha"><span>Sangue</span><span>ESP</span></div>
+        </div>
+      </article>
+      <article class="classe">
+        <div class="palco"><img src="img/classe_humano.png" alt="Humano: chapéu de aba larga, sobretudo de couro, bandoleira e escopeta de cano duplo"></div>
+        <div class="corpo">
+          <p class="tag v">Vigília · Dano à distância</p>
+          <h3>Humano</h3>
+          <p>O povo comum que se recusou a morrer. Vive de pólvora, fôlego e água benta.</p>
+          <div class="ficha"><span>Munição · Fôlego</span><span>AGI</span></div>
+        </div>
+      </article>
+      <article class="classe">
+        <div class="palco"><img src="img/classe_mutante.png" alt="Mutante: braço gigante de placas soldadas, respirador e machado feito de placa de trânsito"></div>
+        <div class="corpo">
+          <p class="tag v">Vigília · Tanque</p>
+          <h3>Mutante</h3>
+          <p>Deformado pelas pragas e chamado de abominação. Prova que a vida se adapta até ao fim.</p>
+          <div class="ficha"><span>Fúria</span><span>VIT · FOR</span></div>
+        </div>
+      </article>
+      <article class="classe">
+        <div class="palco"><img src="img/classe_tecnomancer.png" alt="Tecnomancer: caldeira nas costas com bobinas de tesla, braço mecânico e cajado com lanterna rúnica"></div>
+        <div class="corpo">
+          <p class="tag v">Vigília · Suporte</p>
+          <h3>Tecnomancer</h3>
+          <p>Cientista herege que soldou ocultismo em caldeira. Trabalha para calar as trombetas.</p>
+          <div class="ficha"><span>Carga</span><span>ESP · AGI</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="cripta" class="fundo-pedra">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">Primeira masmorra</p>
+      <h2>Cripta da Trombeta Calada</h2>
+    </div>
+    <div class="dupla">
+      <div class="prosa">
+        <p>A entrada fica no porão do Abatedouro Carniça, atrás de uma porta que o Capataz do Gancho carrega a chave. Três andares abaixo da areia, alguma coisa segura a trombeta que deveria ter soado.</p>
+        <p class="sumido">Grupo pequeno, luz curta e um chefe por andar.</p>
+      </div>
+      <figure class="quadro">
+        <img src="img/cripta.jpg" alt="Andras, o General Partido, arrastando-se pelo chão da cripta entre dois não-julgados">
+        <figcaption>Andras, o General Partido · captura do jogo</figcaption>
+      </figure>
+    </div>
+    <div class="chefes">
+      <div class="chefe">
+        <span class="andar">1º andar</span>
+        <b>Andras, o General Partido</b>
+        <p>O general sumido da Legião Blasfema, cortado ao meio por um bonde na Batalha dos Campos de Cinza. Se arrasta, e come os mortos do campo para não apagar.</p>
+      </div>
+      <div class="chefe">
+        <span class="andar">2º andar</span>
+        <b>Irmã Celeste, a Carpideira</b>
+        <p>Chora pelos que ainda não morreram. O choro dela conserta os ossos dos outros enquanto desfaz os seus.</p>
+      </div>
+      <div class="chefe">
+        <span class="andar">3º andar</span>
+        <b>Zacarias, o Arauto da Trombeta Calada</b>
+        <p>Anjo enlouquecido de esperar a ordem de tocar. Decidiu julgar todo mundo por conta própria, começando por quem descer até ele.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conta" class="conta-secao">
+  <div class="env">
+    <div class="cab" style="align-items:center; text-align:center">
+      <p class="rotulo" style="justify-content:center">Registro da paróquia</p>
+      <h2>Crie sua conta</h2>
+      <p class="sumido" style="max-width:52ch; margin-inline:auto">A mesma conta serve para o site e para o jogo. Você escolhe a classe e o nome do personagem quando entrar.</p>
+    </div>
+
+    <div class="painel">
+      <div class="painel-topo" role="tablist">
+        <button class="aba" id="aba-criar" role="tab" aria-selected="true" aria-controls="form-criar">Criar conta</button>
+        <button class="aba" id="aba-entrar" role="tab" aria-selected="false" aria-controls="form-entrar">Entrar</button>
+      </div>
+
+      <form id="form-criar" role="tabpanel" aria-labelledby="aba-criar" novalidate>
+        <div class="campo">
+          <label for="c-usuario">Usuário</label>
+          <input id="c-usuario" name="usuario" autocomplete="username" spellcheck="false" maxlength="16" placeholder="sem espaço, minúsculo">
+          <p class="dica">De 3 a 16 caracteres: letras, números e _ apenas. É o nome que o servidor do jogo reconhece.</p>
+        </div>
+        <div class="campo">
+          <label for="c-senha">Senha</label>
+          <input id="c-senha" name="senha" type="password" autocomplete="new-password" maxlength="72">
+          <p class="dica">Mínimo de 8 caracteres. A senha não sai do seu navegador: o site envia só um resumo dela.</p>
+        </div>
+        <div class="campo">
+          <label for="c-senha2">Repita a senha</label>
+          <input id="c-senha2" name="senha2" type="password" autocomplete="new-password" maxlength="72">
+        </div>
+        <div class="campo">
+          <label for="c-email">E-mail <span style="letter-spacing:.08em; text-transform:none">(opcional)</span></label>
+          <input id="c-email" name="email" type="email" autocomplete="email" maxlength="120">
+          <p class="dica">Guardado só para recuperar a conta se você perder a senha.</p>
+        </div>
+        <p class="aviso" id="msg-criar" hidden></p>
+        <button class="btn btn-forte" type="submit">Criar minha conta</button>
+        <p class="pe-form">Ao criar a conta você aceita que o personagem pode ser apagado durante os testes fechados do jogo.</p>
+      </form>
+
+      <form id="form-entrar" role="tabpanel" aria-labelledby="aba-entrar" hidden novalidate>
+        <div class="campo">
+          <label for="e-usuario">Usuário</label>
+          <input id="e-usuario" name="usuario" autocomplete="username" spellcheck="false" maxlength="16">
+        </div>
+        <div class="campo">
+          <label for="e-senha">Senha</label>
+          <input id="e-senha" name="senha" type="password" autocomplete="current-password" maxlength="72">
+        </div>
+        <p class="aviso" id="msg-entrar" hidden></p>
+        <button class="btn" type="submit">Entrar</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="env">
+    <p>DARK PASSAGE · jogo em desenvolvimento · <span id="dominio">darkpassage.com.br</span></p>
+    <p>Arte, mundo e código originais.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var PREVIA = !!window.__PREVIA;
+
+  // --------------------------------------------------------------- abas
+  var abas = [
+    {b: document.getElementById('aba-criar'),  f: document.getElementById('form-criar')},
+    {b: document.getElementById('aba-entrar'), f: document.getElementById('form-entrar')}
+  ];
+  abas.forEach(function(a){
+    a.b.addEventListener('click', function(){
+      abas.forEach(function(o){
+        var ativo = o === a;
+        o.b.setAttribute('aria-selected', ativo ? 'true' : 'false');
+        o.f.hidden = !ativo;
+      });
+    });
+  });
+
+  // --------------------------------------------------------------- regras (iguais às do servidor do jogo)
+  function usuarioOk(u){ return /^[a-z0-9_]{3,16}$/.test(u); }
+
+  async function resumo(u, senha){
+    var dados = new TextEncoder().encode(u + ':dark_passage:' + senha);
+    var bits = await crypto.subtle.digest('SHA-256', dados);
+    return Array.prototype.map.call(new Uint8Array(bits), function(b){
+      return b.toString(16).padStart(2, '0');
+    }).join('');
+  }
+
+  function mostrar(el, texto, tipo){
+    el.className = 'aviso' + (tipo ? ' ' + tipo : '');
+    el.innerHTML = texto;
+    el.hidden = false;
+  }
+
+  async function enviar(rota, corpo){
+    var r = await fetch(rota, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(corpo)
+    });
+    var d = await r.json().catch(function(){ return {}; });
+    if (!r.ok) throw new Error(d.erro || 'O servidor não respondeu. Tente de novo em instantes.');
+    return d;
+  }
+
+  // --------------------------------------------------------------- criar conta
+  document.getElementById('form-criar').addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    var msg = document.getElementById('msg-criar');
+    var u = document.getElementById('c-usuario').value.trim().toLowerCase();
+    var s = document.getElementById('c-senha').value;
+    var s2 = document.getElementById('c-senha2').value;
+    var email = document.getElementById('c-email').value.trim();
+
+    document.getElementById('c-usuario').value = u;
+    if (!usuarioOk(u)) return mostrar(msg, 'O usuário precisa ter de 3 a 16 caracteres, usando só letras, números e _.', 'erro');
+    if (s.length < 8)  return mostrar(msg, 'A senha precisa ter pelo menos 8 caracteres.', 'erro');
+    if (s !== s2)      return mostrar(msg, 'As duas senhas estão diferentes.', 'erro');
+    if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return mostrar(msg, 'Esse e-mail não parece válido. Deixe em branco se preferir.', 'erro');
+
+    var h = await resumo(u, s);
+
+    if (PREVIA) {
+      return mostrar(msg,
+        'Esta é a prévia do site: nada foi gravado ainda. Quando ele entrar no ar, este mesmo formulário cria a conta <b>' + u + '</b> que você usa no jogo.<br><br>' +
+        'A senha não saiu do seu navegador. O que seria enviado é só este resumo:<br><code>' + h + '</code>',
+        'bom');
+    }
+
+    try {
+      mostrar(msg, 'Criando a conta...', '');
+      var d = await enviar('/api/conta/criar', {u: u, h: h, email: email || null});
+      mostrar(msg, 'Conta <b>' + d.u + '</b> criada. Abra o jogo, escolha <b>Entrar</b> e use esse mesmo usuário e senha.', 'bom');
+      this.reset();
+    } catch (e) {
+      mostrar(msg, e.message, 'erro');
+    }
+  });
+
+  // --------------------------------------------------------------- entrar
+  document.getElementById('form-entrar').addEventListener('submit', async function(ev){
+    ev.preventDefault();
+    var msg = document.getElementById('msg-entrar');
+    var u = document.getElementById('e-usuario').value.trim().toLowerCase();
+    var s = document.getElementById('e-senha').value;
+    if (!usuarioOk(u) || !s) return mostrar(msg, 'Preencha o usuário e a senha.', 'erro');
+
+    var h = await resumo(u, s);
+    if (PREVIA) return mostrar(msg, 'Na prévia ainda não existe servidor de contas para conferir a senha. No site publicado, este botão abre a página da sua conta.', '');
+
+    try {
+      mostrar(msg, 'Conferindo...', '');
+      var d = await enviar('/api/conta/entrar', {u: u, h: h});
+      var quantos = (d.personagens || []).length;
+      mostrar(msg, 'Bem-vindo de volta, <b>' + d.u + '</b>. ' +
+        (quantos ? 'Você tem ' + quantos + ' personagem' + (quantos > 1 ? 's' : '') + ' nesta conta.'
+                 : 'Você ainda não criou nenhum personagem — faça isso dentro do jogo.'), 'bom');
+    } catch (e) {
+      mostrar(msg, e.message, 'erro');
+    }
+  });
+})();
+</script>
+</body>
+</html>

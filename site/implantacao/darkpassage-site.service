@@ -1,0 +1,22 @@
+[Unit]
+Description=DARK PASSAGE - site e contas
+After=network.target
+
+[Service]
+Type=simple
+User=darkpassage
+WorkingDirectory=/opt/dark-passage/site
+EnvironmentFile=/etc/darkpassage/site.env
+Environment=PORTA=8080
+Environment=DADOS=/var/lib/darkpassage
+ExecStart=/usr/bin/node /opt/dark-passage/site/servidor.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/darkpassage
+
+[Install]
+WantedBy=multi-user.target
