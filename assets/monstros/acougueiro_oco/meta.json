@@ -1,0 +1,95 @@
+{
+ "monstro": "acougueiro_oco",
+ "frame_size": [
+  224,
+  224
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  112.0,
+  164.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "heavy": {
+   "frames": 14,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "acougueiro_oco_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "acougueiro_oco_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "acougueiro_oco_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "heavy": {
+   "file": "acougueiro_oco_heavy.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "acougueiro_oco_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "acougueiro_oco_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.7
+ }
+}

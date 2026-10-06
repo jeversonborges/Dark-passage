@@ -1,0 +1,16 @@
+{
+ "w": 468,
+ "h": 348,
+ "anchor": [
+  228,
+  244
+ ],
+ "emissivo": "brasas",
+ "categoria": "predios",
+ "footprint_tiles": [
+  8,
+  4
+ ],
+ "descricao": "Bonde da linha 7 tombado e queimado nos Campos de Cinza.",
+ "kind": "bonde_queimado"
+}

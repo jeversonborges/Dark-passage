@@ -1,0 +1,1795 @@
+{
+ "anjo": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/anjo/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/anjo/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/anjo/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
+ "cultista": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/cultista/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/cultista/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/cultista/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "demonio": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/demonio/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/demonio/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/demonio/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "humano": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/humano/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/humano/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/humano/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "shoot": {
+    "file": "res://assets/ext/personagens/humano/shoot.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/personagens/humano/spin.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": false
+   },
+   "dash": {
+    "file": "res://assets/ext/personagens/humano/dash.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
+ "mutante": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/mutante/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/mutante/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/mutante/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "tecnomancer": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/tecnomancer/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/tecnomancer/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/tecnomancer/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "acougueiro_oco": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "heavy": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_heavy.png",
+    "frames": 14,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "andras": {
+  "frame": [
+   400,
+   400
+  ],
+  "anchor": [
+   200.0,
+   272.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/andras/andras_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/andras/andras_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/andras/andras_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "sweep": {
+    "file": "res://assets/ext/monstros/andras/andras_sweep.png",
+    "frames": 10,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/andras/andras_lunge.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "eat": {
+    "file": "res://assets/ext/monstros/andras/andras_eat.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/andras/andras_roar.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "vomit": {
+    "file": "res://assets/ext/monstros/andras/andras_vomit.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "feast": {
+    "file": "res://assets/ext/monstros/andras/andras_feast.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "tired": {
+    "file": "res://assets/ext/monstros/andras/andras_tired.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/andras/andras_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/andras/andras_death.png",
+    "frames": 12,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "cao_de_vala": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   123.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_attack.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "howl": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_howl.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cao_de_vala/cao_de_vala_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "cao_de_vala_alfa": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   123.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_attack.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "howl": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_howl.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cao_de_vala_alfa/cao_de_vala_alfa_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "capataz_gancho": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hook": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_hook.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_spin.png",
+    "frames": 10,
+    "fps": 14,
+    "loop": false
+   },
+   "shout": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_shout.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "carnical": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/carnical/carnical_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/carnical/carnical_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/carnical/carnical_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/carnical/carnical_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/carnical/carnical_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "carnical_inchado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "carpideira_de_ossos": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "lament": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_lament.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "heal": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_heal.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos/carpideira_de_ossos_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "carpideira_de_ossos_viuva": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "lament": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_lament.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "heal": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_heal.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "corista_de_osso": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/corista_de_osso/corista_de_osso_idle.png",
+    "frames": 2,
+    "fps": 2,
+    "loop": true
+   },
+   "sing": {
+    "file": "res://assets/ext/monstros/corista_de_osso/corista_de_osso_sing.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/corista_de_osso/corista_de_osso_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/corista_de_osso/corista_de_osso_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "corvo_de_cinza": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   224.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza/corvo_de_cinza_idle.png",
+    "frames": 6,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza/corvo_de_cinza_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza/corvo_de_cinza_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza/corvo_de_cinza_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza/corvo_de_cinza_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "corvo_de_cinza_carnica": {
+  "frame": [
+   352,
+   352
+  ],
+  "anchor": [
+   176.0,
+   273.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza_carnica/corvo_de_cinza_carnica_idle.png",
+    "frames": 6,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza_carnica/corvo_de_cinza_carnica_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza_carnica/corvo_de_cinza_carnica_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza_carnica/corvo_de_cinza_carnica_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/corvo_de_cinza_carnica/corvo_de_cinza_carnica_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "eco_da_trombeta": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   189.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_idle.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "wave": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_wave.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "resonate": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_resonate.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "filho_de_cardo": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   177.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_walk.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "burrow": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_burrow.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_emerge.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/filho_de_cardo/filho_de_cardo_death.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "fogo_de_vela": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   148.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "blink_out": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_blink_out.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "blink_in": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_blink_in.png",
+    "frames": 7,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/fogo_de_vela/fogo_de_vela_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "gancheiro": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "pull": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_pull.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/gancheiro/gancheiro_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "larva_de_carne": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   112.6
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/larva_de_carne/larva_de_carne_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/larva_de_carne/larva_de_carne_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/larva_de_carne/larva_de_carne_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/larva_de_carne/larva_de_carne_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/larva_de_carne/larva_de_carne_death.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "larva_de_carne_mae": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   151.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/larva_de_carne_mae/larva_de_carne_mae_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/larva_de_carne_mae/larva_de_carne_mae_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/larva_de_carne_mae/larva_de_carne_mae_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/larva_de_carne_mae/larva_de_carne_mae_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/larva_de_carne_mae/larva_de_carne_mae_death.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "monge_emparedado": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_walk.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_attack.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "ambush": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_ambush.png",
+    "frames": 16,
+    "fps": 12,
+    "loop": false
+   },
+   "pray": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_pray.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "broken": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_broken.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/monge_emparedado/monge_emparedado_death.png",
+    "frames": 11,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "nao_julgado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "nao_julgado_da_tempestade": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "porco_pestilento": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   162.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "scrape": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_scrape.png",
+    "frames": 6,
+    "fps": 9,
+    "loop": true
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_charge.png",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   "stun": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_stun.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/porco_pestilento/porco_pestilento_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "querubim_desfeito": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   213.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_idle.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "flash": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_flash.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "retreat": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_retreat.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/querubim_desfeito/querubim_desfeito_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "soldado_caido": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   153.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_rise.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "soldado_escudeiro": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   153.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_rise.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ }
+}

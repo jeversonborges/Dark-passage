@@ -1,0 +1,17 @@
+{
+ "w": 654,
+ "h": 386,
+ "anchor": [
+  291,
+  237
+ ],
+ "chefe": 1,
+ "boss": "Andras, o General Partido",
+ "categoria": "chefes",
+ "footprint_tiles": [
+  8,
+  8
+ ],
+ "descricao": "Chefe 1: a Vala da Grande Batalha, fosso de cadáveres no porão do abatedouro,     covil do Andras, o General Partido. Montes de mortos, estandartes rasgados e ganchos.",
+ "kind": "arena_vala"
+}

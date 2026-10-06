@@ -1,0 +1,21 @@
+{
+ "name": "cura_generica",
+ "cat": "progresso",
+ "frames": 16,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  28,
+  88
+ ],
+ "layer": "frente",
+ "desc": "Cura recebida (poção, Nanoreparo, Toque de Graça neutro): cruzes de luz subindo.",
+ "char": null,
+ "title": "Cura recebida",
+ "resumo": "Cura recebida (poção, Nanoreparo, Toque de Graça neutro): cruzes de luz subindo.",
+ "frame_w": 56,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "cura_generica.png"
+}

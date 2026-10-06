@@ -1,0 +1,21 @@
+{
+ "name": "hum_tiro_certeiro",
+ "cat": "humano",
+ "frames": 9,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  8,
+  20
+ ],
+ "layer": "frente",
+ "desc": "Tiro Certeiro: clarão forte, traçante longo e impacto com faíscas (para a direita).",
+ "char": null,
+ "title": "Tiro Certeiro",
+ "resumo": "Clarão forte, traçante longo e impacto com faíscas (para a direita).",
+ "frame_w": 176,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_tiro_certeiro.png"
+}

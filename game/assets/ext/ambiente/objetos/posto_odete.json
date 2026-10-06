@@ -1,0 +1,15 @@
+{
+ "w": 506,
+ "h": 290,
+ "anchor": [
+  164,
+  211
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Posto da Odete: barraca de sucata e lona junto ao bonde tombado, com balcão e lanterna.",
+ "kind": "posto_odete"
+}

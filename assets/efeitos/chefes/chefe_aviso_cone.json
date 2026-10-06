@@ -1,0 +1,21 @@
+{
+ "name": "chefe_aviso_cone",
+ "cat": "chefes",
+ "frames": 24,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  8,
+  56
+ ],
+ "layer": "chao",
+ "desc": "Aviso de golpe em cone (bafo, varredura). Aponta para a direita; girar no motor.",
+ "char": null,
+ "title": "Aviso em cone",
+ "resumo": "Aviso de golpe em cone (bafo, varredura). Aponta para a direita; girar no motor.",
+ "frame_w": 144,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "chefe_aviso_cone.png"
+}

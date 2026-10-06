@@ -1,0 +1,15 @@
+{
+ "w": 92,
+ "h": 60,
+ "anchor": [
+  35,
+  38
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "sacos_areia"
+}

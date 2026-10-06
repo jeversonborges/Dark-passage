@@ -1,0 +1,47 @@
+Spot padrao: 12 mobs, renascimento 14s, 3.0 alvos por leque. Jogador no nivel do spot.
+Colunas: abates/min | XP/min | ouro/min | pocoes vida+recurso por min | custo pocoes/min (% do ouro) | min por nivel
+
+--- Spot nivel 5 (XP para o proximo nivel: 3750) ---
+  anjo         com elixir: 24.6    862  237  5.8+ 6.1   83 ( 35%)  4.4m | sem elixir: 18.2    637  175  5.8+ 0.0   35 ( 20%)  5.9m
+  cultista     com elixir: 27.1    947  261  6.4+ 0.0   38 ( 15%)  4.0m | sem elixir: 12.1    423  116 10.2+ 0.0   61 ( 53%)  8.9m
+  mutante      com elixir: 20.0    700  192  4.8+ 5.6   74 ( 38%)  5.4m | sem elixir: 15.3    536  147  4.8+ 0.0   29 ( 20%)  7.0m
+  demonio      com elixir: 32.3   1129  311  5.1+ 9.0  102 ( 33%)  3.3m | sem elixir: 24.2    846  233  5.1+ 0.0   30 ( 13%)  4.4m
+  humano       com elixir: 25.8    903  248  5.4+ 6.0   80 ( 32%)  4.2m | sem elixir: 19.9    696  191  5.4+ 0.0   32 ( 17%)  5.4m
+  tecnomancer  com elixir: 24.7    865  238  5.6+ 6.1   83 ( 35%)  4.3m | sem elixir: 15.7    550  151  8.8+ 0.0   53 ( 35%)  6.8m
+--- Spot nivel 6 (XP para o proximo nivel: 4950) ---
+  anjo         com elixir: 24.3    970  280  6.5+ 6.0   87 ( 31%)  5.1m | sem elixir: 17.9    717  207  6.5+ 0.0   39 ( 19%)  6.9m
+  cultista     com elixir: 26.8   1071  309  7.1+ 0.0   43 ( 14%)  4.6m | sem elixir: 11.9    478  138 11.3+ 0.0   68 ( 49%) 10.4m
+  mutante      com elixir: 19.8    793  229  5.4+ 5.6   77 ( 34%)  6.2m | sem elixir: 15.2    607  175  5.4+ 0.0   32 ( 18%)  8.1m
+  demonio      com elixir: 31.7   1267  366  5.7+ 9.0  106 ( 29%)  3.9m | sem elixir: 23.8    950  274  5.7+ 0.0   34 ( 12%)  5.2m
+  humano       com elixir: 25.4   1016  293  6.0+ 6.0   84 ( 29%)  4.9m | sem elixir: 19.6    783  226  6.0+ 0.0   36 ( 16%)  6.3m
+  tecnomancer  com elixir: 24.5    979  283  6.2+ 6.1   86 ( 30%)  5.1m | sem elixir: 15.6    624  180  9.8+ 0.0   59 ( 33%)  7.9m
+--- Spot nivel 7 (XP para o proximo nivel: 6300) ---
+  anjo         com elixir: 23.9   1078  323  7.1+ 5.9   90 ( 28%)  5.8m | sem elixir: 17.7    795  238  7.1+ 0.0   43 ( 18%)  7.9m
+  cultista     com elixir: 26.6   1195  358  7.8+ 0.0   47 ( 13%)  5.3m | sem elixir: 11.8    533  160 12.4+ 0.0   74 ( 47%) 11.8m
+  mutante      com elixir: 19.7    887  266  6.0+ 5.6   81 ( 30%)  7.1m | sem elixir: 15.1    679  203  6.0+ 0.0   36 ( 18%)  9.3m
+  demonio      com elixir: 31.2   1404  420  6.3+ 9.0  110 ( 26%)  4.5m | sem elixir: 23.4   1054  316  6.3+ 0.0   38 ( 12%)  6.0m
+  humano       com elixir: 25.1   1128  338  6.6+ 6.0   88 ( 26%)  5.6m | sem elixir: 19.4    871  261  6.6+ 0.0   40 ( 15%)  7.2m
+  tecnomancer  com elixir: 24.3   1093  327  6.9+ 6.0   89 ( 27%)  5.8m | sem elixir: 15.5    697  209 10.8+ 0.0   65 ( 31%)  9.0m
+--- Spot nivel 8 (XP para o proximo nivel: 7800) ---
+  anjo         com elixir: 23.7   1184  365  7.8+ 5.9   94 ( 26%)  6.6m | sem elixir: 17.5    873  269  7.8+ 0.0   47 ( 17%)  8.9m
+  cultista     com elixir: 26.4   1318  406  8.5+ 0.0   51 ( 13%)  5.9m | sem elixir: 11.7    587  181 13.5+ 0.0   81 ( 45%) 13.3m
+  mutante      com elixir: 19.6    980  302  6.5+ 5.6   84 ( 28%)  8.0m | sem elixir: 15.0    750  231  6.5+ 0.0   39 ( 17%) 10.4m
+  demonio      com elixir: 30.8   1540  474  6.9+ 9.0  114 ( 24%)  5.1m | sem elixir: 23.2   1158  357  6.9+ 0.0   42 ( 12%)  6.7m
+  humano       com elixir: 24.8   1240  382  7.3+ 6.0   92 ( 24%)  6.3m | sem elixir: 19.2    959  295  7.3+ 0.0   44 ( 15%)  8.1m
+  tecnomancer  com elixir: 24.1   1206  372  7.5+ 5.9   93 ( 25%)  6.5m | sem elixir: 15.4    770  237 11.8+ 0.0   71 ( 30%) 10.1m
+--- Spot nivel 9 (XP para o proximo nivel: 9450) ---
+  anjo         com elixir: 23.5   1291  407  8.5+ 5.8   97 ( 24%)  7.3m | sem elixir: 17.3    950  299  8.5+ 0.0   51 ( 17%)  9.9m
+  cultista     com elixir: 26.2   1440  454  9.2+ 0.0   55 ( 12%)  6.6m | sem elixir: 11.7    642  202 14.6+ 0.0   87 ( 43%) 14.7m
+  mutante      com elixir: 19.5   1074  338  7.1+ 5.6   88 ( 26%)  8.8m | sem elixir: 14.9    820  258  7.1+ 0.0   43 ( 16%) 11.5m
+  demonio      com elixir: 30.5   1676  528  7.5+ 9.0  117 ( 22%)  5.6m | sem elixir: 22.9   1262  398  7.5+ 0.0   45 ( 11%)  7.5m
+  humano       com elixir: 24.6   1352  426  7.9+ 6.0   95 ( 22%)  7.0m | sem elixir: 19.0   1047  330  7.9+ 0.0   47 ( 14%)  9.0m
+  tecnomancer  com elixir: 24.0   1320  416  8.2+ 5.9   96 ( 23%)  7.2m | sem elixir: 15.3    844  266 12.9+ 0.0   77 ( 29%) 11.2m
+--- Spot nivel 10 (XP para o proximo nivel: 11200) ---
+  anjo         com elixir: 23.3   1397  448  9.2+ 5.7  101 ( 23%)  8.0m | sem elixir: 17.1   1028  330  9.2+ 0.0   55 ( 17%) 10.9m
+  cultista     com elixir: 26.0   1563  501  9.9+ 0.0   60 ( 12%)  7.2m | sem elixir: 11.6    696  223 15.7+ 0.0   94 ( 42%) 16.1m
+  mutante      com elixir: 19.4   1167  374  7.7+ 5.6   91 ( 24%)  9.6m | sem elixir: 14.8    891  286  7.7+ 0.0   46 ( 16%) 12.6m
+  demonio      com elixir: 30.2   1812  581  8.1+ 9.0  121 ( 21%)  6.2m | sem elixir: 22.8   1366  438  8.1+ 0.0   49 ( 11%)  8.2m
+  humano       com elixir: 24.4   1464  470  8.5+ 6.0   99 ( 21%)  7.7m | sem elixir: 18.9   1135  364  8.5+ 0.0   51 ( 14%)  9.9m
+  tecnomancer  com elixir: 23.9   1434  460  8.9+ 5.8   99 ( 22%)  7.8m | sem elixir: 15.3    917  294 13.9+ 0.0   83 ( 28%) 12.2m
+
+* = limitado pelo renascimento do spot (o jogador mata mais rapido do que os monstros voltam)

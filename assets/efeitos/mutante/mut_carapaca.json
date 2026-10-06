@@ -1,0 +1,21 @@
+{
+ "name": "mut_carapaca",
+ "cat": "mutante",
+ "frames": 12,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  40,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Carapaça: placas de quitina ácida brilham em volta do corpo (buff, repetir).",
+ "char": "mutante",
+ "title": "Carapaça",
+ "resumo": "Placas de quitina ácida brilham em volta do corpo (buff, repetir).",
+ "frame_w": 80,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "mut_carapaca.png"
+}

@@ -1,0 +1,95 @@
+{
+ "monstro": "soldado_caido",
+ "frame_size": [
+  208,
+  208
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  104.0,
+  153.9
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  },
+  "rise": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "soldado_caido_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "soldado_caido_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "soldado_caido_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "soldado_caido_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "soldado_caido_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "rise": {
+   "file": "soldado_caido_rise.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.65
+ }
+}

@@ -1,0 +1,267 @@
+{
+ "humano": {
+  "arquivo": "res://assets/sprites/humano.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "anjo": {
+  "arquivo": "res://assets/sprites/anjo.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "carnical": {
+  "arquivo": "res://assets/sprites/carnical.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "flagelado": {
+  "arquivo": "res://assets/sprites/flagelado.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "cao_praga": {
+  "arquivo": "res://assets/sprites/cao_praga.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "automato": {
+  "arquivo": "res://assets/sprites/automato.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "acougueiro": {
+  "arquivo": "res://assets/sprites/acougueiro.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   145,
+   145
+  ],
+  "origem": [
+   72.5,
+   117.8
+  ],
+  "escala": 1.3,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "_placeholder": {
+  "arquivo": "res://assets/sprites/carnical.png",
+  "colunas": 10,
+  "linhas": 8,
+  "quadro": [
+   112,
+   112
+  ],
+  "origem": [
+   56.0,
+   90.9
+  ],
+  "escala": 1.0,
+  "anims": {
+   "idle": [
+    0,
+    1
+   ],
+   "walk": [
+    1,
+    4
+   ],
+   "attack": [
+    5,
+    3
+   ],
+   "death": [
+    8,
+    2
+   ]
+  },
+  "fonte": "tools/art/dp_chars.py (placeholder procedural; trocar pelos sprites do Tripo)"
+ },
+ "_doc": "Um registro por classe/monstro. 'quadro' = tamanho do frame; 'origem' = ponto do pé dentro do frame; linhas = 8 direções (dir 0 = olhando para -Y, +45° por linha); anims = [coluna inicial, nº de quadros]."
+}

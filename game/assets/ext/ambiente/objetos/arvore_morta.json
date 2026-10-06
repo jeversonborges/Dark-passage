@@ -1,0 +1,15 @@
+{
+ "w": 466,
+ "h": 270,
+ "anchor": [
+  131,
+  244
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "arvore_morta"
+}

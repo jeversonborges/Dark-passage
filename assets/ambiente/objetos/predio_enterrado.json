@@ -1,0 +1,17 @@
+{
+ "w": 1386,
+ "h": 902,
+ "anchor": [
+  430,
+  689
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "linha_da_areia_m": 0,
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  8
+ ],
+ "descricao": "Prédio de São Lázaro enterrado até o quarto andar: os moradores vivem nos andares     de cima e entram pelas janelas por pranchas e escadas de corda.",
+ "kind": "predio_enterrado"
+}

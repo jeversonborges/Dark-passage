@@ -1,0 +1,21 @@
+{
+ "name": "amargo_po_noite",
+ "cat": "ambiente",
+ "frames": 48,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  0,
+  0
+ ],
+ "layer": "frente",
+ "desc": "Pó Amargo caindo à noite: os grãos brilham verde fraco e cintilam. Ladrilhável, cobrir a tela.",
+ "char": null,
+ "title": "Pó Amargo caindo à noite",
+ "resumo": "Os grãos brilham verde fraco e cintilam. Ladrilhável, cobrir a tela.",
+ "frame_w": 160,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 6,
+ "sheet": "amargo_po_noite.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "chefe_aviso_linha",
+ "cat": "chefes",
+ "frames": 20,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  8,
+  16
+ ],
+ "layer": "chao",
+ "desc": "Aviso de investida/raio em linha reta (para a direita).",
+ "char": null,
+ "title": "Aviso em linha",
+ "resumo": "Aviso de investida/raio em linha reta (para a direita).",
+ "frame_w": 176,
+ "frame_h": 32,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "chefe_aviso_linha.png"
+}

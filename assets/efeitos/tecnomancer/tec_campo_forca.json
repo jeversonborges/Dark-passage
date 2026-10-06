@@ -1,0 +1,21 @@
+{
+ "name": "tec_campo_forca",
+ "cat": "tecnomancer",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  64,
+  96
+ ],
+ "layer": "frente",
+ "desc": "Campo de Força: cúpula hexagonal azul que absorve dano (repetir enquanto dura).",
+ "char": null,
+ "title": "Campo de Força",
+ "resumo": "Cúpula hexagonal azul que absorve dano (repetir enquanto dura).",
+ "frame_w": 128,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tec_campo_forca.png"
+}

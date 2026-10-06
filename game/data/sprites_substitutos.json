@@ -1,0 +1,188 @@
+{
+ "_doc": "Monstros que ainda não têm folha própria usam a folha de outro com tinta e escala. Quando a thread de Monstros entregar a folha (assets/monstros/<kind>), o jogo usa a original sozinho.",
+ "_padrao": {
+  "usa": "carnical"
+ },
+ "general_partido": {
+  "usa": "andras",
+  "escala": 1.0
+ },
+ "porco_pestilento": {
+  "usa": "carnical_inchado",
+  "escala": 1.15,
+  "tint": "#c9d68f"
+ },
+ "filho_de_cardo": {
+  "usa": "acougueiro_oco",
+  "escala": 1.25,
+  "tint": "#a8c47a"
+ },
+ "larva_de_carne": {
+  "usa": "carnical_inchado",
+  "escala": 0.7,
+  "tint": "#e39a8c"
+ },
+ "gancheiro": {
+  "usa": "capataz_gancho",
+  "escala": 0.85,
+  "tint": "#b9a99a"
+ },
+ "soldado_caido": {
+  "usa": "nao_julgado",
+  "escala": 1.0,
+  "tint": "#c48a6a"
+ },
+ "monge_emparedado": {
+  "usa": "acougueiro_oco",
+  "escala": 0.95,
+  "tint": "#cfc4a8"
+ },
+ "carpideira_de_ossos": {
+  "usa": "nao_julgado",
+  "escala": 1.05,
+  "tint": "#e8e0d0"
+ },
+ "fogo_de_vela": {
+  "usa": "corvo_de_cinza_carnica",
+  "escala": 0.8,
+  "tint": "#ffb24a"
+ },
+ "querubim_desfeito": {
+  "usa": "corvo_de_cinza",
+  "escala": 1.35,
+  "tint": "#f0d890"
+ },
+ "eco_da_trombeta": {
+  "usa": "nao_julgado",
+  "escala": 1.0,
+  "tint": "#ffe9a8"
+ },
+ "irma_celeste": {
+  "usa": "cultista",
+  "escala": 1.45,
+  "tint": "#e8e4ff"
+ },
+ "zacarias_arauto": {
+  "usa": "anjo",
+  "escala": 1.6,
+  "tint": "#ffe2a0"
+ },
+ "corista": {
+  "usa": "nao_julgado",
+  "escala": 1.0,
+  "tint": "#bdb6a6"
+ },
+ "bau_faminto": {
+  "usa": "carnical_inchado",
+  "escala": 1.0,
+  "tint": "#a07850"
+ },
+ "servo_de_carne": {
+  "usa": "carnical_inchado",
+  "escala": 1.0,
+  "tint": "#ff8a8a"
+ },
+ "torreta": {
+  "usa": "tecnomancer",
+  "escala": 0.6,
+  "tint": "#9ad0ff"
+ },
+ "npc:capita_odete": {
+  "usa": "humano",
+  "tint": "#a9c0e0"
+ },
+ "npc:doutor_anselmo": {
+  "usa": "tecnomancer",
+  "escala": 1.05,
+  "tint": "#d0c0a0"
+ },
+ "npc:mae_cardo": {
+  "usa": "mutante",
+  "escala": 0.85,
+  "tint": "#c8d8a0"
+ },
+ "npc:tobias_pavio": {
+  "usa": "humano",
+  "escala": 0.72,
+  "tint": "#e8d0b0"
+ },
+ "npc:gaspar_bigorna": {
+  "usa": "mutante",
+  "escala": 1.15,
+  "tint": "#e0a080"
+ },
+ "npc:madre_ivone": {
+  "usa": "cultista",
+  "escala": 1.05,
+  "tint": "#e0b0b8"
+ },
+ "npc:comandante_abdiel": {
+  "usa": "anjo",
+  "escala": 1.3
+ },
+ "npc:malfas": {
+  "usa": "demonio",
+  "escala": 0.95,
+  "tint": "#ffc0a0"
+ },
+ "npc:irmao_lucio": {
+  "usa": "cultista",
+  "escala": 0.9
+ },
+ "npc:simao_coveiro": {
+  "usa": "humano",
+  "escala": 1.1,
+  "tint": "#a8a8a0"
+ },
+ "npc:frei_anacleto": {
+  "usa": "cultista",
+  "escala": 1.0,
+  "tint": "#90ffb0",
+  "fantasma": true
+ },
+ "desertor_legiao": {
+  "usa": "soldado_caido",
+  "escala": 1.05,
+  "tint": "#e08a66"
+ },
+ "sangrador_apostata": {
+  "usa": "cultista",
+  "escala": 0.95,
+  "tint": "#b06070"
+ },
+ "sombra_gravada": {
+  "usa": "nao_julgado",
+  "escala": 1.0,
+  "tint": "#46564e"
+ },
+ "ultimo_operador": {
+  "usa": "capataz_gancho",
+  "escala": 1.3,
+  "tint": "#a8d890"
+ },
+ "nao_julgado_da_tempestade": {
+  "usa": "nao_julgado",
+  "escala": 1.17,
+  "tint": "#c8d8e8"
+ },
+ "carnical_inchado": {
+  "usa": "carnical",
+  "escala": 1.2,
+  "tint": "#b8c890"
+ },
+ "npc:tobias_carrinho": {
+  "usa": "humano",
+  "escala": 0.72,
+  "tint": "#e8d0b0"
+ },
+ "npc:isaura_radialista": {
+  "usa": "humano",
+  "escala": 0.95,
+  "tint": "#b8c8a0"
+ },
+ "npc:corvina_atravessadora": {
+  "usa": "cultista",
+  "escala": 0.95,
+  "tint": "#d8d0e8"
+ }
+}

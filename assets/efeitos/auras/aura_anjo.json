@@ -1,0 +1,21 @@
+{
+ "name": "aura_anjo",
+ "cat": "auras",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  40,
+  110
+ ],
+ "layer": "frente",
+ "desc": "Aura de Anjo (ouro sagrado): brilho de equipamento lendário / estágio 3 (repetir, desenhar atrás e na frente do personagem).",
+ "char": "anjo",
+ "title": "Aura do Anjo",
+ "resumo": "Aura de Anjo (ouro sagrado): brilho de equipamento lendário / estágio 3 (repetir, desenhar atrás e na frente do personagem).",
+ "frame_w": 80,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "aura_anjo.png"
+}

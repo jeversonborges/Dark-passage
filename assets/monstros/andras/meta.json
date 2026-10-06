@@ -1,0 +1,155 @@
+{
+ "monstro": "andras",
+ "frame_size": [
+  400,
+  400
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  200.0,
+  272.1
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "sweep": {
+   "frames": 10,
+   "fps": 14,
+   "loop": false
+  },
+  "lunge": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "eat": {
+   "frames": 6,
+   "fps": 8,
+   "loop": true
+  },
+  "roar": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  },
+  "vomit": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  },
+  "feast": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "tired": {
+   "frames": 6,
+   "fps": 5,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 9,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "andras_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "andras_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "andras_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "sweep": {
+   "file": "andras_sweep.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "lunge": {
+   "file": "andras_lunge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "eat": {
+   "file": "andras_eat.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "andras_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "vomit": {
+   "file": "andras_vomit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "feast": {
+   "file": "andras_feast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "tired": {
+   "file": "andras_tired.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "andras_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "andras_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.3
+ }
+}

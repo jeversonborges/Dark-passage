@@ -1,0 +1,17 @@
+{
+ "w": 1364,
+ "h": 756,
+ "anchor": [
+  666,
+  430
+ ],
+ "emissivo": "rosácea (entrada) e nave verde",
+ "descricao_extra": "enterrada até o coro; entra-se pela rosácea",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  16
+ ],
+ "descricao": "Capela de São Lázaro enterrada até o coro: a rosácea vira a entrada e a nave brilha verde lá dentro.",
+ "kind": "capela_enterrada"
+}

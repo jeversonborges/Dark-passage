@@ -1,0 +1,2089 @@
+{
+ "versao": "0.3",
+ "aviso": "Números PROVISÓRIOS. Fonte de verdade do balanceamento: design/combate/ (classes_base.json, drops.json, formulas.json).",
+ "recursos": {
+  "anjo": {
+   "nome": "Graça",
+   "max": 100,
+   "regen": "+4 por cura feita, +2 por golpe acertado; não regenera parado"
+  },
+  "cultista": {
+   "nome": "Sangue",
+   "max": "HP",
+   "regen": "Custa o próprio HP. Ao matar: recupera 6% do HP máximo"
+  },
+  "mutante": {
+   "nome": "Fúria",
+   "max": 100,
+   "regen": "+1 por 1% de HP perdido; cai 5/s fora de combate"
+  },
+  "demonio": {
+   "nome": "Brasa Infernal",
+   "max": 100,
+   "regen": "+3 por golpe; acima de 100 queima 2% do HP por segundo até gastar"
+  },
+  "humano": {
+   "nome": "Fôlego",
+   "max": 100,
+   "regen": "+8/s; munição é item separado (balas, virotes, cartuchos)"
+  },
+  "tecnomancer": {
+   "nome": "Carga",
+   "max": 120,
+   "regen": "+3/s sempre; módulos aumentam o máximo"
+  }
+ },
+ "modo_automatico": {
+  "_doc": "Proposta para a thread Design do combate. Números PROVISÓRIOS.",
+  "regra": "No modo automático, a skill de área do nível 5 é usada sozinha quando ela sai da recarga e há 2+ inimigos na área (ou 1, se o jogador marcar). Ela para quando o recurso não paga o custo.",
+  "meta": "Do recurso cheio até zerar, uso contínuo dura ~20 s (Cultista ~40 s até 25% de HP). Depois disso o jogador precisa de poção ou de pausa.",
+  "fonte": "Regras finais em design/combate/combate.md seção 9 e farm_auto.json (tecla Z, poção automática, spots)."
+ },
+ "skills": [
+  {
+   "id": "anjo_lamina_veredito",
+   "classe": "anjo",
+   "nome": "Lâmina do Veredito",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": 12,
+   "recarga": 4.0,
+   "conjuracao": 0.0,
+   "alcance": 1.4,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP",
+    "FOR"
+   ],
+   "efeitos": [
+    "+15% de dano em Mutantes",
+    "gera 2 de Graça ao acertar"
+   ],
+   "descricao": "Corte de cima para baixo com a lâmina benta. O metal chia ao tocar carne contaminada.",
+   "fx": "rastro de luz dourada em arco + faíscas brancas no impacto",
+   "som": "lâmina pesada + coro curto abafado",
+   "combate": {
+    "id": "lamina_veredito",
+    "nome": "Lamina do Veredito",
+    "nivel": 1,
+    "custo": 12,
+    "recarga": 4.0,
+    "mult": 1.8,
+    "elemento": "sagrado",
+    "alcance": 1.4,
+    "postura": 30,
+    "bonus_vs": {
+     "tag:praga": 1.25
+    },
+    "sensacao": "golpe_pesado"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_lamina_veredito.png",
+    "40": "assets/icones/skills/40/anjo_lamina_veredito.png",
+    "32": "assets/icones/skills/32/anjo_lamina_veredito.png"
+   }
+  },
+  {
+   "id": "anjo_toque_graca",
+   "classe": "anjo",
+   "nome": "Toque de Graça",
+   "tipo": "ativa",
+   "nivel": 3,
+   "custo": 20,
+   "recarga": 6.0,
+   "conjuracao": 0.4,
+   "alcance": 6,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "cura um aliado (ou a si mesmo)",
+    "remove 1 sangramento"
+   ],
+   "descricao": "A mão enfaixada pousa na ferida e a costura com fio de luz.",
+   "fx": "partículas douradas subindo do alvo + halo pulsando no Anjo",
+   "som": "sino pequeno",
+   "combate": {
+    "id": "toque_graca",
+    "nome": "Toque de Graca",
+    "nivel": 3,
+    "custo": 20,
+    "recarga": 6.0,
+    "cura_mult": 2.2,
+    "alcance": 6,
+    "conjuracao": 0.4,
+    "sensacao": "cura"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_toque_graca.png",
+    "40": "assets/icones/skills/40/anjo_toque_graca.png",
+    "32": "assets/icones/skills/32/anjo_toque_graca.png"
+   }
+  },
+  {
+   "id": "anjo_leque_juizo",
+   "classe": "anjo",
+   "nome": "Leque do Juízo",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": 18,
+   "recarga": 2.2,
+   "conjuracao": 0.35,
+   "alcance": 0,
+   "area": "leque de 100°, 3.5 tiles",
+   "duracao": 2.0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP",
+    "FOR"
+   ],
+   "formato_area": {
+    "forma": "cone",
+    "angulo_graus": 100,
+    "raio_tiles": 3.5,
+    "origem": "personagem",
+    "direcao": "mouse"
+   },
+   "dano": {
+    "mult": 1.3,
+    "queimadura": {
+     "duracao": 2,
+     "dano_por_s_mult": 0.15
+    },
+    "chao_em_chamas_s": 2.0
+   },
+   "efeitos": [
+    "golpe de espada no alvo da frente",
+    "fogo divino queima tudo no leque",
+    "+15% de dano em tag:praga (mutantes e pragas)",
+    "só o 1º alvo gera Graça"
+   ],
+   "descricao": "O Anjo desce a espada e o golpe não para na lâmina: o ar à frente pega fogo branco e se abre como um leque de penas em brasa.",
+   "fx": "arco da espada + chamas brancas e douradas abrindo em leque do chão para frente + penas queimando no ar",
+   "som": "lâmina pesada + whoosh de fogo + coro curto",
+   "id_combate": "anjo_leque_juizo",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "anjo_leque_juizo",
+    "nome": "Leque do Juizo",
+    "nivel": 5,
+    "custo": 18,
+    "recarga": 2.2,
+    "mult": 1.3,
+    "elemento": "sagrado",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "chao_em_chamas_s": 2.0,
+    "queimadura": {
+     "duracao": 2,
+     "dano_por_s_mult": 0.15
+    },
+    "forma": "cone",
+    "cone_graus": 100,
+    "raio": 3.5
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_leque_juizo.png",
+    "40": "assets/icones/skills/40/anjo_leque_juizo.png",
+    "32": "assets/icones/skills/32/anjo_leque_juizo.png"
+   }
+  },
+  {
+   "id": "anjo_halo_ardente",
+   "classe": "anjo",
+   "nome": "Halo Ardente",
+   "tipo": "area",
+   "nivel": 6,
+   "custo": 30,
+   "recarga": 12.0,
+   "conjuracao": 0.8,
+   "alcance": 0,
+   "area": 3.5,
+   "duracao": 2.0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "cega inimigos no raio por 2s (erram 50% dos ataques)",
+    "cura aliados no raio"
+   ],
+   "descricao": "O halo de ferro se abre num anel de luz que queima os olhos de quem não foi escolhido.",
+   "fx": "anel de luz expandindo no chão + flash branco",
+   "som": "acorde de órgão",
+   "combate": {
+    "id": "halo_ardente",
+    "nome": "Halo Ardente",
+    "nivel": 6,
+    "custo": 30,
+    "recarga": 12.0,
+    "mult": 1.1,
+    "area_raio": 2.5,
+    "cura_mult": 0.8,
+    "efeito": {
+     "cegueira": 2.0
+    },
+    "elemento": "sagrado",
+    "postura": 25,
+    "sensacao": "area"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_halo_ardente.png",
+    "40": "assets/icones/skills/40/anjo_halo_ardente.png",
+    "32": "assets/icones/skills/32/anjo_halo_ardente.png"
+   }
+  },
+  {
+   "id": "anjo_sentenca",
+   "classe": "anjo",
+   "nome": "Sentença",
+   "tipo": "debuff",
+   "nivel": 9,
+   "custo": 18,
+   "recarga": 15.0,
+   "conjuracao": 0.3,
+   "alcance": 7,
+   "area": 0,
+   "duracao": 8.0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "marca um alvo por 8s",
+    "todo dano contra o alvo +15%",
+    "o alvo fica visível mesmo invisível"
+   ],
+   "descricao": "Um selo de lacre vermelho aparece sobre a cabeça do condenado.",
+   "fx": "selo de cera vermelha flutuando sobre o alvo",
+   "som": "carimbo / martelo de juiz",
+   "combate": {
+    "id": "sentenca",
+    "nome": "Sentenca",
+    "nivel": 9,
+    "custo": 18,
+    "recarga": 15.0,
+    "alcance": 7,
+    "efeito": {
+     "marcado": 8.0
+    },
+    "dano_recebido_extra": 0.15,
+    "sensacao": "debuff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_sentenca.png",
+    "40": "assets/icones/skills/40/anjo_sentenca.png",
+    "32": "assets/icones/skills/32/anjo_sentenca.png"
+   }
+  },
+  {
+   "id": "anjo_asas_ascensao",
+   "classe": "anjo",
+   "nome": "Asas da Ascensão",
+   "tipo": "ativa",
+   "nivel": 12,
+   "custo": 25,
+   "recarga": 10.0,
+   "conjuracao": 0.0,
+   "alcance": 5,
+   "area": 0,
+   "duracao": 0.4,
+   "elemento": "sagrado",
+   "escala": [],
+   "efeitos": [
+    "salto/voo curto até 5 tiles",
+    "atravessa inimigos e obstáculos baixos",
+    "invulnerável durante o voo"
+   ],
+   "descricao": "Duas batidas das asas sujas e o Anjo some numa nuvem de penas.",
+   "fx": "explosão de penas cinza na saída e na chegada",
+   "som": "bater de asas pesado",
+   "combate": {
+    "id": "asas_ascensao",
+    "nome": "Asas da Ascensao",
+    "nivel": 12,
+    "custo": 25,
+    "recarga": 10.0,
+    "deslocamento": 5,
+    "invulneravel": 0.35,
+    "atravessa": true,
+    "sensacao": "mobilidade"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_asas_ascensao.png",
+    "40": "assets/icones/skills/40/anjo_asas_ascensao.png",
+    "32": "assets/icones/skills/32/anjo_asas_ascensao.png"
+   }
+  },
+  {
+   "id": "anjo_trombeta_juizo",
+   "classe": "anjo",
+   "nome": "Trombeta do Juízo",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": 100,
+   "recarga": 180.0,
+   "conjuracao": 1.2,
+   "alcance": 0,
+   "area": 8,
+   "duracao": 5.0,
+   "elemento": "sagrado",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "aliados no raio não podem morrer por 5s (HP mínimo 1)",
+    "requer Estágio 3 (Arcanjo do Juízo)"
+   ],
+   "descricao": "O Anjo toca a trombeta partida. Por cinco segundos, a morte não tem permissão de entrar.",
+   "fx": "pilar de luz + trombeta fantasma no céu + ondas douradas",
+   "som": "trombeta longa distorcida",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/anjo_trombeta_juizo.png",
+    "40": "assets/icones/skills/40/anjo_trombeta_juizo.png",
+    "32": "assets/icones/skills/32/anjo_trombeta_juizo.png"
+   }
+  },
+  {
+   "id": "cultista_sangria",
+   "classe": "cultista",
+   "nome": "Sangria",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": "3% HP",
+   "recarga": 2.5,
+   "conjuracao": 0.4,
+   "alcance": 7,
+   "area": 0,
+   "duracao": 6.0,
+   "elemento": "sangue",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "sangramento: 12% do dano inicial por segundo por 6s",
+    "acumula até 3x"
+   ],
+   "descricao": "Uma gota do próprio sangue vira uma lâmina vermelha que corta e não estanca.",
+   "fx": "projétil líquido vermelho escuro + respingo",
+   "som": "chiado úmido",
+   "combate": {
+    "id": "sangria",
+    "nome": "Sangria",
+    "nivel": 1,
+    "custo": 0.03,
+    "recarga": 2.5,
+    "mult": 1.2,
+    "alcance": 7,
+    "projetil_vel": 10,
+    "efeito": {
+     "sangramento": {
+      "duracao": 6.0,
+      "dano_por_s_mult": 0.25
+     }
+    },
+    "elemento": "sangue",
+    "postura": 10,
+    "sensacao": "projetil"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_sangria.png",
+    "40": "assets/icones/skills/40/cultista_sangria.png",
+    "32": "assets/icones/skills/32/cultista_sangria.png"
+   }
+  },
+  {
+   "id": "cultista_pacto_rubro",
+   "classe": "cultista",
+   "nome": "Pacto Rubro",
+   "tipo": "buff",
+   "nivel": 3,
+   "custo": "12% HP",
+   "recarga": 20.0,
+   "conjuracao": 0.5,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 12.0,
+   "elemento": "sangue",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "+30% de dano mágico por 12s",
+    "custos de Sangue -20% durante o pacto"
+   ],
+   "descricao": "Corta a palma e assina no ar. O livro acorrentado bebe primeiro.",
+   "fx": "runas vermelhas girando em volta do corpo + lentes da máscara acendem",
+   "som": "sussurros em coro",
+   "combate": {
+    "id": "pacto_rubro",
+    "nome": "Pacto Rubro",
+    "nivel": 3,
+    "custo": 0.12,
+    "recarga": 20.0,
+    "buff": {
+     "dano_magico": 0.3,
+     "duracao": 10.0
+    },
+    "sensacao": "buff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_pacto_rubro.png",
+    "40": "assets/icones/skills/40/cultista_pacto_rubro.png",
+    "32": "assets/icones/skills/32/cultista_pacto_rubro.png"
+   }
+  },
+  {
+   "id": "cultista_espinhos_sangue",
+   "classe": "cultista",
+   "nome": "Espinhos de Sangue",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": "3,5% HP",
+   "recarga": 2.2,
+   "conjuracao": 0.5,
+   "alcance": 7,
+   "area": "círculo de 2.2 tiles no ponto do mouse",
+   "duracao": 0.6,
+   "elemento": "sangue",
+   "escala": [
+    "ESP"
+   ],
+   "formato_area": {
+    "forma": "circulo",
+    "raio_tiles": 2.2,
+    "origem": "ponto_alvo",
+    "alcance_max_tiles": 7
+   },
+   "dano": {
+    "mult": 1.35,
+    "sangramento": {
+     "duracao": 4,
+     "dano_por_s_mult": 0.12
+    }
+   },
+   "efeitos": [
+    "lanças de sangue brotam do chão no círculo",
+    "lentidão de 20% por 1.5 s",
+    "abates com esta skill devolvem só 3% de HP (metade do normal)",
+    "modo automático para sozinho abaixo de 25% de HP"
+   ],
+   "descricao": "O Cultista crava a adaga na própria palma e aponta. O sangue que pinga lá longe vira um campo de espinhos vermelhos.",
+   "fx": "círculo de runas vermelhas no chão + estacas de sangue subindo e quebrando + respingos",
+   "som": "chiado úmido + estalo de cristal",
+   "id_combate": "cultista_espinhos_sangue",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "cultista_espinhos_sangue",
+    "nome": "Espinhos de Sangue",
+    "nivel": 5,
+    "custo": 0.035,
+    "recarga": 2.2,
+    "mult": 1.35,
+    "elemento": "sangue",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "custo_em": "pct_hp_max",
+    "sangramento": {
+     "duracao": 4,
+     "dano_por_s_mult": 0.12
+    },
+    "forma": "circulo_no_mouse",
+    "raio": 2.2,
+    "alcance": 7,
+    "nao_usa_abaixo_de_hp": 0.25
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_espinhos_sangue.png",
+    "40": "assets/icones/skills/40/cultista_espinhos_sangue.png",
+    "32": "assets/icones/skills/32/cultista_espinhos_sangue.png"
+   }
+  },
+  {
+   "id": "cultista_servo_carne",
+   "classe": "cultista",
+   "nome": "Servo de Carne",
+   "tipo": "invocacao",
+   "nivel": 6,
+   "custo": "15% HP",
+   "recarga": 25.0,
+   "conjuracao": 1.5,
+   "alcance": 3,
+   "area": 0,
+   "duracao": 30.0,
+   "elemento": "sombra",
+   "escala": [
+    "ESP",
+    "VIT"
+   ],
+   "efeitos": [
+    "invoca um zumbi costurado por 30s",
+    "o servo provoca inimigos que ele golpeia"
+   ],
+   "descricao": "A terra cospe pedaços que se costuram sozinhos num corpo obediente.",
+   "fx": "poça de sangue que borbulha e ergue o zumbi",
+   "som": "carne e ossos estalando",
+   "combate": {
+    "id": "servo_carne",
+    "nome": "Servo de Carne",
+    "nivel": 6,
+    "custo": 0.15,
+    "recarga": 25.0,
+    "invoca": "servo_de_carne",
+    "duracao": 20.0,
+    "max": 1,
+    "sensacao": "invocacao"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_servo_carne.png",
+    "40": "assets/icones/skills/40/cultista_servo_carne.png",
+    "32": "assets/icones/skills/32/cultista_servo_carne.png"
+   }
+  },
+  {
+   "id": "cultista_chuva_cinzas",
+   "classe": "cultista",
+   "nome": "Chuva de Cinzas",
+   "tipo": "area",
+   "nivel": 9,
+   "custo": "10% HP",
+   "recarga": 10.0,
+   "conjuracao": 1.0,
+   "alcance": 7,
+   "area": 3,
+   "duracao": 6.0,
+   "elemento": "sombra",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "inimigos na área recebem -40% de cura",
+    "lentidão de 15%"
+   ],
+   "descricao": "Cinzas de cidades queimadas caem do nada e grudam na pele como piche.",
+   "fx": "cinzas cinza-escuro caindo em coluna + brasas pequenas",
+   "som": "vento seco",
+   "combate": {
+    "id": "chuva_cinzas",
+    "nome": "Chuva de Cinzas",
+    "nivel": 9,
+    "custo": 0.1,
+    "recarga": 10.0,
+    "mult_por_tick": 0.45,
+    "ticks": 6,
+    "intervalo_tick": 0.5,
+    "area_raio": 2.5,
+    "alcance": 7,
+    "efeito": {
+     "cura_recebida": -0.4,
+     "duracao": 4.0
+    },
+    "elemento": "sangue",
+    "postura": 4,
+    "sensacao": "area"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_chuva_cinzas.png",
+    "40": "assets/icones/skills/40/cultista_chuva_cinzas.png",
+    "32": "assets/icones/skills/32/cultista_chuva_cinzas.png"
+   }
+  },
+  {
+   "id": "cultista_profecia_sombria",
+   "classe": "cultista",
+   "nome": "Profecia Sombria",
+   "tipo": "debuff",
+   "nivel": 12,
+   "custo": "8% HP",
+   "recarga": 18.0,
+   "conjuracao": 0.6,
+   "alcance": 7,
+   "area": 0,
+   "duracao": 10.0,
+   "elemento": "sombra",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "marca por 10s",
+    "se o alvo ficar abaixo de 10% do HP, morre na hora",
+    "em chefes: dano extra igual a 8% do HP perdido"
+   ],
+   "descricao": "O Cultista lê em voz alta a data da morte do alvo. Às vezes ela é hoje.",
+   "fx": "olho preto com íris vermelha sobre o alvo; quando executa, o corpo vira cinza",
+   "som": "voz sussurrando o nome",
+   "combate": {
+    "id": "profecia_sombria",
+    "nome": "Profecia Sombria",
+    "nivel": 12,
+    "custo": 0.08,
+    "recarga": 18.0,
+    "alcance": 7,
+    "efeito": {
+     "profecia": 10.0
+    },
+    "executa_abaixo_de": 0.1,
+    "executa_chefe_abaixo_de": 0.0,
+    "sensacao": "debuff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_profecia_sombria.png",
+    "40": "assets/icones/skills/40/cultista_profecia_sombria.png",
+    "32": "assets/icones/skills/32/cultista_profecia_sombria.png"
+   }
+  },
+  {
+   "id": "cultista_setimo_selo",
+   "classe": "cultista",
+   "nome": "Sétimo Selo",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": "35% HP",
+   "recarga": 180.0,
+   "conjuracao": 3.0,
+   "alcance": 8,
+   "area": 6,
+   "duracao": 0,
+   "elemento": "sangue",
+   "escala": [
+    "ESP"
+   ],
+   "dano": {
+    "pct_arma": 900,
+    "base": 200
+   },
+   "efeitos": [
+    "canaliza 3s (interrompível)",
+    "dano massivo em área ao terminar",
+    "requer Estágio 3 (Profeta do Fim)"
+   ],
+   "descricao": "Sete selos de cera se rompem no chão. O sétimo abre um olho.",
+   "fx": "círculo ritual com 7 selos acendendo um por um + coluna de sangue",
+   "som": "coro grave crescendo até o estouro",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_setimo_selo.png",
+    "40": "assets/icones/skills/40/cultista_setimo_selo.png",
+    "32": "assets/icones/skills/32/cultista_setimo_selo.png"
+   }
+  },
+  {
+   "id": "mutante_golpe_purulento",
+   "classe": "mutante",
+   "nome": "Golpe Purulento",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": 0,
+   "recarga": 5.0,
+   "conjuracao": 0.3,
+   "alcance": 1.4,
+   "area": 0,
+   "duracao": 6.0,
+   "elemento": "veneno",
+   "escala": [
+    "FOR",
+    "VIT"
+   ],
+   "efeitos": [
+    "veneno: 6% do dano por segundo por 6s",
+    "gera 10 de Fúria"
+   ],
+   "descricao": "O braço deformado desce como um martelo. As pústulas estouram junto.",
+   "fx": "respingo verde ácido + nuvem tóxica pequena",
+   "som": "impacto úmido pesado",
+   "combate": {
+    "id": "golpe_purulento",
+    "nome": "Golpe Purulento",
+    "nivel": 1,
+    "custo": 0,
+    "gera": 10,
+    "recarga": 5.0,
+    "mult": 1.7,
+    "alcance": 1.4,
+    "efeito": {
+     "veneno": {
+      "duracao": 6.0,
+      "dano_por_s_mult": 0.15
+     }
+    },
+    "elemento": "veneno",
+    "postura": 35,
+    "sensacao": "golpe_pesado"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_golpe_purulento.png",
+    "40": "assets/icones/skills/40/mutante_golpe_purulento.png",
+    "32": "assets/icones/skills/32/mutante_golpe_purulento.png"
+   }
+  },
+  {
+   "id": "mutante_rugido_praga",
+   "classe": "mutante",
+   "nome": "Rugido da Praga",
+   "tipo": "area",
+   "nivel": 3,
+   "custo": 0,
+   "recarga": 12.0,
+   "conjuracao": 0.4,
+   "alcance": 0,
+   "area": 4,
+   "duracao": 4.0,
+   "elemento": "veneno",
+   "escala": [
+    "VIT"
+   ],
+   "efeitos": [
+    "provoca (taunt) inimigos no raio por 4s",
+    "-10% de dano dos provocados"
+   ],
+   "descricao": "Um urro pelo respirador que espalha esporos e ódio.",
+   "fx": "onda de esporos verde ácido em anel",
+   "som": "rugido animal com chiado de filtro",
+   "combate": {
+    "id": "rugido_praga",
+    "nome": "Rugido da Praga",
+    "nivel": 3,
+    "custo": 0,
+    "recarga": 12.0,
+    "area_raio": 3.5,
+    "efeito": {
+     "provocado": 4.0
+    },
+    "postura": 15,
+    "sensacao": "grito"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_rugido_praga.png",
+    "40": "assets/icones/skills/40/mutante_rugido_praga.png",
+    "32": "assets/icones/skills/32/mutante_rugido_praga.png"
+   }
+  },
+  {
+   "id": "mutante_terremoto_putrido",
+   "classe": "mutante",
+   "nome": "Terremoto Pútrido",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": 18,
+   "recarga": 2.4,
+   "conjuracao": 0.45,
+   "alcance": 0,
+   "area": "círculo de 2.5 tiles em volta",
+   "duracao": 3.0,
+   "elemento": "veneno",
+   "escala": [
+    "FOR",
+    "VIT"
+   ],
+   "formato_area": {
+    "forma": "circulo",
+    "raio_tiles": 2.5,
+    "origem": "personagem"
+   },
+   "dano": {
+    "mult": 1.2,
+    "veneno": {
+     "duracao": 4,
+     "dano_por_s_mult": 0.12
+    }
+   },
+   "efeitos": [
+    "soco no chão com o braço gigante: onda de choque em volta",
+    "deixa uma poça de veneno por 3 s",
+    "atordoa 0.4 s",
+    "só o 1º alvo gera Fúria"
+   ],
+   "descricao": "O braço deformado desce como um bate-estaca. O chão racha e as rachaduras vomitam pus verde.",
+   "fx": "anel de terra levantando + rachaduras com brilho verde ácido + poça borbulhando",
+   "som": "impacto grave + chão rachando + borbulho",
+   "id_combate": "mutante_terremoto_putrido",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "mutante_terremoto_putrido",
+    "nome": "Terremoto Putrido",
+    "nivel": 5,
+    "custo": 18,
+    "recarga": 2.4,
+    "mult": 1.2,
+    "elemento": "veneno",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "veneno": {
+     "duracao": 4,
+     "dano_por_s_mult": 0.12
+    },
+    "forma": "circulo_em_volta",
+    "raio": 2.5
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_terremoto_putrido.png",
+    "40": "assets/icones/skills/40/mutante_terremoto_putrido.png",
+    "32": "assets/icones/skills/32/mutante_terremoto_putrido.png"
+   }
+  },
+  {
+   "id": "mutante_carapaca",
+   "classe": "mutante",
+   "nome": "Carapaça",
+   "tipo": "buff",
+   "nivel": 6,
+   "custo": 30,
+   "recarga": 18.0,
+   "conjuracao": 0.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 8.0,
+   "elemento": "fisico",
+   "escala": [
+    "VIT"
+   ],
+   "efeitos": [
+    "-35% de dano recebido por 8s",
+    "imune a empurrão durante o efeito"
+   ],
+   "descricao": "A pele endurece em placas de crosta, como casca de ferida velha.",
+   "fx": "placas cinza-esverdeadas cobrindo o corpo + rachaduras",
+   "som": "estalo de couro secando",
+   "combate": {
+    "id": "carapaca",
+    "nome": "Carapaca",
+    "nivel": 6,
+    "custo": 30,
+    "recarga": 18.0,
+    "buff": {
+     "dano_recebido": -0.35,
+     "duracao": 6.0,
+     "imune_derrubar": true
+    },
+    "sensacao": "buff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_carapaca.png",
+    "40": "assets/icones/skills/40/mutante_carapaca.png",
+    "32": "assets/icones/skills/32/mutante_carapaca.png"
+   }
+  },
+  {
+   "id": "mutante_investida_bestial",
+   "classe": "mutante",
+   "nome": "Investida Bestial",
+   "tipo": "ativa",
+   "nivel": 9,
+   "custo": 20,
+   "recarga": 10.0,
+   "conjuracao": 0.0,
+   "alcance": 6,
+   "area": 0,
+   "duracao": 1.5,
+   "elemento": "fisico",
+   "escala": [
+    "FOR"
+   ],
+   "efeitos": [
+    "avança até 6 tiles",
+    "derruba o alvo por 1.5s",
+    "atropela inimigos no caminho (50% do dano)"
+   ],
+   "descricao": "Abaixa a cabeça e corre como um touro doente.",
+   "fx": "rastro de poeira + tremor de tela no impacto",
+   "som": "passos pesados + impacto",
+   "combate": {
+    "id": "investida_bestial",
+    "nome": "Investida Bestial",
+    "nivel": 9,
+    "custo": 20,
+    "recarga": 10.0,
+    "mult": 1.5,
+    "deslocamento": 5,
+    "efeito": {
+     "derrubado": 1.2
+    },
+    "postura": 60,
+    "empurrao": 1.5,
+    "sensacao": "investida"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_investida_bestial.png",
+    "40": "assets/icones/skills/40/mutante_investida_bestial.png",
+    "32": "assets/icones/skills/32/mutante_investida_bestial.png"
+   }
+  },
+  {
+   "id": "mutante_regeneracao_profana",
+   "classe": "mutante",
+   "nome": "Regeneração Profana",
+   "tipo": "passiva",
+   "nivel": 12,
+   "custo": 0,
+   "recarga": 0,
+   "conjuracao": 0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "veneno",
+   "escala": [
+    "VIT"
+   ],
+   "efeitos": [
+    "fora de combate: 3% do HP por segundo",
+    "ao matar: recupera 5% do HP"
+   ],
+   "descricao": "A carne fecha sozinha. Nem sempre no formato certo.",
+   "fx": "bolhas verdes discretas nas feridas",
+   "som": "nenhum",
+   "combate": {
+    "id": "regeneracao_profana",
+    "nome": "Regeneracao Profana",
+    "nivel": 12,
+    "passiva": true,
+    "cura_ao_matar_pct": 0.05,
+    "regen_fora_combate_mult": 2.5
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_regeneracao_profana.png",
+    "40": "assets/icones/skills/40/mutante_regeneracao_profana.png",
+    "32": "assets/icones/skills/32/mutante_regeneracao_profana.png"
+   }
+  },
+  {
+   "id": "mutante_forma_besta",
+   "classe": "mutante",
+   "nome": "Forma da Besta",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": 100,
+   "recarga": 180.0,
+   "conjuracao": 1.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 20.0,
+   "elemento": "veneno",
+   "escala": [
+    "VIT",
+    "FOR"
+   ],
+   "efeitos": [
+    "vira criatura gigante por 20s",
+    "+60% HP máximo, +40% dano, ataques em área",
+    "requer Estágio 3 (Besta do Apocalipse)"
+   ],
+   "descricao": "O corpo rasga as próprias roupas e cresce até o que a praga sempre quis que fosse.",
+   "fx": "explosão de carne verde + sprite gigante",
+   "som": "ossos quebrando e rugido grave",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/mutante_forma_besta.png",
+    "40": "assets/icones/skills/40/mutante_forma_besta.png",
+    "32": "assets/icones/skills/32/mutante_forma_besta.png"
+   }
+  },
+  {
+   "id": "demonio_garra_abismo",
+   "classe": "demonio",
+   "nome": "Garra do Abismo",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": 0,
+   "recarga": 3.5,
+   "conjuracao": 0.0,
+   "alcance": 1.4,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "fogo",
+   "escala": [
+    "FOR",
+    "AGI"
+   ],
+   "efeitos": [
+    "combo de 3 golpes rápidos",
+    "cada golpe gera 4 de Brasa"
+   ],
+   "descricao": "Três rasgos rápidos que deixam a carne fumegando.",
+   "fx": "três arcos laranja brasa + fumaça",
+   "som": "três cortes rápidos com chiado",
+   "combate": {
+    "id": "garra_abismo",
+    "nome": "Garra do Abismo",
+    "nivel": 1,
+    "custo": 0,
+    "gera": 18,
+    "recarga": 3.5,
+    "golpes": 3,
+    "mult_por_golpe": 0.65,
+    "intervalo_golpes": 0.12,
+    "alcance": 1.4,
+    "postura_por_golpe": 10,
+    "sensacao": "combo"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_garra_abismo.png",
+    "40": "assets/icones/skills/40/demonio_garra_abismo.png",
+    "32": "assets/icones/skills/32/demonio_garra_abismo.png"
+   }
+  },
+  {
+   "id": "demonio_corrente_danacao",
+   "classe": "demonio",
+   "nome": "Corrente de Danação",
+   "tipo": "ativa",
+   "nivel": 3,
+   "custo": 20,
+   "recarga": 9.0,
+   "conjuracao": 0.2,
+   "alcance": 6,
+   "area": 0,
+   "duracao": 1.0,
+   "elemento": "fisico",
+   "escala": [
+    "FOR"
+   ],
+   "efeitos": [
+    "puxa o alvo até o Demônio",
+    "atordoa por 1s"
+   ],
+   "descricao": "A corrente presa ao braço voa e volta trazendo alguém junto.",
+   "fx": "corrente incandescente estendendo e recolhendo",
+   "som": "corrente arrastando",
+   "combate": {
+    "id": "corrente_danacao",
+    "nome": "Corrente de Danacao",
+    "nivel": 3,
+    "custo": 20,
+    "recarga": 9.0,
+    "mult": 0.8,
+    "alcance": 6,
+    "puxa_para": 1.2,
+    "postura": 40,
+    "sensacao": "puxao"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_corrente_danacao.png",
+    "40": "assets/icones/skills/40/demonio_corrente_danacao.png",
+    "32": "assets/icones/skills/32/demonio_corrente_danacao.png"
+   }
+  },
+  {
+   "id": "demonio_ceifa_infernal",
+   "classe": "demonio",
+   "nome": "Ceifa Infernal",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": 18,
+   "recarga": 2.0,
+   "conjuracao": 0.3,
+   "alcance": 0,
+   "area": "leque de 180°, 2.8 tiles",
+   "duracao": 2.5,
+   "elemento": "fogo",
+   "escala": [
+    "FOR",
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "cone",
+    "angulo_graus": 180,
+    "raio_tiles": 2.8,
+    "origem": "personagem",
+    "direcao": "mouse"
+   },
+   "dano": {
+    "mult": 1.3
+   },
+   "efeitos": [
+    "foiçada em meia-lua que deixa um rastro de fogo no chão",
+    "só o 1º alvo gera Brasa",
+    "acima de 80 de Brasa, o rastro dura o dobro"
+   ],
+   "descricao": "A foice passa rente ao chão e o chão lembra que já foi Inferno.",
+   "fx": "meia-lua laranja brasa + rastro de chamas baixas + fagulhas",
+   "som": "lâmina cortando + rugido de fornalha curto",
+   "id_combate": "demonio_ceifa_infernal",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "demonio_ceifa_infernal",
+    "nome": "Ceifa Infernal",
+    "nivel": 5,
+    "custo": 18,
+    "recarga": 2.0,
+    "mult": 1.3,
+    "elemento": "fogo",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "forma": "cone",
+    "cone_graus": 180,
+    "raio": 2.8
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_ceifa_infernal.png",
+    "40": "assets/icones/skills/40/demonio_ceifa_infernal.png",
+    "32": "assets/icones/skills/32/demonio_ceifa_infernal.png"
+   }
+  },
+  {
+   "id": "demonio_passo_sombrio",
+   "classe": "demonio",
+   "nome": "Passo Sombrio",
+   "tipo": "ativa",
+   "nivel": 6,
+   "custo": 25,
+   "recarga": 10.0,
+   "conjuracao": 0.0,
+   "alcance": 6,
+   "area": 0,
+   "duracao": 2.0,
+   "elemento": "sombra",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "teleporta para as costas do alvo",
+    "próximo golpe em 2s é crítico garantido"
+   ],
+   "descricao": "Some numa fumaça preta e reaparece onde a vítima não está olhando.",
+   "fx": "silhueta de fumaça preta com olhos de brasa",
+   "som": "sopro grave",
+   "combate": {
+    "id": "passo_sombrio",
+    "nome": "Passo Sombrio",
+    "nivel": 6,
+    "custo": 25,
+    "recarga": 10.0,
+    "alcance": 6,
+    "teleporta": "costas_do_alvo",
+    "proximo_golpe_critico": true,
+    "sensacao": "mobilidade"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_passo_sombrio.png",
+    "40": "assets/icones/skills/40/demonio_passo_sombrio.png",
+    "32": "assets/icones/skills/32/demonio_passo_sombrio.png"
+   }
+  },
+  {
+   "id": "demonio_pele_enxofre",
+   "classe": "demonio",
+   "nome": "Pele de Enxofre",
+   "tipo": "buff",
+   "nivel": 9,
+   "custo": 40,
+   "recarga": 20.0,
+   "conjuracao": 0.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 10.0,
+   "elemento": "fogo",
+   "escala": [
+    "VIT"
+   ],
+   "efeitos": [
+    "reflete 25% do dano corpo a corpo recebido como fogo",
+    "+10% de defesa"
+   ],
+   "descricao": "As rachaduras do peito se abrem e a pele passa a ferver.",
+   "fx": "rachaduras de brasa intensificadas + fumaça amarela",
+   "som": "chiado de chapa quente",
+   "combate": {
+    "id": "pele_enxofre",
+    "nome": "Pele de Enxofre",
+    "nivel": 9,
+    "custo": 40,
+    "recarga": 20.0,
+    "buff": {
+     "reflete_frac": 0.25,
+     "elemento_reflexo": "fogo",
+     "duracao": 8.0
+    },
+    "sensacao": "buff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_pele_enxofre.png",
+    "40": "assets/icones/skills/40/demonio_pele_enxofre.png",
+    "32": "assets/icones/skills/32/demonio_pele_enxofre.png"
+   }
+  },
+  {
+   "id": "demonio_banquete",
+   "classe": "demonio",
+   "nome": "Banquete",
+   "tipo": "passiva",
+   "nivel": 12,
+   "custo": 0,
+   "recarga": 0,
+   "conjuracao": 0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "sangue",
+   "escala": [
+    "FOR"
+   ],
+   "efeitos": [
+    "roubo de vida 3% (base)",
+    "roubo de vida 12% contra alvos abaixo de 30% do HP"
+   ],
+   "descricao": "Quanto mais fraca a presa, mais ele come.",
+   "fx": "fios vermelhos do alvo até o Demônio ao acertar",
+   "som": "nenhum",
+   "combate": {
+    "id": "banquete",
+    "nome": "Banquete",
+    "nivel": 12,
+    "passiva": true,
+    "roubo_de_vida_extra_abaixo_30pct": 0.1
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_banquete.png",
+    "40": "assets/icones/skills/40/demonio_banquete.png",
+    "32": "assets/icones/skills/32/demonio_banquete.png"
+   }
+  },
+  {
+   "id": "demonio_portao_inferno",
+   "classe": "demonio",
+   "nome": "Portão do Inferno",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": 100,
+   "recarga": 180.0,
+   "conjuracao": 1.0,
+   "alcance": 5,
+   "area": 5,
+   "duracao": 8.0,
+   "elemento": "fogo",
+   "escala": [
+    "FOR"
+   ],
+   "dano": {
+    "pct_arma": 120,
+    "base": 40,
+    "por_segundo": true
+   },
+   "efeitos": [
+    "abre uma fenda por 8s que queima tudo em volta",
+    "+20% de dano em Humanos",
+    "requer Estágio 3 (Arquidemônio)"
+   ],
+   "descricao": "O chão racha e o Inferno mostra a cara, só por um instante.",
+   "fx": "fenda no chão com fogo subindo + braços de brasa",
+   "som": "rugido de fornalha",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/demonio_portao_inferno.png",
+    "40": "assets/icones/skills/40/demonio_portao_inferno.png",
+    "32": "assets/icones/skills/32/demonio_portao_inferno.png"
+   }
+  },
+  {
+   "id": "humano_tiro_certeiro",
+   "classe": "humano",
+   "nome": "Tiro Certeiro",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": 20,
+   "recarga": 5.0,
+   "conjuracao": 0.3,
+   "alcance": 9,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "fisico",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "+25% de chance de crítico",
+    "gasta 1 munição"
+   ],
+   "descricao": "Respira, segura, aperta. Uma bala, um problema a menos.",
+   "fx": "clarão de cano + rastro de bala + fumaça de pólvora",
+   "som": "estampido seco",
+   "combate": {
+    "id": "tiro_certeiro",
+    "nome": "Tiro Certeiro",
+    "nivel": 1,
+    "custo": 20,
+    "recarga": 5.0,
+    "mult": 2.0,
+    "critico_extra": 0.2,
+    "alcance": 9,
+    "conjuracao": 0.3,
+    "postura": 30,
+    "empurrao": 0.6,
+    "sensacao": "tiro_pesado"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_tiro_certeiro.png",
+    "40": "assets/icones/skills/40/humano_tiro_certeiro.png",
+    "32": "assets/icones/skills/32/humano_tiro_certeiro.png"
+   }
+  },
+  {
+   "id": "humano_corte_largo",
+   "classe": "humano",
+   "nome": "Corte Giratório",
+   "tipo": "area",
+   "nivel": 3,
+   "custo": 25,
+   "recarga": 6.0,
+   "conjuracao": 0.0,
+   "alcance": 0,
+   "area": 2,
+   "duracao": 0.6,
+   "elemento": "fisico",
+   "escala": [
+    "FOR",
+    "AGI"
+   ],
+   "efeitos": [
+    "gira a espada larga e corta 360° em volta (raio 2 tiles)",
+    "empurra um pouco os inimigos atingidos",
+    "precisa de espada larga equipada"
+   ],
+   "descricao": "Quando cercam o caçador, ele planta os pés e gira o corpo inteiro. A espada larga corta em 360° e joga todo mundo para fora do círculo.",
+   "fx": "anel de corte prateado girando em volta do personagem + faíscas e respingo de sangue nos atingidos",
+   "som": "lâmina cortando o ar em giro + impacto pesado",
+   "combate": {
+    "id": "corte_largo",
+    "nome": "Corte Giratorio",
+    "nivel": 3,
+    "custo": 25,
+    "recarga": 6.0,
+    "mult": 1.4,
+    "arco_graus": 360,
+    "alcance": 0,
+    "postura": 35,
+    "empurrao": 1.0,
+    "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
+    "sensacao": "area",
+    "area_raio": 2.0,
+    "empurrao_a_partir_do_centro": true
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_corte_largo.png",
+    "40": "assets/icones/skills/40/humano_corte_largo.png",
+    "32": "assets/icones/skills/32/humano_corte_largo.png"
+   }
+  },
+  {
+   "id": "humano_coquetel_querosene",
+   "classe": "humano",
+   "nome": "Coquetel de Querosene",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": 22,
+   "recarga": 2.2,
+   "conjuracao": 0.35,
+   "alcance": 7,
+   "area": "círculo de 2.0 tiles no ponto do mouse",
+   "duracao": 3.0,
+   "elemento": "fogo",
+   "escala": [
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "circulo",
+    "raio_tiles": 2.0,
+    "origem": "ponto_alvo",
+    "alcance_max_tiles": 6
+   },
+   "dano": {
+    "mult": 1.3,
+    "queimadura": {
+     "duracao": 2,
+     "dano_por_s_mult": 0.15
+    },
+    "chao_em_chamas_s": 3.0
+   },
+   "efeitos": [
+    "arremessa uma garrafa de querosene com pavio aceso",
+    "explode e deixa fogo no chão por 3 s",
+    "+10% de dano em tag:planta e tag:praga"
+   ],
+   "descricao": "Garrafa de vidro, querosene do lampião e um trapo de batina. A Vigília chama de 'vela grande'.",
+   "fx": "garrafa girando em arco + estilhaços de vidro + bola de fogo laranja + chamas no chão",
+   "som": "vidro quebrando + whoosh de fogo",
+   "id_combate": "humano_coquetel_querosene",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "humano_coquetel_querosene",
+    "nome": "Coquetel de Querosene",
+    "nivel": 5,
+    "custo": 22,
+    "recarga": 2.2,
+    "mult": 1.3,
+    "elemento": "fogo",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "forma": "circulo_no_mouse",
+    "raio": 2.0,
+    "alcance": 7,
+    "chao_em_chamas_s": 3.0,
+    "queimadura": {
+     "duracao": 2,
+     "dano_por_s_mult": 0.15
+    }
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/humano_coquetel_querosene.png",
+    "40": "assets/icones/skills/40/humano_coquetel_querosene.png",
+    "32": "assets/icones/skills/32/humano_coquetel_querosene.png"
+   }
+  },
+  {
+   "id": "humano_arrancada",
+   "classe": "humano",
+   "nome": "Arrancada",
+   "tipo": "ativa",
+   "nivel": 6,
+   "custo": 20,
+   "recarga": 5.0,
+   "conjuracao": 0.0,
+   "alcance": 4,
+   "area": 0,
+   "duracao": 0.18,
+   "elemento": "fisico",
+   "escala": [
+    "FOR",
+    "AGI"
+   ],
+   "efeitos": [
+    "avança 4 tiles até o mouse com a espada larga estendida",
+    "corta cada inimigo no caminho uma vez",
+    "invulnerável no começo; o próximo golpe ou tiro em 2s causa +30%",
+    "2 cargas"
+   ],
+   "descricao": "Não tem poder nenhum, só pernas e uma lâmina larga. Atravessa a fila de inimigos antes que eles entendam o que passou.",
+   "fx": "rastro de silhueta escura + sobretudo esvoaçando + corte em cada alvo + poeira no início e no fim",
+   "som": "passos rápidos + lâmina cortando em sequência",
+   "combate": {
+    "id": "arrancada",
+    "nome": "Arrancada",
+    "nivel": 6,
+    "custo": 20,
+    "recarga": 5.0,
+    "cargas": 2,
+    "deslocamento": 4,
+    "duracao_s": 0.18,
+    "invulneravel": 0.2,
+    "atravessa_inimigos": true,
+    "proximo_ataque_extra": 0.3,
+    "janela_bonus_s": 2.0,
+    "vai_para": "ponto sob o mouse",
+    "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
+    "sensacao": "investida",
+    "substitui": "rolamento",
+    "mult": 0.9,
+    "largura_corte": 1.2,
+    "acerta_cada_inimigo_uma_vez": true,
+    "postura": 20,
+    "empurrao_lateral": 0.5
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_arrancada.png",
+    "40": "assets/icones/skills/40/humano_arrancada.png",
+    "32": "assets/icones/skills/32/humano_arrancada.png"
+   }
+  },
+  {
+   "id": "humano_rajada",
+   "classe": "humano",
+   "nome": "Rajada",
+   "tipo": "area",
+   "nivel": 9,
+   "custo": 35,
+   "recarga": 8.0,
+   "conjuracao": 0.3,
+   "alcance": 6,
+   "area": "cone 60°",
+   "duracao": 0,
+   "elemento": "fisico",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "leque de 5 projéteis em cone",
+    "gasta 3 munições",
+    "empurra levemente"
+   ],
+   "descricao": "A escopeta de cano duplo fala alto e para todos os lados.",
+   "fx": "leque de chumbo + clarão largo",
+   "som": "tiro de escopeta duplo",
+   "combate": {
+    "id": "rajada",
+    "nome": "Rajada",
+    "nivel": 9,
+    "custo": 35,
+    "recarga": 8.0,
+    "projeteis": 5,
+    "cone_graus": 50,
+    "mult_por_projetil": 0.6,
+    "alcance": 6,
+    "postura_por_projetil": 8,
+    "empurrao": 0.4,
+    "sensacao": "area",
+    "_doc": "voltou para o nivel 9: o nivel 5 do Humano e o Coquetel de Querosene da thread de skills"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_rajada.png",
+    "40": "assets/icones/skills/40/humano_rajada.png",
+    "32": "assets/icones/skills/32/humano_rajada.png"
+   }
+  },
+  {
+   "id": "humano_agua_benta_polvora",
+   "classe": "humano",
+   "nome": "Água Benta e Pólvora",
+   "tipo": "buff",
+   "nivel": 12,
+   "custo": 30,
+   "recarga": 30.0,
+   "conjuracao": 1.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 15.0,
+   "elemento": "sagrado",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "próximos 15s: tiros causam +20% como sagrado OU fogo (alterna a cada uso)",
+    "sagrado: +10% extra em Arautos"
+   ],
+   "descricao": "Molha os cartuchos num frasco benzido. Ou em querosene, depende do dia.",
+   "fx": "cano brilhando azul-claro (sagrado) ou laranja (fogo)",
+   "som": "clique de recarga",
+   "combate": {
+    "id": "agua_benta_polvora",
+    "nome": "Agua Benta e Polvora",
+    "nivel": 12,
+    "custo": 30,
+    "recarga": 30.0,
+    "buff": {
+     "duracao": 15.0,
+     "municao": "alterna sagrado/fogo",
+     "lamina": "a espada larga tambem ganha o elemento",
+     "dano_extra_elemental": 0.2
+    },
+    "sensacao": "buff"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_agua_benta_polvora.png",
+    "40": "assets/icones/skills/40/humano_agua_benta_polvora.png",
+    "32": "assets/icones/skills/32/humano_agua_benta_polvora.png"
+   }
+  },
+  {
+   "id": "humano_armadilha_prata",
+   "classe": "humano",
+   "nome": "Armadilha de Prata",
+   "tipo": "ativa",
+   "nivel": 15,
+   "custo": 30,
+   "recarga": 15.0,
+   "conjuracao": 0.8,
+   "alcance": 4,
+   "area": 1,
+   "duracao": 3.0,
+   "elemento": "sagrado",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "prende por 3s quem pisar",
+    "+50% de dano em Anjos e Demônios",
+    "dura 60s no chão"
+   ],
+   "descricao": "Uma armadilha de urso banhada em prata e rezada pelo padre do bairro.",
+   "fx": "mandíbula de metal fechando + faíscas prateadas",
+   "som": "clangor metálico",
+   "combate": {
+    "id": "armadilha_prata",
+    "nome": "Armadilha de Prata",
+    "nivel": 15,
+    "custo": 30,
+    "recarga": 15.0,
+    "alcance": 4,
+    "arma_s": 1.0,
+    "dura_s": 20,
+    "mult": 1.5,
+    "efeito": {
+     "enraizado": 3.0
+    },
+    "bonus_vs": {
+     "tag:celestial": 1.3,
+     "tag:infernal": 1.3
+    },
+    "sensacao": "armadilha",
+    "_doc": "passou para o nivel 15 (depois da primeira entrega) para abrir espaco ao Corte Largo"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_armadilha_prata.png",
+    "40": "assets/icones/skills/40/humano_armadilha_prata.png",
+    "32": "assets/icones/skills/32/humano_armadilha_prata.png"
+   }
+  },
+  {
+   "id": "humano_ultimo_suspiro",
+   "classe": "humano",
+   "nome": "Último Suspiro",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": 0,
+   "recarga": 300.0,
+   "conjuracao": 0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 6.0,
+   "elemento": "fisico",
+   "escala": [
+    "AGI"
+   ],
+   "efeitos": [
+    "passiva-suprema: 1x por combate sobrevive a golpe fatal com 1 HP",
+    "ganha dano dobrado por 6s",
+    "requer Estágio 3 (Último Guardião)"
+   ],
+   "descricao": "Já devia estar morto. Ainda não.",
+   "fx": "tela em preto e branco por 0.5s + batida de coração + aura vermelha",
+   "som": "batida de coração",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/humano_ultimo_suspiro.png",
+    "40": "assets/icones/skills/40/humano_ultimo_suspiro.png",
+    "32": "assets/icones/skills/32/humano_ultimo_suspiro.png"
+   }
+  },
+  {
+   "id": "tecnomancer_arco_voltaico",
+   "classe": "tecnomancer",
+   "nome": "Arco Voltaico",
+   "tipo": "ativa",
+   "nivel": 1,
+   "custo": 15,
+   "recarga": 3.0,
+   "conjuracao": 0.4,
+   "alcance": 7,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP",
+    "AGI"
+   ],
+   "efeitos": [
+    "salta para até 3 inimigos próximos (-25% por salto)",
+    "+15% de dano em invocações"
+   ],
+   "descricao": "A bobina das costas descarrega pelo cajado e escolhe as vítimas sozinha.",
+   "fx": "raio azul-claro em zigue-zague entre alvos",
+   "som": "estalo elétrico",
+   "combate": {
+    "id": "arco_voltaico",
+    "nome": "Arco Voltaico",
+    "nivel": 1,
+    "custo": 15,
+    "recarga": 3.0,
+    "mult": 1.4,
+    "saltos": 3,
+    "queda_por_salto": 0.25,
+    "raio_salto": 3,
+    "alcance": 7,
+    "elemento": "eletrico",
+    "postura": 12,
+    "sensacao": "raio"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_arco_voltaico.png",
+    "40": "assets/icones/skills/40/tecnomancer_arco_voltaico.png",
+    "32": "assets/icones/skills/32/tecnomancer_arco_voltaico.png"
+   }
+  },
+  {
+   "id": "tecnomancer_torreta_sentinela",
+   "classe": "tecnomancer",
+   "nome": "Torreta Sentinela",
+   "tipo": "invocacao",
+   "nivel": 3,
+   "custo": 35,
+   "recarga": 18.0,
+   "conjuracao": 1.2,
+   "alcance": 3,
+   "area": 0,
+   "duracao": 25.0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "torreta fixa por 25s que atira no inimigo mais próximo",
+    "até 2 ativas"
+   ],
+   "descricao": "Monta em segundos um tripé de sucata com um olho rúnico que nunca dorme.",
+   "fx": "torreta montando peça por peça + runa laranja acesa",
+   "som": "catraca e engrenagens",
+   "combate": {
+    "id": "torreta_sentinela",
+    "nome": "Torreta Sentinela",
+    "nivel": 3,
+    "custo": 35,
+    "recarga": 18.0,
+    "invoca": "torreta",
+    "duracao": 15.0,
+    "max": 1,
+    "sensacao": "invocacao"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_torreta_sentinela.png",
+    "40": "assets/icones/skills/40/tecnomancer_torreta_sentinela.png",
+    "32": "assets/icones/skills/32/tecnomancer_torreta_sentinela.png"
+   }
+  },
+  {
+   "id": "tecnomancer_tempestade_bobina",
+   "classe": "tecnomancer",
+   "nome": "Tempestade de Bobina",
+   "tipo": "area",
+   "nivel": 5,
+   "area_nivel5": true,
+   "provisorio": true,
+   "custo": 16,
+   "recarga": 2.0,
+   "conjuracao": 0.4,
+   "alcance": 0,
+   "area": "círculo de 2.6 tiles em volta",
+   "duracao": 0.5,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "formato_area": {
+    "forma": "circulo",
+    "raio_tiles": 2.6,
+    "origem": "personagem"
+   },
+   "dano": {
+    "mult": 1.25,
+    "chance_atordoar": 0.15,
+    "atordoar_s": 0.5
+   },
+   "efeitos": [
+    "a caldeira das costas descarrega raios em todos em volta",
+    "15% de chance de paralisar 0.6 s",
+    "+15% de dano em invocações"
+   ],
+   "descricao": "As bobinas de tesla das costas zumbem, o cabelo de todo mundo em volta arrepia, e então o ar explode em raios azuis.",
+   "fx": "cúpula de raios azuis saindo das bobinas das costas até cada inimigo + faíscas no chão",
+   "som": "zumbido crescente + estalo elétrico forte",
+   "id_combate": "tecnomancer_tempestade_bobina",
+   "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
+   "economia": "ver design/combate/farm_auto.json e combate.md seção 9",
+   "combate": {
+    "id": "tecnomancer_tempestade_bobina",
+    "nome": "Tempestade de Bobina",
+    "nivel": 5,
+    "custo": 16,
+    "recarga": 2.0,
+    "mult": 1.25,
+    "elemento": "eletrico",
+    "preparo": 0.25,
+    "postura": 18,
+    "empurrao_px": 6,
+    "nunca_erra": true,
+    "auto": true,
+    "sensacao": "area",
+    "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+    "chance_atordoar": 0.15,
+    "atordoar_s": 0.5,
+    "forma": "circulo_em_volta",
+    "raio": 2.6
+   },
+   "preparo": 0.25,
+   "fonte_numeros": "design/combate/classes_base.json",
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_tempestade_bobina.png",
+    "40": "assets/icones/skills/40/tecnomancer_tempestade_bobina.png",
+    "32": "assets/icones/skills/32/tecnomancer_tempestade_bobina.png"
+   }
+  },
+  {
+   "id": "tecnomancer_nanoreparo",
+   "classe": "tecnomancer",
+   "nome": "Nanoreparo",
+   "tipo": "ativa",
+   "nivel": 6,
+   "custo": 25,
+   "recarga": 8.0,
+   "conjuracao": 0.5,
+   "alcance": 6,
+   "area": 0,
+   "duracao": 8.0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "cura contínua por 8s em um aliado"
+   ],
+   "descricao": "Um enxame de aranhas de latão costura a ferida por dentro.",
+   "fx": "pontos de luz laranja rodando o alvo",
+   "som": "zumbido de enxame mecânico",
+   "combate": {
+    "id": "nanoreparo",
+    "nome": "Nanoreparo",
+    "nivel": 6,
+    "custo": 25,
+    "recarga": 8.0,
+    "cura_mult_por_tick": 0.5,
+    "ticks": 5,
+    "intervalo_tick": 1.0,
+    "alcance": 6,
+    "sensacao": "cura"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_nanoreparo.png",
+    "40": "assets/icones/skills/40/tecnomancer_nanoreparo.png",
+    "32": "assets/icones/skills/32/tecnomancer_nanoreparo.png"
+   }
+  },
+  {
+   "id": "tecnomancer_campo_forca",
+   "classe": "tecnomancer",
+   "nome": "Campo de Força",
+   "tipo": "area",
+   "nivel": 9,
+   "custo": 40,
+   "recarga": 20.0,
+   "conjuracao": 0.8,
+   "alcance": 5,
+   "area": 3,
+   "duracao": 6.0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "aliados na área ganham escudo que absorve dano por 6s"
+   ],
+   "descricao": "Uma cúpula de estática que faz o cabelo de todo mundo arrepiar.",
+   "fx": "cúpula azul translúcida com hexágonos e faíscas",
+   "som": "zumbido grave de transformador",
+   "combate": {
+    "id": "campo_forca",
+    "nome": "Campo de Forca",
+    "nivel": 9,
+    "custo": 40,
+    "recarga": 20.0,
+    "escudo": "ESP*1.5 + nivel*8",
+    "area_raio": 2.5,
+    "duracao": 6.0,
+    "sensacao": "escudo"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_campo_forca.png",
+    "40": "assets/icones/skills/40/tecnomancer_campo_forca.png",
+    "32": "assets/icones/skills/32/tecnomancer_campo_forca.png"
+   }
+  },
+  {
+   "id": "tecnomancer_pulso_antidivino",
+   "classe": "tecnomancer",
+   "nome": "Pulso Anti-Divino",
+   "tipo": "debuff",
+   "nivel": 12,
+   "custo": 30,
+   "recarga": 16.0,
+   "conjuracao": 0.6,
+   "alcance": 6,
+   "area": 3,
+   "duracao": 3.0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "silencia magias na área por 3s",
+    "remove 1 buff de cada inimigo",
+    "+50% de duração contra Anjos"
+   ],
+   "descricao": "Um pulso de frequência herege que faz as preces falharem no meio da frase.",
+   "fx": "onda circular azul com sigilo laranja invertido no centro",
+   "som": "pulso eletrônico grave",
+   "combate": {
+    "id": "pulso_anti_divino",
+    "nome": "Pulso Anti-Divino",
+    "nivel": 12,
+    "custo": 30,
+    "recarga": 16.0,
+    "area_raio": 3.0,
+    "mult": 0.8,
+    "efeito": {
+     "silenciado": 3.0
+    },
+    "bonus_vs": {
+     "tag:celestial": 1.3
+    },
+    "postura": 40,
+    "sensacao": "area"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_pulso_antidivino.png",
+    "40": "assets/icones/skills/40/tecnomancer_pulso_antidivino.png",
+    "32": "assets/icones/skills/32/tecnomancer_pulso_antidivino.png"
+   }
+  },
+  {
+   "id": "tecnomancer_maquina_juizo_reverso",
+   "classe": "tecnomancer",
+   "nome": "Máquina do Juízo Reverso",
+   "tipo": "suprema",
+   "nivel": 400,
+   "custo": 120,
+   "recarga": 180.0,
+   "conjuracao": 2.5,
+   "alcance": 3,
+   "area": 7,
+   "duracao": 12.0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP"
+   ],
+   "efeitos": [
+    "constrói um artefato por 12s",
+    "supremas inimigas não funcionam na área",
+    "requer Estágio 3 (Arquiteto do Amanhã)"
+   ],
+   "descricao": "Uma torre de cobre, válvulas e ossos de santo que toca a trombeta ao contrário.",
+   "fx": "torre montando com raios em volta + campo distorcendo a imagem",
+   "som": "sirene reversa",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_maquina_juizo_reverso.png",
+    "40": "assets/icones/skills/40/tecnomancer_maquina_juizo_reverso.png",
+    "32": "assets/icones/skills/32/tecnomancer_maquina_juizo_reverso.png"
+   }
+  }
+ ]
+}

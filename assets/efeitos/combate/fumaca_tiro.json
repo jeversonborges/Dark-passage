@@ -1,0 +1,21 @@
+{
+ "name": "fumaca_tiro",
+ "cat": "combate",
+ "frames": 12,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  10,
+  30
+ ],
+ "layer": "frente",
+ "desc": "Fumaça de pólvora que sobe após o disparo.",
+ "char": null,
+ "title": "Fumaça de pólvora",
+ "resumo": "Fumaça de pólvora que sobe após o disparo.",
+ "frame_w": 40,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "fumaca_tiro.png"
+}

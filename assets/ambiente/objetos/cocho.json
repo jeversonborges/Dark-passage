@@ -1,0 +1,15 @@
+{
+ "w": 114,
+ "h": 68,
+ "anchor": [
+  42,
+  44
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "cocho"
+}

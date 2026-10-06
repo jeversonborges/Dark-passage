@@ -1,0 +1,17 @@
+{
+ "w": 208,
+ "h": 126,
+ "anchor": [
+  58,
+  94
+ ],
+ "nota": "a altura da tábua (0,45 m) fica acima da água; estacas descem abaixo do chão",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Segmento de ponte de tábuas sobre estacas (encaixe lado a lado ao longo do eixo).",
+ "kind": "ponte_madeira_a"
+}

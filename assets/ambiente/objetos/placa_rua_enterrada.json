@@ -1,0 +1,15 @@
+{
+ "w": 212,
+ "h": 128,
+ "anchor": [
+  50,
+  103
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Placa esmaltada de rua de São Lázaro, só o topo para fora da areia.",
+ "kind": "placa_rua_enterrada"
+}

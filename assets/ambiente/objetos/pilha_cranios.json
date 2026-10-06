@@ -1,0 +1,15 @@
+{
+ "w": 108,
+ "h": 68,
+ "anchor": [
+  42,
+  42
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "pilha_cranios"
+}

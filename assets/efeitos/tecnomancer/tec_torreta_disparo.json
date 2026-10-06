@@ -1,0 +1,21 @@
+{
+ "name": "tec_torreta_disparo",
+ "cat": "tecnomancer",
+ "frames": 4,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  4,
+  8
+ ],
+ "layer": "frente",
+ "desc": "Disparo da torreta: pulso elétrico curto (para a direita).",
+ "char": null,
+ "title": "Torreta Sentinela (disparo)",
+ "resumo": "Disparo da torreta: pulso elétrico curto (para a direita).",
+ "frame_w": 40,
+ "frame_h": 16,
+ "cols": 4,
+ "rows": 1,
+ "sheet": "tec_torreta_disparo.png"
+}

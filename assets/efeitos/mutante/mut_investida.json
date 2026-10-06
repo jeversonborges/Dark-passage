@@ -1,0 +1,21 @@
+{
+ "name": "mut_investida",
+ "cat": "mutante",
+ "frames": 12,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  120,
+  56
+ ],
+ "layer": "frente",
+ "desc": "Investida Bestial: linhas de velocidade, poeira e impacto que derruba (indo para a direita).",
+ "char": null,
+ "title": "Investida Bestial",
+ "resumo": "Linhas de velocidade, poeira e impacto que derruba (indo para a direita).",
+ "frame_w": 144,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "mut_investida.png"
+}

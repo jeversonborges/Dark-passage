@@ -1,0 +1,2031 @@
+{
+ "_doc": "XP e niveis. Responde o ponto em aberto 2 de classes.md: nivel maximo 400 (evolucoes no 150 e no 400, estilo MU). A primeira entrega cobre do 1 ao ~13.",
+ "versao": "0.2",
+ "nivel_maximo": 400,
+ "formula_xp_para_proximo": "75*L^2 + 375*L (v0.2: 3x a v0.1, porque os spots com leque e modo automatico matam 20 a 30 monstros por minuto); acima do 100 multiplica por (1 + (L-100)/50). Arredondado.",
+ "metas_de_ritmo": {
+  "_doc": "v0.2, com spots e modo automatico (farm_auto.json). Conferido por farm.py.",
+  "spot_nivel_5_a_10": "cerca de 4 a 9 min por nivel farmando no spot do proprio nivel com pocoes",
+  "area_inicial": "nivel 1 ao 7 em 50 a 70 min (missoes + spots)",
+  "cripta": "nivel 7 ao 12-13 em cerca de 2 h (cripta + spots + deserto)",
+  "parte_da_xp_vinda_de_missoes": 0.3
+ },
+ "xp_mob": {
+  "formula": "(10 + 5*L_mob) * mult_arquetipo",
+  "chefe": "(10 + 5*L) * 25 na primeira vitoria do dia; 8 nas seguintes",
+  "modificador_diferenca_nivel": {
+   "_doc": "d = nivel_mob - nivel_jogador",
+   "d_maior_igual_5": 1.2,
+   "d_entre_menos3_e_4": "1 + 0.04*d",
+   "d_menor_igual_menos4": "max(0.10, 1 - 0.15*(-d - 3) - 0.12)"
+  }
+ },
+ "xp_missao_referencia": {
+  "_doc": "Valor sugerido para a thread de missoes: missao comum no nivel L da cerca de 40% do xp_para_proximo(L); missao de historia 70%.",
+  "comum": "0.40 * xp_para_proximo(L)",
+  "historia": "0.70 * xp_para_proximo(L)"
+ },
+ "ao_subir_de_nivel": {
+  "hp_e_recurso_cheios": true,
+  "pontos": 5,
+  "evento": "nivel_sobe",
+  "efeito": "coluna de luz dourada + som de sino rachado"
+ },
+ "tabela": [
+  {
+   "nivel": 1,
+   "xp_para_proximo": 450,
+   "xp_total_ate_aqui": 0
+  },
+  {
+   "nivel": 2,
+   "xp_para_proximo": 1050,
+   "xp_total_ate_aqui": 450
+  },
+  {
+   "nivel": 3,
+   "xp_para_proximo": 1800,
+   "xp_total_ate_aqui": 1500
+  },
+  {
+   "nivel": 4,
+   "xp_para_proximo": 2700,
+   "xp_total_ate_aqui": 3300
+  },
+  {
+   "nivel": 5,
+   "xp_para_proximo": 3750,
+   "xp_total_ate_aqui": 6000
+  },
+  {
+   "nivel": 6,
+   "xp_para_proximo": 4950,
+   "xp_total_ate_aqui": 9750
+  },
+  {
+   "nivel": 7,
+   "xp_para_proximo": 6300,
+   "xp_total_ate_aqui": 14700
+  },
+  {
+   "nivel": 8,
+   "xp_para_proximo": 7800,
+   "xp_total_ate_aqui": 21000
+  },
+  {
+   "nivel": 9,
+   "xp_para_proximo": 9450,
+   "xp_total_ate_aqui": 28800
+  },
+  {
+   "nivel": 10,
+   "xp_para_proximo": 11200,
+   "xp_total_ate_aqui": 38250
+  },
+  {
+   "nivel": 11,
+   "xp_para_proximo": 13200,
+   "xp_total_ate_aqui": 49450
+  },
+  {
+   "nivel": 12,
+   "xp_para_proximo": 15300,
+   "xp_total_ate_aqui": 62650
+  },
+  {
+   "nivel": 13,
+   "xp_para_proximo": 17600,
+   "xp_total_ate_aqui": 77950
+  },
+  {
+   "nivel": 14,
+   "xp_para_proximo": 20000,
+   "xp_total_ate_aqui": 95550
+  },
+  {
+   "nivel": 15,
+   "xp_para_proximo": 22500,
+   "xp_total_ate_aqui": 115550
+  },
+  {
+   "nivel": 16,
+   "xp_para_proximo": 25200,
+   "xp_total_ate_aqui": 138050
+  },
+  {
+   "nivel": 17,
+   "xp_para_proximo": 28000,
+   "xp_total_ate_aqui": 163250
+  },
+  {
+   "nivel": 18,
+   "xp_para_proximo": 31000,
+   "xp_total_ate_aqui": 191250
+  },
+  {
+   "nivel": 19,
+   "xp_para_proximo": 34200,
+   "xp_total_ate_aqui": 222250
+  },
+  {
+   "nivel": 20,
+   "xp_para_proximo": 37500,
+   "xp_total_ate_aqui": 256450
+  },
+  {
+   "nivel": 21,
+   "xp_para_proximo": 41000,
+   "xp_total_ate_aqui": 293950
+  },
+  {
+   "nivel": 22,
+   "xp_para_proximo": 44600,
+   "xp_total_ate_aqui": 334950
+  },
+  {
+   "nivel": 23,
+   "xp_para_proximo": 48300,
+   "xp_total_ate_aqui": 379550
+  },
+  {
+   "nivel": 24,
+   "xp_para_proximo": 52200,
+   "xp_total_ate_aqui": 427850
+  },
+  {
+   "nivel": 25,
+   "xp_para_proximo": 56200,
+   "xp_total_ate_aqui": 480050
+  },
+  {
+   "nivel": 26,
+   "xp_para_proximo": 60400,
+   "xp_total_ate_aqui": 536250
+  },
+  {
+   "nivel": 27,
+   "xp_para_proximo": 64800,
+   "xp_total_ate_aqui": 596650
+  },
+  {
+   "nivel": 28,
+   "xp_para_proximo": 69300,
+   "xp_total_ate_aqui": 661450
+  },
+  {
+   "nivel": 29,
+   "xp_para_proximo": 74000,
+   "xp_total_ate_aqui": 730750
+  },
+  {
+   "nivel": 30,
+   "xp_para_proximo": 78800,
+   "xp_total_ate_aqui": 804750
+  },
+  {
+   "nivel": 31,
+   "xp_para_proximo": 83700,
+   "xp_total_ate_aqui": 883550
+  },
+  {
+   "nivel": 32,
+   "xp_para_proximo": 88800,
+   "xp_total_ate_aqui": 967250
+  },
+  {
+   "nivel": 33,
+   "xp_para_proximo": 94000,
+   "xp_total_ate_aqui": 1056050
+  },
+  {
+   "nivel": 34,
+   "xp_para_proximo": 99400,
+   "xp_total_ate_aqui": 1150050
+  },
+  {
+   "nivel": 35,
+   "xp_para_proximo": 105000,
+   "xp_total_ate_aqui": 1249450
+  },
+  {
+   "nivel": 36,
+   "xp_para_proximo": 110700,
+   "xp_total_ate_aqui": 1354450
+  },
+  {
+   "nivel": 37,
+   "xp_para_proximo": 116600,
+   "xp_total_ate_aqui": 1465150
+  },
+  {
+   "nivel": 38,
+   "xp_para_proximo": 122600,
+   "xp_total_ate_aqui": 1581750
+  },
+  {
+   "nivel": 39,
+   "xp_para_proximo": 128700,
+   "xp_total_ate_aqui": 1704350
+  },
+  {
+   "nivel": 40,
+   "xp_para_proximo": 135000,
+   "xp_total_ate_aqui": 1833050
+  },
+  {
+   "nivel": 41,
+   "xp_para_proximo": 141400,
+   "xp_total_ate_aqui": 1968050
+  },
+  {
+   "nivel": 42,
+   "xp_para_proximo": 148000,
+   "xp_total_ate_aqui": 2109450
+  },
+  {
+   "nivel": 43,
+   "xp_para_proximo": 154800,
+   "xp_total_ate_aqui": 2257450
+  },
+  {
+   "nivel": 44,
+   "xp_para_proximo": 161700,
+   "xp_total_ate_aqui": 2412250
+  },
+  {
+   "nivel": 45,
+   "xp_para_proximo": 168800,
+   "xp_total_ate_aqui": 2573950
+  },
+  {
+   "nivel": 46,
+   "xp_para_proximo": 176000,
+   "xp_total_ate_aqui": 2742750
+  },
+  {
+   "nivel": 47,
+   "xp_para_proximo": 183300,
+   "xp_total_ate_aqui": 2918750
+  },
+  {
+   "nivel": 48,
+   "xp_para_proximo": 190800,
+   "xp_total_ate_aqui": 3102050
+  },
+  {
+   "nivel": 49,
+   "xp_para_proximo": 198400,
+   "xp_total_ate_aqui": 3292850
+  },
+  {
+   "nivel": 50,
+   "xp_para_proximo": 206200,
+   "xp_total_ate_aqui": 3491250
+  },
+  {
+   "nivel": 51,
+   "xp_para_proximo": 214200,
+   "xp_total_ate_aqui": 3697450
+  },
+  {
+   "nivel": 52,
+   "xp_para_proximo": 222300,
+   "xp_total_ate_aqui": 3911650
+  },
+  {
+   "nivel": 53,
+   "xp_para_proximo": 230600,
+   "xp_total_ate_aqui": 4133950
+  },
+  {
+   "nivel": 54,
+   "xp_para_proximo": 239000,
+   "xp_total_ate_aqui": 4364550
+  },
+  {
+   "nivel": 55,
+   "xp_para_proximo": 247500,
+   "xp_total_ate_aqui": 4603550
+  },
+  {
+   "nivel": 56,
+   "xp_para_proximo": 256200,
+   "xp_total_ate_aqui": 4851050
+  },
+  {
+   "nivel": 57,
+   "xp_para_proximo": 265000,
+   "xp_total_ate_aqui": 5107250
+  },
+  {
+   "nivel": 58,
+   "xp_para_proximo": 274000,
+   "xp_total_ate_aqui": 5372250
+  },
+  {
+   "nivel": 59,
+   "xp_para_proximo": 283200,
+   "xp_total_ate_aqui": 5646250
+  },
+  {
+   "nivel": 60,
+   "xp_para_proximo": 292500,
+   "xp_total_ate_aqui": 5929450
+  },
+  {
+   "nivel": 61,
+   "xp_para_proximo": 302000,
+   "xp_total_ate_aqui": 6221950
+  },
+  {
+   "nivel": 62,
+   "xp_para_proximo": 311600,
+   "xp_total_ate_aqui": 6523950
+  },
+  {
+   "nivel": 63,
+   "xp_para_proximo": 321300,
+   "xp_total_ate_aqui": 6835550
+  },
+  {
+   "nivel": 64,
+   "xp_para_proximo": 331200,
+   "xp_total_ate_aqui": 7156850
+  },
+  {
+   "nivel": 65,
+   "xp_para_proximo": 341200,
+   "xp_total_ate_aqui": 7488050
+  },
+  {
+   "nivel": 66,
+   "xp_para_proximo": 351400,
+   "xp_total_ate_aqui": 7829250
+  },
+  {
+   "nivel": 67,
+   "xp_para_proximo": 361800,
+   "xp_total_ate_aqui": 8180650
+  },
+  {
+   "nivel": 68,
+   "xp_para_proximo": 372300,
+   "xp_total_ate_aqui": 8542450
+  },
+  {
+   "nivel": 69,
+   "xp_para_proximo": 383000,
+   "xp_total_ate_aqui": 8914750
+  },
+  {
+   "nivel": 70,
+   "xp_para_proximo": 393800,
+   "xp_total_ate_aqui": 9297750
+  },
+  {
+   "nivel": 71,
+   "xp_para_proximo": 404700,
+   "xp_total_ate_aqui": 9691550
+  },
+  {
+   "nivel": 72,
+   "xp_para_proximo": 415800,
+   "xp_total_ate_aqui": 10096250
+  },
+  {
+   "nivel": 73,
+   "xp_para_proximo": 427000,
+   "xp_total_ate_aqui": 10512050
+  },
+  {
+   "nivel": 74,
+   "xp_para_proximo": 438400,
+   "xp_total_ate_aqui": 10939050
+  },
+  {
+   "nivel": 75,
+   "xp_para_proximo": 450000,
+   "xp_total_ate_aqui": 11377450
+  },
+  {
+   "nivel": 76,
+   "xp_para_proximo": 461700,
+   "xp_total_ate_aqui": 11827450
+  },
+  {
+   "nivel": 77,
+   "xp_para_proximo": 473600,
+   "xp_total_ate_aqui": 12289150
+  },
+  {
+   "nivel": 78,
+   "xp_para_proximo": 485600,
+   "xp_total_ate_aqui": 12762750
+  },
+  {
+   "nivel": 79,
+   "xp_para_proximo": 497700,
+   "xp_total_ate_aqui": 13248350
+  },
+  {
+   "nivel": 80,
+   "xp_para_proximo": 510000,
+   "xp_total_ate_aqui": 13746050
+  },
+  {
+   "nivel": 81,
+   "xp_para_proximo": 522400,
+   "xp_total_ate_aqui": 14256050
+  },
+  {
+   "nivel": 82,
+   "xp_para_proximo": 535000,
+   "xp_total_ate_aqui": 14778450
+  },
+  {
+   "nivel": 83,
+   "xp_para_proximo": 547800,
+   "xp_total_ate_aqui": 15313450
+  },
+  {
+   "nivel": 84,
+   "xp_para_proximo": 560700,
+   "xp_total_ate_aqui": 15861250
+  },
+  {
+   "nivel": 85,
+   "xp_para_proximo": 573800,
+   "xp_total_ate_aqui": 16421950
+  },
+  {
+   "nivel": 86,
+   "xp_para_proximo": 587000,
+   "xp_total_ate_aqui": 16995750
+  },
+  {
+   "nivel": 87,
+   "xp_para_proximo": 600300,
+   "xp_total_ate_aqui": 17582750
+  },
+  {
+   "nivel": 88,
+   "xp_para_proximo": 613800,
+   "xp_total_ate_aqui": 18183050
+  },
+  {
+   "nivel": 89,
+   "xp_para_proximo": 627400,
+   "xp_total_ate_aqui": 18796850
+  },
+  {
+   "nivel": 90,
+   "xp_para_proximo": 641200,
+   "xp_total_ate_aqui": 19424250
+  },
+  {
+   "nivel": 91,
+   "xp_para_proximo": 655200,
+   "xp_total_ate_aqui": 20065450
+  },
+  {
+   "nivel": 92,
+   "xp_para_proximo": 669300,
+   "xp_total_ate_aqui": 20720650
+  },
+  {
+   "nivel": 93,
+   "xp_para_proximo": 683600,
+   "xp_total_ate_aqui": 21389950
+  },
+  {
+   "nivel": 94,
+   "xp_para_proximo": 698000,
+   "xp_total_ate_aqui": 22073550
+  },
+  {
+   "nivel": 95,
+   "xp_para_proximo": 712500,
+   "xp_total_ate_aqui": 22771550
+  },
+  {
+   "nivel": 96,
+   "xp_para_proximo": 727200,
+   "xp_total_ate_aqui": 23484050
+  },
+  {
+   "nivel": 97,
+   "xp_para_proximo": 742000,
+   "xp_total_ate_aqui": 24211250
+  },
+  {
+   "nivel": 98,
+   "xp_para_proximo": 757000,
+   "xp_total_ate_aqui": 24953250
+  },
+  {
+   "nivel": 99,
+   "xp_para_proximo": 772200,
+   "xp_total_ate_aqui": 25710250
+  },
+  {
+   "nivel": 100,
+   "xp_para_proximo": 787500,
+   "xp_total_ate_aqui": 26482450
+  },
+  {
+   "nivel": 101,
+   "xp_para_proximo": 819000,
+   "xp_total_ate_aqui": 27269950
+  },
+  {
+   "nivel": 102,
+   "xp_para_proximo": 851300,
+   "xp_total_ate_aqui": 28088950
+  },
+  {
+   "nivel": 103,
+   "xp_para_proximo": 884400,
+   "xp_total_ate_aqui": 28940250
+  },
+  {
+   "nivel": 104,
+   "xp_para_proximo": 918200,
+   "xp_total_ate_aqui": 29824650
+  },
+  {
+   "nivel": 105,
+   "xp_para_proximo": 952900,
+   "xp_total_ate_aqui": 30742850
+  },
+  {
+   "nivel": 106,
+   "xp_para_proximo": 988300,
+   "xp_total_ate_aqui": 31695750
+  },
+  {
+   "nivel": 107,
+   "xp_para_proximo": 1024600,
+   "xp_total_ate_aqui": 32684050
+  },
+  {
+   "nivel": 108,
+   "xp_para_proximo": 1061700,
+   "xp_total_ate_aqui": 33708650
+  },
+  {
+   "nivel": 109,
+   "xp_para_proximo": 1099700,
+   "xp_total_ate_aqui": 34770350
+  },
+  {
+   "nivel": 110,
+   "xp_para_proximo": 1138500,
+   "xp_total_ate_aqui": 35870050
+  },
+  {
+   "nivel": 111,
+   "xp_para_proximo": 1178200,
+   "xp_total_ate_aqui": 37008550
+  },
+  {
+   "nivel": 112,
+   "xp_para_proximo": 1218700,
+   "xp_total_ate_aqui": 38186750
+  },
+  {
+   "nivel": 113,
+   "xp_para_proximo": 1260100,
+   "xp_total_ate_aqui": 39405450
+  },
+  {
+   "nivel": 114,
+   "xp_para_proximo": 1302300,
+   "xp_total_ate_aqui": 40665550
+  },
+  {
+   "nivel": 115,
+   "xp_para_proximo": 1345500,
+   "xp_total_ate_aqui": 41967850
+  },
+  {
+   "nivel": 116,
+   "xp_para_proximo": 1389600,
+   "xp_total_ate_aqui": 43313350
+  },
+  {
+   "nivel": 117,
+   "xp_para_proximo": 1434500,
+   "xp_total_ate_aqui": 44702950
+  },
+  {
+   "nivel": 118,
+   "xp_para_proximo": 1480400,
+   "xp_total_ate_aqui": 46137450
+  },
+  {
+   "nivel": 119,
+   "xp_para_proximo": 1527200,
+   "xp_total_ate_aqui": 47617850
+  },
+  {
+   "nivel": 120,
+   "xp_para_proximo": 1575000,
+   "xp_total_ate_aqui": 49145050
+  },
+  {
+   "nivel": 121,
+   "xp_para_proximo": 1623700,
+   "xp_total_ate_aqui": 50720050
+  },
+  {
+   "nivel": 122,
+   "xp_para_proximo": 1673400,
+   "xp_total_ate_aqui": 52343750
+  },
+  {
+   "nivel": 123,
+   "xp_para_proximo": 1724000,
+   "xp_total_ate_aqui": 54017150
+  },
+  {
+   "nivel": 124,
+   "xp_para_proximo": 1775600,
+   "xp_total_ate_aqui": 55741150
+  },
+  {
+   "nivel": 125,
+   "xp_para_proximo": 1828100,
+   "xp_total_ate_aqui": 57516750
+  },
+  {
+   "nivel": 126,
+   "xp_para_proximo": 1881700,
+   "xp_total_ate_aqui": 59344850
+  },
+  {
+   "nivel": 127,
+   "xp_para_proximo": 1936200,
+   "xp_total_ate_aqui": 61226550
+  },
+  {
+   "nivel": 128,
+   "xp_para_proximo": 1991800,
+   "xp_total_ate_aqui": 63162750
+  },
+  {
+   "nivel": 129,
+   "xp_para_proximo": 2048400,
+   "xp_total_ate_aqui": 65154550
+  },
+  {
+   "nivel": 130,
+   "xp_para_proximo": 2106000,
+   "xp_total_ate_aqui": 67202950
+  },
+  {
+   "nivel": 131,
+   "xp_para_proximo": 2164600,
+   "xp_total_ate_aqui": 69308950
+  },
+  {
+   "nivel": 132,
+   "xp_para_proximo": 2224300,
+   "xp_total_ate_aqui": 71473550
+  },
+  {
+   "nivel": 133,
+   "xp_para_proximo": 2285100,
+   "xp_total_ate_aqui": 73697850
+  },
+  {
+   "nivel": 134,
+   "xp_para_proximo": 2346900,
+   "xp_total_ate_aqui": 75982950
+  },
+  {
+   "nivel": 135,
+   "xp_para_proximo": 2409800,
+   "xp_total_ate_aqui": 78329850
+  },
+  {
+   "nivel": 136,
+   "xp_para_proximo": 2473700,
+   "xp_total_ate_aqui": 80739650
+  },
+  {
+   "nivel": 137,
+   "xp_para_proximo": 2538700,
+   "xp_total_ate_aqui": 83213350
+  },
+  {
+   "nivel": 138,
+   "xp_para_proximo": 2604900,
+   "xp_total_ate_aqui": 85752050
+  },
+  {
+   "nivel": 139,
+   "xp_para_proximo": 2672100,
+   "xp_total_ate_aqui": 88356950
+  },
+  {
+   "nivel": 140,
+   "xp_para_proximo": 2740500,
+   "xp_total_ate_aqui": 91029050
+  },
+  {
+   "nivel": 141,
+   "xp_para_proximo": 2810000,
+   "xp_total_ate_aqui": 93769550
+  },
+  {
+   "nivel": 142,
+   "xp_para_proximo": 2880600,
+   "xp_total_ate_aqui": 96579550
+  },
+  {
+   "nivel": 143,
+   "xp_para_proximo": 2952400,
+   "xp_total_ate_aqui": 99460150
+  },
+  {
+   "nivel": 144,
+   "xp_para_proximo": 3025300,
+   "xp_total_ate_aqui": 102412550
+  },
+  {
+   "nivel": 145,
+   "xp_para_proximo": 3099400,
+   "xp_total_ate_aqui": 105437850
+  },
+  {
+   "nivel": 146,
+   "xp_para_proximo": 3174600,
+   "xp_total_ate_aqui": 108537250
+  },
+  {
+   "nivel": 147,
+   "xp_para_proximo": 3251100,
+   "xp_total_ate_aqui": 111711850
+  },
+  {
+   "nivel": 148,
+   "xp_para_proximo": 3328700,
+   "xp_total_ate_aqui": 114962950
+  },
+  {
+   "nivel": 149,
+   "xp_para_proximo": 3407500,
+   "xp_total_ate_aqui": 118291650
+  },
+  {
+   "nivel": 150,
+   "xp_para_proximo": 3487500,
+   "xp_total_ate_aqui": 121699150
+  },
+  {
+   "nivel": 151,
+   "xp_para_proximo": 3568700,
+   "xp_total_ate_aqui": 125186650
+  },
+  {
+   "nivel": 152,
+   "xp_para_proximo": 3651200,
+   "xp_total_ate_aqui": 128755350
+  },
+  {
+   "nivel": 153,
+   "xp_para_proximo": 3734900,
+   "xp_total_ate_aqui": 132406550
+  },
+  {
+   "nivel": 154,
+   "xp_para_proximo": 3819800,
+   "xp_total_ate_aqui": 136141450
+  },
+  {
+   "nivel": 155,
+   "xp_para_proximo": 3906000,
+   "xp_total_ate_aqui": 139961250
+  },
+  {
+   "nivel": 156,
+   "xp_para_proximo": 3993400,
+   "xp_total_ate_aqui": 143867250
+  },
+  {
+   "nivel": 157,
+   "xp_para_proximo": 4082200,
+   "xp_total_ate_aqui": 147860650
+  },
+  {
+   "nivel": 158,
+   "xp_para_proximo": 4172100,
+   "xp_total_ate_aqui": 151942850
+  },
+  {
+   "nivel": 159,
+   "xp_para_proximo": 4263400,
+   "xp_total_ate_aqui": 156114950
+  },
+  {
+   "nivel": 160,
+   "xp_para_proximo": 4356000,
+   "xp_total_ate_aqui": 160378350
+  },
+  {
+   "nivel": 161,
+   "xp_para_proximo": 4449900,
+   "xp_total_ate_aqui": 164734350
+  },
+  {
+   "nivel": 162,
+   "xp_para_proximo": 4545100,
+   "xp_total_ate_aqui": 169184250
+  },
+  {
+   "nivel": 163,
+   "xp_para_proximo": 4641600,
+   "xp_total_ate_aqui": 173729350
+  },
+  {
+   "nivel": 164,
+   "xp_para_proximo": 4739400,
+   "xp_total_ate_aqui": 178370950
+  },
+  {
+   "nivel": 165,
+   "xp_para_proximo": 4838600,
+   "xp_total_ate_aqui": 183110350
+  },
+  {
+   "nivel": 166,
+   "xp_para_proximo": 4939200,
+   "xp_total_ate_aqui": 187948950
+  },
+  {
+   "nivel": 167,
+   "xp_para_proximo": 5041100,
+   "xp_total_ate_aqui": 192888150
+  },
+  {
+   "nivel": 168,
+   "xp_para_proximo": 5144300,
+   "xp_total_ate_aqui": 197929250
+  },
+  {
+   "nivel": 169,
+   "xp_para_proximo": 5249000,
+   "xp_total_ate_aqui": 203073550
+  },
+  {
+   "nivel": 170,
+   "xp_para_proximo": 5355000,
+   "xp_total_ate_aqui": 208322550
+  },
+  {
+   "nivel": 171,
+   "xp_para_proximo": 5462400,
+   "xp_total_ate_aqui": 213677550
+  },
+  {
+   "nivel": 172,
+   "xp_para_proximo": 5571300,
+   "xp_total_ate_aqui": 219139950
+  },
+  {
+   "nivel": 173,
+   "xp_para_proximo": 5681500,
+   "xp_total_ate_aqui": 224711250
+  },
+  {
+   "nivel": 174,
+   "xp_para_proximo": 5793200,
+   "xp_total_ate_aqui": 230392750
+  },
+  {
+   "nivel": 175,
+   "xp_para_proximo": 5906200,
+   "xp_total_ate_aqui": 236185950
+  },
+  {
+   "nivel": 176,
+   "xp_para_proximo": 6020800,
+   "xp_total_ate_aqui": 242092150
+  },
+  {
+   "nivel": 177,
+   "xp_para_proximo": 6136800,
+   "xp_total_ate_aqui": 248112950
+  },
+  {
+   "nivel": 178,
+   "xp_para_proximo": 6254200,
+   "xp_total_ate_aqui": 254249750
+  },
+  {
+   "nivel": 179,
+   "xp_para_proximo": 6373100,
+   "xp_total_ate_aqui": 260503950
+  },
+  {
+   "nivel": 180,
+   "xp_para_proximo": 6493500,
+   "xp_total_ate_aqui": 266877050
+  },
+  {
+   "nivel": 181,
+   "xp_para_proximo": 6615400,
+   "xp_total_ate_aqui": 273370550
+  },
+  {
+   "nivel": 182,
+   "xp_para_proximo": 6738700,
+   "xp_total_ate_aqui": 279985950
+  },
+  {
+   "nivel": 183,
+   "xp_para_proximo": 6863600,
+   "xp_total_ate_aqui": 286724650
+  },
+  {
+   "nivel": 184,
+   "xp_para_proximo": 6990000,
+   "xp_total_ate_aqui": 293588250
+  },
+  {
+   "nivel": 185,
+   "xp_para_proximo": 7117900,
+   "xp_total_ate_aqui": 300578250
+  },
+  {
+   "nivel": 186,
+   "xp_para_proximo": 7247300,
+   "xp_total_ate_aqui": 307696150
+  },
+  {
+   "nivel": 187,
+   "xp_para_proximo": 7378300,
+   "xp_total_ate_aqui": 314943450
+  },
+  {
+   "nivel": 188,
+   "xp_para_proximo": 7510800,
+   "xp_total_ate_aqui": 322321750
+  },
+  {
+   "nivel": 189,
+   "xp_para_proximo": 7644900,
+   "xp_total_ate_aqui": 329832550
+  },
+  {
+   "nivel": 190,
+   "xp_para_proximo": 7780500,
+   "xp_total_ate_aqui": 337477450
+  },
+  {
+   "nivel": 191,
+   "xp_para_proximo": 7917700,
+   "xp_total_ate_aqui": 345257950
+  },
+  {
+   "nivel": 192,
+   "xp_para_proximo": 8056500,
+   "xp_total_ate_aqui": 353175650
+  },
+  {
+   "nivel": 193,
+   "xp_para_proximo": 8196900,
+   "xp_total_ate_aqui": 361232150
+  },
+  {
+   "nivel": 194,
+   "xp_para_proximo": 8338900,
+   "xp_total_ate_aqui": 369429050
+  },
+  {
+   "nivel": 195,
+   "xp_para_proximo": 8482500,
+   "xp_total_ate_aqui": 377767950
+  },
+  {
+   "nivel": 196,
+   "xp_para_proximo": 8627700,
+   "xp_total_ate_aqui": 386250450
+  },
+  {
+   "nivel": 197,
+   "xp_para_proximo": 8774600,
+   "xp_total_ate_aqui": 394878150
+  },
+  {
+   "nivel": 198,
+   "xp_para_proximo": 8923100,
+   "xp_total_ate_aqui": 403652750
+  },
+  {
+   "nivel": 199,
+   "xp_para_proximo": 9073200,
+   "xp_total_ate_aqui": 412575850
+  },
+  {
+   "nivel": 200,
+   "xp_para_proximo": 9225000,
+   "xp_total_ate_aqui": 421649050
+  },
+  {
+   "nivel": 201,
+   "xp_para_proximo": 9378500,
+   "xp_total_ate_aqui": 430874050
+  },
+  {
+   "nivel": 202,
+   "xp_para_proximo": 9533600,
+   "xp_total_ate_aqui": 440252550
+  },
+  {
+   "nivel": 203,
+   "xp_para_proximo": 9690400,
+   "xp_total_ate_aqui": 449786150
+  },
+  {
+   "nivel": 204,
+   "xp_para_proximo": 9848900,
+   "xp_total_ate_aqui": 459476550
+  },
+  {
+   "nivel": 205,
+   "xp_para_proximo": 10009100,
+   "xp_total_ate_aqui": 469325450
+  },
+  {
+   "nivel": 206,
+   "xp_para_proximo": 10171000,
+   "xp_total_ate_aqui": 479334550
+  },
+  {
+   "nivel": 207,
+   "xp_para_proximo": 10334700,
+   "xp_total_ate_aqui": 489505550
+  },
+  {
+   "nivel": 208,
+   "xp_para_proximo": 10500000,
+   "xp_total_ate_aqui": 499840250
+  },
+  {
+   "nivel": 209,
+   "xp_para_proximo": 10667200,
+   "xp_total_ate_aqui": 510340250
+  },
+  {
+   "nivel": 210,
+   "xp_para_proximo": 10836000,
+   "xp_total_ate_aqui": 521007450
+  },
+  {
+   "nivel": 211,
+   "xp_para_proximo": 11006600,
+   "xp_total_ate_aqui": 531843450
+  },
+  {
+   "nivel": 212,
+   "xp_para_proximo": 11179000,
+   "xp_total_ate_aqui": 542850050
+  },
+  {
+   "nivel": 213,
+   "xp_para_proximo": 11353100,
+   "xp_total_ate_aqui": 554029050
+  },
+  {
+   "nivel": 214,
+   "xp_para_proximo": 11529000,
+   "xp_total_ate_aqui": 565382150
+  },
+  {
+   "nivel": 215,
+   "xp_para_proximo": 11706800,
+   "xp_total_ate_aqui": 576911150
+  },
+  {
+   "nivel": 216,
+   "xp_para_proximo": 11886300,
+   "xp_total_ate_aqui": 588617950
+  },
+  {
+   "nivel": 217,
+   "xp_para_proximo": 12067600,
+   "xp_total_ate_aqui": 600504250
+  },
+  {
+   "nivel": 218,
+   "xp_para_proximo": 12250700,
+   "xp_total_ate_aqui": 612571850
+  },
+  {
+   "nivel": 219,
+   "xp_para_proximo": 12435700,
+   "xp_total_ate_aqui": 624822550
+  },
+  {
+   "nivel": 220,
+   "xp_para_proximo": 12622500,
+   "xp_total_ate_aqui": 637258250
+  },
+  {
+   "nivel": 221,
+   "xp_para_proximo": 12811100,
+   "xp_total_ate_aqui": 649880750
+  },
+  {
+   "nivel": 222,
+   "xp_para_proximo": 13001700,
+   "xp_total_ate_aqui": 662691850
+  },
+  {
+   "nivel": 223,
+   "xp_para_proximo": 13194000,
+   "xp_total_ate_aqui": 675693550
+  },
+  {
+   "nivel": 224,
+   "xp_para_proximo": 13388300,
+   "xp_total_ate_aqui": 688887550
+  },
+  {
+   "nivel": 225,
+   "xp_para_proximo": 13584400,
+   "xp_total_ate_aqui": 702275850
+  },
+  {
+   "nivel": 226,
+   "xp_para_proximo": 13782400,
+   "xp_total_ate_aqui": 715860250
+  },
+  {
+   "nivel": 227,
+   "xp_para_proximo": 13982300,
+   "xp_total_ate_aqui": 729642650
+  },
+  {
+   "nivel": 228,
+   "xp_para_proximo": 14184100,
+   "xp_total_ate_aqui": 743624950
+  },
+  {
+   "nivel": 229,
+   "xp_para_proximo": 14387800,
+   "xp_total_ate_aqui": 757809050
+  },
+  {
+   "nivel": 230,
+   "xp_para_proximo": 14593500,
+   "xp_total_ate_aqui": 772196850
+  },
+  {
+   "nivel": 231,
+   "xp_para_proximo": 14801100,
+   "xp_total_ate_aqui": 786790350
+  },
+  {
+   "nivel": 232,
+   "xp_para_proximo": 15010600,
+   "xp_total_ate_aqui": 801591450
+  },
+  {
+   "nivel": 233,
+   "xp_para_proximo": 15222100,
+   "xp_total_ate_aqui": 816602050
+  },
+  {
+   "nivel": 234,
+   "xp_para_proximo": 15435600,
+   "xp_total_ate_aqui": 831824150
+  },
+  {
+   "nivel": 235,
+   "xp_para_proximo": 15651000,
+   "xp_total_ate_aqui": 847259750
+  },
+  {
+   "nivel": 236,
+   "xp_para_proximo": 15868400,
+   "xp_total_ate_aqui": 862910750
+  },
+  {
+   "nivel": 237,
+   "xp_para_proximo": 16087800,
+   "xp_total_ate_aqui": 878779150
+  },
+  {
+   "nivel": 238,
+   "xp_para_proximo": 16309200,
+   "xp_total_ate_aqui": 894866950
+  },
+  {
+   "nivel": 239,
+   "xp_para_proximo": 16532600,
+   "xp_total_ate_aqui": 911176150
+  },
+  {
+   "nivel": 240,
+   "xp_para_proximo": 16758000,
+   "xp_total_ate_aqui": 927708750
+  },
+  {
+   "nivel": 241,
+   "xp_para_proximo": 16985400,
+   "xp_total_ate_aqui": 944466750
+  },
+  {
+   "nivel": 242,
+   "xp_para_proximo": 17214900,
+   "xp_total_ate_aqui": 961452150
+  },
+  {
+   "nivel": 243,
+   "xp_para_proximo": 17446400,
+   "xp_total_ate_aqui": 978667050
+  },
+  {
+   "nivel": 244,
+   "xp_para_proximo": 17680000,
+   "xp_total_ate_aqui": 996113450
+  },
+  {
+   "nivel": 245,
+   "xp_para_proximo": 17915600,
+   "xp_total_ate_aqui": 1013793450
+  },
+  {
+   "nivel": 246,
+   "xp_para_proximo": 18153300,
+   "xp_total_ate_aqui": 1031709050
+  },
+  {
+   "nivel": 247,
+   "xp_para_proximo": 18393100,
+   "xp_total_ate_aqui": 1049862350
+  },
+  {
+   "nivel": 248,
+   "xp_para_proximo": 18635000,
+   "xp_total_ate_aqui": 1068255450
+  },
+  {
+   "nivel": 249,
+   "xp_para_proximo": 18878900,
+   "xp_total_ate_aqui": 1086890450
+  },
+  {
+   "nivel": 250,
+   "xp_para_proximo": 19125000,
+   "xp_total_ate_aqui": 1105769350
+  },
+  {
+   "nivel": 251,
+   "xp_para_proximo": 19373200,
+   "xp_total_ate_aqui": 1124894350
+  },
+  {
+   "nivel": 252,
+   "xp_para_proximo": 19623500,
+   "xp_total_ate_aqui": 1144267550
+  },
+  {
+   "nivel": 253,
+   "xp_para_proximo": 19875900,
+   "xp_total_ate_aqui": 1163891050
+  },
+  {
+   "nivel": 254,
+   "xp_para_proximo": 20130500,
+   "xp_total_ate_aqui": 1183766950
+  },
+  {
+   "nivel": 255,
+   "xp_para_proximo": 20387200,
+   "xp_total_ate_aqui": 1203897450
+  },
+  {
+   "nivel": 256,
+   "xp_para_proximo": 20646100,
+   "xp_total_ate_aqui": 1224284650
+  },
+  {
+   "nivel": 257,
+   "xp_para_proximo": 20907200,
+   "xp_total_ate_aqui": 1244930750
+  },
+  {
+   "nivel": 258,
+   "xp_para_proximo": 21170400,
+   "xp_total_ate_aqui": 1265837950
+  },
+  {
+   "nivel": 259,
+   "xp_para_proximo": 21435900,
+   "xp_total_ate_aqui": 1287008350
+  },
+  {
+   "nivel": 260,
+   "xp_para_proximo": 21703500,
+   "xp_total_ate_aqui": 1308444250
+  },
+  {
+   "nivel": 261,
+   "xp_para_proximo": 21973300,
+   "xp_total_ate_aqui": 1330147750
+  },
+  {
+   "nivel": 262,
+   "xp_para_proximo": 22245400,
+   "xp_total_ate_aqui": 1352121050
+  },
+  {
+   "nivel": 263,
+   "xp_para_proximo": 22519600,
+   "xp_total_ate_aqui": 1374366450
+  },
+  {
+   "nivel": 264,
+   "xp_para_proximo": 22796100,
+   "xp_total_ate_aqui": 1396886050
+  },
+  {
+   "nivel": 265,
+   "xp_para_proximo": 23074900,
+   "xp_total_ate_aqui": 1419682150
+  },
+  {
+   "nivel": 266,
+   "xp_para_proximo": 23355900,
+   "xp_total_ate_aqui": 1442757050
+  },
+  {
+   "nivel": 267,
+   "xp_para_proximo": 23639100,
+   "xp_total_ate_aqui": 1466112950
+  },
+  {
+   "nivel": 268,
+   "xp_para_proximo": 23924600,
+   "xp_total_ate_aqui": 1489752050
+  },
+  {
+   "nivel": 269,
+   "xp_para_proximo": 24212400,
+   "xp_total_ate_aqui": 1513676650
+  },
+  {
+   "nivel": 270,
+   "xp_para_proximo": 24502500,
+   "xp_total_ate_aqui": 1537889050
+  },
+  {
+   "nivel": 271,
+   "xp_para_proximo": 24794900,
+   "xp_total_ate_aqui": 1562391550
+  },
+  {
+   "nivel": 272,
+   "xp_para_proximo": 25089600,
+   "xp_total_ate_aqui": 1587186450
+  },
+  {
+   "nivel": 273,
+   "xp_para_proximo": 25386500,
+   "xp_total_ate_aqui": 1612276050
+  },
+  {
+   "nivel": 274,
+   "xp_para_proximo": 25685900,
+   "xp_total_ate_aqui": 1637662550
+  },
+  {
+   "nivel": 275,
+   "xp_para_proximo": 25987500,
+   "xp_total_ate_aqui": 1663348450
+  },
+  {
+   "nivel": 276,
+   "xp_para_proximo": 26291500,
+   "xp_total_ate_aqui": 1689335950
+  },
+  {
+   "nivel": 277,
+   "xp_para_proximo": 26597800,
+   "xp_total_ate_aqui": 1715627450
+  },
+  {
+   "nivel": 278,
+   "xp_para_proximo": 26906500,
+   "xp_total_ate_aqui": 1742225250
+  },
+  {
+   "nivel": 279,
+   "xp_para_proximo": 27217600,
+   "xp_total_ate_aqui": 1769131750
+  },
+  {
+   "nivel": 280,
+   "xp_para_proximo": 27531000,
+   "xp_total_ate_aqui": 1796349350
+  },
+  {
+   "nivel": 281,
+   "xp_para_proximo": 27846800,
+   "xp_total_ate_aqui": 1823880350
+  },
+  {
+   "nivel": 282,
+   "xp_para_proximo": 28165000,
+   "xp_total_ate_aqui": 1851727150
+  },
+  {
+   "nivel": 283,
+   "xp_para_proximo": 28485600,
+   "xp_total_ate_aqui": 1879892150
+  },
+  {
+   "nivel": 284,
+   "xp_para_proximo": 28808700,
+   "xp_total_ate_aqui": 1908377750
+  },
+  {
+   "nivel": 285,
+   "xp_para_proximo": 29134100,
+   "xp_total_ate_aqui": 1937186450
+  },
+  {
+   "nivel": 286,
+   "xp_para_proximo": 29462000,
+   "xp_total_ate_aqui": 1966320550
+  },
+  {
+   "nivel": 287,
+   "xp_para_proximo": 29792300,
+   "xp_total_ate_aqui": 1995782550
+  },
+  {
+   "nivel": 288,
+   "xp_para_proximo": 30125100,
+   "xp_total_ate_aqui": 2025574850
+  },
+  {
+   "nivel": 289,
+   "xp_para_proximo": 30460300,
+   "xp_total_ate_aqui": 2055699950
+  },
+  {
+   "nivel": 290,
+   "xp_para_proximo": 30798000,
+   "xp_total_ate_aqui": 2086160250
+  },
+  {
+   "nivel": 291,
+   "xp_para_proximo": 31138200,
+   "xp_total_ate_aqui": 2116958250
+  },
+  {
+   "nivel": 292,
+   "xp_para_proximo": 31480800,
+   "xp_total_ate_aqui": 2148096450
+  },
+  {
+   "nivel": 293,
+   "xp_para_proximo": 31826000,
+   "xp_total_ate_aqui": 2179577250
+  },
+  {
+   "nivel": 294,
+   "xp_para_proximo": 32173600,
+   "xp_total_ate_aqui": 2211403250
+  },
+  {
+   "nivel": 295,
+   "xp_para_proximo": 32523800,
+   "xp_total_ate_aqui": 2243576850
+  },
+  {
+   "nivel": 296,
+   "xp_para_proximo": 32876400,
+   "xp_total_ate_aqui": 2276100650
+  },
+  {
+   "nivel": 297,
+   "xp_para_proximo": 33231600,
+   "xp_total_ate_aqui": 2308977050
+  },
+  {
+   "nivel": 298,
+   "xp_para_proximo": 33589400,
+   "xp_total_ate_aqui": 2342208650
+  },
+  {
+   "nivel": 299,
+   "xp_para_proximo": 33949700,
+   "xp_total_ate_aqui": 2375798050
+  },
+  {
+   "nivel": 300,
+   "xp_para_proximo": 34312500,
+   "xp_total_ate_aqui": 2409747750
+  },
+  {
+   "nivel": 301,
+   "xp_para_proximo": 34677900,
+   "xp_total_ate_aqui": 2444060250
+  },
+  {
+   "nivel": 302,
+   "xp_para_proximo": 35045900,
+   "xp_total_ate_aqui": 2478738150
+  },
+  {
+   "nivel": 303,
+   "xp_para_proximo": 35416500,
+   "xp_total_ate_aqui": 2513784050
+  },
+  {
+   "nivel": 304,
+   "xp_para_proximo": 35789600,
+   "xp_total_ate_aqui": 2549200550
+  },
+  {
+   "nivel": 305,
+   "xp_para_proximo": 36165400,
+   "xp_total_ate_aqui": 2584990150
+  },
+  {
+   "nivel": 306,
+   "xp_para_proximo": 36543700,
+   "xp_total_ate_aqui": 2621155550
+  },
+  {
+   "nivel": 307,
+   "xp_para_proximo": 36924700,
+   "xp_total_ate_aqui": 2657699250
+  },
+  {
+   "nivel": 308,
+   "xp_para_proximo": 37308300,
+   "xp_total_ate_aqui": 2694623950
+  },
+  {
+   "nivel": 309,
+   "xp_para_proximo": 37694600,
+   "xp_total_ate_aqui": 2731932250
+  },
+  {
+   "nivel": 310,
+   "xp_para_proximo": 38083500,
+   "xp_total_ate_aqui": 2769626850
+  },
+  {
+   "nivel": 311,
+   "xp_para_proximo": 38475100,
+   "xp_total_ate_aqui": 2807710350
+  },
+  {
+   "nivel": 312,
+   "xp_para_proximo": 38869300,
+   "xp_total_ate_aqui": 2846185450
+  },
+  {
+   "nivel": 313,
+   "xp_para_proximo": 39266200,
+   "xp_total_ate_aqui": 2885054750
+  },
+  {
+   "nivel": 314,
+   "xp_para_proximo": 39665700,
+   "xp_total_ate_aqui": 2924320950
+  },
+  {
+   "nivel": 315,
+   "xp_para_proximo": 40068000,
+   "xp_total_ate_aqui": 2963986650
+  },
+  {
+   "nivel": 316,
+   "xp_para_proximo": 40473000,
+   "xp_total_ate_aqui": 3004054650
+  },
+  {
+   "nivel": 317,
+   "xp_para_proximo": 40880600,
+   "xp_total_ate_aqui": 3044527650
+  },
+  {
+   "nivel": 318,
+   "xp_para_proximo": 41291000,
+   "xp_total_ate_aqui": 3085408250
+  },
+  {
+   "nivel": 319,
+   "xp_para_proximo": 41704100,
+   "xp_total_ate_aqui": 3126699250
+  },
+  {
+   "nivel": 320,
+   "xp_para_proximo": 42120000,
+   "xp_total_ate_aqui": 3168403350
+  },
+  {
+   "nivel": 321,
+   "xp_para_proximo": 42538600,
+   "xp_total_ate_aqui": 3210523350
+  },
+  {
+   "nivel": 322,
+   "xp_para_proximo": 42960000,
+   "xp_total_ate_aqui": 3253061950
+  },
+  {
+   "nivel": 323,
+   "xp_para_proximo": 43384100,
+   "xp_total_ate_aqui": 3296021950
+  },
+  {
+   "nivel": 324,
+   "xp_para_proximo": 43811000,
+   "xp_total_ate_aqui": 3339406050
+  },
+  {
+   "nivel": 325,
+   "xp_para_proximo": 44240600,
+   "xp_total_ate_aqui": 3383217050
+  },
+  {
+   "nivel": 326,
+   "xp_para_proximo": 44673100,
+   "xp_total_ate_aqui": 3427457650
+  },
+  {
+   "nivel": 327,
+   "xp_para_proximo": 45108300,
+   "xp_total_ate_aqui": 3472130750
+  },
+  {
+   "nivel": 328,
+   "xp_para_proximo": 45546400,
+   "xp_total_ate_aqui": 3517239050
+  },
+  {
+   "nivel": 329,
+   "xp_para_proximo": 45987300,
+   "xp_total_ate_aqui": 3562785450
+  },
+  {
+   "nivel": 330,
+   "xp_para_proximo": 46431000,
+   "xp_total_ate_aqui": 3608772750
+  },
+  {
+   "nivel": 331,
+   "xp_para_proximo": 46877500,
+   "xp_total_ate_aqui": 3655203750
+  },
+  {
+   "nivel": 332,
+   "xp_para_proximo": 47326900,
+   "xp_total_ate_aqui": 3702081250
+  },
+  {
+   "nivel": 333,
+   "xp_para_proximo": 47779200,
+   "xp_total_ate_aqui": 3749408150
+  },
+  {
+   "nivel": 334,
+   "xp_para_proximo": 48234300,
+   "xp_total_ate_aqui": 3797187350
+  },
+  {
+   "nivel": 335,
+   "xp_para_proximo": 48692200,
+   "xp_total_ate_aqui": 3845421650
+  },
+  {
+   "nivel": 336,
+   "xp_para_proximo": 49153100,
+   "xp_total_ate_aqui": 3894113850
+  },
+  {
+   "nivel": 337,
+   "xp_para_proximo": 49616800,
+   "xp_total_ate_aqui": 3943266950
+  },
+  {
+   "nivel": 338,
+   "xp_para_proximo": 50083500,
+   "xp_total_ate_aqui": 3992883750
+  },
+  {
+   "nivel": 339,
+   "xp_para_proximo": 50553000,
+   "xp_total_ate_aqui": 4042967250
+  },
+  {
+   "nivel": 340,
+   "xp_para_proximo": 51025500,
+   "xp_total_ate_aqui": 4093520250
+  },
+  {
+   "nivel": 341,
+   "xp_para_proximo": 51500900,
+   "xp_total_ate_aqui": 4144545750
+  },
+  {
+   "nivel": 342,
+   "xp_para_proximo": 51979200,
+   "xp_total_ate_aqui": 4196046650
+  },
+  {
+   "nivel": 343,
+   "xp_para_proximo": 52460500,
+   "xp_total_ate_aqui": 4248025850
+  },
+  {
+   "nivel": 344,
+   "xp_para_proximo": 52944700,
+   "xp_total_ate_aqui": 4300486350
+  },
+  {
+   "nivel": 345,
+   "xp_para_proximo": 53431900,
+   "xp_total_ate_aqui": 4353431050
+  },
+  {
+   "nivel": 346,
+   "xp_para_proximo": 53922000,
+   "xp_total_ate_aqui": 4406862950
+  },
+  {
+   "nivel": 347,
+   "xp_para_proximo": 54415200,
+   "xp_total_ate_aqui": 4460784950
+  },
+  {
+   "nivel": 348,
+   "xp_para_proximo": 54911300,
+   "xp_total_ate_aqui": 4515200150
+  },
+  {
+   "nivel": 349,
+   "xp_para_proximo": 55410400,
+   "xp_total_ate_aqui": 4570111450
+  },
+  {
+   "nivel": 350,
+   "xp_para_proximo": 55912500,
+   "xp_total_ate_aqui": 4625521850
+  },
+  {
+   "nivel": 351,
+   "xp_para_proximo": 56417600,
+   "xp_total_ate_aqui": 4681434350
+  },
+  {
+   "nivel": 352,
+   "xp_para_proximo": 56925800,
+   "xp_total_ate_aqui": 4737851950
+  },
+  {
+   "nivel": 353,
+   "xp_para_proximo": 57437000,
+   "xp_total_ate_aqui": 4794777750
+  },
+  {
+   "nivel": 354,
+   "xp_para_proximo": 57951200,
+   "xp_total_ate_aqui": 4852214750
+  },
+  {
+   "nivel": 355,
+   "xp_para_proximo": 58468500,
+   "xp_total_ate_aqui": 4910165950
+  },
+  {
+   "nivel": 356,
+   "xp_para_proximo": 58988800,
+   "xp_total_ate_aqui": 4968634450
+  },
+  {
+   "nivel": 357,
+   "xp_para_proximo": 59512300,
+   "xp_total_ate_aqui": 5027623250
+  },
+  {
+   "nivel": 358,
+   "xp_para_proximo": 60038700,
+   "xp_total_ate_aqui": 5087135550
+  },
+  {
+   "nivel": 359,
+   "xp_para_proximo": 60568300,
+   "xp_total_ate_aqui": 5147174250
+  },
+  {
+   "nivel": 360,
+   "xp_para_proximo": 61101000,
+   "xp_total_ate_aqui": 5207742550
+  },
+  {
+   "nivel": 361,
+   "xp_para_proximo": 61636800,
+   "xp_total_ate_aqui": 5268843550
+  },
+  {
+   "nivel": 362,
+   "xp_para_proximo": 62175700,
+   "xp_total_ate_aqui": 5330480350
+  },
+  {
+   "nivel": 363,
+   "xp_para_proximo": 62717700,
+   "xp_total_ate_aqui": 5392656050
+  },
+  {
+   "nivel": 364,
+   "xp_para_proximo": 63262800,
+   "xp_total_ate_aqui": 5455373750
+  },
+  {
+   "nivel": 365,
+   "xp_para_proximo": 63811100,
+   "xp_total_ate_aqui": 5518636550
+  },
+  {
+   "nivel": 366,
+   "xp_para_proximo": 64362600,
+   "xp_total_ate_aqui": 5582447650
+  },
+  {
+   "nivel": 367,
+   "xp_para_proximo": 64917200,
+   "xp_total_ate_aqui": 5646810250
+  },
+  {
+   "nivel": 368,
+   "xp_para_proximo": 65474900,
+   "xp_total_ate_aqui": 5711727450
+  },
+  {
+   "nivel": 369,
+   "xp_para_proximo": 66035900,
+   "xp_total_ate_aqui": 5777202350
+  },
+  {
+   "nivel": 370,
+   "xp_para_proximo": 66600000,
+   "xp_total_ate_aqui": 5843238250
+  },
+  {
+   "nivel": 371,
+   "xp_para_proximo": 67167300,
+   "xp_total_ate_aqui": 5909838250
+  },
+  {
+   "nivel": 372,
+   "xp_para_proximo": 67737900,
+   "xp_total_ate_aqui": 5977005550
+  },
+  {
+   "nivel": 373,
+   "xp_para_proximo": 68311600,
+   "xp_total_ate_aqui": 6044743450
+  },
+  {
+   "nivel": 374,
+   "xp_para_proximo": 68888600,
+   "xp_total_ate_aqui": 6113055050
+  },
+  {
+   "nivel": 375,
+   "xp_para_proximo": 69468800,
+   "xp_total_ate_aqui": 6181943650
+  },
+  {
+   "nivel": 376,
+   "xp_para_proximo": 70052200,
+   "xp_total_ate_aqui": 6251412450
+  },
+  {
+   "nivel": 377,
+   "xp_para_proximo": 70638900,
+   "xp_total_ate_aqui": 6321464650
+  },
+  {
+   "nivel": 378,
+   "xp_para_proximo": 71228800,
+   "xp_total_ate_aqui": 6392103550
+  },
+  {
+   "nivel": 379,
+   "xp_para_proximo": 71822000,
+   "xp_total_ate_aqui": 6463332350
+  },
+  {
+   "nivel": 380,
+   "xp_para_proximo": 72418500,
+   "xp_total_ate_aqui": 6535154350
+  },
+  {
+   "nivel": 381,
+   "xp_para_proximo": 73018300,
+   "xp_total_ate_aqui": 6607572850
+  },
+  {
+   "nivel": 382,
+   "xp_para_proximo": 73621300,
+   "xp_total_ate_aqui": 6680591150
+  },
+  {
+   "nivel": 383,
+   "xp_para_proximo": 74227700,
+   "xp_total_ate_aqui": 6754212450
+  },
+  {
+   "nivel": 384,
+   "xp_para_proximo": 74837400,
+   "xp_total_ate_aqui": 6828440150
+  },
+  {
+   "nivel": 385,
+   "xp_para_proximo": 75450400,
+   "xp_total_ate_aqui": 6903277550
+  },
+  {
+   "nivel": 386,
+   "xp_para_proximo": 76066700,
+   "xp_total_ate_aqui": 6978727950
+  },
+  {
+   "nivel": 387,
+   "xp_para_proximo": 76686400,
+   "xp_total_ate_aqui": 7054794650
+  },
+  {
+   "nivel": 388,
+   "xp_para_proximo": 77309400,
+   "xp_total_ate_aqui": 7131481050
+  },
+  {
+   "nivel": 389,
+   "xp_para_proximo": 77935800,
+   "xp_total_ate_aqui": 7208790450
+  },
+  {
+   "nivel": 390,
+   "xp_para_proximo": 78565500,
+   "xp_total_ate_aqui": 7286726250
+  },
+  {
+   "nivel": 391,
+   "xp_para_proximo": 79198600,
+   "xp_total_ate_aqui": 7365291750
+  },
+  {
+   "nivel": 392,
+   "xp_para_proximo": 79835100,
+   "xp_total_ate_aqui": 7444490350
+  },
+  {
+   "nivel": 393,
+   "xp_para_proximo": 80475000,
+   "xp_total_ate_aqui": 7524325450
+  },
+  {
+   "nivel": 394,
+   "xp_para_proximo": 81118300,
+   "xp_total_ate_aqui": 7604800450
+  },
+  {
+   "nivel": 395,
+   "xp_para_proximo": 81765000,
+   "xp_total_ate_aqui": 7685918750
+  },
+  {
+   "nivel": 396,
+   "xp_para_proximo": 82415100,
+   "xp_total_ate_aqui": 7767683750
+  },
+  {
+   "nivel": 397,
+   "xp_para_proximo": 83068700,
+   "xp_total_ate_aqui": 7850098850
+  },
+  {
+   "nivel": 398,
+   "xp_para_proximo": 83725700,
+   "xp_total_ate_aqui": 7933167550
+  },
+  {
+   "nivel": 399,
+   "xp_para_proximo": 84386100,
+   "xp_total_ate_aqui": 8016893250
+  }
+ ]
+}

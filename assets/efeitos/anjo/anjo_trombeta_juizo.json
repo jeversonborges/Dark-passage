@@ -1,0 +1,21 @@
+{
+ "name": "anjo_trombeta_juizo",
+ "cat": "anjo",
+ "frames": 26,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  96,
+  176
+ ],
+ "layer": "frente",
+ "desc": "Trombeta do Juízo (suprema): halo gigante no céu, lanças de luz caem e o círculo do juízo protege os aliados.",
+ "char": null,
+ "title": "Trombeta do Juízo (suprema)",
+ "resumo": "Halo gigante no céu, lanças de luz caem e o círculo do juízo protege os aliados.",
+ "frame_w": 192,
+ "frame_h": 208,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "anjo_trombeta_juizo.png"
+}

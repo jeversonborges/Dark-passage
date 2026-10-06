@@ -1,0 +1,21 @@
+{
+ "name": "status_lentidao",
+ "cat": "status",
+ "frames": 16,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  24,
+  12
+ ],
+ "layer": "chao",
+ "desc": "Lento/preso: correntes fantasmas giram no chão em volta dos pés.",
+ "char": null,
+ "title": "Lento e preso",
+ "resumo": "Lento/preso: correntes fantasmas giram no chão em volta dos pés.",
+ "frame_w": 48,
+ "frame_h": 24,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "status_lentidao.png"
+}

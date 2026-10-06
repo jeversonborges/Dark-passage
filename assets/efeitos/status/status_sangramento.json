@@ -1,0 +1,21 @@
+{
+ "name": "status_sangramento",
+ "cat": "status",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  20,
+  50
+ ],
+ "layer": "frente",
+ "desc": "Sangrando: gotas escorrem e pingam do alvo.",
+ "char": null,
+ "title": "Sangrando",
+ "resumo": "Gotas escorrem e pingam do alvo.",
+ "frame_w": 40,
+ "frame_h": 56,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "status_sangramento.png"
+}

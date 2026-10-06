@@ -1,0 +1,75 @@
+{
+ "monstro": "corista_de_osso",
+ "frame_size": [
+  224,
+  224
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  112.0,
+  164.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 2,
+   "fps": 2,
+   "loop": true
+  },
+  "sing": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "corista_de_osso_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "sing": {
+   "file": "corista_de_osso_sing.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "corista_de_osso_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "corista_de_osso_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.55
+ }
+}

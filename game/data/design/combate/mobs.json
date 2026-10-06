@@ -1,0 +1,907 @@
+{
+  "_doc": "Monstros comuns, elite e raro. Nomes canonicos vindos da thread Missoes, NPCs e historia. Os atributos saem da curva base pelo nivel, vezes o multiplicador do arquetipo, vezes o ajuste do mob. Tempos em s, distancias em tiles.",
+  "versao": "0.1",
+  "curva_base": {
+    "_doc": "Mob 'normal' no nivel L.",
+    "hp": "32 + 7*L",
+    "dano_min": "5 + 1.6*L",
+    "dano_max": "8 + 2.2*L",
+    "defesa": "2 + 1.5*L",
+    "intervalo_ataque": 1.6,
+    "velocidade_mov": 2.4,
+    "xp": "10 + 5*L",
+    "ouro": [
+      "2*L",
+      "5*L"
+    ]
+  },
+  "velocidade_mov_jogador": 3.2,
+  "arquetipos": {
+    "rasteiro": {
+      "hp": 0.6,
+      "dano": 0.6,
+      "defesa": 0.5,
+      "intervalo": 1.1,
+      "mov": 1.25,
+      "xp": 0.6,
+      "postura": "rasteiro"
+    },
+    "normal": {
+      "hp": 1.0,
+      "dano": 1.0,
+      "defesa": 1.0,
+      "intervalo": 1.6,
+      "mov": 1.0,
+      "xp": 1.0,
+      "postura": "normal"
+    },
+    "bruto": {
+      "hp": 2.2,
+      "dano": 1.8,
+      "defesa": 1.4,
+      "intervalo": 2.4,
+      "mov": 0.8,
+      "xp": 2.0,
+      "postura": "bruto"
+    },
+    "atirador": {
+      "hp": 0.8,
+      "dano": 0.9,
+      "defesa": 0.7,
+      "intervalo": 1.8,
+      "mov": 1.0,
+      "xp": 1.1,
+      "postura": "atirador"
+    },
+    "conjurador": {
+      "hp": 0.8,
+      "dano": 1.1,
+      "defesa": 0.7,
+      "intervalo": 2.2,
+      "mov": 0.9,
+      "xp": 1.3,
+      "postura": "conjurador"
+    },
+    "elite": {
+      "hp": 6.0,
+      "dano": 1.6,
+      "defesa": 1.6,
+      "intervalo": 1.8,
+      "mov": 1.0,
+      "xp": 8.0,
+      "postura": "elite"
+    },
+    "raro": {
+      "hp": 8.0,
+      "dano": 1.5,
+      "defesa": 1.5,
+      "intervalo": 1.8,
+      "mov": 1.0,
+      "xp": 12.0,
+      "postura": "raro"
+    }
+  },
+  "ia_estados": {
+    "_doc": "Maquina de estados no servidor, tick de 10 Hz.",
+    "ocioso": "parado ou vagando ate 'raio_vagar' do ponto de nascimento, pausa 2 a 5s entre passos",
+    "alerta": "viu o jogador dentro de 'raio_aggro' (com linha de visao): toca grito curto, vira para ele por 0.4s (o jogador ve '!' sobre a cabeca)",
+    "perseguir": "vai ate o alcance de ataque; caminho por A* no grid; desvia de outros mobs (separacao 0.6 tile)",
+    "atacar": "para, prepara (telegrafo se tiver), golpeia no frame de impacto, recupera",
+    "reposicionar": "atirador/conjurador: se jogador a menos de 'distancia_minima', anda para longe ate 'distancia_ideal'; no maximo 1 vez a cada 4s para nao ficar irritante",
+    "fugir": "so quem tem 'foge_abaixo_de': corre para longe 3s, depois volta a lutar",
+    "voltar": "passou de 'raio_coleira' do ponto de nascimento ou 8s sem conseguir atacar: volta correndo, imune e regenerando 100% do HP; ameaca zerada",
+    "morto": "toca abate, solta drop, renasce em 'renascimento_s'"
+  },
+  "ia_padrao": {
+    "raio_aggro": 6,
+    "raio_vagar": 3,
+    "raio_coleira": 14,
+    "aggro_social": 4,
+    "renascimento_s": 25,
+    "_aggro_social": "mobs do mesmo tipo dentro desse raio entram juntos quando um e atacado"
+  },
+  "mobs": {
+    "corvo_de_cinza": {
+      "nome": "Corvo de Cinza",
+      "area": "inicial",
+      "niveis": [
+        1,
+        3
+      ],
+      "arquetipo": "rasteiro",
+      "tags": [
+        "animal",
+        "voador"
+      ],
+      "grupo": [
+        2,
+        4
+      ],
+      "res": {
+        "fogo": -0.3
+      },
+      "alcance": 1.0,
+      "ia": {
+        "padrao": "enxame",
+        "raio_aggro": 7,
+        "aggro_social": 6
+      },
+      "comportamento": "Circula o jogador a 2 tiles e mergulha um de cada vez (preparo 0.35s, sem telegrafo no chao). Depois de bicar, sobe e volta a circular. Ignora terreno.",
+      "ataques": [
+        {
+          "id": "bicada",
+          "mult": 1.0,
+          "preparo": 0.35
+        }
+      ],
+      "drop": "inicial_animal"
+    },
+    "carnical": {
+      "nome": "Carnical",
+      "area": "inicial",
+      "niveis": [
+        1,
+        3
+      ],
+      "arquetipo": "normal",
+      "ajuste": {
+        "mov": 0.75,
+        "hp": 1.1
+      },
+      "tags": [
+        "morto_vivo"
+      ],
+      "grupo": [
+        1,
+        3
+      ],
+      "res": {
+        "sagrado": -0.5,
+        "veneno": 0.5
+      },
+      "alcance": 1.1,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 5,
+        "raio_coleira": 18
+      },
+      "comportamento": "Lento e burro, mas nunca desiste dentro da coleira. A cada 3 golpes da uma mordida que causa sangramento. E o mob de ensino: o primeiro que o jogador mata.",
+      "ataques": [
+        {
+          "id": "arranhao",
+          "mult": 1.0,
+          "preparo": 0.5
+        },
+        {
+          "id": "mordida",
+          "mult": 1.2,
+          "preparo": 0.6,
+          "a_cada": 3,
+          "efeito": {
+            "sangramento": {
+              "duracao": 4,
+              "dano_por_s_mult": 0.15
+            }
+          }
+        }
+      ],
+      "drop": "inicial_humanoide"
+    },
+    "cao_de_vala": {
+      "nome": "Cao de Vala",
+      "area": "inicial",
+      "niveis": [
+        2,
+        4
+      ],
+      "arquetipo": "rasteiro",
+      "ajuste": {
+        "hp": 1.3,
+        "dano": 1.2
+      },
+      "tags": [
+        "animal",
+        "praga"
+      ],
+      "grupo": [
+        2,
+        4
+      ],
+      "res": {},
+      "alcance": 1.0,
+      "ia": {
+        "padrao": "matilha",
+        "raio_aggro": 7,
+        "aggro_social": 7,
+        "foge_abaixo_de": 0.15
+      },
+      "comportamento": "Matilha cerca: cada cao escolhe um angulo diferente em volta do jogador antes de entrar. Com 15% de HP foge e uiva (chama caes num raio de 8 tiles).",
+      "ataques": [
+        {
+          "id": "mordida_rapida",
+          "mult": 1.0,
+          "preparo": 0.3
+        },
+        {
+          "id": "bote",
+          "mult": 1.6,
+          "preparo": 0.6,
+          "salto": 2.5,
+          "recarga": 8
+        }
+      ],
+      "drop": "inicial_animal"
+    },
+    "nao_julgado": {
+      "nome": "Nao-Julgado",
+      "area": "inicial",
+      "niveis": [
+        3,
+        5
+      ],
+      "arquetipo": "normal",
+      "tags": [
+        "espectro",
+        "morto_vivo"
+      ],
+      "grupo": [
+        1,
+        2
+      ],
+      "res": {
+        "fisico": 0.2,
+        "sagrado": -0.5
+      },
+      "alcance": 1.2,
+      "ia": {
+        "padrao": "piscar",
+        "raio_aggro": 6
+      },
+      "comportamento": "Alma que nem o Ceu nem o Inferno quiseram. Fica meio transparente; a cada 6s some e reaparece ao lado do jogador (piscar de 0.5s com rastro de cinza). Fica 30% mais opaco e vulneravel ao ser acertado por sagrado.",
+      "ataques": [
+        {
+          "id": "toque_frio",
+          "mult": 1.0,
+          "preparo": 0.5,
+          "efeito": {
+            "lento": 2
+          }
+        },
+        {
+          "id": "piscar",
+          "recarga": 6,
+          "teleporte": 1.5
+        }
+      ],
+      "drop": "inicial_espectro"
+    },
+    "porco_pestilento": {
+      "nome": "Porco Pestilento",
+      "area": "inicial",
+      "niveis": [
+        4,
+        6
+      ],
+      "arquetipo": "bruto",
+      "ajuste": {
+        "mov": 1.1
+      },
+      "tags": [
+        "animal",
+        "praga"
+      ],
+      "grupo": [
+        1,
+        2
+      ],
+      "res": {
+        "veneno": 0.75
+      },
+      "alcance": 1.2,
+      "ia": {
+        "padrao": "investida",
+        "raio_aggro": 6
+      },
+      "comportamento": "Raspa a pata no chao (telegrafo de linha 6 tiles, 0.9s) e investe. Se bater em parede fica tonto 1.5s (QUEBRADO). Ao morrer incha por 1s e explode numa nuvem de veneno raio 1.8 (telegrafo).",
+      "ataques": [
+        {
+          "id": "chifrada",
+          "mult": 1.0,
+          "preparo": 0.6
+        },
+        {
+          "id": "investida",
+          "mult": 1.8,
+          "preparo": 0.9,
+          "telegrafo": {
+            "forma": "linha",
+            "comprimento": 6,
+            "largura": 1
+          },
+          "empurrao_px": 20,
+          "recarga": 7
+        },
+        {
+          "id": "explosao_morte",
+          "mult": 1.2,
+          "preparo": 1.0,
+          "telegrafo": {
+            "forma": "circulo",
+            "raio": 1.8
+          },
+          "efeito": {
+            "veneno": {
+              "duracao": 5,
+              "dano_por_s_mult": 0.2
+            }
+          },
+          "ao_morrer": true
+        }
+      ],
+      "drop": "inicial_animal"
+    },
+    "acougueiro_oco": {
+      "nome": "Acougueiro Oco",
+      "area": "inicial e cripta andar 1",
+      "niveis": [
+        5,
+        8
+      ],
+      "arquetipo": "bruto",
+      "tags": [
+        "humano",
+        "praga"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {},
+      "alcance": 1.4,
+      "ia": {
+        "padrao": "bruto",
+        "raio_aggro": 5
+      },
+      "comportamento": "Cutelo pesado. Golpe em cone com telegrafo e super-armadura no preparo: o jogador precisa sair do cone, nao da para interromper. Depois do golpe fica 1s parado tirando o cutelo do chao (janela de punicao).",
+      "ataques": [
+        {
+          "id": "cutelada",
+          "mult": 1.0,
+          "preparo": 0.7
+        },
+        {
+          "id": "golpe_de_acougue",
+          "mult": 2.2,
+          "preparo": 1.0,
+          "telegrafo": {
+            "forma": "cone",
+            "raio": 2.2,
+            "angulo": 90
+          },
+          "recuperacao": 1.0,
+          "recarga": 6
+        }
+      ],
+      "drop": "inicial_humanoide"
+    },
+    "capataz_gancho": {
+      "nome": "Capataz Gancho",
+      "area": "inicial (abatedouro)",
+      "niveis": [
+        7,
+        7
+      ],
+      "arquetipo": "elite",
+      "tags": [
+        "humano",
+        "praga"
+      ],
+      "res": {
+        "fisico": 0.1
+      },
+      "renascimento_s": 300,
+      "alcance": 1.4,
+      "ia": {
+        "padrao": "elite",
+        "raio_aggro": 6,
+        "raio_coleira": 16
+      },
+      "comportamento": "Elite de fim de area e ensaio do Benedito. Gancho em linha (telegrafo 7 tiles, 0.8s) que puxa o jogador e emenda um golpe. Golpe giratorio em volta (circulo 2, 0.9s). Com 50% de HP grita e chama 2 Carnicais.",
+      "ataques": [
+        {
+          "id": "porrete",
+          "mult": 1.0,
+          "preparo": 0.6
+        },
+        {
+          "id": "gancho",
+          "mult": 0.8,
+          "preparo": 0.8,
+          "telegrafo": {
+            "forma": "linha",
+            "comprimento": 7,
+            "largura": 1
+          },
+          "puxa": true,
+          "recarga": 10
+        },
+        {
+          "id": "giro",
+          "mult": 1.6,
+          "preparo": 0.9,
+          "telegrafo": {
+            "forma": "circulo",
+            "raio": 2
+          },
+          "recarga": 8
+        },
+        {
+          "id": "chamado",
+          "em_hp": 0.5,
+          "invoca": {
+            "carnical": 2
+          }
+        }
+      ],
+      "drop": "elite_inicial"
+    },
+    "filho_de_cardo": {
+      "nome": "Filho de Cardo",
+      "area": "inicial (missao)",
+      "niveis": [
+        6,
+        6
+      ],
+      "arquetipo": "raro",
+      "tags": [
+        "praga",
+        "planta"
+      ],
+      "res": {
+        "fogo": -0.4,
+        "veneno": 0.5
+      },
+      "renascimento_s": 0,
+      "_renascimento": "aparece so pela missao",
+      "alcance": 6,
+      "ia": {
+        "padrao": "atirador_raro",
+        "distancia_ideal": 5,
+        "distancia_minima": 3
+      },
+      "comportamento": "Monstro de carne e espinho. Cospe espinhos a distancia, se enterra quando o jogador chega perto e brota em outro ponto da arena (telegrafo de raizes 1s onde vai sair; sair em cima do jogador da dano e enraiza).",
+      "ataques": [
+        {
+          "id": "espinhos",
+          "mult": 0.8,
+          "preparo": 0.5,
+          "projeteis": 3,
+          "cone_graus": 30
+        },
+        {
+          "id": "brotar",
+          "mult": 1.8,
+          "preparo": 1.0,
+          "telegrafo": {
+            "forma": "circulo",
+            "raio": 1.5
+          },
+          "efeito": {
+            "enraizado": 1.5
+          },
+          "recarga": 9
+        }
+      ],
+      "drop": "raro_missao_cardo"
+    },
+    "larva_de_carne": {
+      "nome": "Larva de Carne",
+      "area": "cripta andar 1",
+      "niveis": [
+        6,
+        8
+      ],
+      "arquetipo": "rasteiro",
+      "ajuste": {
+        "hp": 0.7,
+        "mov": 0.9
+      },
+      "tags": [
+        "praga"
+      ],
+      "grupo": [
+        3,
+        6
+      ],
+      "res": {
+        "veneno": 0.75,
+        "fogo": -0.3
+      },
+      "alcance": 0.8,
+      "ia": {
+        "padrao": "kamikaze",
+        "raio_aggro": 5
+      },
+      "comportamento": "Rasteja em bando. Ao encostar no jogador incha 0.8s (telegrafo circulo 1.2) e estoura. Matar antes de chegar e o jeito; dano em area resolve.",
+      "ataques": [
+        {
+          "id": "estouro",
+          "mult": 2.0,
+          "preparo": 0.8,
+          "telegrafo": {
+            "forma": "circulo",
+            "raio": 1.2
+          },
+          "morre_ao_usar": true
+        }
+      ],
+      "drop": "cripta_carne"
+    },
+    "gancheiro": {
+      "nome": "Gancheiro",
+      "area": "cripta andar 1",
+      "niveis": [
+        6,
+        8
+      ],
+      "arquetipo": "atirador",
+      "tags": [
+        "humano",
+        "praga"
+      ],
+      "grupo": [
+        1,
+        2
+      ],
+      "res": {},
+      "alcance": 6,
+      "ia": {
+        "padrao": "atirador",
+        "distancia_ideal": 5,
+        "distancia_minima": 2.5
+      },
+      "comportamento": "Arremessa ganchos de longe e tenta puxar o jogador para perto dos Acougueiros. Mantem distancia.",
+      "ataques": [
+        {
+          "id": "arremesso",
+          "mult": 1.0,
+          "preparo": 0.6,
+          "projetil_vel": 9
+        },
+        {
+          "id": "puxada",
+          "mult": 0.6,
+          "preparo": 0.9,
+          "telegrafo": {
+            "forma": "linha",
+            "comprimento": 6,
+            "largura": 1
+          },
+          "puxa": true,
+          "recarga": 12
+        }
+      ],
+      "drop": "cripta_humanoide"
+    },
+    "monge_emparedado": {
+      "nome": "Monge Emparedado",
+      "area": "cripta andar 2",
+      "niveis": [
+        8,
+        10
+      ],
+      "arquetipo": "bruto",
+      "ajuste": {
+        "defesa": 1.5,
+        "mov": 0.7
+      },
+      "tags": [
+        "morto_vivo",
+        "humano"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "fisico": 0.25,
+        "sagrado": -0.3,
+        "eletrico": -0.2
+      },
+      "alcance": 1.3,
+      "ia": {
+        "padrao": "emboscada",
+        "raio_aggro": 2.5
+      },
+      "comportamento": "Fica dentro da parede (so os olhos brilham). Quando o jogador passa a 2.5 tiles, rompe o tijolo (golpe de emboscada em cone). Muito duro: melhor quebrar a postura e bater enquanto esta QUEBRADO.",
+      "ataques": [
+        {
+          "id": "emboscada",
+          "mult": 1.6,
+          "preparo": 0.6,
+          "telegrafo": {
+            "forma": "cone",
+            "raio": 2.5,
+            "angulo": 100
+          },
+          "so_primeiro": true
+        },
+        {
+          "id": "punho_de_pedra",
+          "mult": 1.0,
+          "preparo": 0.8
+        },
+        {
+          "id": "prece_de_pedra",
+          "recarga": 15,
+          "buff": {
+            "dano_recebido": -0.5,
+            "duracao": 4
+          },
+          "_doc": "postura regenera dobrado durante a prece"
+        }
+      ],
+      "drop": "cripta_monge"
+    },
+    "carpideira_de_ossos": {
+      "nome": "Carpideira de Ossos",
+      "area": "cripta andar 2",
+      "niveis": [
+        8,
+        10
+      ],
+      "arquetipo": "conjurador",
+      "tags": [
+        "morto_vivo",
+        "espectro"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3,
+        "sangue": 0.3
+      },
+      "alcance": 6,
+      "ia": {
+        "padrao": "suporte",
+        "distancia_ideal": 5,
+        "distancia_minima": 3,
+        "prioridade": "curar aliado abaixo de 50%"
+      },
+      "comportamento": "Sempre acompanha outros mobs. Cura o aliado mais ferido (conjuracao 1.2s, interrompivel) e lanca um lamento em cone que deixa lento. Tem que morrer primeiro.",
+      "ataques": [
+        {
+          "id": "lagrima_negra",
+          "mult": 1.0,
+          "preparo": 0.7,
+          "projetil_vel": 7
+        },
+        {
+          "id": "lamento",
+          "mult": 0.9,
+          "preparo": 1.0,
+          "telegrafo": {
+            "forma": "cone",
+            "raio": 5,
+            "angulo": 50
+          },
+          "efeito": {
+            "lento": 3
+          },
+          "recarga": 9
+        },
+        {
+          "id": "consolo",
+          "cura_frac_hp_alvo": 0.25,
+          "conjuracao": 1.2,
+          "interrompivel": true,
+          "recarga": 8
+        }
+      ],
+      "drop": "cripta_espectro"
+    },
+    "fogo_de_vela": {
+      "nome": "Fogo-de-Vela",
+      "area": "cripta andar 2",
+      "niveis": [
+        8,
+        10
+      ],
+      "arquetipo": "rasteiro",
+      "ajuste": {
+        "hp": 0.8,
+        "dano": 1.3
+      },
+      "tags": [
+        "espectro"
+      ],
+      "grupo": [
+        2,
+        3
+      ],
+      "res": {
+        "fogo": 0.75,
+        "fisico": 0.2
+      },
+      "alcance": 4,
+      "ia": {
+        "padrao": "errante",
+        "raio_aggro": 6
+      },
+      "comportamento": "Chama-fantasma que pisca de lugar a cada 3s e deixa uma poca de cera queimando (raio 1, dura 5s, queimadura) onde estava. Enche a sala de pocas se ninguem matar rapido.",
+      "ataques": [
+        {
+          "id": "faisca",
+          "mult": 1.0,
+          "preparo": 0.4,
+          "projetil_vel": 8
+        },
+        {
+          "id": "poca_de_cera",
+          "a_cada_s": 3,
+          "area": {
+            "raio": 1,
+            "duracao": 5
+          },
+          "efeito": {
+            "queimadura": {
+              "duracao": 2,
+              "dano_por_s_mult": 0.3
+            }
+          }
+        }
+      ],
+      "drop": "cripta_espectro"
+    },
+    "querubim_desfeito": {
+      "nome": "Querubim Desfeito",
+      "area": "cripta andar 3",
+      "niveis": [
+        10,
+        12
+      ],
+      "arquetipo": "atirador",
+      "ajuste": {
+        "hp": 1.1
+      },
+      "tags": [
+        "celestial",
+        "voador"
+      ],
+      "grupo": [
+        1,
+        2
+      ],
+      "res": {
+        "sagrado": 0.5,
+        "eletrico": -0.2
+      },
+      "alcance": 7,
+      "ia": {
+        "padrao": "atirador",
+        "distancia_ideal": 6,
+        "distancia_minima": 3
+      },
+      "comportamento": "Anjo pequeno sem rosto, metade desmontado. Voa (ignora terreno), dispara raios sagrados e recua batendo asas. Quando o jogador chega perto solta um clarao (cegueira).",
+      "ataques": [
+        {
+          "id": "raio_sagrado",
+          "mult": 1.0,
+          "preparo": 0.6,
+          "projetil_vel": 12
+        },
+        {
+          "id": "clarao",
+          "mult": 0.5,
+          "preparo": 0.5,
+          "telegrafo": {
+            "forma": "circulo",
+            "raio": 2
+          },
+          "efeito": {
+            "cegueira": 2
+          },
+          "recarga": 10,
+          "gatilho": "jogador a menos de 3 tiles"
+        }
+      ],
+      "drop": "cripta_celestial"
+    },
+    "eco_da_trombeta": {
+      "nome": "Eco da Trombeta",
+      "area": "cripta andar 3",
+      "niveis": [
+        10,
+        12
+      ],
+      "arquetipo": "conjurador",
+      "ajuste": {
+        "hp": 1.2
+      },
+      "tags": [
+        "celestial",
+        "espectro"
+      ],
+      "grupo": [
+        1,
+        2
+      ],
+      "res": {
+        "sagrado": 0.5,
+        "fisico": 0.15
+      },
+      "alcance": 5,
+      "ia": {
+        "padrao": "conjurador",
+        "distancia_ideal": 4,
+        "distancia_minima": 2
+      },
+      "comportamento": "Som que ganhou forma. Solta uma onda em anel que cresce a partir dele (o jogador atravessa pelo vao do anel ou sai do alcance). Se ficar sozinho, canaliza 3s para chamar outro Eco.",
+      "ataques": [
+        {
+          "id": "zumbido",
+          "mult": 1.0,
+          "preparo": 0.5
+        },
+        {
+          "id": "onda",
+          "mult": 1.5,
+          "preparo": 1.0,
+          "telegrafo": {
+            "forma": "anel",
+            "raio_final": 5,
+            "largura": 0.8,
+            "vao_graus": 45
+          },
+          "empurrao_px": 16,
+          "recarga": 8
+        },
+        {
+          "id": "ressoar",
+          "conjuracao": 3.0,
+          "interrompivel": true,
+          "invoca": {
+            "eco_da_trombeta": 1
+          },
+          "recarga": 20
+        }
+      ],
+      "drop": "cripta_celestial"
+    },
+    "soldado_caido": {
+      "nome": "Soldado Caido",
+      "area": "cripta andar 1 (so na luta do General)",
+      "niveis": [
+        8,
+        8
+      ],
+      "arquetipo": "normal",
+      "ajuste": {
+        "hp": 0.8
+      },
+      "tags": [
+        "morto_vivo",
+        "humano"
+      ],
+      "res": {
+        "sagrado": -0.5
+      },
+      "alcance": 1.3,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 20
+      },
+      "comportamento": "Guerreiro morto da Grande Batalha, de armadura rachada, levantado pela ordem do General. Ao morrer vira cadaver fresco que o General pode devorar em 2s; o corpo some sozinho em 10s.",
+      "ataques": [
+        {
+          "id": "espada_enferrujada",
+          "mult": 1.0,
+          "preparo": 0.6
+        }
+      ],
+      "drop": null
+    }
+  }
+}

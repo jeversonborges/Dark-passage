@@ -1,0 +1,94 @@
+{
+  "versao": "0.1",
+  "nota": "Estoque de história das lojas citadas nos diálogos. Armas e armaduras genéricas por nível ficam com o sistema de itens; aqui só entram os itens com nome deste pacote.",
+  "lojas": [
+    {
+      "id": "loja_anselmo",
+      "npc": "doutor_anselmo",
+      "nome": "Barraca do Doutor",
+      "itens": [
+        "tonico_graxa",
+        "pao_duro"
+      ],
+      "fala_ao_abrir": "Tudo testado. Em mim. Quase tudo."
+    },
+    {
+      "id": "loja_cardo",
+      "npc": "mae_cardo",
+      "nome": "Caldeirão da Mãe Cardo",
+      "itens": [
+        "caldo_cardo_comum",
+        "pao_duro",
+        "agua_doce"
+      ],
+      "fala_ao_abrir": "Come, menino. Paga quando puder. Mas paga."
+    },
+    {
+      "id": "loja_tobias",
+      "npc": "tobias_pavio",
+      "nome": "Carrinho do Pavio",
+      "itens": [
+        "vela_simao",
+        "agua_benta_polvora",
+        "pao_duro",
+        "agua_doce"
+      ],
+      "compra_sucata": true,
+      "fala_ao_abrir": "Tudo original! Mentira. Mas funciona."
+    },
+    {
+      "id": "loja_malfas",
+      "npc": "malfas",
+      "nome": "Penhores do Abismo",
+      "itens": [
+        "hostia_negra",
+        "pao_duro",
+        "vela_simao",
+        "agua_doce"
+      ],
+      "compra_tudo": true,
+      "fala_ao_abrir": "Compro, vendo, penhoro. Alma aceita como entrada."
+    },
+    {
+      "id": "loja_lucio",
+      "npc": "irmao_lucio",
+      "nome": "Sacristia",
+      "itens": [
+        "hostia_negra",
+        "pao_duro"
+      ],
+      "fala_ao_abrir": "A-as hóstias de hoje estão fresquinhas. Eu acho."
+    },
+    {
+      "id": "loja_corvina",
+      "npc": "corvina_atravessadora",
+      "nome": "Sótão da Corvina",
+      "itens": [
+        "agua_doce",
+        "vela_simao",
+        "tonico_graxa",
+        "hostia_negra"
+      ],
+      "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Isso é honestidade."
+    }
+  ],
+  "ferreiros": [
+    {
+      "id": "ferreiro_gaspar",
+      "npc": "gaspar_bigorna",
+      "fala_ao_abrir": "Mostra o metal."
+    },
+    {
+      "id": "ferreiro_malfas",
+      "npc": "malfas",
+      "fala_ao_abrir": "Conserto com fogo do Inferno. Cobro como se fosse."
+    }
+  ],
+  "treinadores": [
+    {
+      "id": "treinador_abdiel",
+      "npc": "comandante_abdiel",
+      "fala_ao_abrir": "Mostre o que aprendeu. Depois esqueça e aprenda direito."
+    }
+  ]
+}

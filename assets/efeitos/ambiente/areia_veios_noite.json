@@ -1,0 +1,21 @@
+{
+ "name": "areia_veios_noite",
+ "cat": "ambiente",
+ "frames": 24,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  48,
+  24
+ ],
+ "layer": "chao",
+ "desc": "Veios verdes da areia acesos à noite: decalque de chão (2x2 ladrilhos) que pulsa devagar. Espalhar pelo deserto.",
+ "char": null,
+ "title": "Veios verdes da areia acesos à noite",
+ "resumo": "Decalque de chão (2x2 ladrilhos) que pulsa devagar. Espalhar pelo deserto.",
+ "frame_w": 96,
+ "frame_h": 48,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "areia_veios_noite.png"
+}

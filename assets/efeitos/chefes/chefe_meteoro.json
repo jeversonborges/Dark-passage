@@ -1,0 +1,21 @@
+{
+ "name": "chefe_meteoro",
+ "cat": "chefes",
+ "frames": 18,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  64,
+  196
+ ],
+ "layer": "frente",
+ "desc": "Meteoro/bola de fogo do chefe caindo do céu e explodindo no chão (usar com chefe_aviso_área).",
+ "char": null,
+ "title": "Meteoro",
+ "resumo": "Meteoro/bola de fogo do chefe caindo do céu e explodindo no chão (usar com chefe_aviso_área).",
+ "frame_w": 128,
+ "frame_h": 224,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "chefe_meteoro.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "mut_rugido_praga",
+ "cat": "mutante",
+ "frames": 14,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  88,
+  72
+ ],
+ "layer": "frente",
+ "desc": "Rugido da Praga: ondas de choque ácidas e poeira (provoca inimigos em volta).",
+ "char": null,
+ "title": "Rugido da Praga",
+ "resumo": "Ondas de choque ácidas e poeira (provoca inimigos em volta).",
+ "frame_w": 176,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "mut_rugido_praga.png"
+}

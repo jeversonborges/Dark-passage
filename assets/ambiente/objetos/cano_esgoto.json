@@ -1,0 +1,15 @@
+{
+ "w": 194,
+ "h": 104,
+ "anchor": [
+  50,
+  81
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Boca de cano de esgoto do abatedouro despejando lama vermelha no leito.",
+ "kind": "cano_esgoto"
+}

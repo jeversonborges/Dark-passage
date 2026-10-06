@@ -1,0 +1,21 @@
+{
+ "name": "level_up",
+ "cat": "progresso",
+ "frames": 24,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  64,
+  168
+ ],
+ "layer": "frente",
+ "desc": "Subida de nível: círculo de runas no chão, coluna de luz dourada e cinzas brilhantes subindo.",
+ "char": null,
+ "title": "Subida de nível",
+ "resumo": "Círculo de runas no chão, coluna de luz dourada e cinzas brilhantes subindo.",
+ "frame_w": 128,
+ "frame_h": 192,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "level_up.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "anjo_toque_graca",
+ "cat": "anjo",
+ "frames": 18,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  32,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Toque de Graça: penas douradas caem e uma cruz de luz cura o alvo.",
+ "char": "anjo",
+ "title": "Toque de Graça",
+ "resumo": "Penas douradas caem e uma cruz de luz cura o alvo.",
+ "frame_w": 64,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "anjo_toque_graca.png"
+}

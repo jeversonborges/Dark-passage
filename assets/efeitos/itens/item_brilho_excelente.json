@@ -1,0 +1,21 @@
+{
+ "name": "item_brilho_excelente",
+ "cat": "itens",
+ "frames": 12,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  20,
+  30
+ ],
+ "layer": "frente",
+ "desc": "Item excelente (verde ácido) no chão: poça de luz e cintilas subindo. Estilo MU.",
+ "char": null,
+ "title": "Brilho de item excelente",
+ "resumo": "Item excelente (verde ácido) no chão: poça de luz e cintilas subindo. Estilo MU.",
+ "frame_w": 40,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "item_brilho_excelente.png"
+}

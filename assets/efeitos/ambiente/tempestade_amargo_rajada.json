@@ -1,0 +1,21 @@
+{
+ "name": "tempestade_amargo_rajada",
+ "cat": "ambiente",
+ "frames": 20,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  0,
+  48
+ ],
+ "layer": "frente",
+ "desc": "Rajada da tempestade: uma parede de pó verde atravessa a tela da esquerda para a direita (evento, tocar de vez em quando).",
+ "char": null,
+ "title": "Rajada da tempestade",
+ "resumo": "Uma parede de pó verde atravessa a tela da esquerda para a direita (evento, tocar de vez em quando).",
+ "frame_w": 256,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "tempestade_amargo_rajada.png"
+}

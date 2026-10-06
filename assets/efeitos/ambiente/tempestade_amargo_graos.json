@@ -1,0 +1,21 @@
+{
+ "name": "tempestade_amargo_graos",
+ "cat": "ambiente",
+ "frames": 16,
+ "fps": 16,
+ "loop": true,
+ "anchor": [
+  0,
+  0
+ ],
+ "layer": "frente",
+ "desc": "Tempestade de Amargo (camada da frente): rajadas de grãos riscando na diagonal e lascas verdes brilhando. Ladrilhável.",
+ "char": null,
+ "title": "Tempestade de Amargo (camada da frente)",
+ "resumo": "Rajadas de grãos riscando na diagonal e lascas verdes brilhando. Ladrilhável.",
+ "frame_w": 192,
+ "frame_h": 108,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tempestade_amargo_graos.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "cult_servo_de_carne",
+ "cat": "cultista",
+ "frames": 20,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  56,
+  84
+ ],
+ "layer": "frente",
+ "desc": "Servo de Carne: pentagrama de sangue no chão e pedaços de carne brotam (o zumbi surge em seguida).",
+ "char": null,
+ "title": "Servo de Carne",
+ "resumo": "Pentagrama de sangue no chão e pedaços de carne brotam (o zumbi surge em seguida).",
+ "frame_w": 112,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "cult_servo_de_carne.png"
+}

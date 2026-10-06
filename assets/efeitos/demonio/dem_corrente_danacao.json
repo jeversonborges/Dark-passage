@@ -1,0 +1,21 @@
+{
+ "name": "dem_corrente_danacao",
+ "cat": "demonio",
+ "frames": 12,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  8,
+  16
+ ],
+ "layer": "frente",
+ "desc": "Corrente de Danação: corrente em brasa dispara, prende o alvo e puxa (para a direita, até 160px).",
+ "char": null,
+ "title": "Corrente de Danação",
+ "resumo": "Corrente em brasa dispara, prende o alvo e puxa (para a direita, até 160px).",
+ "frame_w": 176,
+ "frame_h": 32,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "dem_corrente_danacao.png"
+}

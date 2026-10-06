@@ -1,0 +1,21 @@
+{
+ "name": "amargo_po_dia",
+ "cat": "ambiente",
+ "frames": 48,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  0,
+  0
+ ],
+ "layer": "frente",
+ "desc": "Pó Amargo caindo de dia: grãos cinza-esverdeados descendo devagar. Ladrilhável, cobrir a tela.",
+ "char": null,
+ "title": "Pó Amargo caindo de dia",
+ "resumo": "Grãos cinza-esverdeados descendo devagar. Ladrilhável, cobrir a tela.",
+ "frame_w": 160,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 6,
+ "sheet": "amargo_po_dia.png"
+}

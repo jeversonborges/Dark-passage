@@ -1,0 +1,15 @@
+{
+ "w": 256,
+ "h": 146,
+ "anchor": [
+  132,
+  44
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  3,
+  6
+ ],
+ "descricao": "Ponte de tábuas rompida pendendo no abismo.",
+ "kind": "ponte_rompida"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 262,
+ "h": 176,
+ "anchor": [
+  28,
+  157
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Paliçada do Acampamento da Vela: estacas, chapas de zinco e arame.",
+ "kind": "palicada_b"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 348,
+ "h": 206,
+ "anchor": [
+  59,
+  173
+ ],
+ "emissivo": "fornalha",
+ "luz": "quente",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "caldeira_vapor"
+}

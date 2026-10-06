@@ -1,0 +1,15 @@
+{
+ "w": 814,
+ "h": 486,
+ "anchor": [
+  220,
+  375
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Torre do relógio de São Lázaro enterrada: só o mostrador e o telhado saem da areia.",
+ "kind": "torre_relogio_enterrada"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 60,
+ "h": 36,
+ "anchor": [
+  29,
+  18
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "ralo_ferro_chao"
+}

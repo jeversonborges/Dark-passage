@@ -1,0 +1,21 @@
+{
+ "name": "tec_maquina_juizo",
+ "cat": "tecnomancer",
+ "frames": 28,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  96,
+  176
+ ],
+ "layer": "frente",
+ "desc": "Máquina do Juízo Reverso (suprema): engrenagem de runas gira no chão e uma coluna de arcos sobe da máquina.",
+ "char": null,
+ "title": "Máquina do Juízo Reverso (suprema)",
+ "resumo": "Engrenagem de runas gira no chão e uma coluna de arcos sobe da máquina.",
+ "frame_w": 192,
+ "frame_h": 208,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "tec_maquina_juizo.png"
+}

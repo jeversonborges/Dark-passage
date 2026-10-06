@@ -1,0 +1,21 @@
+{
+ "name": "cult_chuva_cinzas",
+ "cat": "cultista",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  72,
+  80
+ ],
+ "layer": "frente",
+ "desc": "Chuva de Cinzas: área amaldiçoada, cinzas e brasas vermelhas caem num círculo escuro (repetir enquanto dura).",
+ "char": null,
+ "title": "Chuva de Cinzas",
+ "resumo": "Área amaldiçoada, cinzas e brasas vermelhas caem num círculo escuro (repetir enquanto dura).",
+ "frame_w": 144,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "cult_chuva_cinzas.png"
+}

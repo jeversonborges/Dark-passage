@@ -1,0 +1,21 @@
+{
+ "name": "dem_banquete",
+ "cat": "demonio",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  56,
+  100
+ ],
+ "layer": "frente",
+ "desc": "Banquete: fios de alma rubra são sugados para o demônio (roubo de vida).",
+ "char": "demonio",
+ "title": "Banquete",
+ "resumo": "Fios de alma rubra são sugados para o demônio (roubo de vida).",
+ "frame_w": 112,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "dem_banquete.png"
+}

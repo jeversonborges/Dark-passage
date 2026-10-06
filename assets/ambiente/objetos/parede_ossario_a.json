@@ -1,0 +1,16 @@
+{
+ "w": 304,
+ "h": 202,
+ "anchor": [
+  28,
+  185
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Ossário das Carpideiras: nichos com crânios e ossos empilhados.",
+ "kind": "parede_ossario_a"
+}

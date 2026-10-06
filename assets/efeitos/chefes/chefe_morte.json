@@ -1,0 +1,21 @@
+{
+ "name": "chefe_morte",
+ "cat": "chefes",
+ "frames": 32,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  120,
+  200
+ ],
+ "layer": "frente",
+ "desc": "Morte de chefe: clarão, onda de choque, coluna de fogo e fumaça, detritos e a alma enorme subindo.",
+ "char": null,
+ "title": "Morte de chefe",
+ "resumo": "Clarão, onda de choque, coluna de fogo e fumaça, detritos e a alma enorme subindo.",
+ "frame_w": 240,
+ "frame_h": 240,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "chefe_morte.png"
+}

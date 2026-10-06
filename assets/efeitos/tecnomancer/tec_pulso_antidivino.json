@@ -1,0 +1,21 @@
+{
+ "name": "tec_pulso_antidivino",
+ "cat": "tecnomancer",
+ "frames": 14,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  88,
+  72
+ ],
+ "layer": "frente",
+ "desc": "Pulso Anti-Divino: onda de runas laranja e estalos elétricos que silenciam a área.",
+ "char": null,
+ "title": "Pulso Anti-Divino",
+ "resumo": "Onda de runas laranja e estalos elétricos que silenciam a área.",
+ "frame_w": 176,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tec_pulso_antidivino.png"
+}

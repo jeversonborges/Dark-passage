@@ -1,0 +1,15 @@
+{
+ "w": 312,
+ "h": 172,
+ "anchor": [
+  131,
+  102
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "duna_areia"
+}

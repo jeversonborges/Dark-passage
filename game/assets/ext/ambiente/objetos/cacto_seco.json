@@ -1,0 +1,15 @@
+{
+ "w": 164,
+ "h": 116,
+ "anchor": [
+  30,
+  99
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "cacto_seco"
+}

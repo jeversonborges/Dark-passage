@@ -1,0 +1,21 @@
+{
+ "name": "cult_sangria_impacto",
+ "cat": "cultista",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  28,
+  28
+ ],
+ "layer": "frente",
+ "desc": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
+ "char": null,
+ "title": "Sangria (impacto)",
+ "resumo": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
+ "frame_w": 56,
+ "frame_h": 56,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "cult_sangria_impacto.png"
+}

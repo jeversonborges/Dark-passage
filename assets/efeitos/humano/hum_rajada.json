@@ -1,0 +1,21 @@
+{
+ "name": "hum_rajada",
+ "cat": "humano",
+ "frames": 9,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  8,
+  48
+ ],
+ "layer": "frente",
+ "desc": "Rajada: leque de chumbo em cone com clarão largo (para a direita).",
+ "char": null,
+ "title": "Rajada",
+ "resumo": "Leque de chumbo em cone com clarão largo (para a direita).",
+ "frame_w": 144,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_rajada.png"
+}

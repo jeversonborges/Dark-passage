@@ -1,0 +1,2779 @@
+{
+  "versao": "0.1",
+  "nota": "Cada diálogo é um grafo de nós. 'fala' pode ser texto ou lista de variantes {se, texto}; vale a primeira cujo 'se' bate. Opções sem 'ir' encerram a conversa. Condições em 'se' (todas as chaves precisam bater): missao_disponivel, missao_ativa, missao_pronta (todos os objetivos cumpridos, sem contar os de 'falar' com o NPC desta conversa), missao_concluida, missao_nao_iniciada, faccao, flag, sem_flag, tem_item (id ou {id, qtd}). Ao concluir uma missão, os itens dos objetivos 'coletar' são removidos do inventário. Ações em 'acoes': aceitar_missao, concluir_missao (com 'escolha' opcional), falhar_missao, cumprir_falar (marca o objetivo 'falar' da missão), abrir_loja, abrir_ferreiro, abrir_armazem, abrir_treinador, dar_item, remover_item, definir_flag.",
+  "dialogos": [
+    {
+      "id": "dlg_odete",
+      "npc": "capita_odete",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "v05"
+              },
+              "texto": "Ainda aqui? Bom. A cerca precisa de quem já viu o fundo do poço e voltou."
+            },
+            {
+              "se": {
+                "missao_disponivel": "v01"
+              },
+              "texto": "Novo, né? Dá pra ver pelo jeito que você olha pra Vela, como se fosse milagre. Não é. É cobre, óleo e o Doutor sem dormir. Sou Odete. Aqui quem manda sou eu e a cerca."
+            },
+            {
+              "texto": "Fala rápido, que eu tô contando cartucho."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "O que eu faço primeiro?",
+              "ir": "v01_oferta",
+              "se": {
+                "missao_disponivel": "v01"
+              }
+            },
+            {
+              "texto": "Os Carniçais estão no chão.",
+              "ir": "v01_fim",
+              "se": {
+                "missao_pronta": "v01"
+              }
+            },
+            {
+              "texto": "Tem mais serviço?",
+              "ir": "v03_oferta",
+              "se": {
+                "missao_disponivel": "v03"
+              }
+            },
+            {
+              "texto": "A matilha acabou.",
+              "ir": "v03_fim",
+              "se": {
+                "missao_pronta": "v03"
+              }
+            },
+            {
+              "texto": "E agora, Capitã?",
+              "ir": "v04_oferta",
+              "se": {
+                "missao_disponivel": "v04"
+              }
+            },
+            {
+              "texto": "Eu trouxe o bocal da trombeta.",
+              "ir": "v05_oferta",
+              "se": {
+                "missao_disponivel": "v05"
+              }
+            },
+            {
+              "texto": "Patrulha de hoje?",
+              "ir": "r01_oferta",
+              "se": {
+                "missao_disponivel": "r01"
+              }
+            },
+            {
+              "texto": "Cerca limpa.",
+              "ir": "r01_fim",
+              "se": {
+                "missao_pronta": "r01"
+              }
+            },
+            {
+              "texto": "Lá embaixo tinha um demônio partido ao meio. Ele falou de você.",
+              "ir": "andras",
+              "se": {
+                "missao_concluida": "c04"
+              }
+            },
+            {
+              "texto": "Como você chegou aqui?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Achei isto debaixo do bonde da linha 7.",
+              "ir": "e05v_fim",
+              "se": {
+                "missao_pronta": "e05v"
+              }
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Eu dirigia o bonde da linha 7. Na noite da trombeta os mortos saíram da terra no meio dos trilhos. Eu não parei. Passei por cima de gente que eu conhecia e cheguei aqui com metade dos passageiros. A outra metade, e meu marido, e meu olho, ficaram no caminho. Aí eu cravei o primeiro trilho no chão e disse: daqui ninguém passa. Até hoje ninguém passou. Depois veio a areia e engoliu as ruas. Eu pus uma vela de lona no bonde e ele andou de novo. Linha 7, a única que ainda passa.",
+          "opcoes": [
+            {
+              "texto": "Você acredita que dá pra cancelar o fim?",
+              "ir": "historia_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "historia_2": {
+          "fala": "Eu acredito na cerca. Fim do mundo é coisa grande demais. Cerca eu consigo consertar.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "v01_oferta": {
+          "fala": "Tá ouvindo esse arranhado? Carniçal. Fica raspando a grade nos Campos de Cinza até a unha cair, e aí raspa com o osso. Vai lá e derruba seis. Se voltar inteiro, a gente conversa sobre você ficar.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "v01"
+                }
+              ],
+              "ir": "v01_aceita"
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "v01_aceita": {
+          "fala": "Mira na cabeça. Eles continuam andando sem perna, mas sem cabeça eles desistem.",
+          "opcoes": [
+            {
+              "texto": "Certo."
+            }
+          ]
+        },
+        "v01_fim": {
+          "fala": "Seis. Contei da torre. Você bate feio, mas bate. Toma, a faixa. Eu costuro uma pra cada recruta e não cobro. Não morre, que dá trabalho costurar outra. Agora vai falar com o Doutor Anselmo, que a Vela tá piscando e quando ela pisca eu não durmo.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Capitã.",
+              "acoes": [
+                {
+                  "concluir_missao": "v01"
+                }
+              ]
+            }
+          ]
+        },
+        "v03_oferta": {
+          "fala": "Cães de Vala. Toda noite tem uma matilha no portão, cheirando alguma coisa. Alguém aqui deixa sopa lá fora, e eu sei quem é, e não vou brigar com ela por isso. Mas os cães estão aprendendo o caminho. Desce na Vala e mata oito antes que eles aprendam a pular.",
+          "opcoes": [
+            {
+              "texto": "Vou caçar a matilha.",
+              "acoes": [
+                {
+                  "aceitar_missao": "v03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "v03_fim": {
+          "fala": "Oito? Então o resto vai pensar duas vezes. Recruta não, soldado. Por enquanto. O Gaspar separou uma arma de verdade pra você, pega a que servir na sua mão.",
+          "opcoes": [
+            {
+              "texto": "Valeu.",
+              "acoes": [
+                {
+                  "concluir_missao": "v03"
+                }
+              ]
+            }
+          ]
+        },
+        "v04_oferta": {
+          "fala": "Tem uma coisa que me tira o sono. Os Não-Julgados do cemitério andam em fila, sempre andaram. Mas de uns dias pra cá a fila vira pro lado do abatedouro. Todos. Como se alguém estivesse chamando. Vai lá, derruba uns, olha os lacres no peito deles. E procura o coveiro, o Simão. Ele mora no meio dos mortos e eles não encostam nele. Não confio em quem os mortos respeitam, mas preciso saber o que ele sabe.",
+          "opcoes": [
+            {
+              "texto": "Vou ao cemitério.",
+              "acoes": [
+                {
+                  "aceitar_missao": "v04"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não."
+            }
+          ]
+        },
+        "v05_oferta": {
+          "fala": "Isso é o... é isso que calou a trombeta? Esse pedacinho de latão? (ela ri, sem graça nenhuma) Me dá aqui. Vamos levar pra bigorna do Gaspar e acabar com isso hoje. Só que o Doutor tá ali olhando pra isso como criança olha bolo. Fala com ele antes. Depois a decisão é sua, porque fui eu que te mandei lá embaixo.",
+          "opcoes": [
+            {
+              "texto": "Vou ouvir o Doutor.",
+              "acoes": [
+                {
+                  "aceitar_missao": "v05"
+                }
+              ]
+            },
+            {
+              "texto": "Um momento."
+            }
+          ]
+        },
+        "r01_oferta": {
+          "fala": "Ronda. Dez Carniçais, cinco corvos. Ninguém gosta, todo mundo faz.",
+          "opcoes": [
+            {
+              "texto": "Vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "r01"
+                }
+              ]
+            },
+            {
+              "texto": "Hoje não."
+            }
+          ]
+        },
+        "r01_fim": {
+          "fala": "Cerca inteira. Por hoje. Pega uma sopa com a Mãe Cardo.",
+          "opcoes": [
+            {
+              "texto": "Até amanhã.",
+              "acoes": [
+                {
+                  "concluir_missao": "r01"
+                }
+              ]
+            }
+          ]
+        },
+        "andras": {
+          "fala": "(ela para de contar cartucho) Andras. O general da Legião Blasfema. Ele ficou parado nos trilhos achando que um bonde ia frear pra ele. (ela acende, pela primeira vez, o cigarro de palha) Eu não freei. Achei que tinha acabado ali. Pelo jeito, nada acaba nessa cidade. Obrigada por terminar o serviço.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e05v_fim": {
+          "fala": "(ela pega a meia dragona e passa o polegar no corte reto) Fui eu. Naquela noite eu soltei o freio do bonde em cima da Legião e passei por cima de um general que segurava a linha sozinho, porque os anjos dele já tinham ido embora. Eu nunca olhei para trás. Pelo jeito, ele olhou. (ela guarda a dragona no bolso da farda) Vivo no fosso do Carniça. E os Arautos brigando para saber quem matou um homem que não morreu. O que a gente faz com isso, recruta?",
+          "opcoes": [
+            {
+              "texto": "Espalhe entre os Arautos. Eles que se devorem.",
+              "ir": "e05v_espalhar",
+              "acoes": [
+                {
+                  "concluir_missao": "e05v",
+                  "escolha": "espalhar"
+                }
+              ]
+            },
+            {
+              "texto": "Guarde o segredo. A Vigília usa quando precisar.",
+              "ir": "e05v_guardar",
+              "acoes": [
+                {
+                  "concluir_missao": "e05v",
+                  "escolha": "guardar"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "e05v_espalhar": {
+          "fala": "Tobias vai adorar. Um bilhete enfiado na porta da Capela, outro no pátio dos demônios. Amanhã eles vão estar se perguntando quem largou o general, e não quem atacou a Vela. Guerra entre eles é paz para nós. Pelo menos por uns dias.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e05v_guardar": {
+          "fala": "Segredo é munição. A gente guarda seco, longe do fogo. No dia em que os Arautos vierem todos juntos para cima da Vela, eu conto, e vejo a aliança deles se rasgar no meio do pátio.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_anselmo",
+      "npc": "doutor_anselmo",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "bocal_estudo_vigilia"
+              },
+              "texto": "Meio tom abaixo! Se eu afinar meio tom abaixo, a nota volta pra dentro! Ah, é você. Desculpa, estou com a cabeça no Apocalipse."
+            },
+            {
+              "se": {
+                "missao_disponivel": "v02"
+              },
+              "texto": "Ah! Um par de mãos novas! Graças a... bom, graças a alguém. Sou o Doutor Anselmo, ou Padre, ou Graxa, depende de quem chama. Não encosta na bobina."
+            },
+            {
+              "texto": "E disse Deus: haja luz. E houve. Depois parou de haver, e aí fui eu que tive que dar um jeito. Precisa de alguma coisa?"
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "A Capitã me mandou. A Vela está piscando?",
+              "ir": "v02_oferta",
+              "se": {
+                "missao_disponivel": "v02"
+              }
+            },
+            {
+              "texto": "Trouxe as bobinas.",
+              "ir": "v02_fim",
+              "se": {
+                "missao_pronta": "v02"
+              }
+            },
+            {
+              "texto": "Sobre o bocal da trombeta...",
+              "ir": "v05_debate",
+              "se": {
+                "missao_ativa": "v05"
+              }
+            },
+            {
+              "texto": "Quero comprar remédios.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_anselmo"
+                }
+              ]
+            },
+            {
+              "texto": "O que é a Vela, afinal?",
+              "ir": "vela"
+            },
+            {
+              "texto": "Você era padre?",
+              "ir": "padre"
+            },
+            {
+              "texto": "Que voz é essa no seu rádio?",
+              "ir": "d01v_oferta",
+              "se": {
+                "missao_disponivel": "d01v"
+              }
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "vela": {
+          "fala": "Uma lâmpada de arco! Dois eletrodos de carvão, cobre de bonde, um dínamo, e uma oração gravada em cada bobina, porque mal não faz. A luz dela tem a frequência certa pra queimar o que não devia estar de pé. Os Não-Julgados não chegam perto. E o Amargo, aquele pó verde que cai do céu, assenta no chão em volta dela, sabe-se lá por quê. Por isso aqui dentro dá pra respirar. Os vivos também não gostam, mas aguentam.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "padre": {
+          "fala": "Pároco de São Lázaro por vinte e dois anos. Na noite da trombeta eu rezei até a voz acabar. Nenhuma resposta. De manhã desmontei o motor do bonde. Se Ele não fala, alguém tem que terminar a conversa, não acha?",
+          "opcoes": [
+            {
+              "texto": "Você parece esconder alguma coisa.",
+              "ir": "padre_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "padre_2": {
+          "fala": "(ele ajeita os óculos, que já estavam no lugar) Todo padre esconde alguma coisa, filho. É praticamente o requisito do cargo. Precisa de mais alguma coisa?",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "v02_oferta": {
+          "fala": "Piscando é generosidade. Está engasgando! As bobinas queimam e eu preciso trocar. Deixei cinco secando no telhado e os Corvos de Cinza levaram tudo. Eles adoram coisa brilhante, esses ladrõezinhos de fuligem. Pode trazer de volta? De dentro dos corvos, se necessário. Principalmente de dentro dos corvos.",
+          "opcoes": [
+            {
+              "texto": "Vou atrás dos corvos.",
+              "acoes": [
+                {
+                  "aceitar_missao": "v02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não, Doutor."
+            }
+          ]
+        },
+        "v02_fim": {
+          "fala": "Cinco! Olha só, nem amassou. (ele beija uma bobina, depois a sua testa) Pronto, a Vela volta a cantar. Leva uns tônicos. Agite, não pergunte. Sério, não pergunte.",
+          "opcoes": [
+            {
+              "texto": "Não vou perguntar.",
+              "acoes": [
+                {
+                  "concluir_missao": "v02"
+                }
+              ]
+            }
+          ]
+        },
+        "v05_debate": {
+          "fala": "Ela quer esmagar. Eu entendo, de verdade. Mas me escuta: esse bocal soprou meia nota do fim do mundo. Se eu entender como ele vibra, posso construir o contrário. Uma trombeta reversa. Uma nota que manda os mortos de volta pra terra e fecha o céu. Ou posso explodir o acampamento tentando, isso também é possível. (pausa) Fui eu que desenhei o lacre de chumbo, sabia? Nunca contei pra ninguém. Calei Deus uma vez. Deixa eu tentar desfazer o estrago direito.",
+          "opcoes": [
+            {
+              "texto": "Destruam o bocal. Odete tem razão.",
+              "acoes": [
+                {
+                  "concluir_missao": "v05",
+                  "escolha": "destruir"
+                }
+              ],
+              "ir": "v05_destruir"
+            },
+            {
+              "texto": "Estude o bocal, Doutor.",
+              "acoes": [
+                {
+                  "concluir_missao": "v05",
+                  "escolha": "estudar"
+                }
+              ],
+              "ir": "v05_estudar"
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "v05_destruir": {
+          "fala": "(ele fecha os olhos) Tá certo. Tá certo. Melhor um mundo parado do que um mundo explodido por um padre gordo. Vai, leva pro Gaspar. A Odete vai querer bater ela mesma. Guarda um pedaço do lacre, ele ainda tem muita teimosia dentro.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Doutor."
+            }
+          ]
+        },
+        "v05_estudar": {
+          "fala": "Obrigado. Obrigado! A Odete vai ficar uma semana sem falar comigo, o que, sinceramente, também é um presente. Toma, afinei um diapasão com uma lasca do metal. Primeiro passo da trombeta reversa. Se ele começar a zumbir sozinho, corre.",
+          "opcoes": [
+            {
+              "texto": "Vou correr."
+            }
+          ]
+        },
+        "d01v_oferta": {
+          "fala": "Toda noite, às três e onze, o rádio pega uma mulher lendo números. 'Absinto-dois. Ainda aqui. Ainda aqui.' Eu fiz o lacre de chumbo da trombeta, meu filho, eu sei reconhecer quando alguém está contando para trás. A voz vem do Bairro Afogado, da torre da Rádio São Lázaro. A matilha tomou os becos. Vá lá e descubra quem é.",
+          "opcoes": [
+            {
+              "texto": "Vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d01v"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_cardo",
+      "npc": "mae_cardo",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "s02"
+              },
+              "texto": "Senta, menino. Tem sopa. Sempre vai ter sopa pra você."
+            },
+            {
+              "texto": "Ô menino, tá com cara de fome. Todo mundo aqui tá com cara de fome. Senta, que a sopa sai."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Precisa de ajuda com alguma coisa?",
+              "ir": "s01_oferta",
+              "se": {
+                "missao_disponivel": "s01"
+              }
+            },
+            {
+              "texto": "Trouxe as raízes.",
+              "ir": "s01_fim",
+              "se": {
+                "missao_pronta": "s01"
+              }
+            },
+            {
+              "texto": "Para quem é esse caldo especial?",
+              "ir": "s02_oferta",
+              "se": {
+                "missao_disponivel": "s02"
+              }
+            },
+            {
+              "texto": "Mãe Cardo... encontrei o Joaquim.",
+              "ir": "s02_fim",
+              "se": {
+                "missao_pronta": "s02"
+              }
+            },
+            {
+              "texto": "Quero comida.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_cardo"
+                }
+              ]
+            },
+            {
+              "texto": "Seu braço... dói?",
+              "ir": "braco"
+            },
+            {
+              "texto": "Até logo, Mãe Cardo."
+            }
+          ]
+        },
+        "braco": {
+          "fala": "Doía no começo. Agora é só pesado. Mas mexe sopa que é uma beleza, olha só. (ela gira o caldeirão inteiro com uma mão) É a água, menino. Anos bebendo água amarga. O Amargo pega todo mundo de um jeito. Em mim pegou o braço. Tem gente que ela pegou inteira.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "s01_oferta": {
+          "fala": "Preciso, sim. Raiz-de-Cova. É uma raiz branquinha que só nasce em terra de enterro, lá no cemitério. Os mortos levam umas presas na mortalha, sei lá por quê. Traz quatro pra mim? É pra um caldo especial.",
+          "opcoes": [
+            {
+              "texto": "Trago, sim.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s01"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "s01_fim": {
+          "fala": "(ela cheira as raízes e fica quieta um tempo) Era o preferido dele. Toma, umas sopas pra você. Depois volta aqui, que eu quero te pedir uma coisa maior. Quando eu tiver coragem.",
+          "opcoes": [
+            {
+              "texto": "Eu volto.",
+              "acoes": [
+                {
+                  "concluir_missao": "s01"
+                }
+              ]
+            }
+          ]
+        },
+        "s02_oferta": {
+          "fala": "Pro meu Joaquim. Meu filho. A praga pegou ele inteiro, menino. Virou bicho. Fugiu pro cemitério e fica rondando o túmulo do pai. Toda noite eu deixo sopa no portão e finjo que é ele que come. (ela enxuga o rosto com o braço grande) Leva esse caldo no túmulo do meu marido. Se o Joaquim ainda for o Joaquim, ele vem. E aí... você faz o que precisar ser feito. Eu sei o que é. Não me faz falar.",
+          "opcoes": [
+            {
+              "texto": "Eu levo. E cuido dele.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s02"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso de um tempo."
+            }
+          ]
+        },
+        "s02_fim": {
+          "fala": "(você entrega a medalhinha; ela segura contra o peito por muito tempo) Ele falou alguma coisa? (você conta) Comeu tudo. Todo dia. Eu sabia. Mãe sabe. (ela tira o lenço florido do Joaquim do seu bolso, dobra, e coloca na sua mão) Fica com isso. Ele ia querer que alguém usasse. Agora vai, vai, que a sopa vai grudar no fundo.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Mãe Cardo.",
+              "acoes": [
+                {
+                  "concluir_missao": "s02"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_tobias",
+      "npc": "tobias_pavio",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Ô, Cabeça-de-Bota! Preço bom hoje, juro. Mentira, preço normal. Mas sorrio de graça.",
+          "opcoes": [
+            {
+              "texto": "Tem algum trabalho?",
+              "ir": "s04_oferta",
+              "se": {
+                "missao_disponivel": "s04"
+              }
+            },
+            {
+              "texto": "Abri os três esconderijos.",
+              "ir": "s04_fim",
+              "se": {
+                "missao_pronta": "s04"
+              }
+            },
+            {
+              "texto": "Mostra o que você tem.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_tobias"
+                }
+              ]
+            },
+            {
+              "texto": "Por que te chamam de Pavio?",
+              "ir": "apelido"
+            },
+            {
+              "texto": "Viu alguma coisa lá de cima, Tobias?",
+              "ir": "e01v_oferta",
+              "se": {
+                "missao_disponivel": "e01v"
+              }
+            },
+            {
+              "texto": "Tchau, Tobias."
+            }
+          ]
+        },
+        "apelido": {
+          "fala": "Porque eu acendia as velas do Doutor antes de ter a Vela grande. E porque eu exploro fácil. Explodo. Exploro também. Os dois.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "s04_oferta": {
+          "fala": "Tenho! Olha esse mapa. Três X. Três esconderijos que a areia ainda não engoliu. Ainda. Ela anda, então vai logo. Eu acharia, mas os baús são pesados e os corvos bicam olho, perdi uma lente assim. Você abre, o que tiver dentro é seu. MENOS a caixinha de música. Ela é minha. Se você ficar com ela eu vou saber, eu sei tudo.",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s04"
+                }
+              ]
+            },
+            {
+              "texto": "Talvez depois."
+            }
+          ]
+        },
+        "s04_fim": {
+          "fala": "(ele dá corda na caixinha e escuta as três notas de olhos fechados) ...É só pra revender. Toma, sua parte. E não conta pra ninguém que eu fiquei com cara de bobo.",
+          "opcoes": [
+            {
+              "texto": "Não conto.",
+              "acoes": [
+                {
+                  "concluir_missao": "s04"
+                }
+              ]
+            }
+          ]
+        },
+        "e01v_oferta": {
+          "fala": "Vi e ouvi! Eu tava num telhado enterrado do lado da Capela, catando fio de cobre, e os anjos e os demônios tavam GRITANDO uns com os outros. Um chifrudo jogou um cálice na parede. Falavam de um general que sumiu. A Capitã quer saber se é briga de verdade ou teatro pra pegar a gente. Dá uma olhada nos estandartes velhos da Legião, lá nos Campos de Cinza, e depois procura a Corvina, no Bairro Afogado. Ela vende fofoca dos dois lados. Leva dinheiro.",
+          "opcoes": [
+            {
+              "texto": "Vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e01v"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_gaspar",
+      "npc": "gaspar_bigorna",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Fala. Rápido. Forja esfria.",
+          "opcoes": [
+            {
+              "texto": "Precisa de alguma coisa?",
+              "ir": "s03_oferta",
+              "se": {
+                "missao_disponivel": "s03"
+              }
+            },
+            {
+              "texto": "Trouxe o ferro e o badalo.",
+              "ir": "s03_fim",
+              "se": {
+                "missao_pronta": "s03"
+              }
+            },
+            {
+              "texto": "Quero forjar e consertar.",
+              "acoes": [
+                {
+                  "abrir_ferreiro": "ferreiro_gaspar"
+                }
+              ]
+            },
+            {
+              "texto": "Sua forja é um sino?",
+              "ir": "sino"
+            },
+            {
+              "texto": "Até."
+            }
+          ]
+        },
+        "sino": {
+          "fala": "Era. Fundi sino trinta anos. Aí veio a trombeta. Os mortos levantaram com música. Entendi que sino não salva ninguém. Derreti todos. Um por um. Virou bala. Agora cada tiro da Vigília é uma badalada. Os sinos ainda chamam o povo. Só que pra outra coisa.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "s03_oferta": {
+          "fala": "Preciso ferro. Os Açougueiros do abatedouro. Cutelo bom. Traz seis. (pausa longa) E... a torre do cemitério. Ficou um badalo. O último de São Lázaro. Não tive coragem. Traz pra mim.",
+          "opcoes": [
+            {
+              "texto": "Trago os dois.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "s03_fim": {
+          "fala": "(ele joga o ferro na forja sem olhar. O badalo ele segura nas duas mãos por muito tempo) Esse sino tocou no meu casamento. E no enterro dela. (ele joga na forja) Guardei um pedaço. Pra você. Quando apanhar, ele toca. Toca alto.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Gaspar.",
+              "acoes": [
+                {
+                  "concluir_missao": "s03"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_ivone",
+      "npc": "madre_ivone",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_disponivel": "a01"
+              },
+              "texto": "Chegue mais perto, criança. Eu falo baixo para que só quem quer ouvir escute. Sou a Madre Ivone. Você veio porque também está cansado, não é? Todos vêm por isso."
+            },
+            {
+              "texto": "A paz do fim esteja com você. Ela está demorando, mas vem."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Como posso servir, Madre?",
+              "ir": "a01_oferta",
+              "se": {
+                "missao_disponivel": "a01"
+              }
+            },
+            {
+              "texto": "Os Carniçais foram entregues.",
+              "ir": "a01_fim",
+              "se": {
+                "missao_pronta": "a01"
+              }
+            },
+            {
+              "texto": "Qual o próximo passo, Madre?",
+              "ir": "a04_oferta",
+              "se": {
+                "missao_disponivel": "a04"
+              }
+            },
+            {
+              "texto": "Trago o bocal da quinta trombeta.",
+              "ir": "a05_oferta",
+              "se": {
+                "missao_disponivel": "a05"
+              }
+            },
+            {
+              "texto": "Madre, preciso entregar isto. É uma carta do Irmão Lúcio.",
+              "ir": "s07_denuncia",
+              "se": {
+                "missao_ativa": "s06",
+                "tem_item": {
+                  "id": "carta_lucio",
+                  "qtd": 1
+                }
+              }
+            },
+            {
+              "texto": "Por que a senhora quer o fim?",
+              "ir": "porque"
+            },
+            {
+              "texto": "A senhora parece preocupada, Madre.",
+              "ir": "d01a_oferta",
+              "se": {
+                "missao_disponivel": "d01a"
+              }
+            },
+            {
+              "texto": "Que o Juízo chegue."
+            }
+          ]
+        },
+        "porque": {
+          "fala": "Eu fui enfermeira do hospício de São Lázaro por trinta anos. Vi gente sofrer sem cura e sem fim. Gritos que duravam décadas. Quando a trombeta soou, pela primeira vez na vida eu senti alívio. Finalmente ia acabar. Para todos eles. Para mim. E então homens com chumbo e ferramentas decidiram que o sofrimento devia continuar. Me diga, criança: quem foi cruel naquela noite?",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "a01_oferta": {
+          "fala": "Sua primeira oração vai ser com as mãos. Os Carniçais dos Campos de Cinza não esperaram o lacre: levantaram com fome em vez de esperança. São restos sem propósito, e merecem descanso. Entregue seis ao Juízo.",
+          "opcoes": [
+            {
+              "texto": "Assim será.",
+              "acoes": [
+                {
+                  "aceitar_missao": "a01"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não estou pronto."
+            }
+          ]
+        },
+        "a01_fim": {
+          "fala": "Eu senti cada um deles parar. Foi bonito. (ela amarra uma fita vermelha no seu pulso, apertado demais) Agora você sangra conosco. O Comandante Abdiel tem um pedido. Ele não vai pedir com gentileza, porque não sabe. Perdoe-o.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Madre.",
+              "acoes": [
+                {
+                  "concluir_missao": "a01"
+                }
+              ]
+            }
+          ]
+        },
+        "a04_oferta": {
+          "fala": "Eu sinto a quinta trombeta, criança. Ela está aqui, debaixo de nós, prendendo a respiração. Os Não-Julgados também sentem: andam em fila na direção do abatedouro, como quem atende um chamado. Vá ao cemitério. Veja os lacres no peito deles. E procure o coveiro, Simão. Ele finge que é só um velho. Não é.",
+          "opcoes": [
+            {
+              "texto": "Vou ao cemitério.",
+              "acoes": [
+                {
+                  "aceitar_missao": "a04"
+                }
+              ]
+            },
+            {
+              "texto": "Depois, Madre."
+            }
+          ]
+        },
+        "a05_oferta": {
+          "fala": "(ela segura o bocal com as mãos que sangram e fecha os olhos) Está quente. Ainda quer tocar. (ela devolve) Abdiel acha que é dele, por direito de escudeiro. Malfas acha que é dele, porque tudo é dele se o preço for bom. Eu acho que deve ir para quem vai arrancar o chumbo. Escute os dois. Depois decida. A escolha é sua, e isso não é um elogio, criança: é um peso.",
+          "opcoes": [
+            {
+              "texto": "Vou ouvir os dois.",
+              "acoes": [
+                {
+                  "aceitar_missao": "a05"
+                }
+              ]
+            },
+            {
+              "texto": "Um momento, Madre."
+            }
+          ]
+        },
+        "s07_denuncia": {
+          "fala": "(ela lê a carta inteira, devagar. Dobra com cuidado) Rosa. Eu me lembro dela. Roubava pão da sacristia. (silêncio) Você fez o que é difícil, criança. A fé que não dói não é fé. Tome. Este anel é para quem coloca o Juízo acima do sangue. Lúcio vai... rezar em outro lugar a partir de hoje.",
+          "opcoes": [
+            {
+              "texto": "...Sim, Madre.",
+              "acoes": [
+                {
+                  "remover_item": {
+                    "id": "carta_lucio",
+                    "qtd": 1
+                  }
+                },
+                {
+                  "aceitar_missao": "s07"
+                },
+                {
+                  "cumprir_falar": "s07"
+                },
+                {
+                  "concluir_missao": "s07"
+                },
+                {
+                  "definir_flag": "lucio_denunciado"
+                }
+              ]
+            }
+          ]
+        },
+        "d01a_oferta": {
+          "fala": "Há uma voz no rádio, filho. Toda noite. Diz que a estrela Absinto tinha número de série. Que não foi o Céu que a soltou. (ela aperta o terço até os nós ficarem brancos) Isso é blasfêmia, e blasfêmia não se cala com reza. Vá ao Bairro Afogado, à torre da rádio. Descubra quem fala. Se puder, faça calar. Se não puder... ouça, e me conte.",
+          "opcoes": [
+            {
+              "texto": "Vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d01a"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_abdiel",
+      "npc": "comandante_abdiel",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "bocal_anjos"
+              },
+              "texto": "O bocal está sob a minha guarda. Desta vez eu não vou recuar."
+            },
+            {
+              "se": {
+                "flag": "bocal_demonios"
+              },
+              "texto": "Você entregou a voz de Deus a um penhorista. Fale o que precisar e saia."
+            },
+            {
+              "texto": "Identifique-se. ...Irmão. Aceitável."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "A Madre disse que o senhor tem um pedido.",
+              "ir": "a02_oferta",
+              "se": {
+                "missao_disponivel": "a02"
+              }
+            },
+            {
+              "texto": "Trouxe as penas.",
+              "ir": "a02_fim",
+              "se": {
+                "missao_pronta": "a02"
+              }
+            },
+            {
+              "texto": "Sobre o bocal, Comandante.",
+              "ir": "a05_abdiel",
+              "se": {
+                "missao_ativa": "a05"
+              }
+            },
+            {
+              "texto": "Quero treinar.",
+              "acoes": [
+                {
+                  "abrir_treinador": "treinador_abdiel"
+                }
+              ]
+            },
+            {
+              "texto": "O senhor conheceu Zacarias?",
+              "ir": "zacarias",
+              "se": {
+                "missao_concluida": "c01"
+              }
+            },
+            {
+              "texto": "O general Andras disse que os anjos abandonaram a Legião no campo.",
+              "ir": "andras",
+              "se": {
+                "missao_concluida": "c04"
+              }
+            },
+            {
+              "texto": "Por que os demônios ficam lá fora?",
+              "ir": "demonios"
+            },
+            {
+              "texto": "Com licença, Comandante."
+            }
+          ]
+        },
+        "demonios": {
+          "fala": "Porque o Senhor os prometeu a Terra depois do fim, e não esta capela. Eles marcham conosco por cobiça. Nós marchamos por obediência. Não é a mesma coisa, e não se senta no mesmo banco.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "zacarias": {
+          "fala": "Eu fui escudeiro dele. Na noite do céu rachado, ele desceu para tocar e me mandou guardar a entrada. Ouvi a meia nota. Ouvi o chumbo. Ouvi ele me chamar. (a porcelana do rosto dele estala) Eu não desci. Recuei com os outros. É a única ordem que eu já desobedeci, e foi a única que importava.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "a02_oferta": {
+          "fala": "Irmãos meus caíram nos Campos de Cinza na noite da meia nota. Ninguém os recolheu. Os corvos arrancam as penas deles para fazer ninho. É indigno. Traga cinco penas. Serão queimadas no altar, conforme o rito.",
+          "opcoes": [
+            {
+              "texto": "Trarei as penas.",
+              "acoes": [
+                {
+                  "aceitar_missao": "a02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não, Comandante."
+            }
+          ]
+        },
+        "a02_fim": {
+          "fala": "(ele queima as penas uma por uma no altar, sem dizer nada. Quando a última vira cinza, fala) Cumprido. Leve as hóstias. Malfas quer falar com você. Conte os dedos depois de apertar a mão dele.",
+          "opcoes": [
+            {
+              "texto": "Sim, Comandante.",
+              "acoes": [
+                {
+                  "concluir_missao": "a02"
+                }
+              ]
+            }
+          ]
+        },
+        "a05_abdiel": {
+          "fala": "O bocal pertence a quem servia a trombeta. Eu era o escudeiro de Zacarias. Se ele caiu, a função é minha. Eu não desci naquela noite. Deixe-me guardar o que restou dele, e quando chegar a hora, eu mesmo arranco o chumbo. Não vou recuar duas vezes.",
+          "opcoes": [
+            {
+              "texto": "O bocal é seu, Comandante.",
+              "acoes": [
+                {
+                  "concluir_missao": "a05",
+                  "escolha": "abdiel"
+                }
+              ],
+              "ir": "a05_abdiel_fim"
+            },
+            {
+              "texto": "Ainda quero ouvir o Malfas."
+            }
+          ]
+        },
+        "a05_abdiel_fim": {
+          "fala": "(ele recebe o bocal com as duas mãos, e por um instante parece prestes a se ajoelhar) Tome. Uma pena das asas dele. Recolhi na noite em que não desci. É a última ordem que consigo cumprir por ele: que algo dele lute. Obrigado, irmão.",
+          "opcoes": [
+            {
+              "texto": "Que o Juízo chegue."
+            }
+          ]
+        },
+        "andras": {
+          "fala": "Ele disse a verdade. Quando o céu rachou e a Vigília chegou com aqueles bondes, a ordem foi recuar. Os anjos voaram. A Legião não tinha asas. (pausa) Eu não sinto falta de nenhum demônio. Mas foi a segunda vez naquela noite que eu deixei alguém para trás.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_malfas",
+      "npc": "malfas",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "bocal_demonios"
+              },
+              "texto": "Meu sócio preferido! Venha, venha, o bocal está guardadinho. Debaixo do colchão. Brincadeira. Ou não."
+            },
+            {
+              "texto": "Ora, ora, carne nova na capela! Malfas, penhorista, ferreiro, conselheiro e, aos domingos, ouvinte de confissões. Tudo com juros camaradas."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "O Comandante disse que você quer falar comigo.",
+              "ir": "a03_oferta",
+              "se": {
+                "missao_disponivel": "a03"
+              }
+            },
+            {
+              "texto": "Trouxe os dentes.",
+              "ir": "a03_fim",
+              "se": {
+                "missao_pronta": "a03"
+              }
+            },
+            {
+              "texto": "Vim buscar o osso do relicário.",
+              "ir": "s05_osso",
+              "se": {
+                "missao_ativa": "s05"
+              }
+            },
+            {
+              "texto": "Sobre o bocal...",
+              "ir": "a05_malfas",
+              "se": {
+                "missao_ativa": "a05"
+              }
+            },
+            {
+              "texto": "Quero o dízimo de hoje.",
+              "ir": "r02_oferta",
+              "se": {
+                "missao_disponivel": "r02"
+              }
+            },
+            {
+              "texto": "Trouxe o dízimo.",
+              "ir": "r02_fim",
+              "se": {
+                "missao_pronta": "r02"
+              }
+            },
+            {
+              "texto": "Vamos negociar.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_malfas"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso de um ferreiro.",
+              "acoes": [
+                {
+                  "abrir_ferreiro": "ferreiro_malfas"
+                }
+              ]
+            },
+            {
+              "texto": "Você conhecia o general Andras?",
+              "ir": "andras",
+              "se": {
+                "missao_concluida": "c04"
+              }
+            },
+            {
+              "texto": "Essas etiquetas no seu pescoço...",
+              "ir": "etiquetas"
+            },
+            {
+              "texto": "Dizem que a Legião perdeu o general.",
+              "ir": "e01a_oferta",
+              "se": {
+                "missao_disponivel": "e01a"
+              }
+            },
+            {
+              "texto": "Segui o rastro do general.",
+              "ir": "e05a_fim",
+              "se": {
+                "missao_pronta": "e05a"
+              }
+            },
+            {
+              "texto": "Até, Malfas."
+            }
+          ]
+        },
+        "etiquetas": {
+          "fala": "Contratos, meu caro. Cada etiqueta é alguém que me deve alguma coisa. Uma alma, um favor, um dente de ouro. Esta aqui é de um bispo. Esta é de um pintor famoso, você nem imagina quem. E este espaço vazio aqui, bem no meio, é reservado para o halo do Abdiel. Um dia.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "a03_oferta": {
+          "fala": "Você precisa de uma arma decente, e eu tenho várias, todas com histórias tristes. Mas nada sai de graça, nem no Inferno, principalmente no Inferno. Eu aceito Dentes de Vala. Cada dente desses mordeu uma alma, e alma é a única moeda que não desvaloriza. Oito dentes. E se puder arrancar na frente do Abdiel, ganha desconto.",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "a03"
+                }
+              ]
+            },
+            {
+              "texto": "Vou pensar."
+            }
+          ]
+        },
+        "a03_fim": {
+          "fala": "(ele conta duas vezes e morde um dente) Legítimo. Muito bem. Escolhe uma, qualquer uma desse lado do sobretudo. Pra um anjo eu ia cobrar o dobro, mas você tem cara de quem volta. E quem volta, compra.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Malfas.",
+              "acoes": [
+                {
+                  "concluir_missao": "a03"
+                }
+              ]
+            }
+          ]
+        },
+        "s05_osso": {
+          "fala": "O Luciozinho! Penhorou um osso de santo por três pães, chorando, foi lindo. Dez Dentes de Vala e eu devolvo.",
+          "opcoes": [
+            {
+              "texto": "Aqui estão os dez dentes.",
+              "acoes": [
+                {
+                  "remover_item": {
+                    "id": "dente_vala",
+                    "qtd": 10
+                  }
+                },
+                {
+                  "cumprir_falar": "s05"
+                }
+              ],
+              "ir": "s05_osso_2",
+              "se": {
+                "missao_ativa": "s05",
+                "tem_item": {
+                  "id": "dente_vala",
+                  "qtd": 10
+                }
+              }
+            },
+            {
+              "texto": "Ainda não tenho os dentes."
+            }
+          ]
+        },
+        "s05_osso_2": {
+          "fala": "(ele pega os dentes, remexe um bolso e entrega um osso) Aqui. Agora, entre nós: isso é osso de galinha. Sempre foi. Os ossos de Lázaro não estão em relicário nenhum, meu caro. O dono ainda está usando. Pergunta pro coveiro. (ele bate no nariz com uma unha preta) O resto da informação é cobrado à parte.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "a05_malfas": {
+          "fala": "Ah, o bocal! Escuta, o anjo vai guardar isso num altar e chorar em cima até o fim dos tempos, que é literalmente o que ele está esperando. Eu? Eu guardo, negocio, faço render. Quando chegar a hora de arrancar o chumbo, quem vai estar com a chave? O Inferno. E o Inferno lembra de quem fez bons negócios. Eu pago bem. Muito bem. E te dou uma coisa que nem o Abdiel tem: um favor meu, em branco.",
+          "opcoes": [
+            {
+              "texto": "Vendido, Malfas.",
+              "acoes": [
+                {
+                  "concluir_missao": "a05",
+                  "escolha": "malfas"
+                }
+              ],
+              "ir": "a05_malfas_fim"
+            },
+            {
+              "texto": "Ainda quero ouvir o Abdiel."
+            }
+          ]
+        },
+        "a05_malfas_fim": {
+          "fala": "(ele arranca uma etiqueta do próprio colar, escreve um traço e amarra no seu pulso) Um favor, qualquer um, cobrado quando eu quiser. Ou quando você quiser, vai. Bom negócio pra nós dois. Agora sorri, que o Abdiel tá olhando da janela e eu quero que ele veja.",
+          "opcoes": [
+            {
+              "texto": "Bom negócio."
+            }
+          ]
+        },
+        "r02_oferta": {
+          "fala": "Dez dentes, pagamento na hora. Eu chamo de dízimo só pra irritar o Abdiel.",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "r02"
+                }
+              ]
+            },
+            {
+              "texto": "Hoje não."
+            }
+          ]
+        },
+        "r02_fim": {
+          "fala": "(mais uma etiqueta no colar) Prazer fazer negócio. Como sempre.",
+          "opcoes": [
+            {
+              "texto": "Até amanhã.",
+              "acoes": [
+                {
+                  "concluir_missao": "r02"
+                }
+              ]
+            }
+          ]
+        },
+        "andras": {
+          "fala": "Andras? Claro! Me devia três almas e um cavalo. (ele procura uma etiqueta no colar e a arranca) Dívida perdoada, pobre diabo. Comandou a Legião Blasfema como ninguém, e os anjos largaram ele no campo como quem larga um guarda-chuva. Lembra disso, meu caro, quando um anjo te chamar de irmão.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e01a_oferta": {
+          "fala": "(ele para de sorrir, o que é raro) Perdeu, não. Foi perdido. A Legião Blasfema segurou a linha na Grande Batalha enquanto os anjos batiam asa para trás, e o general ficou no campo. Agora os chifrudos acham que o Abdiel mandou apunhalar ele e o Abdiel acha que a Madre vendeu ele. Eu? Eu acho que uma prova, qualquer prova, vale mais que um general. Vá aos Campos de Cinza, olhe os estandartes caídos. Depois fale com a Corvina, a atravessadora. Ela sabe tudo e vende tudo, até para mim, com juros.",
+          "opcoes": [
+            {
+              "texto": "Que tipo de prova?",
+              "acoes": [
+                {
+                  "aceitar_missao": "e01a"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "e05a_fim": {
+          "fala": "(ele pega a meia dragona com dois dedos e fica um bom tempo quieto) Vivo. Pela metade, comendo morto num porão, mas vivo. Sabe o que isso vale? Se a Legião souber, volta a ter general e a aliança racha de vez: demônio nenhum vai obedecer anjo que largou o chefe no campo. Se ninguém souber... a Legião precisa de alguém no comando. Alguém com contatos. Com contratos. (ele toca as etiquetas no pescoço) Você decide o que eu escuto agora.",
+          "opcoes": [
+            {
+              "texto": "Conte à Legião. Andras está vivo no fosso.",
+              "ir": "e05a_revelar",
+              "acoes": [
+                {
+                  "concluir_missao": "e05a",
+                  "escolha": "revelar"
+                }
+              ]
+            },
+            {
+              "texto": "Fica com o segredo. Assuma a Legião.",
+              "ir": "e05a_calar",
+              "acoes": [
+                {
+                  "concluir_missao": "e05a",
+                  "escolha": "calar"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda preciso pensar."
+            }
+          ]
+        },
+        "e05a_revelar": {
+          "fala": "(ele suspira como quem perde uma fortuna) Honesto. Que desperdício. Hoje à noite a Legião inteira vai saber, e amanhã metade dela vai descer naquele porão para buscar o general ou para acabar com o que sobrou. E o Abdiel vai ter que explicar por que bateu asa. Isso, pelo menos, eu vou assistir de camarote.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e05a_calar": {
+          "fala": "(ele amarra a meia dragona no próprio ombro) General Malfas. Soa bem, não soa? Ninguém precisa saber o que mora no porão. E se um dia a coisa subir a escada... bom, aí você vai descer antes, não vai, sócio?",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_lucio",
+      "npc": "irmao_lucio",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "s06"
+              },
+              "texto": "Obrigado de novo. Eu durmo melhor agora. Um pouco."
+            },
+            {
+              "texto": "A-a paz do fim, irmão. Precisa de incenso? Hóstia? Eu tenho, eu tenho de tudo. Quase tudo."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Você parece nervoso, Lúcio.",
+              "ir": "s05_oferta",
+              "se": {
+                "missao_disponivel": "s05"
+              }
+            },
+            {
+              "texto": "Recuperei o osso.",
+              "ir": "s05_fim",
+              "se": {
+                "missao_pronta": "s05"
+              }
+            },
+            {
+              "texto": "Posso ajudar com mais alguma coisa?",
+              "ir": "s06_oferta",
+              "se": {
+                "missao_disponivel": "s06",
+                "missao_nao_iniciada": "s07"
+              }
+            },
+            {
+              "texto": "Deixei a carta no poço.",
+              "ir": "s06_fim",
+              "se": {
+                "missao_pronta": "s06"
+              }
+            },
+            {
+              "texto": "Quero comprar.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_lucio"
+                }
+              ]
+            },
+            {
+              "texto": "Até, Lúcio."
+            }
+          ]
+        },
+        "s05_oferta": {
+          "fala": "N-nervoso? Não. Sim. Tá bom. Durante o cerco eu... penhorei a relíquia da capela com o Malfas. Um osso de São Lázaro. Em troca de pão. Três pães. Eu tava com fome, irmão. A Madre vai rezar com o relicário na próxima missa e ele tá vazio. O Malfas devolve por dez Dentes de Vala. Você me ajuda? Por favor?",
+          "opcoes": [
+            {
+              "texto": "Eu te ajudo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s05"
+                }
+              ]
+            },
+            {
+              "texto": "Se vira, Lúcio."
+            }
+          ]
+        },
+        "s05_fim": {
+          "fala": "Isso é... um osso de galinha? (ele olha muito tempo para o osso, e depois coloca no relicário mesmo assim) Ninguém olha de perto. Ninguém olha de perto nada aqui. Obrigado, irmão. De verdade.",
+          "opcoes": [
+            {
+              "texto": "De nada.",
+              "acoes": [
+                {
+                  "concluir_missao": "s05"
+                }
+              ]
+            }
+          ]
+        },
+        "s06_oferta": {
+          "fala": "(ele olha para os lados e baixa a voz) Eu tenho uma irmã. Rosa. Ela foi pro outro lado, pro Acampamento da Vela. A gente troca cartas pelo Poço Seco, nos Campos de Cinza. Eu deixo, ela busca. Leva essa pra mim? Se a Madre souber... (ele não termina)",
+          "opcoes": [
+            {
+              "texto": "Eu levo a carta.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s06"
+                }
+              ]
+            },
+            {
+              "texto": "Isso é traição, Lúcio."
+            }
+          ]
+        },
+        "s06_fim": {
+          "fala": "Tinha resposta? (você entrega o meio terço e o bilhete; ele lê e ri chorando) O joelho ainda estala. Ela sempre reclama do joelho. (ele quebra o próprio terço ao meio e te dá a metade) Fica com essa. Assim são três pessoas com o mesmo terço. Ninguém sabe disso além da gente.",
+          "opcoes": [
+            {
+              "texto": "Seu segredo está seguro.",
+              "acoes": [
+                {
+                  "concluir_missao": "s06"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_simao",
+      "npc": "simao_coveiro",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "c06"
+              },
+              "texto": "Ainda vivo. Eu também. Somos teimosos, nós dois."
+            },
+            {
+              "se": {
+                "missao_ativa": "v04"
+              },
+              "texto": "Alguém da Vela. Demoraram. Entra, a chaleira já está no fogo faz uns dias."
+            },
+            {
+              "se": {
+                "missao_ativa": "a04"
+              },
+              "texto": "Alguém da Capela. A Madre demorou para mandar. Entra. Os mortos não vão te tocar enquanto eu estiver olhando."
+            },
+            {
+              "texto": "Trouxe velas? Não? Tudo bem. Ninguém traz."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Os lacres dos mortos estão todos inteiros. Por quê?",
+              "ir": "lacres",
+              "se": {
+                "missao_pronta": "v04"
+              }
+            },
+            {
+              "texto": "Os lacres dos mortos estão todos inteiros. Por quê?",
+              "ir": "lacres_a",
+              "se": {
+                "missao_pronta": "a04"
+              }
+            },
+            {
+              "texto": "Do que você precisa?",
+              "ir": "c01_oferta",
+              "se": {
+                "missao_disponivel": "c01"
+              }
+            },
+            {
+              "texto": "Trouxe o sebo.",
+              "ir": "c01_fim",
+              "se": {
+                "missao_pronta": "c01"
+              }
+            },
+            {
+              "texto": "E agora?",
+              "ir": "c02_oferta",
+              "se": {
+                "missao_disponivel": "c02"
+              }
+            },
+            {
+              "texto": "Achei o Livro de Óbitos.",
+              "ir": "c02_fim",
+              "se": {
+                "missao_pronta": "c02"
+              }
+            },
+            {
+              "texto": "Como eu desço?",
+              "ir": "c03_oferta",
+              "se": {
+                "missao_disponivel": "c03"
+              }
+            },
+            {
+              "texto": "Aqui está o bocal da trombeta.",
+              "ir": "c06_fim",
+              "se": {
+                "missao_pronta": "c06"
+              }
+            },
+            {
+              "texto": "Posso ajudar no cemitério?",
+              "ir": "s08_oferta",
+              "se": {
+                "missao_disponivel": "s08"
+              }
+            },
+            {
+              "texto": "As covas estão fechadas.",
+              "ir": "s08_fim",
+              "se": {
+                "missao_pronta": "s08"
+              }
+            },
+            {
+              "texto": "Quero guardar minhas coisas.",
+              "acoes": [
+                {
+                  "abrir_armazem": true
+                }
+              ]
+            },
+            {
+              "texto": "Há quanto tempo você mora aqui?",
+              "ir": "idade"
+            },
+            {
+              "texto": "Até mais, Simão."
+            }
+          ]
+        },
+        "idade": {
+          "fala": "Desde antes do nome. (ele sorri) A cidade se chama São Lázaro, não é? Engraçado. Quantas vezes você acha que um homem pode morrer antes de desistir?",
+          "opcoes": [
+            {
+              "texto": "...Uma?",
+              "ir": "idade_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "idade_2": {
+          "fala": "É o que todo mundo acha. (ele não diz mais nada sobre isso, e põe mais água na chaleira)",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "lacres": {
+          "fala": "Porque ninguém foi julgado, menino. Eles levantaram para o Juízo. A trombeta deu meia nota e calou. Sua gente da Vela calou, com chumbo. Os mortos ficaram de pé esperando o resto. Não estão bravos. Estão na fila.",
+          "opcoes": [
+            {
+              "texto": "Na fila pra quê?",
+              "acoes": [
+                {
+                  "cumprir_falar": "v04"
+                },
+                {
+                  "concluir_missao": "v04"
+                }
+              ],
+              "ir": "fila"
+            }
+          ]
+        },
+        "lacres_a": {
+          "fala": "Porque ninguém foi julgado, irmão. Eles levantaram para o Juízo. A trombeta deu meia nota e a Vigília calou com chumbo. Os mortos ficaram de pé esperando o resto, como a sua Madre espera. Não estão bravos. Estão na fila.",
+          "opcoes": [
+            {
+              "texto": "Na fila pra quê?",
+              "acoes": [
+                {
+                  "cumprir_falar": "a04"
+                },
+                {
+                  "concluir_missao": "a04"
+                }
+              ],
+              "ir": "fila"
+            }
+          ]
+        },
+        "fila": {
+          "fala": "Para o fim. Ou para o começo, depende de quem conta. Senta. Eu explico, mas vou precisar de ajuda antes. Sem velas eu não consigo nem enxergar o que digo.",
+          "opcoes": [
+            {
+              "texto": "Que tipo de ajuda?",
+              "ir": "c01_oferta"
+            }
+          ]
+        },
+        "c01_oferta": {
+          "fala": "Sebo. Eu faço velas de sebo, e enquanto elas queimam, os mortos se acalmam e abaixam a cabeça. O sebo acabou. Os porcos do Abatedouro Carniça são gordos como bispos. Traz seis porções e eu conto por que os mortos andam para lá.",
+          "opcoes": [
+            {
+              "texto": "Vou ao abatedouro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "c01"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "c01_fim": {
+          "fala": "(ele derrete o sebo devagar, enquanto fala) Na noite do céu rachado, um anjo chamado Zacarias desceu debaixo desta cidade para tocar a quinta trombeta. Deu meia nota. Os túmulos abriram. E aí homens desceram com chumbo e taparam a boca dela no meio do sopro. A trombeta continua lá embaixo, prendendo a respiração. E os mortos andam na direção dela como girassóis de noite.",
+          "opcoes": [
+            {
+              "texto": "Lá embaixo onde?",
+              "acoes": [
+                {
+                  "concluir_missao": "c01"
+                }
+              ],
+              "ir": "c01_fim_2"
+            }
+          ]
+        },
+        "c01_fim_2": {
+          "fala": "Por baixo da paróquia tem catacumbas, e por baixo das catacumbas tem coisa mais velha. A entrada antiga desabou faz séculos. Mas alguém cavou uma nova. Leva umas velas. Você vai precisar.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "c02_oferta": {
+          "fala": "O Livro de Óbitos do cemitério sumiu na época do cerco. Acho que está no escritório do capataz do abatedouro. (você pergunta por que ele acha isso. Ele demora) Porque fui eu quem deixou lá. Traz o livro. O Capataz Gancho guarda o mezanino e as chaves. Ele não vai entregar por educação.",
+          "opcoes": [
+            {
+              "texto": "Vou buscar o livro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "c02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "c02_fim": {
+          "fala": "(ele lê as últimas páginas em silêncio, e passa o dedo na letra 'S.') Recebido de S. Quatro corpos. Dois sacos de sal. (pausa) A cidade estava passando fome, e o Benedito tinha carne, e eu tinha corpos que ninguém ia usar. Eu achei que era misericórdia. Depois da batalha ele ainda recolheu os mortos do campo e jogou o que sobrou no porão. E alguma coisa lá embaixo comeu tudo, e cresceu. Eu abri o caminho para essa fome, menino. A culpa é minha também.",
+          "opcoes": [
+            {
+              "texto": "O que eu faço?",
+              "acoes": [
+                {
+                  "concluir_missao": "c02"
+                }
+              ],
+              "ir": "c02_fim_2"
+            }
+          ]
+        },
+        "c02_fim_2": {
+          "fala": "Você pegou a chave do capataz. A porta do porão é de ganchos. Atrás dela, o fosso onde o Benedito jogava os mortos, e mais embaixo, a Cripta da Trombeta Calada. Volta aqui quando estiver pronto. Não antes.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "c03_oferta": {
+          "fala": "Use a Chave de Gancho na porta do porão. Primeiro você vai encontrar quem comeu os mortos da batalha. Um general, pelo que dizem os ossos. Pela metade. Mais embaixo, as carpideiras. Lá no fundo, o anjo. (ele segura seu braço com uma mão fria como terra) Dois lacres trancam a câmara da trombeta. Um com o general, outro com a Celeste. Depois deles, só o Zacarias. Se trouxer o bocal de volta... me deixa ver. Uma vez só.",
+          "opcoes": [
+            {
+              "texto": "Eu volto com ele.",
+              "acoes": [
+                {
+                  "aceitar_missao": "c03"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não estou pronto."
+            }
+          ]
+        },
+        "c06_fim": {
+          "fala": "(ele pega o bocal com as duas mãos. O polegar dele fica muito tempo em cima do lacre de chumbo. Os mortos lá fora param de andar, todos ao mesmo tempo, e olham para a casa) ...Seria fácil. Uma unha. E finalmente alguém ia me dizer se eu fiz certo. (ele devolve o bocal) Esperei dois mil anos. Espero mais um pouco. Leva para a sua gente. Que eles decidam, que eles carreguem.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Simão.",
+              "acoes": [
+                {
+                  "cumprir_falar": "c06"
+                },
+                {
+                  "concluir_missao": "c06"
+                }
+              ]
+            }
+          ]
+        },
+        "s08_oferta": {
+          "fala": "A areia anda. Toda noite ela descobre meus túmulos e deixa os mortos olhando pro céu. Eu passo o dia cobrindo e a noite descobre de novo. Estou velho para todos. (ele te entrega a pá) Nunca emprestei essa pá. Cubra cinco túmulos e me devolva. Com respeito.",
+          "opcoes": [
+            {
+              "texto": "Com respeito.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s08"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "s08_fim": {
+          "fala": "(ele passa o dedo na lâmina) Você cava torto. Mas cava com respeito. Isso não se ensina. Amanhã a areia descobre tudo de novo, claro. Leva umas velas.",
+          "opcoes": [
+            {
+              "texto": "Obrigado.",
+              "acoes": [
+                {
+                  "remover_item": {
+                    "id": "pa_simao",
+                    "qtd": 1
+                  }
+                },
+                {
+                  "concluir_missao": "s08"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_anacleto",
+      "npc": "frei_anacleto",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "c05"
+              },
+              "texto": "Silêncio. Que maravilha. Trezentos anos e eu tinha esquecido como soa."
+            },
+            {
+              "texto": "Ah! Um vivo! Um vivo de verdade! Pax tecum. É 'pax tecum', não 'pax tecun', antes que você tente. Frei Anacleto, emparedado, ao seu dispor. Literalmente, eu não posso sair."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Que canto é esse lá no fundo?",
+              "ir": "c05_oferta",
+              "se": {
+                "missao_disponivel": "c05"
+              }
+            },
+            {
+              "texto": "A Irmã Celeste se calou.",
+              "ir": "c05_fim",
+              "se": {
+                "missao_pronta": "c05"
+              }
+            },
+            {
+              "texto": "Como abro a câmara da trombeta?",
+              "ir": "c06_oferta",
+              "se": {
+                "missao_disponivel": "c06"
+              }
+            },
+            {
+              "texto": "Posso fazer algo pelos outros monges?",
+              "ir": "s09_oferta",
+              "se": {
+                "missao_disponivel": "s09"
+              }
+            },
+            {
+              "texto": "Li as confissões.",
+              "ir": "s09_fim",
+              "se": {
+                "missao_pronta": "s09"
+              }
+            },
+            {
+              "texto": "Por que te emparedaram?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Adeus, Frei."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Penitência! Era o costume da ordem. O monge escolhia a cela, os irmãos subiam a parede, e ele rezava até o fim. Eu pequei por orgulho: corrigi o latim do abade em público. Três vezes. Ele estava errado nas três. Ainda acho que valeu.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "c05_oferta": {
+          "fala": "É a Irmã Celeste. Desceu aqui quando os mortos levantaram, para cantar até eles dormirem de novo. Cantou anos. Os ossos aprenderam a canção e agora cantam com ela, dia e noite, desafinados. Ela guarda o segundo lacre da câmara. Por favor, faça silêncio. Com todo o respeito à Irmã. Mas ela canta desafinado.",
+          "opcoes": [
+            {
+              "texto": "Vou calar o coro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "c05"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não."
+            }
+          ]
+        },
+        "c05_fim": {
+          "fala": "(o fantasma brilha mais forte, o que para ele é chorar) Silêncio. Obrigado. Ela não era má, sabe. Só não conseguia parar. Muita gente aqui embaixo tem esse problema.",
+          "opcoes": [
+            {
+              "texto": "Descanse, Frei.",
+              "acoes": [
+                {
+                  "concluir_missao": "c05"
+                }
+              ]
+            }
+          ]
+        },
+        "c06_oferta": {
+          "fala": "A porta da câmara fica no fim do ossário. Dois buracos de lacre: carne e lágrimas. Com os dois, ela abre. Lá dentro está o arauto. Eu escutei ele por anos através da pedra. No começo ele rezava. Depois chamava um nome. Abdiel, Abdiel. Agora ele só conta: um, dois, três... como quem espera o momento de soprar. Vá com cuidado. E leve o bocal para cima, para longe dele.",
+          "opcoes": [
+            {
+              "texto": "Vou terminar isso.",
+              "acoes": [
+                {
+                  "aceitar_missao": "c06"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso me preparar."
+            }
+          ]
+        },
+        "s09_oferta": {
+          "fala": "Cada irmão emparedado escreveu a própria confissão na parede antes de morrer. Ninguém nunca leu. Uma confissão que ninguém escuta não vale, entende? Leia cinco. Só ler. É o suficiente para um monge.",
+          "opcoes": [
+            {
+              "texto": "Vou ler.",
+              "acoes": [
+                {
+                  "aceitar_missao": "s09"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "s09_fim": {
+          "fala": "Obrigado. Eles podem descansar agora, eu acho. Tome. (um figo seco aparece na mão dele, sólido) Eu guardei para comer no dia do Juízo. Acho que o Juízo vai demorar. E você parece com fome.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Frei.",
+              "acoes": [
+                {
+                  "concluir_missao": "s09"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_isaura",
+      "npc": "isaura_radialista",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "ogiva_desarmada"
+              },
+              "texto": "(o transmissor está desligado; ela toca uma canção de ninar baixinho num gramofone) Senta. Hoje não tem número nenhum para ler."
+            },
+            {
+              "se": {
+                "flag": "ogiva_com_faccao"
+              },
+              "texto": "(ela não tira os olhos do rádio) Toda noite eu ligo esperando ouvir uma contagem que não seja a minha. Ainda não ouvi. Ainda."
+            },
+            {
+              "se": {
+                "missao_concluida": "d01v"
+              },
+              "texto": "Câmbio. Entra, Vigília. Cuidado com a areia no degrau."
+            },
+            {
+              "se": {
+                "missao_concluida": "d01a"
+              },
+              "texto": "Câmbio. Entra, Arauto. Aqui dentro ninguém reza, mas tem chá."
+            },
+            {
+              "texto": "(uma velha de farda verde e fones de baquelite no pescoço levanta os olhos do transmissor) Visita. Faz anos. Absinto-dois, ainda aqui... Desculpe. Costume."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "A senhora é a voz do rádio.",
+              "ir": "d01_fim_v",
+              "se": {
+                "missao_pronta": "d01v"
+              }
+            },
+            {
+              "texto": "A senhora é a voz herege do rádio.",
+              "ir": "d01_fim_a",
+              "se": {
+                "missao_pronta": "d01a"
+              }
+            },
+            {
+              "texto": "Como posso ajudar com a rádio?",
+              "ir": "d02_oferta",
+              "se": {
+                "missao_disponivel": "d02"
+              }
+            },
+            {
+              "texto": "Consertei a antena.",
+              "ir": "d02_fim",
+              "se": {
+                "missao_pronta": "d02"
+              }
+            },
+            {
+              "texto": "Onde está a ordem que a senhora leu?",
+              "ir": "d03_oferta",
+              "se": {
+                "missao_disponivel": "d03"
+              }
+            },
+            {
+              "texto": "Juntei as páginas da ordem.",
+              "ir": "d03_fim",
+              "se": {
+                "missao_pronta": "d03"
+              }
+            },
+            {
+              "texto": "E o Amargo? De onde veio?",
+              "ir": "d04_oferta",
+              "se": {
+                "missao_disponivel": "d04"
+              }
+            },
+            {
+              "texto": "Trouxe a água do rio.",
+              "ir": "d04_fim",
+              "se": {
+                "missao_pronta": "d04"
+              }
+            },
+            {
+              "texto": "Como chego ao silo?",
+              "ir": "d05_oferta",
+              "se": {
+                "missao_disponivel": "d05"
+              }
+            },
+            {
+              "texto": "Trouxe os fragmentos do muro.",
+              "ir": "d05_fim",
+              "se": {
+                "missao_pronta": "d05"
+              }
+            },
+            {
+              "texto": "E a segunda ogiva?",
+              "ir": "d06_oferta",
+              "se": {
+                "missao_disponivel": "d06"
+              }
+            },
+            {
+              "texto": "A chave está comigo.",
+              "ir": "d06_fim",
+              "se": {
+                "missao_pronta": "d06"
+              }
+            },
+            {
+              "texto": "Quem é a senhora, de verdade?",
+              "ir": "quem"
+            },
+            {
+              "texto": "O que é 'Absinto-dois'?",
+              "ir": "absinto",
+              "se": {
+                "missao_concluida": "d03"
+              }
+            },
+            {
+              "texto": "Câmbio, desligo."
+            }
+          ]
+        },
+        "quem": {
+          "fala": "Isaura Valente, segundo-sargento, radiotelegrafista do Comando Sul. Matrícula zero-quatro-um-um. Eu dizia isso no começo de todas as mensagens. Agora digo para ninguém esquecer, nem eu.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "absinto": {
+          "fala": "Absinto era o nome do projeto. Duas ogivas, um silo, uma vila de militares em volta com horta e varal. Batizaram com o nome da estrela do Apocalipse porque achavam engraçado. Ninguém riu quando a primeira subiu. A segunda ficou lá embaixo, esperando a ordem. Eu leio a contagem dela toda noite para lembrar que ela ainda existe.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "d01_fim_v": {
+          "fala": "O Doutor Anselmo mandou você, não foi? Ele também reconhece uma contagem. (ela serve chá numa caneca de lata) Os anjos e os cultistas dizem que a estrela Absinto caiu do céu na terceira trombeta. Bonita história. Senta. Vai demorar, e eu preciso de ajuda antes de contar o resto.",
+          "opcoes": [
+            {
+              "texto": "Estou ouvindo.",
+              "acoes": [
+                {
+                  "concluir_missao": "d01v"
+                }
+              ]
+            }
+          ]
+        },
+        "d01_fim_a": {
+          "fala": "A Madre ainda acha que foi Deus? (ela ri, sem maldade) Ela já me mandou três padres, e os três voltaram calados. Você vai voltar calado também, Arauto. Mas não por medo. Senta. Vai demorar, e eu preciso de ajuda antes de contar o resto.",
+          "opcoes": [
+            {
+              "texto": "Estou ouvindo.",
+              "acoes": [
+                {
+                  "concluir_missao": "d01a"
+                }
+              ]
+            }
+          ]
+        },
+        "d02_oferta": {
+          "fala": "A antena está morrendo. Faltam válvulas, essas de vidro, que brilham. Os Cães de Vala engolem qualquer coisa que brilha na areia, e a toca deles, na Vala, é um cemitério de coisas engolidas. Me traga cinco e troque as válvulas lá no alto da torre. Aí a gente conversa com o volume certo.",
+          "opcoes": [
+            {
+              "texto": "Eu trago.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d02"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "d02_fim": {
+          "fala": "(a torre estala e a voz dela sai, ao mesmo tempo, da boca e de todos os alto-falantes do bairro) Pronto. Agora a parte um. Eu era radiotelegrafista do Comando Sul. O Silo São Lázaro fica ali, na borda da tempestade, a poucos quilômetros. Na noite em que o céu da capital ficou branco de asas, a ordem chegou por esta mesma frequência. E fui eu quem leu em voz alta.",
+          "opcoes": [
+            {
+              "texto": "E o que dizia a ordem?",
+              "acoes": [
+                {
+                  "concluir_missao": "d02"
+                }
+              ]
+            }
+          ]
+        },
+        "d03_oferta": {
+          "fala": "Eu li uma vez, às três e onze da manhã, e nunca mais tive coragem de ler de novo. As cópias de carbono ficaram na vila militar, que afundou onde hoje é o Bosque das Viúvas. As viúvas de lá são as mulheres dos operadores. Elas guardam papel nas mortalhas sem saber o que é. E tem gente escondida entre elas, cultista que não reza mais pela Madre. Cuidado.",
+          "opcoes": [
+            {
+              "texto": "Eu busco as páginas.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "d03_fim": {
+          "fala": [
+            {
+              "se": {
+                "faccao": "arautos"
+              },
+              "texto": "(ela junta as páginas e lê sem óculos, de cor) 'Alvo: formação alada sobre a capital. Arma: Ogiva Absinto-1. Observação: o alvo canta.' (ela olha para você) Você reza pra estrela que caiu, Arauto. A estrela tinha número de série, e quem apertou o botão foi um cabo de vinte anos. A terceira trombeta tocou, sim. Fomos nós que tocamos."
+            },
+            {
+              "texto": "(ela junta as páginas e lê sem óculos, de cor) 'Alvo: formação alada sobre a capital. Arma: Ogiva Absinto-1. Observação: o alvo canta.' (ela olha para você) Era isso que vinha nos matar, e a gente respondeu do único jeito que sabia. A bomba subiu daqui, caiu lá longe, e os cultistas chamaram de estrela. A terceira trombeta tocou, sim. Fomos nós que tocamos."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Então a estrela Absinto...",
+              "ir": "d03_depois",
+              "acoes": [
+                {
+                  "concluir_missao": "d03"
+                }
+              ]
+            }
+          ]
+        },
+        "d03_depois": {
+          "fala": "...foi a nossa bomba. Fica com a cópia. Mostre a quem quiser. Ninguém nunca acredita na primeira vez.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "d04_oferta": {
+          "fala": "Se a estrela foi bomba, o Amargo é a cinza dela, trazida pelo vento lá da cratera. Eu sei disso há quarenta anos, mas nunca provei. Encha três frascos nas poças do Rio Amargo e traga aqui. O contador vai dizer se a água lembra da explosão. A margem é perigosa: a matilha bebe lá, e os desertores da Legião cobram pela água.",
+          "opcoes": [
+            {
+              "texto": "Eu busco a água.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d04"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "d04_fim": {
+          "fala": "(o contador estala igual para as três amostras e para o pó que ela raspa do parapeito) Mesma assinatura. O Amargo, as mutações, os filhos do Cardo, o rio que quase secou, a água verde. Tudo veio do mesmo botão. Fica com o contador. Ele me protegeu quarenta anos. Agora protege você.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Isaura.",
+              "acoes": [
+                {
+                  "concluir_missao": "d04"
+                }
+              ]
+            }
+          ]
+        },
+        "d05_oferta": {
+          "fala": "O silo fica dentro da tempestade, atrás do muro da vila militar. Quando a Absinto-1 subiu, o clarão gravou no muro a sombra de quem estava olhando para o céu. As pessoas viraram pó. As sombras ficaram, e à noite descolam e andam. Traga lascas do muro. Onde a sombra é mais densa, a escotilha de serviço está atrás.",
+          "opcoes": [
+            {
+              "texto": "Eu vou ao muro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d05"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "d05_fim": {
+          "fala": "(ela vira um dos fragmentos na mão; nele, a sombra de uma mulher de fones de ouvido segura a sombra de um menino) ...Coincidência. Muita mulher usava fone naquela vila. (ela põe o fragmento no bolso do peito) A escotilha está no ponto mais escuro do muro. Descanse antes.",
+          "opcoes": [
+            {
+              "texto": "Isaura...",
+              "acoes": [
+                {
+                  "concluir_missao": "d05"
+                }
+              ]
+            }
+          ]
+        },
+        "d06_oferta": {
+          "fala": "A Absinto-2 está lá embaixo, inteira. E o Sargento Brandão ainda está de guarda. Ficou na sala quando eu fugi, esperando a segunda ordem. A radiação o colou na cadeira. Ele não vai te deixar chegar perto da chave. Tire a chave dele. Depois volte aqui. A decisão do que fazer com ela não é minha. Eu já decidi uma vez e olha o mundo.",
+          "opcoes": [
+            {
+              "texto": "Eu desço no silo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "d06"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não."
+            }
+          ]
+        },
+        "d06_fim": {
+          "fala": "(ela segura a chave sem apertar, como quem segura um passarinho morto) Brandão. Ele me ensinou a jogar truco. (ela devolve a chave para você) Tem dois caminhos. Eu te ensino a desarmar a ogiva, e o mundo fica com uma estrela a menos para sempre. Ou você leva a chave para a sua facção, e eles decidem quando a segunda estrela cai, e em cima de quem. Anjo, demônio, homem... todo mundo vai querer essa chave.",
+          "opcoes": [
+            {
+              "texto": "Desarme. Ninguém merece outra estrela.",
+              "ir": "d06_desarmar",
+              "acoes": [
+                {
+                  "concluir_missao": "d06",
+                  "escolha": "desarmar"
+                }
+              ]
+            },
+            {
+              "texto": "Minha facção precisa dessa chave.",
+              "ir": "d06_entregar",
+              "acoes": [
+                {
+                  "concluir_missao": "d06",
+                  "escolha": "entregar"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "d06_desarmar": {
+          "fala": "(vocês descem juntos; ela corta os fios na ordem certa, de memória, sem tremer) Pronto. Quarenta anos lendo a contagem, e acabou com um alicate. (ela lhe entrega uma lasca do invólucro) Guarde. E agora me deixe dormir. Faz muito tempo que eu não durmo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "d06_entregar": {
+          "fala": "(ela tira do bolso uma cópia de latão da chave e coloca no seu pescoço) Fiz essa cópia há anos, para o caso de alguém um dia levar a original. Use. Para lembrar o peso. Quando a sua facção girar a chave de verdade, eu vou estar aqui. Lendo a contagem. Câmbio.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_corvina",
+      "npc": "corvina_atravessadora",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "calice_envenenado"
+              },
+              "texto": "(ela brinda com uma caneca vazia) Ao Comandante, que andou meio enjoado essa semana. Que bom negócio você me fez."
+            },
+            {
+              "se": {
+                "missao_concluida": "e04"
+              },
+              "texto": "Meu investigador preferido. Se fosse do meu lado eu te pagava. Como é dos dois lados, eu te cobro."
+            },
+            {
+              "texto": "(uma mulher de capa de penas e meio rosto pintado de branco sorri do alto de uma pilha de caixotes) Entrou pela janela, que é a única porta. Bem-vindo ao sótão. Aqui se vende tudo, menos mentira."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Malfas me mandou atrás do general sumido.",
+              "ir": "e01_fim_a",
+              "se": {
+                "missao_pronta": "e01a"
+              }
+            },
+            {
+              "texto": "Tobias disse que você sabe da briga na Capela.",
+              "ir": "e01_fim_v",
+              "se": {
+                "missao_pronta": "e01v"
+              }
+            },
+            {
+              "texto": "Qual é o próximo segredo?",
+              "ir": "e02_oferta",
+              "se": {
+                "missao_disponivel": "e02"
+              }
+            },
+            {
+              "texto": "O acampamento dos desertores está limpo.",
+              "ir": "e02_fim",
+              "se": {
+                "missao_pronta": "e02"
+              }
+            },
+            {
+              "texto": "O que mais você ouviu?",
+              "ir": "e03_oferta",
+              "se": {
+                "missao_disponivel": "e03"
+              }
+            },
+            {
+              "texto": "Achei a carta dos apóstatas.",
+              "ir": "e03_fim",
+              "se": {
+                "missao_pronta": "e03"
+              }
+            },
+            {
+              "texto": "Onde o general foi visto pela última vez?",
+              "ir": "e04_oferta",
+              "se": {
+                "missao_disponivel": "e04"
+              }
+            },
+            {
+              "texto": "Estive no Marco do Corte.",
+              "ir": "e04_fim",
+              "se": {
+                "missao_pronta": "e04"
+              }
+            },
+            {
+              "texto": "Para onde vai o rastro?",
+              "ir": "e05a_oferta",
+              "se": {
+                "missao_disponivel": "e05a"
+              }
+            },
+            {
+              "texto": "Para onde vai o rastro?",
+              "ir": "e05v_oferta",
+              "se": {
+                "missao_disponivel": "e05v"
+              }
+            },
+            {
+              "texto": "Quero comprar alguma coisa.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_corvina"
+                }
+              ]
+            },
+            {
+              "texto": "Você não tem lado nenhum?",
+              "ir": "lado"
+            },
+            {
+              "texto": "Até mais, Corvina."
+            }
+          ]
+        },
+        "lado": {
+          "fala": "Já tive. Fui cultista na Capela, rezei pra estrela, beijei a mão da Madre. Aí percebi que segredo vale mais que fé, e que a verdade é a única mercadoria que nunca estraga. Eu vendo a mesma verdade para a Vela e para a Capela, pelo mesmo preço. Isso é a coisa mais honesta deste deserto.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e01_fim_a": {
+          "fala": "(ela ri alto) Malfas quer o general MORTO? Que curioso. Os chifrudos querem ele vivo, os anjos querem ele esquecido, e o penhorista quer uma prova de que morreu. Pergunte a si mesmo por quê. O nome do general é Andras. E o que a aliança não quer que ninguém saiba é que ninguém nunca achou o corpo.",
+          "opcoes": [
+            {
+              "texto": "Quanto custa o resto?",
+              "acoes": [
+                {
+                  "concluir_missao": "e01a"
+                }
+              ]
+            }
+          ]
+        },
+        "e01_fim_v": {
+          "fala": "É briga de verdade, pode dizer pra Capitã. O general da Legião Blasfema se chama Andras, segurou a linha na Grande Batalha quando os anjos recuaram, e sumiu. Desde então os demônios acham que os anjos apunhalaram, os anjos acham que os cultistas venderam, e os cultistas acham que todo mundo vai trair todo mundo. Estão certos.",
+          "opcoes": [
+            {
+              "texto": "Quanto custa o resto?",
+              "acoes": [
+                {
+                  "concluir_missao": "e01v"
+                }
+              ]
+            }
+          ]
+        },
+        "e02_oferta": {
+          "fala": "O resto custa trabalho. Metade da Legião desertou e acampou no Rio Amargo. Cobram pela água e espantam meus clientes. Limpe o acampamento e me traga as insígnias que eles arrancaram das casacas. Quero saber quem eram.",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e02"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "e02_fim": {
+          "fala": "(ela vira as insígnias uma a uma; atrás de todas, a mesma costura) 'A Andras, até o fim.' Eles não desertaram da Legião, querido. Desertaram da aliança que deixou o general para trás. Toma, isso aqui é por conta da casa. Hoje.",
+          "opcoes": [
+            {
+              "texto": "Interessante.",
+              "acoes": [
+                {
+                  "concluir_missao": "e02"
+                }
+              ]
+            }
+          ]
+        },
+        "e03_oferta": {
+          "fala": "Tem uma célula de cultistas escondida entre as viúvas do Bosque. Os Apóstatas. Odeiam asa, odeiam chifre e acham que a Madre vendeu o culto. Eles trocam cartas lacradas com cera preta. Me traga uma. Depois alguém vai ter que saber o que está escrito, e eu deixo você escolher quem. Isso vale ouro.",
+          "opcoes": [
+            {
+              "texto": "Eu acho a carta.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "e03_fim": {
+          "fala": "(ela lê a carta e assobia) Veneno de enxofre no cálice do Comandante Abdiel, na vigília de sexta, para o cheiro apontar pros demônios. O anjo cai, os chifrudos são enforcados, a Capela fica para os 'homens de fé'. (ela dobra a carta e estende para você) A carta é sua. Para quem a gente leva?",
+          "opcoes": [
+            {
+              "texto": "Para Abdiel. Os anjos vão ficar devendo.",
+              "ir": "e03_anjos",
+              "acoes": [
+                {
+                  "concluir_missao": "e03",
+                  "escolha": "anjos"
+                }
+              ]
+            },
+            {
+              "texto": "Para Malfas. Os demônios vão ficar devendo.",
+              "ir": "e03_demonios",
+              "acoes": [
+                {
+                  "concluir_missao": "e03",
+                  "escolha": "demonios"
+                }
+              ]
+            },
+            {
+              "texto": "Para ninguém. Deixa o cálice ser servido.",
+              "ir": "e03_silencio",
+              "acoes": [
+                {
+                  "concluir_missao": "e03",
+                  "escolha": "silencio"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "e03_anjos": {
+          "fala": "Abdiel vai trocar o cálice e enforcar três apóstatas no pátio, cantando. E vai lembrar que foi um estranho, não um demônio, que salvou a vida dele. Isso vai doer nele mais que o veneno.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e03_demonios": {
+          "fala": "Malfas vai guardar essa carta como quem guarda uma escritura. No dia em que o Abdiel acusar os demônios de qualquer coisa, a carta aparece. Você acabou de dar uma faca ao penhorista. Ele vai adorar você.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e03_silencio": {
+          "fala": "(ela sorri devagar) Você é dos meus. O Comandante não morre de enxofre, anjo é duro. Mas vai passar a semana vomitando luz e acusando os demônios. A aliança vai sangrar sozinha. E eu vou vender a verdade para os dois lados, depois.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "e04_oferta": {
+          "fala": "Um desertor bêbado me contou, de graça, o que é raro: ele viu o general pela última vez nos trilhos da linha 7, segurando a linha sozinho, um segundo antes de um bonde passar. O bonde tombado ainda está lá, no meio dos Campos de Cinza. Os desertores rondam o lugar atrás do corpo. Vai lá antes deles.",
+          "opcoes": [
+            {
+              "texto": "Eu vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e04"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "e04_fim": {
+          "fala": "(ela segura a meia dragona contra a luz) Cortada reto. Roda de ferro. Unha no trilho, rastro para o leste. (ela devolve a peça) O general não morreu, querido. Ele saiu dali se arrastando. Toma também essa divisa. É a única da Legião que ninguém arrancou. Os desertores vão saber que você procurou o chefe deles.",
+          "opcoes": [
+            {
+              "texto": "Para onde vai o rastro?",
+              "acoes": [
+                {
+                  "concluir_missao": "e04"
+                }
+              ]
+            }
+          ]
+        },
+        "e05a_oferta": {
+          "fala": "Para o leste, pelos chiqueiros, por baixo da cerca, e some no frigorífico do Carniça. Você já esteve no porão de lá, não esteve? Siga, confirme e leve a meia dragona a Malfas. O que ele fizer com isso vai mudar quem manda na Capela. E eu vou vender a notícia antes do almoço.",
+          "opcoes": [
+            {
+              "texto": "Vou atrás do rastro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e05a"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "e05v_oferta": {
+          "fala": "Para o leste, pelos chiqueiros, por baixo da cerca, e some no frigorífico do Carniça. Você já esteve no porão de lá, não esteve? Siga, confirme e leve a meia dragona à Capitã Odete. Pergunte a ela quem dirigia o bonde da linha 7 naquela noite. De graça, essa.",
+          "opcoes": [
+            {
+              "texto": "Vou atrás do rastro.",
+              "acoes": [
+                {
+                  "aceitar_missao": "e05v"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

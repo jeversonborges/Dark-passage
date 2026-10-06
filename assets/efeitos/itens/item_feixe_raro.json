@@ -1,0 +1,21 @@
+{
+ "name": "item_feixe_raro",
+ "cat": "itens",
+ "frames": 12,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  12,
+  90
+ ],
+ "layer": "frente",
+ "desc": "Feixe de luz (ouro) que marca um drop valioso de longe.",
+ "char": null,
+ "title": "Feixe de drop raro",
+ "resumo": "Feixe de luz (ouro) que marca um drop valioso de longe.",
+ "frame_w": 24,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "item_feixe_raro.png"
+}

@@ -1,0 +1,907 @@
+{
+  "_doc": "Atributos iniciais, crescimento, recurso e numeros das habilidades de cada classe ate o fim da primeira entrega (nivel ~13). Nomes de habilidades seguem design/classes.md; icones e textos sao da thread Skills, itens e icones. 'mult' multiplica a rolagem de dano (formulas.json). Tempos em segundos, distancias em tiles (1 tile = 48x24 px).",
+  "versao": "0.1",
+  "desbloqueio_habilidades_niveis": [
+    1,
+    3,
+    5,
+    6,
+    9,
+    12
+  ],
+  "classes": {
+    "anjo": {
+      "faccao": "arautos",
+      "papel": "suporte de cura e corpo a corpo leve",
+      "atributos_iniciais": {
+        "FOR": 22,
+        "AGI": 18,
+        "VIT": 22,
+        "ESP": 28
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 1,
+        "AGI": 0,
+        "VIT": 1,
+        "ESP": 3
+      },
+      "hp": {
+        "base": 110,
+        "por_nivel": 2.0,
+        "por_vit": 3.0
+      },
+      "perfil_dano": "sagrado",
+      "elemento_ataque": "sagrado",
+      "alcance_basico": 1.3,
+      "arma_inicial": {
+        "nome": "Espada de Vigilia Rachada",
+        "min": 4,
+        "max": 7,
+        "intervalo": 1.05,
+        "postura": 12
+      },
+      "recurso": {
+        "nome": "Graca",
+        "max": "100 + ESP/2",
+        "inicial": 50,
+        "regen_por_s": 1.5,
+        "ganho": {
+          "golpe_acertado": 4,
+          "a_cada_10_hp_curados": 1
+        }
+      },
+      "habilidades": [
+        {
+          "id": "lamina_veredito",
+          "nome": "Lamina do Veredito",
+          "nivel": 1,
+          "custo": 12,
+          "recarga": 4.0,
+          "mult": 1.8,
+          "elemento": "sagrado",
+          "alcance": 1.4,
+          "postura": 30,
+          "bonus_vs": {
+            "tag:praga": 1.25
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "toque_graca",
+          "nome": "Toque de Graca",
+          "nivel": 3,
+          "custo": 20,
+          "recarga": 6.0,
+          "cura_mult": 2.2,
+          "alcance": 6,
+          "conjuracao": 0.4,
+          "sensacao": "cura"
+        },
+        {
+          "id": "anjo_leque_juizo",
+          "nome": "Leque do Juizo",
+          "nivel": 5,
+          "custo": 18,
+          "recarga": 2.2,
+          "mult": 1.3,
+          "elemento": "sagrado",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "chao_em_chamas_s": 2.0,
+          "queimadura": {
+            "duracao": 2,
+            "dano_por_s_mult": 0.15
+          },
+          "forma": "cone",
+          "cone_graus": 100,
+          "raio": 3.5
+        },
+        {
+          "id": "halo_ardente",
+          "nome": "Halo Ardente",
+          "nivel": 6,
+          "custo": 30,
+          "recarga": 12.0,
+          "mult": 1.1,
+          "area_raio": 2.5,
+          "cura_mult": 0.8,
+          "efeito": {
+            "cegueira": 2.0
+          },
+          "elemento": "sagrado",
+          "postura": 25,
+          "sensacao": "area"
+        },
+        {
+          "id": "sentenca",
+          "nome": "Sentenca",
+          "nivel": 9,
+          "custo": 18,
+          "recarga": 15.0,
+          "alcance": 7,
+          "efeito": {
+            "marcado": 8.0
+          },
+          "dano_recebido_extra": 0.15,
+          "sensacao": "debuff"
+        },
+        {
+          "id": "asas_ascensao",
+          "nome": "Asas da Ascensao",
+          "nivel": 12,
+          "custo": 25,
+          "recarga": 10.0,
+          "deslocamento": 5,
+          "invulneravel": 0.35,
+          "atravessa": true,
+          "sensacao": "mobilidade"
+        }
+      ]
+    },
+    "cultista": {
+      "faccao": "arautos",
+      "papel": "mago de dano continuo e invocador",
+      "atributos_iniciais": {
+        "FOR": 14,
+        "AGI": 18,
+        "VIT": 20,
+        "ESP": 38
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 0,
+        "AGI": 0,
+        "VIT": 1,
+        "ESP": 4
+      },
+      "hp": {
+        "base": 95,
+        "por_nivel": 2.0,
+        "por_vit": 3.0
+      },
+      "perfil_dano": "magico",
+      "elemento_ataque": "sangue",
+      "alcance_basico": 6,
+      "arma_inicial": {
+        "nome": "Adaga Ritual Cega",
+        "min": 3,
+        "max": 6,
+        "intervalo": 1.0,
+        "postura": 8,
+        "projetil_vel": 9
+      },
+      "recurso": {
+        "nome": "Sangue",
+        "_doc": "Custos sao % do HP maximo. Nunca mata: o custo para em 1 HP. Ganha HP ao matar.",
+        "custo_em": "pct_hp_max",
+        "ganho": {
+          "abate": 0.06,
+          "abate_sob_sangria": 0.1,
+          "abate_por_area": 0.02
+        }
+      },
+      "habilidades": [
+        {
+          "id": "sangria",
+          "nome": "Sangria",
+          "nivel": 1,
+          "custo": 0.03,
+          "recarga": 2.5,
+          "mult": 1.2,
+          "alcance": 7,
+          "projetil_vel": 10,
+          "efeito": {
+            "sangramento": {
+              "duracao": 6.0,
+              "dano_por_s_mult": 0.25
+            }
+          },
+          "elemento": "sangue",
+          "postura": 10,
+          "sensacao": "projetil"
+        },
+        {
+          "id": "pacto_rubro",
+          "nome": "Pacto Rubro",
+          "nivel": 3,
+          "custo": 0.12,
+          "recarga": 20.0,
+          "buff": {
+            "dano_magico": 0.3,
+            "duracao": 10.0
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "cultista_espinhos_sangue",
+          "nome": "Espinhos de Sangue",
+          "nivel": 5,
+          "custo": 0.035,
+          "recarga": 2.2,
+          "mult": 1.35,
+          "elemento": "sangue",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "custo_em": "pct_hp_max",
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.12
+          },
+          "forma": "circulo_no_mouse",
+          "raio": 2.2,
+          "alcance": 7,
+          "nao_usa_abaixo_de_hp": 0.25
+        },
+        {
+          "id": "servo_carne",
+          "nome": "Servo de Carne",
+          "nivel": 6,
+          "custo": 0.15,
+          "recarga": 25.0,
+          "invoca": "servo_de_carne",
+          "duracao": 20.0,
+          "max": 1,
+          "sensacao": "invocacao"
+        },
+        {
+          "id": "chuva_cinzas",
+          "nome": "Chuva de Cinzas",
+          "nivel": 9,
+          "custo": 0.1,
+          "recarga": 10.0,
+          "mult_por_tick": 0.45,
+          "ticks": 6,
+          "intervalo_tick": 0.5,
+          "area_raio": 2.5,
+          "alcance": 7,
+          "efeito": {
+            "cura_recebida": -0.4,
+            "duracao": 4.0
+          },
+          "elemento": "sangue",
+          "postura": 4,
+          "sensacao": "area"
+        },
+        {
+          "id": "profecia_sombria",
+          "nome": "Profecia Sombria",
+          "nivel": 12,
+          "custo": 0.08,
+          "recarga": 18.0,
+          "alcance": 7,
+          "efeito": {
+            "profecia": 10.0
+          },
+          "executa_abaixo_de": 0.1,
+          "executa_chefe_abaixo_de": 0.0,
+          "sensacao": "debuff"
+        }
+      ],
+      "invocacoes": {
+        "servo_de_carne": {
+          "hp": "max_hp_dono * 0.6",
+          "dano": "dano_magico_dono * 0.5",
+          "intervalo": 1.4,
+          "ameaca_mult": 2.0,
+          "tags": [
+            "invocacao"
+          ]
+        }
+      }
+    },
+    "mutante": {
+      "faccao": "vigilia",
+      "papel": "tanque e berserker",
+      "atributos_iniciais": {
+        "FOR": 26,
+        "AGI": 14,
+        "VIT": 34,
+        "ESP": 16
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 3,
+        "AGI": 0,
+        "VIT": 2,
+        "ESP": 0
+      },
+      "hp": {
+        "base": 140,
+        "por_nivel": 3.0,
+        "por_vit": 4.0
+      },
+      "perfil_dano": "corpo_a_corpo",
+      "elemento_ataque": "fisico",
+      "alcance_basico": 1.3,
+      "arma_inicial": {
+        "nome": "Machado de Placa de Transito",
+        "min": 6,
+        "max": 10,
+        "intervalo": 1.2,
+        "postura": 18
+      },
+      "recurso": {
+        "nome": "Furia",
+        "max": 100,
+        "inicial": 0,
+        "ganho": {
+          "por_1pct_hp_perdido": 1.0,
+          "golpe_acertado": 3
+        },
+        "decai_por_s_fora_de_combate": 8,
+        "bonus": "cada 10 de Furia = +2% de dano"
+      },
+      "habilidades": [
+        {
+          "id": "golpe_purulento",
+          "nome": "Golpe Purulento",
+          "nivel": 1,
+          "custo": 0,
+          "gera": 10,
+          "recarga": 5.0,
+          "mult": 1.7,
+          "alcance": 1.4,
+          "efeito": {
+            "veneno": {
+              "duracao": 6.0,
+              "dano_por_s_mult": 0.15
+            }
+          },
+          "elemento": "veneno",
+          "postura": 35,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "rugido_praga",
+          "nome": "Rugido da Praga",
+          "nivel": 3,
+          "custo": 0,
+          "recarga": 12.0,
+          "area_raio": 3.5,
+          "efeito": {
+            "provocado": 4.0
+          },
+          "postura": 15,
+          "sensacao": "grito"
+        },
+        {
+          "id": "mutante_terremoto_putrido",
+          "nome": "Terremoto Putrido",
+          "nivel": 5,
+          "custo": 18,
+          "recarga": 2.4,
+          "mult": 1.2,
+          "elemento": "veneno",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "veneno": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.12
+          },
+          "forma": "circulo_em_volta",
+          "raio": 2.5
+        },
+        {
+          "id": "carapaca",
+          "nome": "Carapaca",
+          "nivel": 6,
+          "custo": 30,
+          "recarga": 18.0,
+          "buff": {
+            "dano_recebido": -0.35,
+            "duracao": 6.0,
+            "imune_derrubar": true
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "investida_bestial",
+          "nome": "Investida Bestial",
+          "nivel": 9,
+          "custo": 20,
+          "recarga": 10.0,
+          "mult": 1.5,
+          "deslocamento": 5,
+          "efeito": {
+            "derrubado": 1.2
+          },
+          "postura": 60,
+          "empurrao": 1.5,
+          "sensacao": "investida"
+        },
+        {
+          "id": "regeneracao_profana",
+          "nome": "Regeneracao Profana",
+          "nivel": 12,
+          "passiva": true,
+          "cura_ao_matar_pct": 0.05,
+          "regen_fora_combate_mult": 2.5
+        }
+      ]
+    },
+    "demonio": {
+      "faccao": "arautos",
+      "papel": "tanque ofensivo e assassino corpo a corpo",
+      "atributos_iniciais": {
+        "FOR": 32,
+        "AGI": 24,
+        "VIT": 22,
+        "ESP": 12
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 3,
+        "AGI": 1,
+        "VIT": 1,
+        "ESP": 0
+      },
+      "hp": {
+        "base": 120,
+        "por_nivel": 2.5,
+        "por_vit": 3.0
+      },
+      "perfil_dano": "corpo_a_corpo_agil",
+      "elemento_ataque": "fisico",
+      "alcance_basico": 1.3,
+      "arma_inicial": {
+        "nome": "Foice Serrilhada",
+        "min": 5,
+        "max": 8,
+        "intervalo": 0.95,
+        "postura": 12
+      },
+      "recurso": {
+        "nome": "Brasa Infernal",
+        "max": 100,
+        "inicial": 0,
+        "ganho": {
+          "golpe_acertado": 6,
+          "critico_extra": 4
+        },
+        "decai_por_s_fora_de_combate": 10,
+        "bonus_acima_de_80": {
+          "dano": 0.15
+        },
+        "transbordo": "cada ponto que passaria de 100 causa 0.5% do HP maximo em dano de fogo no proprio Demonio (numero laranja nele)"
+      },
+      "roubo_de_vida": 0.04,
+      "habilidades": [
+        {
+          "id": "garra_abismo",
+          "nome": "Garra do Abismo",
+          "nivel": 1,
+          "custo": 0,
+          "gera": 18,
+          "recarga": 3.5,
+          "golpes": 3,
+          "mult_por_golpe": 0.65,
+          "intervalo_golpes": 0.12,
+          "alcance": 1.4,
+          "postura_por_golpe": 10,
+          "sensacao": "combo"
+        },
+        {
+          "id": "corrente_danacao",
+          "nome": "Corrente de Danacao",
+          "nivel": 3,
+          "custo": 20,
+          "recarga": 9.0,
+          "mult": 0.8,
+          "alcance": 6,
+          "puxa_para": 1.2,
+          "postura": 40,
+          "sensacao": "puxao"
+        },
+        {
+          "id": "demonio_ceifa_infernal",
+          "nome": "Ceifa Infernal",
+          "nivel": 5,
+          "custo": 18,
+          "recarga": 2.0,
+          "mult": 1.3,
+          "elemento": "fogo",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "forma": "cone",
+          "cone_graus": 180,
+          "raio": 2.8
+        },
+        {
+          "id": "passo_sombrio",
+          "nome": "Passo Sombrio",
+          "nivel": 6,
+          "custo": 25,
+          "recarga": 10.0,
+          "alcance": 6,
+          "teleporta": "costas_do_alvo",
+          "proximo_golpe_critico": true,
+          "sensacao": "mobilidade"
+        },
+        {
+          "id": "pele_enxofre",
+          "nome": "Pele de Enxofre",
+          "nivel": 9,
+          "custo": 40,
+          "recarga": 20.0,
+          "buff": {
+            "reflete_frac": 0.25,
+            "elemento_reflexo": "fogo",
+            "duracao": 8.0
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "banquete",
+          "nome": "Banquete",
+          "nivel": 12,
+          "passiva": true,
+          "roubo_de_vida_extra_abaixo_30pct": 0.1
+        }
+      ]
+    },
+    "humano": {
+      "faccao": "vigilia",
+      "papel": "hibrido: tiro a distancia + espada larga corpo a corpo (mudanca do Jefin, 2026-10-04)",
+      "atributos_iniciais": {
+        "FOR": 28,
+        "AGI": 30,
+        "VIT": 20,
+        "ESP": 12
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 2,
+        "AGI": 2,
+        "VIT": 1,
+        "ESP": 0
+      },
+      "hp": {
+        "base": 105,
+        "por_nivel": 2.2,
+        "por_vit": 2.8
+      },
+      "perfil_dano": "hibrido",
+      "elemento_ataque": "fisico",
+      "arma_inicial": {
+        "nome": "Espada Larga de Sucata",
+        "min": 6,
+        "max": 10,
+        "intervalo": 1.25,
+        "postura": 18,
+        "tipo": "espada_larga",
+        "sensacao": "golpe_pesado",
+        "_doc": "golpe largo em arco 120 graus: acerta ate 2 inimigos colados, o segundo com 50%"
+      },
+      "recurso": {
+        "nome": "Municao + Folego",
+        "municao": {
+          "por_ataque_basico": 1,
+          "pilha_max": 500,
+          "inicial": 300,
+          "_doc": "so o tiro gasta; sem municao o basico vira so espada. Comprada no acampamento; tipos especiais vem de Agua Benta e Polvora"
+        },
+        "folego": {
+          "max": 100,
+          "regen_por_s": 6
+        }
+      },
+      "habilidades": [
+        {
+          "id": "tiro_certeiro",
+          "nome": "Tiro Certeiro",
+          "nivel": 1,
+          "custo": 20,
+          "recarga": 5.0,
+          "mult": 2.0,
+          "critico_extra": 0.2,
+          "alcance": 9,
+          "conjuracao": 0.3,
+          "postura": 30,
+          "empurrao": 0.6,
+          "sensacao": "tiro_pesado"
+        },
+        {
+          "id": "corte_largo",
+          "nome": "Corte Giratorio",
+          "nivel": 3,
+          "custo": 25,
+          "recarga": 6.0,
+          "mult": 1.4,
+          "arco_graus": 360,
+          "alcance": 0,
+          "postura": 35,
+          "empurrao": 1.0,
+          "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
+          "sensacao": "area",
+          "area_raio": 2.0,
+          "empurrao_a_partir_do_centro": true
+        },
+        {
+          "id": "humano_coquetel_querosene",
+          "nome": "Coquetel de Querosene",
+          "nivel": 5,
+          "custo": 22,
+          "recarga": 2.2,
+          "mult": 1.3,
+          "elemento": "fogo",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "forma": "circulo_no_mouse",
+          "raio": 2.0,
+          "alcance": 7,
+          "chao_em_chamas_s": 3.0,
+          "queimadura": {
+            "duracao": 2,
+            "dano_por_s_mult": 0.15
+          }
+        },
+        {
+          "id": "arrancada",
+          "nome": "Arrancada",
+          "nivel": 6,
+          "custo": 20,
+          "recarga": 5.0,
+          "cargas": 2,
+          "deslocamento": 4,
+          "duracao_s": 0.18,
+          "invulneravel": 0.2,
+          "atravessa_inimigos": true,
+          "proximo_ataque_extra": 0.3,
+          "janela_bonus_s": 2.0,
+          "vai_para": "ponto sob o mouse",
+          "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
+          "sensacao": "investida",
+          "substitui": "rolamento",
+          "mult": 0.9,
+          "largura_corte": 1.2,
+          "acerta_cada_inimigo_uma_vez": true,
+          "postura": 20,
+          "empurrao_lateral": 0.5
+        },
+        {
+          "id": "rajada",
+          "nome": "Rajada",
+          "nivel": 9,
+          "custo": 35,
+          "recarga": 8.0,
+          "projeteis": 5,
+          "cone_graus": 50,
+          "mult_por_projetil": 0.6,
+          "alcance": 6,
+          "postura_por_projetil": 8,
+          "empurrao": 0.4,
+          "sensacao": "area",
+          "_doc": "voltou para o nivel 9: o nivel 5 do Humano e o Coquetel de Querosene da thread de skills"
+        },
+        {
+          "id": "agua_benta_polvora",
+          "nome": "Agua Benta e Polvora",
+          "nivel": 12,
+          "custo": 30,
+          "recarga": 30.0,
+          "buff": {
+            "duracao": 15.0,
+            "municao": "alterna sagrado/fogo",
+            "lamina": "a espada larga tambem ganha o elemento",
+            "dano_extra_elemental": 0.2
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "armadilha_prata",
+          "nome": "Armadilha de Prata",
+          "nivel": 15,
+          "custo": 30,
+          "recarga": 15.0,
+          "alcance": 4,
+          "arma_s": 1.0,
+          "dura_s": 20,
+          "mult": 1.5,
+          "efeito": {
+            "enraizado": 3.0
+          },
+          "bonus_vs": {
+            "tag:celestial": 1.3,
+            "tag:infernal": 1.3
+          },
+          "sensacao": "armadilha",
+          "_doc": "passou para o nivel 15 (depois da primeira entrega) para abrir espaco ao Corte Largo"
+        }
+      ],
+      "perfil_hibrido": {
+        "_doc": "Ataque basico troca sozinho pela distancia ao alvo: ate 1.8 tiles golpeia com a espada larga (perfil corpo_a_corpo, FOR); mais longe atira (perfil distancia, AGI) gastando 1 municao. A troca leva 0.15s (animacao de sacar). Shift+clique forca o tiro mesmo de perto.",
+        "distancia_troca": 1.8,
+        "tempo_troca_s": 0.15,
+        "espada": "corpo_a_corpo",
+        "tiro": "distancia"
+      },
+      "alcance_basico": {
+        "espada": 1.6,
+        "tiro": 7
+      },
+      "arma_secundaria": {
+        "nome": "Escopeta de Cano Serrado",
+        "min": 4,
+        "max": 7,
+        "intervalo": 1.1,
+        "postura": 10,
+        "projetil_vel": 16,
+        "tipo": "arma_de_fogo",
+        "sensacao": "tiro_pesado",
+        "vfx": [
+          "disparo_cano",
+          "fumaca_tiro",
+          "projetil_bala",
+          "impacto_bala"
+        ]
+      }
+    },
+    "tecnomancer": {
+      "faccao": "vigilia",
+      "papel": "suporte, controle e invocacoes mecanicas",
+      "atributos_iniciais": {
+        "FOR": 14,
+        "AGI": 24,
+        "VIT": 20,
+        "ESP": 32
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 0,
+        "AGI": 1,
+        "VIT": 1,
+        "ESP": 3
+      },
+      "hp": {
+        "base": 95,
+        "por_nivel": 2.0,
+        "por_vit": 2.5
+      },
+      "perfil_dano": "magico",
+      "elemento_ataque": "eletrico",
+      "alcance_basico": 6,
+      "arma_inicial": {
+        "nome": "Cajado-Antena Torto",
+        "min": 3,
+        "max": 6,
+        "intervalo": 1.1,
+        "postura": 8,
+        "projetil_vel": 16
+      },
+      "recurso": {
+        "nome": "Carga",
+        "max": "100 + ESP/2",
+        "inicial": 100,
+        "regen_por_s": 3,
+        "regen_extra_parado_s": 2.0,
+        "regen_extra_por_s": 5
+      },
+      "habilidades": [
+        {
+          "id": "arco_voltaico",
+          "nome": "Arco Voltaico",
+          "nivel": 1,
+          "custo": 15,
+          "recarga": 3.0,
+          "mult": 1.4,
+          "saltos": 3,
+          "queda_por_salto": 0.25,
+          "raio_salto": 3,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "postura": 12,
+          "sensacao": "raio"
+        },
+        {
+          "id": "torreta_sentinela",
+          "nome": "Torreta Sentinela",
+          "nivel": 3,
+          "custo": 35,
+          "recarga": 18.0,
+          "invoca": "torreta",
+          "duracao": 15.0,
+          "max": 1,
+          "sensacao": "invocacao"
+        },
+        {
+          "id": "tecnomancer_tempestade_bobina",
+          "nome": "Tempestade de Bobina",
+          "nivel": 5,
+          "custo": 16,
+          "recarga": 2.0,
+          "mult": 1.25,
+          "elemento": "eletrico",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "chance_atordoar": 0.15,
+          "atordoar_s": 0.5,
+          "forma": "circulo_em_volta",
+          "raio": 2.6
+        },
+        {
+          "id": "nanoreparo",
+          "nome": "Nanoreparo",
+          "nivel": 6,
+          "custo": 25,
+          "recarga": 8.0,
+          "cura_mult_por_tick": 0.5,
+          "ticks": 5,
+          "intervalo_tick": 1.0,
+          "alcance": 6,
+          "sensacao": "cura"
+        },
+        {
+          "id": "campo_forca",
+          "nome": "Campo de Forca",
+          "nivel": 9,
+          "custo": 40,
+          "recarga": 20.0,
+          "escudo": "ESP*1.5 + nivel*8",
+          "area_raio": 2.5,
+          "duracao": 6.0,
+          "sensacao": "escudo"
+        },
+        {
+          "id": "pulso_anti_divino",
+          "nome": "Pulso Anti-Divino",
+          "nivel": 12,
+          "custo": 30,
+          "recarga": 16.0,
+          "area_raio": 3.0,
+          "mult": 0.8,
+          "efeito": {
+            "silenciado": 3.0
+          },
+          "bonus_vs": {
+            "tag:celestial": 1.3
+          },
+          "postura": 40,
+          "sensacao": "area"
+        }
+      ],
+      "invocacoes": {
+        "torreta": {
+          "hp": "max_hp_dono * 0.5",
+          "dano": "dano_magico_dono * 0.45",
+          "intervalo": 0.9,
+          "alcance": 6,
+          "tags": [
+            "invocacao",
+            "constructo"
+          ]
+        }
+      }
+    }
+  },
+  "armas_por_faixa": {
+    "_doc": "Valor de referencia para a thread de itens: arma de nivel N tem media de dano proxima a 5 + 1.2*N. Armadura completa de nivel N soma defesa proxima a 1.5*N.",
+    "media_dano_arma": "5 + 1.2*nivel_requerido",
+    "spread_min_max": 0.6,
+    "defesa_armadura_completa": "1.5*nivel_requerido"
+  }
+}

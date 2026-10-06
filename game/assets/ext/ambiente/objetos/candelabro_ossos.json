@@ -1,0 +1,16 @@
+{
+ "w": 180,
+ "h": 116,
+ "anchor": [
+  30,
+  102
+ ],
+ "luz": "velas",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "candelabro_ossos"
+}

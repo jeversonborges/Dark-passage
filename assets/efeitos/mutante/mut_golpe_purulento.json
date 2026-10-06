@@ -1,0 +1,21 @@
+{
+ "name": "mut_golpe_purulento",
+ "cat": "mutante",
+ "frames": 12,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  44,
+  36
+ ],
+ "layer": "frente",
+ "desc": "Golpe Purulento: pancada pesada que espirra gosma ácida (envenena).",
+ "char": null,
+ "title": "Golpe Purulento",
+ "resumo": "Pancada pesada que espirra gosma ácida (envenena).",
+ "frame_w": 88,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "mut_golpe_purulento.png"
+}

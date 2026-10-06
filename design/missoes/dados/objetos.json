@@ -1,0 +1,309 @@
+{
+  "versao": "0.1",
+  "nota": "Objetos interativos e baús de história citados pelas missões. 'tabela' aponta para uma tabela de drop que o sistema de loot define; 'fixo' é o que sempre vem. 'visivel_se' esconde o objeto até a condição valer (mesmas condições dos diálogos). Com a maré de areia, o jogo pode sortear entre alguns pontos possíveis a posição dos baús comuns a cada ciclo de dia e noite.",
+  "objetos": [
+    {
+      "id": "corpo_lacrado",
+      "nome": "Não-Julgado Caído",
+      "subzona": "cemiterio_sao_lazaro",
+      "quantidade_no_mapa": 6,
+      "texto_ao_usar": "O lacre de cera no peito está inteiro. O selo mostra uma trombeta. Ninguém quebrou. Ninguém foi julgado.",
+      "visivel_se": {
+        "missao_ativa": [
+          "v04",
+          "a04"
+        ]
+      }
+    },
+    {
+      "id": "escritorio_capataz",
+      "nome": "Escrivaninha do Capataz",
+      "subzona": "abatedouro_carnica",
+      "texto_ao_usar": "Entre recibos manchados de gordura e uma garrafa vazia, um livro grosso com capa de couro preto: LIVRO DE ÓBITOS — PARÓQUIA DE SÃO LÁZARO.",
+      "visivel_se": {
+        "missao_ativa": "c02"
+      }
+    },
+    {
+      "id": "porta_ganchos",
+      "nome": "Porta do Porão",
+      "subzona": "abatedouro_carnica",
+      "requer_item": "chave_gancho",
+      "texto_trancado": "Uma porta de ferro coberta de ganchos de açougue. Do outro lado, algo respira devagar.",
+      "texto_ao_usar": "A chave gira com um som de osso quebrando. A porta range como um animal e o cheiro de ferro e açúcar sobe pela escada.",
+      "leva_para": "porao_matadouro"
+    },
+    {
+      "id": "porta_camara",
+      "nome": "Porta da Câmara",
+      "subzona": "ossario_carpideiras",
+      "requer_itens": [
+        "lacre_carne",
+        "lacre_lagrimas"
+      ],
+      "texto_trancado": "Uma porta de pedra negra com dois buracos em forma de selo: um vermelho como carne, outro claro como cera molhada.",
+      "texto_ao_usar": "Os lacres derretem nos buracos. A pedra se abre para dentro e um zumbido grave enche seus dentes.",
+      "leva_para": "camara_trombeta"
+    },
+    {
+      "id": "tumulo_cardo",
+      "nome": "Túmulo de Firmino Cardo",
+      "subzona": "cemiterio_sao_lazaro",
+      "texto_ao_usar": "Você derrama o caldo na lápide. O cheiro de louro sobe. Algo grande se mexe entre os túmulos, e uma voz rouca pergunta: ...mãe?",
+      "invoca": "filho_de_cardo",
+      "visivel_se": {
+        "missao_ativa": "s02"
+      }
+    },
+    {
+      "id": "torre_sino",
+      "nome": "Torre do Sino",
+      "subzona": "cemiterio_sao_lazaro",
+      "texto_ao_usar": "No alto da torre, o último sino de São Lázaro está rachado ao meio. O badalo solta com facilidade, como se quisesse ir embora.",
+      "visivel_se": {
+        "missao_ativa": "s03"
+      }
+    },
+    {
+      "id": "covas_abertas",
+      "nome": "Túmulo Descoberto",
+      "subzona": "cemiterio_sao_lazaro",
+      "quantidade_no_mapa": 8,
+      "requer_item": "pa_simao",
+      "texto_ao_usar": "Você joga areia sobre o túmulo até a lápide sumir de novo. Um Não-Julgado na fila próxima abaixa a cabeça. Amanhã o vento vai descobrir outro.",
+      "visivel_se": {
+        "missao_ativa": "s08"
+      }
+    },
+    {
+      "id": "poco_seco",
+      "nome": "Poço Seco",
+      "subzona": "campos_cinza",
+      "texto_ao_usar": "Você deixa a carta cair no balde e desce a corda. Quando sobe, o balde traz meio terço de contas de osso e um bilhete dobrado."
+    },
+    {
+      "id": "cela_monge",
+      "nome": "Cela Emparedada",
+      "subzona": "ossario_carpideiras",
+      "quantidade_no_mapa": 7,
+      "leitura": "leitura_confissao_anacleto",
+      "textos_variados": [
+        "Pequei por inveja. O irmão Bento cantava melhor. Rezo para que ele também esteja numa parede.",
+        "Pequei por preguiça. Escolhi a cela mais perto da porta. Ninguém abriu.",
+        "Pequei por amor. O nome dela era Lúcia. Não me arrependo, mas o abade quis que eu escrevesse.",
+        "Pequei por medo. Quando subiram o último tijolo, eu gritei. Deus, me perdoe por ter gritado.",
+        "Pequei por fé demais. Achei que o Juízo viria antes da minha sede. Não veio.",
+        "Não pequei. Me puseram aqui por engano. Alguém, por favor, conte ao abade.",
+        "Pequei por orgulho. Corrigi o latim do abade. — A."
+      ],
+      "visivel_se": {
+        "missao_ativa": "s09"
+      }
+    },
+    {
+      "id": "ninhos_corvo",
+      "nome": "Ninho de Corvo",
+      "subzona": "campos_cinza",
+      "quantidade_no_mapa": 5,
+      "tabela": "ninho_corvo",
+      "texto_ao_usar": "Um ninho de arame, cabelo e coisas brilhantes. Os corvos não vão gostar disso.",
+      "invoca": "corvo_de_cinza"
+    },
+    {
+      "id": "estandartes_caidos",
+      "nome": "Estandarte Caído da Legião",
+      "subzona": "campos_cinza",
+      "quantidade_no_mapa": 4,
+      "texto_ao_usar": "Um estandarte da Legião Blasfema cravado no vidro. Em volta, ossos de demônio e de gente. Nenhum com dragona de general.",
+      "visivel_se": {
+        "missao_ativa": [
+          "e01a",
+          "e01v"
+        ]
+      }
+    },
+    {
+      "id": "marco_do_corte",
+      "nome": "Marco do Corte",
+      "subzona": "campos_cinza",
+      "texto_ao_usar": "Debaixo do bonde tombado, o trilho está riscado de unha preta por dois metros. Presa na roda, metade de uma dragona de general. O rastro de arrasto segue para o leste.",
+      "visivel_se": {
+        "missao_ativa": "e04"
+      }
+    },
+    {
+      "id": "rastro_arrasto",
+      "nome": "Rastro de Arrasto",
+      "subzona": "abatedouro_carnica",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "Dois sulcos de mão gigante na areia, com um risco de brasa no meio, como de algo que se arrasta sem pernas. O rastro passa por baixo da cerca do chiqueiro e some no frigorífico.",
+      "visivel_se": {
+        "missao_ativa": [
+          "e05a",
+          "e05v"
+        ]
+      }
+    },
+    {
+      "id": "pocas_amargas",
+      "nome": "Poça Amarga",
+      "subzona": "rio_amargo",
+      "quantidade_no_mapa": 5,
+      "texto_ao_usar": "Você enche o frasco. A água verde brilha mais forte dentro do vidro, e o contador dispara.",
+      "visivel_se": {
+        "missao_ativa": "d04"
+      }
+    },
+    {
+      "id": "escotilha_silo",
+      "nome": "Escotilha do Silo São Lázaro",
+      "subzona": "tempestade_areia",
+      "texto_trancado": "Uma escotilha de aço do tamanho de uma praça, meio enterrada. Uma placa: COMANDO SUL — ÁREA RESTRITA.",
+      "texto_ao_usar": "A escotilha de serviço cede com um suspiro de ar velho. Lá embaixo, uma sirene ainda gira, sem som.",
+      "invoca": "ultimo_operador",
+      "visivel_se": {
+        "missao_ativa": "d06"
+      }
+    },
+    {
+      "id": "antena_radio",
+      "nome": "Antena da Rádio",
+      "subzona": "bairro_afogado",
+      "texto_ao_usar": "Você troca as válvulas queimadas. A torre estala, e lá do alto, em todo o bairro, a voz de Isaura sai mais alta: 'Absinto-dois. Ainda aqui. Ainda aqui.'",
+      "visivel_se": {
+        "missao_ativa": "d02"
+      }
+    }
+  ],
+  "baus": [
+    {
+      "id": "bau_tobias_1",
+      "nome": "Esconderijo do Poste Torto",
+      "subzona": "campos_cinza",
+      "tipo": "comum",
+      "visivel_se": {
+        "missao_ativa": "s04"
+      },
+      "fixo": [
+        {
+          "id": "pao_duro",
+          "qtd": 3
+        }
+      ],
+      "tabela": "bau_area_inicial_comum",
+      "texto_ao_abrir": "Dentro do ninho gigante, uma lata de biscoito com coisas que os corvos roubaram. E uma lente de óculos de aviador."
+    },
+    {
+      "id": "bau_tobias_2",
+      "nome": "Cova do Anjo sem Cabeça",
+      "subzona": "cemiterio_sao_lazaro",
+      "tipo": "comum",
+      "visivel_se": {
+        "missao_ativa": "s04"
+      },
+      "fixo": [
+        {
+          "id": "vela_simao",
+          "qtd": 2
+        }
+      ],
+      "tabela": "bau_area_inicial_comum",
+      "texto_ao_abrir": "A duna recuou e deixou à mostra um anjo de pedra sem cabeça. Debaixo dele, um baú de sacristia enterrado raso. Simão com certeza sabia que estava aqui."
+    },
+    {
+      "id": "bau_tobias_3",
+      "nome": "Tanque de Sebo Seco",
+      "subzona": "abatedouro_carnica",
+      "tipo": "trancado",
+      "visivel_se": {
+        "missao_ativa": "s04"
+      },
+      "fixo": [
+        {
+          "id": "caixinha_musica",
+          "qtd": 1
+        }
+      ],
+      "tabela": "bau_area_inicial_raro",
+      "texto_ao_abrir": "A tampa pesa como um caixão. No fundo do tanque seco, enrolada num pano de cozinha, uma caixinha de música de latão. E outras coisas que alguém escondeu com pressa."
+    },
+    {
+      "id": "bau_barraca_anselmo",
+      "nome": "Baú Trancado do Padre",
+      "subzona": "acampamento_vela",
+      "tipo": "trancado",
+      "faccao": "vigilia",
+      "visivel_se": {
+        "missao_concluida": "c01"
+      },
+      "fixo": [
+        {
+          "id": "leitura_anselmo",
+          "qtd": 1
+        }
+      ],
+      "texto_ao_abrir": "Debaixo da cama de campanha do Doutor, um baú de missal com a fechadura arrombada há muito tempo. Dentro, um caderno de capa preta."
+    },
+    {
+      "id": "bau_general",
+      "nome": "Baú de Campanha da Legião",
+      "subzona": "porao_matadouro",
+      "tipo": "chefe",
+      "aparece_apos": "general_partido",
+      "tabela": "bau_chefe_general",
+      "texto_ao_abrir": "Um baú de campanha militar meio enterrado nos ossos, com o brasão da Legião Blasfema. Dentro, o soldo de um exército inteiro que nunca foi pago, e o que sobrou de Benedito Carniça: um chapéu-coco e um molho de chaves."
+    },
+    {
+      "id": "bau_celeste",
+      "nome": "Relicário das Carpideiras",
+      "subzona": "ossario_carpideiras",
+      "tipo": "chefe",
+      "aparece_apos": "irma_celeste",
+      "fixo": [
+        {
+          "id": "leitura_hino_carpideiras",
+          "qtd": 1
+        }
+      ],
+      "tabela": "bau_chefe_celeste",
+      "texto_ao_abrir": "Um baú forrado de veludo preto, cheio de lenços bordados e oferendas deixadas pelas carpideiras para os mortos que acalmaram."
+    },
+    {
+      "id": "bau_zacarias",
+      "nome": "Arca do Arauto",
+      "subzona": "camara_trombeta",
+      "tipo": "chefe",
+      "aparece_apos": "zacarias_arauto",
+      "fixo": [
+        {
+          "id": "leitura_ordem_zacarias",
+          "qtd": 1
+        }
+      ],
+      "tabela": "bau_chefe_zacarias",
+      "texto_ao_abrir": "Atrás do altar, uma arca de latão negro com o selo da quinta trombeta. Dentro, a ordem que Zacarias nunca deixou de cumprir, e o que sobrou da guarda dele."
+    },
+    {
+      "id": "bau_amaldicoado_ossario",
+      "nome": "Caixão Acorrentado",
+      "subzona": "ossario_carpideiras",
+      "tipo": "amaldicoado",
+      "invoca_ao_abrir": [
+        "monge_emparedado",
+        "monge_emparedado",
+        "carpideira_de_ossos"
+      ],
+      "tabela": "bau_dungeon_raro",
+      "texto_ao_abrir": "As correntes caem sozinhas. A tampa empurra de dentro para fora. Não estava vazio."
+    }
+  ],
+  "tabelas_sugeridas": [
+    "ninho_corvo",
+    "bau_area_inicial_comum",
+    "bau_area_inicial_raro",
+    "bau_chefe_general",
+    "bau_chefe_celeste",
+    "bau_chefe_zacarias",
+    "bau_dungeon_raro"
+  ]
+}

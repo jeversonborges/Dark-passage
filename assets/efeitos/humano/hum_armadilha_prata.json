@@ -1,0 +1,21 @@
+{
+ "name": "hum_armadilha_prata",
+ "cat": "humano",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  28,
+  28
+ ],
+ "layer": "chao",
+ "desc": "Armadilha de Prata: a armadilha brilha armada e fecha com faíscas prateadas e runa benta.",
+ "char": null,
+ "title": "Armadilha de Prata",
+ "resumo": "A armadilha brilha armada e fecha com faíscas prateadas e runa benta.",
+ "frame_w": 56,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_armadilha_prata.png"
+}

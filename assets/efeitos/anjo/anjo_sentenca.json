@@ -1,0 +1,21 @@
+{
+ "name": "anjo_sentenca",
+ "cat": "anjo",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  16,
+  40
+ ],
+ "layer": "frente",
+ "desc": "Sentença: marca dourada sobre a cabeça do alvo (espada em círculo).",
+ "char": null,
+ "title": "Sentença",
+ "resumo": "Marca dourada sobre a cabeça do alvo (espada em círculo).",
+ "frame_w": 32,
+ "frame_h": 44,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "anjo_sentenca.png"
+}

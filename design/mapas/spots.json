@@ -1,0 +1,348 @@
+{
+ "_doc": "Spots de farm do Deserto de Absinto. Coordenadas na grade de area_inicial.json (160x160). Lido pela thread de Missões para as linhas de quest e pela thread do jogo para os spawns.",
+ "regras": {
+  "respawn_s": "14 por mob nos spots de farm (padrão do Combate, combate.md seção 9); 18 nos dois spots de nível 1 a 3; 25 fora dos spots",
+  "subgrupos": "2 ou 3 mobs, a pelo menos 5 m um do outro; aggro_social 0 entre subgrupos",
+  "afastamento": "spot a mais de 14 m da borda de uma zona segura e fora da faixa das trilhas principais; quem só passa não puxa nada",
+  "skill_em_area": "clareira de 8 a 11 m de raio sem objetos altos, para o leque do nível 5 e o modo automático",
+  "descanso": "um ponto de descanso (fogueira + carrinho do Tobias vendendo poção) perto de cada par de spots"
+ },
+ "spots": [
+  {
+   "id": "covas_rasas",
+   "nome": "Covas Rasas",
+   "nivel": [
+    1,
+    3
+   ],
+   "zona": "campos_cinza",
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "carnical",
+     "nivel": [
+      1,
+      2
+     ],
+     "qtd": 8,
+     "temperamento": "neutro"
+    }
+   ],
+   "lore": "Carniçais cavando as covas rasas dos soldados da Grande Batalha. Comem e cavam; só brigam se você atrapalha.",
+   "missao": "primeiros abates para a Vigília (Odete)",
+   "x": 73.0,
+   "y": 66.0,
+   "livre": 0.91,
+   "dist_trilha": 11.9,
+   "respawn_s": 18,
+   "abrir_clareira": false
+  },
+  {
+   "id": "telhados_dos_corvos",
+   "nome": "Telhados dos Corvos",
+   "nivel": [
+    1,
+    3
+   ],
+   "zona": "bairro_afogado",
+   "raio": 8,
+   "mobs": [
+    {
+     "kind": "corvo_de_cinza",
+     "nivel": [
+      1,
+      3
+     ],
+     "qtd": 9,
+     "temperamento": "neutro"
+    }
+   ],
+   "lore": "Os corvos pousam nos telhados que saem da areia para comer o que a duna descobre. Bando que só levanta voo se um deles apanha.",
+   "missao": "penas de corvo para o Anselmo",
+   "x": 28.0,
+   "y": 93.0,
+   "livre": 0.69,
+   "dist_trilha": 10.3,
+   "respawn_s": 18,
+   "abrir_clareira": true
+  },
+  {
+   "id": "fosso_dos_caes",
+   "nome": "Fosso dos Cães",
+   "nivel": [
+    2,
+    4
+   ],
+   "zona": "vala_comum",
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "cao_de_vala",
+     "nivel": [
+      2,
+      4
+     ],
+     "qtd": 9,
+     "temperamento": "territorial",
+     "ancora": "toca_caes",
+     "raio_territorio": 4
+    },
+    {
+     "kind": "carnical",
+     "nivel": [
+      3,
+      3
+     ],
+     "qtd": 3,
+     "temperamento": "neutro"
+    }
+   ],
+   "lore": "A matilha mora nas tocas cavadas na vala comum. De dia defende a toca; de noite caça (agressiva só à noite).",
+   "missao": "limpar a vala para os coveiros",
+   "x": 70.0,
+   "y": 34.0,
+   "livre": 0.9,
+   "dist_trilha": 29.1,
+   "respawn_s": 18,
+   "abrir_clareira": false
+  },
+  {
+   "id": "procissao_parada",
+   "nome": "Procissão Parada",
+   "nivel": [
+    3,
+    5
+   ],
+   "zona": "cemiterio_sao_lazaro",
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      3,
+      5
+     ],
+     "qtd": 12,
+     "temperamento": "neutro"
+    }
+   ],
+   "lore": "Os Não-Julgados esperam o Juízo em fila entre as lápides, parados como numa procissão. Não atacam ninguém: só revidam. É o spot mais denso do deserto, feito para a skill em leque.",
+   "missao": "lacres de cera para a Madre Ivone (Arautos) ou para o Frei Anacleto",
+   "x": 75.0,
+   "y": 101.0,
+   "livre": 0.54,
+   "dist_trilha": 6.4,
+   "respawn_s": 14,
+   "abrir_clareira": true
+  },
+  {
+   "id": "margem_das_viuvas",
+   "nome": "Margem das Viúvas",
+   "nivel": [
+    5,
+    7
+   ],
+   "zona": "bosque_viuvas",
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      5,
+      6
+     ],
+     "qtd": 7,
+     "temperamento": "neutro"
+    },
+    {
+     "kind": "cao_de_vala",
+     "nivel": [
+      5,
+      7
+     ],
+     "qtd": 5,
+     "temperamento": "territorial",
+     "ancora": "arvore_enforcados",
+     "raio_territorio": 4
+    }
+   ],
+   "lore": "As viúvas da cidade vinham chorar no oásis do Rio Amargo; os mortos delas ainda vêm. Os cães bebem a água amarga na margem.",
+   "missao": "flor-de-absinto para a Mãe Cardo",
+   "x": 113.0,
+   "y": 102.0,
+   "livre": 0.85,
+   "dist_trilha": 30.4,
+   "respawn_s": 14,
+   "abrir_clareira": false
+  },
+  {
+   "id": "chiqueiro_do_carnica",
+   "nome": "Chiqueiro do Carniça",
+   "nivel": [
+    5,
+    7
+   ],
+   "zona": "abatedouro_carnica",
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "porco_pestilento",
+     "nivel": [
+      5,
+      7
+     ],
+     "qtd": 12,
+     "temperamento": "neutro"
+    }
+   ],
+   "lore": "Os porcos do Benedito ficaram soltos e engordaram com o que sobrava do abatedouro. Fuçam a lama e só investem se apanham.",
+   "missao": "carne de porco pestilento para o Gaspar",
+   "x": 124.0,
+   "y": 78.0,
+   "livre": 0.75,
+   "dist_trilha": 13.9,
+   "respawn_s": 14,
+   "abrir_clareira": true
+  },
+  {
+   "id": "patio_do_abatedouro",
+   "nome": "Pátio do Abatedouro",
+   "nivel": [
+    7,
+    9
+   ],
+   "zona": "abatedouro_carnica",
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "acougueiro_oco",
+     "nivel": [
+      7,
+      9
+     ],
+     "qtd": 11,
+     "temperamento": "agressivo"
+    },
+    {
+     "kind": "capataz_gancho",
+     "nivel": [
+      9,
+      9
+     ],
+     "qtd": 1,
+     "temperamento": "agressivo",
+     "elite": true,
+     "respawn_s": 300
+    }
+   ],
+   "lore": "Os açougueiros ainda trabalham para o patrão morto e atacam quem entra no pátio. É o único spot agressivo de verdade, e a porta da Cripta.",
+   "missao": "linha principal: a entrada da Cripta da Trombeta Calada",
+   "x": 122.0,
+   "y": 52.0,
+   "livre": 0.62,
+   "dist_trilha": 12.4,
+   "respawn_s": 14,
+   "abrir_clareira": true
+  },
+  {
+   "id": "beira_da_tempestade",
+   "nome": "Beira da Tempestade",
+   "nivel": [
+    9,
+    12
+   ],
+   "zona": "tempestade_areia",
+   "raio": 11,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "variante": "nao_julgado_da_tempestade",
+     "nivel": [
+      9,
+      11
+     ],
+     "qtd": 8,
+     "temperamento": "neutro",
+     "pendente": true
+    },
+    {
+     "kind": "carnical",
+     "variante": "carnical_inchado",
+     "nivel": [
+      11,
+      12
+     ],
+     "qtd": 4,
+     "temperamento": "territorial",
+     "pendente": true
+    }
+   ],
+   "lore": "Na borda da tempestade o Amargo é mais forte e os mortos ficam maiores. Spot de fim de área, depois da Cripta, com o contador estalando.",
+   "missao": "depois da Cripta: o sumiço do general da Legião (linha dos Arautos)",
+   "x": 103.0,
+   "y": 127.0,
+   "livre": 0.71,
+   "dist_trilha": 34.9,
+   "respawn_s": 14,
+   "abrir_clareira": true
+  }
+ ],
+ "descanso": [
+  {
+   "nome": "Fogueira do Espantalho",
+   "x": 50.5,
+   "y": 79.5,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "covas_rasas",
+    "telhados_dos_corvos"
+   ]
+  },
+  {
+   "nome": "Fogueira da Vala",
+   "x": 96.0,
+   "y": 43.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "fosso_dos_caes",
+    "patio_do_abatedouro"
+   ]
+  },
+  {
+   "nome": "Fogueira das Lápides",
+   "x": 94.0,
+   "y": 100.5,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "procissao_parada",
+    "margem_das_viuvas"
+   ]
+  },
+  {
+   "nome": "Fogueira do Vau",
+   "x": 117.5,
+   "y": 90.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "chiqueiro_do_carnica",
+    "margem_das_viuvas"
+   ]
+  }
+ ]
+}

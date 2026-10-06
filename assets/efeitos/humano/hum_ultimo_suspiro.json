@@ -1,0 +1,21 @@
+{
+ "name": "hum_ultimo_suspiro",
+ "cat": "humano",
+ "frames": 22,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  64,
+  152
+ ],
+ "layer": "frente",
+ "desc": "Último Suspiro (suprema): o humano recusa a morte, pulso vermelho e dourado e chama de coragem nos olhos.",
+ "char": "humano",
+ "title": "Último Suspiro (suprema)",
+ "resumo": "O humano recusa a morte, pulso vermelho e dourado e chama de coragem nos olhos.",
+ "frame_w": 128,
+ "frame_h": 168,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "hum_ultimo_suspiro.png"
+}

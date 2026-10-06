@@ -1,0 +1,64 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Cinzel;src:url(fonts/cinzel-bold.woff2);font-weight:700}
+@font-face{font-family:Fell;src:url(fonts/fell.woff2)}
+@font-face{font-family:Pix;src:url(fonts/silkscreen.woff2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1280px;height:720px;overflow:hidden;background:#000}
+#cena{position:absolute;inset:0;background:#000 url(fundo_deserto.png) center/cover}
+.a{position:absolute}
+img{position:absolute;image-rendering:auto}
+.out{text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000,0 0 4px #000}
+</style></head><body>
+<div id="cena"></div>
+<div id="hud" class="a" style="left:0;top:570px;width:1280px;height:150px"></div>
+<script>
+const P='out1x/';
+const H=document.getElementById('hud');
+const add=(src,x,y,w,h,extra='')=>{const i=document.createElement('img');i.src=P+src+'.png';i.style.cssText=`left:${x}px;top:${y}px;${w?`width:${w}px;`:''}${h?`height:${h}px;`:''}${extra}`;H.appendChild(i);return i;};
+const txt=(s,x,y,css)=>{const d=document.createElement('div');d.className='a out';d.style.cssText=`left:${x}px;top:${y}px;${css}`;d.innerHTML=s;H.appendChild(d);};
+// orbe com preenchimento: recorta o líquido pela base
+function orbe(cx,cy,frac,liq,mold,val,nome){
+  const x=cx-70,y=cy-70;
+  add('orbe_fundo',x,y);
+  const top=70-53+106*(1-frac);
+  const box=document.createElement('div');box.className='a';box.style.cssText=`left:${x}px;top:${y+top}px;width:140px;height:${140-top}px;overflow:hidden`;
+  const im=document.createElement('img');im.src=P+'orbe_liquido_'+liq+'.png';im.style.cssText=`left:0;top:${-top}px`;box.appendChild(im);H.appendChild(box);
+  add('orbe_superficie',cx-56+ (frac>.5?0:0),y+top-8,112,16,`opacity:.9;transform:scaleX(${Math.sqrt(1-Math.pow((top-70)/53,2))})`);
+  add('orbe_vidro',x,y); add('orbe_moldura_'+mold,x,y);
+  txt(val,cx-40,cy-9,'width:80px;text-align:center;font-family:Cinzel;font-weight:700;font-size:15px;color:#f6ead0');
+  txt(nome,cx-40,cy+10,'width:80px;text-align:center;font-family:Cinzel;font-weight:700;font-size:8px;letter-spacing:2px;color:#d8c8a0;opacity:.85');
+}
+add('barra_base',0,0);
+// XP
+const xpFrac=.634, xw=932*xpFrac;
+const xb=document.createElement('div');xb.className='a';xb.style.cssText=`left:176px;top:75px;width:${xw}px;height:8px;background:url(${P}xp_preenchimento.png) repeat-x;background-size:64px 8px;border-radius:4px 0 0 4px`;H.appendChild(xb);
+add('xp_ponta',176+xw-6,71);
+add('xp_vidro',170,70);
+txt('EXP 63,4%',600,58,'width:80px;text-align:center;font-family:Pix;font-size:7px;color:#e8ffb0;opacity:.9');
+// skills
+const SK=['tiro_certeiro','rajada','agua_benta_polvora','armadilha_prata','arrancada','corte_largo','ultimo_suspiro'];
+for(let i=0;i<10;i++){
+  const x=222+54*i,y=90;
+  if(i<SK.length){const im=add('',x+6,y+6,40,40);im.src='icones/skills/40/humano_'+SK[i]+'.png';}
+  if(i==7){const im=add('',x+6,y+6,40,40);im.src='icones/itens/40/agua_benta.png';}
+  if(i==2||i==4){const d=document.createElement('div');d.className='a';const p=i==2?62:30;d.style.cssText=`left:${x+6}px;top:${y+6}px;width:40px;height:40px;background:conic-gradient(rgba(0,0,0,.7) 0 ${p}%,transparent ${p}% 100%)`;H.appendChild(d);
+     txt(i==2?'4':'2',x,y+14,'width:52px;text-align:center;font-family:Cinzel;font-weight:700;font-size:16px;color:#fff');}
+  add('slot_sombra',x,y);
+  add(i==0?'slot_ativo':(i==3?'slot_hover':'slot_moldura'),x,y);
+  add('tecla_'+((i+1)%10),x-4,y-5);
+  if(i==7) txt('5',x+30,y+34,'font-family:Pix;font-size:8px;color:#fff');
+}
+// cinto
+const BT=['pocao_vida_p','pocao_recurso_p','antidoto_querosene','vela_retorno'],N=['14','9','3','2'],K='qwer';
+for(let i=0;i<4;i++){const x=792+52*i,y=94;const im=add('',x+5,y+5,36,36);im.src='icones/itens/40/'+BT[i]+'.png';add('cinto_sombra',x,y);add('cinto_moldura',x,y);add('tecla_'+K[i],x-4,y-5);txt(N[i],x+28,y+31,'font-family:Pix;font-size:8px;color:#fff');}
+// menu
+['personagem','mochila','habilidades','missoes','mapa','menu'].forEach((k,j)=>add('botao_'+k+'_'+(j==1?'hover':'normal'),1023+36*(j%3),92+27*Math.floor(j/3)));
+// info
+txt('NV.',166,97,'font-family:Cinzel;font-weight:700;font-size:8px;color:#b8a070;letter-spacing:1px');
+txt('27',166,106,'font-family:Cinzel;font-weight:700;font-size:16px;color:#f6ead0');
+txt('<span style="color:#9cff3a">●</span> 284',166,125,'font-family:Pix;font-size:7px;color:#d8c8a0');
+orbe(78,78,.79,'vida','vida','212','VIDA');
+orbe(1202,78,.54,'folego','recurso','54','FÔLEGO');
+document.title='ready';
+</script></body></html>

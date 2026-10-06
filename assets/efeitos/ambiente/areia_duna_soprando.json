@@ -1,0 +1,21 @@
+{
+ "name": "areia_duna_soprando",
+ "cat": "ambiente",
+ "frames": 24,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  24,
+  40
+ ],
+ "layer": "frente",
+ "desc": "Areia soprando da crista da duna: véu de grãos levantando e correndo com o vento (âncora na crista).",
+ "char": null,
+ "title": "Areia soprando da crista da duna",
+ "resumo": "Véu de grãos levantando e correndo com o vento (âncora na crista).",
+ "frame_w": 128,
+ "frame_h": 48,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "areia_duna_soprando.png"
+}

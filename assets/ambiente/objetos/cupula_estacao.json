@@ -1,0 +1,16 @@
+{
+ "w": 1304,
+ "h": 658,
+ "anchor": [
+  647,
+  362
+ ],
+ "emissivo": "arco elétrico azul e interior quente",
+ "categoria": "predios",
+ "footprint_tiles": [
+  14,
+  14
+ ],
+ "descricao": "Cúpula de vidro da estação de bonde, base do Acampamento da Vela: costelas de ferro,     vidraças quebradas e remendadas com lona, e a lâmpada de arco no topo.",
+ "kind": "cupula_estacao"
+}

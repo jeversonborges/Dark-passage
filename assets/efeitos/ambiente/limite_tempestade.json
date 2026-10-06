@@ -1,0 +1,21 @@
+{
+ "name": "limite_tempestade",
+ "cat": "ambiente",
+ "frames": 32,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  0,
+  144
+ ],
+ "layer": "frente",
+ "desc": "Limite do mundo disfarçado: muralha de tempestade de Amargo que fica mais densa para o lado de fora (topo do quadro = fora do mapa). Ladrilhável na horizontal; girar para cada borda e escurecer o jogador que insistir.",
+ "char": null,
+ "title": "Limite do mundo disfarçado",
+ "resumo": "Muralha de tempestade de Amargo que fica mais densa para o lado de fora (topo do quadro = fora do mapa). Ladrilhável na horizontal; girar para cada borda e escurecer o jogador que insistir.",
+ "frame_w": 192,
+ "frame_h": 144,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "limite_tempestade.png"
+}

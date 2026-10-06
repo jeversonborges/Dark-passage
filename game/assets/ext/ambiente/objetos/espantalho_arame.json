@@ -1,0 +1,16 @@
+{
+ "w": 208,
+ "h": 132,
+ "anchor": [
+  35,
+  116
+ ],
+ "emissivo": "lentes",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Espantalho de arame e trapos com máscara de gás.",
+ "kind": "espantalho_arame"
+}

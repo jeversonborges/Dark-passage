@@ -1,0 +1,15 @@
+{
+ "w": 266,
+ "h": 150,
+ "anchor": [
+  122,
+  85
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Cemitério de São Lázaro: lápides e cruzes que a duna cobre e descobre.",
+ "kind": "mar_de_lapides"
+}

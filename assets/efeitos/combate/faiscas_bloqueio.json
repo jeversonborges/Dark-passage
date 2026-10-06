@@ -1,0 +1,21 @@
+{
+ "name": "faiscas_bloqueio",
+ "cat": "combate",
+ "frames": 9,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  28,
+  24
+ ],
+ "layer": "frente",
+ "desc": "Metal contra metal: bloqueio, aparar, acerto em armadura.",
+ "char": null,
+ "title": "Faíscas de bloqueio",
+ "resumo": "Metal contra metal: bloqueio, aparar, acerto em armadura.",
+ "frame_w": 56,
+ "frame_h": 48,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "faiscas_bloqueio.png"
+}

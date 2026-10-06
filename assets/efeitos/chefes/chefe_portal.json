@@ -1,0 +1,21 @@
+{
+ "name": "chefe_portal",
+ "cat": "chefes",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  56,
+  132
+ ],
+ "layer": "frente",
+ "desc": "Fenda de invocação do chefe: portal vertical do abismo de onde saem os servos (repetir enquanto aberto).",
+ "char": null,
+ "title": "Fenda de invocação",
+ "resumo": "Fenda de invocação do chefe: portal vertical do abismo de onde saem os servos (repetir enquanto aberto).",
+ "frame_w": 112,
+ "frame_h": 144,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "chefe_portal.png"
+}

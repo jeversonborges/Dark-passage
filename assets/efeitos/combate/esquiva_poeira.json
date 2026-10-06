@@ -1,0 +1,21 @@
+{
+ "name": "esquiva_poeira",
+ "cat": "combate",
+ "frames": 10,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  28,
+  18
+ ],
+ "layer": "chao",
+ "desc": "Poeira levantada ao rolar, esquivar ou pisar forte.",
+ "char": null,
+ "title": "Poeira de esquiva",
+ "resumo": "Poeira levantada ao rolar, esquivar ou pisar forte.",
+ "frame_w": 56,
+ "frame_h": 28,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "esquiva_poeira.png"
+}

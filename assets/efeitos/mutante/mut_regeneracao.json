@@ -1,0 +1,21 @@
+{
+ "name": "mut_regeneracao",
+ "cat": "mutante",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  32,
+  98
+ ],
+ "layer": "frente",
+ "desc": "Regeneração Profana: pústulas verdes pulsam e sobem em bolhas (cura passiva).",
+ "char": "mutante",
+ "title": "Regeneração Profana",
+ "resumo": "Pústulas verdes pulsam e sobem em bolhas (cura passiva).",
+ "frame_w": 64,
+ "frame_h": 104,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "mut_regeneracao.png"
+}

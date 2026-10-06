@@ -1,0 +1,538 @@
+{
+  "_doc": "Drops e baus. As tabelas apontam para TAGS de item (ex: 'arma:faixa1'); a thread Skills, itens e icones define os itens com essas tags. Loot e pessoal (cada jogador rola o seu) para ja funcionar no multiplayer futuro. Chances sao por abate.",
+  "versao": "0.1",
+  "raridades": {
+    "_doc": "Cores no estilo Ferrugem Sagrada. Nome do item no chao e no tooltip usa a cor; Raro para cima tem feixe de luz no chao (cor da raridade) e som proprio.",
+    "comum": {
+      "cor": "#b8afa0",
+      "opcoes_extras": 0,
+      "feixe": false,
+      "peso_base": 7000
+    },
+    "magico": {
+      "cor": "#6f9fc9",
+      "opcoes_extras": [
+        1,
+        2
+      ],
+      "feixe": false,
+      "peso_base": 2400
+    },
+    "raro": {
+      "cor": "#c99a3e",
+      "opcoes_extras": [
+        2,
+        3
+      ],
+      "feixe": true,
+      "peso_base": 520
+    },
+    "excelente": {
+      "cor": "#9cff3a",
+      "opcoes_extras": [
+        1,
+        2
+      ],
+      "opcao_excelente_garantida": true,
+      "feixe": true,
+      "peso_base": 70,
+      "_doc": "verde estilo MU: sempre tem 1 opcao excelente (golpe excelente %, dano +%, reduz dano %, HP +%, ouro +%)"
+    },
+    "lendario": {
+      "nome_exibido": "Reliquia",
+      "cor": "#c8302a",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 10,
+      "_doc": "itens unicos com nome e historia; so de chefe, elite, raro e Relicario"
+    }
+  },
+  "nivel_de_refino_no_drop": {
+    "_doc": "Como o +1, +2 do MU. Cada + soma 8% no dano/defesa base do item.",
+    "chances": {
+      "+0": 0.72,
+      "+1": 0.19,
+      "+2": 0.07,
+      "+3": 0.02
+    },
+    "bonus_por_nivel": 0.08
+  },
+  "opcoes_de_item": {
+    "_doc": "Valores de referencia por opcao (faixa 1 = nivel 1-7, faixa 2 = nivel 7-13). A thread de itens escolhe quais opcoes cada tipo pode ter.",
+    "dano_plano": {
+      "faixa1": [
+        1,
+        3
+      ],
+      "faixa2": [
+        2,
+        5
+      ]
+    },
+    "defesa_plana": {
+      "faixa1": [
+        1,
+        3
+      ],
+      "faixa2": [
+        2,
+        5
+      ]
+    },
+    "hp_plano": {
+      "faixa1": [
+        8,
+        20
+      ],
+      "faixa2": [
+        15,
+        35
+      ]
+    },
+    "atributo": {
+      "faixa1": [
+        2,
+        4
+      ],
+      "faixa2": [
+        3,
+        6
+      ]
+    },
+    "critico": {
+      "faixa1": [
+        0.01,
+        0.02
+      ],
+      "faixa2": [
+        0.02,
+        0.03
+      ]
+    },
+    "velocidade_ataque": {
+      "faixa1": [
+        0.03,
+        0.05
+      ],
+      "faixa2": [
+        0.04,
+        0.07
+      ]
+    },
+    "roubo_de_vida": {
+      "faixa1": [
+        0.01,
+        0.02
+      ],
+      "faixa2": [
+        0.02,
+        0.03
+      ]
+    },
+    "res_elemento": {
+      "faixa1": [
+        0.05,
+        0.1
+      ],
+      "faixa2": [
+        0.08,
+        0.15
+      ]
+    },
+    "excelente_golpe": {
+      "faixa1": [
+        0.05,
+        0.08
+      ],
+      "faixa2": [
+        0.08,
+        0.1
+      ]
+    },
+    "excelente_dano": {
+      "faixa1": [
+        0.04,
+        0.06
+      ],
+      "faixa2": [
+        0.06,
+        0.08
+      ]
+    },
+    "excelente_reduz_dano": {
+      "faixa1": [
+        0.03,
+        0.04
+      ],
+      "faixa2": [
+        0.04,
+        0.05
+      ]
+    },
+    "excelente_ouro": {
+      "faixa1": [
+        0.2,
+        0.3
+      ],
+      "faixa2": [
+        0.3,
+        0.4
+      ]
+    }
+  },
+  "regras": {
+    "ouro_formula": "aleatorio(2*L, 5*L) * mult_arquetipo_xp",
+    "ouro_chance": 0.55,
+    "item_faixa": "faixa1 se L_mob <= 7, faixa2 se L_mob >= 7 (no 7 sorteia meio a meio)",
+    "mob_muito_abaixo": "mob 6+ niveis abaixo do jogador nao solta equipamento, so ouro e consumivel",
+    "pegar_item": "clique no item ou tecla Alt mostra nomes no chao; ouro e pego ao passar por cima",
+    "dono_do_drop_s": 60,
+    "some_do_chao_s": 180,
+    "explosao_de_drop": "itens saltam do corpo em arco (0.35s) e se espalham ate 1.2 tile, para nao empilhar"
+  },
+  "pity": {
+    "_doc": "Protecao contra azar.",
+    "raro_garantido_apos_abates_sem_raro": 250,
+    "reliquia_chefe_garantida_apos_vitorias": 6
+  },
+  "tabelas": {
+    "inicial_animal": {
+      "item_chance": 0.1,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_vida_p",
+          "peso": 40
+        },
+        {
+          "tag": "material:couro_podre",
+          "peso": 35
+        },
+        {
+          "tag": "material:osso",
+          "peso": 15
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 10
+        }
+      ]
+    },
+    "inicial_humanoide": {
+      "item_chance": 0.16,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_vida_p",
+          "peso": 30
+        },
+        {
+          "tag": "consumivel:municao",
+          "peso": 15
+        },
+        {
+          "tag": "material:sucata",
+          "peso": 20
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 35
+        }
+      ]
+    },
+    "inicial_espectro": {
+      "item_chance": 0.14,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_recurso_p",
+          "peso": 35
+        },
+        {
+          "tag": "material:cinza_de_alma",
+          "peso": 30
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 35
+        }
+      ]
+    },
+    "elite_inicial": {
+      "item_chance": 1.0,
+      "rolagens_garantidas": 3,
+      "raridade_minima": "magico",
+      "rolagens": [
+        {
+          "tag": "equip:faixa1",
+          "peso": 70
+        },
+        {
+          "tag": "lendario:capataz",
+          "peso": 4
+        },
+        {
+          "tag": "chave:bau_de_ferro",
+          "peso": 26
+        }
+      ],
+      "ouro_mult": 3
+    },
+    "raro_missao_cardo": {
+      "item_chance": 1.0,
+      "rolagens_garantidas": 2,
+      "raridade_minima": "magico",
+      "garantido": [
+        "missao:coracao_de_cardo"
+      ],
+      "rolagens": [
+        {
+          "tag": "equip:faixa1",
+          "peso": 85
+        },
+        {
+          "tag": "lendario:cardo",
+          "peso": 15
+        }
+      ]
+    },
+    "cripta_carne": {
+      "item_chance": 0.08,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_vida_p",
+          "peso": 50
+        },
+        {
+          "tag": "material:carne_estragada",
+          "peso": 50
+        }
+      ]
+    },
+    "cripta_humanoide": {
+      "item_chance": 0.16,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_vida_m",
+          "peso": 25
+        },
+        {
+          "tag": "consumivel:municao",
+          "peso": 15
+        },
+        {
+          "tag": "material:sucata",
+          "peso": 20
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 40
+        }
+      ]
+    },
+    "cripta_monge": {
+      "item_chance": 0.22,
+      "rolagens": [
+        {
+          "tag": "material:pedra_benta",
+          "peso": 40
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 50
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 10
+        }
+      ]
+    },
+    "cripta_espectro": {
+      "item_chance": 0.15,
+      "rolagens": [
+        {
+          "tag": "consumivel:pocao_recurso_m",
+          "peso": 35
+        },
+        {
+          "tag": "material:cera_de_vela",
+          "peso": 25
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 40
+        }
+      ]
+    },
+    "cripta_celestial": {
+      "item_chance": 0.18,
+      "rolagens": [
+        {
+          "tag": "material:pena_suja",
+          "peso": 30
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 55
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 15
+        }
+      ]
+    },
+    "chefe_celeste": {
+      "rolagens_garantidas": 4,
+      "raridade_minima": "magico",
+      "ouro_mult": 25,
+      "garantido": [
+        "missao:veu_da_carpideira"
+      ],
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 78
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 14
+        },
+        {
+          "tag": "lendario:celeste",
+          "peso": 8
+        }
+      ],
+      "reliquias_sugeridas": [
+        {
+          "id": "veu_de_luto",
+          "tipo": "elmo/capuz (Cultista/Anjo/Tecnomancer)",
+          "ideia": "ao matar, solta um lamento em cone que deixa lento"
+        },
+        {
+          "id": "rosario_do_coro",
+          "tipo": "amuleto",
+          "ideia": "+10% cura feita e recebida; ouve-se um coro baixinho ao curar"
+        }
+      ]
+    },
+    "chefe_zacarias": {
+      "rolagens_garantidas": 5,
+      "raridade_minima": "raro",
+      "ouro_mult": 30,
+      "garantido": [
+        "missao:bocal_da_trombeta"
+      ],
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 72
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 16
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 12
+        }
+      ],
+      "reliquias_sugeridas": [
+        {
+          "id": "lanca_do_arauto",
+          "tipo": "lanca (Anjo) / arma de haste",
+          "ideia": "a cada 5 golpes dispara uma Lanca do Juizo em linha"
+        },
+        {
+          "id": "asa_partida",
+          "tipo": "capa/asas",
+          "ideia": "+velocidade de movimento; ao tomar golpe fatal, fica invulneravel 1s (recarga 120s)"
+        },
+        {
+          "id": "bocal_calado",
+          "tipo": "anel (Humano/Tecnomancer)",
+          "ideia": "golpes criticos silenciam o alvo por 1s"
+        }
+      ]
+    },
+    "chefe_general": {
+      "rolagens_garantidas": 4,
+      "raridade_minima": "magico",
+      "ouro_mult": 25,
+      "garantido": [
+        "missao:estandarte_roido"
+      ],
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 80
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 12
+        },
+        {
+          "tag": "lendario:general",
+          "peso": 8
+        }
+      ],
+      "reliquias_sugeridas": [
+        {
+          "id": "dragona_do_general",
+          "tipo": "ombreira/armadura (Demonio/Mutante)",
+          "ideia": "abates curam 3% do HP e dao +2% de dano por 8s (acumula 5x)"
+        },
+        {
+          "id": "estandarte_partido",
+          "tipo": "arma de haste 2 maos",
+          "ideia": "golpe basico tem 12% de chance de erguer um Soldado Caido aliado por 10s"
+        }
+      ]
+    }
+  },
+  "baus": {
+    "_doc": "Baus no mapa. Abrir leva 1s de canalizacao (barra), interrompida por dano. A tampa abre com som pesado, o drop salta em arco.",
+    "caixote_podre": {
+      "onde": "area inicial e cripta, espalhados (12 na area, 8 por andar)",
+      "trancado": false,
+      "renasce_s": 600,
+      "rolagens": [
+        1,
+        2
+      ],
+      "raridade_minima": "comum",
+      "tabela": "nivel da regiao",
+      "ouro_mult": 2,
+      "chance_armadilha": 0.1,
+      "armadilha": "nuvem de veneno raio 1.5, telegrafo 0.8s"
+    },
+    "bau_de_ferro": {
+      "onde": "pontos escondidos (3 na area, 2 por andar)",
+      "trancado": "chave:bau_de_ferro (drop de elite) ou Gazua (consumivel, 60% de sucesso)",
+      "renasce_s": 1800,
+      "rolagens": [
+        2,
+        3
+      ],
+      "raridade_minima": "magico",
+      "ouro_mult": 5,
+      "joia_refino_chance": 0.25
+    },
+    "bau_faminto": {
+      "onde": "cripta; 1 em cada 12 caixotes podres vira mimico",
+      "e_mob": true,
+      "nivel": "nivel do andar",
+      "arquetipo": "elite",
+      "hp_mult": 0.5,
+      "comportamento": "ao tentar abrir, morde (golpe 1.5x) e pula atras do jogador; morto, solta como bau de ferro +1 rolagem"
+    },
+    "relicario_da_trombeta": {
+      "onde": "sala atras do Zacarias, abre com ele morto",
+      "trancado": "abre com o chefe morto, 1 vez por dia por personagem",
+      "rolagens": [
+        3,
+        3
+      ],
+      "raridade_minima": "raro",
+      "reliquia_chance": 0.2,
+      "ouro_mult": 15,
+      "_doc": "momento de recompensa: a sala acende vela por vela antes do bau abrir"
+    }
+  }
+}

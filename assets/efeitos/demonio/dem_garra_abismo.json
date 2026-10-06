@@ -1,0 +1,21 @@
+{
+ "name": "dem_garra_abismo",
+ "cat": "demonio",
+ "frames": 10,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  44,
+  40
+ ],
+ "layer": "frente",
+ "desc": "Garra do Abismo: três cortes paralelos de brasa (repetir rápido no combo).",
+ "char": null,
+ "title": "Garra do Abismo",
+ "resumo": "Três cortes paralelos de brasa (repetir rápido no combo).",
+ "frame_w": 88,
+ "frame_h": 80,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "dem_garra_abismo.png"
+}

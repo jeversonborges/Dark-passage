@@ -1,0 +1,15 @@
+{
+ "w": 608,
+ "h": 350,
+ "anchor": [
+  210,
+  241
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  4
+ ],
+ "descricao": "Ponte de ferro treliçada da Linha 7 sobre o leito seco do rio.",
+ "kind": "ponte_ferro_bonde"
+}

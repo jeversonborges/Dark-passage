@@ -1,0 +1,21 @@
+{
+ "name": "tec_torreta_invocacao",
+ "cat": "tecnomancer",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  48,
+  56
+ ],
+ "layer": "frente",
+ "desc": "Torreta Sentinela: círculo de runas no chão e descarga elétrica onde a torreta e montada.",
+ "char": null,
+ "title": "Torreta Sentinela",
+ "resumo": "Círculo de runas no chão e descarga elétrica onde a torreta e montada.",
+ "frame_w": 96,
+ "frame_h": 80,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tec_torreta_invocacao.png"
+}

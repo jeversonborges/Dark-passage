@@ -1,0 +1,21 @@
+{
+ "name": "dem_passo_sombrio",
+ "cat": "demonio",
+ "frames": 12,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  40,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Passo Sombrio: explosão de sombra com olhos em brasa (tocar na saída; ao contrário na chegada).",
+ "char": null,
+ "title": "Passo Sombrio",
+ "resumo": "Explosão de sombra com olhos em brasa (tocar na saída; ao contrário na chegada).",
+ "frame_w": 80,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "dem_passo_sombrio.png"
+}

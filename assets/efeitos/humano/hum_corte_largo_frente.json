@@ -1,0 +1,21 @@
+{
+ "name": "hum_corte_largo_frente",
+ "cat": "humano",
+ "frames": 16,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  88,
+  100
+ ],
+ "layer": "frente",
+ "desc": "Corte Giratório (corte_largo), camada da frente: metade da frente do arco de corte, faíscas e poeira. Desenhar NA FRENTE do personagem, no mesmo ponto e no mesmo quadro da camada de tras.",
+ "char": "humano",
+ "title": "Corte Giratório (frente)",
+ "resumo": "Corte Giratório (corte_largo), camada da frente: metade da frente do arco de corte, faíscas e poeira. Desenhar NA FRENTE do personagem, no mesmo ponto e no mesmo quadro da camada de tras.",
+ "frame_w": 176,
+ "frame_h": 128,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_corte_largo_frente.png"
+}

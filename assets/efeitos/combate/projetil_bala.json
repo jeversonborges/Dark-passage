@@ -1,0 +1,21 @@
+{
+ "name": "projetil_bala",
+ "cat": "combate",
+ "frames": 2,
+ "fps": 20,
+ "loop": true,
+ "anchor": [
+  28,
+  4
+ ],
+ "layer": "frente",
+ "desc": "Traçante de bala/virote em voo (aponta para a direita).",
+ "char": null,
+ "title": "Bala traçante",
+ "resumo": "Traçante de bala/virote em voo (aponta para a direita).",
+ "frame_w": 32,
+ "frame_h": 8,
+ "cols": 2,
+ "rows": 1,
+ "sheet": "projetil_bala.png"
+}

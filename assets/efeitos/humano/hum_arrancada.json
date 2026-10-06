@@ -1,0 +1,21 @@
+{
+ "name": "hum_arrancada",
+ "cat": "humano",
+ "frames": 12,
+ "fps": 24,
+ "loop": false,
+ "anchor": [
+  20,
+  96
+ ],
+ "layer": "frente",
+ "desc": "Arrancada (arrancada): dash de 4 tiles em 0,18 s com a espada larga estendida, cortando numa faixa de 1,2 tile e empurrando os alvos para os lados; rastro de silhueta e de lâmina, impactos ao longo do caminho e areia levantada (para a direita; o personagem sai da âncora e chega 136 px adiante). Tocar junto com esquiva_poeira no ponto de saída.",
+ "char": null,
+ "title": "Arrancada",
+ "resumo": "Arrancada (arrancada): dash de 4 tiles em 0,18 s com a espada larga estendida, cortando numa faixa de 1,2 tile e empurrando os alvos para os lados; rastro de silhueta e de lâmina, impactos ao longo do caminho e areia levantada (para a direita; o personagem sai da âncora e chega 136 px adiante). Tocar junto com esquiva_poeira no ponto de saída.",
+ "frame_w": 192,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_arrancada.png"
+}

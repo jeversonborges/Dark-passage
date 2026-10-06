@@ -1,0 +1,16 @@
+{
+ "w": 300,
+ "h": 188,
+ "anchor": [
+  47,
+  162
+ ],
+ "emissivo": "brasa",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Trono de sucata dos demônios no telhado dos fundos da capela.",
+ "kind": "trono_sucata"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 460,
+ "h": 292,
+ "anchor": [
+  63,
+  256
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste de telégrafo de madeira inclinado, com isoladores e fios caídos.",
+ "kind": "poste_telegrafo"
+}

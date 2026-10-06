@@ -1,0 +1,16 @@
+{
+ "w": 62,
+ "h": 38,
+ "anchor": [
+  24,
+  22
+ ],
+ "luz": "velas",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "vela_tumulo"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "golpe_impacto",
+ "cat": "combate",
+ "frames": 7,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  24,
+  24
+ ],
+ "layer": "frente",
+ "desc": "Acerto corpo a corpo comum: lampejo e estilhaços de luz.",
+ "char": null,
+ "title": "Impacto de golpe",
+ "resumo": "Acerto corpo a corpo comum: lampejo e estilhaços de luz.",
+ "frame_w": 48,
+ "frame_h": 48,
+ "cols": 7,
+ "rows": 1,
+ "sheet": "golpe_impacto.png"
+}

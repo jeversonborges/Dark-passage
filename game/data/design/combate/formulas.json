@@ -1,0 +1,179 @@
+{
+  "_doc": "DARK PASSAGE - formulas de combate v0.1. Lido pelo servidor autoritativo. Todas as divisoes sao em ponto flutuante; arredonde so o dano final (round half up, minimo 1). Ver combate.md secao 3.",
+  "versao": "0.1",
+  "pontos_por_nivel": 5,
+  "pontos_por_nivel_apos_evolucao": {
+    "150": 6,
+    "400": 7
+  },
+  "atributos": {
+    "FOR": "dano fisico corpo a corpo, peso, um pouco de acerto",
+    "AGI": "dano a distancia, velocidade de ataque, esquiva, critico",
+    "VIT": "HP, defesa, resistencia a efeitos",
+    "ESP": "recurso, dano magico, cura"
+  },
+  "dano_base": {
+    "_doc": "min e max antes da arma. A arma soma seu proprio min/max. Cada classe aponta para um destes perfis em classes_base.json.",
+    "corpo_a_corpo": {
+      "min": "FOR/6",
+      "max": "FOR/4"
+    },
+    "corpo_a_corpo_agil": {
+      "min": "FOR/6 + AGI/10",
+      "max": "FOR/4 + AGI/10"
+    },
+    "distancia": {
+      "min": "AGI/7 + FOR/14",
+      "max": "AGI/4 + FOR/8"
+    },
+    "magico": {
+      "min": "ESP/9",
+      "max": "ESP/4"
+    },
+    "sagrado": {
+      "min": "ESP/10 + FOR/12",
+      "max": "ESP/5 + FOR/8"
+    }
+  },
+  "cura": {
+    "_doc": "Cura de habilidade = (ESP/3 + nivel*2 + cura_arma) * mult_habilidade. Pode criticar (x1.5) mas nao ganha Excelente.",
+    "formula": "(ESP/3 + nivel*2 + cura_arma) * mult",
+    "reducao_cura_recebida_max": 0.5
+  },
+  "defesa": {
+    "_doc": "Defesa plana vira reducao percentual que depende do nivel de quem ataca, entao defesa nunca zera o dano (ao contrario do MU original).",
+    "defesa_jogador": "VIT/5 + AGI/10 + armadura",
+    "mitigacao": "def / (def + 40 + 8*nivel_atacante)",
+    "mitigacao_max": 0.7,
+    "dano_minimo_frac": 0.05,
+    "resistencia_elemental": "aplicada depois da mitigacao: dano * (1 - res). res entre -0.5 (fraqueza) e 0.75"
+  },
+  "acerto": {
+    "_doc": "AR = taxa de ataque, ER = taxa de esquiva. Errar deve ser raro no mesmo nivel (cerca de 1 em 10).",
+    "ar_jogador_fisico": "nivel*3 + AGI + FOR/4",
+    "ar_jogador_magico": "nivel*3 + ESP/2 + AGI/2",
+    "er_jogador": "nivel*2 + AGI/2 + esquiva_itens",
+    "ar_mob": "nivel*4 + 10",
+    "er_mob": "nivel*3 + 5",
+    "chance": "0.90 + 0.25 * (AR - ER) / (AR + ER)",
+    "penalidade_por_nivel_acima": 0.03,
+    "minimo": 0.55,
+    "maximo": 0.98,
+    "habilidades_em_area_nunca_erram": true,
+    "magias_de_alvo_unico_usam_ar_magico": true
+  },
+  "critico": {
+    "_doc": "Critico = golpe azul-laranja do MU. Excelente = golpe verde do MU, so vem de opcao de item.",
+    "chance": "0.05 + AGI*0.0008 + critico_itens",
+    "chance_max": 0.4,
+    "mult": 1.5,
+    "mult_por_classe": {
+      "humano": 1.75
+    },
+    "excelente": {
+      "chance": "excelente_itens (base 0)",
+      "chance_max": 0.25,
+      "mult": 1.2,
+      "ignora_defesa_frac": 0.5,
+      "acumula_com_critico": true
+    }
+  },
+  "diferenca_de_nivel": {
+    "_doc": "d = nivel_alvo - nivel_atacante. Vale para jogador batendo em mob e mob batendo em jogador.",
+    "alvo_acima": "dano * max(0.40, 1 - 0.04*d)",
+    "alvo_abaixo": "dano * min(1.20, 1 + 0.02*(-d))"
+  },
+  "velocidade_de_ataque": {
+    "_doc": "Intervalo da arma dividido pelo bonus. A animacao de ataque acelera junto (ver sensacao.json).",
+    "bonus": "1 + AGI*0.004 + velocidade_itens",
+    "bonus_max": 2.0,
+    "intervalo": "intervalo_arma / bonus"
+  },
+  "vantagem_cruzada": {
+    "_doc": "classes.md secao 6. Multiplica o dano final.",
+    "humano": {
+      "alvos": [
+        "anjo",
+        "demonio",
+        "tag:celestial",
+        "tag:infernal"
+      ],
+      "mult": 1.12
+    },
+    "anjo": {
+      "alvos": [
+        "mutante",
+        "tag:praga"
+      ],
+      "mult": 1.12
+    },
+    "demonio": {
+      "alvos": [
+        "humano",
+        "tag:humano"
+      ],
+      "mult": 1.12
+    },
+    "tecnomancer": {
+      "alvos": [
+        "tag:invocacao",
+        "tag:escudo_sagrado"
+      ],
+      "mult": 1.15
+    },
+    "cultista": {
+      "alvos": [
+        "tecnomancer",
+        "tag:constructo"
+      ],
+      "mult": 1.12
+    },
+    "mutante": {
+      "resiste": [
+        "veneno",
+        "sangramento",
+        "maldicao"
+      ],
+      "res": 0.3
+    }
+  },
+  "ordem_de_calculo": [
+    "1. Testa acerto (habilidade em area pula). Errou: numero 'ERROU', sem dano, sem postura.",
+    "2. rolagem = aleatorio uniforme entre min e max (base + arma).",
+    "3. bruto = rolagem * mult_habilidade + adicional_habilidade.",
+    "4. Testa critico: bruto *= mult_critico. Testa excelente: bruto *= 1.2 e defesa efetiva cai pela metade.",
+    "5. dano = bruto * (1 - mitigacao(defesa efetiva)), com minimo de bruto*0.05.",
+    "6. dano *= (1 - resistencia_elemental).",
+    "7. dano *= diferenca_de_nivel * vantagem_cruzada * buffs_do_atacante * debuffs_do_alvo (Sentenca, Marca etc).",
+    "8. Arredonda, minimo 1. Aplica escudos (Campo de Forca) antes do HP.",
+    "9. Aplica postura, efeitos, recurso (Graca, Brasa, Furia) e roubo de vida."
+  ],
+  "regeneracao": {
+    "hp_fora_de_combate_por_s": "max_hp * 0.02",
+    "hp_em_combate_por_s": 0,
+    "segundos_para_sair_de_combate": 5,
+    "mutante_regeneracao_profana_mult": 2.5
+  },
+  "morte": {
+    "renasce_em": "acampamento mais proximo",
+    "tempo_para_renascer_s": 5,
+    "perda_xp_frac_do_nivel": 0.02,
+    "sem_perda_ate_nivel": 10,
+    "nunca_perde_nivel": true,
+    "itens_nao_caem_no_pve": true,
+    "imunidade_ao_renascer_s": 3
+  },
+  "aggro": {
+    "_doc": "Ameaca por alvo; mob ataca quem tem mais ameaca. Troca de alvo so se outro passar de 110% (corpo a corpo) ou 130% (distancia).",
+    "ameaca_por_dano": 1.0,
+    "ameaca_por_cura": 0.5,
+    "ameaca_rugido_da_praga": "provoca 4s e soma 100% da maior ameaca atual",
+    "mult_classe": {
+      "mutante": 1.5,
+      "demonio": 1.2
+    },
+    "troca_alvo_corpo_a_corpo": 1.1,
+    "troca_alvo_distancia": 1.3
+  },
+  "recurso_em_area": "Skill em area gera Graca, Furia ou Brasa so pelo primeiro alvo atingido em cada uso."
+}

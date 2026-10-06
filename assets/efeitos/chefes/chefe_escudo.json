@@ -1,0 +1,21 @@
+{
+ "name": "chefe_escudo",
+ "cat": "chefes",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  64,
+  146
+ ],
+ "layer": "frente",
+ "desc": "Fase invulnerável: casca de runas do abismo gira em volta do chefe (repetir).",
+ "char": null,
+ "title": "Casca invulnerável",
+ "resumo": "Fase invulnerável: casca de runas do abismo gira em volta do chefe (repetir).",
+ "frame_w": 128,
+ "frame_h": 160,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "chefe_escudo.png"
+}

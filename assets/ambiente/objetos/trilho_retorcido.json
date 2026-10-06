@@ -1,0 +1,15 @@
+{
+ "w": 308,
+ "h": 190,
+ "anchor": [
+  72,
+  149
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Trilhos da Linha 7 arrancados e retorcidos para cima.",
+ "kind": "trilho_retorcido"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 388,
+ "h": 234,
+ "anchor": [
+  115,
+  166
+ ],
+ "emissivo": "brilho vermelho da escada",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Entrada do porão do Abatedouro que leva à Cripta da Trombeta Calada:     alçapão de ferro arrombado, escada descendo, luz vermelha lá dentro.",
+ "kind": "entrada_cripta"
+}

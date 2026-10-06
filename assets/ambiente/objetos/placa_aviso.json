@@ -1,0 +1,15 @@
+{
+ "w": 180,
+ "h": 124,
+ "anchor": [
+  21,
+  100
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "placa_aviso"
+}

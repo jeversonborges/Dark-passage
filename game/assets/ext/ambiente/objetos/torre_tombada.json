@@ -1,0 +1,16 @@
+{
+ "w": 1358,
+ "h": 728,
+ "anchor": [
+  271,
+  587
+ ],
+ "emissivo": "poça radioativa",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "Resto de torre de concreto tombada e cravada na areia, em ângulo.",
+ "kind": "torre_tombada"
+}

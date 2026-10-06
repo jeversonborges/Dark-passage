@@ -1,0 +1,21 @@
+{
+ "name": "vela_lampada_arco",
+ "cat": "ambiente",
+ "frames": 16,
+ "fps": 16,
+ "loop": true,
+ "anchor": [
+  36,
+  36
+ ],
+ "layer": "frente",
+ "desc": "A Vela acesa: arco elétrico estalando entre as bobinas e halo branco-azulado (centro da lâmpada na âncora).",
+ "char": null,
+ "title": "A Vela acesa",
+ "resumo": "Arco elétrico estalando entre as bobinas e halo branco-azulado (centro da lâmpada na âncora).",
+ "frame_w": 72,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "vela_lampada_arco.png"
+}

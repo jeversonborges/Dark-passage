@@ -1,0 +1,15 @@
+{
+ "w": 102,
+ "h": 50,
+ "anchor": [
+  58,
+  26
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "penas_espalhadas"
+}

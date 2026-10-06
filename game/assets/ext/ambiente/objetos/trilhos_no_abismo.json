@@ -1,0 +1,16 @@
+{
+ "w": 200,
+ "h": 332,
+ "anchor": [
+  98,
+  11
+ ],
+ "nota": "a ponta desce abaixo da linha do chão; coloque na borda do precipício",
+ "categoria": "limites",
+ "footprint_tiles": [
+  3,
+  4
+ ],
+ "descricao": "Fim da Linha 7: trilhos e dormentes pendurados sobre o precipício.",
+ "kind": "trilhos_no_abismo"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 384,
+ "h": 208,
+ "anchor": [
+  166,
+  120
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Duna baixa e larga com crista (Mar de Dunas e Estrada do Sul).",
+ "kind": "duna_ondulacao"
+}

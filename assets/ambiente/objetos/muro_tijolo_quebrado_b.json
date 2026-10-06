@@ -1,0 +1,16 @@
+{
+ "w": 230,
+ "h": 152,
+ "anchor": [
+  31,
+  132
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "muro_tijolo_quebrado_b"
+}

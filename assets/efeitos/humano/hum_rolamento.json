@@ -1,0 +1,21 @@
+{
+ "name": "hum_rolamento",
+ "cat": "humano",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  88,
+  36
+ ],
+ "layer": "chao",
+ "desc": "Rolamento: poeira e rastro baixo da esquiva (para a direita).",
+ "char": null,
+ "title": "Rolamento",
+ "resumo": "Poeira e rastro baixo da esquiva (para a direita).",
+ "frame_w": 112,
+ "frame_h": 48,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_rolamento.png"
+}

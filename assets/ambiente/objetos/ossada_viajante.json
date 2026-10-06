@@ -1,0 +1,15 @@
+{
+ "w": 164,
+ "h": 84,
+ "anchor": [
+  45,
+  55
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Ossada de quem tentou atravessar a tempestade: esqueleto, mochila e cantil.",
+ "kind": "ossada_viajante"
+}

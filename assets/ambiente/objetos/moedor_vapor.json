@@ -1,0 +1,17 @@
+{
+ "w": 810,
+ "h": 458,
+ "anchor": [
+  223,
+  343
+ ],
+ "chefe": 1,
+ "emissivo": "carne viva no funil",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "Porão do Matadouro: o grande moedor de carne a vapor (peça central de sala).",
+ "kind": "moedor_vapor"
+}

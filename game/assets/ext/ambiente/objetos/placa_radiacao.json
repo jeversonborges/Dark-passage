@@ -1,0 +1,15 @@
+{
+ "w": 172,
+ "h": 112,
+ "anchor": [
+  20,
+  103
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "placa_radiacao"
+}

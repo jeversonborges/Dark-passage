@@ -1,0 +1,15 @@
+{
+ "w": 236,
+ "h": 108,
+ "anchor": [
+  68,
+  70
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Cratera de bomba com estilhaços e uma bandeira da Vigília rasgada.",
+ "kind": "cratera_cinza"
+}

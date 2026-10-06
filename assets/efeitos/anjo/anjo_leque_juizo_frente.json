@@ -1,0 +1,23 @@
+{
+ "name": "anjo_leque_juizo_frente",
+ "cat": "anjo",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  136,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Leque do Juízo (frente do personagem): corte da espada que crava no chão e abre um leque de chamas brancas e douradas (cone de 100 graus, 3,5 tiles) com penas queimando no ar.",
+ "char": "anjo",
+ "title": "Leque do Juízo (frente do personagem)",
+ "resumo": "Corte da espada que crava no chão e abre um leque de chamas brancas e douradas (cone de 100 graus, 3,5 tiles) com penas queimando no ar.",
+ "frame_w": 272,
+ "frame_h": 176,
+ "cols": 16,
+ "rows": 8,
+ "sheet": "anjo_leque_juizo_frente.png",
+ "directions": 8,
+ "dir_order": "linha d = direcao d: 0 leste (direita da tela), 1 nordeste, 2 norte (cima), 3 noroeste, 4 oeste, 5 sudoeste, 6 sul (baixo), 7 sudeste; angulos no plano do chao"
+}

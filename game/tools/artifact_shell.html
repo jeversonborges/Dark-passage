@@ -1,0 +1,91 @@
+<title>DARK PASSAGE</title>
+<style>
+/* Visual único e escuro (o jogo é escuro por natureza): fundo de pedra noturna, texto osso, acento vermelho-sangue. */
+:root {
+  --noite: #0e0c0d; --pedra: #2a2626; --osso: #d3cab7; --sangue: #7a1612; --ouro: #c99a3e;
+  --fonte: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  color-scheme: dark;
+}
+html, body { height: 100%; background: var(--noite); color: var(--osso); margin: 0; overflow: hidden; }
+#canvas { display: block; width: 100%; height: 100%; outline: none; background: var(--noite); }
+#status { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  background: var(--noite); font-family: var(--fonte); text-align: center; padding-inline: 16px; }
+#status h1 { margin: 0; font-size: clamp(2.2rem, 7vw, 4rem); letter-spacing: .08em; color: var(--sangue); font-weight: 700; }
+#status p { margin: 0; color: var(--osso); opacity: .75; font-size: 1.05rem; }
+#barra { width: min(360px, 80vw); height: 6px; background: var(--pedra); border: 1px solid #5a4a30; }
+#barra > div { height: 100%; width: 0; background: var(--ouro); transition: width .2s; }
+#erro { color: #e06050; max-width: 560px; font-family: system-ui, sans-serif; font-size: .9rem; }
+</style>
+<canvas id="canvas" tabindex="0">Seu navegador não suporta HTML5 canvas.</canvas>
+<div id="status">
+  <h1>DARK PASSAGE</h1>
+  <p id="msg">Abrindo os portões de Velgrad…</p>
+  <div id="barra"><div></div></div>
+  <p id="erro" hidden></p>
+  <p style="font-size:.85rem;opacity:.5">Funciona melhor no Chrome ou Edge de PC. Mouse e teclado.</p>
+</div>
+<script>
+// O motor e os dados são publicados em partes; este fetch interceptado remonta o .wasm e o .pck.
+(function () {
+  const PARTS = /*PARTS*/;
+  const PCK_PARTS = /*PCK_PARTS*/;
+  const TOTAL = /*WASM_SIZE*/ + /*PCK_SIZE*/;
+  let baixado = 0;
+  const realFetch = window.fetch.bind(window);
+  function progresso() {
+    const el = document.querySelector('#barra > div');
+    if (el) el.style.width = Math.min(100, Math.round(100 * baixado / TOTAL)) + '%';
+    const m = document.getElementById('msg');
+    if (m) m.textContent = 'Baixando o mundo… ' + Math.round(baixado / 1048576) + ' de ' + Math.round(TOTAL / 1048576) + ' MB';
+  }
+  async function baixa(p) {
+    const r = await realFetch(p);
+    if (!r.ok) throw new Error(p + ' ' + r.status);
+    if (!r.body || !r.body.getReader) { const b = await r.arrayBuffer(); baixado += b.byteLength; progresso(); return b; }
+    const rd = r.body.getReader(); const pedacos = []; let n = 0;
+    for (;;) { const { done, value } = await rd.read(); if (done) break; pedacos.push(value); n += value.byteLength; baixado += value.byteLength; progresso(); }
+    const out = new Uint8Array(n); let o = 0; for (const v of pedacos) { out.set(v, o); o += v.byteLength; }
+    return out.buffer;
+  }
+  async function junta(lista) {
+    const bufs = await Promise.all(lista.map(baixa));
+    const total = bufs.reduce((a, b) => a + b.byteLength, 0);
+    const out = new Uint8Array(total); let o = 0;
+    for (const b of bufs) { out.set(new Uint8Array(b), o); o += b.byteLength; }
+    return out;
+  }
+  window.fetch = function (url, opts) {
+    const u = String(url && url.url ? url.url : url);
+    if (u.endsWith('index.wasm')) {
+      return junta(PARTS).then(b => new Response(b, { status: 200, headers: { 'Content-Type': 'application/wasm', 'Content-Length': String(b.byteLength) } }));
+    }
+    if (u.endsWith('index.pck')) {
+      return junta(PCK_PARTS).then(b => new Response(b, { status: 200, headers: { 'Content-Type': 'application/octet-stream', 'Content-Length': String(b.byteLength) } }));
+    }
+    return realFetch(url, opts);
+  };
+})();
+</script>
+<script>
+/*GODOT_JS*/
+</script>
+<script>
+(function () {
+  const cfg = {"args":[],"canvasResizePolicy":2,"ensureCrossOriginIsolationHeaders":false,"executable":"index","experimentalVK":false,
+    "fileSizes":{"index.pck":/*PCK_SIZE*/,"index.wasm":/*WASM_SIZE*/},"focusCanvas":true,"gdextensionLibs":[]};
+  const status = document.getElementById('status');
+  const bar = document.querySelector('#barra > div');
+  const erro = document.getElementById('erro');
+  function falha(e) {
+    console.error(e);
+    document.getElementById('msg').textContent = 'Não consegui iniciar o jogo neste navegador.';
+    erro.textContent = (e && e.message) ? e.message : String(e); erro.hidden = false;
+  }
+  const faltando = Engine.getMissingFeatures({ threads: false });
+  if (faltando.length) { falha(new Error('Recursos ausentes: ' + faltando.join(', '))); return; }
+  const engine = new Engine(cfg);
+  engine.startGame({
+    onProgress: () => {},
+  }).then(() => { status.remove(); document.getElementById('canvas').focus(); }, falha);
+})();
+</script>

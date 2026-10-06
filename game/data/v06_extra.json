@@ -1,0 +1,30 @@
+{
+ "_doc": "v0.6: dados que as outras frentes ainda não entregaram (números de combate dos monstros novos das linhas D e E e das variantes da Beira da Tempestade, e o carrinho de poção das fogueiras). Defs só usa um id daqui se o design não tiver o mesmo id: quando a entrega chegar, ela vale sozinha.",
+ "mobs": {
+  "nao_julgado_da_tempestade": {"nome": "Não-Julgado da Tempestade", "base": "nao_julgado", "niveis": [9, 11], "ajuste": {"hp": 1.15}, "res": {"fisico": 0.2, "sagrado": -0.4, "eletrico": 0.3}, "renascimento_s": 14},
+  "carnical_inchado": {"nome": "Carniçal Inchado", "base": "carnical", "niveis": [11, 12], "ajuste": {"hp": 1.6, "mov": 0.7, "dano": 1.15}, "renascimento_s": 14,
+   "ataques": [{"id": "arranhao", "mult": 1.0, "preparo": 0.55}, {"id": "vomito", "mult": 1.4, "preparo": 0.8, "telegrafo": {"forma": "cone", "raio": 2.2, "angulo": 70}, "efeito": {"veneno": {"duracao": 4, "dano_por_s_mult": 0.12}}, "recarga": 7}]},
+  "desertor_legiao": {"nome": "Desertor da Legiao", "area": "rio amargo e campos de cinza", "niveis": [6, 9], "arquetipo": "normal", "ajuste": {"hp": 1.15, "dano": 1.1}, "tags": ["demonio"], "grupo": [2, 3],
+   "res": {"fogo": 0.4, "sagrado": -0.3}, "alcance": 1.6, "ia": {"padrao": "matilha", "raio_aggro": 5, "aggro_social": 5}, "renascimento_s": 14,
+   "ataques": [{"id": "estocada", "mult": 1.0, "preparo": 0.5}, {"id": "investida_lanca", "mult": 1.6, "preparo": 0.8, "telegrafo": {"forma": "linha", "comprimento": 4.5, "largura": 1}, "recarga": 8}], "drop": "inicial_humanoide"},
+  "sangrador_apostata": {"nome": "Sangrador Apostata", "area": "bosque das viuvas", "niveis": [5, 7], "arquetipo": "atirador", "tags": ["humano"], "grupo": [2, 3],
+   "res": {"sangue": 0.3}, "alcance": 5, "ia": {"padrao": "conjurador", "raio_aggro": 6, "distancia_ideal": 4, "distancia_minima": 2}, "renascimento_s": 14,
+   "ataques": [{"id": "sangria", "mult": 1.0, "preparo": 0.6, "projetil_vel": 10, "efeito": {"sangramento": {"duracao": 3, "dano_por_s_mult": 0.1}}}], "drop": "inicial_humanoide"},
+  "sombra_gravada": {"nome": "Sombra Gravada", "area": "borda da tempestade", "niveis": [9, 12], "arquetipo": "normal", "ajuste": {"hp": 0.95, "mov": 1.1}, "tags": ["espectro"], "grupo": [2, 3],
+   "res": {"fisico": 0.25, "sagrado": -0.5, "fogo": -0.3}, "alcance": 1.2, "ia": {"padrao": "piscar", "raio_aggro": 6}, "renascimento_s": 14,
+   "ataques": [{"id": "toque_apontar", "mult": 1.0, "preparo": 0.5, "efeito": {"lento": 2}}, {"id": "piscar", "recarga": 7, "teleporte": 1.5}], "drop": "inicial_espectro"},
+  "ultimo_operador": {"nome": "Sargento Brandao, o Ultimo Operador", "area": "silo sao lazaro", "niveis": [12, 12], "arquetipo": "elite", "tags": ["humano"], "res": {"fisico": 0.1, "eletrico": 0.3},
+   "renascimento_s": 0, "alcance": 5, "ia": {"padrao": "elite", "raio_aggro": 8, "raio_coleira": 18},
+   "ataques": [{"id": "tiro_de_servico", "mult": 1.0, "preparo": 0.6, "projetil_vel": 14}, {"id": "sirene", "mult": 1.8, "preparo": 1.1, "telegrafo": {"forma": "circulo", "raio": 2.5}, "recarga": 9},
+    {"id": "chamado", "em_hp": 0.5, "invoca": {"sombra_gravada": 2}}], "drop": "elite_inicial"}
+ },
+ "npcs": [
+  {"id": "tobias_carrinho", "nome": "Tobias 'Pavio'", "titulo": "Carrinho de Poções", "faccao": "neutro", "classe_visual": "humano", "servicos": ["loja"], "loja": "loja_carrinho", "dialogo": "dlg_tobias_carrinho"}
+ ],
+ "dialogos": [
+  {"id": "dlg_tobias_carrinho", "npc": "tobias_carrinho", "inicio": "raiz", "nos": {"raiz": {"fala": "Frasco fresco, Cabeça-de-Bota! Pra quem fica no spot o dia inteiro, eu trago o carrinho até a fogueira. Preço de acampamento, juro. Dessa vez é verdade.", "opcoes": [{"texto": "Mostra as poções.", "acoes": [{"abrir_loja": "loja_carrinho"}]}, {"texto": "Tchau, Tobias."}]}}}
+ ],
+ "lojas": [
+  {"id": "loja_carrinho", "npc": "tobias_carrinho", "nome": "Carrinho de Poções do Tobias", "fala_ao_abrir": "Vida, éter, antídoto. O resto ficou no acampamento.", "itens": ["pocao_vida_p", "pocao_vida_m", "pocao_recurso_p", "pocao_recurso_m", "antidoto_querosene", "agua_benta", "vela_retorno"]}
+ ]
+}

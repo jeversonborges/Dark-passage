@@ -1,0 +1,21 @@
+{
+ "name": "cult_setimo_selo",
+ "cat": "cultista",
+ "frames": 30,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  104,
+  128
+ ],
+ "layer": "frente",
+ "desc": "Sétimo Selo (suprema): sete selos acendem um a um no grande círculo e o ritual explode em sangue e fogo rubro.",
+ "char": null,
+ "title": "Sétimo Selo (suprema)",
+ "resumo": "Sete selos acendem um a um no grande círculo e o ritual explode em sangue e fogo rubro.",
+ "frame_w": 208,
+ "frame_h": 176,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "cult_setimo_selo.png"
+}

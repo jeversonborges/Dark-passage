@@ -1,0 +1,4861 @@
+{
+ "versao": "0.2",
+ "aviso": "Números PROVISÓRIOS. Fonte de verdade do balanceamento: design/combate/ (classes_base.json, drops.json, formulas.json).",
+ "raridades": "ver design/combate/drops.json (comum, magico, raro, excelente, lendario = Relíquia). Itens BASE têm raridade 'rolada' no drop.",
+ "refino": {
+  "no_drop": "+0 a +3 (drops.json, +8% de dano/defesa base por nível)",
+  "joias": {
+   "+1..+6": "Lágrima de Anjo, 100%",
+   "+7..+9": "Fragmento de Alma, 55%; falha volta 1 nível"
+  },
+  "brilho": {
+   "+0..+4": "nenhum",
+   "+5..+6": "brilho fraco na cor da raridade",
+   "+7..+8": "brilho forte",
+   "+9": "brilho forte + partículas (assinatura MU)"
+  }
+ },
+ "formulas_usadas": {
+  "dano_arma": "média 5 + 1,2 × nível (classes_base.json), mín/máx ±30%; itens com nome: ×1,1 raro, ×1,25 Relíquia",
+  "defesa_conjunto": "1,5 × nível no conjunto inteiro; cabeça 16%, peito 34%, luvas 12%, calças 22%, botas 16%; leve ×0,8, pesado ×1,25"
+ },
+ "grade_mochila": "células de 30 px (UI); grade = [largura, altura]",
+ "conjuntos": [
+  {
+   "id": "batina_remendada",
+   "nome": "Batina Remendada",
+   "peso": "leve",
+   "nivel": 2,
+   "tint": "vinho",
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "pecas": [
+    "batina_remendada_cabeca",
+    "batina_remendada_peito",
+    "batina_remendada_luvas",
+    "batina_remendada_calcas",
+    "batina_remendada_botas"
+   ]
+  },
+  {
+   "id": "couro_sobrevivente",
+   "nome": "Couro de Sobrevivente",
+   "peso": "medio",
+   "nivel": 2,
+   "tint": "couro",
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "pecas": [
+    "couro_sobrevivente_cabeca",
+    "couro_sobrevivente_peito",
+    "couro_sobrevivente_luvas",
+    "couro_sobrevivente_calcas",
+    "couro_sobrevivente_botas"
+   ]
+  },
+  {
+   "id": "placas_sino",
+   "nome": "Placas de Sino Fundido",
+   "peso": "pesado",
+   "nivel": 3,
+   "tint": "bronze",
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "pecas": [
+    "placas_sino_cabeca",
+    "placas_sino_peito",
+    "placas_sino_luvas",
+    "placas_sino_calcas",
+    "placas_sino_botas"
+   ]
+  },
+  {
+   "id": "coro_mudo",
+   "nome": "Vestes do Coro Mudo",
+   "peso": "leve",
+   "nivel": 10,
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "bonus_conjunto": {
+    "2": "+3 ESP",
+    "3": "+6% de dano mágico",
+    "5": "habilidades custam 10% menos recurso"
+   },
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "pecas": [
+    "coro_mudo_cabeca",
+    "coro_mudo_peito",
+    "coro_mudo_luvas",
+    "coro_mudo_calcas",
+    "coro_mudo_botas"
+   ]
+  },
+  {
+   "id": "couraca_acougueiro_oco",
+   "nome": "Couraça do Açougueiro Oco",
+   "peso": "medio",
+   "nivel": 10,
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "bonus_conjunto": {
+    "2": "+3 VIT",
+    "3": "+5% de dano físico",
+    "5": "golpes críticos causam sangramento"
+   },
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "pecas": [
+    "couraca_acougueiro_oco_cabeca",
+    "couraca_acougueiro_oco_peito",
+    "couraca_acougueiro_oco_luvas",
+    "couraca_acougueiro_oco_calcas",
+    "couraca_acougueiro_oco_botas"
+   ]
+  },
+  {
+   "id": "juramento_quebrado",
+   "nome": "Armadura do Juramento Quebrado",
+   "peso": "pesado",
+   "nivel": 11,
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "bonus_conjunto": {
+    "2": "+3 FOR",
+    "3": "+8% de defesa",
+    "5": "abaixo de 25% de HP, explode em fogo em volta (1x a cada 60 s)"
+   },
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "pecas": [
+    "juramento_quebrado_cabeca",
+    "juramento_quebrado_peito",
+    "juramento_quebrado_luvas",
+    "juramento_quebrado_calcas",
+    "juramento_quebrado_botas"
+   ]
+  }
+ ],
+ "pools_lendarios": {
+  "lendario:capataz": [
+   "gancho_capataz"
+  ],
+  "lendario:cardo": [
+   "lenco_cardo"
+  ],
+  "lendario:general": [
+   "estandarte_legiao"
+  ],
+  "lendario:celeste": [
+   "bacula_femur",
+   "veu_carpideira"
+  ],
+  "lendario:zacarias": [
+   "halo_incandescente"
+  ]
+ },
+ "cobertura_tags_drops": {
+  "chave:bau_de_ferro": [
+   "chave_bau_ferro"
+  ],
+  "consumivel:municao": [
+   "balas_chumbo",
+   "virotes_prata",
+   "cartuchos_sal"
+  ],
+  "consumivel:pocao_recurso_m": [
+   "pocao_recurso_m"
+  ],
+  "consumivel:pocao_recurso_p": [
+   "pocao_recurso_p"
+  ],
+  "consumivel:pocao_vida_m": [
+   "pocao_vida_m"
+  ],
+  "consumivel:pocao_vida_p": [
+   "pocao_vida_p"
+  ],
+  "equip:faixa1": [
+   "espada_vigilia_rachada",
+   "escudo_porta_capela",
+   "lanca_procissao",
+   "adaga_ritual_cega",
+   "cajado_vertebras",
+   "machado_placa_transito",
+   "punhos_sucata",
+   "foice_serrilhada",
+   "espada_serrilhada",
+   "besta_sucata",
+   "espada_larga_sucata",
+   "escopeta_cano_serrado",
+   "espada_larga_carrasco",
+   "escopeta_cano_duplo",
+   "cajado_antena_torto",
+   "luva_voltaica",
+   "batina_remendada_cabeca",
+   "batina_remendada_peito",
+   "batina_remendada_luvas",
+   "batina_remendada_calcas",
+   "batina_remendada_botas",
+   "couro_sobrevivente_cabeca",
+   "couro_sobrevivente_peito",
+   "couro_sobrevivente_luvas",
+   "couro_sobrevivente_calcas",
+   "couro_sobrevivente_botas",
+   "placas_sino_cabeca",
+   "placas_sino_peito",
+   "placas_sino_luvas",
+   "placas_sino_calcas",
+   "placas_sino_botas",
+   "anel_prego_caixao",
+   "colar_dentes"
+  ],
+  "equip:faixa2": [
+   "espada_sineiro",
+   "grimorio_acorrentado",
+   "adaga_ossuario",
+   "cutelo_matadouro",
+   "garras_ossario",
+   "corrente_gancho",
+   "foice_sepultura",
+   "montante_vigilia",
+   "mosquete_pederneira",
+   "besta_repeticao",
+   "pistola_raios",
+   "cajado_valvulas",
+   "coro_mudo_cabeca",
+   "coro_mudo_peito",
+   "coro_mudo_luvas",
+   "coro_mudo_calcas",
+   "coro_mudo_botas",
+   "couraca_acougueiro_oco_cabeca",
+   "couraca_acougueiro_oco_peito",
+   "couraca_acougueiro_oco_luvas",
+   "couraca_acougueiro_oco_calcas",
+   "couraca_acougueiro_oco_botas",
+   "juramento_quebrado_cabeca",
+   "juramento_quebrado_peito",
+   "juramento_quebrado_luvas",
+   "juramento_quebrado_calcas",
+   "juramento_quebrado_botas",
+   "anel_ferro_cripta",
+   "rosario_ossos"
+  ],
+  "joia:refino": [
+   "lagrima_anjo",
+   "fragmento_alma"
+  ],
+  "lendario:capataz": [
+   "gancho_capataz"
+  ],
+  "lendario:cardo": [
+   "lenco_cardo"
+  ],
+  "lendario:celeste": [
+   "veu_carpideira",
+   "bacula_femur"
+  ],
+  "lendario:general": [
+   "estandarte_legiao"
+  ],
+  "lendario:zacarias": [
+   "halo_incandescente"
+  ],
+  "material:carne_estragada": [
+   "carne_estragada"
+  ],
+  "material:cera_de_vela": [
+   "cera_de_vela"
+  ],
+  "material:cinza_de_alma": [
+   "cinza_de_alma"
+  ],
+  "material:couro_podre": [
+   "couro_podre"
+  ],
+  "material:osso": [
+   "osso"
+  ],
+  "material:pedra_benta": [
+   "pedra_benta"
+  ],
+  "material:pena_suja": [
+   "pena_suja"
+  ],
+  "material:sucata": [
+   "sucata"
+  ]
+ },
+ "itens": [
+  {
+   "id": "espada_vigilia_rachada",
+   "nome": "Espada de Vigília Rachada",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada",
+   "tint": "aco",
+   "emissivo": null,
+   "lore": "Lâmina de um sentinela de igreja que morreu no posto. Ainda tem cera de vela no punho.",
+   "dano": [
+    4,
+    7
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+    "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+    "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+   "arma_de": "anjo:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "escudo_porta_capela",
+   "nome": "Escudo de Porta de Capela",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "escudo",
+   "slot": "segunda_mao",
+   "maos": 1,
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "escudo",
+   "tint": "madeira",
+   "emissivo": null,
+   "lore": "Meia porta de capela com uma cruz pregada. Pesa como um pecado.",
+   "defesa": 3,
+   "bloqueio": 0.12,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/escudo_porta_capela.png",
+    "40": "assets/icones/itens/40/escudo_porta_capela.png",
+    "32": "assets/icones/itens/32/escudo_porta_capela.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+  },
+  {
+   "id": "lanca_procissao",
+   "nome": "Lança de Procissão",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "lanca",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "lanca",
+   "tint": "osso",
+   "emissivo": null,
+   "lore": "Carregava um estandarte de santo. O santo caiu primeiro.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.15,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/lanca_procissao.png",
+    "40": "assets/icones/itens/40/lanca_procissao.png",
+    "32": "assets/icones/itens/32/lanca_procissao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png"
+  },
+  {
+   "id": "espada_sineiro",
+   "nome": "Espada do Sineiro",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Fundida com o bronze de um sino rachado. Quando bate em armadura, ainda soa.",
+   "dano": [
+    11,
+    21
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_sineiro.png",
+    "40": "assets/icones/itens/40/espada_sineiro.png",
+    "32": "assets/icones/itens/32/espada_sineiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png"
+  },
+  {
+   "id": "adaga_ritual_cega",
+   "nome": "Adaga Ritual Cega",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "adaga",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    2
+   ],
+   "motivo": "adaga",
+   "tint": "osso",
+   "emissivo": null,
+   "lore": "Não corta bem. Corta o suficiente.",
+   "dano": [
+    3,
+    6
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/adaga_ritual_cega.png",
+    "40": "assets/icones/itens/40/adaga_ritual_cega.png",
+    "32": "assets/icones/itens/32/adaga_ritual_cega.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/adaga_ritual_cega.png",
+   "arma_de": "cultista:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "cajado_vertebras",
+   "nome": "Cajado de Vértebras",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "cajado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "cajado_osso",
+   "tint": "osso",
+   "emissivo": null,
+   "lore": "Doze vértebras de doze voluntários. Diz a seita que eram voluntários.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_vertebras.png",
+    "40": "assets/icones/itens/40/cajado_vertebras.png",
+    "32": "assets/icones/itens/32/cajado_vertebras.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_vertebras.png"
+  },
+  {
+   "id": "grimorio_acorrentado",
+   "nome": "Grimório Acorrentado",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "grimorio",
+   "slot": "segunda_mao",
+   "maos": 1,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "grimorio",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "A corrente não é para roubarem o livro. É para o livro não sair andando.",
+   "dano_magico_extra": 6,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/grimorio_acorrentado.png",
+    "40": "assets/icones/itens/40/grimorio_acorrentado.png",
+    "32": "assets/icones/itens/32/grimorio_acorrentado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/grimorio_acorrentado.png"
+  },
+  {
+   "id": "adaga_ossuario",
+   "nome": "Adaga do Ossuário",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "adaga",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    2
+   ],
+   "motivo": "adaga",
+   "tint": "ferro_negro",
+   "emissivo": null,
+   "lore": "Afiada num degrau de crânios. Corta melhor no escuro.",
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/adaga_ossuario.png",
+    "40": "assets/icones/itens/40/adaga_ossuario.png",
+    "32": "assets/icones/itens/32/adaga_ossuario.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png"
+  },
+  {
+   "id": "machado_placa_transito",
+   "nome": "Machado de Placa de Trânsito",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "machado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "machado_placa",
+   "tint": "placa",
+   "emissivo": null,
+   "lore": "PARE. Ninguém parou.",
+   "dano": [
+    6,
+    10
+   ],
+   "intervalo": 1.2,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/machado_placa_transito.png",
+    "40": "assets/icones/itens/40/machado_placa_transito.png",
+    "32": "assets/icones/itens/32/machado_placa_transito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/machado_placa_transito.png",
+   "arma_de": "mutante:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "punhos_sucata",
+   "nome": "Punhos de Sucata",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "punhos",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "punhos",
+   "tint": "ferrugem",
+   "emissivo": null,
+   "lore": "Canos, porcas e arame farpado enrolados em fita isolante.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/punhos_sucata.png",
+    "40": "assets/icones/itens/40/punhos_sucata.png",
+    "32": "assets/icones/itens/32/punhos_sucata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/punhos_sucata.png"
+  },
+  {
+   "id": "cutelo_matadouro",
+   "nome": "Cutelo do Matadouro",
+   "classes": [
+    "mutante",
+    "demonio"
+   ],
+   "tipo": "machado",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "cutelo",
+   "tint": "aco",
+   "emissivo": null,
+   "lore": "Do matadouro municipal. Depois da praga, ninguém mais sabia o que era gado.",
+   "dano": [
+    10,
+    19
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cutelo_matadouro.png",
+    "40": "assets/icones/itens/40/cutelo_matadouro.png",
+    "32": "assets/icones/itens/32/cutelo_matadouro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cutelo_matadouro.png"
+  },
+  {
+   "id": "garras_ossario",
+   "nome": "Garras do Ossário",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "punhos",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "garras",
+   "tint": "praga",
+   "emissivo": null,
+   "lore": "Ossos de dedo afiados e cravados nos nós da mão. Doem mais em quem usa. No começo.",
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 0.95,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/garras_ossario.png",
+    "40": "assets/icones/itens/40/garras_ossario.png",
+    "32": "assets/icones/itens/32/garras_ossario.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/garras_ossario.png"
+  },
+  {
+   "id": "foice_serrilhada",
+   "nome": "Foice Serrilhada",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "foice",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    2,
+    4
+   ],
+   "motivo": "foice",
+   "tint": "aco",
+   "emissivo": null,
+   "lore": "Era de colher trigo. Os dentes vieram depois, quando o trigo acabou.",
+   "dano": [
+    5,
+    8
+   ],
+   "intervalo": 0.95,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/foice_serrilhada.png",
+    "40": "assets/icones/itens/40/foice_serrilhada.png",
+    "32": "assets/icones/itens/32/foice_serrilhada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/foice_serrilhada.png",
+   "arma_de": "demonio:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "espada_serrilhada",
+   "nome": "Espada Serrilhada",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada_serra",
+   "tint": "ferro_negro",
+   "emissivo": null,
+   "lore": "Os dentes foram limados à mão, um por noite, durante um ano inteiro de cerco.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_serrilhada.png",
+    "40": "assets/icones/itens/40/espada_serrilhada.png",
+    "32": "assets/icones/itens/32/espada_serrilhada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png"
+  },
+  {
+   "id": "corrente_gancho",
+   "nome": "Corrente com Gancho",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "corrente",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "corrente",
+   "tint": "ferro_negro",
+   "emissivo": null,
+   "lore": "Gancho de açougue numa corrente de portão. Puxa gente como quem puxa um balde.",
+   "dano": [
+    10,
+    19
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/corrente_gancho.png",
+    "40": "assets/icones/itens/40/corrente_gancho.png",
+    "32": "assets/icones/itens/32/corrente_gancho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/corrente_gancho.png"
+  },
+  {
+   "id": "foice_sepultura",
+   "nome": "Foice de Sepultura",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "foice",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    2,
+    4
+   ],
+   "motivo": "foice",
+   "tint": "ferro_negro",
+   "emissivo": null,
+   "lore": "O coveiro usava para cortar raiz de cova. Hoje corta o que sai dela.",
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 0.95,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/foice_sepultura.png",
+    "40": "assets/icones/itens/40/foice_sepultura.png",
+    "32": "assets/icones/itens/32/foice_sepultura.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/foice_sepultura.png"
+  },
+  {
+   "id": "besta_sucata",
+   "nome": "Besta de Sucata",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "besta",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    3,
+    2
+   ],
+   "motivo": "besta",
+   "tint": "madeira",
+   "emissivo": null,
+   "lore": "Mola de cama, arco de barril e muita paciência. Silenciosa, e no fim do mundo silêncio vale mais que bala.",
+   "dano": [
+    4,
+    8
+   ],
+   "intervalo": 1.15,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/besta_sucata.png",
+    "40": "assets/icones/itens/40/besta_sucata.png",
+    "32": "assets/icones/itens/32/besta_sucata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/besta_sucata.png"
+  },
+  {
+   "id": "espada_larga_sucata",
+   "nome": "Espada Larga de Sucata",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "espada_larga",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada_larga",
+   "tint": "aco",
+   "emissivo": null,
+   "lore": "Chapa de trilho batida até virar lâmina. Abre caminho quando a munição acaba. Ela sempre acaba.",
+   "dano": [
+    6,
+    10
+   ],
+   "intervalo": 1.25,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_larga_sucata.png",
+    "40": "assets/icones/itens/40/espada_larga_sucata.png",
+    "32": "assets/icones/itens/32/espada_larga_sucata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png",
+   "arma_de": "humano:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "escopeta_cano_serrado",
+   "nome": "Escopeta de Cano Serrado",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "escopeta",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "escopeta",
+   "tint": "madeira",
+   "emissivo": null,
+   "lore": "Calibre 12, cano serrado no torno da oficina. Cabe no coldre da coxa e faz o barulho de um sino caindo.",
+   "dano": [
+    4,
+    7
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/escopeta_cano_serrado.png",
+    "40": "assets/icones/itens/40/escopeta_cano_serrado.png",
+    "32": "assets/icones/itens/32/escopeta_cano_serrado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_serrado.png",
+   "arma_de": "humano:arma_secundaria",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "espada_larga_carrasco",
+   "nome": "Espada Larga do Carrasco",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "espada_larga",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 6,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada_larga",
+   "tint": "ferro",
+   "emissivo": null,
+   "lore": "Ponta quadrada, sem fio na ponta: foi feita para cortar cabeça, não para furar. Hoje corta Não-Julgados.",
+   "dano": [
+    9,
+    16
+   ],
+   "intervalo": 1.15,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_larga_carrasco.png",
+    "40": "assets/icones/itens/40/espada_larga_carrasco.png",
+    "32": "assets/icones/itens/32/espada_larga_carrasco.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png"
+  },
+  {
+   "id": "montante_vigilia",
+   "nome": "Montante da Vigília",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "espada_larga",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "espada_larga",
+   "tint": "prata",
+   "emissivo": null,
+   "lore": "Forjado pela Vigília com prata de castiçal. A lâmina é larga como uma porta de cripta.",
+   "dano": [
+    12,
+    22
+   ],
+   "intervalo": 1.3,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/montante_vigilia.png",
+    "40": "assets/icones/itens/40/montante_vigilia.png",
+    "32": "assets/icones/itens/32/montante_vigilia.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png"
+  },
+  {
+   "id": "escopeta_cano_duplo",
+   "nome": "Escopeta de Cano Duplo",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "escopeta",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "escopeta",
+   "tint": "madeira",
+   "emissivo": null,
+   "lore": "Cano serrado, coronha remendada com couro de bota.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.3,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/escopeta_cano_duplo.png",
+    "40": "assets/icones/itens/40/escopeta_cano_duplo.png",
+    "32": "assets/icones/itens/32/escopeta_cano_duplo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_duplo.png"
+  },
+  {
+   "id": "mosquete_pederneira",
+   "nome": "Mosquete de Pederneira",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "mosquete",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "mosquete",
+   "tint": "latao",
+   "emissivo": null,
+   "lore": "Velho como a república. Ainda acerta um anjo a cem passos.",
+   "dano": [
+    11,
+    21
+   ],
+   "intervalo": 1.6,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/mosquete_pederneira.png",
+    "40": "assets/icones/itens/40/mosquete_pederneira.png",
+    "32": "assets/icones/itens/32/mosquete_pederneira.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/mosquete_pederneira.png"
+  },
+  {
+   "id": "besta_repeticao",
+   "nome": "Besta de Repetição",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "besta",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    3,
+    2
+   ],
+   "motivo": "besta",
+   "tint": "latao",
+   "emissivo": null,
+   "lore": "Engenhoca da Vigília: um carregador de seis virotes e uma manivela que range.",
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 0.9,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/besta_repeticao.png",
+    "40": "assets/icones/itens/40/besta_repeticao.png",
+    "32": "assets/icones/itens/32/besta_repeticao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/besta_repeticao.png"
+  },
+  {
+   "id": "cajado_antena_torto",
+   "nome": "Cajado-Antena Torto",
+   "classes": [
+    "tecnomancer"
+   ],
+   "tipo": "cajado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "cajado_antena",
+   "tint": "latao",
+   "emissivo": null,
+   "lore": "Uma antena de rádio de guerra com uma válvula no topo. Pega estações que não deviam existir.",
+   "dano": [
+    3,
+    6
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_antena_torto.png",
+    "40": "assets/icones/itens/40/cajado_antena_torto.png",
+    "32": "assets/icones/itens/32/cajado_antena_torto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_antena_torto.png",
+   "arma_de": "tecnomancer:arma_inicial",
+   "fonte_numeros": "design/combate/classes_base.json"
+  },
+  {
+   "id": "luva_voltaica",
+   "nome": "Luva Voltaica",
+   "classes": [
+    "tecnomancer"
+   ],
+   "tipo": "luva",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luva_voltaica",
+   "tint": "cobre",
+   "emissivo": null,
+   "lore": "Dá choque em quem você toca. E um pouco em você.",
+   "dano": [
+    8,
+    14
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/luva_voltaica.png",
+    "40": "assets/icones/itens/40/luva_voltaica.png",
+    "32": "assets/icones/itens/32/luva_voltaica.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png"
+  },
+  {
+   "id": "pistola_raios",
+   "nome": "Pistola de Raios",
+   "classes": [
+    "tecnomancer"
+   ],
+   "tipo": "pistola",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "pistola_raio",
+   "tint": "latao",
+   "emissivo": null,
+   "lore": "Bobina de carro, lâmpada de farol e um sigilo de Salomão gravado na empunhadura.",
+   "dano": [
+    10,
+    19
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pistola_raios.png",
+    "40": "assets/icones/itens/40/pistola_raios.png",
+    "32": "assets/icones/itens/32/pistola_raios.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png"
+  },
+  {
+   "id": "cajado_valvulas",
+   "nome": "Cajado de Válvulas",
+   "classes": [
+    "tecnomancer"
+   ],
+   "tipo": "cajado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "cajado_antena",
+   "tint": "cobre",
+   "emissivo": null,
+   "lore": "Três válvulas de rádio em fila. Quando todas acendem, o cabelo de todo mundo em volta levanta.",
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_valvulas.png",
+    "40": "assets/icones/itens/40/cajado_valvulas.png",
+    "32": "assets/icones/itens/32/cajado_valvulas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png"
+  },
+  {
+   "id": "batina_remendada_cabeca",
+   "nome": "Capuz Remendado",
+   "slot": "cabeca",
+   "conjunto": "batina_remendada",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_leve",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+    "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+    "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png"
+  },
+  {
+   "id": "batina_remendada_peito",
+   "nome": "Batina Remendada",
+   "slot": "peito",
+   "conjunto": "batina_remendada",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_leve",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batina_remendada_peito.png",
+    "40": "assets/icones/itens/40/batina_remendada_peito.png",
+    "32": "assets/icones/itens/32/batina_remendada_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png"
+  },
+  {
+   "id": "batina_remendada_luvas",
+   "nome": "Ataduras de Penitente",
+   "slot": "luvas",
+   "conjunto": "batina_remendada",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_leve",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+    "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+    "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png"
+  },
+  {
+   "id": "batina_remendada_calcas",
+   "nome": "Saia de Penitente",
+   "slot": "calcas",
+   "conjunto": "batina_remendada",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_leve",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+    "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+    "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png"
+  },
+  {
+   "id": "batina_remendada_botas",
+   "nome": "Sandálias de Corda",
+   "slot": "botas",
+   "conjunto": "batina_remendada",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_leve",
+   "tint": "vinho",
+   "emissivo": null,
+   "lore": "Roupa de seminarista de uma ordem que não existe mais.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batina_remendada_botas.png",
+    "40": "assets/icones/itens/40/batina_remendada_botas.png",
+    "32": "assets/icones/itens/32/batina_remendada_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png"
+  },
+  {
+   "id": "couro_sobrevivente_cabeca",
+   "nome": "Chapéu de Aba Larga",
+   "slot": "cabeca",
+   "conjunto": "couro_sobrevivente",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_medio",
+   "tint": "couro",
+   "emissivo": null,
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_sobrevivente_cabeca.png",
+    "40": "assets/icones/itens/40/couro_sobrevivente_cabeca.png",
+    "32": "assets/icones/itens/32/couro_sobrevivente_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png"
+  },
+  {
+   "id": "couro_sobrevivente_peito",
+   "nome": "Sobretudo Gasto",
+   "slot": "peito",
+   "conjunto": "couro_sobrevivente",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_medio",
+   "tint": "couro",
+   "emissivo": null,
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_sobrevivente_peito.png",
+    "40": "assets/icones/itens/40/couro_sobrevivente_peito.png",
+    "32": "assets/icones/itens/32/couro_sobrevivente_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png"
+  },
+  {
+   "id": "couro_sobrevivente_luvas",
+   "nome": "Luvas de Couro",
+   "slot": "luvas",
+   "conjunto": "couro_sobrevivente",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_medio",
+   "tint": "couro",
+   "emissivo": null,
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_sobrevivente_luvas.png",
+    "40": "assets/icones/itens/40/couro_sobrevivente_luvas.png",
+    "32": "assets/icones/itens/32/couro_sobrevivente_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png"
+  },
+  {
+   "id": "couro_sobrevivente_calcas",
+   "nome": "Calças Remendadas",
+   "slot": "calcas",
+   "conjunto": "couro_sobrevivente",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_medio",
+   "tint": "couro",
+   "emissivo": null,
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_sobrevivente_calcas.png",
+    "40": "assets/icones/itens/40/couro_sobrevivente_calcas.png",
+    "32": "assets/icones/itens/32/couro_sobrevivente_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png"
+  },
+  {
+   "id": "couro_sobrevivente_botas",
+   "nome": "Coturnos",
+   "slot": "botas",
+   "conjunto": "couro_sobrevivente",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_medio",
+   "tint": "couro",
+   "emissivo": null,
+   "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_sobrevivente_botas.png",
+    "40": "assets/icones/itens/40/couro_sobrevivente_botas.png",
+    "32": "assets/icones/itens/32/couro_sobrevivente_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png"
+  },
+  {
+   "id": "placas_sino_cabeca",
+   "nome": "Elmo de Sino",
+   "slot": "cabeca",
+   "conjunto": "placas_sino",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_pesado",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/placas_sino_cabeca.png",
+    "40": "assets/icones/itens/40/placas_sino_cabeca.png",
+    "32": "assets/icones/itens/32/placas_sino_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png"
+  },
+  {
+   "id": "placas_sino_peito",
+   "nome": "Peitoral de Sino",
+   "slot": "peito",
+   "conjunto": "placas_sino",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_pesado",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/placas_sino_peito.png",
+    "40": "assets/icones/itens/40/placas_sino_peito.png",
+    "32": "assets/icones/itens/32/placas_sino_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png"
+  },
+  {
+   "id": "placas_sino_luvas",
+   "nome": "Manoplas de Bronze",
+   "slot": "luvas",
+   "conjunto": "placas_sino",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_pesado",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/placas_sino_luvas.png",
+    "40": "assets/icones/itens/40/placas_sino_luvas.png",
+    "32": "assets/icones/itens/32/placas_sino_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_luvas.png"
+  },
+  {
+   "id": "placas_sino_calcas",
+   "nome": "Grevas de Bronze",
+   "slot": "calcas",
+   "conjunto": "placas_sino",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_pesado",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/placas_sino_calcas.png",
+    "40": "assets/icones/itens/40/placas_sino_calcas.png",
+    "32": "assets/icones/itens/32/placas_sino_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png"
+  },
+  {
+   "id": "placas_sino_botas",
+   "nome": "Sapatos de Ferro",
+   "slot": "botas",
+   "conjunto": "placas_sino",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_pesado",
+   "tint": "bronze",
+   "emissivo": null,
+   "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/placas_sino_botas.png",
+    "40": "assets/icones/itens/40/placas_sino_botas.png",
+    "32": "assets/icones/itens/32/placas_sino_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png"
+  },
+  {
+   "id": "coro_mudo_cabeca",
+   "nome": "Máscara do Coro Mudo",
+   "slot": "cabeca",
+   "conjunto": "coro_mudo",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coro_mudo_cabeca.png",
+    "40": "assets/icones/itens/40/coro_mudo_cabeca.png",
+    "32": "assets/icones/itens/32/coro_mudo_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png"
+  },
+  {
+   "id": "coro_mudo_peito",
+   "nome": "Sobrepeliz do Coro Mudo",
+   "slot": "peito",
+   "conjunto": "coro_mudo",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coro_mudo_peito.png",
+    "40": "assets/icones/itens/40/coro_mudo_peito.png",
+    "32": "assets/icones/itens/32/coro_mudo_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png"
+  },
+  {
+   "id": "coro_mudo_luvas",
+   "nome": "Mãos Costuradas",
+   "slot": "luvas",
+   "conjunto": "coro_mudo",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coro_mudo_luvas.png",
+    "40": "assets/icones/itens/40/coro_mudo_luvas.png",
+    "32": "assets/icones/itens/32/coro_mudo_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png"
+  },
+  {
+   "id": "coro_mudo_calcas",
+   "nome": "Saias do Coro Mudo",
+   "slot": "calcas",
+   "conjunto": "coro_mudo",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coro_mudo_calcas.png",
+    "40": "assets/icones/itens/40/coro_mudo_calcas.png",
+    "32": "assets/icones/itens/32/coro_mudo_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png"
+  },
+  {
+   "id": "coro_mudo_botas",
+   "nome": "Passos Calados",
+   "slot": "botas",
+   "conjunto": "coro_mudo",
+   "peso": "leve",
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coro_mudo_botas.png",
+    "40": "assets/icones/itens/40/coro_mudo_botas.png",
+    "32": "assets/icones/itens/32/coro_mudo_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_cabeca",
+   "nome": "Respirador do Açougueiro",
+   "slot": "cabeca",
+   "conjunto": "couraca_acougueiro_oco",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_acougueiro_oco_cabeca.png",
+    "40": "assets/icones/itens/40/couraca_acougueiro_oco_cabeca.png",
+    "32": "assets/icones/itens/32/couraca_acougueiro_oco_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_peito",
+   "nome": "Couraça do Açougueiro",
+   "slot": "peito",
+   "conjunto": "couraca_acougueiro_oco",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 5,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_acougueiro_oco_peito.png",
+    "40": "assets/icones/itens/40/couraca_acougueiro_oco_peito.png",
+    "32": "assets/icones/itens/32/couraca_acougueiro_oco_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_luvas",
+   "nome": "Luvas de Esfolar",
+   "slot": "luvas",
+   "conjunto": "couraca_acougueiro_oco",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_acougueiro_oco_luvas.png",
+    "40": "assets/icones/itens/40/couraca_acougueiro_oco_luvas.png",
+    "32": "assets/icones/itens/32/couraca_acougueiro_oco_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_calcas",
+   "nome": "Calças de Matadouro",
+   "slot": "calcas",
+   "conjunto": "couraca_acougueiro_oco",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_acougueiro_oco_calcas.png",
+    "40": "assets/icones/itens/40/couraca_acougueiro_oco_calcas.png",
+    "32": "assets/icones/itens/32/couraca_acougueiro_oco_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_botas",
+   "nome": "Botas de Matadouro",
+   "slot": "botas",
+   "conjunto": "couraca_acougueiro_oco",
+   "peso": "medio",
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_acougueiro_oco_botas.png",
+    "40": "assets/icones/itens/40/couraca_acougueiro_oco_botas.png",
+    "32": "assets/icones/itens/32/couraca_acougueiro_oco_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png"
+  },
+  {
+   "id": "juramento_quebrado_cabeca",
+   "nome": "Elmo do Juramento Quebrado",
+   "slot": "cabeca",
+   "conjunto": "juramento_quebrado",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "elmo_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juramento_quebrado_cabeca.png",
+    "40": "assets/icones/itens/40/juramento_quebrado_cabeca.png",
+    "32": "assets/icones/itens/32/juramento_quebrado_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png"
+  },
+  {
+   "id": "juramento_quebrado_peito",
+   "nome": "Couraça do Juramento Quebrado",
+   "slot": "peito",
+   "conjunto": "juramento_quebrado",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 7,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "peito_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juramento_quebrado_peito.png",
+    "40": "assets/icones/itens/40/juramento_quebrado_peito.png",
+    "32": "assets/icones/itens/32/juramento_quebrado_peito.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png"
+  },
+  {
+   "id": "juramento_quebrado_luvas",
+   "nome": "Manoplas do Juramento Quebrado",
+   "slot": "luvas",
+   "conjunto": "juramento_quebrado",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luvas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juramento_quebrado_luvas.png",
+    "40": "assets/icones/itens/40/juramento_quebrado_luvas.png",
+    "32": "assets/icones/itens/32/juramento_quebrado_luvas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas.png"
+  },
+  {
+   "id": "juramento_quebrado_calcas",
+   "nome": "Grevas do Juramento Quebrado",
+   "slot": "calcas",
+   "conjunto": "juramento_quebrado",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 5,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "calcas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juramento_quebrado_calcas.png",
+    "40": "assets/icones/itens/40/juramento_quebrado_calcas.png",
+    "32": "assets/icones/itens/32/juramento_quebrado_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png"
+  },
+  {
+   "id": "juramento_quebrado_botas",
+   "nome": "Botas do Juramento Quebrado",
+   "slot": "botas",
+   "conjunto": "juramento_quebrado",
+   "peso": "pesado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "botas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juramento_quebrado_botas.png",
+    "40": "assets/icones/itens/40/juramento_quebrado_botas.png",
+    "32": "assets/icones/itens/32/juramento_quebrado_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png"
+  },
+  {
+   "id": "anel_prego_caixao",
+   "nome": "Anel de Prego de Caixão",
+   "slot": "anel",
+   "nivel": 4,
+   "grade": [
+    1,
+    1
+   ],
+   "motivo": "anel",
+   "tint": "ferro",
+   "atributo_base": {
+    "vit": 2
+   },
+   "lore": "Um prego dobrado em volta do dedo. Saiu de um caixão que estava vazio.",
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_prego_caixao.png",
+    "40": "assets/icones/itens/40/anel_prego_caixao.png",
+    "32": "assets/icones/itens/32/anel_prego_caixao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png"
+  },
+  {
+   "id": "colar_dentes",
+   "nome": "Colar de Dentes",
+   "slot": "amuleto",
+   "nivel": 4,
+   "grade": [
+    1,
+    1
+   ],
+   "motivo": "colar_dentes",
+   "tint": "osso",
+   "atributo_base": {
+    "for": 2
+   },
+   "lore": "Nenhum dos dentes é humano. Quase nenhum.",
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/colar_dentes.png",
+    "40": "assets/icones/itens/40/colar_dentes.png",
+    "32": "assets/icones/itens/32/colar_dentes.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png"
+  },
+  {
+   "id": "anel_ferro_cripta",
+   "nome": "Anel de Ferro da Cripta",
+   "slot": "anel",
+   "nivel": 9,
+   "grade": [
+    1,
+    1
+   ],
+   "motivo": "anel",
+   "tint": "ferro_negro",
+   "atributo_base": {
+    "vit": 3
+   },
+   "lore": "Arrancado do dedo de um monge emparedado. O dedo não queria soltar.",
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_ferro_cripta.png",
+    "40": "assets/icones/itens/40/anel_ferro_cripta.png",
+    "32": "assets/icones/itens/32/anel_ferro_cripta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_ferro_cripta.png"
+  },
+  {
+   "id": "rosario_ossos",
+   "nome": "Rosário de Ossos",
+   "slot": "amuleto",
+   "nivel": 9,
+   "grade": [
+    1,
+    1
+   ],
+   "motivo": "rosario",
+   "tint": "osso",
+   "atributo_base": {
+    "esp": 3
+   },
+   "lore": "Cinquenta e nove contas de osso de dedo. A sexagésima é sua, quando chegar a hora.",
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/rosario_ossos.png",
+    "40": "assets/icones/itens/40/rosario_ossos.png",
+    "32": "assets/icones/itens/32/rosario_ossos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png"
+  },
+  {
+   "id": "pocao_vida_p",
+   "nome": "Frasco de Sangue Pequeno",
+   "efeito": {
+    "cura_hp": 120
+   },
+   "preco": 6,
+   "pilha": 100,
+   "motivo": "pocao",
+   "tint": "vermelho",
+   "lore": "Ninguém pergunta de quem é.",
+   "tags": [
+    "consumivel:pocao_vida_p"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pocao_vida_p.png",
+    "40": "assets/icones/itens/40/pocao_vida_p.png",
+    "32": "assets/icones/itens/32/pocao_vida_p.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pocao_vida_p.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "pocao_vida_m",
+   "nome": "Frasco de Sangue Médio",
+   "efeito": {
+    "cura_hp": 300
+   },
+   "preco": 18,
+   "pilha": 100,
+   "nivel": 8,
+   "motivo": "pocao_grande",
+   "tint": "vermelho",
+   "lore": "Coagulado no fundo. Agite antes de beber.",
+   "tags": [
+    "consumivel:pocao_vida_m"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pocao_vida_m.png",
+    "40": "assets/icones/itens/40/pocao_vida_m.png",
+    "32": "assets/icones/itens/32/pocao_vida_m.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pocao_vida_m.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "pocao_recurso_p",
+   "nome": "Elixir de Éter Pequeno",
+   "efeito": {
+    "recurso_pct": 0.4
+   },
+   "preco": 8,
+   "pilha": 100,
+   "motivo": "pocao",
+   "tint": "azul",
+   "lore": "Gosto de moeda velha e trovoada. Devolve Graça, Fúria, Brasa, Fôlego ou Carga.",
+   "tags": [
+    "consumivel:pocao_recurso_p"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pocao_recurso_p.png",
+    "40": "assets/icones/itens/40/pocao_recurso_p.png",
+    "32": "assets/icones/itens/32/pocao_recurso_p.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pocao_recurso_p.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "pocao_recurso_m",
+   "nome": "Elixir de Éter Médio",
+   "efeito": {
+    "recurso_pct": 0.8
+   },
+   "preco": 22,
+   "pilha": 100,
+   "nivel": 8,
+   "motivo": "pocao_grande",
+   "tint": "azul",
+   "lore": "O frasco zumbe baixinho quando ninguém está olhando.",
+   "tags": [
+    "consumivel:pocao_recurso_m"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pocao_recurso_m.png",
+    "40": "assets/icones/itens/40/pocao_recurso_m.png",
+    "32": "assets/icones/itens/32/pocao_recurso_m.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pocao_recurso_m.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "agua_benta",
+   "nome": "Frasco de Água Benta",
+   "efeito": {
+    "remove": [
+     "maldicao",
+     "sangramento"
+    ]
+   },
+   "preco": 35,
+   "pilha": 20,
+   "motivo": "agua_benta",
+   "tint": "agua",
+   "lore": "Benzida às pressas. Ainda vale.",
+   "tags": [
+    "consumivel:extra"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/agua_benta.png",
+    "40": "assets/icones/itens/40/agua_benta.png",
+    "32": "assets/icones/itens/32/agua_benta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/agua_benta.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "antidoto_querosene",
+   "nome": "Antídoto de Querosene",
+   "efeito": {
+    "remove": [
+     "veneno"
+    ],
+    "res_veneno": 0.2,
+    "duracao_s": 60
+   },
+   "preco": 30,
+   "pilha": 20,
+   "motivo": "antidoto",
+   "tint": "verde",
+   "lore": "Arde na garganta. A praga arde mais.",
+   "tags": [
+    "consumivel:extra"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/antidoto_querosene.png",
+    "40": "assets/icones/itens/40/antidoto_querosene.png",
+    "32": "assets/icones/itens/32/antidoto_querosene.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/antidoto_querosene.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "vela_retorno",
+   "nome": "Vela de Retorno",
+   "efeito": {
+    "teleporta": "acampamento",
+    "canalizar_s": 3
+   },
+   "preco": 50,
+   "pilha": 10,
+   "motivo": "vela",
+   "tint": "cera",
+   "lore": "Acenda e pense em casa. Se ainda tiver uma.",
+   "tags": [
+    "consumivel:extra"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/vela_retorno.png",
+    "40": "assets/icones/itens/40/vela_retorno.png",
+    "32": "assets/icones/itens/32/vela_retorno.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vela_retorno.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "gazua",
+   "nome": "Gazua",
+   "efeito": {
+    "abre": "bau_de_ferro",
+    "chance": 0.6
+   },
+   "preco": 40,
+   "pilha": 20,
+   "motivo": "gazua",
+   "tint": "aco",
+   "lore": "Dois grampos de cabelo e um dedo de prática.",
+   "tags": [
+    "consumivel:gazua"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/gazua.png",
+    "40": "assets/icones/itens/40/gazua.png",
+    "32": "assets/icones/itens/32/gazua.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gazua.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "balas_chumbo",
+   "nome": "Balas de Chumbo",
+   "efeito": {
+    "municao": "mosquete",
+    "qtd": 100
+   },
+   "preco": 10,
+   "pilha": 999,
+   "classes": [
+    "humano"
+   ],
+   "motivo": "balas",
+   "tint": "chumbo",
+   "lore": "Derretidas de canos de igreja.",
+   "tags": [
+    "consumivel:municao"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/balas_chumbo.png",
+    "40": "assets/icones/itens/40/balas_chumbo.png",
+    "32": "assets/icones/itens/32/balas_chumbo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/balas_chumbo.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "virotes_prata",
+   "nome": "Virotes de Prata",
+   "efeito": {
+    "municao": "besta",
+    "qtd": 100,
+    "bonus_vs": {
+     "tag:celestial": 1.05,
+     "tag:infernal": 1.05
+    }
+   },
+   "preco": 14,
+   "pilha": 999,
+   "classes": [
+    "humano"
+   ],
+   "motivo": "virotes",
+   "tint": "prata",
+   "lore": "Pontas feitas de talheres de família.",
+   "tags": [
+    "consumivel:municao"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/virotes_prata.png",
+    "40": "assets/icones/itens/40/virotes_prata.png",
+    "32": "assets/icones/itens/32/virotes_prata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/virotes_prata.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "cartuchos_sal",
+   "nome": "Cartuchos Calibre 12",
+   "efeito": {
+    "municao": "escopeta calibre 12",
+    "qtd": 100
+   },
+   "preco": 12,
+   "pilha": 999,
+   "classes": [
+    "humano"
+   ],
+   "motivo": "cartuchos",
+   "tint": "vermelho",
+   "lore": "Sal, pólvora e uma reza curta.",
+   "tags": [
+    "consumivel:municao"
+   ],
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/cartuchos_sal.png",
+    "40": "assets/icones/itens/40/cartuchos_sal.png",
+    "32": "assets/icones/itens/32/cartuchos_sal.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cartuchos_sal.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "osso",
+   "nome": "Osso Rachado",
+   "motivo": "osso",
+   "tint": "osso",
+   "lore": "Serve para cajado, para amuleto e para assustar criança.",
+   "tags": [
+    "material:osso"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/osso.png",
+    "40": "assets/icones/itens/40/osso.png",
+    "32": "assets/icones/itens/32/osso.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/osso.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "couro_podre",
+   "nome": "Couro Podre",
+   "motivo": "couro",
+   "tint": "couro",
+   "lore": "Ainda dá para costurar. Não dá para cheirar.",
+   "tags": [
+    "material:couro_podre"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/couro_podre.png",
+    "40": "assets/icones/itens/40/couro_podre.png",
+    "32": "assets/icones/itens/32/couro_podre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couro_podre.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "sucata",
+   "nome": "Sucata",
+   "motivo": "sucata",
+   "tint": "ferrugem",
+   "lore": "Porcas, molas e pedaços de cano. Para um Tecnomancer, é um tesouro.",
+   "tags": [
+    "material:sucata"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/sucata.png",
+    "40": "assets/icones/itens/40/sucata.png",
+    "32": "assets/icones/itens/32/sucata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sucata.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "cinza_de_alma",
+   "nome": "Cinza de Alma",
+   "motivo": "cinza",
+   "tint": "cinza",
+   "lore": "O que sobra de um espectro. Morna e leve demais.",
+   "tags": [
+    "material:cinza_de_alma"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/cinza_de_alma.png",
+    "40": "assets/icones/itens/40/cinza_de_alma.png",
+    "32": "assets/icones/itens/32/cinza_de_alma.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cinza_de_alma.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "carne_estragada",
+   "nome": "Carne Estragada",
+   "motivo": "carne",
+   "tint": "sangue",
+   "lore": "Do porão do matadouro. Os Carniçais pagam bem.",
+   "tags": [
+    "material:carne_estragada"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/carne_estragada.png",
+    "40": "assets/icones/itens/40/carne_estragada.png",
+    "32": "assets/icones/itens/32/carne_estragada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carne_estragada.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "pedra_benta",
+   "nome": "Pedra Benta",
+   "motivo": "pedra_benta",
+   "tint": "cinza",
+   "lore": "Lasca de altar com uma cruz riscada. Refina armas sagradas.",
+   "tags": [
+    "material:pedra_benta"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/pedra_benta.png",
+    "40": "assets/icones/itens/40/pedra_benta.png",
+    "32": "assets/icones/itens/32/pedra_benta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pedra_benta.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "cera_de_vela",
+   "nome": "Cera de Vela",
+   "motivo": "cera",
+   "tint": "cera",
+   "lore": "Escorrida dos castiçais do ossário. Algumas gotas parecem lágrimas.",
+   "tags": [
+    "material:cera_de_vela"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/cera_de_vela.png",
+    "40": "assets/icones/itens/40/cera_de_vela.png",
+    "32": "assets/icones/itens/32/cera_de_vela.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cera_de_vela.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "pena_suja",
+   "nome": "Pena Suja",
+   "motivo": "pena",
+   "tint": "osso",
+   "lore": "Cinza de fuligem. Cai das asas de quem desceu sem ser chamado.",
+   "tags": [
+    "material:pena_suja"
+   ],
+   "pilha": 99,
+   "categoria": "material",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_suja.png",
+    "40": "assets/icones/itens/40/pena_suja.png",
+    "32": "assets/icones/itens/32/pena_suja.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_suja.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "lagrima_anjo",
+   "nome": "Lágrima de Anjo",
+   "efeito": "refina +0 a +6 (100%)",
+   "motivo": "joia_lagrima",
+   "tint": "ouro",
+   "emissivo": "#ffe08a",
+   "lore": "Cristalizou no rosto de porcelana de um anjo que hesitou por um segundo.",
+   "tags": [
+    "joia:refino"
+   ],
+   "raridade": "excelente",
+   "pilha": 20,
+   "categoria": "joia",
+   "icone": {
+    "64": "assets/icones/itens/64/lagrima_anjo.png",
+    "40": "assets/icones/itens/40/lagrima_anjo.png",
+    "32": "assets/icones/itens/32/lagrima_anjo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lagrima_anjo.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "fragmento_alma",
+   "nome": "Fragmento de Alma",
+   "efeito": "refina +6 a +9 (55%; falha volta 1 nível, nunca destrói)",
+   "motivo": "joia_alma",
+   "tint": "alma",
+   "emissivo": "#bfe6ff",
+   "lore": "Um pedaço de alguém. Quente ao toque.",
+   "tags": [
+    "joia:refino"
+   ],
+   "raridade": "excelente",
+   "pilha": 20,
+   "categoria": "joia",
+   "icone": {
+    "64": "assets/icones/itens/64/fragmento_alma.png",
+    "40": "assets/icones/itens/40/fragmento_alma.png",
+    "32": "assets/icones/itens/32/fragmento_alma.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/fragmento_alma.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "coagulo_caos",
+   "nome": "Coágulo do Caos",
+   "efeito": "combinações no Altar do Caos (versão futura)",
+   "motivo": "joia_caos",
+   "tint": "sangue",
+   "emissivo": "#ff3a2a",
+   "lore": "Sangue que nunca terminou de secar porque não lembra de quem era.",
+   "tags": [
+    "joia:extra"
+   ],
+   "raridade": "excelente",
+   "pilha": 20,
+   "categoria": "joia",
+   "icone": {
+    "64": "assets/icones/itens/64/coagulo_caos.png",
+    "40": "assets/icones/itens/40/coagulo_caos.png",
+    "32": "assets/icones/itens/32/coagulo_caos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coagulo_caos.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "engrenagem_viva",
+   "nome": "Engrenagem Viva",
+   "efeito": "adiciona +4 a uma opção do item (versão futura)",
+   "motivo": "joia_engrenagem",
+   "tint": "latao",
+   "emissivo": "#9cff3a",
+   "lore": "Gira sozinha. Os Tecnomancers juram que não construíram.",
+   "tags": [
+    "joia:extra"
+   ],
+   "raridade": "excelente",
+   "pilha": 20,
+   "categoria": "joia",
+   "icone": {
+    "64": "assets/icones/itens/64/engrenagem_viva.png",
+    "40": "assets/icones/itens/40/engrenagem_viva.png",
+    "32": "assets/icones/itens/32/engrenagem_viva.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/engrenagem_viva.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "chave_bau_ferro",
+   "nome": "Chave Enferrujada",
+   "tipo": "chave",
+   "grade": [
+    1,
+    2
+   ],
+   "motivo": "chave",
+   "tint": "ferrugem",
+   "lore": "Abre um baú de ferro por aqui. Quase tudo por aqui está trancado.",
+   "tags": [
+    "chave:bau_de_ferro"
+   ],
+   "categoria": "chave",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_bau_ferro.png",
+    "40": "assets/icones/itens/40/chave_bau_ferro.png",
+    "32": "assets/icones/itens/32/chave_bau_ferro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_bau_ferro.png"
+  },
+  {
+   "id": "caixote_podre",
+   "tipo": "bau",
+   "nome": "Caixote Podre",
+   "motivo": "bau_madeira",
+   "tint": "madeira",
+   "lore": "Madeira mole, prego solto. Às vezes solta um gás verde.",
+   "tags": [],
+   "categoria": "bau",
+   "icone": {
+    "64": "assets/icones/itens/64/caixote_podre.png",
+    "40": "assets/icones/itens/40/caixote_podre.png",
+    "32": "assets/icones/itens/32/caixote_podre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/caixote_podre.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "bau_de_ferro",
+   "tipo": "bau",
+   "nome": "Baú de Ferro",
+   "motivo": "bau_ferro",
+   "tint": "ferro",
+   "lore": "Trancado. Alguém achou que valia a pena trancar.",
+   "tags": [],
+   "categoria": "bau",
+   "icone": {
+    "64": "assets/icones/itens/64/bau_de_ferro.png",
+    "40": "assets/icones/itens/40/bau_de_ferro.png",
+    "32": "assets/icones/itens/32/bau_de_ferro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bau_de_ferro.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "bau_faminto",
+   "tipo": "bau",
+   "nome": "Baú Faminto",
+   "motivo": "bau_faminto",
+   "tint": "madeira",
+   "lore": "Um em cada doze caixotes da cripta morde.",
+   "tags": [],
+   "categoria": "bau",
+   "icone": {
+    "64": "assets/icones/itens/64/bau_faminto.png",
+    "40": "assets/icones/itens/40/bau_faminto.png",
+    "32": "assets/icones/itens/32/bau_faminto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bau_faminto.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "relicario_da_trombeta",
+   "tipo": "bau",
+   "nome": "Relicário da Trombeta",
+   "motivo": "relicario",
+   "tint": "ouro",
+   "emissivo": "#ffe08a",
+   "lore": "Acende vela por vela antes de abrir.",
+   "tags": [],
+   "categoria": "bau",
+   "icone": {
+    "64": "assets/icones/itens/64/relicario_da_trombeta.png",
+    "40": "assets/icones/itens/40/relicario_da_trombeta.png",
+    "32": "assets/icones/itens/32/relicario_da_trombeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/relicario_da_trombeta.png",
+   "grade": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "bobina_cobre",
+   "nome": "Bobina de Cobre",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bobina",
+   "tint": "cobre",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/bobina_cobre.png",
+    "40": "assets/icones/itens/40/bobina_cobre.png",
+    "32": "assets/icones/itens/32/bobina_cobre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bobina_cobre.png"
+  },
+  {
+   "id": "pena_querubim",
+   "nome": "Pena de Querubim",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pena",
+   "tint": "prata",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_querubim.png",
+    "40": "assets/icones/itens/40/pena_querubim.png",
+    "32": "assets/icones/itens/32/pena_querubim.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_querubim.png"
+  },
+  {
+   "id": "dente_vala",
+   "nome": "Dente de Vala",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "dente",
+   "tint": "osso",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/dente_vala.png",
+    "40": "assets/icones/itens/40/dente_vala.png",
+    "32": "assets/icones/itens/32/dente_vala.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/dente_vala.png"
+  },
+  {
+   "id": "raiz_cova",
+   "nome": "Raiz-de-Cova",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "raiz",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/raiz_cova.png",
+    "40": "assets/icones/itens/40/raiz_cova.png",
+    "32": "assets/icones/itens/32/raiz_cova.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/raiz_cova.png"
+  },
+  {
+   "id": "caldo_cardo",
+   "nome": "Caldo de Cardo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tigela",
+   "tint": "madeira",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/caldo_cardo.png",
+    "40": "assets/icones/itens/40/caldo_cardo.png",
+    "32": "assets/icones/itens/32/caldo_cardo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo.png"
+  },
+  {
+   "id": "medalhinha_cardo",
+   "nome": "Medalhinha de Joaquim",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "medalha",
+   "tint": "latao",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/medalhinha_cardo.png",
+    "40": "assets/icones/itens/40/medalhinha_cardo.png",
+    "32": "assets/icones/itens/32/medalhinha_cardo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/medalhinha_cardo.png"
+  },
+  {
+   "id": "sebo_rancoso",
+   "nome": "Sebo Rançoso",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "sebo",
+   "tint": "cera",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/sebo_rancoso.png",
+    "40": "assets/icones/itens/40/sebo_rancoso.png",
+    "32": "assets/icones/itens/32/sebo_rancoso.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sebo_rancoso.png"
+  },
+  {
+   "id": "ferro_velho",
+   "nome": "Ferro Velho",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "sucata",
+   "tint": "ferro",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/ferro_velho.png",
+    "40": "assets/icones/itens/40/ferro_velho.png",
+    "32": "assets/icones/itens/32/ferro_velho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/ferro_velho.png"
+  },
+  {
+   "id": "badalo_rachado",
+   "nome": "Badalo Rachado",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "badalo",
+   "tint": "bronze",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/badalo_rachado.png",
+    "40": "assets/icones/itens/40/badalo_rachado.png",
+    "32": "assets/icones/itens/32/badalo_rachado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/badalo_rachado.png"
+  },
+  {
+   "id": "livro_obitos",
+   "nome": "Livro de Óbitos de São Lázaro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "livro",
+   "tint": "couro",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/livro_obitos.png",
+    "40": "assets/icones/itens/40/livro_obitos.png",
+    "32": "assets/icones/itens/32/livro_obitos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/livro_obitos.png"
+  },
+  {
+   "id": "chave_gancho",
+   "nome": "Chave de Gancho",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "chave_gancho",
+   "tint": "ferro",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_gancho.png",
+    "40": "assets/icones/itens/40/chave_gancho.png",
+    "32": "assets/icones/itens/32/chave_gancho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_gancho.png"
+  },
+  {
+   "id": "lacre_carne",
+   "nome": "Lacre de Carne",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "lacre",
+   "tint": "sangue",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/lacre_carne.png",
+    "40": "assets/icones/itens/40/lacre_carne.png",
+    "32": "assets/icones/itens/32/lacre_carne.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lacre_carne.png"
+  },
+  {
+   "id": "lacre_lagrimas",
+   "nome": "Lacre de Lágrimas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "lacre",
+   "tint": "cera",
+   "emissivo": "#bfe6ff",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/lacre_lagrimas.png",
+    "40": "assets/icones/itens/40/lacre_lagrimas.png",
+    "32": "assets/icones/itens/32/lacre_lagrimas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lacre_lagrimas.png"
+  },
+  {
+   "id": "bocal_trombeta",
+   "nome": "Bocal da Quinta Trombeta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bocal",
+   "tint": "ouro",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/bocal_trombeta.png",
+    "40": "assets/icones/itens/40/bocal_trombeta.png",
+    "32": "assets/icones/itens/32/bocal_trombeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bocal_trombeta.png"
+  },
+  {
+   "id": "carta_lucio",
+   "nome": "Carta para Rosa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "carta",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/carta_lucio.png",
+    "40": "assets/icones/itens/40/carta_lucio.png",
+    "32": "assets/icones/itens/32/carta_lucio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carta_lucio.png"
+  },
+  {
+   "id": "mapa_rasgado",
+   "nome": "Mapa Rasgado do Tobias",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "mapa",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/mapa_rasgado.png",
+    "40": "assets/icones/itens/40/mapa_rasgado.png",
+    "32": "assets/icones/itens/32/mapa_rasgado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/mapa_rasgado.png"
+  },
+  {
+   "id": "relicario_vazio",
+   "nome": "Relicário Vazio",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "relicario_peq",
+   "tint": "prata",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/relicario_vazio.png",
+    "40": "assets/icones/itens/40/relicario_vazio.png",
+    "32": "assets/icones/itens/32/relicario_vazio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/relicario_vazio.png"
+  },
+  {
+   "id": "pa_simao",
+   "nome": "Pá do Coveiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pa",
+   "tint": "ferro",
+   "emissivo": null,
+   "grade": [
+    1,
+    4
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pa_simao.png",
+    "40": "assets/icones/itens/40/pa_simao.png",
+    "32": "assets/icones/itens/32/pa_simao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pa_simao.png"
+  },
+  {
+   "id": "caixinha_musica",
+   "nome": "Caixinha de Música Amassada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "caixinha",
+   "tint": "latao",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/caixinha_musica.png",
+    "40": "assets/icones/itens/40/caixinha_musica.png",
+    "32": "assets/icones/itens/32/caixinha_musica.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/caixinha_musica.png"
+  },
+  {
+   "id": "pao_duro",
+   "nome": "Pão Duro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pao",
+   "tint": "madeira",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pao_duro.png",
+    "40": "assets/icones/itens/40/pao_duro.png",
+    "32": "assets/icones/itens/32/pao_duro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pao_duro.png"
+  },
+  {
+   "id": "agua_doce",
+   "nome": "Cantil de Água Doce",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "cantil",
+   "tint": "agua",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/agua_doce.png",
+    "40": "assets/icones/itens/40/agua_doce.png",
+    "32": "assets/icones/itens/32/agua_doce.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/agua_doce.png"
+  },
+  {
+   "id": "tonico_graxa",
+   "nome": "Tônico do Doutor Graxa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tonico",
+   "tint": "azul",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/tonico_graxa.png",
+    "40": "assets/icones/itens/40/tonico_graxa.png",
+    "32": "assets/icones/itens/32/tonico_graxa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tonico_graxa.png"
+  },
+  {
+   "id": "hostia_negra",
+   "nome": "Hóstia Negra",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "hostia",
+   "tint": "ferro_negro",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/hostia_negra.png",
+    "40": "assets/icones/itens/40/hostia_negra.png",
+    "32": "assets/icones/itens/32/hostia_negra.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/hostia_negra.png"
+  },
+  {
+   "id": "vela_simao",
+   "nome": "Vela de Sebo do Simão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "vela",
+   "tint": "cera",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/vela_simao.png",
+    "40": "assets/icones/itens/40/vela_simao.png",
+    "32": "assets/icones/itens/32/vela_simao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vela_simao.png"
+  },
+  {
+   "id": "agua_benta_polvora",
+   "nome": "Água Benta com Pólvora",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bomba_benta",
+   "tint": "agua",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/agua_benta_polvora.png",
+    "40": "assets/icones/itens/40/agua_benta_polvora.png",
+    "32": "assets/icones/itens/32/agua_benta_polvora.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/agua_benta_polvora.png"
+  },
+  {
+   "id": "caldo_cardo_comum",
+   "nome": "Sopa da Mãe Cardo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tigela",
+   "tint": "madeira",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/caldo_cardo_comum.png",
+    "40": "assets/icones/itens/40/caldo_cardo_comum.png",
+    "32": "assets/icones/itens/32/caldo_cardo_comum.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo_comum.png"
+  },
+  {
+   "id": "figo_anacleto",
+   "nome": "Figo Seco de Anacleto",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "figo",
+   "tint": "vinho",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/figo_anacleto.png",
+    "40": "assets/icones/itens/40/figo_anacleto.png",
+    "32": "assets/icones/itens/32/figo_anacleto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/figo_anacleto.png"
+  },
+  {
+   "id": "leitura_obitos",
+   "nome": "Livro de Óbitos (últimas páginas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "livro",
+   "tint": "couro",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_obitos.png",
+    "40": "assets/icones/itens/40/leitura_obitos.png",
+    "32": "assets/icones/itens/32/leitura_obitos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_obitos.png"
+  },
+  {
+   "id": "leitura_carta_lucio",
+   "nome": "Carta para Rosa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "carta",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_carta_lucio.png",
+    "40": "assets/icones/itens/40/leitura_carta_lucio.png",
+    "32": "assets/icones/itens/32/leitura_carta_lucio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_lucio.png"
+  },
+  {
+   "id": "leitura_mapa_tobias",
+   "nome": "Mapa Rasgado do Tobias",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "mapa",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_mapa_tobias.png",
+    "40": "assets/icones/itens/40/leitura_mapa_tobias.png",
+    "32": "assets/icones/itens/32/leitura_mapa_tobias.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_mapa_tobias.png"
+  },
+  {
+   "id": "leitura_anselmo",
+   "nome": "Caderno do Padre Anselmo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "livro",
+   "tint": "azul",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_anselmo.png",
+    "40": "assets/icones/itens/40/leitura_anselmo.png",
+    "32": "assets/icones/itens/32/leitura_anselmo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_anselmo.png"
+  },
+  {
+   "id": "leitura_tabela_carnica",
+   "nome": "Tabela de Preços do Abatedouro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_tabela_carnica.png",
+    "40": "assets/icones/itens/40/leitura_tabela_carnica.png",
+    "32": "assets/icones/itens/32/leitura_tabela_carnica.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_tabela_carnica.png"
+  },
+  {
+   "id": "leitura_hino_carpideiras",
+   "nome": "Hino das Carpideiras",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pergaminho",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_hino_carpideiras.png",
+    "40": "assets/icones/itens/40/leitura_hino_carpideiras.png",
+    "32": "assets/icones/itens/32/leitura_hino_carpideiras.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_hino_carpideiras.png"
+  },
+  {
+   "id": "leitura_confissao_anacleto",
+   "nome": "Confissão na Parede",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tabua",
+   "tint": "cinza",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_confissao_anacleto.png",
+    "40": "assets/icones/itens/40/leitura_confissao_anacleto.png",
+    "32": "assets/icones/itens/32/leitura_confissao_anacleto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_confissao_anacleto.png"
+  },
+  {
+   "id": "leitura_ordem_zacarias",
+   "nome": "Ordem Selada da Quinta Trombeta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pergaminho",
+   "tint": "ouro",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_ordem_zacarias.png",
+    "40": "assets/icones/itens/40/leitura_ordem_zacarias.png",
+    "32": "assets/icones/itens/32/leitura_ordem_zacarias.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_zacarias.png"
+  },
+  {
+   "id": "faixa_vigilia",
+   "nome": "Faixa da Vigília",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bracadeira",
+   "tint": "azul",
+   "emissivo": "#ff9a3a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "comum",
+   "slot": "anel",
+   "nivel": 1,
+   "tags": [],
+   "classes": null,
+   "faccao": "vigilia",
+   "atributos": {
+    "vit": 2
+   },
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/faixa_vigilia.png",
+    "40": "assets/icones/itens/40/faixa_vigilia.png",
+    "32": "assets/icones/itens/32/faixa_vigilia.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/faixa_vigilia.png"
+  },
+  {
+   "id": "fita_juizo",
+   "nome": "Fita do Juízo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "fita",
+   "tint": "vermelho",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "comum",
+   "slot": "anel",
+   "nivel": 1,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 2
+   },
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/fita_juizo.png",
+    "40": "assets/icones/itens/40/fita_juizo.png",
+    "32": "assets/icones/itens/32/fita_juizo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/fita_juizo.png"
+  },
+  {
+   "id": "escopeta_badalada",
+   "nome": "Escopeta Badalada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "escopeta",
+   "tint": "bronze",
+   "emissivo": null,
+   "grade": [
+    1,
+    4
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    14,
+    22
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 1.3,
+   "atributos": {
+    "agi": 3
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/escopeta_badalada.png",
+    "40": "assets/icones/itens/40/escopeta_badalada.png",
+    "32": "assets/icones/itens/32/escopeta_badalada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_badalada.png"
+  },
+  {
+   "id": "machado_bonde",
+   "nome": "Machado de Placa de Bonde",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "machado_bonde",
+   "tint": "azul",
+   "emissivo": null,
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    16,
+    24
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 1.2,
+   "atributos": {
+    "for": 3
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/machado_bonde.png",
+    "40": "assets/icones/itens/40/machado_bonde.png",
+    "32": "assets/icones/itens/32/machado_bonde.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/machado_bonde.png"
+  },
+  {
+   "id": "cajado_lampiao",
+   "nome": "Cajado-Lampião",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "cajado_lampiao",
+   "tint": "ferro",
+   "emissivo": "#ffe0a0",
+   "grade": [
+    1,
+    4
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    10,
+    16
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 1.1,
+   "atributos": {
+    "esp": 4
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_lampiao.png",
+    "40": "assets/icones/itens/40/cajado_lampiao.png",
+    "32": "assets/icones/itens/32/cajado_lampiao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png"
+  },
+  {
+   "id": "espada_escudeiro",
+   "nome": "Espada do Escudeiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "espada",
+   "tint": "prata",
+   "emissivo": null,
+   "grade": [
+    1,
+    3
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    13,
+    20
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 1.05,
+   "atributos": {
+    "esp": 2,
+    "for": 2
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_escudeiro.png",
+    "40": "assets/icones/itens/40/espada_escudeiro.png",
+    "32": "assets/icones/itens/32/espada_escudeiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png"
+  },
+  {
+   "id": "foice_penhor",
+   "nome": "Foice de Penhor",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "foice_penhor",
+   "tint": "aco",
+   "emissivo": null,
+   "grade": [
+    2,
+    4
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    15,
+    23
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 0.95,
+   "atributos": {
+    "for": 3
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/foice_penhor.png",
+    "40": "assets/icones/itens/40/foice_penhor.png",
+    "32": "assets/icones/itens/32/foice_penhor.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/foice_penhor.png"
+  },
+  {
+   "id": "adaga_chaga",
+   "nome": "Adaga de Chaga",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "adaga_curva",
+   "tint": "sangue",
+   "emissivo": null,
+   "grade": [
+    1,
+    2
+   ],
+   "raridade": "magico",
+   "slot": "arma",
+   "nivel": 3,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    9,
+    15
+   ],
+   "dano": [
+    6,
+    11
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "esp": 4
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/adaga_chaga.png",
+    "40": "assets/icones/itens/40/adaga_chaga.png",
+    "32": "assets/icones/itens/32/adaga_chaga.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png"
+  },
+  {
+   "id": "badalo_de_guerra",
+   "nome": "Badalo de Guerra",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "amuleto_sino",
+   "tint": "bronze",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": "vigilia",
+   "atributos": {
+    "vit": 3,
+    "for": 2
+   },
+   "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/badalo_de_guerra.png",
+    "40": "assets/icones/itens/40/badalo_de_guerra.png",
+    "32": "assets/icones/itens/32/badalo_de_guerra.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/badalo_de_guerra.png"
+  },
+  {
+   "id": "lenco_cardo",
+   "nome": "Lenço Florido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "lenco",
+   "tint": "vermelho",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:cardo de drops.json, vira Relíquia (lendário).",
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [
+    "lendario:cardo"
+   ],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "hp": 40
+   },
+   "efeito": "Comida e sopas curam 25% a mais.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/lenco_cardo.png",
+    "40": "assets/icones/itens/40/lenco_cardo.png",
+    "32": "assets/icones/itens/32/lenco_cardo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lenco_cardo.png"
+  },
+  {
+   "id": "terco_lucio",
+   "nome": "Terço Partido de Lúcio",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "terco_partido",
+   "tint": "osso",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 3,
+    "agi": 2
+   },
+   "efeito": "Cura recebida aumenta 10%.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/terco_lucio.png",
+    "40": "assets/icones/itens/40/terco_lucio.png",
+    "32": "assets/icones/itens/32/terco_lucio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/terco_lucio.png"
+  },
+  {
+   "id": "selo_madre",
+   "nome": "Selo da Madre",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "anel_selo",
+   "tint": "ferro",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "anel",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 4,
+    "vit": 1
+   },
+   "efeito": "Dano contra jogadores e NPCs da Vigília aumenta 5%.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_madre.png",
+    "40": "assets/icones/itens/40/selo_madre.png",
+    "32": "assets/icones/itens/32/selo_madre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_madre.png"
+  },
+  {
+   "id": "dragonas_general",
+   "nome": "Casaca do General Partido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "casaca",
+   "tint": "sangue",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 28,
+   "defesa": 5,
+   "atributos": {
+    "vit": 5,
+    "for": 2
+   },
+   "efeito": "Matar um inimigo recupera 3% do HP.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/dragonas_general.png",
+    "40": "assets/icones/itens/40/dragonas_general.png",
+    "32": "assets/icones/itens/32/dragonas_general.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/dragonas_general.png"
+  },
+  {
+   "id": "veu_carpideira",
+   "nome": "Véu da Carpideira",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "veu",
+   "tint": "ferro_negro",
+   "emissivo": "#bfe6ff",
+   "grade": [
+    2,
+    2
+   ],
+   "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:celeste de drops.json, vira Relíquia (lendário).",
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [
+    "lendario:celeste"
+   ],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 14,
+   "defesa": 4,
+   "atributos": {
+    "esp": 5
+   },
+   "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_carpideira.png",
+    "40": "assets/icones/itens/40/veu_carpideira.png",
+    "32": "assets/icones/itens/32/veu_carpideira.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_carpideira.png"
+  },
+  {
+   "id": "estilhaco_lacre",
+   "nome": "Estilhaço do Lacre",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estilhaco",
+   "tint": "chumbo",
+   "emissivo": "#ff9a3a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "vigilia",
+   "atributos": {
+    "vit": 6,
+    "esp": 3
+   },
+   "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/estilhaco_lacre.png",
+    "40": "assets/icones/itens/40/estilhaco_lacre.png",
+    "32": "assets/icones/itens/32/estilhaco_lacre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estilhaco_lacre.png"
+  },
+  {
+   "id": "diapasao_reverso",
+   "nome": "Diapasão Reverso",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "diapasao",
+   "tint": "latao",
+   "emissivo": "#9fd8ff",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "vigilia",
+   "atributos": {
+    "esp": 6,
+    "agi": 3
+   },
+   "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/diapasao_reverso.png",
+    "40": "assets/icones/itens/40/diapasao_reverso.png",
+    "32": "assets/icones/itens/32/diapasao_reverso.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/diapasao_reverso.png"
+  },
+  {
+   "id": "pena_zacarias",
+   "nome": "Pena de Zacarias",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pena",
+   "tint": "ouro",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    2
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 6,
+    "vit": 3
+   },
+   "efeito": "Curas e escudos que você lança são 12% mais fortes. Ao morrer, uma vez a cada 10 min, volta com 20% de HP.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_zacarias.png",
+    "40": "assets/icones/itens/40/pena_zacarias.png",
+    "32": "assets/icones/itens/32/pena_zacarias.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_zacarias.png"
+  },
+  {
+   "id": "etiqueta_branca",
+   "nome": "Etiqueta de Penhor em Branco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "etiqueta",
+   "tint": "pano",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "for": 5,
+    "agi": 4
+   },
+   "efeito": "Inimigos derrubados deixam 15% mais ouro. Roubo de vida de 4% em alvos abaixo de 30% de HP.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/etiqueta_branca.png",
+    "40": "assets/icones/itens/40/etiqueta_branca.png",
+    "32": "assets/icones/itens/32/etiqueta_branca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/etiqueta_branca.png"
+  },
+  {
+   "id": "gancho_capataz",
+   "nome": "Gancho do Capataz",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "gancho",
+   "tint": "ferrugem",
+   "emissivo": null,
+   "grade": [
+    1,
+    3
+   ],
+   "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:capataz de drops.json, vira Relíquia (lendário).",
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 7,
+   "tags": [
+    "lendario:capataz"
+   ],
+   "classes": [
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    18,
+    26
+   ],
+   "dano": [
+    12,
+    22
+   ],
+   "intervalo": 1.2,
+   "atributos": {
+    "for": 3
+   },
+   "efeito": "Golpes têm 10% de chance de puxar o alvo para perto.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/gancho_capataz.png",
+    "40": "assets/icones/itens/40/gancho_capataz.png",
+    "32": "assets/icones/itens/32/gancho_capataz.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gancho_capataz.png"
+  },
+  {
+   "id": "estandarte_legiao",
+   "nome": "Estandarte da Legião Blasfema",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estandarte",
+   "tint": "sangue",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    4
+   ],
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 8,
+   "tags": [
+    "lendario:general"
+   ],
+   "classes": [
+    "demonio",
+    "mutante",
+    "anjo"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    26,
+    38
+   ],
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 1.15,
+   "atributos": {
+    "for": 6,
+    "vit": 3
+   },
+   "efeito": "Ataques causam sangramento. Ao matar um inimigo, ganha +5% de dano por 8 s (acumula 3 vezes).",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/estandarte_legiao.png",
+    "40": "assets/icones/itens/40/estandarte_legiao.png",
+    "32": "assets/icones/itens/32/estandarte_legiao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png"
+  },
+  {
+   "id": "bacula_femur",
+   "nome": "Báculo de Fêmur",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "cajado_femur",
+   "tint": "osso",
+   "emissivo": "#bfe6ff",
+   "grade": [
+    1,
+    4
+   ],
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [
+    "lendario:celeste"
+   ],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    16,
+    24
+   ],
+   "dano": [
+    15,
+    28
+   ],
+   "intervalo": 1.1,
+   "atributos": {
+    "esp": 8
+   },
+   "efeito": "Ao matar um inimigo, um crânio canta e cura aliados próximos em 5% do HP.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/bacula_femur.png",
+    "40": "assets/icones/itens/40/bacula_femur.png",
+    "32": "assets/icones/itens/32/bacula_femur.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png"
+  },
+  {
+   "id": "halo_incandescente",
+   "nome": "Halo de Ferro Incandescente",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "halo",
+   "tint": "ferro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [
+    "lendario:zacarias"
+   ],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 22,
+   "defesa": 4,
+   "atributos": {
+    "esp": 6,
+    "vit": 4
+   },
+   "efeito": "Emite luz própria em volta do personagem (raio pequeno). Não-Julgados e mortos-vivos recebem 15% a mais de dano seu.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/halo_incandescente.png",
+    "40": "assets/icones/itens/40/halo_incandescente.png",
+    "32": "assets/icones/itens/32/halo_incandescente.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/halo_incandescente.png"
+  },
+  {
+   "id": "valvula_radio",
+   "nome": "Válvula de Rádio",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bobina",
+   "tint": "lata",
+   "emissivo": "#ffc070",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/valvula_radio.png",
+    "40": "assets/icones/itens/40/valvula_radio.png",
+    "32": "assets/icones/itens/32/valvula_radio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/valvula_radio.png"
+  },
+  {
+   "id": "pagina_ordem",
+   "nome": "Página da Ordem de Lançamento",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pergaminho",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pagina_ordem.png",
+    "40": "assets/icones/itens/40/pagina_ordem.png",
+    "32": "assets/icones/itens/32/pagina_ordem.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pagina_ordem.png"
+  },
+  {
+   "id": "amostra_amarga",
+   "nome": "Amostra de Água Amarga",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tonico",
+   "tint": "praga",
+   "emissivo": "#9dff4a",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/amostra_amarga.png",
+    "40": "assets/icones/itens/40/amostra_amarga.png",
+    "32": "assets/icones/itens/32/amostra_amarga.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/amostra_amarga.png"
+  },
+  {
+   "id": "fragmento_clarao",
+   "nome": "Fragmento de Clarão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estilhaco",
+   "tint": "cinza",
+   "emissivo": "#fff2c0",
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/fragmento_clarao.png",
+    "40": "assets/icones/itens/40/fragmento_clarao.png",
+    "32": "assets/icones/itens/32/fragmento_clarao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/fragmento_clarao.png"
+  },
+  {
+   "id": "chave_lancamento",
+   "nome": "Chave de Lançamento da Absinto-2",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "chave_gancho",
+   "tint": "latao",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    2
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_lancamento.png",
+    "40": "assets/icones/itens/40/chave_lancamento.png",
+    "32": "assets/icones/itens/32/chave_lancamento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_lancamento.png"
+  },
+  {
+   "id": "insignia_arrancada",
+   "nome": "Insígnia Arrancada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "medalha",
+   "tint": "sangue",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/insignia_arrancada.png",
+    "40": "assets/icones/itens/40/insignia_arrancada.png",
+    "32": "assets/icones/itens/32/insignia_arrancada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/insignia_arrancada.png"
+  },
+  {
+   "id": "carta_apostata",
+   "nome": "Carta dos Apóstatas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "carta",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/carta_apostata.png",
+    "40": "assets/icones/itens/40/carta_apostata.png",
+    "32": "assets/icones/itens/32/carta_apostata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carta_apostata.png"
+  },
+  {
+   "id": "meia_dragona",
+   "nome": "Meia Dragona do General",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "bracadeira",
+   "tint": "ouro",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/meia_dragona.png",
+    "40": "assets/icones/itens/40/meia_dragona.png",
+    "32": "assets/icones/itens/32/meia_dragona.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/meia_dragona.png"
+  },
+  {
+   "id": "leitura_ordem_lancamento",
+   "nome": "Ordem de Lançamento (cópia de carbono)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pergaminho",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_ordem_lancamento.png",
+    "40": "assets/icones/itens/40/leitura_ordem_lancamento.png",
+    "32": "assets/icones/itens/32/leitura_ordem_lancamento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_lancamento.png"
+  },
+  {
+   "id": "leitura_carta_apostata",
+   "nome": "Carta dos Apóstatas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "carta",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_carta_apostata.png",
+    "40": "assets/icones/itens/40/leitura_carta_apostata.png",
+    "32": "assets/icones/itens/32/leitura_carta_apostata.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_apostata.png"
+  },
+  {
+   "id": "contador_isaura",
+   "nome": "Contador de Amargo da Isaura",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "diapasao",
+   "tint": "latao",
+   "emissivo": "#9dff4a",
+   "grade": [
+    1,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 2
+   },
+   "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/contador_isaura.png",
+    "40": "assets/icones/itens/40/contador_isaura.png",
+    "32": "assets/icones/itens/32/contador_isaura.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/contador_isaura.png"
+  },
+  {
+   "id": "estilhaco_absinto",
+   "nome": "Estilhaço da Absinto-2",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estilhaco",
+   "tint": "praga",
+   "emissivo": "#9dff4a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "esp": 6,
+    "vit": 4
+   },
+   "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/estilhaco_absinto.png",
+    "40": "assets/icones/itens/40/estilhaco_absinto.png",
+    "32": "assets/icones/itens/32/estilhaco_absinto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estilhaco_absinto.png"
+  },
+  {
+   "id": "chave_segunda_estrela",
+   "nome": "Cópia da Chave da Segunda Estrela",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "chave_gancho",
+   "tint": "latao",
+   "emissivo": "#ffe08a",
+   "grade": [
+    1,
+    2
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 2
+   },
+   "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_segunda_estrela.png",
+    "40": "assets/icones/itens/40/chave_segunda_estrela.png",
+    "32": "assets/icones/itens/32/chave_segunda_estrela.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_segunda_estrela.png"
+  },
+  {
+   "id": "divisa_legiao",
+   "nome": "Divisa Inteira da Legião",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "medalha",
+   "tint": "bronze",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 3,
+    "vit": 3
+   },
+   "efeito": "Desertores da Legião não atacam você primeiro.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/divisa_legiao.png",
+    "40": "assets/icones/itens/40/divisa_legiao.png",
+    "32": "assets/icones/itens/32/divisa_legiao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/divisa_legiao.png"
+  }
+ ]
+}

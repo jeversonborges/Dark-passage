@@ -1,0 +1,21 @@
+{
+ "name": "chefe_aviso_area",
+ "cat": "chefes",
+ "frames": 24,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  64,
+  36
+ ],
+ "layer": "chao",
+ "desc": "Aviso de golpe em área: o círculo vermelho enche do centro para a borda; o golpe cai no último quadro. Esticar a duração no motor.",
+ "char": null,
+ "title": "Aviso de área",
+ "resumo": "Aviso de golpe em área: o círculo vermelho enche do centro para a borda; o golpe cai no último quadro. Esticar a duração no motor.",
+ "frame_w": 128,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "chefe_aviso_area.png"
+}

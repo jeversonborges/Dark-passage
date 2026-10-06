@@ -1,0 +1,16 @@
+{
+ "w": 330,
+ "h": 194,
+ "anchor": [
+  101,
+  140
+ ],
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Tanque de sebo do abatedouro: caldeirão de ferro com gordura borbulhando.",
+ "kind": "tanque_sebo"
+}

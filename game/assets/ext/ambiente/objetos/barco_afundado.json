@@ -1,0 +1,15 @@
+{
+ "w": 224,
+ "h": 130,
+ "anchor": [
+  82,
+  84
+ ],
+ "categoria": "rio",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Barco de pesca meio afundado na lama, com remo e rede.",
+ "kind": "barco_afundado"
+}

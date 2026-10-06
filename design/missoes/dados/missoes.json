@@ -1,0 +1,1816 @@
+{
+  "versao": "0.1",
+  "nota": "Tipos de objetivo: matar {alvo, qtd}, coletar {item, qtd}, interagir {objeto, subzona, qtd, concede?}, usar_item {item, objeto, subzona}, explorar {subzona}, falar {npc}, farmar_spot {spot, qtd} (qualquer monstro morto dentro do spot, ids de design/mapas/spots.json; pedidos ainda não colocados no mapa ficam em locais.json 'spots.pedidos'), decidir {npc} (cumprido ao escolher uma das 'escolhas' no diálogo). Objetivos com 'etapa' maior só contam depois que os da etapa anterior terminam. 'faccao': vigilia, arautos ou ambas. As falas ficam em dialogos.json; aqui ficam os textos do diário de missões. XP segue design/combate/progressao.json: 70% do XP do nível para missão de história, 40% para secundária, 25% para diária.",
+  "missoes": [
+    {
+      "id": "v01",
+      "titulo": "Pavio Curto",
+      "tipo": "principal",
+      "faccao": "vigilia",
+      "nivel": 1,
+      "doador": "capita_odete",
+      "entrega": "capita_odete",
+      "requer": [],
+      "resumo": "Limpe a cerca do Acampamento da Vela.",
+      "descricao": "A Capitã Odete quer ver se você aguenta o tranco. Carniçais estão arranhando a cerca pelos Campos de Cinza. Derrube seis.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "carnical",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 300,
+        "ouro": 20,
+        "itens": [
+          {
+            "id": "faixa_vigilia",
+            "qtd": 1
+          },
+          {
+            "id": "pao_duro",
+            "qtd": 5
+          },
+          {
+            "id": "tonico_graxa",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Odete costurou uma Faixa da Vigília no seu braço sem dizer nada. Depois disse: 'Não morre, que dá trabalho costurar outra.'"
+    },
+    {
+      "id": "v02",
+      "titulo": "Cobre para a Vela",
+      "tipo": "principal",
+      "faccao": "vigilia",
+      "nivel": 2,
+      "doador": "doutor_anselmo",
+      "entrega": "doutor_anselmo",
+      "requer": [
+        "v01"
+      ],
+      "resumo": "Recupere bobinas de cobre roubadas pelos Corvos de Cinza.",
+      "descricao": "A Vela está piscando, e sem ela a poeira de Amargo invade o acampamento. O Doutor Anselmo precisa de cobre para as bobinas, e os Corvos de Cinza roubaram as que estavam secando no telhado. Tire de volta, de preferência de dentro dos corvos.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "bobina_cobre",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 30,
+        "itens": [
+          {
+            "id": "tonico_graxa",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "A Vela voltou a zumbir firme. Anselmo beijou uma bobina e depois a sua testa, nessa ordem."
+    },
+    {
+      "id": "v03",
+      "titulo": "Os Cães da Vala",
+      "tipo": "principal",
+      "faccao": "vigilia",
+      "nivel": 3,
+      "doador": "capita_odete",
+      "entrega": "capita_odete",
+      "requer": [
+        "v02"
+      ],
+      "resumo": "Acabe com a matilha da Vala antes que ela ache o caminho para o acampamento.",
+      "descricao": "Os Cães de Vala estão rondando o portão toda noite, atrás da sopa que alguém deixa lá fora. Odete quer a matilha morta antes que aprendam a pular a cerca.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "cao_de_vala",
+          "qtd": 8
+        }
+      ],
+      "recompensas": {
+        "xp": 1260,
+        "ouro": 40,
+        "escolha_por_classe": {
+          "humano": "escopeta_badalada",
+          "mutante": "machado_bonde",
+          "tecnomancer": "cajado_lampiao"
+        }
+      },
+      "texto_conclusao": "Odete mandou o Gaspar te dar uma arma de verdade. 'Recruta não. Soldado. Por enquanto.'"
+    },
+    {
+      "id": "v04",
+      "titulo": "Lacres Inteiros",
+      "tipo": "principal",
+      "faccao": "vigilia",
+      "nivel": 4,
+      "doador": "capita_odete",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "v03"
+      ],
+      "resumo": "Investigue o cemitério e encontre o coveiro.",
+      "descricao": "Os Não-Julgados do cemitério estão andando em fila na direção do abatedouro. Odete quer saber por quê. Derrube alguns, examine os lacres no peito deles e procure o velho coveiro, Simão, o único que mora lá.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "nao_julgado",
+          "qtd": 6
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "corpo_lacrado",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "simao_coveiro",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 1890,
+        "ouro": 50,
+        "itens": [
+          {
+            "id": "vela_simao",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "Os lacres estão todos inteiros. Ninguém aqui foi julgado. Simão te ofereceu chá e disse que estava esperando alguém da Vela."
+    },
+    {
+      "id": "a01",
+      "titulo": "Primeira Oração de Sangue",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 1,
+      "doador": "madre_ivone",
+      "entrega": "madre_ivone",
+      "requer": [],
+      "resumo": "Entregue os Carniçais dos Campos de Cinza ao Juízo.",
+      "descricao": "A Madre Ivone quer que sua primeira oração seja feita com as mãos. Os Carniçais dos Campos de Cinza nem esperaram o lacre: são restos sem propósito. Derrube seis.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "carnical",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 300,
+        "ouro": 20,
+        "itens": [
+          {
+            "id": "fita_juizo",
+            "qtd": 1
+          },
+          {
+            "id": "pao_duro",
+            "qtd": 5
+          },
+          {
+            "id": "hostia_negra",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "A Madre amarrou a Fita do Juízo no seu pulso com um nó apertado demais. 'Agora você sangra conosco.'"
+    },
+    {
+      "id": "a02",
+      "titulo": "Penas dos Irmãos Caídos",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 2,
+      "doador": "comandante_abdiel",
+      "entrega": "comandante_abdiel",
+      "requer": [
+        "a01"
+      ],
+      "resumo": "Recupere as penas dos anjos caídos roubadas pelos Corvos de Cinza.",
+      "descricao": "Anjos morreram nos Campos de Cinza na noite da meia nota e ninguém os recolheu. Os Corvos de Cinza arrancam as penas deles. O Comandante Abdiel quer as penas de volta para queimá-las no altar, como manda o rito.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "pena_querubim",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 30,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Abdiel queimou as penas uma por uma. Não disse nada, mas você jurou ouvir a porcelana do rosto dele rachar mais um pouco."
+    },
+    {
+      "id": "a03",
+      "titulo": "Dentes para o Penhor",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "malfas",
+      "entrega": "malfas",
+      "requer": [
+        "a02"
+      ],
+      "resumo": "Traga dentes de Cães de Vala para Malfas.",
+      "descricao": "Malfas, o penhorista do pátio, diz que pode equipar você direito, mas nada sai de graça. Ele aceita Dentes de Vala como pagamento. Abdiel fez cara de nojo quando ouviu, o que deixou Malfas muito feliz.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "dente_vala",
+          "qtd": 8
+        }
+      ],
+      "recompensas": {
+        "xp": 1260,
+        "ouro": 40,
+        "escolha_por_classe": {
+          "anjo": "espada_escudeiro",
+          "demonio": "foice_penhor",
+          "cultista": "adaga_chaga"
+        }
+      },
+      "texto_conclusao": "Malfas contou os dentes duas vezes, mordeu um, e tirou uma arma de dentro do sobretudo. 'Pra um anjo, eu ia cobrar o dobro. Mas você tem cara de quem volta.'"
+    },
+    {
+      "id": "a04",
+      "titulo": "A Espera dos Mortos",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "madre_ivone",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "a03"
+      ],
+      "resumo": "Examine os lacres dos Não-Julgados e encontre o coveiro.",
+      "descricao": "A Madre sente que a quinta trombeta está perto, debaixo da paróquia. Os Não-Julgados do cemitério andam em fila na direção do abatedouro, como se a ouvissem. Derrube alguns, examine os lacres e procure o coveiro Simão: ele sabe mais do que diz.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "nao_julgado",
+          "qtd": 6
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "corpo_lacrado",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "simao_coveiro",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 1890,
+        "ouro": 50,
+        "itens": [
+          {
+            "id": "vela_simao",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "Os lacres estão inteiros: ninguém foi julgado. Simão te recebeu sem medo e disse que a Capela demorou para mandar alguém."
+    },
+    {
+      "id": "c01",
+      "titulo": "Velas para os Mortos",
+      "tipo": "principal",
+      "faccao": "ambas",
+      "nivel": 5,
+      "doador": "simao_coveiro",
+      "entrega": "simao_coveiro",
+      "requer_qualquer": [
+        "v04",
+        "a04"
+      ],
+      "resumo": "Traga sebo do abatedouro para o coveiro fazer velas.",
+      "descricao": "Simão faz velas que acalmam os Não-Julgados, mas o sebo acabou. Os Porcos Pestilentos do Abatedouro Carniça são gordos o bastante. Enquanto você caça, ele promete contar por que os mortos andam para lá.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "sebo_rancoso",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 2640,
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "vela_simao",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Simão contou a história da meia nota: a quinta trombeta está debaixo da cidade, calada com chumbo, e os mortos se arrastam na direção dela como girassóis de noite."
+    },
+    {
+      "id": "c02",
+      "titulo": "O Livro de Óbitos",
+      "tipo": "principal",
+      "faccao": "ambas",
+      "nivel": 6,
+      "doador": "simao_coveiro",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "c01"
+      ],
+      "resumo": "Recupere o Livro de Óbitos no escritório do Abatedouro Carniça.",
+      "descricao": "O Livro de Óbitos do cemitério sumiu na época do cerco. Simão acha que está no escritório do capataz do abatedouro. Ele não explica por que acha isso. O Capataz Gancho guarda o mezanino e as chaves do lugar.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "acougueiro_oco",
+          "qtd": 8
+        },
+        {
+          "tipo": "matar",
+          "alvo": "capataz_gancho",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "chave_gancho",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "escritorio_capataz",
+          "subzona": "abatedouro_carnica",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "livro_obitos",
+              "qtd": 1
+            }
+          ]
+        }
+      ],
+      "recompensas": {
+        "xp": 3480,
+        "ouro": 90,
+        "itens": [
+          {
+            "id": "pao_duro",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "O livro revelou tudo: Benedito Carniça alimentou a cidade com os mortos do cemitério e do campo de batalha, e jogou o resto num fosso do porão, onde alguém pela metade comia e pedia mais. Um tal de 'S.' vendia corpos para ele. Simão leu, fechou o livro e ficou um tempo olhando para as próprias mãos."
+    },
+    {
+      "id": "c03",
+      "titulo": "A Porta Debaixo da Carne",
+      "tipo": "principal",
+      "faccao": "ambas",
+      "nivel": 7,
+      "doador": "simao_coveiro",
+      "entrega": "automatico",
+      "requer": [
+        "c02"
+      ],
+      "ao_concluir_inicia": "c04",
+      "resumo": "Abra o porão do abatedouro e desça.",
+      "descricao": "A Chave de Gancho abre a porta do porão do Abatedouro Carniça. Benedito desceu por ali para ver quem comia no fosso e nunca voltou. Lá embaixo começa a Cripta da Trombeta Calada.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "chave_gancho",
+          "objeto": "porta_ganchos",
+          "subzona": "abatedouro_carnica"
+        },
+        {
+          "tipo": "explorar",
+          "subzona": "porao_matadouro",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 4410,
+        "ouro": 0
+      },
+      "texto_conclusao": "A porta rangeu como um animal. O cheiro que subiu tinha gosto de ferro e açúcar."
+    },
+    {
+      "id": "c04",
+      "titulo": "O General Partido",
+      "tipo": "dungeon",
+      "faccao": "ambas",
+      "nivel": 8,
+      "doador": "automatico",
+      "entrega": "automatico",
+      "requer": [
+        "c03"
+      ],
+      "resumo": "Desça até a Vala da Grande Batalha e derrote Andras.",
+      "descricao": "No fundo do porão, onde Benedito jogou os mortos da Grande Batalha, vive Andras, o general demônio que o bonde da linha 7 partiu ao meio. Ele sobreviveu comendo os soldados mortos e está ficando forte para subir. O primeiro lacre da câmara da trombeta está pregado no estandarte dele.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "general_partido",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "lacre_carne",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 5460,
+        "ouro": 150,
+        "itens": [
+          {
+            "id": "dragonas_general",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Andras tentou morder o próprio estandarte e desabou no meio dos seus soldados. Pregado no mastro, o Lacre de Carne pulsava. Entre os ossos, um chapéu-coco: tudo o que sobrou de Benedito Carniça. Uma escada de pedra desce mais fundo, e de lá vem um canto."
+    },
+    {
+      "id": "c05",
+      "titulo": "Silêncio no Ossário",
+      "tipo": "dungeon",
+      "faccao": "ambas",
+      "nivel": 10,
+      "doador": "frei_anacleto",
+      "entrega": "frei_anacleto",
+      "requer": [
+        "c04"
+      ],
+      "resumo": "Cale a Irmã Celeste e recupere o Lacre de Lágrimas.",
+      "descricao": "Frei Anacleto, um monge emparedado há trezentos anos, diz que a Irmã Celeste rege um coro de ossos no fundo do ossário e guarda o segundo lacre. Ele pede que você faça silêncio. 'Por favor. Ela canta desafinado.'",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "irma_celeste",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "lacre_lagrimas",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 7860,
+        "ouro": 200,
+        "itens": [
+          {
+            "id": "veu_carpideira",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "O coro parou. Pela primeira vez em anos o ossário ficou em silêncio, e Anacleto chorou de alívio, o que para um fantasma é só um brilho mais forte."
+    },
+    {
+      "id": "c06",
+      "titulo": "A Trombeta Calada",
+      "tipo": "dungeon",
+      "faccao": "ambas",
+      "nivel": 12,
+      "doador": "frei_anacleto",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "c05"
+      ],
+      "resumo": "Abra a Câmara da Trombeta, derrote Zacarias e traga o bocal para Simão.",
+      "descricao": "Com os dois lacres, a porta da Câmara da Trombeta se abre. Lá embaixo, o arauto Zacarias segura a quinta trombeta há anos e quer terminar a nota, julgando todos, de qualquer lado. Tire o bocal das mãos dele e leve para o coveiro, que pediu para vê-lo uma vez.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "lacre_carne",
+          "objeto": "porta_camara",
+          "subzona": "ossario_carpideiras"
+        },
+        {
+          "tipo": "usar_item",
+          "item": "lacre_lagrimas",
+          "objeto": "porta_camara",
+          "subzona": "ossario_carpideiras"
+        },
+        {
+          "tipo": "matar",
+          "alvo": "zacarias_arauto",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "bocal_trombeta",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "falar",
+          "npc": "simao_coveiro",
+          "etapa": 3
+        }
+      ],
+      "recompensas": {
+        "xp": 10710,
+        "ouro": 400
+      },
+      "texto_conclusao": "Simão segurou o bocal por um longo tempo, com o polegar em cima do lacre de chumbo. Depois devolveu. 'Esperei dois mil anos. Espero mais um pouco.'"
+    },
+    {
+      "id": "v05",
+      "titulo": "O Destino do Bocal",
+      "tipo": "principal",
+      "faccao": "vigilia",
+      "nivel": 12,
+      "doador": "capita_odete",
+      "entrega": "doutor_anselmo",
+      "requer": [
+        "c06"
+      ],
+      "resumo": "Decida o que a Vigília faz com o bocal da quinta trombeta.",
+      "descricao": "Odete quer esmagar o bocal na bigorna do Gaspar agora mesmo. Anselmo implora para estudá-lo: acha que pode construir uma trombeta reversa que desfaça a meia nota. Os dois esperam que você decida.",
+      "objetivos": [
+        {
+          "tipo": "decidir",
+          "npc": "doutor_anselmo"
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "destruir",
+          "texto": "Destruir o bocal (Odete)",
+          "flags": [
+            "bocal_destruido"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "estilhaco_lacre",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "estudar",
+          "texto": "Entregar para estudo (Anselmo)",
+          "flags": [
+            "bocal_estudo_vigilia"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "diapasao_reverso",
+                "qtd": 1
+              }
+            ]
+          }
+        }
+      ],
+      "recompensas": {},
+      "texto_conclusao": "A decisão foi tomada. São Lázaro continua no impasse, mas o impasse agora tem a sua assinatura."
+    },
+    {
+      "id": "a05",
+      "titulo": "O Destino do Bocal",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 12,
+      "doador": "madre_ivone",
+      "entrega": [
+        "comandante_abdiel",
+        "malfas"
+      ],
+      "requer": [
+        "c06"
+      ],
+      "resumo": "Decida a quem os Arautos confiam o bocal da quinta trombeta.",
+      "descricao": "A Madre Ivone diz que o bocal deve ir para quem vai arrancar o lacre de chumbo. Abdiel exige guardá-lo, por direito de escudeiro de Zacarias. Malfas oferece um preço que ninguém mais pode pagar. A Madre deixa a escolha com você, o que não é um elogio.",
+      "objetivos": [
+        {
+          "tipo": "decidir",
+          "npc": [
+            "comandante_abdiel",
+            "malfas"
+          ]
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "abdiel",
+          "texto": "Confiar o bocal a Abdiel (os anjos guardam)",
+          "flags": [
+            "bocal_anjos"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "pena_zacarias",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "malfas",
+          "texto": "Vender o bocal a Malfas (os demônios guardam)",
+          "flags": [
+            "bocal_demonios"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 600,
+            "itens": [
+              {
+                "id": "etiqueta_branca",
+                "qtd": 1
+              }
+            ]
+          }
+        }
+      ],
+      "recompensas": {},
+      "texto_conclusao": "O bocal mudou de mãos. Do outro lado do pátio, alguém nunca vai te perdoar por isso."
+    },
+    {
+      "id": "s01",
+      "titulo": "Raízes de Cova",
+      "tipo": "secundaria",
+      "faccao": "vigilia",
+      "nivel": 4,
+      "doador": "mae_cardo",
+      "entrega": "mae_cardo",
+      "requer": [
+        "v02"
+      ],
+      "resumo": "Colete Raiz-de-Cova no cemitério para Mãe Cardo.",
+      "descricao": "Mãe Cardo precisa de Raiz-de-Cova para um caldo especial. Só nasce em terra de enterro, e os Não-Julgados costumam carregar algumas nas mortalhas.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "raiz_cova",
+          "qtd": 4
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 25,
+        "itens": [
+          {
+            "id": "caldo_cardo_comum",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Mãe Cardo cheirou as raízes e ficou quieta. 'Era o preferido dele', ela disse, e não explicou de quem."
+    },
+    {
+      "id": "s02",
+      "titulo": "Caldo para Joaquim",
+      "tipo": "secundaria",
+      "faccao": "vigilia",
+      "nivel": 5,
+      "doador": "mae_cardo",
+      "entrega": "mae_cardo",
+      "requer": [
+        "s01"
+      ],
+      "resumo": "Leve o caldo ao túmulo do marido de Cardo e encontre o filho dela.",
+      "descricao": "Mãe Cardo finalmente contou: o filho dela, Joaquim, virou uma besta e ronda o túmulo do pai no cemitério. Ela quer que ele tome o caldo de quando era menino, uma última vez. E quer que você faça o que precisar ser feito depois.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "caldo_cardo",
+          "objeto": "tumulo_cardo",
+          "subzona": "cemiterio_sao_lazaro"
+        },
+        {
+          "tipo": "matar",
+          "alvo": "filho_de_cardo",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "medalhinha_cardo",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "caldo_cardo",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 1500,
+        "ouro": 50,
+        "itens": [
+          {
+            "id": "lenco_cardo",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Mãe Cardo segurou a medalhinha contra o peito e mexeu o caldeirão com o braço grande, sem parar, até a sopa grudar no fundo."
+    },
+    {
+      "id": "s03",
+      "titulo": "Sinos Viram Balas",
+      "tipo": "secundaria",
+      "faccao": "vigilia",
+      "nivel": 6,
+      "doador": "gaspar_bigorna",
+      "entrega": "gaspar_bigorna",
+      "requer": [
+        "v03"
+      ],
+      "resumo": "Traga ferro do abatedouro e o último badalo da torre do cemitério.",
+      "descricao": "Gaspar quer fundir munição nova e precisa de ferro: os cutelos dos Açougueiros Ocos servem. Ele também pede, sem olhar nos seus olhos, o badalo do último sino de São Lázaro, que ficou na torre do cemitério.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "ferro_velho",
+          "qtd": 6
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "torre_sino",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "badalo_rachado",
+              "qtd": 1
+            }
+          ]
+        }
+      ],
+      "recompensas": {
+        "xp": 1980,
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "badalo_de_guerra",
+            "qtd": 1
+          },
+          {
+            "id": "agua_benta_polvora",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Gaspar derreteu o ferro sem hesitar. O badalo ele segurou por uma hora antes de jogar na forja. Guardou um pedaço para você."
+    },
+    {
+      "id": "s04",
+      "titulo": "Os Tesouros do Tobias",
+      "tipo": "secundaria",
+      "faccao": "vigilia",
+      "nivel": 3,
+      "doador": "tobias_pavio",
+      "entrega": "tobias_pavio",
+      "requer": [
+        "v01"
+      ],
+      "resumo": "Siga o mapa do Tobias e abra os três esconderijos.",
+      "descricao": "Tobias tem um mapa de três esconderijos que a maré de areia ainda não engoliu. Ele é pequeno demais para abrir os baús sozinho. O que estiver dentro é seu, menos uma caixinha de música, que é dele, e ele vai saber se você ficar com ela.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "bau_tobias_1",
+          "subzona": "campos_cinza",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "bau_tobias_2",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "bau_tobias_3",
+          "subzona": "abatedouro_carnica",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "caixinha_musica",
+          "qtd": 1
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "mapa_rasgado",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 80
+      },
+      "texto_conclusao": "Tobias deu corda na caixinha e ouviu as três notas com os olhos fechados. Depois disse que era só para revender. Não revendeu."
+    },
+    {
+      "id": "s05",
+      "titulo": "O Relicário Vazio",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "irmao_lucio",
+      "entrega": "irmao_lucio",
+      "requer": [
+        "a01"
+      ],
+      "resumo": "Recupere com Malfas o osso que Lúcio penhorou.",
+      "descricao": "Lúcio penhorou a relíquia da capela, um osso de São Lázaro, com Malfas durante o cerco, em troca de pão. A Madre vai rezar com o relicário na próxima missa. Malfas aceita devolver por dez Dentes de Vala.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "dente_vala",
+          "qtd": 10
+        },
+        {
+          "tipo": "falar",
+          "npc": "malfas",
+          "etapa": 2
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "relicario_vazio",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Malfas devolveu um osso de galinha e riu. 'Esse relicário nunca teve osso de santo, menino. Os ossos de Lázaro não estão em relicário nenhum. O dono ainda está usando.' Lúcio colocou o osso de galinha no relicário mesmo assim."
+    },
+    {
+      "id": "s06",
+      "titulo": "Carta para Rosa",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "irmao_lucio",
+      "entrega": "irmao_lucio",
+      "requer": [
+        "s05"
+      ],
+      "resumo": "Deixe a carta de Lúcio no Poço Seco, onde a irmã dele busca.",
+      "descricao": "Lúcio tem uma irmã do outro lado, no Acampamento da Vela. Eles trocam cartas pelo Poço Seco, nos Campos de Cinza. Ele pede que você leve a próxima. Se a Madre souber, os dois pagam caro.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "carta_lucio",
+          "objeto": "poco_seco",
+          "subzona": "campos_cinza"
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "carta_lucio",
+          "qtd": 1
+        }
+      ],
+      "pode_falhar": true,
+      "recompensas": {
+        "xp": 1500,
+        "ouro": 30,
+        "itens": [
+          {
+            "id": "terco_lucio",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "No fundo do poço já havia uma resposta: meio terço de contas de osso e um bilhete, 'O joelho ainda estala. Volta pra casa.' Lúcio te deu a outra metade."
+    },
+    {
+      "id": "s07",
+      "titulo": "Fé Acima do Sangue",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "madre_ivone",
+      "entrega": "madre_ivone",
+      "requer": [
+        "s05"
+      ],
+      "oculta": true,
+      "resumo": "Você entregou a carta de Lúcio à Madre Ivone.",
+      "descricao": "Só aparece se o jogador entregar a Carta para Rosa à Madre em vez de levá-la ao poço. Falha 'Carta para Rosa'.",
+      "objetivos": [
+        {
+          "tipo": "falar",
+          "npc": "madre_ivone"
+        }
+      ],
+      "falha_ao_aceitar": [
+        "s06"
+      ],
+      "flags": [
+        "lucio_denunciado"
+      ],
+      "recompensas": {
+        "xp": 1500,
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "selo_madre",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "A Madre leu a carta inteira, dobrou com cuidado e agradeceu. Lúcio não está mais na sacristia. Ninguém fala dele."
+    },
+    {
+      "id": "s08",
+      "titulo": "Covas Abertas",
+      "tipo": "secundaria",
+      "faccao": "ambas",
+      "nivel": 4,
+      "doador": "simao_coveiro",
+      "entrega": "simao_coveiro",
+      "requer_qualquer": [
+        "v04",
+        "a04"
+      ],
+      "resumo": "Use a pá de Simão para cobrir os túmulos que a areia descobriu.",
+      "descricao": "A maré de areia desenterra os túmulos toda noite, e os Não-Julgados que você derruba ficam expostos ao vento. Simão está velho demais para cobrir todos. Ele empresta a pá dele, o que, segundo ele, nunca fez.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "covas_abertas",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 5
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "pa_simao",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "vela_simao",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Simão pegou a pá de volta e passou o dedo na lâmina. 'Você cava torto. Mas cava com respeito. Isso não se ensina.'"
+    },
+    {
+      "id": "s09",
+      "titulo": "Os Emparedados",
+      "tipo": "secundaria",
+      "faccao": "ambas",
+      "nivel": 10,
+      "doador": "frei_anacleto",
+      "entrega": "frei_anacleto",
+      "requer": [
+        "c04"
+      ],
+      "resumo": "Leia as confissões nas celas dos monges emparedados.",
+      "descricao": "Cada monge emparedado no ossário escreveu a própria confissão na parede antes de morrer. Ninguém nunca leu. Anacleto diz que uma confissão que ninguém escuta não vale. Leia cinco.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "cela_monge",
+          "subzona": "ossario_carpideiras",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 4500,
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "figo_anacleto",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Anacleto te deu o figo seco que guardava para o dia do Juízo. 'Acho que o Juízo vai demorar. E você parece com fome.'"
+    },
+    {
+      "id": "r01",
+      "titulo": "Patrulha da Cerca",
+      "tipo": "repetivel",
+      "repete": "diaria",
+      "faccao": "vigilia",
+      "nivel": 3,
+      "doador": "capita_odete",
+      "entrega": "capita_odete",
+      "requer": [
+        "v03"
+      ],
+      "resumo": "Patrulhe a cerca e derrube o que estiver arranhando.",
+      "descricao": "Todo dia alguém faz a ronda da cerca. Hoje é você.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "carnical",
+          "qtd": 10
+        },
+        {
+          "tipo": "matar",
+          "alvo": "corvo_de_cinza",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 450,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "caldo_cardo_comum",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "Cerca inteira. Por hoje."
+    },
+    {
+      "id": "r02",
+      "titulo": "Dízimo de Dentes",
+      "tipo": "repetivel",
+      "repete": "diaria",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "malfas",
+      "entrega": "malfas",
+      "requer": [
+        "a03"
+      ],
+      "resumo": "Traga o dízimo diário de Dentes de Vala para Malfas.",
+      "descricao": "Malfas paga bem por dentes, todo dia. Ele chama de dízimo para irritar o Abdiel.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "dente_vala",
+          "qtd": 10
+        }
+      ],
+      "recompensas": {
+        "xp": 450,
+        "ouro": 55,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "Malfas pendurou mais uma etiqueta no colar. Você preferiu não ler o nome."
+    },
+    {
+      "id": "d01v",
+      "titulo": "Números no Rádio",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "vigilia",
+      "nivel": 5,
+      "doador": "doutor_anselmo",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "v03"
+      ],
+      "resumo": "Siga a voz que lê números no rádio até o Bairro Afogado.",
+      "descricao": "O rádio do Doutor Anselmo pega toda noite uma voz de mulher lendo números: 'Absinto-dois, ainda aqui.' Ele quer saber quem é. A voz vem da torre da Rádio São Lázaro, no Bairro Afogado, e a matilha tomou os becos do caminho.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "telhados_dos_corvos",
+          "qtd": 12
+        },
+        {
+          "tipo": "falar",
+          "npc": "isaura_radialista",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército que mora na torre enterrada. Ela não pareceu surpresa ao ver alguém da Vela."
+    },
+    {
+      "id": "d01a",
+      "titulo": "A Voz Herege",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "madre_ivone",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "a03"
+      ],
+      "resumo": "Encontre quem profana o nome da estrela no rádio.",
+      "descricao": "Toda noite uma voz no rádio diz que a estrela Absinto tinha número de série. A Madre Ivone quer que essa voz se cale, ou que se explique. Ela vem da torre da Rádio São Lázaro, no Bairro Afogado, e a matilha tomou os becos do caminho.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "telhados_dos_corvos",
+          "qtd": 12
+        },
+        {
+          "tipo": "falar",
+          "npc": "isaura_radialista",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército. Ela ofereceu chá e disse: 'A Madre ainda acha que foi Deus? Senta. Vai demorar.'"
+    },
+    {
+      "id": "d02",
+      "titulo": "Antena no Telhado",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "ambas",
+      "nivel": 6,
+      "doador": "isaura_radialista",
+      "entrega": "isaura_radialista",
+      "requer_qualquer": [
+        "d01v",
+        "d01a"
+      ],
+      "resumo": "Traga válvulas de rádio e conserte a antena da torre.",
+      "descricao": "A antena da Rádio São Lázaro está morrendo. Isaura precisa de válvulas de vidro, e os Cães de Vala engolem qualquer coisa que brilhe na areia. A toca da matilha, na Vala, deve estar cheia delas.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "fosso_dos_caes",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "valvula_radio",
+          "qtd": 5
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "antena_radio",
+          "subzona": "bairro_afogado",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 3480
+      },
+      "texto_conclusao": "Com a antena viva, Isaura contou a primeira parte: ela era a radiotelegrafista do Comando Sul, e o Silo São Lázaro ficava a poucos quilômetros dali."
+    },
+    {
+      "id": "d03",
+      "titulo": "A Ordem das 03h11",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "ambas",
+      "nivel": 7,
+      "doador": "isaura_radialista",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "d02"
+      ],
+      "resumo": "Recupere as páginas da ordem de lançamento com as viúvas da vila militar.",
+      "descricao": "Isaura leu a ordem de lançamento em voz alta uma única vez, há muitos anos. As cópias de carbono ficaram na vila militar do silo, que afundou onde hoje é o Bosque das Viúvas. As viúvas guardam pedaços nas mortalhas sem saber o que dizem.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "margem_das_viuvas",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "pagina_ordem",
+          "qtd": 4
+        }
+      ],
+      "recompensas": {
+        "ouro": 100,
+        "itens": [
+          {
+            "id": "leitura_ordem_lancamento",
+            "qtd": 1
+          }
+        ],
+        "xp": 4410
+      },
+      "texto_conclusao": "A ordem está inteira. Alvo: uma formação alada sobre a capital. Arma: Ogiva Absinto-1. A estrela que caiu e amargou as águas não veio do céu. Subiu daqui."
+    },
+    {
+      "id": "d04",
+      "titulo": "O Que a Água Lembra",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "ambas",
+      "nivel": 8,
+      "doador": "isaura_radialista",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "d03"
+      ],
+      "resumo": "Colete amostras do Rio Amargo e descubra de onde vem o Amargo.",
+      "descricao": "Se a estrela foi uma bomba, o Amargo é a cinza dela. Isaura quer provar com o contador: a água do Rio Amargo deve ter a mesma assinatura da Absinto-1. A margem está tomada pela matilha e por desertores da Legião.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "acampamento_desertores",
+          "qtd": 18
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "pocas_amargas",
+          "subzona": "rio_amargo",
+          "qtd": 3,
+          "concede": [
+            {
+              "id": "amostra_amarga",
+              "qtd": 1
+            }
+          ]
+        },
+        {
+          "tipo": "coletar",
+          "item": "amostra_amarga",
+          "qtd": 3
+        }
+      ],
+      "recompensas": {
+        "ouro": 120,
+        "itens": [
+          {
+            "id": "contador_isaura",
+            "qtd": 1
+          }
+        ],
+        "xp": 5460
+      },
+      "texto_conclusao": "O contador estalou igual para as três amostras e para o pó que cai do céu. O Amargo é a radiação da bomba, trazida pelo vento da cratera lá longe. A praga, as mutações, o rio que quase secou: tudo veio do mesmo botão."
+    },
+    {
+      "id": "d05",
+      "titulo": "O Muro das Sombras",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "ambas",
+      "nivel": 10,
+      "doador": "isaura_radialista",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "d04"
+      ],
+      "resumo": "Atravesse o muro das sombras na borda da tempestade.",
+      "descricao": "O silo fica dentro da tempestade, atrás do muro da vila militar. O clarão do lançamento gravou ali a sombra de quem estava olhando, e à noite as sombras descolam. Isaura precisa de fragmentos do muro para achar a escotilha de serviço: onde a sombra é mais densa, a porta está atrás.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "beira_da_tempestade",
+          "qtd": 20
+        },
+        {
+          "tipo": "coletar",
+          "item": "fragmento_clarao",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "ouro": 150,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 5
+          }
+        ],
+        "xp": 7860
+      },
+      "texto_conclusao": "Num dos fragmentos, a sombra de uma mulher de fones de ouvido segura a sombra de um menino. Isaura olhou muito tempo e disse que era só uma coincidência."
+    },
+    {
+      "id": "d06",
+      "titulo": "Absinto-2",
+      "tipo": "principal",
+      "linha": "A Estrela Que Nós Soltamos",
+      "faccao": "ambas",
+      "nivel": 12,
+      "doador": "isaura_radialista",
+      "entrega": "isaura_radialista",
+      "requer": [
+        "d05"
+      ],
+      "resumo": "Entre no silo, derrote o último operador e decida o destino da segunda ogiva.",
+      "descricao": "A Absinto-2 nunca foi lançada. O Sargento Brandão, fundido à cadeira de comando, ainda guarda a chave e espera a segunda ordem. Tire a chave dele. Depois, Isaura quer que você decida: desarmar a ogiva para sempre ou levar a chave para a sua facção.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "escotilha_silo",
+          "subzona": "tempestade_areia",
+          "qtd": 1
+        },
+        {
+          "tipo": "matar",
+          "alvo": "ultimo_operador",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "chave_lancamento",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "decidir",
+          "npc": "isaura_radialista",
+          "etapa": 3
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "desarmar",
+          "texto": "Desarmar a Absinto-2 para sempre",
+          "flags": [
+            "ogiva_desarmada"
+          ],
+          "recompensas": {
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "estilhaco_absinto",
+                "qtd": 1
+              }
+            ],
+            "xp": 10710
+          }
+        },
+        {
+          "id": "entregar",
+          "texto": "Levar a chave para a sua facção",
+          "flags": [
+            "ogiva_com_faccao"
+          ],
+          "recompensas": {
+            "ouro": 500,
+            "itens": [
+              {
+                "id": "chave_segunda_estrela",
+                "qtd": 1
+              }
+            ],
+            "xp": 10710
+          }
+        }
+      ],
+      "texto_conclusao": "A segunda estrela tem dono agora, ou não tem mais. Isaura desligou o transmissor pela primeira vez em quarenta anos.",
+      "recompensas": {}
+    },
+    {
+      "id": "e01a",
+      "titulo": "A Cadeira Vazia",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "malfas",
+      "entrega": "corvina_atravessadora",
+      "requer": [
+        "a03"
+      ],
+      "resumo": "Procure o corpo do general Andras no campo da Grande Batalha.",
+      "descricao": "Desde a Grande Batalha, ninguém sabe do general da Legião Blasfema. Os demônios dizem que os anjos o mataram pelas costas; os anjos dizem que os cultistas o venderam. Malfas quer uma prova, qualquer prova, que possa usar. Vá aos Campos de Cinza e examine os estandartes caídos da Legião. Depois procure Corvina, a atravessadora: ela sabe de tudo e vende tudo.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "covas_rasas",
+          "qtd": 10
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "estandartes_caidos",
+          "subzona": "campos_cinza",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "corvina_atravessadora",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "Nenhum corpo de general no campo. Corvina riu quando ouviu o nome de Malfas: 'Ele quer o general morto? Que curioso. Os demônios querem ele vivo.'"
+    },
+    {
+      "id": "e01v",
+      "titulo": "Os Arautos Brigam",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "vigilia",
+      "nivel": 5,
+      "doador": "tobias_pavio",
+      "entrega": "corvina_atravessadora",
+      "requer": [
+        "v03"
+      ],
+      "resumo": "Descubra por que anjos e demônios estão brigando na Capela.",
+      "descricao": "Tobias jura que ouviu, do alto de um telhado enterrado, anjos e demônios gritando na Capela. Algo sobre um general que sumiu. Odete quer saber se é briga de verdade ou armadilha. Examine os estandartes da Legião nos Campos de Cinza e procure Corvina, que vende segredos para os dois lados.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "covas_rasas",
+          "qtd": 10
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "estandartes_caidos",
+          "subzona": "campos_cinza",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "corvina_atravessadora",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "tonico_graxa",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "É briga de verdade. O general da Legião Blasfema sumiu na Grande Batalha, e a aliança dos Arautos está apodrecendo por dentro. Corvina cobrou caro, mas deu o nome: Andras."
+    },
+    {
+      "id": "e02",
+      "titulo": "Desertores",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "ambas",
+      "nivel": 6,
+      "doador": "corvina_atravessadora",
+      "entrega": "corvina_atravessadora",
+      "requer_qualquer": [
+        "e01a",
+        "e01v"
+      ],
+      "resumo": "Afaste os desertores da Legião do Rio Amargo.",
+      "descricao": "Sem general, metade da Legião Blasfema desertou. Os desertores acamparam no Rio Amargo, cobram pedágio da água e atrapalham os negócios de Corvina. Ela troca o próximo segredo por um acampamento limpo e um punhado de insígnias arrancadas, para saber quem eram.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "acampamento_desertores",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "insignia_arrancada",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 3480
+      },
+      "texto_conclusao": "Atrás de cada insígnia, a mesma costura: 'A Andras, até o fim.' Eles não desertaram da Legião. Desertaram da aliança que deixou o general para trás."
+    },
+    {
+      "id": "e03",
+      "titulo": "Veneno no Cálice",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "ambas",
+      "nivel": 7,
+      "doador": "corvina_atravessadora",
+      "entrega": "corvina_atravessadora",
+      "requer": [
+        "e02"
+      ],
+      "resumo": "Descubra o plano dos cultistas apóstatas e decida a quem contar.",
+      "descricao": "Corvina ouviu que uma célula de cultistas, os Apóstatas, se esconde entre as viúvas do Bosque. Eles odeiam a aliança e querem a Capela só para humanos de fé. Ache a carta que eles trocam e traga para ela. Depois, alguém vai ter que saber. A escolha de quem é sua.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "margem_das_viuvas",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "carta_apostata",
+          "qtd": 1
+        },
+        {
+          "tipo": "decidir",
+          "npc": "corvina_atravessadora",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "anjos",
+          "texto": "Avisar Abdiel do veneno (os anjos ficam devendo)",
+          "flags": [
+            "avisou_anjos"
+          ],
+          "recompensas": {
+            "ouro": 120,
+            "xp": 4410
+          }
+        },
+        {
+          "id": "demonios",
+          "texto": "Mostrar a carta a Malfas (os demônios ficam devendo)",
+          "flags": [
+            "avisou_demonios"
+          ],
+          "recompensas": {
+            "ouro": 120,
+            "xp": 4410
+          }
+        },
+        {
+          "id": "silencio",
+          "texto": "Deixar o veneno chegar ao cálice e ver o que acontece",
+          "flags": [
+            "calice_envenenado"
+          ],
+          "recompensas": {
+            "ouro": 200,
+            "xp": 4410
+          }
+        }
+      ],
+      "texto_conclusao": "A carta foi parar onde você quis. A aliança dos Arautos ficou mais podre, ou um pouco menos, conforme a mão que a entregou.",
+      "recompensas": {}
+    },
+    {
+      "id": "e04",
+      "titulo": "O Marco do Corte",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "ambas",
+      "nivel": 8,
+      "doador": "corvina_atravessadora",
+      "entrega": "corvina_atravessadora",
+      "requer": [
+        "e03"
+      ],
+      "resumo": "Investigue o bonde tombado onde o general foi visto pela última vez.",
+      "descricao": "Um desertor bêbado contou a Corvina que viu o general pela última vez nos trilhos, segurando a linha, um segundo antes de um bonde passar. O bonde tombado ainda está lá, no meio dos Campos de Cinza. Desertores rondam o lugar procurando o corpo.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "marco_do_corte",
+          "qtd": 18
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "marco_do_corte",
+          "subzona": "campos_cinza",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "meia_dragona",
+              "qtd": 1
+            }
+          ]
+        },
+        {
+          "tipo": "coletar",
+          "item": "meia_dragona",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "ouro": 120,
+        "itens": [
+          {
+            "id": "divisa_legiao",
+            "qtd": 1
+          }
+        ],
+        "xp": 5460
+      },
+      "texto_conclusao": "Meia dragona, cortada reto. Unhas cravadas no trilho. Um rastro de arrasto indo para o leste. O general não morreu no campo. Ele saiu dali se arrastando."
+    },
+    {
+      "id": "e05a",
+      "titulo": "Um General Pela Metade",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "arautos",
+      "nivel": 8,
+      "doador": "corvina_atravessadora",
+      "entrega": "malfas",
+      "requer": [
+        "e04",
+        "c02"
+      ],
+      "resumo": "Siga o rastro até o abatedouro e leve a verdade a Malfas.",
+      "descricao": "O rastro de arrasto atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga, confirme que ele desce para o porão e leve a meia dragona a Malfas. O que ele faz com a verdade é problema da aliança.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "chiqueiro_do_carnica",
+          "qtd": 12
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "rastro_arrasto",
+          "subzona": "abatedouro_carnica",
+          "qtd": 3
+        },
+        {
+          "tipo": "decidir",
+          "npc": "malfas",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "revelar",
+          "texto": "Contar à Legião que Andras está vivo no fosso",
+          "flags": [
+            "andras_revelado"
+          ],
+          "recompensas": {
+            "ouro": 250,
+            "itens": [
+              {
+                "id": "agua_doce",
+                "qtd": 5
+              }
+            ],
+            "xp": 5460
+          }
+        },
+        {
+          "id": "calar",
+          "texto": "Deixar Malfas esconder a verdade e assumir a Legião",
+          "flags": [
+            "malfas_general"
+          ],
+          "recompensas": {
+            "ouro": 400,
+            "xp": 5460
+          }
+        }
+      ],
+      "texto_conclusao": "A Legião Blasfema tem agora um general vivo e pela metade no fundo de um porão, ou um penhorista com pretensões de comando. De um jeito ou de outro, a aliança nunca mais vai confiar em si mesma.",
+      "recompensas": {}
+    },
+    {
+      "id": "e05v",
+      "titulo": "O Que a Odete Não Contou",
+      "tipo": "principal",
+      "linha": "A Legião Sem General",
+      "faccao": "vigilia",
+      "nivel": 8,
+      "doador": "corvina_atravessadora",
+      "entrega": "capita_odete",
+      "requer": [
+        "e04",
+        "c02"
+      ],
+      "resumo": "Siga o rastro até o abatedouro e leve a meia dragona à Capitã Odete.",
+      "descricao": "O rastro de arrasto atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga, confirme que ele desce para o porão e leve a meia dragona a Odete. Ela dirigia o bonde da linha 7 naquela noite.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "chiqueiro_do_carnica",
+          "qtd": 12
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "rastro_arrasto",
+          "subzona": "abatedouro_carnica",
+          "qtd": 3
+        },
+        {
+          "tipo": "decidir",
+          "npc": "capita_odete",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "espalhar",
+          "texto": "Espalhar entre os Arautos que o general está vivo",
+          "flags": [
+            "vigilia_espalhou_andras"
+          ],
+          "recompensas": {
+            "ouro": 250,
+            "itens": [
+              {
+                "id": "agua_doce",
+                "qtd": 5
+              }
+            ],
+            "xp": 5460
+          }
+        },
+        {
+          "id": "guardar",
+          "texto": "Guardar o segredo para a Vigília usar depois",
+          "flags": [
+            "vigilia_guardou_andras"
+          ],
+          "recompensas": {
+            "ouro": 250,
+            "itens": [
+              {
+                "id": "agua_benta_polvora",
+                "qtd": 5
+              }
+            ],
+            "xp": 5460
+          }
+        }
+      ],
+      "texto_conclusao": "Odete segurou a meia dragona como quem segura um bilhete de bonde antigo. 'Eu passei por cima dele e não olhei para trás. Pelo jeito, ele olhou.'",
+      "recompensas": {}
+    }
+  ]
+}

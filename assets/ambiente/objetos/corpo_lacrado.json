@@ -1,0 +1,15 @@
+{
+ "w": 134,
+ "h": 78,
+ "anchor": [
+  54,
+  46
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  3
+ ],
+ "descricao": "Corpo lacrado em mortalha costurada com ferro (aguardando o Juízo).",
+ "kind": "corpo_lacrado"
+}

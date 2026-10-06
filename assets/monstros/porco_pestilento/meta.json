@@ -1,0 +1,115 @@
+{
+ "monstro": "porco_pestilento",
+ "frame_size": [
+  256,
+  256
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  128.0,
+  162.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 9,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "scrape": {
+   "frames": 6,
+   "fps": 9,
+   "loop": true
+  },
+  "charge": {
+   "frames": 6,
+   "fps": 14,
+   "loop": true
+  },
+  "stun": {
+   "frames": 8,
+   "fps": 7,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "porco_pestilento_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "porco_pestilento_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "porco_pestilento_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "scrape": {
+   "file": "porco_pestilento_scrape.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "charge": {
+   "file": "porco_pestilento_charge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "stun": {
+   "file": "porco_pestilento_stun.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "porco_pestilento_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "porco_pestilento_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.95
+ }
+}

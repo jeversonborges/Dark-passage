@@ -1,0 +1,21 @@
+{
+ "name": "sangue_poca",
+ "cat": "combate",
+ "frames": 10,
+ "fps": 12,
+ "loop": false,
+ "anchor": [
+  28,
+  14
+ ],
+ "layer": "chao",
+ "desc": "Poça de sangue que se espalha sob o corpo (manter o último quadro).",
+ "char": null,
+ "title": "Poça de sangue",
+ "resumo": "Poça de sangue que se espalha sob o corpo (manter o último quadro).",
+ "frame_w": 56,
+ "frame_h": 28,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "sangue_poca.png"
+}

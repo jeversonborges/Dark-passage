@@ -1,0 +1,21 @@
+{
+ "name": "naojulgado_brilho_noite",
+ "cat": "ambiente",
+ "frames": 16,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  36,
+  110
+ ],
+ "layer": "frente",
+ "desc": "Brilho dos Não-Julgados à noite: halo verde de Amargo em volta do corpo, olhos acesos e fiapos subindo; mais forte que a areia. Desenhar por cima do sprite do morto.",
+ "char": null,
+ "title": "Brilho dos Não-Julgados à noite",
+ "resumo": "Halo verde de Amargo em volta do corpo, olhos acesos e fiapos subindo; mais forte que a areia. Desenhar por cima do sprite do morto.",
+ "frame_w": 72,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "naojulgado_brilho_noite.png"
+}

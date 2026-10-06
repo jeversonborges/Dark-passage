@@ -1,0 +1,15 @@
+{
+ "w": 732,
+ "h": 414,
+ "anchor": [
+  147,
+  345
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Carvalho morto grande, com corvos.",
+ "kind": "arvore_morta_grande"
+}

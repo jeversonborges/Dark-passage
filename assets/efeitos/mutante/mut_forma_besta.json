@@ -1,0 +1,21 @@
+{
+ "name": "mut_forma_besta",
+ "cat": "mutante",
+ "frames": 24,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  88,
+  180
+ ],
+ "layer": "frente",
+ "desc": "Forma da Besta (suprema): casulo de gosma ácida explode e a mutação toma o corpo.",
+ "char": null,
+ "title": "Forma da Besta (suprema)",
+ "resumo": "Casulo de gosma ácida explode e a mutação toma o corpo.",
+ "frame_w": 176,
+ "frame_h": 208,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "mut_forma_besta.png"
+}

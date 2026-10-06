@@ -1,0 +1,16 @@
+{
+ "w": 126,
+ "h": 82,
+ "anchor": [
+  26,
+  64
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Estacas com corda de guarda na beira do precipício (segmento de 1 tile).",
+ "kind": "corda_guarda_a"
+}

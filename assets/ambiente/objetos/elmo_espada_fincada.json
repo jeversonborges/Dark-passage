@@ -1,0 +1,15 @@
+{
+ "w": 162,
+ "h": 104,
+ "anchor": [
+  41,
+  78
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Espada fincada na areia com elmo pendurado: túmulo de soldado da Grande Batalha.",
+ "kind": "elmo_espada_fincada"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "aura_humano",
+ "cat": "auras",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  40,
+  110
+ ],
+ "layer": "frente",
+ "desc": "Aura de Humano (prata e pólvora): brilho de equipamento lendário / estágio 3 (repetir, desenhar atrás e na frente do personagem).",
+ "char": "humano",
+ "title": "Aura do Humano",
+ "resumo": "Aura de Humano (prata e pólvora): brilho de equipamento lendário / estágio 3 (repetir, desenhar atrás e na frente do personagem).",
+ "frame_w": 80,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "aura_humano.png"
+}

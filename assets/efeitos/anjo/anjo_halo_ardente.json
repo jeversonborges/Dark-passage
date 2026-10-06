@@ -1,0 +1,21 @@
+{
+ "name": "anjo_halo_ardente",
+ "cat": "anjo",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  88,
+  72
+ ],
+ "layer": "frente",
+ "desc": "Halo Ardente: anel de luz que se expande e cega; aliados no anel recebem cura.",
+ "char": null,
+ "title": "Halo Ardente",
+ "resumo": "Anel de luz que se expande e cega; aliados no anel recebem cura.",
+ "frame_w": 176,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "anjo_halo_ardente.png"
+}

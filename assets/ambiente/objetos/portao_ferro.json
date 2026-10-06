@@ -1,0 +1,15 @@
+{
+ "w": 364,
+ "h": 230,
+ "anchor": [
+  67,
+  192
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "portao_ferro"
+}

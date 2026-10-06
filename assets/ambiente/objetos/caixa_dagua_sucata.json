@@ -1,0 +1,15 @@
+{
+ "w": 520,
+ "h": 332,
+ "anchor": [
+  77,
+  289
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Caixa d'água de sobreviventes: tanque de latão sobre estrutura de vigas, com filtro.",
+ "kind": "caixa_dagua_sucata"
+}

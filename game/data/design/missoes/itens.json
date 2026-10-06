@@ -1,0 +1,809 @@
+{
+  "versao": "0.1",
+  "nota": "Itens de missão, consumíveis de história, textos de leitura e equipamentos com nome. Os números em 'atributos' são sugestões; quem cuida do balanceamento e das tabelas de drop pode ajustar. Chaves de atributo: for, agi, vit, esp, dano [min,max], defesa, hp, recurso.",
+  "raridades": [
+    "comum",
+    "magico",
+    "raro",
+    "unico"
+  ],
+  "itens": [
+    {
+      "id": "bobina_cobre",
+      "nome": "Bobina de Cobre",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Cobre de bonde enrolado à mão. Os corvos acham que é joia. O Doutor Anselmo acha que é vida."
+    },
+    {
+      "id": "pena_querubim",
+      "nome": "Pena de Querubim",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Pena branca e suja, longa como um braço. Ainda morna. Os corvos arrancam dos anjos caídos nos campos."
+    },
+    {
+      "id": "dente_vala",
+      "nome": "Dente de Vala",
+      "tipo": "missao",
+      "pilha": 50,
+      "descricao": "Dente amarelo de um Cão de Vala. Malfas aceita como moeda: diz que cada dente mordeu uma alma."
+    },
+    {
+      "id": "raiz_cova",
+      "nome": "Raiz-de-Cova",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Raiz branca que só nasce em terra de enterro. Cheira a chuva e a ferro."
+    },
+    {
+      "id": "caldo_cardo",
+      "nome": "Caldo de Cardo",
+      "tipo": "missao",
+      "pilha": 1,
+      "uso": "Usar no Túmulo do Marido de Cardo, no cemitério.",
+      "descricao": "Caldo de osso, raiz-de-cova e uma folha de louro. O prato preferido de Joaquim quando ele ainda era menino."
+    },
+    {
+      "id": "medalhinha_cardo",
+      "nome": "Medalhinha de Joaquim",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Medalha de batismo de latão, amassada, presa num lenço florido. No verso: 'Joaquim, que a mãe te guarde'."
+    },
+    {
+      "id": "sebo_rancoso",
+      "nome": "Sebo Rançoso",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Gordura amarela dos tanques do abatedouro. Simão faz velas com ela. Você prefere não pensar de que bicho veio."
+    },
+    {
+      "id": "ferro_velho",
+      "nome": "Ferro Velho",
+      "tipo": "missao",
+      "pilha": 20,
+      "descricao": "Cutelos, correntes e ganchos enferrujados dos Açougueiros Ocos. Gaspar derrete tudo."
+    },
+    {
+      "id": "badalo_rachado",
+      "nome": "Badalo Rachado",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "O badalo do último sino de São Lázaro, que Gaspar não teve coragem de derreter. Pesa como uma criança dormindo."
+    },
+    {
+      "id": "livro_obitos",
+      "nome": "Livro de Óbitos de São Lázaro",
+      "tipo": "missao",
+      "pilha": 1,
+      "leitura": "leitura_obitos",
+      "descricao": "Livro-razão do coveiro, roubado do cemitério. Nas últimas páginas a letra muda: vira a letra de um comerciante."
+    },
+    {
+      "id": "chave_gancho",
+      "nome": "Chave de Gancho",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Chave de ferro em forma de gancho de carne, presa a um chaveiro de couro com o nome CARNIÇA. Abre a porta do porão."
+    },
+    {
+      "id": "lacre_carne",
+      "nome": "Lacre de Carne",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "O primeiro dos dois lacres que trancam a porta da câmara da trombeta. Estava pregado no mastro do estandarte de Andras. Cera vermelha que pulsa como músculo."
+    },
+    {
+      "id": "lacre_lagrimas",
+      "nome": "Lacre de Lágrimas",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "O segundo lacre da porta da câmara. Cera clara, sempre úmida. Se você encostar no ouvido, alguém está chorando."
+    },
+    {
+      "id": "bocal_trombeta",
+      "nome": "Bocal da Quinta Trombeta",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "O bocal da trombeta de São Lázaro, ainda tampado pelo lacre de chumbo da Vigília. Vibra em silêncio, como se prendesse a respiração."
+    },
+    {
+      "id": "carta_lucio",
+      "nome": "Carta para Rosa",
+      "tipo": "missao",
+      "pilha": 1,
+      "leitura": "leitura_carta_lucio",
+      "descricao": "Envelope lacrado com cera vinho. Na frente, em letra caprichada: 'Para Rosa, no Acampamento da Vela. Não abra, por favor.'"
+    },
+    {
+      "id": "mapa_rasgado",
+      "nome": "Mapa Rasgado do Tobias",
+      "tipo": "missao",
+      "pilha": 1,
+      "leitura": "leitura_mapa_tobias",
+      "descricao": "Um mapa da paróquia desenhado a carvão num papel de embrulho. Três X e muitos desenhos de caveira feitos por diversão."
+    },
+    {
+      "id": "relicario_vazio",
+      "nome": "Relicário Vazio",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Relicário de prata escurecida. Devia guardar um osso de São Lázaro. Está vazio, e o Irmão Lúcio sabe por quê."
+    },
+    {
+      "id": "pa_simao",
+      "nome": "Pá do Coveiro",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "A pá de Simão. O cabo foi trocado mil vezes; a lâmina, nunca."
+    },
+    {
+      "id": "caixinha_musica",
+      "nome": "Caixinha de Música Amassada",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Caixinha de latão com uma bailarina sem cabeça. Toca três notas de uma canção de ninar e trava. Tobias diz que era da mãe dele, e depois diz que é mentira."
+    },
+    {
+      "id": "pao_duro",
+      "nome": "Pão Duro",
+      "tipo": "consumivel",
+      "pilha": 20,
+      "efeito": {
+        "cura_hp": 60,
+        "duracao_s": 10
+      },
+      "preco": 8,
+      "descricao": "Pão de centeio de três dias. Mãe Cardo jura que tem fermento. Cura devagar."
+    },
+    {
+      "id": "agua_doce",
+      "nome": "Cantil de Água Doce",
+      "tipo": "consumivel",
+      "pilha": 10,
+      "efeito": {
+        "cura_hp": 50,
+        "remove": "amargo"
+      },
+      "preco": 20,
+      "descricao": "Água sem Amargo, filtrada no carvão da Vela ou destilada do orvalho dos vidros. No deserto de Absinto, vale mais que pão. Limpa o efeito Amargo das tempestades."
+    },
+    {
+      "id": "tonico_graxa",
+      "nome": "Tônico do Doutor Graxa",
+      "tipo": "consumivel",
+      "faccao": "vigilia",
+      "pilha": 20,
+      "efeito": {
+        "cura_hp": 120
+      },
+      "preco": 25,
+      "descricao": "Garrafinha de vidro azul com um líquido que formiga. Rótulo: 'Agite. Não pergunte.'"
+    },
+    {
+      "id": "hostia_negra",
+      "nome": "Hóstia Negra",
+      "tipo": "consumivel",
+      "faccao": "arautos",
+      "pilha": 20,
+      "efeito": {
+        "cura_hp": 120
+      },
+      "preco": 25,
+      "descricao": "Hóstia de pão queimado com uma gota do sangue da Madre. Desce amarga e fecha as feridas."
+    },
+    {
+      "id": "vela_simao",
+      "nome": "Vela de Sebo do Simão",
+      "tipo": "consumivel",
+      "pilha": 10,
+      "efeito": {
+        "repele": "nao_julgado",
+        "duracao_s": 30
+      },
+      "preco": 15,
+      "descricao": "Vela amarela e fedorenta. Enquanto ela queima, os Não-Julgados abaixam a cabeça e deixam você passar, e a poeira de Amargo assenta em volta da chama."
+    },
+    {
+      "id": "agua_benta_polvora",
+      "nome": "Água Benta com Pólvora",
+      "tipo": "consumivel",
+      "pilha": 10,
+      "efeito": {
+        "arremesso": true,
+        "dano_area": [
+          30,
+          45
+        ],
+        "elemento": "sagrado_fogo"
+      },
+      "preco": 30,
+      "descricao": "Frasco de água benta com pólvora preta e um pavio. Gaspar chama de 'bênção expressa'."
+    },
+    {
+      "id": "caldo_cardo_comum",
+      "nome": "Sopa da Mãe Cardo",
+      "tipo": "consumivel",
+      "faccao": "vigilia",
+      "pilha": 10,
+      "efeito": {
+        "cura_hp": 40,
+        "buff": {
+          "vit": 3,
+          "duracao_s": 300
+        }
+      },
+      "preco": 12,
+      "descricao": "A sopa do caldeirão. Ninguém sabe o que tem, mas quem toma levanta mais forte."
+    },
+    {
+      "id": "figo_anacleto",
+      "nome": "Figo Seco de Anacleto",
+      "tipo": "consumivel",
+      "pilha": 1,
+      "efeito": {
+        "cura_hp_pct": 100
+      },
+      "descricao": "Um figo seco de trezentos anos, guardado no hábito de um monge emparedado para comer no dia do Juízo. Recupera toda a vida. Tem gosto de poeira e de paciência."
+    },
+    {
+      "id": "leitura_obitos",
+      "nome": "Livro de Óbitos (últimas páginas)",
+      "tipo": "leitura",
+      "texto": "12 de março. Três enterros. Família Moura, peste.\n13 de março. Os Moura não estão mais na cova. Terra mexida por fora. Cão?\n...\n(a letra muda)\nRecebido de S.: 4 corpos frescos. Pago: 2 sacos de sal, 1 garrafa.\nRecebido de S.: 6 corpos. Pago: nada. Ele não aceita mais pagamento. Diz que não quer saber.\nO cemitério está vazio. Os de baixo da terra andam sozinhos agora e não servem: a carne é seca.\nDepois da batalha nos Campos, recolhi os mortos do campo. Muitos. Não cabem nas câmaras. Joguei o resto no fosso do porão.\nTem alguém lá embaixo. Pela metade. Ele come o que eu jogo, e pede mais.\nEle me chama de intendente.\nAmanhã eu desço para ver.\n— B. Carniça"
+    },
+    {
+      "id": "leitura_carta_lucio",
+      "nome": "Carta para Rosa",
+      "tipo": "leitura",
+      "texto": "Rosinha,\nA Madre diz que quando a trombeta tocar ninguém vai mais sentir dor. Eu quero acreditar. Quase sempre eu acredito.\nMas aí eu lembro de você roubando pão da sacristia pra mim, e penso que ninguém sentir dor também quer dizer ninguém roubar pão pra ninguém.\nSe a nota terminar, eu queria que a gente estivesse no mesmo lugar. Qualquer lugar.\nComo está seu joelho? Ainda estala?\nSeu irmão, L."
+    },
+    {
+      "id": "leitura_mapa_tobias",
+      "nome": "Mapa Rasgado do Tobias",
+      "tipo": "leitura",
+      "texto": "X 1: no ninho grande dos corvos, no poste torto dos Campos (cuidado, eles bicam o olho, perdi uma lente lá)\nX 2: debaixo da cova com o anjo sem cabeça, no cemitério (o Simão finge que não vê)\nX 3: no tanque de sebo seco do abatedouro (tampa pesada, chama alguém forte)\nA areia anda, então se não achar, cava um pouco pro lado. O que achar é seu, mas me traz a caixinha de música se tiver. ELA É MINHA. — T."
+    },
+    {
+      "id": "leitura_anselmo",
+      "nome": "Caderno do Padre Anselmo",
+      "tipo": "leitura",
+      "origem": "bau:bau_barraca_anselmo",
+      "texto": "Noite da trombeta. Rezei até a voz acabar. Nenhuma resposta.\nManhã seguinte. Se Ele não fala, alguém precisa interromper.\nCálculo do lacre: chumbo derretido com limalha de sino, vazado no bocal durante o intervalo entre o sopro e a nota. Janela de três segundos.\nOs rapazes conseguiram. Dois voltaram.\nNão contei à Odete que fui eu quem desenhou. Não contei a ninguém. Deus me perdoe por ter calado Deus."
+    },
+    {
+      "id": "leitura_tabela_carnica",
+      "nome": "Tabela de Preços do Abatedouro",
+      "tipo": "leitura",
+      "origem": "drop:capataz_gancho",
+      "texto": "ABATEDOURO CARNIÇA — desde 1871\nCarne de porco: 3 réis o quilo\nToucinho: 2 réis\nSebo para vela: 1 réis\nCarne de 'boi' (sem perguntas): 1 réis\nPara os que passam fome no cerco: DE GRAÇA\nBenedito Carniça agradece a preferência. Ninguém passa fome em São Lázaro."
+    },
+    {
+      "id": "leitura_hino_carpideiras",
+      "nome": "Hino das Carpideiras",
+      "tipo": "leitura",
+      "origem": "ossario_carpideiras",
+      "texto": "Dorme, que a terra é mãe,\ndorme, que a vela é pai,\nquem desce chorando volta,\nquem sobe cantando cai.\nDorme, que a trombeta cala,\ndorme, que o Juízo tarda,\nenquanto a Celeste canta\nninguém de vocês se guarda."
+    },
+    {
+      "id": "leitura_confissao_anacleto",
+      "nome": "Confissão na Parede",
+      "tipo": "leitura",
+      "origem": "ossario_carpideiras",
+      "texto": "(arranhado com unha no tijolo)\nPequei por orgulho. Corrigi o latim do abade em público.\nPequei por gula. Escondi um figo seco no hábito quando me emparedaram.\nAinda não comi o figo.\nEstou guardando para o Juízo."
+    },
+    {
+      "id": "leitura_ordem_zacarias",
+      "nome": "Ordem Selada da Quinta Trombeta",
+      "tipo": "leitura",
+      "origem": "camara_trombeta",
+      "texto": "A Zacarias, arauto, e a Abdiel, seu escudeiro.\nDescerás sob a cidade de Lázaro e soprarás a quinta trombeta quando o céu rachar.\nNão abandonarás o posto até que a nota esteja completa.\nNão há outra ordem.\n(abaixo, com outra tinta, em letras tremidas)\nninguém veio ninguém veio ninguém veio ninguém veio"
+    },
+    {
+      "id": "faixa_vigilia",
+      "nome": "Faixa da Vigília",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "faccao": "vigilia",
+      "raridade": "comum",
+      "nivel": 1,
+      "atributos": {
+        "vit": 2
+      },
+      "descricao": "Braçadeira azul aço com uma vela bordada dentro de uma engrenagem. Odete costura uma para cada recruta e não cobra."
+    },
+    {
+      "id": "fita_juizo",
+      "nome": "Fita do Juízo",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "faccao": "arautos",
+      "raridade": "comum",
+      "nivel": 1,
+      "atributos": {
+        "esp": 2
+      },
+      "descricao": "Fita vermelha com a trombeta partida pintada em ouro sujo. A Madre amarra no pulso de cada irmão com um nó que ninguém sabe desfazer."
+    },
+    {
+      "id": "escopeta_badalada",
+      "nome": "Escopeta Badalada",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          14,
+          22
+        ],
+        "agi": 3
+      },
+      "descricao": "Escopeta de cano duplo com balas fundidas dos sinos de São Lázaro. Cada disparo soa como uma badalada distante."
+    },
+    {
+      "id": "machado_bonde",
+      "nome": "Machado de Placa de Bonde",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          16,
+          24
+        ],
+        "for": 3
+      },
+      "descricao": "A placa da linha 7 dos bondes, afiada e presa num cabo de trilho. Ainda dá para ler: PARÓQUIA — ESTAÇÃO."
+    },
+    {
+      "id": "cajado_lampiao",
+      "nome": "Cajado-Lampião",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          10,
+          16
+        ],
+        "esp": 4
+      },
+      "descricao": "Um poste de gás desmontado com uma lâmpada de arco na ponta, alimentado por fios que descem até a mochila. Feito com sobras da Vela."
+    },
+    {
+      "id": "espada_escudeiro",
+      "nome": "Espada do Escudeiro",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          13,
+          20
+        ],
+        "esp": 2,
+        "for": 2
+      },
+      "descricao": "A espada que Abdiel carregava quando era escudeiro de Zacarias. Ele não a usa desde a noite em que não desceu."
+    },
+    {
+      "id": "foice_penhor",
+      "nome": "Foice de Penhor",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          15,
+          23
+        ],
+        "for": 3
+      },
+      "descricao": "Foice que Malfas aceitou como pagamento de uma dívida de alma. A etiqueta de penhor ainda está amarrada no cabo, com um nome riscado."
+    },
+    {
+      "id": "adaga_chaga",
+      "nome": "Adaga de Chaga",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "magico",
+      "nivel": 3,
+      "atributos": {
+        "dano": [
+          9,
+          15
+        ],
+        "esp": 4
+      },
+      "descricao": "Adaga ritual curva que a Madre Ivone usa para abrir as próprias palmas. Ela tem outra igual."
+    },
+    {
+      "id": "badalo_de_guerra",
+      "nome": "Badalo de Guerra",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "faccao": "vigilia",
+      "raridade": "raro",
+      "nivel": 5,
+      "atributos": {
+        "vit": 3,
+        "for": 2
+      },
+      "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+      "descricao": "Gaspar fundiu um pedaço do último badalo num amuleto. Disse que um sino de São Lázaro ainda tinha que tocar uma vez."
+    },
+    {
+      "id": "lenco_cardo",
+      "nome": "Lenço Florido",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "raro",
+      "nivel": 5,
+      "atributos": {
+        "vit": 4,
+        "hp": 40
+      },
+      "efeito": "Comida e sopas curam 25% a mais.",
+      "descricao": "O lenço que Joaquim usava no pescoço, igual ao da mãe. Mãe Cardo lavou, passou e deu para você."
+    },
+    {
+      "id": "terco_lucio",
+      "nome": "Terço Partido de Lúcio",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "faccao": "arautos",
+      "raridade": "raro",
+      "nivel": 5,
+      "atributos": {
+        "esp": 3,
+        "agi": 2
+      },
+      "efeito": "Cura recebida aumenta 10%.",
+      "descricao": "Terço de contas de osso que Lúcio quebrou ao meio. Ficou com uma metade e mandou a outra para a irmã."
+    },
+    {
+      "id": "selo_madre",
+      "nome": "Selo da Madre",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "faccao": "arautos",
+      "raridade": "raro",
+      "nivel": 5,
+      "atributos": {
+        "esp": 4,
+        "vit": 1
+      },
+      "efeito": "Dano contra jogadores e NPCs da Vigília aumenta 5%.",
+      "descricao": "Anel de ferro com a trombeta partida. A Madre dá a quem prova que a fé está acima do sangue. Pesa mais do que parece."
+    },
+    {
+      "id": "dragonas_general",
+      "nome": "Casaca do General Partido",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "raridade": "raro",
+      "nivel": 8,
+      "atributos": {
+        "defesa": 28,
+        "vit": 5,
+        "for": 2
+      },
+      "efeito": "Matar um inimigo recupera 3% do HP.",
+      "descricao": "A casaca de oficial da Legião Blasfema que Andras usava, cortada na cintura onde o bonde passou. As dragonas ainda brilham em brasa."
+    },
+    {
+      "id": "veu_carpideira",
+      "nome": "Véu da Carpideira",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 14,
+        "esp": 5
+      },
+      "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+      "descricao": "Renda negra presa com pregos de caixão. Ainda úmida de lágrimas de cera."
+    },
+    {
+      "id": "estilhaco_lacre",
+      "nome": "Estilhaço do Lacre",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "faccao": "vigilia",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "vit": 6,
+        "esp": 3
+      },
+      "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+      "descricao": "Um pedaço do lacre de chumbo que calou a quinta trombeta, recuperado das cinzas quando Odete esmagou o bocal. Quente para sempre."
+    },
+    {
+      "id": "diapasao_reverso",
+      "nome": "Diapasão Reverso",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "faccao": "vigilia",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "esp": 6,
+        "agi": 3
+      },
+      "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
+      "descricao": "Anselmo desmontou o bocal e afinou um diapasão com o metal dele. Diz que é o primeiro passo de uma trombeta que toca ao contrário."
+    },
+    {
+      "id": "pena_zacarias",
+      "nome": "Pena de Zacarias",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "faccao": "arautos",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "esp": 6,
+        "vit": 3
+      },
+      "efeito": "Curas e escudos que você lança são 12% mais fortes. Ao morrer, uma vez a cada 10 min, volta com 20% de HP.",
+      "descricao": "Uma pena das seis asas do arauto. Abdiel a entregou de cabeça baixa: disse que era a última ordem que ele conseguia cumprir pelo mestre."
+    },
+    {
+      "id": "etiqueta_branca",
+      "nome": "Etiqueta de Penhor em Branco",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "faccao": "arautos",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "for": 5,
+        "agi": 4
+      },
+      "efeito": "Inimigos derrubados deixam 15% mais ouro. Roubo de vida de 4% em alvos abaixo de 30% de HP.",
+      "descricao": "Malfas arrancou uma etiqueta do próprio colar e escreveu nela só um traço. 'Um favor, qualquer um, cobrado quando eu quiser. Bom negócio pra nós dois.'"
+    },
+    {
+      "id": "gancho_capataz",
+      "nome": "Gancho do Capataz",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 7,
+      "origem": "drop:capataz_gancho",
+      "chance_sugerida": 0.08,
+      "atributos": {
+        "dano": [
+          18,
+          26
+        ],
+        "for": 3
+      },
+      "efeito": "Golpes têm 10% de chance de puxar o alvo para perto.",
+      "descricao": "Um dos ganchos que o capataz usava no lugar das mãos, com uma luva de couro costurada para quem ainda tem mão."
+    },
+    {
+      "id": "estandarte_legiao",
+      "nome": "Estandarte da Legião Blasfema",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio",
+        "mutante",
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:general_partido",
+      "chance_sugerida": 0.05,
+      "atributos": {
+        "dano": [
+          26,
+          38
+        ],
+        "for": 6,
+        "vit": 3
+      },
+      "efeito": "Ataques causam sangramento. Ao matar um inimigo, ganha +5% de dano por 8 s (acumula 3 vezes).",
+      "descricao": "O estandarte partido do exército de Andras, com o mastro de ferro afiado na ponta. Os mortos ainda o reconhecem: às vezes, quando você o ergue, alguma coisa embaixo da terra tenta ficar em sentido."
+    },
+    {
+      "id": "bacula_femur",
+      "nome": "Báculo de Fêmur",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:irma_celeste",
+      "chance_sugerida": 0.05,
+      "atributos": {
+        "dano": [
+          16,
+          24
+        ],
+        "esp": 8
+      },
+      "efeito": "Ao matar um inimigo, um crânio canta e cura aliados próximos em 5% do HP.",
+      "descricao": "O báculo de regência da Irmã Celeste, feito do fêmur de um homem muito alto. Quem segura ouve, de vez em quando, o coro."
+    },
+    {
+      "id": "halo_incandescente",
+      "nome": "Halo de Ferro Incandescente",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:zacarias_arauto",
+      "chance_sugerida": 0.04,
+      "atributos": {
+        "defesa": 22,
+        "esp": 6,
+        "vit": 4
+      },
+      "efeito": "Emite luz própria em volta do personagem (raio pequeno). Não-Julgados e mortos-vivos recebem 15% a mais de dano seu.",
+      "descricao": "O halo inteiro de Zacarias, ainda em brasa. Queima o cabelo de quem usa, e ninguém que usou tirou por vontade própria."
+    },
+    {
+      "id": "valvula_radio",
+      "nome": "Válvula de Rádio",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Válvula de vidro de um rádio militar, ainda inteira. Os cães engolem qualquer coisa que brilhe na areia."
+    },
+    {
+      "id": "pagina_ordem",
+      "nome": "Página da Ordem de Lançamento",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Folha de papel carbono amarelado, com carimbo do Comando Sul. As viúvas da vila militar guardam pedaços nas mortalhas, sem saber o que dizem."
+    },
+    {
+      "id": "amostra_amarga",
+      "nome": "Amostra de Água Amarga",
+      "tipo": "missao",
+      "pilha": 5,
+      "descricao": "Frasco de água verde do Rio Amargo. O contador de Isaura estala só de chegar perto."
+    },
+    {
+      "id": "fragmento_clarao",
+      "nome": "Fragmento de Clarão",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Lasca de pedra do muro onde uma sombra estava gravada. Por trás, a pedra é mais clara: ali a luz não chegou porque alguém estava na frente."
+    },
+    {
+      "id": "chave_lancamento",
+      "nome": "Chave de Lançamento da Absinto-2",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Uma chave de latão num cordão de couro, ainda morna do peito do Sargento Brandão. Gira a segunda estrela."
+    },
+    {
+      "id": "insignia_arrancada",
+      "nome": "Insígnia Arrancada",
+      "tipo": "missao",
+      "pilha": 10,
+      "descricao": "Divisa da Legião Blasfema arrancada de uma casaca de desertor. No verso, costurado à mão: 'A Andras, até o fim'."
+    },
+    {
+      "id": "carta_apostata",
+      "nome": "Carta dos Apóstatas",
+      "tipo": "missao",
+      "pilha": 1,
+      "leitura": "leitura_carta_apostata",
+      "descricao": "Carta lacrada com cera preta, achada com um Sangrador Apóstata. Fala de veneno, de um anjo e de um demônio para levar a culpa."
+    },
+    {
+      "id": "meia_dragona",
+      "nome": "Meia Dragona do General",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Metade de uma dragona de general da Legião Blasfema, cortada reto, como por uma roda de ferro. Estava presa debaixo do bonde tombado."
+    },
+    {
+      "id": "leitura_ordem_lancamento",
+      "nome": "Ordem de Lançamento (cópia de carbono)",
+      "tipo": "leitura",
+      "origem": "missao:d03",
+      "texto": "COMANDO SUL — SILO SÃO LÁZARO — URGENTÍSSIMO\nAlvo: concentração hostil não identificada sobre a capital (formação alada, estimativa: incontável).\nArma: Ogiva Absinto-1. Autorizado: Absinto-2 em reserva.\nObservação do Comando: o alvo não responde a contato. O alvo canta.\nLeitura confirmada pela operadora I. Valente às 03h11.\n(na margem, a lápis, outra letra)\nEles vão dizer que foi Deus. Deixa dizer."
+    },
+    {
+      "id": "leitura_carta_apostata",
+      "nome": "Carta dos Apóstatas",
+      "tipo": "leitura",
+      "texto": "Irmãos da Fé Sem Asas,\nO cálice do Comandante será servido na vigília de sexta. O veneno é de enxofre, para que o cheiro aponte para o pátio dos demônios.\nQuando o anjo cair e os chifrudos forem enforcados, a Capela será só nossa, como devia ser antes de a Madre vender o culto a quem tem asa ou chifre.\nO general deles já não volta. Ninguém vai defender a Legião.\nQueimem esta carta.\n— C."
+    },
+    {
+      "id": "contador_isaura",
+      "nome": "Contador de Amargo da Isaura",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "raro",
+      "nivel": 8,
+      "atributos": {
+        "vit": 4,
+        "esp": 2
+      },
+      "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+      "descricao": "Contador de radiação do exército, consertado com um terço de contas de vidro. Isaura usou por quarenta anos e diz que agora ele confia em você."
+    },
+    {
+      "id": "estilhaco_absinto",
+      "nome": "Estilhaço da Absinto-2",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "esp": 6,
+        "vit": 4
+      },
+      "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
+      "descricao": "Uma lasca do invólucro da segunda ogiva, desarmada por você. Brilha verde e esquenta quando alguém mente perto dela."
+    },
+    {
+      "id": "chave_segunda_estrela",
+      "nome": "Cópia da Chave da Segunda Estrela",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "for": 4,
+        "agi": 4,
+        "vit": 2
+      },
+      "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
+      "descricao": "Isaura fez uma cópia de latão da chave antes de você entregar a original à sua facção. 'Para você lembrar o peso', ela disse."
+    },
+    {
+      "id": "divisa_legiao",
+      "nome": "Divisa Inteira da Legião",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "raro",
+      "nivel": 8,
+      "atributos": {
+        "for": 3,
+        "vit": 3
+      },
+      "efeito": "Desertores da Legião não atacam você primeiro.",
+      "descricao": "A única divisa da Legião Blasfema que ninguém arrancou. Quem a usa é reconhecido pelos desertores como alguém que procurou o general."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+ "monstro": "nao_julgado",
+ "frame_size": [
+  192,
+  192
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  96.0,
+  143.1
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 9,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "nao_julgado_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "nao_julgado_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "nao_julgado_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "nao_julgado_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "nao_julgado_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.6
+ }
+}

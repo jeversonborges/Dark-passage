@@ -1,0 +1,398 @@
+{
+  "_doc": "Sensacao dos golpes (game feel). Tudo isso e so visual/sonoro no cliente: o servidor manda o evento de dano e o cliente toca o perfil. Tempos em ms, distancias em px na resolucao base 640x360 (dobrada para 1280x720). Ver combate.md secao 2.",
+  "versao": "0.1",
+  "animacao_de_ataque": {
+    "_doc": "Todo ataque tem 3 fases. O dano sai no PRIMEIRO frame da fase ativa (frame de impacto), nunca no fim da animacao. fps da animacao escala com a velocidade de ataque.",
+    "fps_base": 15,
+    "fases_frames": {
+      "preparo": 3,
+      "ativo": 1,
+      "recuperacao": 3
+    },
+    "buffer_de_comando_ms": 150,
+    "cancelar_recuperacao_em": [
+      "habilidade",
+      "mobilidade",
+      "pocao",
+      "movimento_apos_ms:80"
+    ],
+    "virar_para_alvo_antes_do_golpe": true,
+    "avanco_no_golpe_px": 4,
+    "_avanco": "o sprite do atacante avanca 4px na direcao do golpe no frame de impacto e volta na recuperacao"
+  },
+  "controles": {
+    "_doc": "Definido pelo Jefin (2026-10-04): anda com o mouse, ataque basico com o mouse, habilidades nas teclas numericas 1, 2, 3...",
+    "clique_esquerdo_no_chao": "anda ate o ponto; segurar o botao faz o personagem seguir o mouse",
+    "clique_esquerdo_em_inimigo": "anda ate o alcance e ataca em loop ate o alvo morrer ou o jogador clicar em outra coisa",
+    "segurar_shift": "ataca no lugar, sem andar (util para Humano/Cultista)",
+    "teclas_1_a_9": "usa a habilidade do slot na hora (sem selecionar antes): alvo = inimigo sob o mouse; se nao houver, o alvo atual; habilidades de area/mobilidade vao no ponto sob o mouse",
+    "tecla_sem_alvo_valido": "se o alvo esta fora do alcance, anda ate o alcance e solta a habilidade (fica no buffer ate 2s)",
+    "q_w_e": "pocoes (vida, recurso, antidoto)",
+    "alvo_magnetico_px": 18,
+    "_alvo_magnetico": "clique a ate 18px de um inimigo conta como clique nele; ajuda muito em isometrico"
+  },
+  "perfis": {
+    "golpe_leve": {
+      "hitstop_ms": 45,
+      "flash_ms": 60,
+      "empurrao_px": 0,
+      "tremor": null,
+      "numero": "normal"
+    },
+    "golpe_pesado": {
+      "hitstop_ms": 85,
+      "flash_ms": 80,
+      "empurrao_px": 14,
+      "tremor": {
+        "px": 2,
+        "ms": 120
+      },
+      "numero": "normal"
+    },
+    "combo": {
+      "hitstop_ms": 30,
+      "flash_ms": 50,
+      "empurrao_px": 3,
+      "tremor": null,
+      "ultimo_golpe": "golpe_pesado",
+      "numero": "normal"
+    },
+    "tiro_pesado": {
+      "hitstop_ms": 70,
+      "flash_ms": 70,
+      "empurrao_px": 10,
+      "tremor": {
+        "px": 2,
+        "ms": 100
+      },
+      "numero": "normal"
+    },
+    "projetil": {
+      "hitstop_ms": 35,
+      "flash_ms": 60,
+      "empurrao_px": 0,
+      "tremor": null,
+      "numero": "normal"
+    },
+    "raio": {
+      "hitstop_ms": 40,
+      "flash_ms": 70,
+      "empurrao_px": 0,
+      "tremor": null,
+      "numero": "normal",
+      "tremor_alvo_px": 1
+    },
+    "area": {
+      "hitstop_ms": 60,
+      "flash_ms": 70,
+      "empurrao_px": 8,
+      "tremor": {
+        "px": 2,
+        "ms": 140
+      },
+      "numero": "normal",
+      "empurrao_a_partir_do_centro": true
+    },
+    "investida": {
+      "hitstop_ms": 110,
+      "flash_ms": 90,
+      "empurrao_px": 24,
+      "tremor": {
+        "px": 3,
+        "ms": 160
+      },
+      "numero": "normal"
+    },
+    "puxao": {
+      "hitstop_ms": 60,
+      "flash_ms": 70,
+      "empurrao_px": 0,
+      "tremor": {
+        "px": 1,
+        "ms": 80
+      },
+      "numero": "normal"
+    },
+    "critico_extra": {
+      "hitstop_ms_extra": 40,
+      "flash_ms": 90,
+      "tremor": {
+        "px": 3,
+        "ms": 120
+      },
+      "numero": "critico",
+      "som_extra": "estalo_metal"
+    },
+    "excelente_extra": {
+      "hitstop_ms_extra": 30,
+      "numero": "excelente",
+      "som_extra": "sino_curto"
+    },
+    "abate": {
+      "hitstop_ms": 130,
+      "tremor": {
+        "px": 2,
+        "ms": 120
+      },
+      "empurrao_px": 18,
+      "morte": "corpo voa 18px, pisca 3x branco e cai; cadaver fica 6s e some com fade"
+    },
+    "abate_chefe": {
+      "camera_lenta": {
+        "escala_tempo": 0.15,
+        "ms": 600
+      },
+      "tremor": {
+        "px": 6,
+        "ms": 500
+      },
+      "flash_tela": {
+        "cor": "#d3cab7",
+        "alpha": 0.35,
+        "ms": 120
+      }
+    },
+    "jogador_recebe": {
+      "hitstop_ms": 0,
+      "flash_cor": "#7a1612",
+      "flash_ms": 90,
+      "tremor_se_mais_de_15pct_hp": {
+        "px": 3,
+        "ms": 150
+      },
+      "vinheta_vermelha_abaixo_30pct": true
+    },
+    "bloqueio_postura_chefe": {
+      "hitstop_ms": 20,
+      "faisca": true,
+      "numero": "normal",
+      "som": "metal_seco"
+    },
+    "errou": {
+      "hitstop_ms": 0,
+      "numero": "errou",
+      "som": "vento"
+    }
+  },
+  "regras_hitstop": {
+    "_doc": "Hit-stop LOCAL: congela so atacante e alvo (animacao + movimento) pelos ms do perfil. Nao pausa o mundo. Varios alvos acertados no mesmo frame congelam juntos uma vez, sem somar.",
+    "local": true,
+    "max_ms": 160,
+    "nao_aplicar_se_alvo_ja_congelado": true,
+    "jogador_atacando_continua_recebendo_input": true,
+    "projetil_congela_so_alvo": true
+  },
+  "flash": {
+    "_doc": "Shader de cor solida sobre o sprite. Em inimigo: branco osso. No jogador: vermelho sangue.",
+    "cor_inimigo": "#f2ead8",
+    "cor_jogador": "#7a1612",
+    "curva": "100% no frame de impacto, cai linear ate 0"
+  },
+  "empurrao": {
+    "_doc": "Deslocamento fisico do alvo. O servidor move a posicao; o cliente suaviza com ease-out. Nao atravessa parede.",
+    "duracao_ms": 120,
+    "curva": "ease_out_quad",
+    "resistencia_por_arquetipo": {
+      "rasteiro": 0.0,
+      "normal": 0.2,
+      "bruto": 0.7,
+      "elite": 0.8,
+      "chefe": 1.0
+    },
+    "_resistencia": "empurrao_final = empurrao_px * (1 - resistencia). Chefe so recua quando a postura quebra."
+  },
+  "tremor_camera": {
+    "_doc": "Ruido aleatorio por frame com decaimento linear. Soma de varios tremores ao mesmo tempo fica limitada.",
+    "max_px": 8,
+    "opcao_no_menu": "Tremor de tela: Alto / Normal / Desligado"
+  },
+  "numeros_de_dano": {
+    "_doc": "Fonte bitmap com contorno preto 1px (#0a0808). Sobem e somem. Varios numeros no mesmo alvo empilham em leque para nao sobrepor.",
+    "estilos": {
+      "normal": {
+        "cor": "#e8dfc9",
+        "escala": 1.0,
+        "texto": "{dano}"
+      },
+      "critico": {
+        "cor": "#ff7a1a",
+        "escala": 1.5,
+        "texto": "{dano}!",
+        "pop": true
+      },
+      "excelente": {
+        "cor": "#9cff3a",
+        "escala": 1.35,
+        "texto": "{dano}",
+        "pop": true
+      },
+      "excelente_critico": {
+        "cor": "#9cff3a",
+        "escala": 1.7,
+        "texto": "{dano}!",
+        "pop": true,
+        "contorno": "#ff7a1a"
+      },
+      "jogador_recebe": {
+        "cor": "#c8302a",
+        "escala": 1.0,
+        "texto": "-{dano}"
+      },
+      "cura": {
+        "cor": "#7fd06a",
+        "escala": 1.0,
+        "texto": "+{valor}"
+      },
+      "escudo": {
+        "cor": "#9fd8ff",
+        "escala": 0.9,
+        "texto": "({valor})"
+      },
+      "errou": {
+        "cor": "#8a8378",
+        "escala": 0.8,
+        "texto": "ERROU"
+      },
+      "esquivou": {
+        "cor": "#8a8378",
+        "escala": 0.8,
+        "texto": "ESQUIVOU"
+      },
+      "dano_tempo": {
+        "cor": "#b56a5a",
+        "escala": 0.75,
+        "texto": "{dano}"
+      },
+      "postura_quebrada": {
+        "cor": "#c99a3e",
+        "escala": 1.3,
+        "texto": "QUEBRADO!"
+      },
+      "imune": {
+        "cor": "#8a8378",
+        "escala": 0.8,
+        "texto": "IMUNE"
+      }
+    },
+    "pop": {
+      "escala_inicial": 1.6,
+      "ms": 80
+    },
+    "subida_px": 26,
+    "duracao_ms": 750,
+    "fade_comeca_em_ms": 450,
+    "deriva_x_px": [
+      -6,
+      6
+    ],
+    "leque_empilhar_px": 9,
+    "dano_por_tempo_agrupa_ms": 500
+  },
+  "telegrafos": {
+    "_doc": "Ataques fortes de mob e chefe mostram a area no chao antes de bater. E isso que deixa o jogador desviar clicando para fora.",
+    "cor_borda": "#7a1612",
+    "cor_preenchimento": "#7a1612",
+    "alpha_inicial": 0.15,
+    "alpha_final": 0.45,
+    "preenchimento_cresce_do_centro": true,
+    "piscar_ultimos_ms": 150,
+    "minimo_ms_jogador_reagir": 600
+  },
+  "eventos_para_vfx_e_som": {
+    "_doc": "Nomes de evento que o combate emite. As threads Efeitos visuais e de som ligam particulas e sons a estes nomes.",
+    "lista": [
+      "golpe_leve",
+      "golpe_pesado",
+      "golpe_critico",
+      "golpe_excelente",
+      "errou",
+      "esquivou",
+      "abate",
+      "abate_chefe",
+      "postura_quebrada",
+      "jogador_ferido",
+      "jogador_morre",
+      "nivel_sobe",
+      "cura",
+      "escudo_absorve",
+      "escudo_quebra",
+      "status_aplicado:{id}",
+      "status_tick:{id}",
+      "telegrafo_inicio:{ataque_id}",
+      "telegrafo_impacto:{ataque_id}",
+      "chefe_fase:{n}",
+      "drop:{raridade}",
+      "bau_abre:{tipo}"
+    ],
+    "som_camadas_golpe": "transiente (metal/carne conforme elemento) + corpo grave + cauda curta. Critico soma estalo agudo. Abate soma osso quebrando.",
+    "vfx_ja_prontos": {
+      "_doc": "Efeitos que a thread Efeitos visuais ja entregou em assets/efeitos/efeitos.json, ligados aos eventos do combate.",
+      "golpe_leve": [
+        "golpe_impacto",
+        "golpe_corte (arma de lamina)"
+      ],
+      "golpe_pesado": [
+        "golpe_corte",
+        "golpe_impacto",
+        "sangue_jorro (alvo de carne)"
+      ],
+      "golpe_critico": [
+        "golpe_critico"
+      ],
+      "golpe_bala": [
+        "disparo_cano + fumaca_tiro no atirador",
+        "projetil_bala",
+        "impacto_bala no alvo"
+      ],
+      "postura_quebrada": [
+        "faiscas_bloqueio"
+      ],
+      "bloqueio_postura_chefe": [
+        "faiscas_bloqueio"
+      ],
+      "mobilidade": [
+        "esquiva_poeira"
+      ],
+      "abate": [
+        "morte_monstro",
+        "sangue_poca (alvo de carne)"
+      ],
+      "cura": [
+        "cura_generica"
+      ],
+      "nivel_sobe": [
+        "level_up"
+      ],
+      "status_aplicado:atordoado": [
+        "status_atordoado"
+      ],
+      "status_aplicado:lento": [
+        "status_lentidao"
+      ],
+      "status_aplicado:queimadura": [
+        "status_queimando"
+      ],
+      "status_aplicado:sangramento": [
+        "status_sangramento"
+      ],
+      "status_aplicado:veneno": [
+        "status_veneno"
+      ],
+      "bau_abre": [
+        "bau_abertura"
+      ],
+      "drop:raro": [
+        "item_brilho_raro",
+        "item_feixe_raro"
+      ],
+      "drop:excelente": [
+        "item_brilho_excelente"
+      ],
+      "drop:lendario": [
+        "item_brilho_lendario",
+        "item_feixe_lendario"
+      ],
+      "habilidades": "assets/efeitos/<classe>/<id>.json (ex: anjo_lamina_veredito para lamina_veredito)"
+    }
+  }
+}

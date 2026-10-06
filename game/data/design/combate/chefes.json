@@ -1,0 +1,577 @@
+{
+  "_doc": "Os 3 chefes da Cripta da Trombeta Calada. Balanceados para 1 jogador no nivel do chefe com equipamento comum/magico e 5 pocoes. 'mult' multiplica 'dano_base'. Telegrafos seguem sensacao.json. Escala de grupo (multiplayer futuro): HP x (1 + 0.8*(jogadores-1)).",
+  "versao": "0.1",
+  "regras_gerais": {
+    "postura_visivel": true,
+    "imune": [
+      "atordoado",
+      "derrubado",
+      "provocado"
+    ],
+    "reset": "se o jogador morrer ou sair da arena, o chefe volta ao centro com HP cheio em 5s e a porta abre",
+    "porta_da_arena": "fecha ao entrar (grade de ferro desce); abre com o chefe morto",
+    "barra_de_hp": "barra grande no topo com nome e marcas nos limites de fase",
+    "entre_fases": "1.5s de transicao invulneravel com fala/animacao; telegrafos ativos sao cancelados",
+    "furia_tempo": "passou do tempo de furia: dano +50% e velocidade +30% (evita luta infinita)"
+  },
+  "chefes": {
+    "general_partido": {
+      "nome": "Andras, o General Partido",
+      "conceito_jefin": "Demonio que ja foi general. Partido ao meio na Grande Batalha do campo desolado, sobreviveu comendo os restos dos guerreiros que morreram ali. Quer se vingar da humanidade.",
+      "andar": 1,
+      "nivel": 8,
+      "tags": [
+        "infernal",
+        "demonio"
+      ],
+      "hp": 1800,
+      "defesa": 22,
+      "dano_base": 30,
+      "intervalo_ataque": 1.8,
+      "velocidade_mov": 1.6,
+      "postura_max": 300,
+      "res": {
+        "fogo": 0.4,
+        "sagrado": -0.2,
+        "veneno": 0.3
+      },
+      "duracao_alvo_s": 95,
+      "furia_tempo_s": 240,
+      "visual": "So o tronco: se arrasta com os bracos enormes, a parte de baixo e um toco cauterizado em brasa com tripas de corrente arrastando. Usa o estandarte quebrado do proprio exercito como arma. Dragonas de general podres nos ombros.",
+      "arena": "Vala da Grande Batalha: fosso 14x14 tiles cheio de ossos e armaduras velhas, com 6 Pilhas de Mortos espalhadas (cadaveres de guerreiros).",
+      "fala_entrada": "Mais um soldado... Eu comandei mil de voces. Comi todos. Senta. O jantar e voce.",
+      "mecanica_central": {
+        "nome": "Pilhas de Mortos",
+        "regra": "Ele se cura e fica mais forte devorando cadaveres. Cada Pilha de Mortos e um objeto com HP que o jogador pode destruir (fogo e sagrado dao dano dobrado). Pilha destruida nao pode ser comida. Assim o jogador escolhe: bater no chefe ou negar a comida dele.",
+        "pilha_de_mortos": {
+          "quantidade": 6,
+          "hp": 160,
+          "defesa": 0,
+          "fraquezas": {
+            "fogo": -1.0,
+            "sagrado": -1.0
+          },
+          "tags": [
+            "objeto"
+          ]
+        },
+        "fome_saciada": {
+          "_doc": "buff acumulativo ganho a cada pilha devorada",
+          "dano": 0.1,
+          "tamanho": 0.06,
+          "max_acumulos": 6,
+          "permanente_na_luta": true
+        }
+      },
+      "fases": [
+        {
+          "n": 1,
+          "hp": [
+            1.0,
+            0.6
+          ],
+          "nome": "O Comandante Faminto",
+          "ataques": [
+            {
+              "id": "estandarte",
+              "mult": 1.0,
+              "preparo": 0.6,
+              "alcance": 1.8,
+              "_doc": "basico"
+            },
+            {
+              "id": "golpe_de_estandarte",
+              "mult": 1.6,
+              "preparo": 0.8,
+              "telegrafo": {
+                "forma": "cone",
+                "raio": 2.6,
+                "angulo": 100
+              },
+              "recarga": 7
+            },
+            {
+              "id": "arrasto",
+              "mult": 1.5,
+              "preparo": 0.9,
+              "telegrafo": {
+                "forma": "linha",
+                "comprimento": 6,
+                "largura": 1.4
+              },
+              "deslocamento": 6,
+              "empurrao_px": 20,
+              "recarga": 9,
+              "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar"
+            },
+            {
+              "id": "devorar",
+              "conjuracao": 4.0,
+              "interrompivel_por_postura": true,
+              "gatilho": "a cada 20s, ou abaixo de 75% HP, vai ate a pilha intacta mais proxima",
+              "cura_frac_hp_max": 0.08,
+              "ganha": "fome_saciada",
+              "_doc": "barra de conjuracao visivel; som de mastigar. Quebrar a postura enquanto come cancela a cura e deixa ele EXAUSTO 4s"
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "hp": [
+            0.6,
+            0.3
+          ],
+          "nome": "Ordem ao Exercito Morto",
+          "fala": "DE PE, SOLDADOS! Seu general manda!",
+          "mudancas": "Ele ainda comanda os mortos: ergue Soldados Caidos das pilhas restantes. Soldado morto vira um cadaver fresco no chao (comida rapida: 2s para devorar, cura 4%). Vomita brasa.",
+          "ataques": [
+            {
+              "id": "estandarte",
+              "mult": 1.1
+            },
+            {
+              "id": "golpe_de_estandarte"
+            },
+            {
+              "id": "arrasto",
+              "recarga": 8
+            },
+            {
+              "id": "ordem_de_levantar",
+              "invoca": {
+                "soldado_caido": 2
+              },
+              "de": "pilhas intactas (se nao houver, do chao em volta dele)",
+              "recarga": 18
+            },
+            {
+              "id": "vomito_de_brasa",
+              "mult": 0.6,
+              "ticks": 3,
+              "intervalo_tick": 0.4,
+              "preparo": 0.8,
+              "telegrafo": {
+                "forma": "cone",
+                "raio": 4,
+                "angulo": 45
+              },
+              "rastro_fogo": {
+                "duracao": 4,
+                "efeito": {
+                  "queimadura": {
+                    "duracao": 2,
+                    "dano_por_s_mult": 0.25
+                  }
+                }
+              },
+              "recarga": 11
+            },
+            {
+              "id": "devorar",
+              "conjuracao": 4.0,
+              "cadaver_fresco_conjuracao": 2.0,
+              "cadaver_fresco_cura": 0.04
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "hp": [
+            0.3,
+            0.0
+          ],
+          "nome": "A Fome do Abismo",
+          "fala": "Voces me cortaram ao meio... e eu continuei comendo!",
+          "mudancas": "Fica desesperado: velocidade de ataque +25% e tenta agarrar o jogador para come-lo. Depois do Banquete erra ou acerta, fica EXAUSTO (janela de punicao).",
+          "ataques": [
+            {
+              "id": "estandarte",
+              "mult": 1.2
+            },
+            {
+              "id": "arrasto",
+              "encadeia": 2,
+              "recarga": 9,
+              "_doc": "dois arrastos seguidos, o segundo mira de novo"
+            },
+            {
+              "id": "vomito_de_brasa"
+            },
+            {
+              "id": "banquete",
+              "preparo": 1.0,
+              "telegrafo": {
+                "forma": "cone",
+                "raio": 2.2,
+                "angulo": 70
+              },
+              "agarra": true,
+              "mult_por_tick": 0.45,
+              "ticks": 5,
+              "intervalo_tick": 0.5,
+              "cura_por_dano": 1.0,
+              "soltar": "o jogador escapa sozinho em 2.5s, ou antes se quebrar a postura dele (golpes contam em dobro para postura enquanto agarra)",
+              "depois": {
+                "exausto": 3.0
+              },
+              "recarga": 16
+            },
+            {
+              "id": "devorar",
+              "conjuracao": 3.0
+            }
+          ]
+        }
+      ],
+      "dica_de_design": "Jogador que destroi as pilhas cedo tem luta mais curta e mais facil; quem ignora enfrenta um general maior e mais forte (Fome Saciada deixa o sprite 6% maior por acumulo, efeito visivel).",
+      "morte": "Tenta devorar o proprio estandarte e desaba. O estandarte fica no chao: item de missao.",
+      "drop": "chefe_general",
+      "movimento": {
+        "_doc": "Confirmado pelo Jefin: ele se arrasta.",
+        "tipo": "arrasto",
+        "velocidade_mov": 1.6,
+        "_velocidade": "metade da do jogador (3.2): a distancia e segura ate ele usar o Arrasto",
+        "animacao": "puxa o tronco com os dois bracos, um de cada vez; cada puxada e um passo (som de unhas e corrente no chao)",
+        "rastro": "deixa rastro de sangue escuro e brasa que some em 3s (so visual)",
+        "vira_devagar": "gira no maximo 120 graus por segundo: dar a volta nele e uma forma de fugir dos cones",
+        "sem_pulo": true
+      }
+    },
+    "irma_celeste": {
+      "nome": "Irma Celeste, a Carpideira",
+      "andar": 2,
+      "nivel": 10,
+      "tags": [
+        "morto_vivo",
+        "espectro"
+      ],
+      "hp": 2800,
+      "defesa": 24,
+      "dano_base": 32,
+      "intervalo_ataque": 2.0,
+      "velocidade_mov": 2.0,
+      "postura_max": 300,
+      "res": {
+        "sagrado": -0.2,
+        "sangue": 0.3,
+        "fisico": 0.1
+      },
+      "duracao_alvo_s": 110,
+      "furia_tempo_s": 300,
+      "arena": "Capela subterranea redonda (raio 8 tiles), 4 Coristas de Osso em nichos nos cantos, velas no chao.",
+      "fala_entrada": "Shhh. O coro vai cantar por voce. Todos choram no fim.",
+      "adicionais": {
+        "corista_de_osso": {
+          "hp": 220,
+          "defesa": 10,
+          "imovel": true,
+          "tags": [
+            "morto_vivo"
+          ],
+          "_doc": "So ficam vulneraveis enquanto cantam (brilham). Morto, volta a ser estatua e nao canta mais nesta fase."
+        }
+      },
+      "fases": [
+        {
+          "n": 1,
+          "hp": [
+            1.0,
+            0.65
+          ],
+          "nome": "O Velorio",
+          "ataques": [
+            {
+              "id": "toque_de_luto",
+              "mult": 1.0,
+              "preparo": 0.6,
+              "alcance": 1.5
+            },
+            {
+              "id": "lamento",
+              "mult": 1.5,
+              "preparo": 0.9,
+              "telegrafo": {
+                "forma": "cone",
+                "raio": 6,
+                "angulo": 60
+              },
+              "efeito": {
+                "silenciado": 2
+              },
+              "recarga": 8
+            },
+            {
+              "id": "pranto_que_cai",
+              "mult": 1.1,
+              "quantidade": 3,
+              "intervalo": 0.5,
+              "preparo": 0.7,
+              "telegrafo": {
+                "forma": "circulo",
+                "raio": 1.2
+              },
+              "posicao": "no jogador, um depois do outro (ele precisa continuar andando)",
+              "recarga": 10
+            },
+            {
+              "id": "regencia",
+              "recarga": 15,
+              "ativa_coristas": 1,
+              "corista_canta_s": 6,
+              "efeito_se_completar": {
+                "escudo_frac_hp": 0.12
+              },
+              "_doc": "Matar a corista enquanto canta cancela o escudo. Ensina a trocar de alvo."
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "hp": [
+            0.65,
+            0.3
+          ],
+          "nome": "Coro Completo",
+          "fala": "Cantem! CANTEM POR ELE!",
+          "mudancas": "Ela levita no centro, IMUNE, e as 4 coristas cantam juntas. A cada 3s sai do centro uma onda em anel com um vao (que gira 45 graus por onda). Cada corista morta encurta o coro em 4s. Quando o coro acaba (16s ou todas mortas) ela cai no chao EXAUSTA por 5s. Depois volta a lutar com os ataques da fase 1 mais rapidos.",
+          "ataques": [
+            {
+              "id": "onda_do_coro",
+              "mult": 1.3,
+              "preparo": 1.0,
+              "intervalo": 3.0,
+              "telegrafo": {
+                "forma": "anel",
+                "raio_final": 8,
+                "largura": 0.8,
+                "vao_graus": 50
+              },
+              "empurrao_px": 14,
+              "duracao_coro_s": 16,
+              "reducao_por_corista_morta_s": 4,
+              "depois": {
+                "exausto": 5.0
+              }
+            },
+            {
+              "id": "lamento",
+              "recarga": 6
+            },
+            {
+              "id": "pranto_que_cai",
+              "quantidade": 4
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "hp": [
+            0.3,
+            0.0
+          ],
+          "nome": "Requiem",
+          "fala": "Entao chore sozinho... no escuro.",
+          "mudancas": "Apaga as velas: a arena escurece e so ha luz em 3 velas no chao (raio 2). Fora da luz o jogador toma 'luto' (2% do HP max por s). Chama 2 Carpideiras de Ossos. Velas mudam de lugar a cada 20s.",
+          "ataques": [
+            {
+              "id": "toque_de_luto",
+              "mult": 1.2
+            },
+            {
+              "id": "lamento",
+              "recarga": 6
+            },
+            {
+              "id": "pranto_que_cai",
+              "quantidade": 5
+            },
+            {
+              "id": "chamar_carpideiras",
+              "invoca": {
+                "carpideira_de_ossos": 2
+              },
+              "uma_vez": true
+            },
+            {
+              "id": "escuridao",
+              "dano_por_s_frac_hp_max": 0.02,
+              "fora_da_luz": true
+            }
+          ]
+        }
+      ],
+      "drop": "chefe_celeste"
+    },
+    "zacarias_arauto": {
+      "nome": "Zacarias, o Arauto da Trombeta Calada",
+      "andar": 3,
+      "nivel": 12,
+      "tags": [
+        "celestial"
+      ],
+      "hp": 4500,
+      "defesa": 28,
+      "dano_base": 36,
+      "intervalo_ataque": 1.7,
+      "velocidade_mov": 2.8,
+      "postura_max": 340,
+      "res": {
+        "sagrado": 0.6,
+        "fogo": 0.2,
+        "eletrico": -0.15
+      },
+      "duracao_alvo_s": 160,
+      "furia_tempo_s": 420,
+      "arena": "Salao da Trombeta: circulo de raio 10 tiles, 4 pilares quebrados (cobertura), a trombeta gigante presa por correntes no fundo.",
+      "fala_entrada": "Voce ouve? O silencio. Ele ME OBRIGOU a calar. Mas eu vou tocar... eu vou tocar o fim.",
+      "fases": [
+        {
+          "n": 1,
+          "hp": [
+            1.0,
+            0.7
+          ],
+          "nome": "O Sermao",
+          "ataques": [
+            {
+              "id": "espada_sagrada",
+              "mult": 1.0,
+              "preparo": 0.55,
+              "alcance": 1.7
+            },
+            {
+              "id": "lanca_do_juizo",
+              "mult": 1.8,
+              "preparo": 0.7,
+              "telegrafo": {
+                "forma": "linha",
+                "comprimento": 9,
+                "largura": 1
+              },
+              "recarga": 6
+            },
+            {
+              "id": "asas_cortantes",
+              "mult": 1.4,
+              "preparo": 0.8,
+              "telegrafo": {
+                "forma": "circulo",
+                "raio": 2.2
+              },
+              "empurrao_px": 22,
+              "recarga": 8
+            },
+            {
+              "id": "marca_do_juizo",
+              "preparo": 3.0,
+              "telegrafo": {
+                "forma": "circulo_segue_jogador",
+                "raio": 1.5,
+                "trava_ultimos_s": 0.6
+              },
+              "mult": 2.2,
+              "_doc": "circulo segue o jogador e trava 0.6s antes de cair a coluna de luz: anda para sair",
+              "recarga": 14
+            }
+          ]
+        },
+        {
+          "n": 2,
+          "hp": [
+            0.7,
+            0.4
+          ],
+          "nome": "A Primeira Nota",
+          "fala": "Silencio... SILENCIO! Agora eu toco!",
+          "mudancas": "Voa ate a trombeta e canaliza 10s (barra de conjuracao visivel). Surgem 3 Ecos da Trombeta. Durante a canalizacao a postura dele cai para 160 e quebrar a postura INTERROMPE a nota. Se a nota sair: dano de 60% do HP max em toda a arena, exceto atras dos pilares (linha de visao). Depois volta ao chao e luta com os ataques da fase 1.",
+          "ataques": [
+            {
+              "id": "primeira_nota",
+              "conjuracao": 10.0,
+              "postura_durante": 160,
+              "interrompivel_por_postura": true,
+              "dano_frac_hp_max_jogador": 0.6,
+              "cobertura": "pilares",
+              "ao_interromper": {
+                "exausto": 4.0
+              },
+              "repete_a_cada_s": 40
+            },
+            {
+              "id": "chamar_ecos",
+              "invoca": {
+                "eco_da_trombeta": 3
+              },
+              "ao_iniciar_nota": true
+            },
+            {
+              "id": "lanca_do_juizo"
+            },
+            {
+              "id": "asas_cortantes"
+            },
+            {
+              "id": "marca_do_juizo"
+            }
+          ]
+        },
+        {
+          "n": 3,
+          "hp": [
+            0.4,
+            0.0
+          ],
+          "nome": "Asas em Chamas",
+          "fala": "Se nao posso tocar o fim... eu SOU o fim!",
+          "mudancas": "As asas pegam fogo sagrado. A arena encolhe: um anel de fogo fecha 1.5 tile a cada 25s ate raio minimo 5. Ataques 20% mais rapidos. Chama 1 Querubim Desfeito a cada 30s. A cada 45s tenta a nota de novo (canalizacao 6s, mesma regra).",
+          "ataques": [
+            {
+              "id": "espada_sagrada",
+              "mult": 1.2
+            },
+            {
+              "id": "lanca_do_juizo",
+              "dupla": true,
+              "angulo_entre": 35
+            },
+            {
+              "id": "asas_cortantes",
+              "rastro_fogo": {
+                "duracao": 3
+              }
+            },
+            {
+              "id": "marca_do_juizo",
+              "recarga": 10
+            },
+            {
+              "id": "arena_encolhe",
+              "a_cada_s": 25,
+              "fecha_tiles": 1.5,
+              "raio_min": 5,
+              "dano_por_s_frac_hp_max": 0.08
+            },
+            {
+              "id": "chamar_querubim",
+              "invoca": {
+                "querubim_desfeito": 1
+              },
+              "recarga": 30
+            },
+            {
+              "id": "nota_final",
+              "conjuracao": 6.0,
+              "postura_durante": 140,
+              "interrompivel_por_postura": true,
+              "dano_frac_hp_max_jogador": 0.6,
+              "cobertura": "pilares",
+              "repete_a_cada_s": 45
+            }
+          ]
+        }
+      ],
+      "morte": "A trombeta cai das correntes e fica no chao, calada. Gancho de lore para a proxima area.",
+      "drop": "chefe_zacarias"
+    }
+  }
+}

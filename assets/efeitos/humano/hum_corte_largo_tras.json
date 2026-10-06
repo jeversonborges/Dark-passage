@@ -1,0 +1,21 @@
+{
+ "name": "hum_corte_largo_tras",
+ "cat": "humano",
+ "frames": 16,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  88,
+  100
+ ],
+ "layer": "chao",
+ "desc": "Corte Giratório (corte_largo), camada de tras: corte 360 graus, raio de 2 tiles, giro de 0,45 s, com espada larga em volta do humano; metade de tras do arco, faíscas e poeira de areia. Desenhar ATRÁS do personagem, junto com a camada da frente.",
+ "char": "humano",
+ "title": "Corte Giratório (atrás)",
+ "resumo": "Corte Giratório (corte_largo), camada de tras: corte 360 graus, raio de 2 tiles, giro de 0,45 s, com espada larga em volta do humano; metade de tras do arco, faíscas e poeira de areia. Desenhar ATRÁS do personagem, junto com a camada da frente.",
+ "frame_w": 176,
+ "frame_h": 128,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_corte_largo_tras.png"
+}

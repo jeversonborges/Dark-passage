@@ -1,0 +1,16 @@
+{
+ "w": 370,
+ "h": 212,
+ "anchor": [
+  75,
+  171
+ ],
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  3
+ ],
+ "descricao": "Roda d'água convertida em bomba a vapor pelos sobreviventes (puxa lama amarga).",
+ "kind": "roda_dagua_bomba"
+}

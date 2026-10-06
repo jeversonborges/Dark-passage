@@ -1,0 +1,51 @@
+{
+  "_doc": "Efeitos de status e sistema de postura. Duracoes em segundos.",
+  "versao": "0.1",
+
+  "postura": {
+    "_doc": "Barra escondida (visivel so em elite e chefe, fina, dourada, embaixo do HP). Cada golpe tira postura conforme o campo 'postura' da arma/habilidade. Zerou: o alvo fica QUEBRADO.",
+    "max_por_arquetipo": { "rasteiro": 15, "normal": 30, "bruto": 80, "atirador": 25, "conjurador": 25, "elite": 140, "raro": 160, "chefe": 320 },
+    "regenera_apos_s_sem_dano_postura": 3.0,
+    "regen_por_s_frac": 0.25,
+    "quebrado_duracao": { "rasteiro": 0.6, "normal": 0.8, "bruto": 1.2, "elite": 2.5, "raro": 2.5, "chefe": 4.0 },
+    "quebrado_dano_recebido_extra": 0.30,
+    "quebrado_interrompe_conjuracao": true,
+    "recarga_apos_quebrar_s": { "chefe": 12.0, "elite": 8.0 },
+    "flinch": {
+      "_doc": "Rasteiro, normal, atirador e conjurador recuam a cada golpe recebido (animacao de dor 150ms) e perdem o ataque em preparo se o golpe tirar postura >= 10. Bruto, elite e chefe tem super-armadura durante o preparo: nao recuam.",
+      "recuam": ["rasteiro", "normal", "atirador", "conjurador"],
+      "interrompe_preparo_se_postura_maior_igual": 10,
+      "super_armadura": ["bruto", "elite", "raro", "chefe"]
+    }
+  },
+
+  "retornos_decrescentes_cc": {
+    "_doc": "Atordoado, derrubado, enraizado, cegueira e silenciado no mesmo alvo dentro de 15s: 100%, 50%, 25%, depois imune por 8s.",
+    "janela_s": 15,
+    "escala": [1.0, 0.5, 0.25],
+    "imune_s": 8,
+    "chefe": "imune a atordoado, derrubado e provocado; enraizado e lento valem 50%; cegueira vale"
+  },
+
+  "status": {
+    "sangramento": { "tipo": "dano_tempo", "elemento": "sangue", "tick_s": 1.0, "acumula": 3, "_doc": "dano_por_s_mult x dano medio de quem aplicou; pilhas somam" },
+    "veneno":      { "tipo": "dano_tempo", "elemento": "veneno", "tick_s": 1.0, "acumula": 1, "reduz_cura": 0.20 },
+    "queimadura":  { "tipo": "dano_tempo", "elemento": "fogo", "tick_s": 0.5, "acumula": 1, "renova": true },
+    "lento":       { "tipo": "controle", "velocidade_mov": -0.35, "velocidade_ataque": -0.15 },
+    "enraizado":   { "tipo": "controle", "nao_move": true, "pode_atacar": true },
+    "atordoado":   { "tipo": "controle", "nao_age": true },
+    "derrubado":   { "tipo": "controle", "nao_age": true, "_doc": "atordoado + animacao de queda; empurra 8px" },
+    "cegueira":    { "tipo": "controle", "chance_acerto": -0.50 },
+    "silenciado":  { "tipo": "controle", "sem_habilidades": true, "ataque_basico_ok": true },
+    "provocado":   { "tipo": "controle", "forca_alvo": "quem_provocou" },
+    "marcado":     { "tipo": "debuff", "_doc": "Sentenca do Anjo: dano recebido +15% de todas as fontes" },
+    "profecia":    { "tipo": "debuff", "_doc": "Profecia Sombria: se o HP cair abaixo de 10% com a marca, morre na hora (numero 'PROFECIA'). Nao funciona em chefe; em elite so abaixo de 5%." },
+    "cura_reduzida": { "tipo": "debuff" },
+    "exausto":     { "tipo": "chefe", "_doc": "estado de punicao depois de um ataque longo; igual a QUEBRADO" }
+  },
+
+  "elementos": {
+    "lista": ["fisico", "sagrado", "fogo", "sangue", "veneno", "eletrico", "profano"],
+    "cor_numero_dano_tempo": { "sangue": "#b0302a", "veneno": "#9cff3a", "fogo": "#ff7a1a", "eletrico": "#9fd8ff", "sagrado": "#e8d9a0", "profano": "#8a4a9a" }
+  }
+}

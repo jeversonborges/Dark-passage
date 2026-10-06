@@ -1,0 +1,15 @@
+{
+ "w": 640,
+ "h": 406,
+ "anchor": [
+  204,
+  306
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Árvore morta grande com cordas de enforcados (Ponte dos Enforcados / bosque).",
+ "kind": "arvore_enforcados"
+}

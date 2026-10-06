@@ -1,0 +1,15 @@
+{
+ "w": 344,
+ "h": 212,
+ "anchor": [
+  75,
+  171
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  3
+ ],
+ "descricao": "Roda d'água parada no leito seco, com pás quebradas.",
+ "kind": "roda_dagua"
+}

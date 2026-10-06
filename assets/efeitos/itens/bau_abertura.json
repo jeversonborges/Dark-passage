@@ -1,0 +1,21 @@
+{
+ "name": "bau_abertura",
+ "cat": "itens",
+ "frames": 18,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  48,
+  70
+ ],
+ "layer": "frente",
+ "desc": "Baú abrindo: frestas de luz, explosão dourada, moedas e pó saindo.",
+ "char": null,
+ "title": "Baú abrindo",
+ "resumo": "Frestas de luz, explosão dourada, moedas e pó saindo.",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "bau_abertura.png"
+}

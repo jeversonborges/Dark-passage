@@ -1,0 +1,15 @@
+{
+ "w": 338,
+ "h": 184,
+ "anchor": [
+  169,
+  94
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  5
+ ],
+ "descricao": "Poste de concreto tombado com fios e isoladores.",
+ "kind": "poste_tombado"
+}

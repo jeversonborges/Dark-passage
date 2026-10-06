@@ -1,0 +1,15 @@
+{
+ "w": 96,
+ "h": 46,
+ "anchor": [
+  50,
+  27
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "folhas_papeis"
+}

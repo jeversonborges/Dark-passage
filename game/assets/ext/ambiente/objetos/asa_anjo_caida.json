@@ -1,0 +1,15 @@
+{
+ "w": 228,
+ "h": 100,
+ "anchor": [
+  112,
+  51
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Asa de anjo gigante caída na areia, penas sujas e tira de couro.",
+ "kind": "asa_anjo_caida"
+}

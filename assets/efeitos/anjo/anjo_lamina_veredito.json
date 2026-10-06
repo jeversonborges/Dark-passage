@@ -1,0 +1,21 @@
+{
+ "name": "anjo_lamina_veredito",
+ "cat": "anjo",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  48
+ ],
+ "layer": "frente",
+ "desc": "Lâmina do Veredito: corte sagrado com cruz de luz no impacto.",
+ "char": null,
+ "title": "Lâmina do Veredito",
+ "resumo": "Corte sagrado com cruz de luz no impacto.",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "anjo_lamina_veredito.png"
+}

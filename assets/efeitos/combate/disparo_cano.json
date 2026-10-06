@@ -1,0 +1,21 @@
+{
+ "name": "disparo_cano",
+ "cat": "combate",
+ "frames": 5,
+ "fps": 24,
+ "loop": false,
+ "anchor": [
+  6,
+  16
+ ],
+ "layer": "frente",
+ "desc": "Clarão de boca de arma (escopeta/mosquete). Aponta para a direita; girar no motor.",
+ "char": null,
+ "title": "Clarão de disparo",
+ "resumo": "Clarão de boca de arma (escopeta/mosquete). Aponta para a direita; girar no motor.",
+ "frame_w": 48,
+ "frame_h": 32,
+ "cols": 5,
+ "rows": 1,
+ "sheet": "disparo_cano.png"
+}

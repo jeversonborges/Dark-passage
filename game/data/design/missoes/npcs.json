@@ -1,0 +1,238 @@
+{
+  "versao": "0.1",
+  "npcs": [
+    {
+      "id": "capita_odete",
+      "nome": "Odete Ferrolho",
+      "titulo": "Capitã da Vigília",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "posto_odete"
+      },
+      "servicos": [],
+      "dialogo": "dlg_odete",
+      "aparencia": "Mulher de uns cinquenta anos, magra e dura. Sobretudo azul aço remendado, tapa-olho de latão, escopeta serrada no coldre da coxa. Fuma cigarro de palha que nunca acende.",
+      "personalidade": "Seca, prática, humor de forca. Trata recruta como criança e criança como recruta. Nunca promete nada que não possa cumprir.",
+      "historia": "Era guarda-freios de bonde em São Lázaro. Na noite da meia nota, levou um bonde lotado de gente pelos trilhos no meio dos mortos e chegou ao pátio da estação com metade dos passageiros vivos. Perdeu o olho e o marido nessa viagem. Foi ela quem cravou o primeiro trilho da cerca. Quando a areia engoliu as ruas, foi ela quem pôs uma vela de lona no bonde e descobriu que ele ainda andava. Hoje comanda a linha 7, o único transporte da região. Não acredita em Deus, nem na Vigília: acredita na cerca."
+    },
+    {
+      "id": "doutor_anselmo",
+      "nome": "Anselmo Graxa",
+      "titulo": "Doutor e Guardião da Vela",
+      "faccao": "vigilia",
+      "classe_visual": "tecnomancer",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "barraca_anselmo"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_anselmo",
+      "dialogo": "dlg_anselmo",
+      "aparencia": "Homem gordo e careca de batina cortada na altura do joelho, avental de couro por cima, óculos de soldador na testa. Uma bobina de tesla nas costas faz os poucos cabelos dele ficarem em pé. Carrega um contador de Amargo feito de um terço de contas de vidro, que estala quando a radiação sobe.",
+      "personalidade": "Falante, curioso, incapaz de ficar quieto diante de uma máquina. Mistura citação bíblica com termo de engenharia. Tem uma ternura enorme pelos feridos e nenhuma pelos próprios dedos.",
+      "historia": "Foi o pároco de São Lázaro. Na noite da meia nota rezou a noite inteira e nada aconteceu; de manhã desmontou o motor de um bonde e acendeu a primeira Vela. Diz que Deus parou de responder e que, portanto, cabe aos homens terminar a conversa. Foi ele quem desenhou o lacre de chumbo que calou a trombeta, e é o único vivo que sabe disso."
+    },
+    {
+      "id": "mae_cardo",
+      "nome": "Mãe Cardo",
+      "titulo": "Cozinheira do Acampamento",
+      "faccao": "vigilia",
+      "classe_visual": "mutante",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "caldeirao_cardo"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_cardo",
+      "dialogo": "dlg_cardo",
+      "aparencia": "Senhora baixinha e corcunda, braço esquerdo enorme e cheio de placas verdes de praga. Usa esse braço para mexer um caldeirão do tamanho de uma banheira. Lenço florido na cabeça.",
+      "personalidade": "Doce, mandona, chama todo mundo de 'menino'. Ri alto e chora escondido.",
+      "historia": "Anos bebendo a água amarga do deserto pegaram o braço dela e o corpo inteiro do filho, Joaquim. Ela se adaptou. Ele não: virou uma besta e fugiu para o cemitério, onde ronda o túmulo do pai. Toda noite ela faz um caldo a mais e deixa no portão da cerca. Ninguém tem coragem de dizer que quem come é o Cão de Vala."
+    },
+    {
+      "id": "tobias_pavio",
+      "nome": "Tobias 'Pavio'",
+      "titulo": "Mercador de Sucata",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "carrinho_tobias"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_tobias",
+      "dialogo": "dlg_tobias",
+      "aparencia": "Menino de uns doze anos, magrelo, cartola amassada grande demais, óculos de aviador com uma lente quebrada. Empurra um carrinho de mão lotado de lixo valioso.",
+      "personalidade": "Esperto, negociador, mentiroso honesto: avisa que vai mentir. Fala rápido, inventa apelidos para todo mundo.",
+      "historia": "Órfão do cerco. Ganhou o apelido porque acendia as velas da Vela antes do Doutor inventar a lâmpada, e porque explode fácil. Conhece cada buraco da paróquia e tem um mapa rasgado dos esconderijos que a maré de areia ainda não engoliu, refeito a carvão toda semana porque as dunas andam."
+    },
+    {
+      "id": "gaspar_bigorna",
+      "nome": "Gaspar Bigorna",
+      "titulo": "Ferreiro e Fundidor",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "forja_bigorna"
+      },
+      "servicos": [
+        "ferreiro"
+      ],
+      "dialogo": "dlg_gaspar",
+      "aparencia": "Gigante barbudo, peito queimado, avental de couro e uma cruz de ferro pendurada ao contrário. A forja dele é um sino de igreja virado de boca para cima.",
+      "personalidade": "Quieto, fala por frases de três palavras. Quando se empolga com metal vira poeta.",
+      "historia": "Fundidor de sinos da paróquia por trinta anos. Quando os mortos levantaram ao som de uma trombeta, ele entendeu que sinos não iam salvar ninguém. Derreteu os sinos de São Lázaro um por um e transformou em balas. Diz que agora cada tiro da Vigília é uma badalada. Os sinos ele tirou de dentro da areia, cavando até as torres, um por um."
+    },
+    {
+      "id": "madre_ivone",
+      "nome": "Ivone das Chagas",
+      "titulo": "Madre Superiora do Culto",
+      "faccao": "arautos",
+      "classe_visual": "cultista",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "pulpito_ivone"
+      },
+      "servicos": [],
+      "dialogo": "dlg_ivone",
+      "aparencia": "Mulher alta de túnica vinho bordada com fios de ouro sujo, máscara de gás de osso pendurada no pescoço. As mãos enfaixadas sangram sempre no mesmo ponto das palmas.",
+      "personalidade": "Calma, maternal, absolutamente sincera. Fala baixo para que os outros se aproximem. Nunca levanta a voz, nem para mandar matar.",
+      "historia": "Era a enfermeira do hospício de São Lázaro. Viu doentes sofrerem por décadas sem cura nem fim. Quando a trombeta soou, sentiu alívio pela primeira vez na vida: finalmente acabaria. Quando a Vigília calou a trombeta, ela entendeu como uma crueldade contra todos os que sofrem. Quer o fim por misericórdia. Ela bebe água com Amargo de propósito, todo dia, como comunhão, e as feridas das mãos brilham verde à noite."
+    },
+    {
+      "id": "comandante_abdiel",
+      "nome": "Abdiel",
+      "titulo": "Comandante Angélico da Capela",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "nave_abdiel"
+      },
+      "servicos": [
+        "treinador"
+      ],
+      "dialogo": "dlg_abdiel",
+      "aparencia": "Anjo de quase três metros, sobretudo-batina branco osso, asas de penas sujas presas com tiras de couro, rosto de porcelana rachado com uma venda bordada com um olho dourado. Halo de ferro com dois raios quebrados.",
+      "personalidade": "Frio, educado, literal. Não entende ironia. Despreza demônios abertamente e humanos com polidez.",
+      "historia": "Serviu sob Zacarias como escudeiro do arauto da quinta trombeta. Na noite da meia nota ficou na superfície guardando a entrada. Quando a trombeta calou, foi ele quem recuou em vez de descer. Carrega essa covardia como uma pedra. Precisa que alguém desça por ele."
+    },
+    {
+      "id": "malfas",
+      "nome": "Malfas",
+      "titulo": "Penhorista do Abismo",
+      "faccao": "arautos",
+      "classe_visual": "demonio",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "patio_malfas"
+      },
+      "servicos": [
+        "loja",
+        "ferreiro"
+      ],
+      "loja": "loja_malfas",
+      "dialogo": "dlg_malfas",
+      "aparencia": "Demônio baixo e largo, chifres com argolas de latão, sobretudo de couro sem mangas cheio de bolsos costurados por dentro. Monóculo de vidro verde tirado das dunas da batalha. Uma corrente de etiquetas de penhor pendurada no pescoço, cada uma com um nome.",
+      "personalidade": "Cínico, simpático, comerciante. Ri da liturgia dos anjos e cobra juros de tudo, inclusive de conselhos.",
+      "historia": "Veio do Inferno pela promessa: a Terra arruinada seria dos demônios depois do fim. Montou uma casa de penhores no pátio da capela e compra de tudo, de armas a lembranças. Cada etiqueta no pescoço dele é um contrato. Odeia Abdiel com carinho e espera o dia de penhorar o halo dele."
+    },
+    {
+      "id": "irmao_lucio",
+      "nome": "Lúcio",
+      "titulo": "Irmão Acólito",
+      "faccao": "arautos",
+      "classe_visual": "cultista",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "sacristia_lucio"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_lucio",
+      "dialogo": "dlg_lucio",
+      "aparencia": "Rapaz de uns dezoito anos, túnica vinho grande demais, capuz caído, rosto cheio de espinhas e olheiras. Carrega um incensário que ele balança quando fica nervoso, o que é sempre.",
+      "personalidade": "Educado, ansioso, gagueja quando mente. Acredita, mas não tanto quanto deveria.",
+      "historia": "Entrou para o culto porque era o único lugar com comida durante o cerco. A irmã mais nova, Rosa, foi para o lado da Vigília e hoje vive no Acampamento da Vela. Ele escreve cartas para ela toda semana e esconde debaixo do altar."
+    },
+    {
+      "id": "simao_coveiro",
+      "nome": "Simão",
+      "titulo": "O Coveiro",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "cemiterio_sao_lazaro",
+        "ponto": "casa_simao"
+      },
+      "servicos": [
+        "armazem"
+      ],
+      "dialogo": "dlg_simao",
+      "aparencia": "Velho muito alto e muito magro, pele cinza de quem já foi enterrado, faixas de linho velho enroladas nos pulsos e no pescoço. Chapéu de aba larga, pá apoiada no ombro, lampião com uma vela de sebo.",
+      "personalidade": "Gentil, lento, cansado de um jeito que não é de sono. Responde perguntas com perguntas. Gosta de quem trabalha com as mãos.",
+      "historia": "Cuida do cemitério desde que alguém lembra. No deserto o ofício virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Os Não-Julgados não o atacam: abaixam a cabeça quando ele passa. Guarda os pertences dos vivos em covas numeradas, porque ninguém rouba de um cemitério. Segredo (nunca dito, só insinuado): ele é Lázaro, o homem chamado de volta da morte. Já morreu duas vezes. Não sabe se quer que a trombeta termine a nota."
+    },
+    {
+      "id": "frei_anacleto",
+      "nome": "Frei Anacleto",
+      "titulo": "O Emparedado",
+      "faccao": "neutro",
+      "classe_visual": "fantasma",
+      "local": {
+        "subzona": "ossario_carpideiras",
+        "ponto": "cela_anacleto"
+      },
+      "servicos": [],
+      "dialogo": "dlg_anacleto",
+      "aparencia": "Fantasma de um monge magro, translúcido e esverdeado, preso da cintura para baixo numa parede de tijolos. Ainda segura o terço com que foi emparedado.",
+      "personalidade": "Educado, pedante, faminto por conversa depois de trezentos anos. Corrige o latim de todo mundo.",
+      "historia": "Monge da ordem que fundou as catacumbas. Foi emparedado vivo por penitência, como era o costume, e morreu antes do Juízo. Conhece a história da Irmã Celeste e sabe que a cela de cada monge guarda uma confissão escrita na parede."
+    },
+    {
+      "id": "isaura_radialista",
+      "nome": "Isaura Valente",
+      "titulo": "A Voz da Rádio São Lázaro",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "bairro_afogado",
+        "ponto": "radio_sao_lazaro"
+      },
+      "servicos": [],
+      "dialogo": "dlg_isaura",
+      "aparencia": "Mulher de uns setenta anos, magra, cabelo branco curtíssimo, fones de ouvido de baquelite pendurados no pescoço, farda verde do exército desbotada por baixo de um xale de crochê. As mãos têm queimaduras antigas em forma de dedos.",
+      "personalidade": "Precisa, irônica, fala como quem lê um boletim. Repete números quando fica nervosa. Ninguém a vê chorar, mas ela transmite canções de ninar às três da manhã.",
+      "historia": "Era a radiotelegrafista do Comando Sul, no Silo São Lázaro. Na noite em que os anjos cobriram o céu da capital, foi ela quem recebeu e leu em voz alta a ordem de lançamento da Ogiva Absinto-1. O míssil subiu daqui, caiu lá longe sobre a hoste celeste e foi o que os cultistas chamam de estrela Absinto. O pó que cai até hoje é o que sobrou. Ela mora na torre da rádio enterrada e transmite toda noite a contagem da Absinto-2, a segunda ogiva, que nunca foi lançada e ainda está no silo. Ninguém sabe se ela transmite para avisar ou para lembrar."
+    },
+    {
+      "id": "corvina_atravessadora",
+      "nome": "Corvina",
+      "titulo": "Atravessadora de Segredos",
+      "faccao": "neutro",
+      "classe_visual": "cultista",
+      "local": {
+        "subzona": "bairro_afogado",
+        "ponto": "sotao_afogado"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_corvina",
+      "dialogo": "dlg_corvina",
+      "aparencia": "Mulher jovem de capa de penas pretas costuradas em couro, metade do rosto pintada de branco osso e metade sem pintura, um olho de vidro verde. Mora num sótão afogado em que se entra por uma janela na duna.",
+      "personalidade": "Simpática, curiosa, sem lealdade nenhuma. Cobra por tudo e não mente nunca: vende a verdade inteira para os dois lados.",
+      "historia": "Foi cultista na Capela até perceber que segredo vale mais que fé. Hoje compra e vende informação entre a Capela e o Acampamento da Vela. Foi ela quem espalhou, dos dois lados, que o general da Legião Blasfema sumiu, e cobrou caro das duas vezes."
+    }
+  ]
+}

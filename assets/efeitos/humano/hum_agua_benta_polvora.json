@@ -1,0 +1,21 @@
+{
+ "name": "hum_agua_benta_polvora",
+ "cat": "humano",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  36,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Água Benta e Pólvora: munição carregada, gotas bentas e brasas giram em volta (buff, repetir).",
+ "char": "humano",
+ "title": "Água Benta e Pólvora",
+ "resumo": "Munição carregada, gotas bentas e brasas giram em volta (buff, repetir).",
+ "frame_w": 72,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "hum_agua_benta_polvora.png"
+}

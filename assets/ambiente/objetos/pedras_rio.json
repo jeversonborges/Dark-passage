@@ -1,0 +1,15 @@
+{
+ "w": 94,
+ "h": 58,
+ "anchor": [
+  36,
+  33
+ ],
+ "categoria": "rio",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "pedras_rio"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "tec_arco_voltaico",
+ "cat": "tecnomancer",
+ "frames": 10,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  10,
+  50
+ ],
+ "layer": "frente",
+ "desc": "Arco Voltaico: raio que salta entre até 3 alvos (pontos de salto em 70,60 / 120,40 / 160,64).",
+ "char": null,
+ "title": "Arco Voltaico",
+ "resumo": "Raio que salta entre até 3 alvos (pontos de salto em 70,60 / 120,40 / 160,64).",
+ "frame_w": 176,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tec_arco_voltaico.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "morte_monstro",
+ "cat": "combate",
+ "frames": 18,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  48,
+  100
+ ],
+ "layer": "frente",
+ "desc": "Morte de monstro: o corpo se desfaz em cinza e brasa, a alma sobe e se apaga. Tocar junto com o sprite do monstro sumindo.",
+ "char": null,
+ "title": "Morte de monstro",
+ "resumo": "O corpo se desfaz em cinza e brasa, a alma sobe e se apaga. Tocar junto com o sprite do monstro sumindo.",
+ "frame_w": 96,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "morte_monstro.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "golpe_corte",
+ "cat": "combate",
+ "frames": 7,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  40,
+  32
+ ],
+ "layer": "frente",
+ "desc": "Rastro de lâmina em arco (corte de espada/foice/machado).",
+ "char": null,
+ "title": "Corte em arco",
+ "resumo": "Rastro de lâmina em arco (corte de espada/foice/machado).",
+ "frame_w": 80,
+ "frame_h": 64,
+ "cols": 7,
+ "rows": 1,
+ "sheet": "golpe_corte.png"
+}

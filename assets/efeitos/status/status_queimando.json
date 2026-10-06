@@ -1,0 +1,21 @@
+{
+ "name": "status_queimando",
+ "cat": "status",
+ "frames": 16,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  24,
+  72
+ ],
+ "layer": "frente",
+ "desc": "Em chamas: línguas de fogo lambendo o corpo e fagulhas subindo.",
+ "char": null,
+ "title": "Em chamas",
+ "resumo": "Línguas de fogo lambendo o corpo e fagulhas subindo.",
+ "frame_w": 48,
+ "frame_h": 80,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "status_queimando.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "dem_portao_inferno",
+ "cat": "demonio",
+ "frames": 28,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  104,
+  120
+ ],
+ "layer": "frente",
+ "desc": "Portão do Inferno (suprema): o chão racha, a fenda se abre e colunas de fogo queimam tudo em volta.",
+ "char": null,
+ "title": "Portão do Inferno (suprema)",
+ "resumo": "O chão racha, a fenda se abre e colunas de fogo queimam tudo em volta.",
+ "frame_w": 208,
+ "frame_h": 176,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "dem_portao_inferno.png"
+}

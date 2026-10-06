@@ -1,0 +1,105 @@
+{
+ "monstro": "querubim_desfeito",
+ "frame_size": [
+  288,
+  288
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  144.0,
+  213.3
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 8,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 12,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "flash": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "retreat": {
+   "frames": 8,
+   "fps": 12,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "querubim_desfeito_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "querubim_desfeito_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "querubim_desfeito_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "flash": {
+   "file": "querubim_desfeito_flash.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "retreat": {
+   "file": "querubim_desfeito_retreat.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "querubim_desfeito_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "querubim_desfeito_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.6
+ }
+}

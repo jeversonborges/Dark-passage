@@ -1,0 +1,21 @@
+{
+ "name": "sangue_jorro",
+ "cat": "combate",
+ "frames": 12,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  24,
+  34
+ ],
+ "layer": "frente",
+ "desc": "Jorro de sangue ao ferir; gotas caem e mancham o chão. Espelhar para o outro lado.",
+ "char": null,
+ "title": "Jorro de sangue",
+ "resumo": "Jorro de sangue ao ferir; gotas caem e mancham o chão. Espelhar para o outro lado.",
+ "frame_w": 64,
+ "frame_h": 64,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "sangue_jorro.png"
+}

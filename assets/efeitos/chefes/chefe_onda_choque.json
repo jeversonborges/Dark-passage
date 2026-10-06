@@ -1,0 +1,21 @@
+{
+ "name": "chefe_onda_choque",
+ "cat": "chefes",
+ "frames": 16,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  104,
+  84
+ ],
+ "layer": "frente",
+ "desc": "Pisão do chefe: chão racha, anel de poeira e pedras voando.",
+ "char": null,
+ "title": "Pisão do chefe",
+ "resumo": "Chão racha, anel de poeira e pedras voando.",
+ "frame_w": 208,
+ "frame_h": 128,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "chefe_onda_choque.png"
+}

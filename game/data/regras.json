@@ -1,0 +1,27 @@
+{
+ "pontos_por_nivel": 5,
+ "nivel_max": 400,
+ "xp_base": 60,
+ "xp_expoente": 1.65,
+ "combate": {
+  "chance_erro": 0.05,
+  "crit_base": 0.05,
+  "crit_por_agi": 0.002,
+  "mult_crit": 1.8,
+  "defesa_peso": 0.5,
+  "variacao": [
+   0.85,
+   1.15
+  ],
+  "hp_base": 60,
+  "hp_por_vit": 6,
+  "hp_por_nivel": 10,
+  "rec_base": 80,
+  "rec_por_esp": 2,
+  "rec_por_nivel": 2,
+  "def_por_vit": 0.35,
+  "def_por_nivel": 0.8,
+  "xp_bonus_por_nivel_dif": 0.15,
+  "perda_xp_morte": 0.03
+ }
+}

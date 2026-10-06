@@ -1,0 +1,21 @@
+{
+ "name": "vela_ar_limpo_borda",
+ "cat": "ambiente",
+ "frames": 32,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  160,
+  112
+ ],
+ "layer": "frente",
+ "desc": "Ar limpo da Vela (frente): o pó Amargo cai do lado de fora e para na borda da luz, assentando no chão; dentro o ar fica limpo.",
+ "char": null,
+ "title": "Ar limpo da Vela (frente)",
+ "resumo": "O pó Amargo cai do lado de fora e para na borda da luz, assentando no chão; dentro o ar fica limpo.",
+ "frame_w": 320,
+ "frame_h": 200,
+ "cols": 6,
+ "rows": 6,
+ "sheet": "vela_ar_limpo_borda.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "cult_pacto_rubro",
+ "cat": "cultista",
+ "frames": 18,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  40,
+  110
+ ],
+ "layer": "frente",
+ "desc": "Pacto Rubro: o cultista sangra para cima, um anel de sangue o envolve e os olhos acendem.",
+ "char": "cultista",
+ "title": "Pacto Rubro",
+ "resumo": "O cultista sangra para cima, um anel de sangue o envolve e os olhos acendem.",
+ "frame_w": 80,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "cult_pacto_rubro.png"
+}

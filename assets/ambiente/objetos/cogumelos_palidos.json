@@ -1,0 +1,16 @@
+{
+ "w": 94,
+ "h": 42,
+ "anchor": [
+  42,
+  29
+ ],
+ "emissivo": "verde fraco",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cogumelos pálidos que brilham verde fraco (Bosque das Viúvas).",
+ "kind": "cogumelos_palidos"
+}

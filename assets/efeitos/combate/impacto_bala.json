@@ -1,0 +1,21 @@
+{
+ "name": "impacto_bala",
+ "cat": "combate",
+ "frames": 8,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  20,
+  20
+ ],
+ "layer": "frente",
+ "desc": "Bala acertando: poeira, lascas e faíscas.",
+ "char": null,
+ "title": "Impacto de bala",
+ "resumo": "Bala acertando: poeira, lascas e faíscas.",
+ "frame_w": 40,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 1,
+ "sheet": "impacto_bala.png"
+}

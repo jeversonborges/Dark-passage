@@ -1,0 +1,21 @@
+{
+ "name": "tempestade_amargo_nevoa",
+ "cat": "ambiente",
+ "frames": 32,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  0,
+  0
+ ],
+ "layer": "frente",
+ "desc": "Tempestade de Amargo (camada de fundo): nuvens de pó verde-cinza correndo com o vento. Ladrilhável; por cima do mundo, com transparência.",
+ "char": null,
+ "title": "Tempestade de Amargo (camada de fundo)",
+ "resumo": "Nuvens de pó verde-cinza correndo com o vento. Ladrilhável; por cima do mundo, com transparência.",
+ "frame_w": 192,
+ "frame_h": 108,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "tempestade_amargo_nevoa.png"
+}

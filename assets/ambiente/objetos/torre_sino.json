@@ -1,0 +1,15 @@
+{
+ "w": 602,
+ "h": 362,
+ "anchor": [
+  190,
+  269
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Campanário de madeira e ferro com o sino rachado (Rua do Sino).",
+ "kind": "torre_sino"
+}

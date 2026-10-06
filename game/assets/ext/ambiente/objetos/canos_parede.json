@@ -1,0 +1,15 @@
+{
+ "w": 236,
+ "h": 148,
+ "anchor": [
+  48,
+  122
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "canos_parede"
+}

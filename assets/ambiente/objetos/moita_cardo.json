@@ -1,0 +1,15 @@
+{
+ "w": 116,
+ "h": 74,
+ "anchor": [
+  23,
+  56
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Moita de cardo roxo, a única planta que gosta do Amargo.",
+ "kind": "moita_cardo"
+}

@@ -1,0 +1,260 @@
+{
+"anjo_lamina_veredito": [
+0,
+0,
+32,
+32
+],
+"anjo_toque_graca": [
+32,
+0,
+32,
+32
+],
+"anjo_leque_juizo": [
+64,
+0,
+32,
+32
+],
+"anjo_halo_ardente": [
+96,
+0,
+32,
+32
+],
+"anjo_sentenca": [
+128,
+0,
+32,
+32
+],
+"anjo_asas_ascensao": [
+160,
+0,
+32,
+32
+],
+"anjo_trombeta_juizo": [
+0,
+32,
+32,
+32
+],
+"cultista_sangria": [
+32,
+32,
+32,
+32
+],
+"cultista_pacto_rubro": [
+64,
+32,
+32,
+32
+],
+"cultista_espinhos_sangue": [
+96,
+32,
+32,
+32
+],
+"cultista_servo_carne": [
+128,
+32,
+32,
+32
+],
+"cultista_chuva_cinzas": [
+160,
+32,
+32,
+32
+],
+"cultista_profecia_sombria": [
+0,
+64,
+32,
+32
+],
+"cultista_setimo_selo": [
+32,
+64,
+32,
+32
+],
+"mutante_golpe_purulento": [
+64,
+64,
+32,
+32
+],
+"mutante_rugido_praga": [
+96,
+64,
+32,
+32
+],
+"mutante_terremoto_putrido": [
+128,
+64,
+32,
+32
+],
+"mutante_carapaca": [
+160,
+64,
+32,
+32
+],
+"mutante_investida_bestial": [
+0,
+96,
+32,
+32
+],
+"mutante_regeneracao_profana": [
+32,
+96,
+32,
+32
+],
+"mutante_forma_besta": [
+64,
+96,
+32,
+32
+],
+"demonio_garra_abismo": [
+96,
+96,
+32,
+32
+],
+"demonio_corrente_danacao": [
+128,
+96,
+32,
+32
+],
+"demonio_ceifa_infernal": [
+160,
+96,
+32,
+32
+],
+"demonio_passo_sombrio": [
+0,
+128,
+32,
+32
+],
+"demonio_pele_enxofre": [
+32,
+128,
+32,
+32
+],
+"demonio_banquete": [
+64,
+128,
+32,
+32
+],
+"demonio_portao_inferno": [
+96,
+128,
+32,
+32
+],
+"humano_tiro_certeiro": [
+128,
+128,
+32,
+32
+],
+"humano_corte_largo": [
+160,
+128,
+32,
+32
+],
+"humano_coquetel_querosene": [
+0,
+160,
+32,
+32
+],
+"humano_arrancada": [
+32,
+160,
+32,
+32
+],
+"humano_rajada": [
+64,
+160,
+32,
+32
+],
+"humano_agua_benta_polvora": [
+96,
+160,
+32,
+32
+],
+"humano_armadilha_prata": [
+128,
+160,
+32,
+32
+],
+"humano_ultimo_suspiro": [
+160,
+160,
+32,
+32
+],
+"tecnomancer_arco_voltaico": [
+0,
+192,
+32,
+32
+],
+"tecnomancer_torreta_sentinela": [
+32,
+192,
+32,
+32
+],
+"tecnomancer_tempestade_bobina": [
+64,
+192,
+32,
+32
+],
+"tecnomancer_nanoreparo": [
+96,
+192,
+32,
+32
+],
+"tecnomancer_campo_forca": [
+128,
+192,
+32,
+32
+],
+"tecnomancer_pulso_antidivino": [
+160,
+192,
+32,
+32
+],
+"tecnomancer_maquina_juizo_reverso": [
+0,
+224,
+32,
+32
+]
+}

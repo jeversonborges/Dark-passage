@@ -1,0 +1,17 @@
+{
+ "w": 480,
+ "h": 292,
+ "anchor": [
+  128,
+  223
+ ],
+ "chefe": 2,
+ "luz": "velas",
+ "categoria": "chefes",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "Chefe 2 (Ossário): trono de ossos das Carpideiras com mar de velas.",
+ "kind": "arena_carpideiras"
+}

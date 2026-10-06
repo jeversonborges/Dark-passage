@@ -1,0 +1,15 @@
+{
+ "w": 266,
+ "h": 152,
+ "anchor": [
+  83,
+  105
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Toca da matilha: buraco na duna com ossos roídos e trapos.",
+ "kind": "toca_caes"
+}

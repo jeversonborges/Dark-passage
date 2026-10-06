@@ -1,0 +1,15 @@
+{
+ "w": 326,
+ "h": 210,
+ "anchor": [
+  45,
+  185
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  3
+ ],
+ "descricao": "",
+ "kind": "forca_ponte"
+}

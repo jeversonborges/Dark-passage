@@ -1,0 +1,16 @@
+{
+ "w": 312,
+ "h": 164,
+ "anchor": [
+  147,
+  87
+ ],
+ "emissivo": "brilho verde",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "O Sumidouro: funil de areia onde o rio some, com brilho verde no fundo.",
+ "kind": "sumidouro"
+}

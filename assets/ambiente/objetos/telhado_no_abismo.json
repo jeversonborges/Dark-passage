@@ -1,0 +1,15 @@
+{
+ "w": 352,
+ "h": 346,
+ "anchor": [
+  176,
+  -141
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Telhado de casa da Cidade Velha visto lá embaixo no abismo (cenário da moldura).",
+ "kind": "telhado_no_abismo"
+}

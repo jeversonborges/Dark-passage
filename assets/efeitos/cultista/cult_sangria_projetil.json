@@ -1,0 +1,21 @@
+{
+ "name": "cult_sangria_projetil",
+ "cat": "cultista",
+ "frames": 6,
+ "fps": 16,
+ "loop": true,
+ "anchor": [
+  32,
+  10
+ ],
+ "layer": "frente",
+ "desc": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
+ "char": null,
+ "title": "Sangria (projétil)",
+ "resumo": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
+ "frame_w": 40,
+ "frame_h": 20,
+ "cols": 6,
+ "rows": 1,
+ "sheet": "cult_sangria_projetil.png"
+}

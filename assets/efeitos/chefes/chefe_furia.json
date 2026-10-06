@@ -1,0 +1,21 @@
+{
+ "name": "chefe_furia",
+ "cat": "chefes",
+ "frames": 16,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  64,
+  156
+ ],
+ "layer": "frente",
+ "desc": "Fúria do chefe (fase 2): chamas vermelhas sobem do corpo e o chão arde (repetir).",
+ "char": null,
+ "title": "Fúria do chefe",
+ "resumo": "Fúria do chefe (fase 2): chamas vermelhas sobem do corpo e o chão arde (repetir).",
+ "frame_w": 128,
+ "frame_h": 168,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "chefe_furia.png"
+}

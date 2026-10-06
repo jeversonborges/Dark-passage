@@ -1,0 +1,15 @@
+{
+ "w": 140,
+ "h": 88,
+ "anchor": [
+  39,
+  64
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "estacas_cerca"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 408,
+ "h": 240,
+ "anchor": [
+  101,
+  193
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Torre de vigia da Linha do Impasse engolida pela tempestade.",
+ "kind": "torre_vigia_enterrada"
+}

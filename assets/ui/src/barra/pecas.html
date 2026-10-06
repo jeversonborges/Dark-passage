@@ -1,0 +1,268 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Cinzel;src:url(fonts/cinzel-bold.woff2);font-weight:700}
+@font-face{font-family:Pix;src:url(fonts/silkscreen.woff2)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;padding:20px;font-family:Cinzel}
+.peca{position:relative;margin:0 0 30px 0;overflow:visible}
+.abs{position:absolute}
+/* materiais */
+.latao{background:url(tex_latao.svg)}
+.couro{background:url(tex_couro.svg)}
+.ferro{background:url(tex_ferro.svg)}
+.bisel{box-shadow:inset 0 1px 0 rgba(255,226,160,.55),inset 0 2px 0 rgba(255,210,140,.18),inset 0 -2px 0 rgba(0,0,0,.6),inset 0 -3px 6px rgba(0,0,0,.35),0 0 0 1px #0b0806}
+.rebite{position:absolute;width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffe6b0 0,#c9954a 30%,#6a4418 70%,#1a0e04 100%);box-shadow:0 1px 1.5px rgba(0,0,0,.9),0 0 0 .5px #000}
+.rebite.p{width:6px;height:6px}
+.poco{position:absolute;background:#090706;border-radius:2px;
+  box-shadow:inset 0 3px 6px #000,inset 0 0 0 1px #000,0 1px 0 rgba(255,220,150,.35),0 -1px 0 rgba(0,0,0,.6)}
+.costura{position:absolute;border:1.2px dashed rgba(214,180,120,.55)}
+.areia{position:absolute;border-radius:50% 50% 0 0/100% 100% 0 0;
+  background:radial-gradient(ellipse at 50% 100%,#b89a6a 0,#8f7650 45%,rgba(110,90,60,.0) 75%);filter:url(#grao)}
+.vazio{background:transparent}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <filter id="grao" x="-10%" y="-10%" width="120%" height="120%">
+   <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="8" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .1  0 0 0 0 .08  0 0 0 0 .05  0 0 0 1.2 -.3" result="g"/>
+   <feComposite in="g" in2="SourceGraphic" operator="atop"/>
+  </filter>
+  <filter id="liqtex" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency="0.035 0.06" numOctaves="4" seed="31" result="t"/>
+   <feColorMatrix in="t" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.1 -.45" result="w"/>
+   <feComposite in="w" in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="blur2"><feGaussianBlur stdDeviation="2"/></filter>
+  <filter id="blur4"><feGaussianBlur stdDeviation="4"/></filter>
+  <filter id="blur1"><feGaussianBlur stdDeviation="1"/></filter>
+  <linearGradient id="latG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d998"/><stop offset=".25" stop-color="#c08a44"/><stop offset=".6" stop-color="#7a4f22"/><stop offset="1" stop-color="#2e1a08"/></linearGradient>
+  <linearGradient id="latD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d998"/><stop offset=".3" stop-color="#b07a3a"/><stop offset=".6" stop-color="#5a3816"/><stop offset=".85" stop-color="#a87238"/><stop offset="1" stop-color="#3a2208"/></linearGradient>
+  <pattern id="pLat" width="512" height="256" patternUnits="userSpaceOnUse"><image href="tex_latao.svg" width="512" height="256"/></pattern>
+  <pattern id="pFer" width="256" height="256" patternUnits="userSpaceOnUse"><image href="tex_ferro.svg" width="256" height="256"/></pattern>
+  <pattern id="pCou" width="256" height="256" patternUnits="userSpaceOnUse"><image href="tex_couro.svg" width="256" height="256"/></pattern>
+ </defs>
+</svg>
+
+<!-- ====================== BARRA BASE 1280x150 ====================== -->
+<div class="peca" id="barra_base" style="width:1280px;height:150px">
+  <!-- berços de ferro sob os orbes -->
+  <svg class="abs" style="left:0;top:0" width="1280" height="150">
+    <g id="berco">
+      <path d="M0 150 L0 70 Q8 40 40 30 L116 30 Q150 40 158 70 L170 82 L170 150 Z" fill="url(#pFer)" stroke="#000" stroke-width="1.5"/><path d="M0 150 L0 70 Q8 40 40 30 L116 30 Q150 40 158 70 L170 82 L170 150 Z" fill="#000" opacity=".45"/>
+      <path d="M2 150 L2 72 Q10 44 40 33 L116 33 Q148 43 156 72" fill="none" stroke="rgba(255,220,170,.18)" stroke-width="1.5"/>
+    </g>
+    <use href="#berco" transform="translate(1280 0) scale(-1 1)"/>
+  </svg>
+  <!-- chapa de latão principal -->
+  <div class="abs latao bisel" style="left:132px;top:66px;width:1016px;height:84px;clip-path:polygon(0 14px,14px 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)"></div>
+  <!-- trilho superior escuro com amassados -->
+  <div class="abs" style="left:146px;top:66px;width:988px;height:3px;background:linear-gradient(90deg,#2a1a0a,#f0cf90 8%,#c58e48 50%,#f0cf90 92%,#2a1a0a);opacity:.9"></div>
+  <!-- canal do tubo de XP -->
+  <div class="poco" style="left:172px;top:72px;width:936px;height:14px;border-radius:7px;background:#06100a;box-shadow:inset 0 2px 5px #000,inset 0 0 0 1px #000,0 1px 0 rgba(255,220,150,.4)"></div>
+  <!-- faixa de couro -->
+  <div class="abs couro" style="left:150px;top:88px;width:980px;height:58px;box-shadow:inset 0 2px 3px rgba(0,0,0,.8),inset 0 -2px 3px rgba(0,0,0,.8),0 0 0 1px #000,0 2px 0 rgba(255,220,150,.15)"></div>
+  <div class="costura" style="left:154px;top:91px;width:972px;height:52px;border-radius:2px"></div>
+  <!-- placa de informação (nível, munição) -->
+  <div class="abs latao bisel" style="left:158px;top:92px;width:56px;height:50px;border-radius:3px"></div>
+  <div class="poco" style="left:162px;top:96px;width:48px;height:42px;background:linear-gradient(#120d08,#070504)"></div>
+  <!-- poços dos 10 slots -->
+  <div id="pocosSkill"></div>
+  <!-- divisores com flange -->
+  <div class="abs latao bisel" style="left:765px;top:86px;width:14px;height:62px;border-radius:2px"></div>
+  <div class="rebite p" style="left:769px;top:93px"></div><div class="rebite p" style="left:769px;top:136px"></div>
+  <!-- cinto: tira de couro com fivela -->
+  <div class="abs couro" style="left:784px;top:94px;width:216px;height:46px;border-radius:4px;filter:brightness(1.15) sepia(.2);box-shadow:inset 0 0 0 1px #000,inset 0 2px 2px rgba(255,220,160,.12),0 2px 3px #000"></div>
+  <div class="costura" style="left:787px;top:97px;width:210px;height:40px;border-radius:3px;border-color:rgba(230,200,140,.6)"></div>
+  <div id="pocosCinto"></div>
+  <div class="abs latao bisel" style="left:1003px;top:86px;width:14px;height:62px;border-radius:2px"></div>
+  <div class="rebite p" style="left:1007px;top:93px"></div><div class="rebite p" style="left:1007px;top:136px"></div>
+  <!-- poços dos botões de menu -->
+  <div id="pocosMenu"></div>
+  <!-- rebites da chapa -->
+  <div id="rebites"></div>
+  <!-- areia acumulada -->
+  <div class="areia" style="left:150px;top:58px;width:90px;height:14px"></div>
+  <div class="areia" style="left:1060px;top:56px;width:110px;height:16px"></div>
+  <div class="areia" style="left:520px;top:62px;width:70px;height:8px;opacity:.7"></div>
+  <div class="areia" style="left:150px;top:140px;width:160px;height:12px;opacity:.8"></div>
+  <div class="areia" style="left:950px;top:141px;width:200px;height:12px;opacity:.75"></div>
+  <!-- encaixe do tubo nos berços -->
+  <svg class="abs" style="left:150px;top:68px" width="30" height="22"><rect x="2" y="2" width="26" height="18" rx="3" fill="url(#latD)" stroke="#000"/><circle cx="15" cy="11" r="3" fill="#1a0e04"/></svg>
+  <svg class="abs" style="left:1100px;top:68px" width="30" height="22"><rect x="2" y="2" width="26" height="18" rx="3" fill="url(#latD)" stroke="#000"/><circle cx="15" cy="11" r="3" fill="#1a0e04"/></svg>
+</div>
+
+<!-- extensão lateral (telas mais largas que 1280): 512x84, repete na horizontal -->
+<div class="peca" id="barra_extensao" style="width:512px;height:84px">
+  <div class="abs latao" style="left:0;top:0;width:512px;height:84px;box-shadow:inset 0 1px 0 rgba(255,226,160,.55),inset 0 -2px 0 rgba(0,0,0,.6)"></div>
+  <div class="abs" style="left:0;top:0;width:512px;height:3px;background:linear-gradient(90deg,#c58e48,#f0cf90 50%,#c58e48);opacity:.8"></div>
+  <div class="abs couro" style="left:0;top:22px;width:512px;height:58px;box-shadow:inset 0 2px 3px rgba(0,0,0,.8),inset 0 -2px 3px rgba(0,0,0,.8)"></div>
+  <div class="abs" style="left:0;top:25px;width:512px;height:0;border-top:1.2px dashed rgba(214,180,120,.55)"></div>
+  <div class="abs" style="left:0;top:76px;width:512px;height:0;border-top:1.2px dashed rgba(214,180,120,.55)"></div>
+  <div class="rebite" style="left:60px;top:8px"></div><div class="rebite" style="left:188px;top:8px"></div><div class="rebite" style="left:316px;top:8px"></div><div class="rebite" style="left:444px;top:8px"></div>
+</div>
+
+<!-- ====================== ORBES 140x140 (centro 70,70; vidro r=52) ====================== -->
+<div class="peca" id="orbe_fundo" style="width:140px;height:140px">
+  <svg width="140" height="140"><defs><radialGradient id="of" cx="50%" cy="62%" r="55%"><stop offset="0" stop-color="#14251a"/><stop offset=".6" stop-color="#070b08"/><stop offset="1" stop-color="#020302"/></radialGradient></defs>
+  <circle cx="70" cy="70" r="53" fill="url(#of)"/></svg>
+</div>
+<div id="liquidos"></div>
+<div class="peca" id="orbe_superficie" style="width:112px;height:16px">
+  <svg width="112" height="16"><ellipse cx="56" cy="8" rx="52" ry="5" fill="rgba(255,255,255,.18)"/><ellipse cx="56" cy="7" rx="50" ry="3" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.4" filter="url(#blur1)"/><ellipse cx="44" cy="7" rx="18" ry="1.6" fill="rgba(255,255,255,.9)" filter="url(#blur1)"/></svg>
+</div>
+<div class="peca" id="orbe_vidro" style="width:140px;height:140px">
+  <svg width="140" height="140"><defs>
+   <radialGradient id="rim" cx="50%" cy="50%" r="50%"><stop offset=".78" stop-color="#9cff3a" stop-opacity="0"/><stop offset=".93" stop-color="#5aa83a" stop-opacity=".45"/><stop offset="1" stop-color="#1c3a14" stop-opacity=".85"/></radialGradient>
+   <radialGradient id="dark" cx="50%" cy="40%" r="55%"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".55"/></radialGradient>
+   <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+   <clipPath id="vc"><circle cx="70" cy="70" r="53"/></clipPath></defs>
+   <g clip-path="url(#vc)">
+    <circle cx="70" cy="70" r="53" fill="url(#dark)"/>
+    <circle cx="70" cy="70" r="53" fill="url(#rim)"/>
+    <path d="M30 52 A42 42 0 0 1 78 22 A46 46 0 0 0 36 58 Z" fill="#fff" opacity=".42" filter="url(#blur1)"/><ellipse cx="52" cy="36" rx="9" ry="4" fill="#fff" opacity=".55" transform="rotate(-30 52 36)" filter="url(#blur1)"/>
+    <ellipse cx="96" cy="100" rx="9" ry="4" fill="#d8ffb0" opacity=".35" transform="rotate(-40 96 100)" filter="url(#blur1)"/>
+    <path d="M100 30 l-8 12 l3 6 l-9 14" fill="none" stroke="rgba(220,255,200,.5)" stroke-width=".9"/>
+    <path d="M100 30 l-8 12 l3 6 l-9 14" fill="none" stroke="rgba(0,0,0,.4)" stroke-width=".6" transform="translate(.8 .8)"/>
+    <g fill="#d8ffb0" opacity=".5"><circle cx="40" cy="88" r="1.1"/><circle cx="34" cy="74" r=".8"/><circle cx="104" cy="66" r=".9"/></g>
+   </g>
+   <circle cx="70" cy="70" r="53" fill="none" stroke="#0a1408" stroke-width="2"/>
+  </svg>
+</div>
+<div id="molduras"></div>
+
+<!-- ====================== SLOTS ====================== -->
+<div id="slots"></div>
+<div id="teclas" style="display:flex;flex-wrap:wrap;gap:6px;width:600px;margin-bottom:30px"></div>
+
+<!-- ====================== XP ====================== -->
+<div class="peca" id="xp_preenchimento" style="width:64px;height:10px">
+  <div class="abs" style="inset:0;background:linear-gradient(#e6ff9a,#9cff3a 30%,#4a9a1a 70%,#1e4a0a)"></div>
+  <svg class="abs" style="left:0;top:0" width="64" height="10"><g fill="#f4ffd0" opacity=".55"><circle cx="9" cy="5" r="1"/><circle cx="31" cy="3.5" r=".8"/><circle cx="50" cy="6" r="1.1"/></g></svg>
+</div>
+<div class="peca" id="xp_ponta" style="width:12px;height:16px">
+  <svg width="12" height="16"><ellipse cx="6" cy="8" rx="4" ry="7" fill="#f4ffb0" filter="url(#blur2)"/><rect x="5" y="2" width="2" height="12" fill="#fff"/></svg>
+</div>
+<div class="peca" id="xp_vidro" style="width:940px;height:18px">
+  <svg width="940" height="18"><defs><linearGradient id="tv" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".3" stop-color="#cfffb0" stop-opacity=".08"/><stop offset=".75" stop-color="#000" stop-opacity=".0"/><stop offset="1" stop-color="#9cff3a" stop-opacity=".25"/></linearGradient></defs>
+   <rect x="4" y="3" width="932" height="12" rx="6" fill="url(#tv)" stroke="#183010" stroke-width="1"/>
+   <rect x="12" y="4.5" width="916" height="2" rx="1" fill="#fff" opacity=".35"/>
+   <g id="aneis"></g>
+  </svg>
+</div>
+
+<!-- ====================== BOTÕES DE MENU 34x24 ====================== -->
+<div id="botoes" style="display:flex;flex-wrap:wrap;gap:8px;width:600px"></div>
+
+<script>
+const $=id=>document.getElementById(id);
+// ---------- poços e rebites da barra ----------
+let h='';
+for(let i=0;i<10;i++) h+=`<div class="poco" style="left:${222+54*i}px;top:90px;width:52px;height:52px"></div>`;
+$('pocosSkill').innerHTML=h; h='';
+for(let i=0;i<4;i++) h+=`<div class="poco" style="left:${792+52*i}px;top:94px;width:46px;height:46px;border-radius:4px"></div>`;
+$('pocosCinto').innerHTML=h; h='';
+for(let r=0;r<2;r++)for(let c=0;c<3;c++) h+=`<div class="poco" style="left:${1023+36*c}px;top:${92+27*r}px;width:34px;height:24px"></div>`;
+$('pocosMenu').innerHTML=h; h='';
+[[140,76],[1132,76],[140,138],[1132,138]].forEach(([x,y])=>h+=`<div class="rebite" style="left:${x}px;top:${y}px"></div>`);
+$('rebites').innerHTML=h;
+// anéis de latão no tubo de XP (a cada 10%)
+let a='';for(let i=1;i<10;i++){const x=4+932*i/10;a+=`<rect x="${x-2}" y="1" width="4" height="16" rx="1" fill="url(#latG)" stroke="#000" stroke-width=".7"/>`}
+a+=`<rect x="0" y="0" width="10" height="18" rx="2" fill="url(#latG)" stroke="#000"/><rect x="930" y="0" width="10" height="18" rx="2" fill="url(#latG)" stroke="#000"/>`;
+$('aneis').innerHTML=a;
+
+// ---------- líquidos dos orbes ----------
+const LIQ={vida:['#ff5a3a','#b0140c','#3a0204'],folego:['#7fc4ff','#2a5e9a','#06142a'],graca:['#fff0b0','#d9a83a','#4a2a06'],
+ sangue:['#e04a6a','#7a0a2a','#20020a'],furia:['#ffb05a','#c0420a','#3a0a02'],brasa:['#ffd07a','#ff6a10','#4a0e02'],
+ carga:['#d0f4ff','#3aa8ff','#061a3a'],amargo:['#e8ff9a','#6ad020','#0e2a04'],neutro:['#ffffff','#a8a8a8','#303030']};
+let l='';
+for(const [k,[c1,c2,c3]] of Object.entries(LIQ)){
+ l+=`<div class="peca" id="orbe_liquido_${k}" style="width:140px;height:140px"><svg width="140" height="140"><defs>
+  <radialGradient id="lg${k}" cx="42%" cy="35%" r="70%"><stop offset="0" stop-color="${c1}"/><stop offset=".45" stop-color="${c2}"/><stop offset="1" stop-color="${c3}"/></radialGradient>
+  <clipPath id="lc${k}"><circle cx="70" cy="70" r="53"/></clipPath></defs>
+  <g clip-path="url(#lc${k})">
+   <circle cx="70" cy="70" r="53" fill="url(#lg${k})"/>
+   <circle cx="70" cy="70" r="53" fill="#fff" filter="url(#liqtex)" opacity=".22"/>
+   <g fill="${c1}" opacity=".7"><circle cx="52" cy="98" r="2.2"/><circle cx="60" cy="110" r="1.4"/><circle cx="86" cy="104" r="1.8"/><circle cx="92" cy="86" r="1.2"/><circle cx="44" cy="80" r="1"/></g>
+   <g fill="none" stroke="#fff" stroke-opacity=".35" stroke-width=".7"><circle cx="52" cy="98" r="2.2"/><circle cx="86" cy="104" r="1.8"/></g>
+  </g></svg></div>`;
+}
+$('liquidos').innerHTML=l;
+
+// ---------- molduras dos orbes ----------
+function moldura(tipo){
+ const rivs=[...Array(16)].map((_,i)=>{const t=i*Math.PI/8;return `<circle cx="${70+61*Math.cos(t)}" cy="${70+61*Math.sin(t)}" r="2.3" fill="url(#latD)" stroke="#000" stroke-width=".6"/>`}).join('');
+ // garras que seguram o vidro (4 diagonais)
+ const garra=a=>`<g transform="rotate(${a} 70 70)"><path d="M66 6 Q70 2 74 6 L76 20 Q70 24 64 20 Z" fill="url(#latD)" stroke="#000" stroke-width="1"/><circle cx="70" cy="11" r="2" fill="#2a1808"/></g>`;
+ const topo = tipo=='vida'
+  ? `<path d="M52 4 Q70 -6 88 4 L82 14 Q70 9 58 14 Z" fill="url(#pFer)" stroke="#000"/><path d="M70 2 l7 7 l-7 7 l-7 -7z" fill="#b0140c" stroke="#2a0404"/><path d="M68 5 l3 0 l-3 4z" fill="#ffb0a0" opacity=".8"/>`
+  : `<circle cx="70" cy="9" r="9" fill="url(#latD)" stroke="#000"/><circle cx="70" cy="9" r="6.5" fill="#e8dcc0" stroke="#3a2208" stroke-width=".8"/><path d="M70 9 L74 5" stroke="#7a1612" stroke-width="1.3"/><g stroke="#3a2208" stroke-width=".6"><line x1="65" y1="9" x2="66" y2="9"/><line x1="70" y1="4" x2="70" y2="5"/><line x1="74" y1="9" x2="75" y2="9"/></g><circle cx="70" cy="9" r="1.2" fill="#2a1808"/>`;
+ return `<div class="peca" id="orbe_moldura_${tipo}" style="width:140px;height:140px"><svg width="140" height="140">
+  <circle cx="70" cy="70" r="61" fill="none" stroke="url(#pLat)" stroke-width="13"/>
+  <circle cx="70" cy="70" r="61" fill="none" stroke="#000" stroke-width="13" opacity=".15"/>
+  <circle cx="70" cy="70" r="67.2" fill="none" stroke="#f0cf90" stroke-width="1" opacity=".55"/>
+  <circle cx="70" cy="70" r="68" fill="none" stroke="#000" stroke-width="1.2"/>
+  <circle cx="70" cy="70" r="54.6" fill="none" stroke="#000" stroke-width="1.6"/>
+  <circle cx="70" cy="70" r="55.6" fill="none" stroke="#f6d998" stroke-width=".8" opacity=".6"/>
+  <path d="M20 40 A58 58 0 0 1 60 12" fill="none" stroke="#fff3cf" stroke-width="2" opacity=".35"/>
+  ${rivs}${[45,135,225,315].map(garra).join('')}${topo}
+ </svg></div>`;
+}
+$('molduras').innerHTML=moldura('vida')+moldura('recurso');
+
+// ---------- slots ----------
+function slot(id,w,estilo){
+ const glow={normal:'',hover:'0 0 8px rgba(255,200,110,.6)',ativo:'0 0 10px rgba(156,255,58,.85)',press:''}[estilo];
+ const ring={normal:'#6a4a22',hover:'#e8b86a',ativo:'#9cff3a',press:'#3a2410'}[estilo];
+ return `<div class="peca" id="${id}" style="width:${w}px;height:${w}px">
+  <svg width="${w}" height="${w}" style="position:absolute;left:0;top:0;${glow?`filter:drop-shadow(${glow.replace(/^0 0 /,'0 0 ')})`:''}">
+   <defs><mask id="m${id}"><rect width="${w}" height="${w}" fill="#fff"/><rect x="6" y="6" width="${w-12}" height="${w-12}" rx="2" fill="#000"/></mask></defs>
+   <rect x="1" y="1" width="${w-2}" height="${w-2}" rx="4" fill="url(#pLat)" mask="url(#m${id})" stroke="#000" stroke-width="1.2"/>
+   <rect x="1.5" y="1.5" width="${w-3}" height="${w-3}" rx="3.5" fill="none" stroke="rgba(255,230,170,.5)" stroke-width="1" mask="url(#m${id})"/>
+   <rect x="5.5" y="5.5" width="${w-11}" height="${w-11}" rx="2" fill="none" stroke="${ring}" stroke-width="${estilo=='normal'?1:1.6}"/>
+   <rect x="6.5" y="6.5" width="${w-13}" height="${w-13}" rx="1.5" fill="none" stroke="#000" stroke-width="1"/>
+   ${[[4,4],[w-4,4],[4,w-4],[w-4,w-4]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.9" fill="url(#latD)" stroke="#000" stroke-width=".5"/>`).join('')}
+  </svg></div>`;
+}
+function sombra(id,w){return `<div class="peca" id="${id}" style="width:${w}px;height:${w}px"><div class="abs" style="left:6px;top:6px;right:6px;bottom:6px;box-shadow:inset 0 3px 6px rgba(0,0,0,.85),inset 0 0 10px rgba(0,0,0,.5)"></div></div>`}
+function slotCinto(id,estilo){
+ const ring={normal:'rgba(230,200,140,.65)',hover:'#ffd58a',ativo:'#9cff3a'}[estilo];
+ return `<div class="peca" id="${id}" style="width:46px;height:46px">
+  <svg width="46" height="46" style="position:absolute;${estilo!='normal'?`filter:drop-shadow(0 0 6px ${estilo=='ativo'?'rgba(156,255,58,.8)':'rgba(255,200,110,.6)'})`:''}">
+   <defs><mask id="mc${id}"><rect width="46" height="46" fill="#fff"/><rect x="5" y="5" width="36" height="36" rx="3" fill="#000"/></mask></defs>
+   <rect x="1" y="1" width="44" height="44" rx="6" fill="url(#pCou)" mask="url(#mc${id})" stroke="#000" stroke-width="1.2"/>
+   <rect x="2.6" y="2.6" width="40.8" height="40.8" rx="5" fill="none" stroke="${ring}" stroke-width="1" stroke-dasharray="2.2 1.6" mask="url(#mc${id})"/>
+   <rect x="4.5" y="4.5" width="37" height="37" rx="3" fill="none" stroke="#000" stroke-width="1"/>
+   <rect x="16" y="0" width="14" height="5" rx="1" fill="url(#latD)" stroke="#000" stroke-width=".6"/>
+  </svg></div>`;
+}
+$('slots').innerHTML = slot('slot_moldura',52,'normal')+slot('slot_hover',52,'hover')+slot('slot_ativo',52,'ativo')+slot('slot_pressionado',52,'press')+sombra('slot_sombra',52)
+ + slotCinto('cinto_moldura','normal')+slotCinto('cinto_hover','hover')+slotCinto('cinto_ativo','ativo')+sombra('cinto_sombra',46);
+
+// ---------- placas das teclas ----------
+let t='';
+['1','2','3','4','5','6','7','8','9','0','Q','W','E','R'].forEach(k=>{
+ t+=`<div class="peca" id="tecla_${k.toLowerCase()}" style="width:20px;height:18px;margin:0">
+  <svg width="20" height="18"><path d="M1 1 h18 v11 l-4 5 h-14 z" fill="url(#latD)" stroke="#000" stroke-width="1"/><path d="M2 2 h16" stroke="#fff3cf" stroke-width=".9" opacity=".7"/>
+  <text x="9.5" y="13.4" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="12" fill="#f6d998" opacity=".45">${k}</text>
+  <text x="9.5" y="12.6" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="12" fill="#140a02">${k}</text></svg></div>`;
+});
+$('teclas').innerHTML=t;
+
+// ---------- botões de menu ----------
+const G={personagem:'<path d="M12 4 a4 4 0 1 1 0 8 a4 4 0 1 1 0-8z M5 21 c0-6 3-8 7-8 s7 2 7 8z"/>',
+ mochila:'<path d="M5 9 h14 l1 12 h-16z M9 9 v-2 a3 3 0 0 1 6 0 v2 M8 13 h8" /> ',
+ habilidades:'<path d="M12 2 l2.6 6.4 l6.9 .5 l-5.3 4.4 l1.7 6.7 l-5.9 -3.7 l-5.9 3.7 l1.7 -6.7 l-5.3 -4.4 l6.9 -.5z"/>',
+ missoes:'<path d="M5 3 h11 l3 3 v15 h-14z"/><path d="M8 9 h8 M8 13 h8 M8 17 h5" stroke="#1a0e06" stroke-width="1.4"/>',
+ mapa:'<path d="M3 6 l6-2 l6 2 l6-2 v14 l-6 2 l-6-2 l-6 2z"/><path d="M9 4 v14 M15 6 v14" stroke="#1a0e06" stroke-width="1.2"/>',
+ menu:'<path d="M12 2 l2 3 l3-1 v3 l3 1 l-2 3 l2 3 l-3 1 v3 l-3-1 l-2 3 l-2-3 l-3 1 v-3 l-3-1 l2-3 l-2-3 l3-1 v-3 l3 1z"/><circle cx="12" cy="12" r="3" fill="#1a0e06"/>'};
+let bt='';
+for(const [k,g] of Object.entries(G)) for(const est of ['normal','hover']){
+ bt+=`<div class="peca" id="botao_${k}_${est}" style="width:34px;height:24px;margin:0">
+  <div class="abs couro" style="inset:0;border-radius:3px;box-shadow:inset 0 0 0 1px #000,inset 0 1px 0 rgba(255,220,160,.25),inset 0 -2px 3px rgba(0,0,0,.6)${est=='hover'?',0 0 6px rgba(255,190,90,.7)':''};${est=='hover'?'filter:brightness(1.35)':''}"></div>
+  <svg class="abs" viewBox="0 0 24 24" style="left:8px;top:3px;width:18px;height:18px;filter:drop-shadow(0 1px 0 #000)" fill="${est=='hover'?'#ffe0a0':'#c99a3e'}">${g}</svg></div>`;
+}
+$('botoes').innerHTML=bt;
+document.fonts.ready.then(()=>setTimeout(()=>document.title='ready',300));
+</script>
+</body></html>

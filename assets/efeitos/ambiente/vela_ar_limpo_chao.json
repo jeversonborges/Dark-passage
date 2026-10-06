@@ -1,0 +1,21 @@
+{
+ "name": "vela_ar_limpo_chao",
+ "cat": "ambiente",
+ "frames": 24,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  160,
+  88
+ ],
+ "layer": "chao",
+ "desc": "Ar limpo da Vela (chão): poça de luz branca-azulada da lâmpada de arco e anel de Amargo assentado na borda (raio ~140x70 px).",
+ "char": null,
+ "title": "Ar limpo da Vela (chão)",
+ "resumo": "Poça de luz branca-azulada da lâmpada de arco e anel de Amargo assentado na borda (raio ~140x70 px).",
+ "frame_w": 320,
+ "frame_h": 176,
+ "cols": 6,
+ "rows": 4,
+ "sheet": "vela_ar_limpo_chao.png"
+}

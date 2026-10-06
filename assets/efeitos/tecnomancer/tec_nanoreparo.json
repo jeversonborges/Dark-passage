@@ -1,0 +1,21 @@
+{
+ "name": "tec_nanoreparo",
+ "cat": "tecnomancer",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  32,
+  98
+ ],
+ "layer": "frente",
+ "desc": "Nanoreparo: enxame de nanomáquinas azuis costura o alvo (cura contínua, repetir).",
+ "char": "tecnomancer",
+ "title": "Nanoreparo",
+ "resumo": "Enxame de nanomáquinas azuis costura o alvo (cura contínua, repetir).",
+ "frame_w": 64,
+ "frame_h": 104,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "tec_nanoreparo.png"
+}

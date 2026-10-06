@@ -1,0 +1,21 @@
+{
+ "name": "status_veneno",
+ "cat": "status",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  20,
+  50
+ ],
+ "layer": "frente",
+ "desc": "Envenenado: bolhas ácidas sobem pelo corpo.",
+ "char": null,
+ "title": "Envenenado",
+ "resumo": "Bolhas ácidas sobem pelo corpo.",
+ "frame_w": 40,
+ "frame_h": 56,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "status_veneno.png"
+}

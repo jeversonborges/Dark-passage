@@ -1,0 +1,15 @@
+{
+ "w": 306,
+ "h": 196,
+ "anchor": [
+  58,
+  163
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Varal de ganchos com carcaças (Abatedouro Carniça).",
+ "kind": "ganchos_carne"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "cult_profecia_sombria",
+ "cat": "cultista",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  16,
+  40
+ ],
+ "layer": "frente",
+ "desc": "Profecia Sombria: olho rubro num triângulo invertido sobre o alvo marcado.",
+ "char": null,
+ "title": "Profecia Sombria",
+ "resumo": "Olho rubro num triângulo invertido sobre o alvo marcado.",
+ "frame_w": 32,
+ "frame_h": 44,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "cult_profecia_sombria.png"
+}

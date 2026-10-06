@@ -1,0 +1,16 @@
+{
+ "w": 122,
+ "h": 80,
+ "anchor": [
+  25,
+  66
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "",
+ "kind": "cerca_chiqueiro_a"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "golpe_critico",
+ "cat": "combate",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  48
+ ],
+ "layer": "frente",
+ "desc": "Acerto crítico: X de luz, onda de choque e brasas.",
+ "char": null,
+ "title": "Acerto crítico",
+ "resumo": "X de luz, onda de choque e brasas.",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "golpe_critico.png"
+}

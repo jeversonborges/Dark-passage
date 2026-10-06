@@ -1,0 +1,357 @@
+{
+  "_doc": "Modo automatico, skill em leque do nivel 5, recursos (a 'mana' de cada classe), pocoes e spots de farm. Pedido do Jefin em 2026-10-05. Os numeros das skills tambem estao em classes_base.json (fonte para a thread Skills, itens e icones). Conferido por farm.py.",
+  "versao": "0.2",
+  "skill_leque_nivel5": {
+    "_doc": "Toda classe ganha no nivel 5 uma skill em area de farm (a que o modo automatico usa). IDS, NOMES E FORMAS vem da thread Skills, itens e icones (design/skills-itens/skills.json). CUSTO, RECARGA E MULT desta tabela sao os que valem para o jogo (mudei em relacao aos provisorios de skills.json: recarga 2.0-2.4 s em vez de 1.6-1.8 s, para o farm por minuto e o gasto de pocao baterem com farm.py). Barra cheia seca em 15 a 40 s de uso continuo.",
+    "skills": [
+      {
+        "classe": "anjo",
+        "id": "anjo_leque_juizo",
+        "elemento": "sagrado",
+        "mult": 1.3,
+        "custo": 18,
+        "recarga": 2.2,
+        "extra": {
+          "chao_em_chamas_s": 2.0,
+          "queimadura": {
+            "duracao": 2,
+            "dano_por_s_mult": 0.15
+          }
+        },
+        "nome": "Leque do Juizo",
+        "area": {
+          "forma": "cone",
+          "cone_graus": 100,
+          "raio": 3.5
+        }
+      },
+      {
+        "classe": "cultista",
+        "id": "cultista_espinhos_sangue",
+        "elemento": "sangue",
+        "mult": 1.35,
+        "custo": 0.035,
+        "custo_em": "pct_hp_max",
+        "recarga": 2.2,
+        "extra": {
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.12
+          },
+          "nao_usa_abaixo_de_hp": 0.25
+        },
+        "nome": "Espinhos de Sangue",
+        "area": {
+          "forma": "circulo_no_mouse",
+          "raio": 2.2,
+          "alcance": 7
+        }
+      },
+      {
+        "classe": "mutante",
+        "id": "mutante_terremoto_putrido",
+        "elemento": "veneno",
+        "mult": 1.2,
+        "custo": 18,
+        "recarga": 2.4,
+        "extra": {
+          "veneno": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.12
+          }
+        },
+        "nome": "Terremoto Putrido",
+        "area": {
+          "forma": "circulo_em_volta",
+          "raio": 2.5
+        }
+      },
+      {
+        "classe": "demonio",
+        "id": "demonio_ceifa_infernal",
+        "elemento": "fogo",
+        "mult": 1.3,
+        "custo": 18,
+        "recarga": 2.0,
+        "extra": {},
+        "nome": "Ceifa Infernal",
+        "area": {
+          "forma": "cone",
+          "cone_graus": 180,
+          "raio": 2.8
+        }
+      },
+      {
+        "classe": "humano",
+        "id": "humano_coquetel_querosene",
+        "elemento": "fogo",
+        "mult": 1.3,
+        "custo": 22,
+        "recarga": 2.2,
+        "extra": {
+          "chao_em_chamas_s": 3.0,
+          "queimadura": {
+            "duracao": 2,
+            "dano_por_s_mult": 0.15
+          }
+        },
+        "nome": "Coquetel de Querosene",
+        "area": {
+          "forma": "circulo_no_mouse",
+          "raio": 2.0,
+          "alcance": 7
+        }
+      },
+      {
+        "classe": "tecnomancer",
+        "id": "tecnomancer_tempestade_bobina",
+        "elemento": "eletrico",
+        "mult": 1.25,
+        "custo": 16,
+        "recarga": 2.0,
+        "extra": {
+          "chance_atordoar": 0.15,
+          "atordoar_s": 0.5
+        },
+        "nome": "Tempestade de Bobina",
+        "area": {
+          "forma": "circulo_em_volta",
+          "raio": 2.6
+        }
+      }
+    ],
+    "regra_recurso_em_area": "Skill em area gera Graca, Furia ou Brasa so pelo PRIMEIRO alvo atingido em cada uso (senao o leque se pagaria sozinho num grupo grande).",
+    "padrao": {
+      "preparo_s": 0.25,
+      "postura": 18,
+      "empurrao_px": 6,
+      "sensacao": "area",
+      "nunca_erra": true
+    }
+  },
+  "recursos": {
+    "_doc": "A 'mana' de cada classe. Numeros usados pela conta do farm; os detalhes de cada mecanica estao em classes_base.json.",
+    "anjo": {
+      "nome": "Graca",
+      "tipo": "barra",
+      "max_base": 100,
+      "max_por_esp": 0.5,
+      "regen_combate_s": 1.5,
+      "regen_fora_combate_s": 8,
+      "ganho_por_leque": 4,
+      "ganho_por_golpe_basico": 4
+    },
+    "tecnomancer": {
+      "nome": "Carga",
+      "tipo": "barra",
+      "max_base": 100,
+      "max_por_esp": 0.5,
+      "regen_combate_s": 3,
+      "regen_fora_combate_s": 10,
+      "ganho_por_leque": 0,
+      "ganho_por_golpe_basico": 0
+    },
+    "humano": {
+      "nome": "Folego",
+      "tipo": "barra",
+      "max_base": 100,
+      "regen_combate_s": 6,
+      "regen_fora_combate_s": 15,
+      "ganho_por_leque": 0,
+      "ganho_por_golpe_basico": 0,
+      "_doc": "regen em combate caiu de 8 para 6/s para o leque esvaziar a barra"
+    },
+    "mutante": {
+      "nome": "Furia",
+      "tipo": "barra",
+      "max_base": 100,
+      "regen_combate_s": 2.5,
+      "_regen": "media de Furia vinda do dano recebido num spot",
+      "regen_fora_combate_s": -8,
+      "ganho_por_leque": 3,
+      "ganho_por_golpe_basico": 3
+    },
+    "demonio": {
+      "nome": "Brasa Infernal",
+      "tipo": "barra",
+      "max_base": 100,
+      "regen_combate_s": 0,
+      "regen_fora_combate_s": -10,
+      "ganho_por_leque": 6,
+      "ganho_por_golpe_basico": 6
+    },
+    "cultista": {
+      "nome": "Sangue",
+      "tipo": "hp",
+      "cura_por_abate_pct": 0.02,
+      "_doc": "o leque custa HP; abate por skill em area devolve 2% (alvo unico continua 6%). O combustivel do Cultista e a pocao de VIDA. Adotado da thread de skills: skill que custa HP nao e usada abaixo de 25% de HP (o modo automatico bebe pocao de vida antes).",
+      "nao_usa_skill_abaixo_de_hp": 0.25
+    }
+  },
+  "modo_automatico": {
+    "_doc": "Liga e desliga com a tecla Z (ou botao no HUD). Pensado para farm em spot, estilo MU. Fica tudo no servidor; o cliente so mostra.",
+    "o_que_faz": [
+      "Ataca o monstro mais proximo dentro do raio de caca, sem sair do raio em volta do ponto onde foi ligado.",
+      "Usa a skill de leque (a do slot marcado como 'auto', por padrao a do nivel 5) sempre que tiver 2 ou mais monstros no cone e recurso suficiente; com 1 monstro so, usa o ataque basico.",
+      "Sem recurso para o leque e sem pocao (ou com 'usar pocoes' desligado), luta so no ataque basico ate o recurso voltar a 50% e entao retoma o leque.",
+      "Pega ouro automaticamente; itens so se 'pegar itens' estiver ligado (filtro por raridade minima).",
+      "Bebe pocoes sozinho conforme os limites configurados."
+    ],
+    "raio_de_caca_tiles": {
+      "padrao": 6,
+      "min": 3,
+      "max": 10
+    },
+    "volta_ao_centro_sem_alvo_s": 3,
+    "sem_pocao_volta_ao_leque_em": 0.5,
+    "pocoes": {
+      "usar_pocoes_padrao": true,
+      "vida_abaixo_de": {
+        "padrao": 0.5,
+        "min": 0.2,
+        "max": 0.8
+      },
+      "recurso_abaixo_de": {
+        "padrao": 0.25,
+        "min": 0.1,
+        "max": 0.6
+      },
+      "prefere": "a menor pocao que cubra a falta; se acabar a pequena, usa a media"
+    },
+    "para_sozinho_quando": [
+      "HP abaixo de 20% e sem pocao de vida: desliga e mostra 'SEM POCOES' em vermelho (o personagem continua parado onde esta)",
+      "o jogador clica para andar, usa outra skill ou abre a loja",
+      "mochila cheia (aviso; continua lutando mas para de pegar itens)",
+      "um chefe ou elite entra no raio de caca (aviso 'CHEFE!' e desliga, para nao morrer sozinho)",
+      "morte"
+    ],
+    "restricoes": [
+      "Nao funciona dentro da Cripta durante luta de chefe (arena fechada).",
+      "Nao anda ate outro spot nem foge sozinho; e um ajudante de farm, nao um bot.",
+      "Multiplayer futuro: XP e drop iguais ao modo manual (nao ha penalidade), mas so funciona com o jogo aberto e o personagem no mapa."
+    ],
+    "ui": "Icone de engrenagem no HUD com anel girando quando ligado; texto 'AUTO' dourado sobre a barra de skills; slot da skill automatica com moldura pulsando."
+  },
+  "pocoes": {
+    "_doc": "Pocao tem que ser acessivel. ESTES PRECOS VALEM para a Previa (substituem itens.json, que tinha 15 no Elixir pequeno): Elixir de Eter P = 8 moedas e 40%. Com 15 o gasto passaria de 40% do ouro do spot em algumas classes.",
+    "recarga_compartilhada_s": {
+      "vida": 1.0,
+      "recurso": 1.0
+    },
+    "efeito": "instantaneo; o numero verde/azul sobe sobre o personagem",
+    "itens": {
+      "pocao_vida_p": {
+        "nome": "Frasco de Sangue Pequeno",
+        "cura_fixa": 120,
+        "cura_pct": 0.0,
+        "preco": 6,
+        "pilha": 100,
+        "loja": "acampamento (todo vendedor)"
+      },
+      "pocao_vida_m": {
+        "nome": "Frasco de Sangue Medio",
+        "cura_fixa": 300,
+        "cura_pct": 0.0,
+        "preco": 18,
+        "pilha": 100,
+        "loja": "acampamento a partir do nivel 8"
+      },
+      "pocao_recurso_p": {
+        "nome": "Elixir de Eter Pequeno",
+        "recurso_pct": 0.4,
+        "preco": 8,
+        "pilha": 100,
+        "loja": "acampamento (todo vendedor)"
+      },
+      "pocao_recurso_m": {
+        "nome": "Elixir de Eter Medio",
+        "recurso_pct": 0.8,
+        "preco": 22,
+        "pilha": 100,
+        "loja": "acampamento a partir do nivel 8"
+      }
+    },
+    "drop_extra_em_spot": {
+      "_doc": "Alem das tabelas de drops.json, todo monstro morto dentro de um spot rola isto.",
+      "chance_pocao": 0.1,
+      "pesos": {
+        "pocao_vida_p": 50,
+        "pocao_recurso_p": 40,
+        "pocao_vida_m": 6,
+        "pocao_recurso_m": 4
+      }
+    },
+    "kit_inicial": {
+      "pocao_vida_p": 20,
+      "pocao_recurso_p": 10
+    },
+    "missoes_dao_pocoes": "missoes da area inicial dao 5 a 10 pocoes pequenas de recompensa (sugestao para a thread de missoes)"
+  },
+  "spots": {
+    "_doc": "Spot = area marcada no mapa com monstros densos e renascimento rapido, estilo MU, feito para farmar nivel. Os lugares de cada spot ficam com a thread de mapas; aqui estao as regras e a conta.",
+    "padrao": {
+      "mobs": 12,
+      "renascimento_s": 14,
+      "mistura": {
+        "normal": 0.6,
+        "rasteiro": 0.3,
+        "bruto": 0.1
+      },
+      "alvos_por_leque": 3.0,
+      "basico_entre_leques": 0.5,
+      "eficiencia_movimento": 0.7,
+      "mobs_batendo_com_leque": 1.4,
+      "mobs_batendo_sem_leque": 2.2,
+      "raio_tiles": 7,
+      "marcacao_no_mapa": "nome do spot e faixa de nivel no minimapa; chao com tom levemente diferente nas bordas"
+    },
+    "sugestao_niveis": [
+      {
+        "faixa": [
+          3,
+          5
+        ],
+        "mobs": [
+          "corvo_de_cinza",
+          "cao_de_vala"
+        ],
+        "onde": "area inicial"
+      },
+      {
+        "faixa": [
+          5,
+          7
+        ],
+        "mobs": [
+          "nao_julgado",
+          "porco_pestilento"
+        ],
+        "onde": "area inicial"
+      },
+      {
+        "faixa": [
+          7,
+          9
+        ],
+        "mobs": [
+          "acougueiro_oco",
+          "larva_de_carne",
+          "gancheiro"
+        ],
+        "onde": "entrada da cripta ou abatedouro"
+      },
+      {
+        "faixa": [
+          9,
+          12
+        ],
+        "mobs": [
+          "querubim_desfeito",
+          "eco_da_trombeta"
+        ],
+        "onde": "deserto (nova linha de missoes)"
+      }
+    ],
+    "xp_fora_do_spot": "monstros fora de spot dao a mesma XP; o spot so e mais denso e renasce mais rapido"
+  }
+}

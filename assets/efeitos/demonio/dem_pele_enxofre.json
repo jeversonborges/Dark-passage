@@ -1,0 +1,21 @@
+{
+ "name": "dem_pele_enxofre",
+ "cat": "demonio",
+ "frames": 16,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  40,
+  112
+ ],
+ "layer": "frente",
+ "desc": "Pele de Enxofre: chamas baixas e fumaça de enxofre envolvem o demônio (buff, repetir).",
+ "char": "demonio",
+ "title": "Pele de Enxofre",
+ "resumo": "Chamas baixas e fumaça de enxofre envolvem o demônio (buff, repetir).",
+ "frame_w": 80,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "dem_pele_enxofre.png"
+}

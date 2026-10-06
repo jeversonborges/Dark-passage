@@ -1,0 +1,334 @@
+{
+  "versao": "0.1",
+  "areas": [
+    {
+      "id": "sao_lazaro",
+      "nome": "Paróquia de São Lázaro",
+      "tipo": "area_inicial",
+      "nivel": [
+        1,
+        12
+      ],
+      "descricao": "Cidade de frigoríficos, bondes, sinos e cemitérios, afogada até o quarto andar nas dunas do Deserto de Absinto. A rua de hoje é o telhado de ontem. Os mortos levantaram para o Juízo e o Juízo não veio.",
+      "musica_sugerida": "vento sobre areia, órgão desafinado distante, sinos abafados debaixo da duna, estalos de contador de Amargo",
+      "subzonas": [
+        {
+          "id": "acampamento_vela",
+          "nome": "Acampamento da Vela",
+          "tipo": "base",
+          "faccao": "vigilia",
+          "seguro": true,
+          "descricao": "Montado sobre a cúpula de vidro da antiga estação de bondes, a única que a areia não quebrou. Bondes-veleiros atracam nos trilhos que saem da duna. No centro, a Vela: uma lâmpada de arco que queima os Não-Julgados e faz o Amargo assentar, deixando o ar limpo em volta.",
+          "pontos": [
+            "a_vela",
+            "barraca_anselmo",
+            "forja_bigorna",
+            "caldeirao_cardo",
+            "carrinho_tobias",
+            "posto_odete"
+          ]
+        },
+        {
+          "id": "capela_sao_lazaro",
+          "nome": "Capela de São Lázaro",
+          "tipo": "base",
+          "faccao": "arautos",
+          "seguro": true,
+          "descricao": "A igreja da paróquia, enterrada até as janelas do coro. Só a torre e o telhado saem da duna; entra-se pela rosácea quebrada e desce-se por escadas de corda até a nave, iluminada de verde pelos vitrais cobertos de areia. A cruz da torre virou uma trombeta partida em chamas brancas. Demônios não entram: acampam no telhado.",
+          "pontos": [
+            "altar_trombeta",
+            "pulpito_ivone",
+            "nave_abdiel",
+            "patio_malfas",
+            "sacristia_lucio"
+          ]
+        },
+        {
+          "id": "campos_cinza",
+          "nome": "Campos de Cinza",
+          "tipo": "caca",
+          "nivel": [
+            1,
+            3
+          ],
+          "descricao": "Onde foi a Grande Batalha. A areia aqui virou vidro derretido, cinza e verde, e estala sob os pés. Armaduras dos dois lados saem do chão, trilhos de bonde atravessam as dunas, postes tortos viraram poleiro de corvo e os Carniçais cavam atrás de restos.",
+          "monstros": [
+            "corvo_de_cinza",
+            "carnical",
+            "desertor_legiao"
+          ],
+          "pontos": [
+            "ninhos_corvo",
+            "poco_seco",
+            "campo_penas",
+            "marco_do_corte",
+            "estandartes_caidos"
+          ]
+        },
+        {
+          "id": "vala_comum",
+          "nome": "A Vala",
+          "tipo": "caca",
+          "nivel": [
+            2,
+            4
+          ],
+          "descricao": "Crateras abertas pela batalha, onde enterraram os mortos do cerco. A maré de areia vive desenterrando a vala, e os cães mutados vêm comer.",
+          "monstros": [
+            "cao_de_vala",
+            "carnical"
+          ]
+        },
+        {
+          "id": "cemiterio_sao_lazaro",
+          "nome": "Cemitério de São Lázaro",
+          "tipo": "caca",
+          "nivel": [
+            3,
+            5
+          ],
+          "descricao": "Um mar de lápides que a duna cobre e descobre. Os túmulos se abriram de dentro para fora e os Não-Julgados andam em fila sobre a areia, brilhando verde, rumo ao abatedouro. A casa do coveiro é um mausoléu de família com uma vela acesa na janela.",
+          "monstros": [
+            "nao_julgado",
+            "corvo_de_cinza"
+          ],
+          "pontos": [
+            "casa_simao",
+            "torre_sino",
+            "tumulo_cardo",
+            "covas_abertas"
+          ]
+        },
+        {
+          "id": "abatedouro_carnica",
+          "nome": "Abatedouro Carniça",
+          "tipo": "caca",
+          "nivel": [
+            4,
+            7
+          ],
+          "descricao": "O frigorífico, enterrado até o segundo andar. As chaminés ainda saem da duna e soltam uma fumaça que ninguém alimenta. Entra-se pelas claraboias do galpão: trilhos de ganchos, tanques de sebo e porcos que não deviam estar vivos. O escritório do capataz fica no mezanino, logo abaixo da areia.",
+          "monstros": [
+            "porco_pestilento",
+            "acougueiro_oco",
+            "capataz_gancho"
+          ],
+          "pontos": [
+            "escritorio_capataz",
+            "porta_ganchos",
+            "rastro_arrasto"
+          ]
+        },
+        {
+          "id": "bairro_afogado",
+          "nome": "Bairro Afogado",
+          "tipo": "caca",
+          "nivel": [
+            3,
+            5
+          ],
+          "descricao": "Telhados, chaminés e janelas saindo da duna. Entra-se nas casas pela janela e desce-se para cômodos cheios de areia. No meio, a torre da Rádio São Lázaro, enterrada até o relógio, ainda transmite toda noite.",
+          "monstros": [
+            "cao_de_vala",
+            "corvo_de_cinza"
+          ],
+          "pontos": [
+            "radio_sao_lazaro",
+            "sotao_afogado"
+          ]
+        },
+        {
+          "id": "bosque_viuvas",
+          "nome": "Bosque das Viúvas",
+          "tipo": "caca",
+          "nivel": [
+            5,
+            7
+          ],
+          "descricao": "Mata morta na curva do rio, onde ficava a vila militar do silo. As casas afundaram; sobraram as árvores secas, os varais e as viúvas da Grande Batalha, que esperam de pé os maridos que nunca voltaram do turno.",
+          "monstros": [
+            "nao_julgado",
+            "corvo_de_cinza",
+            "sangrador_apostata"
+          ],
+          "pontos": [
+            "arvore_enforcados",
+            "vila_militar"
+          ]
+        },
+        {
+          "id": "rio_amargo",
+          "nome": "Rio Amargo",
+          "tipo": "caca",
+          "nivel": [
+            6,
+            8
+          ],
+          "descricao": "O Jordão quase secou: sobrou um fio de água verde e amarga correndo no leito rachado, a única água do deserto. Nas margens cresce a flor-de-absinto, que come o Amargo e brilha à noite.",
+          "monstros": [
+            "cao_de_vala",
+            "desertor_legiao"
+          ],
+          "pontos": [
+            "pocas_amargas",
+            "ponte_bonde"
+          ]
+        },
+        {
+          "id": "tempestade_areia",
+          "nome": "Borda da Tempestade",
+          "tipo": "caca",
+          "nivel": [
+            9,
+            12
+          ],
+          "descricao": "Onde a tempestade de areia e Amargo come o horizonte. Lá dentro, as ruínas do Silo São Lázaro e o muro da vila militar, onde o clarão da bomba gravou a sombra das pessoas na pedra. À noite, as sombras descolam.",
+          "monstros": [
+            "sombra_gravada"
+          ],
+          "pontos": [
+            "muro_sombras",
+            "escotilha_silo"
+          ]
+        }
+      ],
+      "regiao": "Deserto de Absinto",
+      "clima": {
+        "maré_de_areia": "as dunas andam um pouco a cada ciclo de dia e noite, cobrindo e descobrindo objetos, baús e túmulos",
+        "noite": "a areia brilha verde fraco; Não-Julgados brilham mais forte",
+        "tempestade_de_amargo": "evento: poeira verde que reduz a visão e causa dano leve fora de abrigo ou da luz da Vela"
+      }
+    }
+  ],
+  "dungeons": [
+    {
+      "id": "cripta_trombeta",
+      "nome": "Cripta da Trombeta Calada",
+      "nivel": [
+        6,
+        12
+      ],
+      "entrada": {
+        "subzona": "abatedouro_carnica",
+        "ponto": "porta_ganchos",
+        "requer_item": "chave_gancho"
+      },
+      "descricao": "Por baixo do frigorífico enterrado fica a Vala da Grande Batalha, onde Benedito jogou os mortos dos Campos de Cinza. Mais fundo, abaixo até de onde a areia chega, as catacumbas da paróquia, e por baixo delas uma catedral mais velha que a cidade, onde a quinta trombeta espera com um lacre de chumbo no bocal. Aqui embaixo não cai Amargo: é o lugar mais limpo da região, e o mais perigoso.",
+      "andares": [
+        {
+          "id": "porao_matadouro",
+          "numero": 1,
+          "nome": "Porão do Matadouro",
+          "descricao": "Câmaras frias, trilhos de ganchos que ainda giram, caldeiras pingando gordura. No fundo, o fosso onde os mortos da Grande Batalha foram jogados, e quem ainda come lá.",
+          "monstros": [
+            "acougueiro_oco",
+            "larva_de_carne",
+            "gancheiro",
+            "soldado_caido"
+          ],
+          "chefe": "general_partido",
+          "ambiente": "vapor, luz vermelha das caldeiras, chão grudento; no fosso, ossos e armaduras dos dois lados até onde a luz alcança",
+          "nivel": [
+            6,
+            8
+          ]
+        },
+        {
+          "id": "ossario_carpideiras",
+          "numero": 2,
+          "nome": "Ossário das Carpideiras",
+          "descricao": "Catacumbas medievais com paredes de crânios. Celas onde monges foram emparedados vivos por penitência. De longe se ouve um coro.",
+          "monstros": [
+            "monge_emparedado",
+            "carpideira_de_ossos",
+            "fogo_de_vela"
+          ],
+          "chefe": "irma_celeste",
+          "ambiente": "milhares de velas derretidas, eco de canto, poeira de osso",
+          "nivel": [
+            8,
+            10
+          ]
+        },
+        {
+          "id": "camara_trombeta",
+          "numero": 3,
+          "nome": "Câmara da Trombeta",
+          "descricao": "Uma catedral subterrânea de pedra negra. Correntes descem do teto até o altar, onde um anjo acorrentado segura a quinta trombeta lacrada.",
+          "monstros": [
+            "querubim_desfeito",
+            "eco_da_trombeta"
+          ],
+          "chefe": "zacarias_arauto",
+          "ambiente": "vitral sem sol aceso por dentro, zumbido grave constante, poeira dourada",
+          "nivel": [
+            10,
+            12
+          ]
+        }
+      ]
+    }
+  ],
+  "spots": {
+    "nota": "Os spots de farm são da thread Level design: design/mapas/spots.json (ids, posição, raio, mobs). O objetivo 'farmar_spot' usa esses ids. 'pedidos' lista o que as linhas D e E ainda precisam e que foi pedido à Level design; o validador aceita os dois.",
+    "fonte": "design/mapas/spots.json",
+    "pedidos": [
+      {
+        "id": "acampamento_desertores",
+        "nome": "Acampamento dos Desertores",
+        "subzona": "rio_amargo",
+        "nivel": [
+          6,
+          9
+        ],
+        "monstros": [
+          "desertor_legiao",
+          "cao_de_vala"
+        ],
+        "missoes": [
+          "e02",
+          "d04"
+        ],
+        "motivo": "Desertores da Legião Blasfema acampados na margem do Rio Amargo, cobrando pedágio da água; a matilha bebe nas poças verdes ao lado. Perto das pocas_amargas."
+      },
+      {
+        "id": "marco_do_corte",
+        "nome": "Marco do Corte",
+        "subzona": "campos_cinza",
+        "nivel": [
+          7,
+          9
+        ],
+        "monstros": [
+          "desertor_legiao",
+          "carnical"
+        ],
+        "missoes": [
+          "e04"
+        ],
+        "motivo": "Em volta do bonde tombado (objeto marco_do_corte), onde Andras foi partido. Desertores procuram o corpo; carniçais comem."
+      },
+      {
+        "id": "margem_das_viuvas",
+        "acrescentar_monstros": [
+          "sangrador_apostata"
+        ],
+        "missoes": [
+          "d03",
+          "e03"
+        ],
+        "motivo": "Os cultistas apóstatas se escondem entre as viúvas; e03 precisa deles (dropam carta_apostata). 3 ou 4 bastam."
+      },
+      {
+        "id": "beira_da_tempestade",
+        "acrescentar_monstros": [
+          "sombra_gravada"
+        ],
+        "missoes": [
+          "d05"
+        ],
+        "motivo": "As sombras do muro da vila militar; d05 precisa delas (dropam fragmento_clarao). Escotilha do silo (escotilha_silo, d06, invoca o elite ultimo_operador) fica nesse muro."
+      }
+    ]
+  }
+}

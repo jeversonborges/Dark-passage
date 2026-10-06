@@ -1,0 +1,17 @@
+{
+ "w": 1262,
+ "h": 778,
+ "anchor": [
+  622,
+  482
+ ],
+ "emissivo": "claraboias",
+ "descricao_extra": "entrada pelas claraboias",
+ "categoria": "predios",
+ "footprint_tiles": [
+  14,
+  12
+ ],
+ "descricao": "Abatedouro Carniça (frigorífico) enterrado até o segundo andar; entra-se pelas claraboias do telhado em serra.",
+ "kind": "frigorifico_enterrado"
+}

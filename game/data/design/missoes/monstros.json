@@ -1,0 +1,642 @@
+{
+  "versao": "0.1",
+  "nota": "Lore, aparência e falas. Números de combate (HP, dano, IA) ficam com a thread Design do combate; 'comportamento' e 'mecanicas' são sugestões de história para ela adaptar.",
+  "monstros": [
+    {
+      "id": "corvo_de_cinza",
+      "nome": "Corvo de Cinza",
+      "tipo": "normal",
+      "nivel": [
+        1,
+        3
+      ],
+      "locais": [
+        "campos_cinza",
+        "cemiterio_sao_lazaro"
+      ],
+      "descricao": "Corvos que comeram tanta cinza e Amargo nos campos de vidro que viraram cinza também. Roubam qualquer coisa que brilhe, e no deserto quase tudo que brilha é valioso.",
+      "aparencia": "Corvo do tamanho de um cachorro, penas soltando fuligem, olhos de brasa fraca.",
+      "comportamento": "Voa em bandos de 3. Foge com pouca vida e volta.",
+      "drops_missao": [
+        {
+          "item": "bobina_cobre",
+          "chance": 0.45,
+          "missao": "v02"
+        },
+        {
+          "item": "pena_querubim",
+          "chance": 0.45,
+          "missao": "a02"
+        }
+      ]
+    },
+    {
+      "id": "carnical",
+      "nome": "Carniçal",
+      "tipo": "normal",
+      "nivel": [
+        1,
+        3
+      ],
+      "locais": [
+        "campos_cinza",
+        "vala_comum"
+      ],
+      "descricao": "Os primeiros mortos do cerco, os que nem esperaram o lacre. Ficaram com fome em vez de esperança. Cavam a areia com as mãos atrás de qualquer coisa que um dia foi carne.",
+      "aparencia": "Cadáver magro e curvado, pele cinza-esverdeada, unhas compridas, restos de roupa de operário.",
+      "comportamento": "Anda devagar, corre nos últimos metros. Para para comer corpos caídos.",
+      "drops_missao": []
+    },
+    {
+      "id": "cao_de_vala",
+      "nome": "Cão de Vala",
+      "tipo": "normal",
+      "nivel": [
+        2,
+        4
+      ],
+      "locais": [
+        "vala_comum"
+      ],
+      "descricao": "Os cães da cidade comeram nas valas comuns durante o cerco e beberam a água amarga do deserto. As mutações fizeram o resto.",
+      "aparencia": "Cão sem pelo, costelas à mostra, mandíbula grande demais com dentes em várias fileiras, pústulas verde ácido.",
+      "comportamento": "Caça em matilha de 2 a 4. Um uiva e chama os outros.",
+      "drops_missao": [
+        {
+          "item": "dente_vala",
+          "chance": 0.6,
+          "missao": "a03"
+        },
+        {
+          "item": "dente_vala",
+          "chance": 0.6,
+          "missao": "r02"
+        },
+        {
+          "item": "dente_vala",
+          "chance": 0.6,
+          "missao": "s05"
+        },
+        {
+          "item": "valvula_radio",
+          "chance": 0.4,
+          "missao": "d02"
+        }
+      ]
+    },
+    {
+      "id": "nao_julgado",
+      "nome": "Não-Julgado",
+      "tipo": "normal",
+      "nivel": [
+        3,
+        5
+      ],
+      "locais": [
+        "cemiterio_sao_lazaro"
+      ],
+      "descricao": "Morto que levantou para o Juízo Final e ficou esperando. No peito, o lacre de cera do julgamento continua inteiro. Não odeia os vivos: só não suporta ser tocado por eles.",
+      "aparencia": "Corpo envolto em mortalha encardida, rosto coberto, um grande lacre de cera vermelha no peito com o selo de uma trombeta. Anda em fila com os outros. À noite brilham verde por causa do Amargo, mais forte que a areia em volta.",
+      "comportamento": "Passivo até ser atacado ou tocado. Quando um é atacado, os vizinhos da fila também viram. Fraco contra luz e fogo.",
+      "drops_missao": [
+        {
+          "item": "raiz_cova",
+          "chance": 0.3,
+          "missao": "s01"
+        },
+        {
+          "item": "pagina_ordem",
+          "chance": 0.3,
+          "missao": "d03"
+        }
+      ]
+    },
+    {
+      "id": "porco_pestilento",
+      "nome": "Porco Pestilento",
+      "tipo": "normal",
+      "nivel": [
+        4,
+        6
+      ],
+      "locais": [
+        "abatedouro_carnica"
+      ],
+      "descricao": "Os porcos do abatedouro foram alimentados com o que Benedito tinha. Cresceram. Não morrem direito.",
+      "aparencia": "Porco do tamanho de um boi, pele rachada com tumores, ganchos de açougue ainda cravados nas costas, olhinhos humanos demais.",
+      "comportamento": "Investida em linha reta que derruba. Explode em gás tóxico ao morrer.",
+      "drops_missao": [
+        {
+          "item": "sebo_rancoso",
+          "chance": 0.55,
+          "missao": "c01"
+        }
+      ]
+    },
+    {
+      "id": "acougueiro_oco",
+      "nome": "Açougueiro Oco",
+      "tipo": "normal",
+      "nivel": [
+        5,
+        8
+      ],
+      "locais": [
+        "abatedouro_carnica",
+        "porao_matadouro"
+      ],
+      "descricao": "Os funcionários de Benedito. Trabalharam até morrer e continuaram trabalhando. Estão ocos por dentro: alguém os esvaziou com cuidado profissional.",
+      "aparencia": "Homem de avental de couro manchado e botas de borracha, peito aberto e vazio costurado com arame, cutelo enferrujado, máscara de pano.",
+      "comportamento": "Golpes lentos e pesados de cutelo. Às vezes para e afia a lâmina, ficando vulnerável.",
+      "drops_missao": [
+        {
+          "item": "ferro_velho",
+          "chance": 0.5,
+          "missao": "s03"
+        }
+      ]
+    },
+    {
+      "id": "capataz_gancho",
+      "nome": "Capataz Gancho",
+      "tipo": "elite",
+      "nivel": [
+        7,
+        7
+      ],
+      "locais": [
+        "abatedouro_carnica"
+      ],
+      "descricao": "O capataz de Benedito, o único que sabia o que entrava no moedor. Trocou a mão direita por um gancho de carne quando a perdeu na máquina, e a esquerda por outro quando achou que ficava mais bonito.",
+      "aparencia": "Homem enorme de colete de couro com tachas, dois ganchos no lugar das mãos, chapéu-coco, corrente com as chaves do abatedouro na cintura.",
+      "comportamento": "Puxa o jogador com o gancho (corrente) e golpeia. Chama 2 Açougueiros Ocos com um apito a 50% de vida.",
+      "falas": {
+        "ao_ver": "Fiscalização? Tá tudo em dia, doutor. Tudo pesado, tudo carimbado.",
+        "metade_vida": "Turno da noite! Todo mundo pra linha!",
+        "morte": "O patrão... vai descontar... do meu salário..."
+      },
+      "drops_missao": [
+        {
+          "item": "chave_gancho",
+          "chance": 1.0,
+          "missao": "c02"
+        }
+      ]
+    },
+    {
+      "id": "filho_de_cardo",
+      "nome": "Joaquim, o Filho de Cardo",
+      "tipo": "raro",
+      "nivel": [
+        5,
+        5
+      ],
+      "locais": [
+        "cemiterio_sao_lazaro"
+      ],
+      "aparece": "Só surge no Túmulo do Marido de Cardo quando o jogador usa o Caldo de Cardo ali (missão s02).",
+      "descricao": "Joaquim era o filho de Mãe Cardo. A praga tomou o corpo inteiro e ele virou uma besta que ronda o túmulo do pai.",
+      "aparencia": "Mutante enorme de quatro patas, um braço humano ainda reconhecível com uma aliança no dedo, placas verdes de praga, um lenço florido igual ao da mãe preso no pescoço.",
+      "comportamento": "Rápido e agressivo, mas para de atacar por 3 segundos sempre que o jogador está perto do caldo derramado.",
+      "falas": {
+        "ao_ver": "(rosnado) ...mãe...?",
+        "metade_vida": "(uivo) ...caldo... cheiro de... casa...",
+        "morte": "Fala pra ela... que eu comi tudo... todo dia..."
+      },
+      "drops_missao": [
+        {
+          "item": "medalhinha_cardo",
+          "chance": 1.0,
+          "missao": "s02"
+        }
+      ]
+    },
+    {
+      "id": "patrulha_arauto",
+      "nome": "Fanático da Capela",
+      "tipo": "normal",
+      "nivel": [
+        3,
+        6
+      ],
+      "locais": [
+        "campos_cinza",
+        "cemiterio_sao_lazaro"
+      ],
+      "hostil_para": "vigilia",
+      "descricao": "Cultista em patrulha. Só aparece para jogadores da Vigília.",
+      "aparencia": "Usar o sprite da classe Cultista com túnica mais curta e tocha.",
+      "comportamento": "Ataca à distância com Sangria. Grita para chamar outros num raio pequeno.",
+      "falas": {
+        "ao_ver": "Herege! A nota vai terminar, quer você queira ou não!"
+      },
+      "drops_missao": []
+    },
+    {
+      "id": "patrulha_vigilia",
+      "nome": "Saqueador da Vigília",
+      "tipo": "normal",
+      "nivel": [
+        3,
+        6
+      ],
+      "locais": [
+        "campos_cinza",
+        "cemiterio_sao_lazaro"
+      ],
+      "hostil_para": "arautos",
+      "descricao": "Sobrevivente armado em busca de sucata. Só aparece para jogadores dos Arautos.",
+      "aparencia": "Usar o sprite da classe Humano com lenço no rosto e mochila de sucata.",
+      "comportamento": "Atira de longe e recua. Joga um frasco de água benta quando fica com pouca vida.",
+      "falas": {
+        "ao_ver": "Olha, um coroinha do apocalipse. Hoje não, padre!"
+      },
+      "drops_missao": []
+    },
+    {
+      "id": "larva_de_carne",
+      "nome": "Larva de Carne",
+      "tipo": "normal",
+      "nivel": [
+        6,
+        8
+      ],
+      "locais": [
+        "porao_matadouro"
+      ],
+      "descricao": "O que cresce na carne esquecida nas câmaras frias. Benedito deixava crescer de propósito: dizia que era o gado dele.",
+      "aparencia": "Larva branca do tamanho de um homem deitado, boca circular cheia de dentes, pele translúcida mostrando o que comeu.",
+      "comportamento": "Lenta. Cospe ácido. Divide-se em 2 larvas pequenas ao morrer.",
+      "drops_missao": []
+    },
+    {
+      "id": "gancheiro",
+      "nome": "Gancheiro",
+      "tipo": "normal",
+      "nivel": [
+        6,
+        8
+      ],
+      "locais": [
+        "porao_matadouro"
+      ],
+      "descricao": "Clientes que vieram cobrar Benedito pela carne estranha. Ele os pendurou nos trilhos. Eles se soltaram sozinhos.",
+      "aparencia": "Cadáver com um gancho atravessado nas costas, ainda preso a um pedaço de corrente que arrasta e usa como chicote.",
+      "comportamento": "Ataque de corrente em arco à média distância. Pode estar pendurado no teto e cair em cima do jogador.",
+      "drops_missao": []
+    },
+    {
+      "id": "soldado_caido",
+      "nome": "Soldado Caído",
+      "tipo": "normal",
+      "nivel": [
+        7,
+        8
+      ],
+      "locais": [
+        "porao_matadouro"
+      ],
+      "descricao": "Restos dos guerreiros da Grande Batalha, de qualquer lado, que Andras ainda não comeu. Ele ainda os comanda.",
+      "aparencia": "Cadáver meio comido em armadura misturada: placa branca de anjo, couro da Vigília, cota rubra da Legião. Espada quebrada, elmo amassado.",
+      "comportamento": "Só surge das Pilhas de Mortos quando Andras dá a ordem. Ao morrer vira um cadáver fresco que ele pode devorar.",
+      "drops_missao": []
+    },
+    {
+      "id": "general_partido",
+      "nome": "Andras, o General Partido",
+      "tipo": "chefe",
+      "nivel": [
+        8,
+        8
+      ],
+      "locais": [
+        "porao_matadouro"
+      ],
+      "conceito": "Ideia do Jefin: demônio que foi general, partido ao meio na grande batalha do campo desolado, sobreviveu comendo os restos dos guerreiros mortos ali e quer se vingar da humanidade.",
+      "descricao": "Andras comandou a Legião Blasfema, o exército do Inferno que marchou com os Arautos sobre São Lázaro na noite da meia nota. Na Grande Batalha dos Campos de Cinza, ele ficou de pé nos trilhos para segurar a linha, e o bonde da linha 7, dirigido por Odete Ferrolho, passou por cima dele e o partiu ao meio. Os anjos recuaram e deixaram a legião morrer no campo. Depois da batalha, Benedito Carniça recolheu os mortos do campo para o abatedouro e jogou o que sobrava no fosso do porão. A metade de cima de Andras estava na pilha. Ele acordou no escuro, cercado por mil soldados mortos, e começou a comer: os seus, os humanos, os anjos. Quando os corpos rarearam, comeu Benedito. Hoje ele espera no fundo do porão, ficando forte de novo, para subir e cobrar da humanidade cada soldado que perdeu. E não perdoou os anjos que o largaram para trás.",
+      "aparencia": "Só o tronco, enorme. Se arrasta puxando o corpo com dois braços gigantes, unhas pretas cravando no chão. A parte de baixo é um toco cauterizado que ainda brilha em brasa, com tripas de corrente arrastando. Dragonas de general podres nos ombros, casaca de oficial preta e vermelha rasgada, medalhas do Inferno enferrujadas no peito, chifres quebrados com argolas de latão. Luta com o estandarte partido da Legião Blasfema; o Lacre de Carne está pregado no mastro.",
+      "arena": "Vala da Grande Batalha: o fosso no fundo do porão onde Benedito jogou os mortos do campo. Ossos, armaduras velhas dos dois lados e seis Pilhas de Mortos.",
+      "fases": [
+        {
+          "de": 1.0,
+          "ate": 0.6,
+          "nome": "Ordem de Batalha",
+          "mecanicas": "Golpes de estandarte e Arrasto (se joga para frente com os braços). Vai até as Pilhas de Mortos e devora para se curar e crescer; o jogador pode destruir as pilhas ou quebrar a postura dele enquanto come."
+        },
+        {
+          "de": 0.6,
+          "ate": 0.3,
+          "nome": "Ordem ao Exército Morto",
+          "mecanicas": "Ergue Soldados Caídos das pilhas; cada soldado derrubado vira comida rápida para ele. Vomita brasa em cone."
+        },
+        {
+          "de": 0.3,
+          "ate": 0.0,
+          "nome": "A Fome do Abismo",
+          "mecanicas": "Desesperado, tenta agarrar e comer o jogador (Banquete). Depois fica exausto."
+        }
+      ],
+      "falas": {
+        "ao_ver": "Mais um soldado... Eu comandei mil de vocês. Comi todos. Senta. O jantar é você.",
+        "ao_ver_vigilia": "Esse cheiro de óleo e trilho... Você é da Vela. Diz pra ela, a do bonde, que o general está subindo.",
+        "ao_ver_arautos": "Um Arauto. Agora vocês descem? Quando a Legião sangrava no campo, os anjos voaram embora. Eu lembro de cada pena.",
+        "devorar": "Isso... era um capitão. Tinha gosto de coragem.",
+        "fase_2": "DE PÉ, SOLDADOS! Seu general manda!",
+        "fase_3": "Vocês me cortaram ao meio... e eu continuei comendo!",
+        "banquete": "Vem cá. Faz parte do meu exército.",
+        "matar_jogador": "Alistado. Para sempre.",
+        "morte": "A Legião... marcha... sem mim... (ele tenta morder o próprio estandarte e desaba)"
+      },
+      "nota_combate": "Números e mecânicas completas em design/combate/chefes.json (id general_partido).",
+      "drops_missao": [
+        {
+          "item": "lacre_carne",
+          "chance": 1.0,
+          "missao": "c04"
+        }
+      ]
+    },
+    {
+      "id": "monge_emparedado",
+      "nome": "Monge Emparedado",
+      "tipo": "normal",
+      "nivel": [
+        8,
+        10
+      ],
+      "locais": [
+        "ossario_carpideiras"
+      ],
+      "descricao": "Monges que se deixaram emparedar vivos por penitência séculos atrás. A meia nota os acordou dentro da parede. Alguns saíram.",
+      "aparencia": "Esqueleto de hábito marrom podre com tijolos e argamassa grudados no corpo, ainda com o terço na mão.",
+      "comportamento": "Sai da parede quando o jogador passa perto. Golpe de terço com chance de silenciar.",
+      "drops_missao": []
+    },
+    {
+      "id": "carpideira_de_ossos",
+      "nome": "Carpideira de Ossos",
+      "tipo": "normal",
+      "nivel": [
+        8,
+        10
+      ],
+      "locais": [
+        "ossario_carpideiras"
+      ],
+      "descricao": "As aprendizes da Irmã Celeste. Choraram tanto que viraram só o choro e os ossos.",
+      "aparencia": "Esqueleto feminino de véu negro rasgado, lágrimas de cera escorrendo das órbitas e endurecendo no queixo.",
+      "comportamento": "Canta e cura outros mortos próximos. Prioridade de alvo. Grita e assusta (medo curto) quando morre.",
+      "drops_missao": []
+    },
+    {
+      "id": "fogo_de_vela",
+      "nome": "Fogo-de-Vela",
+      "tipo": "normal",
+      "nivel": [
+        8,
+        10
+      ],
+      "locais": [
+        "ossario_carpideiras"
+      ],
+      "descricao": "As milhares de velas acesas no ossário guardam um pouco de cada oração feita. Algumas orações eram raivosas.",
+      "aparencia": "Chama de vela solta no ar, do tamanho de uma cabeça, com um rosto derretendo na cera que pinga.",
+      "comportamento": "Flutua em grupo e explode em fogo ao tocar no jogador.",
+      "drops_missao": []
+    },
+    {
+      "id": "irma_celeste",
+      "nome": "Irmã Celeste, a Carpideira",
+      "tipo": "chefe",
+      "nivel": [
+        10,
+        10
+      ],
+      "locais": [
+        "ossario_carpideiras"
+      ],
+      "descricao": "Chefe das carpideiras de São Lázaro. Desceu para cantar para os mortos até eles dormirem de novo e nunca parou. Os ossos aprenderam a canção. Ela acredita que todo vivo que desce veio acordar os filhos dela.",
+      "aparencia": "Freira alta e magérrima de hábito negro que se arrasta em cauda de vários metros, véu de renda preso com pregos, rosto coberto de lágrimas de cera endurecidas. Rege com um báculo feito de fêmur. Atrás dela, um coro de dezenas de crânios embutidos na parede que abrem a boca quando ela canta.",
+      "arena": "Capela-ossário circular com o coro de crânios nas paredes e quatro candelabros que podem ser apagados.",
+      "fases": [
+        {
+          "de": 1.0,
+          "ate": 0.65,
+          "nome": "Lamento",
+          "mecanicas": "Ondas de canto em anel que se expandem dela; é preciso passar pelos vãos. Golpes de báculo."
+        },
+        {
+          "de": 0.65,
+          "ate": 0.3,
+          "nome": "Coro",
+          "mecanicas": "Ela fica invulnerável no centro enquanto o coro canta. Apagar os quatro candelabros (interagir) cala o coro e a derruba atordoada. Carpideiras de Ossos surgem para curar o coro."
+        },
+        {
+          "de": 0.3,
+          "ate": 0.0,
+          "nome": "Réquiem",
+          "mecanicas": "A cauda do hábito se espalha pelo chão e vira área de lentidão. Ela grita e causa medo curto. As lágrimas de cera caem do teto em pontos marcados."
+        }
+      ],
+      "falas": {
+        "ao_ver": "Shhh. Eles acabaram de dormir. Por que você veio acordá-los?",
+        "fase_2": "Cantem, meus filhos! Cantem mais alto que esse barulho de gente viva!",
+        "fase_3": "Então chore você também. Todo mundo chora no fim.",
+        "matar_jogador": "Dorme. Dorme. Ninguém vai te julgar aqui.",
+        "morte": "O silêncio... eu tinha esquecido... como ele é bonito..."
+      },
+      "drops_missao": [
+        {
+          "item": "lacre_lagrimas",
+          "chance": 1.0,
+          "missao": "c05"
+        }
+      ]
+    },
+    {
+      "id": "querubim_desfeito",
+      "nome": "Querubim Desfeito",
+      "tipo": "normal",
+      "nivel": [
+        10,
+        12
+      ],
+      "locais": [
+        "camara_trombeta"
+      ],
+      "descricao": "Os querubins da guarda de Zacarias. Ele os desmontou um por um para não ficar sozinho e os remontou errado.",
+      "aparencia": "Boneco de porcelana branca rachada do tamanho de uma criança, asas de ferro batido, membros trocados de lugar e presos com arame e pregos de latão, rosto sorridente pintado.",
+      "comportamento": "Voa em zigue-zague. Quando quebra, os pedaços tentam se juntar de novo em 5 segundos se não forem pisados.",
+      "drops_missao": []
+    },
+    {
+      "id": "eco_da_trombeta",
+      "nome": "Eco da Trombeta",
+      "tipo": "normal",
+      "nivel": [
+        10,
+        12
+      ],
+      "locais": [
+        "camara_trombeta"
+      ],
+      "descricao": "Pedaços da meia nota que ficaram presos na câmara. Têm forma porque o som tinha vontade.",
+      "aparencia": "Silhueta dourada distorcida, como uma onda de calor no formato de um homem com a boca aberta.",
+      "comportamento": "Invisível até chegar perto. Dá um grito que empurra e atordoa. Imune a dano físico por 2 segundos após gritar.",
+      "drops_missao": []
+    },
+    {
+      "id": "zacarias_arauto",
+      "nome": "Zacarias, o Arauto da Trombeta Calada",
+      "tipo": "chefe",
+      "nivel": [
+        12,
+        12
+      ],
+      "locais": [
+        "camara_trombeta"
+      ],
+      "descricao": "O anjo que deu a meia nota. Ficou anos no escuro segurando uma trombeta muda. Concluiu que os Arautos o abandonaram e se corromperam ao andar com demônios e cultistas. Quando tocar a nota inteira, vai julgar todos, Vigília e Arautos. Não serve mais a ninguém.",
+      "aparencia": "Anjo de quatro metros, armadura de placas brancas rachadas por baixo de um sobretudo de batina em farrapos, seis asas de penas sujas acorrentadas ao teto por correntes que ele mesmo prendeu. Rosto de porcelana com a boca costurada em volta do bocal de uma trombeta de latão negro, coberta por um lacre de chumbo. Halo de ferro inteiro, mas incandescente.",
+      "arena": "Catedral subterrânea. O altar no centro, correntes descendo do teto, vitrais acesos por dentro. As correntes das asas limitam o alcance dele no começo.",
+      "fases": [
+        {
+          "de": 1.0,
+          "ate": 0.7,
+          "nome": "O Posto",
+          "mecanicas": "Acorrentado ao teto, não sai do raio do altar. Golpes de asa em área e lanças de luz à distância. Querubins Desfeitos voam em volta."
+        },
+        {
+          "de": 0.7,
+          "ate": 0.35,
+          "nome": "As Correntes",
+          "mecanicas": "Ele arranca as correntes uma a uma: cada corrente caindo cria uma linha de dano no chão. Agora persegue o jogador pela arena inteira. Ecos da Trombeta surgem dos vitrais."
+        },
+        {
+          "de": 0.35,
+          "ate": 0.0,
+          "nome": "A Nota",
+          "mecanicas": "Ele tenta arrancar o lacre de chumbo para tocar. Barra de canalização: se completar, dano massivo em toda a arena (o jogador precisa se esconder atrás dos pilares ou interromper). Entre as tentativas, ataques rápidos e desesperados."
+        }
+      ],
+      "falas": {
+        "ao_ver_vigilia": "Vocês. Os que taparam a boca de Deus com chumbo. Chegou a hora de ouvir o resto.",
+        "ao_ver_arautos": "Agora os Arautos descem? Com demônios no pátio e sangue de culto nas mãos? Vocês também serão pesados.",
+        "fase_2": "Eu me acorrentei para não fugir do posto. Ninguém veio me soltar. Então eu me solto.",
+        "fase_3": "Uma nota. Só falta uma nota. E todos vocês vão ser julgados, todos!",
+        "matar_jogador": "Julgado. Próximo.",
+        "morte": "Silêncio de novo... Abdiel... você devia... ter descido..."
+      },
+      "drops_missao": [
+        {
+          "item": "bocal_trombeta",
+          "chance": 1.0,
+          "missao": "c06"
+        }
+      ]
+    },
+    {
+      "id": "desertor_legiao",
+      "nome": "Desertor da Legião",
+      "tipo": "normal",
+      "nivel": [
+        6,
+        9
+      ],
+      "locais": [
+        "rio_amargo",
+        "campos_cinza"
+      ],
+      "descricao": "Demônios da Legião Blasfema que largaram a bandeira quando o general sumiu. Sem comando, sem promessa de Terra, viraram bandidos: cobram pedágio da água amarga e procuram o corpo de Andras para vender a quem pagar mais.",
+      "aparencia": "Demônio magro de chifres serrados, casaca de soldado da Legião com as insígnias arrancadas, lança de trilho de bonde, brasa fraca nas rachaduras do peito. Andam em duplas e trios.",
+      "comportamento": "Territorial: só ataca quem chega perto da fogueira ou da água. Investida de lança em linha.",
+      "falas": {
+        "ao_ver": "Sem general, sem dono. Paga a água ou vira água."
+      },
+      "drops_missao": [
+        {
+          "item": "insignia_arrancada",
+          "chance": 0.5,
+          "missao": "e02"
+        }
+      ]
+    },
+    {
+      "id": "sangrador_apostata",
+      "nome": "Sangrador Apóstata",
+      "tipo": "normal",
+      "nivel": [
+        5,
+        7
+      ],
+      "locais": [
+        "bosque_viuvas"
+      ],
+      "descricao": "Cultistas que romperam com a Madre Ivone. Acham que a aliança com anjos e demônios corrompeu o culto e querem a Capela só para os humanos de fé. Envenenam, sabotam e jogam a culpa nos outros.",
+      "aparencia": "Túnica vinho rasgada e pintada de preto, máscara de gás com as lentes quebradas de propósito, mãos enfaixadas com tiras de bandeira da Legião.",
+      "comportamento": "Escondidos entre as viúvas do bosque. Atacam à distância com sangria e fogem para perto das viúvas, que viram se o jogador as acertar.",
+      "falas": {
+        "ao_ver": "Nem asa, nem chifre. A Capela é dos homens que creem!"
+      },
+      "drops_missao": [
+        {
+          "item": "carta_apostata",
+          "chance": 0.35,
+          "missao": "e03"
+        }
+      ]
+    },
+    {
+      "id": "sombra_gravada",
+      "nome": "Sombra Gravada",
+      "tipo": "normal",
+      "nivel": [
+        9,
+        12
+      ],
+      "locais": [
+        "tempestade_areia"
+      ],
+      "descricao": "Quando a Absinto-1 subiu, o clarão do lançamento gravou na pedra do muro da vila militar a sombra de quem estava olhando. As pessoas viraram pó; as sombras ficaram. À noite, com o Amargo na pele delas, elas descolam do muro e repetem o último gesto: apontar para o céu.",
+      "aparencia": "Silhueta humana chapada, preta como fuligem, com as bordas brilhando verde. Sem rosto, sem volume. Algumas ainda seguram a sombra de uma criança pela mão.",
+      "comportamento": "Imune a dano por 1 s depois de apanhar, quando volta a ficar chapada no chão. Luz forte (fogo, sagrado, a lanterna rúnica) a força a ficar em pé e vulnerável.",
+      "falas": {
+        "ao_ver": "(sem som; aponta para o céu)"
+      },
+      "drops_missao": [
+        {
+          "item": "fragmento_clarao",
+          "chance": 0.4,
+          "missao": "d05"
+        }
+      ]
+    },
+    {
+      "id": "ultimo_operador",
+      "nome": "Sargento Brandão, o Último Operador",
+      "tipo": "elite",
+      "nivel": [
+        12,
+        12
+      ],
+      "locais": [
+        "tempestade_areia"
+      ],
+      "descricao": "O operador do Silo São Lázaro que ficou de guarda da Absinto-2. A radiação o fundiu com a cadeira e com o console; ele ainda espera a segunda ordem de lançamento, que nunca veio, e atira em qualquer um que se aproxime da chave.",
+      "aparencia": "Homem de farda verde apodrecida, metade do corpo vitrificado e verde, preso por cabos a uma cadeira de comando que ele arrasta sobre trilhos. Fones de ouvido derretidos na cabeça, chave de lançamento num cordão no pescoço.",
+      "comportamento": "Fica no centro da sala. Chama sirenes que cobrem áreas com Amargo; cada sirene destruída o atordoa. A 50% de vida, gira a chave sozinho: barra de contagem que o jogador precisa interromper.",
+      "falas": {
+        "ao_ver": "Identificação! Sem senha não tem acesso à sala de lançamento!",
+        "metade_vida": "Sem a segunda ordem eu mesmo giro. Dez. Nove. Oito...",
+        "morte": "Comando Sul... aqui é Brandão... sala segura... câmbio... desligo..."
+      },
+      "drops_missao": [
+        {
+          "item": "chave_lancamento",
+          "chance": 1.0,
+          "missao": "d06"
+        }
+      ]
+    }
+  ]
+}
