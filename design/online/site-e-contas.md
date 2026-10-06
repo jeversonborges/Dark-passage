@@ -44,7 +44,11 @@ variável `DADOS` mesmo.
 
 ### Instalação sugerida
 
-    # o repositório é clonado com deploy key só-leitura, como já combinado
+A VPS já puxa o repositório com deploy key só-leitura (a thread do servidor usa a branch
+`servidor` para o .pck do jogo). O site pode vir do mesmo clone ou de um clone próprio; o que
+importa é apontar o systemd para a pasta `site/` da cópia que a VPS tiver, e que a branch usada
+contenha o commit do site (hoje na PR #2).
+
     git clone git@github.com:jeversonborges/Dark-passage.git /opt/dark-passage
     mkdir -p /var/lib/darkpassage /etc/darkpassage
 
