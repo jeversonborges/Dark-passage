@@ -207,6 +207,7 @@ form{padding:clamp(24px,4vw,34px); display:flex; flex-direction:column; gap:17px
 .cartao-dl dt{font-family:var(--rotulo); text-transform:uppercase; letter-spacing:.17em; font-size:12.5px; font-weight:600; color:var(--cinza); padding-top:3px}
 .cartao-dl dd{margin:0; color:var(--osso)}
 .cartao-dl .btn{width:100%; text-align:center; font-size:15px; padding:16px 20px}
+.cartao-dl .alt-dl{margin:16px 0 0; font-size:15px; color:var(--cinza); text-align:center}
 .cartao-dl .hash{font-family:ui-monospace,Menlo,Consolas,monospace; font-size:12px; color:var(--cinza); word-break:break-all; margin:16px 0 0}
 .passos{margin:0; padding-left:1.3em}
 .passos li{margin-bottom:10px}
@@ -505,21 +506,22 @@ footer p{font-size:14px; color:#6f675f}
     <div class="baixar">
       <div class="cartao-dl">
         <dl>
-          <dt>Versão</dt><dd id="dl-versao">prévia 0.7</dd>
-          <dt>Tamanho</dt><dd id="dl-tamanho">156 MB</dd>
+          <dt>Versão</dt><dd id="dl-versao">prévia 0.7.1</dd>
+          <dt>Launcher</dt><dd id="dl-launcher-tam">33 MB</dd>
           <dt>Sistema</dt><dd id="dl-sistema">Windows 10/11 64 bits</dd>
         </dl>
-        <a class="btn btn-forte" id="dl-link" href="/downloads/DarkPassage-v0.7-windows.zip" download>Baixar o jogo</a>
-        <p class="hash">SHA-256 <span id="dl-sha">c6df149fad681935cee0751b89e7fb912c58d933190a3dc34662940241c0fbe0</span></p>
+        <a class="btn btn-forte" id="dl-launcher" href="/downloads/DarkPassage-Launcher.zip" download>Baixar o launcher</a>
+        <p class="alt-dl">Prefere sem launcher? <a id="dl-link" href="/downloads/DarkPassage-v0.7.1-windows.zip" download>Baixe o jogo completo</a> (<span id="dl-tamanho">154 MB</span>, zip).</p>
+        <p class="hash">SHA-256 do jogo completo <span id="dl-sha">6db69fe9466d5bbca65e90ed455b1552b034d7176bd352eb79f3c001c2e5c928</span></p>
       </div>
       <div class="prosa">
         <ol class="passos">
           <li><a href="#conta">Crie sua conta</a> aqui no site.</li>
-          <li>Baixe o zip e extraia a pasta (botão direito, <em>Extrair tudo</em>).</li>
-          <li>Abra <strong>DarkPassage.exe</strong>. Se o Windows mostrar <em>"O Windows protegeu o computador"</em>, clique em <em>Mais informações</em> e depois em <em>Executar assim mesmo</em>: o jogo ainda não tem assinatura digital.</li>
-          <li>Clique em <strong>Jogar online</strong> e entre com o usuário e a senha da conta.</li>
+          <li>Baixe o launcher e extraia a pasta (botão direito, <em>Extrair tudo</em>).</li>
+          <li>Abra <strong>DarkPassage-Launcher.exe</strong>. Se o Windows mostrar <em>"O Windows protegeu o computador"</em>, clique em <em>Mais informações</em> e depois em <em>Executar assim mesmo</em>: o jogo ainda não tem assinatura digital.</li>
+          <li>O launcher baixa o jogo e o mantém atualizado. Clique em <strong>Jogar</strong>, depois em <strong>Jogar online</strong>, e entre com o usuário e a senha da conta.</li>
         </ol>
-        <p class="sumido">Se o jogo pedir para atualizar, baixe de novo aqui: o servidor só aceita a versão mais nova.</p>
+        <p class="sumido">Com o jogo completo, extraia o zip e abra <strong>DarkPassage.exe</strong>. Nesse caso, quando sair versão nova, baixe de novo aqui: o servidor só aceita a versão mais nova.</p>
       </div>
     </div>
   </div>
@@ -546,6 +548,11 @@ footer p{font-size:14px; color:#6f675f}
       document.getElementById('dl-tamanho').textContent = Math.round(c.tamanho / 1048576) + ' MB';
       if (c.sistema) document.getElementById('dl-sistema').textContent = c.sistema;
       if (c.sha256) document.getElementById('dl-sha').textContent = c.sha256;
+      var l = c.launcher;
+      if (l && l.arquivo) {
+        document.getElementById('dl-launcher').href = '/downloads/' + encodeURIComponent(l.arquivo);
+        if (l.tamanho) document.getElementById('dl-launcher-tam').textContent = Math.round(l.tamanho / 1048576) + ' MB';
+      }
     }).catch(function(){});
   }
 

@@ -133,18 +133,24 @@ D=/home/dark/downloads; W=/var/www/darkpassage/downloads
 if [ -e $D/.git ]; then
   sudo -u dark git -C $D fetch -q --depth 1 origin downloads && sudo -u dark git -C $D reset -q --hard origin/downloads
   J=$D/cliente/cliente.json
+  montar() {  # $1 arquivo, $2 sha256: junta as partes (ou copia o arquivo) se o que está no ar for diferente
+    [ -n "$1" ] || return 0
+    [ "$(sha256sum "$W/$1" 2>/dev/null | cut -d' ' -f1)" = "$2" ] && return 0
+    if [ -f "$D/cliente/$1" ]; then cp "$D/cliente/$1" "$W/.$1.tmp"; else cat "$D/cliente/$1".parte* > "$W/.$1.tmp"; fi
+    if [ "$(sha256sum "$W/.$1.tmp" | cut -d' ' -f1)" = "$2" ]; then
+      chmod 644 "$W/.$1.tmp"; mv -f "$W/.$1.tmp" "$W/$1"
+    else
+      rm -f "$W/.$1.tmp"; echo "darkpassage: $1 com sha256 errado" >&2; return 1
+    fi
+  }
   if [ -f $J ]; then
-    A=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["arquivo"])' $J)
-    H=$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1]))["sha256"])' $J)
-    if [ "$(sha256sum "$W/$A" 2>/dev/null | cut -d' ' -f1)" != "$H" ]; then
-      cat "$D/cliente/$A".parte* > "$W/.$A.tmp"
-      if [ "$(sha256sum "$W/.$A.tmp" | cut -d' ' -f1)" = "$H" ]; then
-        chmod 644 "$W/.$A.tmp"; mv -f "$W/.$A.tmp" "$W/$A"
-        install -m 644 $J $W/cliente.json
-        find $W -maxdepth 1 -name 'DarkPassage-*.zip' ! -name "$A" -delete
-      else
-        rm -f "$W/.$A.tmp"; echo "darkpassage: partes do cliente com sha256 errado" >&2
-      fi
+    campo() { python3 -c 'import json,sys;d=json.load(open(sys.argv[1]))
+for k in sys.argv[2].split("."): d=d.get(k,{}) if isinstance(d,dict) else {}
+print(d if isinstance(d,str) else "")' $J "$1"; }
+    A=$(campo arquivo); L=$(campo launcher.arquivo)
+    if montar "$A" "$(campo sha256)" && montar "$L" "$(campo launcher.sha256)"; then
+      cmp -s $J $W/cliente.json || install -m 644 $J $W/cliente.json
+      find $W -maxdepth 1 -name 'DarkPassage-v*-windows.zip' ! -name "$A" -delete
     fi
   fi
 fi
