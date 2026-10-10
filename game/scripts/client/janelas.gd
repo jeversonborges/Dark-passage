@@ -897,13 +897,14 @@ func fechar_texto() -> void:
 
 # =================================================================== menu
 func abrir_menu() -> void:
-	var c := _janela("menu", "DARK PASSAGE", Vector2(300, 330), "centro")
+	var c := _janela("menu", "DARK PASSAGE", Vector2(300, 376), "centro")
 	if game.hud.mapa_ui: game.hud.mapa_ui.visible = false
 	_limpar(c)
 	var itens := [
 		["Continuar", func(): fechar("menu")],
 		["Como jogar (H)", func(): fechar("menu"); game.hud.mostrar_ajuda()],
 		["Som: " + ("desligado" if game.audio.mudo else "ligado"), func(): game.audio.alternar_mudo(); abrir_menu()],
+		["Tela cheia: " + ("ligada" if Tela.cheia() else "desligada") + " (F11)", func(): Tela.alternar(); abrir_menu.call_deferred()],
 		["Tremor de tela: " + ("ligado" if game.hud.mult_tremor > 0.0 else "desligado"), func(): game.hud.mult_tremor = 0.0 if game.hud.mult_tremor > 0.0 else 1.0; abrir_menu()],
 		["Salvar e voltar ao início" if game.rede == null else "Sair da partida", func(): game._salvar(); game.sair_rede(); get_tree().reload_current_scene()],
 	]

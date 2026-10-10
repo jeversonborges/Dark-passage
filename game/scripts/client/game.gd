@@ -220,7 +220,7 @@ func _montar_mapa() -> void:
 		if p.has("oculto_por_obj"): continue
 		var k: String = p["k"]
 		if not amb.has(k): continue
-		var s := _sprite_kit(k, Vector2(p["x"], p["y"]))
+		var s := _sprite_kit(k, Vector2(p["x"], p["y"]), p.get("espelho", 0) == 1)
 		if s == null: continue
 		if p.get("chao", 0) == 1: decal.add_child(s)
 		else:
@@ -250,7 +250,8 @@ func _montar_mapa() -> void:
 	cam.limit_bottom = int(16.0 * (c4[2] - c4[1]))
 	_cores_minimapa()
 
-func _sprite_kit(k: String, p: Vector2) -> Sprite2D:
+## espelho: vira a arte na horizontal (um objeto feito ao longo de Y passa a ficar ao longo de X).
+func _sprite_kit(k: String, p: Vector2, espelho := false) -> Sprite2D:
 	var amb: Dictionary = Defs.AMB.get("objetos", {})
 	if not amb.has(k): return null
 	var tex := Tema.tex("res://assets/ext/ambiente/objetos/%s.png" % k)
@@ -261,6 +262,9 @@ func _sprite_kit(k: String, p: Vector2) -> Sprite2D:
 	s.centered = false
 	var anc: Array = m["anchor"]
 	s.offset = -Vector2(anc[0], anc[1])
+	if espelho:
+		s.flip_h = true
+		s.offset.x = -(float(m["w"]) - float(anc[0]))
 	s.position = Iso.to_screen(p)
 	return s
 
@@ -428,6 +432,33 @@ func _sumiu(id: int) -> void:
 
 # =================================================================== itens no chão
 class ItemChao extends Node2D:
+	const CONTORNO := """
+shader_type canvas_item;
+// o COLOR do fragment já vem multiplicado pela textura; o contorno precisa da cor do vértice pura
+varying vec4 cor_vertice;
+void vertex() { cor_vertice = COLOR; }
+uniform vec4 contorno : source_color = vec4(1.0, 0.96, 0.86, 0.0);
+uniform float realce = 0.0;
+uniform float borda = 2.0;   // espessura em pixels da textura (o ícone é reduzido no chão)
+void fragment() {
+	vec4 c = texture(TEXTURE, UV);
+	c.rgb = mix(c.rgb, c.rgb * 1.35 + vec3(0.04), realce);
+	if (contorno.a > 0.0 && c.a < 0.6) {
+		vec2 p = TEXTURE_PIXEL_SIZE;
+		float v = 0.0;
+		for (int i = 0; i < 8; i++) {
+			float a = float(i) * 0.785398;
+			vec2 d = vec2(cos(a), sin(a));
+			v = max(v, texture(TEXTURE, UV + d * p * borda).a);
+			v = max(v, texture(TEXTURE, UV + d * p * borda * 1.9).a * 0.5);
+		}
+		c = vec4(mix(contorno.rgb, c.rgb, c.a), max(c.a, v * contorno.a));
+	}
+	COLOR = c * cor_vertice;
+}
+"""
+	static var _shader: Shader
+	static var _halo: GradientTexture2D
 	var dados: Dictionary
 	var nome := ""
 	var cor := Color.WHITE
@@ -439,27 +470,88 @@ class ItemChao extends Node2D:
 	var hover := false
 	var mostrar := false
 	var ouro := false
+	var rotulo_r := Rect2()      # caixa do nome no chão (clicar nela também pega)
+	var hl := 0.0                # 0..1, suaviza a entrada e a saída do hover
+	var aura: Node2D
+	var ico: Node2D
+	var mat: ShaderMaterial
+	var luz: Sprite2D           # luzinha no mapa de luz, para o brilho não sumir no escuro
+	var luz_cor := Color.BLACK
+	func _ready() -> void:
+		t = randf() * 6.0
+		if _halo == null:
+			var g := Gradient.new()
+			g.offsets = PackedFloat32Array([0.0, 0.35, 1.0])
+			g.colors = PackedColorArray([Color(1, 1, 1, 1), Color(1, 1, 1, 0.45), Color(1, 1, 1, 0)])
+			_halo = GradientTexture2D.new(); _halo.gradient = g; _halo.width = 64; _halo.height = 64
+			_halo.fill = GradientTexture2D.FILL_RADIAL; _halo.fill_from = Vector2(0.5, 0.5); _halo.fill_to = Vector2(1.0, 0.5)
+		# brilho leve no chão, aditivo, atrás do item
+		aura = Node2D.new(); aura.show_behind_parent = true
+		var am := CanvasItemMaterial.new(); am.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+		aura.material = am
+		aura.draw.connect(_desenhar_aura)
+		add_child(aura)
+		# o ícone num nó próprio, com contorno claro no hover
+		ico = Node2D.new()
+		ico.draw.connect(_desenhar_icone)
+		if not ouro:
+			if _shader == null:
+				_shader = Shader.new(); _shader.code = CONTORNO
+			mat = ShaderMaterial.new(); mat.shader = _shader
+			ico.material = mat
+		add_child(ico)
 	func _process(dt: float) -> void:
 		t += dt
 		if voo < 1.0:
 			voo = minf(1.0, voo + dt * 2.2)
 			var k := voo
 			position = origem.lerp(destino, k) + Vector2(0, -sin(k * PI) * 60.0)
-		queue_redraw()
+		hl = lerpf(hl, 1.0 if hover else 0.0, 1.0 - exp(-dt * 14.0))
+		if luz and is_instance_valid(luz):
+			var e := 0.8 + 0.2 * sin(t * 2.4) + 0.5 * hl
+			luz.modulate = Color(luz_cor.r * e, luz_cor.g * e, luz_cor.b * e, 1.0)
+		if mat:
+			mat.set_shader_parameter("contorno", Color(1.0, 0.96, 0.86, 0.95 * hl))
+			mat.set_shader_parameter("realce", hl * 0.6)
+		queue_redraw(); aura.queue_redraw(); ico.queue_redraw()
 	func _draw() -> void:
 		draw_set_transform(Vector2(0, 0), 0.0, Vector2(1, 0.5))
 		draw_circle(Vector2.ZERO, 12, Color(0, 0, 0, 0.35))
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	func _desenhar_aura() -> void:
+		if voo < 1.0: return
+		var pulso := 0.5 + 0.5 * sin(t * 2.4)
+		var c := cor.lerp(Color(1, 0.93, 0.75), 0.5 if ouro or cor == Defs.cor_raridade("comum") else 0.15)
+		# poça de luz achatada no chão + halo suave em volta do ícone
+		aura.draw_set_transform(Vector2(0, -2), 0.0, Vector2(1, 0.5))
+		var r := 26.0 + 3.0 * pulso + 6.0 * hl
+		aura.draw_texture_rect(_halo, Rect2(-r, -r, r * 2, r * 2), false, Color(c.r, c.g, c.b, 0.3 + 0.12 * pulso + 0.2 * hl))
+		aura.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		var r2 := 20.0 + 2.0 * pulso
+		aura.draw_texture_rect(_halo, Rect2(-r2, -12 - r2, r2 * 2, r2 * 2), false, Color(c.r, c.g, c.b, 0.12 + 0.06 * pulso + 0.14 * hl))
+		# faísca que pisca de vez em quando
+		var f := fmod(t, 2.6)
+		if f < 0.35:
+			var k := sin(f / 0.35 * PI)
+			var sp := Vector2(-7 + 14 * fmod(floor(t / 2.6) * 0.618, 1.0), -22 + 8 * fmod(floor(t / 2.6) * 0.414, 1.0))
+			var cf := Color(1, 0.97, 0.88, 0.85 * k)
+			aura.draw_line(sp + Vector2(-5 * k, 0), sp + Vector2(5 * k, 0), cf, 1.2)
+			aura.draw_line(sp + Vector2(0, -5 * k), sp + Vector2(0, 5 * k), cf, 1.2)
+	func _desenhar_icone() -> void:
 		if ouro:
+			var b := 1.0 + 0.3 * hl
 			for i in 5:
 				var p := Vector2((i % 3) * 6 - 6, -2 - (i / 3) * 4 + (i % 2) * 2)
-				draw_circle(p, 4.0, Color("#6b4a14")); draw_circle(p + Vector2(-0.5, -0.5), 3.2, Color("#e0b84a"))
+				if hl > 0.05: ico.draw_circle(p, 5.4, Color(1, 0.96, 0.86, 0.8 * hl))
+				ico.draw_circle(p, 4.0, Color("#6b4a14")); ico.draw_circle(p + Vector2(-0.5, -0.5), 3.2, Color("#e0b84a") * b)
 		elif icone.size() == 2:
 			var r: Rect2 = icone[1]
-			var sz := Vector2(30, 30)
-			draw_texture_rect_region(icone[0], Rect2(-sz * 0.5 + Vector2(0, -12), sz), r, Color(1, 1, 1) * (1.25 if hover else 1.0))
+			var k := 40.0 / maxf(r.size.x, r.size.y)   # cabe em 40 px sem achatar
+			var sz := r.size * k
+			if mat: mat.set_shader_parameter("borda", 1.6 / k)
+			ico.draw_texture_rect_region(icone[0], Rect2(Vector2(-sz.x * 0.5, -6 - sz.y), sz), r)
 		else:
-			draw_rect(Rect2(-8, -18, 16, 16), cor.darkened(0.3)); draw_rect(Rect2(-8, -18, 16, 16), cor, false, 1.5)
+			ico.draw_rect(Rect2(-8, -18, 16, 16), cor.darkened(0.3)); ico.draw_rect(Rect2(-8, -18, 16, 16), cor, false, 1.5)
 
 func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 	var c: Dictionary = sim.chao.get(id, {})
@@ -476,6 +568,9 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 	n.position = n.origem
 	mundo.add_child(n)
 	itens_chao[id] = n
+	var cl := n.cor.lerp(Color(1, 0.9, 0.7), 0.5 if n.ouro or n.cor == Defs.cor_raridade("comum") else 0.2)
+	n.luz = luz.adicionar(n.destino, cl, 0.85, 0.75)
+	n.luz_cor = n.luz.modulate
 	var rar: String = it.get("raridade", "comum")
 	if rar in ["raro", "excelente", "lendario", "conjunto"]:
 		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto"] else "item_feixe_raro"
@@ -487,6 +582,7 @@ func _item_chao_sumiu(id: int) -> void:
 	var n = itens_chao.get(id)
 	itens_chao.erase(id)
 	if n == null: return
+	if n.luz and is_instance_valid(n.luz): n.luz.queue_free()
 	if n.has_meta("feixe"):
 		var f = n.get_meta("feixe")
 		if is_instance_valid(f): f.queue_free()
@@ -950,13 +1046,14 @@ func _sob_mouse() -> void:
 		if views.has(hover_id):
 			var ev2: Ent = sim.ents.get(hover_id)
 			views[hover_id].hover = true
-			views[hover_id].cor_anel = Color(1.0, 0.22, 0.12, 0.95) if ev2 != null and jog.eh_inimigo_de(ev2) else Color(1.0, 0.86, 0.5, 0.9)
+			views[hover_id].cor_anel = Color(1.0, 0.22, 0.12, 0.95) if ev2 != null and jog.eh_inimigo_de(ev2) else Color(1.0, 0.96, 0.86, 0.85)
 			if ev2 != null and ev2.aux.get("neutro", false) and ev2.estado in ["ocioso", "vagar"]: views[hover_id].cor_anel = Color(1.0, 0.85, 0.2, 0.95)
 	hover_chao = -1
-	var mc := 26.0
+	var mc := 42.0   # área de clique generosa em volta do item
 	for id in itens_chao.keys():
 		var n = itens_chao[id]
-		var dd := m.distance_to(n.position + Vector2(0, -8))
+		var dd := m.distance_to(n.position + Vector2(0, -12))
+		if n.rotulo_r.has_point(m): dd = minf(dd, 4.0)
 		if dd < mc: mc = dd; hover_chao = id
 		n.hover = false
 	if hover_chao != -1: itens_chao[hover_chao].hover = true
@@ -1234,12 +1331,32 @@ func _desenhar_sobre() -> void:
 		if e2.kind == "bau" and e2.aux.get("aberto", false): nm += " (vazio)"
 		_nome(o.position + Vector2(0, -78), nm, Color("#f0dca0"), 13)
 	# itens no chão: nome com a cor da raridade (Alt mostra todos)
+	# os nomes não se encavalam: do mais baixo para o mais alto, cada um sobe até achar espaço
+	var fila: Array = []
 	for id in itens_chao.keys():
 		var n = itens_chao[id]
+		n.rotulo_r = Rect2()
 		if n.voo < 1.0: continue
 		if mostrar_nomes or id == hover_chao or n.cor != Defs.cor_raridade("comum"):
 			if not mostrar_nomes and id != hover_chao and n.position.distance_to(views[jog.id].position if views.has(jog.id) else Vector2.ZERO) > 420: continue
-			_rotulo_item(n.position + Vector2(0, -34), n.nome, n.cor, id == hover_chao)
+			fila.append(id)
+	fila.sort_custom(func(a, b): return itens_chao[a].position.y > itens_chao[b].position.y)
+	var postos: Array = []
+	for id in fila:
+		var n = itens_chao[id]
+		var p: Vector2 = n.position + Vector2(0, -40)
+		var r := _caixa_rotulo(p, n.nome)
+		var tentativas := 0
+		while tentativas < 12:
+			var bate := false
+			for q: Rect2 in postos:
+				if q.grow(1.0).intersects(r): bate = true; break
+			if not bate: break
+			r.position.y -= r.size.y + 2.0; p.y -= r.size.y + 2.0; tentativas += 1
+		postos.append(r)
+		if r.position.y + r.size.y < n.position.y - 44:   # subiu: um fio liga o nome ao item
+			sobre.draw_line(Vector2(n.position.x, r.end.y), n.position + Vector2(0, -30), Color(n.cor.r, n.cor.g, n.cor.b, 0.35), 1.0)
+		n.rotulo_r = _rotulo_item(p, n.nome, n.cor, id == hover_chao)
 
 func _nome(p: Vector2, txt: String, cor: Color, tam := 13, fonte: Font = null) -> void:
 	var fo := fonte if fonte else Tema.FONTE_TITULO
@@ -1247,13 +1364,18 @@ func _nome(p: Vector2, txt: String, cor: Color, tam := 13, fonte: Font = null) -
 	sobre.draw_string_outline(fo, p + Vector2(-w * 0.5, 0), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, 4, Color(0, 0, 0, 0.85))
 	sobre.draw_string(fo, p + Vector2(-w * 0.5, 0), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, cor)
 
-func _rotulo_item(p: Vector2, txt: String, cor: Color, hl: bool) -> void:
+func _caixa_rotulo(p: Vector2, txt: String) -> Rect2:
+	var w := Tema.FONTE_TEXTO.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
+	return Rect2(p.x - w * 0.5 - 6, p.y - 13, w + 12, 18)
+
+func _rotulo_item(p: Vector2, txt: String, cor: Color, hl: bool) -> Rect2:
 	var fo := Tema.FONTE_TEXTO
 	var w := fo.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
 	var r := Rect2(p.x - w * 0.5 - 6, p.y - 13, w + 12, 18)
 	sobre.draw_rect(r, Color(0.04, 0.03, 0.03, 0.85 if hl else 0.7))
 	sobre.draw_rect(r, Color(cor.r, cor.g, cor.b, 0.7 if hl else 0.35), false, 1.0)
 	sobre.draw_string(fo, Vector2(p.x - w * 0.5, p.y + 1), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13, cor)
+	return r
 
 # =================================================================== salvar
 func _salvar() -> void:

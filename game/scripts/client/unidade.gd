@@ -4,6 +4,9 @@ extends Node2D
 
 const SHADER := """
 shader_type canvas_item;
+// o COLOR do fragment já vem multiplicado pela textura (alfa 0 fora da figura); o contorno usa a cor do vértice
+varying vec4 cor_vertice;
+void vertex() { cor_vertice = COLOR; }
 uniform vec4 flash_cor : source_color = vec4(0.95, 0.92, 0.85, 1.0);
 uniform float flash = 0.0;
 uniform vec4 tinta : source_color = vec4(1.0);
@@ -14,14 +17,21 @@ uniform float realce = 0.0;                          // clareia a figura (hover 
 uniform sampler2D ruido : repeat_enable;
 void fragment() {
 	vec4 c = texture(TEXTURE, UV);
+	vec4 t0 = c;
 	c.rgb *= tinta.rgb;
 	c.rgb = mix(c.rgb, c.rgb * 1.55 + vec3(0.05), realce);
 	c.rgb = mix(c.rgb, flash_cor.rgb, flash);
 	if (contorno.a > 0.0 && c.a < 0.5) {
-		vec2 px = TEXTURE_PIXEL_SIZE * 2.0;
-		float v = max(max(texture(TEXTURE, UV + vec2(px.x, 0.0)).a, texture(TEXTURE, UV - vec2(px.x, 0.0)).a),
-			max(texture(TEXTURE, UV + vec2(0.0, px.y)).a, texture(TEXTURE, UV - vec2(0.0, px.y)).a));
-		if (v > 0.5) c = vec4(contorno.rgb, contorno.a);
+		// contorno suave: anel firme a 2 px e um halo fraco a 4 px, em 8 direções
+		vec2 px = TEXTURE_PIXEL_SIZE;
+		float v = 0.0;
+		for (int i = 0; i < 8; i++) {
+			float a = float(i) * 0.785398;
+			vec2 d = vec2(cos(a), sin(a));
+			v = max(v, texture(TEXTURE, UV + d * px * 2.0).a);
+			v = max(v, texture(TEXTURE, UV + d * px * 4.0).a * 0.4);
+		}
+		c = vec4(mix(contorno.rgb, c.rgb, c.a), max(c.a, v * contorno.a));
 	}
 	if (dissolve > 0.0) {
 		float n = texture(ruido, UV * 3.0).r;
@@ -29,7 +39,8 @@ void fragment() {
 		else if (n < dissolve + 0.06) c.rgb = mix(c.rgb, vec3(0.9, 0.35, 0.1), 0.8);
 	}
 	if (fantasma > 0.0) { c.a *= 0.55 + 0.15 * sin(TIME * 3.0); c.rgb += vec3(0.05, 0.2, 0.08); }
-	COLOR = c * COLOR;
+	// a figura mantém o tom de sempre (textura x textura); o contorno, fora dela, sai com a cor pura
+	COLOR = c * cor_vertice * (t0.a > 0.0 ? t0 : vec4(1.0));
 }
 """
 static var _shader: Shader
@@ -61,6 +72,10 @@ var escala_base := 1.0
 var altura_px := 110.0
 var andando := false
 var ult_pos := Vector2.ZERO
+var ult_mov := Vector2.ZERO   # último deslocamento (vira o boneco para onde anda, mesmo nos quadros sem passo)
+var parado_t := 1.0           # segundos desde que a posição mudou pela última vez
+const FOLGA_ANDAR := 0.15     # a posição só muda a cada passo da simulação (30 Hz) ou pacote da rede: entre um e
+                              # outro o boneco continua "andando", senão a tela a 60+ fps alterna andar/parado e trava no quadro 0
 var tempo := 0.0
 var avanco := Vector2.ZERO    # avanço do golpe (px)
 var dur_unica := 0.0
@@ -177,11 +192,14 @@ func _process(dt: float) -> void:
 		var dpos := alvo - pos_vis
 		if dpos.length() > 260.0: pos_vis = alvo
 		else: pos_vis = pos_vis.lerp(alvo, 1.0 - exp(-dt * 18.0))
-		andando = ent.pos.distance_squared_to(ult_pos) > 0.0004 or not ent.caminho.is_empty() and ent.pos.distance_squared_to(ult_pos) > 0.00001
+		var mexeu := ent.pos.distance_squared_to(ult_pos) > 0.0004 or not ent.caminho.is_empty() and ent.pos.distance_squared_to(ult_pos) > 0.00001
+		parado_t = 0.0 if mexeu else parado_t + dt
+		andando = parado_t < FOLGA_ANDAR
 		var mov := ent.pos - ult_pos
 		ult_pos = ent.pos
+		if mov.length_squared() > 1e-5: ult_mov = mov
 		var fac := ent.facing
-		if andando and mov.length_squared() > 1e-5 and anim_unica == "": fac = mov
+		if andando and anim_unica == "" and ult_mov != Vector2.ZERO: fac = ult_mov
 		var d := Iso.dir8(fac)
 		if d >= 0 and (anim_unica == "" or anim_unica == "dash"): dir = d
 		elif d >= 0 and anim_unica != "": dir = d

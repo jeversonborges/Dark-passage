@@ -39,6 +39,9 @@ func _ready() -> void:
 				roteiro.append([0.3, "perto_de", k])
 				for i in 10: roteiro.append([0.45, "foto", k + "_%d" % i])
 			roteiro.append([0.3, "fim", ""])
+		"itens":   # itens no chão: brilho, hover de item e de NPC
+			roteiro = [[2.5, "afastar", ""], [1.5, "soltar_itens", ""], [1.5, "foto", "i1_chao"], [0.1, "mouse_item", 2], [0.4, "foto", "i2_hover_item"],
+				[0.1, "mouse_item", 0], [0.4, "foto", "i3_hover_ouro"], [0.1, "mouse_npc", "ir"], [1.5, "mouse_npc", ""], [0.5, "foto", "i4_hover_npc"], [0.3, "fim", ""]]
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 
@@ -56,6 +59,34 @@ func _process(dt: float) -> void:
 			img.save_png(pasta + "/" + p[2] + ".png")
 			print("foto ", p[2])
 		"janela": jogo.janelas.alternar(p[2])
+		"afastar":   # sai do acampamento para um descampado
+			var d := Vector2(float(args.get("dx", "12")), float(args.get("dy", "-6")))
+			jogo.jog.pos = jogo.sim.celula_livre_perto(jogo.jog.pos + d)
+			for e: Ent in jogo.sim.ents.values():   # tira os bichos de perto para a foto ficar limpa
+				if e.tipo == "monstro" and e.pos.distance_to(jogo.jog.pos) < 14.0:
+					e.pos = jogo.sim.celula_livre_perto(e.pos + (e.pos - jogo.jog.pos).normalized() * 25.0)
+		"soltar_itens":
+			var base: Vector2 = jogo.jog.pos
+			jogo.sim.soltar_no_chao(Itens.novo("_ouro", 37), base + Vector2(0.5, 3.5), -1, base)
+			var lista := [["espada_vigilia_rachada", "comum"], ["couro_sobrevivente_peito", "magico"], ["cajado_valvulas", "raro"], ["escopeta_cano_duplo", "excelente"]]
+			for i in lista.size():
+				var it := Itens.novo(lista[i][0]); it["raridade"] = lista[i][1]
+				jogo.sim.soltar_no_chao(it, base + Vector2(2.0 + i * 1.6, 2.5 - i * 0.6), -1, base)
+		"mouse_item":
+			var ids: Array = jogo.itens_chao.keys(); ids.sort()
+			var n = jogo.itens_chao[ids[mini(int(p[2]), ids.size() - 1)]]
+			var tela: Vector2 = get_viewport().get_canvas_transform() * n.global_position
+			print("item_tela ", int(tela.x), " ", int(tela.y))
+			get_viewport().warp_mouse(get_viewport().get_canvas_transform() * (n.global_position + Vector2(18, -4)))
+		"mouse_npc":
+			var npc: Ent = null
+			for e: Ent in jogo.sim.ents.values():
+				if e.tipo == "npc" and (npc == null or e.pos.distance_to(jogo.jog.pos) < npc.pos.distance_to(jogo.jog.pos)): npc = e
+			if npc and p[2] == "ir":
+				jogo.jog.pos = jogo.sim.celula_livre_perto(npc.pos + Vector2(2.5, 1.5))
+			elif npc and jogo.views.has(npc.id):
+				var v = jogo.views[npc.id]
+				get_viewport().warp_mouse(get_viewport().get_canvas_transform() * (v.global_position + Vector2(0, -50)))
 		"ir":
 			jogo.jog.pos = jogo.sim.celula_livre_perto(p[2])
 			jogo.jog.invuln_t = 999.0; jogo.jog.imune_t = 999.0

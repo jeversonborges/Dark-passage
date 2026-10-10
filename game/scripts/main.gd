@@ -35,6 +35,10 @@ func _ready() -> void:
 	if args.has("classe") and not args.has("conectar"):
 		_comecar(args["classe"], "Teste", {})
 		return
+	Tela.aplicar_salvo()
+	var at := AtalhoTela.new()
+	at.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(at)
 	_abertura("")
 	if args.has("foto_menu"):   # teste: print da tela de abertura
 		get_tree().create_timer(2.0).timeout.connect(func():
@@ -60,6 +64,13 @@ func _tls_servidor() -> TLSOptions:
 	if x.load(cert) != OK or k.load(chave) != OK:
 		printerr("[servidor] não deu para ler o certificado/chave em ", cert); return null
 	return TLSOptions.server(k, x)
+
+## F11 / Alt+Enter também com o jogo pausado (menu Esc).
+class AtalhoTela extends Node:
+	func _input(ev: InputEvent) -> void:
+		if Tela.atalho(ev):
+			Tela.alternar()
+			get_viewport().set_input_as_handled()
 
 func _abertura(motivo: String) -> void:
 	if camada: camada.queue_free()
@@ -106,6 +117,10 @@ func _comecar(classe: String, nome: String, salvo: Dictionary) -> void:
 			var xy: PackedStringArray = args["pos"].split(",")
 			pos = Vector2(float(xy[0]), float(xy[1]))
 		jogo._entrar(args.get("mapa", jogo.sim.mapa_id), pos)
+	if args.has("teste_andar"):
+		var ta: Node = load("res://tools/teste_andar.gd").new()
+		ta.jogo = jogo; ta.args = args
+		add_child(ta)
 	if args.has("fotos"):
 		var t: Node = load("res://tools/teste_visual.gd").new()
 		t.jogo = jogo; t.args = args
