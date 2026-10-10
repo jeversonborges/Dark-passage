@@ -85,6 +85,10 @@ func _comecar(classe: String, nome: String, salvo: Dictionary) -> void:
 			var xy: PackedStringArray = args["pos"].split(",")
 			pos = Vector2(float(xy[0]), float(xy[1]))
 		jogo._entrar(args.get("mapa", jogo.sim.mapa_id), pos)
+	if args.has("teste_andar"):
+		var ta: Node = load("res://tools/teste_andar.gd").new()
+		ta.jogo = jogo; ta.args = args
+		add_child(ta)
 	if args.has("fotos"):
 		var t: Node = load("res://tools/teste_visual.gd").new()
 		t.jogo = jogo; t.args = args
