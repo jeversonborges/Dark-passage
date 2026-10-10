@@ -33,6 +33,7 @@ class Folha extends Node2D:
 	var escala := 2.0
 	var vel := 1.0
 	var fim_fade := 0.25
+	var linha := 0          # folhas com 8 direções: uma linha da folha por direção
 	func _process(dt: float) -> void:
 		f += dt * float(v["fps"]) * vel
 		if dura > 0.0:
@@ -55,7 +56,7 @@ class Folha extends Node2D:
 		var i := int(f) % n if (loop or dura > 0.0) else mini(int(f), n - 1)
 		var c := int(v["cols"])
 		var fw := float(v["frame_w"]); var fh := float(v["frame_h"])
-		var src := Rect2((i % c) * fw, (i / c) * fh, fw, fh)
+		var src := Rect2((i % c) * fw, (i / c + linha * ceili(float(n) / c)) * fh, fw, fh)
 		var anc: Array = v["anchor"]
 		draw_texture_rect_region(tex, Rect2(-Vector2(anc[0], anc[1]) * escala, Vector2(fw, fh) * escala), src)
 
@@ -72,14 +73,22 @@ func folha(nome: String, pos: Vector2, opc: Dictionary = {}) -> Node2D:
 	n.vel = float(opc.get("vel", 1.0))
 	if opc.has("segue"): n.segue = opc["segue"]; n.desloc = opc.get("desloc", Vector2.ZERO)
 	if opc.has("rot"): n.rotation = opc["rot"]
+	if opc.has("dir") and int(v.get("directions", 1)) > 1: n.linha = linha_dir(opc["dir"], int(v["directions"]))
 	if opc.has("cor"): n.modulate = opc["cor"]
 	if opc.get("aditivo", false):
 		var m := CanvasItemMaterial.new(); m.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD; n.material = m
-	if v.get("layer", "frente") == "chao" and chao_fx != null and not opc.get("frente", false):
+	if (v.get("layer", "frente") == "chao" or opc.get("atras", false)) and chao_fx != null and not opc.get("frente", false):
 		chao_fx.add_child(n)
 	else:
 		add_child(n)
 	return n
+
+## Linha da folha direcional para uma direção do mundo: 0 leste (direita da tela), 1 nordeste, 2 norte (cima)...
+## Os ângulos são no plano do chão visto pela câmera isométrica, então a direção de tela é desachatada antes.
+static func linha_dir(dir: Vector2, n := 8) -> int:
+	var sv := Iso.to_screen(dir)
+	var ang := atan2(-sv.y / 22.63, sv.x / 45.25)
+	return posmod(roundi(ang / (TAU / n)), n)
 
 ## Nome do efeito de uma habilidade ("classe/id") nas folhas da thread de Efeitos.
 func nome_skill(skill: String) -> Array:
@@ -380,6 +389,8 @@ class Area extends Node2D:
 	var cor := Color(1, 0.4, 0.1)
 	var t := 0.0
 	var dur := 1.0
+	var graus := 0.0          # > 0: área em leque saindo do centro na direção dir
+	var dir := Vector2.RIGHT
 	func _process(dt: float) -> void:
 		t += dt
 		queue_redraw()
@@ -387,6 +398,9 @@ class Area extends Node2D:
 		var a := 1.0
 		if dur - t < 0.4: a = maxf(0.0, (dur - t) / 0.4)
 		if t < 0.25: a = t / 0.25
+		if graus > 0.0:
+			_draw_leque(a)
+			return
 		var e := Iso.elipse(raio)
 		var pul := 0.85 + 0.15 * sin(t * 6.0)
 		for i in 4:
@@ -397,6 +411,21 @@ class Area extends Node2D:
 			var ang := TAU * i / 40.0
 			pts.append(Vector2(cos(ang) * e.x, sin(ang) * e.y) * (0.97 + 0.03 * sin(ang * 7.0 + t * 3.0)))
 		draw_polyline(pts, Color(cor.r, cor.g, cor.b, 0.7 * a), 1.5, true)
+	## Chão em brasa no formato do leque: camadas de brilho que pulsam, mais fortes perto da borda que o fogo varreu.
+	func _draw_leque(a: float) -> void:
+		var meio := deg_to_rad(graus) * 0.5
+		var pul := 0.85 + 0.15 * sin(t * 7.0)
+		for k in 4:
+			var r0 := raio * (0.18 + k * 0.05)
+			var r1 := raio * (1.0 - k * 0.12)
+			var pts := PackedVector2Array()
+			for i in 17:
+				var ang := -meio + 2.0 * meio * i / 16.0
+				pts.append(Iso.to_screen(dir.rotated(ang) * r1 * (0.96 + 0.04 * sin(ang * 9.0 + t * 4.0 + k))))
+			for i in 17:
+				var ang := meio - 2.0 * meio * i / 16.0
+				pts.append(Iso.to_screen(dir.rotated(ang) * r0))
+			draw_colored_polygon(pts, Color(cor.r, cor.g * (0.8 + k * 0.08), cor.b, 0.15 * a * pul))
 	static func Unidade_elipse(c: CanvasItem, r: Vector2, cor: Color) -> void:
 		var pts := PackedVector2Array()
 		for i in 33:
@@ -417,7 +446,9 @@ func area(d: Dictionary) -> void:
 	a.z_index = -8
 	add_child(a)
 	areas[int(d["id"])] = a
-	if a.tipo == "fogo":
+	if a.tipo == "fogo" and d.has("graus"):
+		_fogo_leque(a, d)
+	elif a.tipo == "fogo":
 		for i in 3:
 			var off := Vector2.from_angle(randf() * TAU) * randf() * a.raio * 0.7
 			folha("status_queimando", Iso.to_screen(d["pos"] + off), {"dura": a.dur, "escala": 0.8})
@@ -427,6 +458,33 @@ func area(d: Dictionary) -> void:
 		folha("cult_chuva_cinzas", a.position, {"dura": a.dur, "escala": a.raio / 1.5})
 	elif a.tipo == "veneno":
 		folha("status_veneno", a.position, {"dura": a.dur, "escala": a.raio})
+
+## Fogo no caminho do leque: chamas espalhadas por toda a faixa, acendendo do centro para as pontas
+## como o golpe varreu, e luz quente ao longo dela enquanto queima.
+func _fogo_leque(a: Area, d: Dictionary) -> void:
+	a.graus = float(d["graus"]); a.dir = (d["dir"] as Vector2).normalized()
+	var meio := deg_to_rad(a.graus) * 0.5
+	var origem: Vector2 = d["pos"]
+	for anel in [[0.35, 2], [0.55, 3], [0.75, 4], [0.92, 5], [1.05, 5]]:
+		var r: float = a.raio * float(anel[0])
+		var n: int = anel[1]
+		for i in n:
+			var f := (float(i) + randf_range(0.2, 0.8)) / n
+			var ang := -meio + 2.0 * meio * f
+			var p := origem + a.dir.rotated(ang) * r * randf_range(0.9, 1.05)
+			var atraso := absf(f - 0.5) * 0.25 + float(anel[0]) * 0.12
+			var dura := a.dur - atraso
+			get_tree().create_timer(atraso).timeout.connect(func():
+				# chamas atrás de quem lançou ficam na camada do chão, para não cobrir o corpo
+				if is_instance_valid(a): folha("status_queimando", Iso.to_screen(p), {"dura": dura, "escala": randf_range(0.38, 0.58), "vel": randf_range(0.85, 1.15),
+					"atras": Iso.to_screen(p - origem).y < 0.0}))
+	var luzes: Array = []
+	for f in [0.45, 0.85]:
+		for lado in ([-0.5, 0.5] if f > 0.5 else [0.0]):
+			luzes.append(game.luz.adicionar(Iso.to_screen(origem + a.dir.rotated(meio * lado) * a.raio * f), Color(1, 0.5, 0.15), a.raio * 0.9, 0.9, true))
+	get_tree().create_timer(a.dur).timeout.connect(func():
+		for l in luzes:
+			if is_instance_valid(l): l.queue_free())
 
 func area_fim(id: int) -> void:
 	var a: Area = areas.get(id)

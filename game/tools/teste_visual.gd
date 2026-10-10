@@ -39,6 +39,37 @@ func _ready() -> void:
 				roteiro.append([0.3, "perto_de", k])
 				for i in 10: roteiro.append([0.45, "foto", k + "_%d" % i])
 			roteiro.append([0.3, "fim", ""])
+		"itens":   # itens no chão: brilho, hover de item e de NPC
+			roteiro = [[2.5, "afastar", ""], [1.5, "soltar_itens", ""], [1.5, "foto", "i1_chao"], [0.1, "mouse_item", 2], [0.4, "foto", "i2_hover_item"],
+				[0.1, "mouse_item", 0], [0.4, "foto", "i3_hover_ouro"], [0.1, "mouse_npc", "ir"], [1.5, "mouse_npc", ""], [0.5, "foto", "i4_hover_npc"], [0.3, "fim", ""]]
+		"pontes":   # atravessa as duas pontes do Rio Amargo andando (prova visual e de colisão)
+			roteiro = [[2.0, "zoom", 0.8],
+				[0.2, "ir", Vector2(95.5, 71.5)], [2.0, "foto", "p1_ponte_bonde_margem_oeste"],
+				[0.1, "mover", Vector2(107.5, 71.5)], [1.6, "foto", "p1_ponte_bonde_no_meio"], [3.0, "foto", "p1_ponte_bonde_margem_leste"],
+				[0.2, "ir", Vector2(88.5, 106.5)], [2.0, "foto", "p2_ponte_enforcados_margem_oeste"],
+				[0.1, "mover", Vector2(102.5, 106.5)], [1.8, "foto", "p2_ponte_enforcados_no_meio"], [3.2, "foto", "p2_ponte_enforcados_margem_leste"],
+				[0.3, "fim", ""]]
+		"panorama":   # vistas largas do deserto para o fundo do menu (sem HUD, sem o jogador)
+			roteiro = [[1.5, "zoom", float(args.get("zoom", "0.55"))]]
+			var i := 0
+			for par in str(args.get("pontos", "95,90")).split(";"):
+				var xy := par.split(",")
+				roteiro.append([0.2, "ir", Vector2(float(xy[0]), float(xy[1]))])
+				roteiro.append([0.1, "sumir_jogador", ""])
+				roteiro.append([6.5, "foto", "pan%d_%s_%s" % [i, xy[0], xy[1]]])
+				i += 1
+			roteiro.append([0.3, "fim", ""])
+		"leque":   # skill em área do nível 5 lançada para várias direções: arte virada para onde mira e fogo no caminho
+			roteiro = [[2.0, "ir", Vector2(70, 92)], [0.1, "forte", ""], [0.3, "zoom", 1.3]]
+			for d in [["sudeste", Vector2(1, 0)], ["norte", Vector2(-1, 1)], ["noroeste", Vector2(-1, 0)], ["sul", Vector2(1, -1)]]:
+				roteiro.append([0.3, "skill_area", d[1]])
+				roteiro.append([0.3, "foto", "l_%s_golpe" % d[0]])
+				roteiro.append([1.2, "foto", "l_%s_fogo" % d[0]])
+				roteiro.append([2.6, "foto", "l_%s_fim" % d[0]])
+				roteiro.append([0.8, "nada", ""])
+			roteiro.append([0.3, "skill_area", Vector2(1, 0), true])
+			roteiro.append([1.2, "foto", "l_com_bichos"])
+			roteiro.append([0.3, "fim", ""])
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 
@@ -51,11 +82,48 @@ func _process(dt: float) -> void:
 	passo += 1
 	match p[1]:
 		"foto":
+			print("pos ", p[2], " ", jogo.jog.pos)
 			await RenderingServer.frame_post_draw
 			var img := get_viewport().get_texture().get_image()
 			img.save_png(pasta + "/" + p[2] + ".png")
 			print("foto ", p[2])
 		"janela": jogo.janelas.alternar(p[2])
+		"zoom": jogo.cam.zoom = Vector2(p[2], p[2])
+		"sumir_jogador":
+			if jogo.views.has(jogo.jog.id): jogo.views[jogo.jog.id].visible = false
+			jogo.jog.invuln_t = 999.0; jogo.jog.imune_t = 999.0
+			if jogo.get("titulo_zona") != null: jogo.titulo_zona.visible = false
+		"mover":
+			Jogador.cmd_mover(jogo.sim, jogo.jog, p[2])
+			print("andando para ", p[2], " de ", jogo.jog.pos)
+		"afastar":   # sai do acampamento para um descampado
+			var d := Vector2(float(args.get("dx", "12")), float(args.get("dy", "-6")))
+			jogo.jog.pos = jogo.sim.celula_livre_perto(jogo.jog.pos + d)
+			for e: Ent in jogo.sim.ents.values():   # tira os bichos de perto para a foto ficar limpa
+				if e.tipo == "monstro" and e.pos.distance_to(jogo.jog.pos) < 14.0:
+					e.pos = jogo.sim.celula_livre_perto(e.pos + (e.pos - jogo.jog.pos).normalized() * 25.0)
+		"soltar_itens":
+			var base: Vector2 = jogo.jog.pos
+			jogo.sim.soltar_no_chao(Itens.novo("_ouro", 37), base + Vector2(0.5, 3.5), -1, base)
+			var lista := [["espada_vigilia_rachada", "comum"], ["couro_sobrevivente_peito", "magico"], ["cajado_valvulas", "raro"], ["escopeta_cano_duplo", "excelente"]]
+			for i in lista.size():
+				var it := Itens.novo(lista[i][0]); it["raridade"] = lista[i][1]
+				jogo.sim.soltar_no_chao(it, base + Vector2(2.0 + i * 1.6, 2.5 - i * 0.6), -1, base)
+		"mouse_item":
+			var ids: Array = jogo.itens_chao.keys(); ids.sort()
+			var n = jogo.itens_chao[ids[mini(int(p[2]), ids.size() - 1)]]
+			var tela: Vector2 = get_viewport().get_canvas_transform() * n.global_position
+			print("item_tela ", int(tela.x), " ", int(tela.y))
+			get_viewport().warp_mouse(get_viewport().get_canvas_transform() * (n.global_position + Vector2(18, -4)))
+		"mouse_npc":
+			var npc: Ent = null
+			for e: Ent in jogo.sim.ents.values():
+				if e.tipo == "npc" and (npc == null or e.pos.distance_to(jogo.jog.pos) < npc.pos.distance_to(jogo.jog.pos)): npc = e
+			if npc and p[2] == "ir":
+				jogo.jog.pos = jogo.sim.celula_livre_perto(npc.pos + Vector2(2.5, 1.5))
+			elif npc and jogo.views.has(npc.id):
+				var v = jogo.views[npc.id]
+				get_viewport().warp_mouse(get_viewport().get_canvas_transform() * (v.global_position + Vector2(0, -50)))
 		"ir":
 			jogo.jog.pos = jogo.sim.celula_livre_perto(p[2])
 			jogo.jog.invuln_t = 999.0; jogo.jog.imune_t = 999.0
@@ -95,4 +163,13 @@ func _process(dt: float) -> void:
 					jogo.jog.pos = jogo.sim.celula_livre_perto(e.pos + Vector2(1.2, 0.6))
 					Jogador.cmd_interagir(jogo.sim, jogo.jog, e.id)
 					break
+		"skill_area":   # bonecos em volta para o leque acertar e a skill do nível 5 na direção pedida
+			var j: Ent = jogo.jog
+			j.rec = j.rec_max; j.cds.clear()
+			var dir: Vector2 = (p[2] as Vector2).normalized()
+			for k in (3 if p.size() > 3 else 0):
+				var m: Ent = jogo.sim.criar_mob("cao_de_vala", j.pos + dir.rotated((k - 1) * 0.6) * 2.4, 5)
+				if m: m.hp_max = 99999.0; m.hp = m.hp_max
+			Jogador.cmd_skill(jogo.sim, j, Jogador.slot_auto(j), -1, j.pos + dir * 3.0)
+		"nada": pass
 		"fim": get_tree().quit()

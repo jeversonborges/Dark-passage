@@ -50,6 +50,14 @@ def area_inicial():
     for y in range(n):
         for x in range(n):
             if ter[y][x] in "dhw": blk[y][x] = True
+    # pontes: o tabuleiro atravessa o rio ao longo de X; os tiles de lama embaixo dele viram passagem
+    # (o design não bloqueia o tabuleiro, mas a lama 'w' bloqueava tudo e ninguém atravessava)
+    for pt in d["rio"].get("pontes", []):
+        (x0, cy), (x1, _) = pt["de"], pt["ate"]
+        for y in range(int(cy - 1.5), int(cy + 1.5) + 1):
+            if abs(y + 0.5 - cy) > 1.1: continue
+            for x in range(int(x0), int(x1) + 1):
+                if ter[y][x] in "wr" and [x, y] not in d["blocked"]: blk[y][x] = False
     # zonas
     leg = d["zonas_legenda"]; zinfo = {z["id"]: z for z in d["zonas"]}
     zonas, zidx = [], {}
@@ -63,13 +71,52 @@ def area_inicial():
     zg = ["".join(chr(65 + zidx[d["zonas_grid"][x][y]]) if d["zonas_grid"][x][y] in zidx else "." for x in range(n)) for y in range(n)]
     amargo = ["".join(d["amargo"][x][y] for x in range(n)) for y in range(n)]
     props, luzes = [], [list(l) for l in d["luzes"]]
+    # Rio Amargo limpo (pedido do Jefin, 10/10): sem mato, árvore seca e entulho na beira; só juncos espaçados
+    # rente à água. Distância de cada tile até a água (lama funda 'w' ou rasa 'r'), em tiles.
+    dag = [[99.0] * n for _ in range(n)]
+    fila = [(x, y) for y in range(n) for x in range(n) if ter[y][x] in "wr"]
+    for x, y in fila: dag[y][x] = 0.0
+    i = 0
+    while i < len(fila):
+        x, y = fila[i]; i += 1
+        for dx, dy, c in ((1, 0, 1), (-1, 0, 1), (0, 1, 1), (0, -1, 1), (1, 1, 1.41), (1, -1, 1.41), (-1, 1, 1.41), (-1, -1, 1.41)):
+            xx, yy = x + dx, y + dy
+            if 0 <= xx < n and 0 <= yy < n and dag[y][x] + c < dag[yy][xx] and dag[y][x] + c <= 8:
+                dag[yy][xx] = dag[y][x] + c; fila.append((xx, yy))
+    MATO_RIO = {"juncos", "mato_seco", "flor_absinto", "moita_cardo", "arbusto_seco", "cogumelos_palidos", "pedras_rio",
+                "poca_toxica", "ossos_espalhados", "peixes_mortos", "lirio_negro", "ossada_animal", "planta_mutante",
+                "arvore_morta", "arvore_morta_grande", "lama_porcos", "duna_areia", "poca_sangue_rastro"}
+    juncos_ok = []
+    def limpa_rio(p):
+        if p["kind"] not in MATO_RIO or p.get("ponto") or p.get("objeto") or p.get("bau") or p.get("light"): return False
+        xi, yi = int(p["x"]), int(p["y"])
+        if not (0 <= xi < n and 0 <= yi < n): return False
+        dd = dag[yi][xi]
+        raio = 5.0 if p["kind"].startswith("arvore") else 4.0
+        if dd > raio: return False
+        if p["kind"] == "juncos" and 0.9 <= dd <= 2.0 and all(math.dist((p["x"], p["y"]), j) > 4.5 for j in juncos_ok):
+            juncos_ok.append((p["x"], p["y"])); return False
+        return True
     for p in d["props"]:
-        if p.get("invisivel"): continue
+        if p.get("invisivel") or limpa_rio(p): continue
+        if p["kind"] == "ponte_pedra_ruina": continue   # sem arte: vira ponte de tábuas abaixo
         q = {"k": kit_nome(p["kind"], p.get("orient")), "x": p["x"], "y": p["y"]}
+        if p["kind"] == "ponte_ferro_bonde":
+            q["espelho"] = 1   # a arte vai ao longo de Y; espelhada fica ao longo de X, atravessando o rio
+            q["chao"] = 1      # desenhada sob os personagens: quem atravessa fica por cima do tabuleiro
         if p.get("camada") in ("chao", "agua"): q["chao"] = 1
         if p.get("objeto") or p.get("bau"): q["obj"] = 1   # o servidor cria a entidade; o prop é só o visual
         if p.get("texto"): q["texto"] = p["texto"]
         props.append(q)
+    # Ponte dos Enforcados: tábuas sobre estacas cobrindo o trecho de lama
+    for pt in d["rio"].get("pontes", []):
+        if pt["kind"] == "ponte_ferro_bonde" or "ponte_madeira_a" not in KIT: continue
+        (x0, cy), (x1, _) = pt["de"], pt["ate"]
+        yi = int(cy)
+        agua = [x for x in range(int(x0), int(x1) + 1) if ter[yi][x] in "wrb"]
+        if not agua: continue
+        for x in range(min(agua) - 1, max(agua) + 2):
+            props.append({"k": "ponte_madeira_a", "x": x + 0.5, "y": cy, "chao": 1})
     objetos = []
     for b in d["baus"]:
         h = BAUS.get(b["id"], {})

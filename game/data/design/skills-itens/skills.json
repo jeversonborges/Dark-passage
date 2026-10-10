@@ -161,7 +161,7 @@
      "duracao": 2,
      "dano_por_s_mult": 0.15
     },
-    "chao_em_chamas_s": 2.0
+    "chao_em_chamas_s": 3.0
    },
    "efeitos": [
     "golpe de espada no alvo da frente",
@@ -190,7 +190,7 @@
     "auto": true,
     "sensacao": "area",
     "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
-    "chao_em_chamas_s": 2.0,
+    "chao_em_chamas_s": 3.0,
     "queimadura": {
      "duracao": 2,
      "dano_por_s_mult": 0.15

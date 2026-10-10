@@ -723,7 +723,9 @@ func _passo_projeteis(dt: float) -> void:
 func criar_area(a: Dictionary) -> Dictionary:
 	a["id"] = novo_id(); a["t"] = 0.0; a["tick_t"] = 0.0
 	areas.append(a)
-	emitir("area", {"id": a["id"], "pos": a["pos"], "raio": a["raio"], "dur": a["dur"], "tipo": a.get("tipo", ""), "dono": a.get("dono", -1)})
+	var ev := {"id": a["id"], "pos": a["pos"], "raio": a["raio"], "dur": a["dur"], "tipo": a.get("tipo", ""), "dono": a.get("dono", -1)}
+	if a.has("graus"): ev["dir"] = a["dir"]; ev["graus"] = a["graus"]   # área em leque, saindo de pos
+	emitir("area", ev)
 	return a
 
 func _passo_areas(dt: float) -> void:
@@ -747,6 +749,10 @@ func _passo_areas(dt: float) -> void:
 		var alvos: Array
 		if dono != null: alvos = inimigos_de(dono, a["pos"], a["raio"])
 		else: alvos = ents_em(a["pos"], a["raio"]).filter(func(o): return o.tipo == "jogador")
+		if a.has("graus"):
+			var meio := deg_to_rad(float(a["graus"])) * 0.5 + 0.1
+			var d0: Vector2 = a["dir"]; var p0: Vector2 = a["pos"]
+			alvos = alvos.filter(func(o): return o.pos.distance_to(p0) < 0.6 or absf(d0.angle_to(o.pos - p0)) <= meio)
 		for o in alvos:
 			if dono == null: aplicar_dano_puro(o, a["op"].get("dano_frac", 0.02) * o.hp_max, a["op"].get("elemento", "fogo"), null)
 			else: aplicar_golpe(dono, o, a["op"])

@@ -16,22 +16,53 @@ varying vec2 pm;
 
 void vertex() { pm = VERTEX; }
 
-vec2 cel(vec2 c) {
-	if (c.x < 0.0 || c.y < 0.0 || c.x >= tam.x || c.y >= tam.y) return vec2(255.0, 0.0);
-	vec2 v = texture(mapa, (c + 0.5) / tam).rg;
-	return vec2(floor(v.r * 255.0 + 0.5), v.g);
+// x = piso, y = Amargo, z = água (1 funda, 0,6 rasa), w = ângulo da correnteza (0..1 = 0..2pi)
+vec4 cel(vec2 c) {
+	if (c.x < 0.0 || c.y < 0.0 || c.x >= tam.x || c.y >= tam.y) return vec4(255.0, 0.0, 0.0, 0.0);
+	vec4 v = texture(mapa, (c + 0.5) / tam);
+	return vec4(floor(v.r * 255.0 + 0.5), v.g, v.b, v.a);
+}
+
+// Água do Rio Amargo: correnteza (flow map em duas fases), ondinhas, reflexo do céu, brilhos e espuma na margem.
+vec3 agua_rio(vec3 leito, vec2 t, float prof, vec2 fl) {
+	float ph = TIME * 0.09;
+	float p0 = fract(ph), p1 = fract(ph + 0.5);
+	float mx = abs(p0 - 0.5) * 2.0;
+	vec2 u0 = t * 0.16 - fl * p0 * 0.5;
+	vec2 u1 = t * 0.16 - fl * p1 * 0.5 + vec2(0.37, 0.61);
+	// altura das ondas e a inclinação (diferenças finitas) para iluminar como superfície
+	float e = 0.012;
+	float h = mix(texture(ruido, u0).r, texture(ruido, u1).r, mx);
+	float hx = mix(texture(ruido, u0 + vec2(e, 0.0)).r, texture(ruido, u1 + vec2(e, 0.0)).r, mx);
+	float hy = mix(texture(ruido, u0 + vec2(0.0, e)).r, texture(ruido, u1 + vec2(0.0, e)).r, mx);
+	float d1 = mix(texture(ruido, u0 * 2.7 + 0.21).g, texture(ruido, u1 * 2.7 + 0.53).g, mx);
+	vec2 inc = vec2(hx - h, hy - h) / e * 0.11 + (d1 - 0.5) * 0.25;
+	// cor: verde amargo escuro no fundo; no raso aparece um pouco do leito
+	vec3 fundo = vec3(0.028, 0.06, 0.052);
+	vec3 raso = vec3(0.085, 0.14, 0.11);
+	vec3 c = mix(mix(leito * 0.5, raso, 0.6), fundo, smoothstep(0.3, 0.95, prof));
+	// luz vinda de cima-esquerda: lado da onda virado para ela clareia, o outro escurece
+	float lz = dot(inc, normalize(vec2(-0.6, -0.8)));
+	c *= 1.0 + clamp(lz, -0.4, 0.7) * 0.8;
+	// reflexo do céu nublado (mais forte onde a água está lisa)
+	float liso = 1.0 - clamp(length(inc) * 1.6, 0.0, 1.0);
+	c = mix(c, vec3(0.27, 0.34, 0.32), 0.2 + 0.2 * liso);
+	// riscos compridos no sentido da corrente (filetes de luz)
+	vec2 lado = vec2(-fl.y, fl.x);
+	vec2 ur = vec2(dot(t, fl) * 0.05 - TIME * 0.06, dot(t, lado) * 0.34);
+	float risco = texture(ruido, ur).b;
+	c += vec3(0.4, 0.5, 0.42) * smoothstep(0.64, 0.78, risco) * 0.07;
+	// cintilado discreto onde a crista pega luz
+	float cint = smoothstep(0.32, 0.5, lz) * smoothstep(0.55, 0.75, d1);
+	c += vec3(0.7, 0.82, 0.62) * cint * 0.34;
+	// o Amargo luminesce de leve à noite
+	c += vec3(0.008, 0.035, 0.016) * (0.6 + 0.4 * sin(TIME * 0.7 + t.x * 0.3 + t.y * 0.2));
+	return c;
 }
 
 vec3 amostra(float l, vec2 t) {
 	if (l > 254.0) return cor_vazio.rgb;
-	vec3 c = texture(pisos, vec3(t * 0.25, l)).rgb;
-	if (abs(l - agua) < 0.5) {
-		float o = texture(ruido, t * 0.35 + vec2(TIME * 0.03, TIME * 0.017)).r;
-		float o2 = texture(ruido, t * 0.6 - vec2(TIME * 0.025, -TIME * 0.02)).r;
-		c = mix(vec3(0.09, 0.13, 0.06), vec3(0.24, 0.42, 0.12), o * 0.6 + o2 * 0.4);
-		c += vec3(0.25, 0.55, 0.12) * pow(max(o * o2 * 2.2 - 0.55, 0.0), 2.0);
-	}
-	return c;
+	return texture(pisos, vec3(t * 0.25, l)).rgb;
 }
 
 void fragment() {
@@ -41,12 +72,29 @@ void fragment() {
 	vec2 b = t + n * 1.2 + n2 * 0.45 - 0.5;
 	vec2 i = floor(b);
 	vec2 f = fract(b);
-	vec2 c00 = cel(i), c10 = cel(i + vec2(1.0, 0.0)), c01 = cel(i + vec2(0.0, 1.0)), c11 = cel(i + vec2(1.0, 1.0));
+	vec4 c00 = cel(i), c10 = cel(i + vec2(1.0, 0.0)), c01 = cel(i + vec2(0.0, 1.0)), c11 = cel(i + vec2(1.0, 1.0));
 	vec4 w = vec4((1.0 - f.x) * (1.0 - f.y), f.x * (1.0 - f.y), (1.0 - f.x) * f.y, f.x * f.y);
 	w = pow(w, vec4(2.6));
 	w /= dot(w, vec4(1.0));
 	vec3 c = amostra(c00.x, t) * w.x + amostra(c10.x, t) * w.y + amostra(c01.x, t) * w.z + amostra(c11.x, t) * w.w;
 	float amargo = c00.y * w.x + c10.y * w.y + c01.y * w.z + c11.y * w.w;
+	// água: mistura com o mesmo contorno orgânico dos pisos, então a margem não fica quadriculada
+	float prof = c00.z * w.x + c10.z * w.y + c01.z * w.z + c11.z * w.w;
+	if (prof > 0.02) {
+		vec2 d00 = vec2(cos(c00.w * 6.2832), sin(c00.w * 6.2832)), d10 = vec2(cos(c10.w * 6.2832), sin(c10.w * 6.2832));
+		vec2 d01 = vec2(cos(c01.w * 6.2832), sin(c01.w * 6.2832)), d11 = vec2(cos(c11.w * 6.2832), sin(c11.w * 6.2832));
+		vec2 fl = d00 * w.x * c00.z + d10 * w.y * c10.z + d01 * w.z * c01.z + d11 * w.w * c11.z;
+		fl = length(fl) > 0.001 ? normalize(fl) : vec2(1.0, 0.0);
+		vec3 ag = agua_rio(c, t, prof, fl);
+		float borda = smoothstep(0.1, 0.42, prof);
+		// espuma fina onde a água encosta na margem
+		float esp = (1.0 - smoothstep(0.32, 0.55, prof)) * smoothstep(0.12, 0.3, prof);
+		float ne = texture(ruido, t * 1.4 + fl * TIME * 0.12).r;
+		ag = mix(ag, vec3(0.46, 0.54, 0.44), esp * smoothstep(0.4, 0.8, ne) * 0.35);
+		// a terra molhada escurece logo antes da água
+		c *= mix(1.0, 0.62, smoothstep(0.02, 0.15, prof));
+		c = mix(c, ag, borda);
+	}
 	float macro = texture(ruido, t * 0.021 + 0.5).r;
 	c *= mix(0.8, 1.12, macro);
 	// Amargo: o chão perto da tempestade fica esverdeado e brilha um pouco
@@ -89,8 +137,9 @@ func montar(m: Dictionary) -> void:
 	var arr := Texture2DArray.new()
 	arr.create_from_images(imgs)
 	# mapa de pisos (R) e de Amargo (G)
-	var mi := Image.create(w, h, false, Image.FORMAT_RG8)
+	var mi := Image.create(w, h, false, Image.FORMAT_RGBA8)
 	var am: Array = m.get("amargo", [])
+	var rio: Array = m.get("rio", {}).get("centro", [])
 	for y in h:
 		var ln: String = m["terreno"][y]
 		var al: String = am[y] if am.size() > y else ""
@@ -101,7 +150,10 @@ func montar(m: Dictionary) -> void:
 			if al != "":
 				var v := int(al[x])
 				a = clampf((v - 4) / 5.0, 0.0, 1.0)
-			mi.set_pixel(x, y, Color(l / 255.0, a, 0))
+			var prof := 1.0 if ch == "w" else (0.6 if ch == "r" else 0.0)
+			var ang := 0.0
+			if prof > 0.0 and rio.size() > 1: ang = _correnteza(rio, Vector2(x + 0.5, y + 0.5))
+			mi.set_pixel(x, y, Color(l / 255.0, a, prof, ang))
 	var mt := ImageTexture.create_from_image(mi)
 	var ruido := FastNoiseLite.new()
 	ruido.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
@@ -132,6 +184,19 @@ func montar(m: Dictionary) -> void:
 	_mat.set_shader_parameter("cor_vazio", Color(0.012, 0.01, 0.012) if not m.get("exterior", false) else Color(0.05, 0.045, 0.04))
 	material = _mat
 	queue_redraw()
+
+## Ângulo (0..1) da correnteza no tile: direção do trecho da linha central do rio mais perto.
+func _correnteza(rio: Array, p: Vector2) -> float:
+	var melhor := INF
+	var dir := Vector2.RIGHT
+	for i in rio.size() - 1:
+		var a := Vector2(rio[i][0], rio[i][1])
+		var b := Vector2(rio[i + 1][0], rio[i + 1][1])
+		var ab := b - a
+		var k := clampf((p - a).dot(ab) / maxf(ab.length_squared(), 1e-6), 0.0, 1.0)
+		var dd := p.distance_squared_to(a + ab * k)
+		if dd < melhor: melhor = dd; dir = ab
+	return fposmod(dir.angle() / TAU, 1.0)
 
 func _draw() -> void:
 	if w == 0: return
