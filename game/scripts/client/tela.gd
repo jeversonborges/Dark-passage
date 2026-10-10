@@ -27,10 +27,12 @@ static func definir(ligada: bool) -> void:
 static func alternar() -> void:
 	definir(not cheia())
 
-## Na abertura do jogo: repete a última escolha (padrão: janela).
+## Na abertura do jogo: repete a última escolha (padrão: tela cheia).
 static func aplicar_salvo() -> void:
 	var cfg := ConfigFile.new()
-	if cfg.load(CFG) == OK and cfg.get_value("video", "tela_cheia", false): definir(true)
+	var ligada := true
+	if cfg.load(CFG) == OK: ligada = bool(cfg.get_value("video", "tela_cheia", true))
+	if ligada: definir(true)
 
 static func atalho(ev: InputEvent) -> bool:
 	if not (ev is InputEventKey) or not ev.pressed or ev.echo: return false
