@@ -44,6 +44,13 @@ Regras do usuário são as mesmas do servidor do jogo: de 3 a 16 caracteres, só
 A rota `interno` é para o servidor do jogo e só responde a quem chama de `127.0.0.1` com a chave
 certa. O nginx de produção também bloqueia `/api/interno/` vindo de fora.
 
+## Download do jogo
+
+A seção "Baixe o jogo" aponta para `/downloads/`, que o nginx da VPS serve direto do disco
+(`/var/www/darkpassage/downloads/`). O zip vem do branch `downloads` do repositório, em partes;
+o `darkpassage-atualizar` da VPS junta as partes, confere o sha256 e troca o arquivo. A página lê
+`/downloads/cliente.json` para mostrar versão, tamanho e sha256 (sem ele, ficam os valores do HTML).
+
 ## Publicar
 
 Como colocar no ar na VPS, abrir as portas e ligar com o servidor do jogo:
