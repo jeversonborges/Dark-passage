@@ -1,0 +1,42 @@
+{
+	"noticias": [
+		{
+			"data": "10 out 2026",
+			"titulo": "O portão de São Lázaro abriu",
+			"texto": "O launcher chegou. Ele confere a sua versão, baixa o cliente quando há prévia nova e abre o jogo. Se a areia cobrir alguma coisa, use Reparar."
+		},
+		{
+			"data": "06 out 2026",
+			"titulo": "Prévia v0.7: o servidor online",
+			"texto": "Jogar online leva ao servidor oficial em darkpassage.com.br. A conta é a mesma do site, e os personagens ficam guardados lá."
+		},
+		{
+			"data": "06 out 2026",
+			"titulo": "Duas linhas novas de missões",
+			"texto": "Isaura Valente lê toda noite uma contagem na Rádio São Lázaro, e Corvina vende a mesma verdade para a Vela e para a Capela. Nível 5 a 12."
+		},
+		{
+			"data": "05 out 2026",
+			"titulo": "A Cripta da Trombeta Calada",
+			"texto": "Três andares sob o Abatedouro. Andras, o General Partido, Irmã Celeste, a Carpideira, e Zacarias, o Arauto da Trombeta Calada, esperam lá embaixo."
+		}
+	],
+	"cronicas": [
+		{
+			"titulo": "A meia nota",
+			"texto": "Na noite do Juízo, o arauto Zacarias desceu para tocar a quinta trombeta. Ele soprou, e a trombeta deu meia nota. Os túmulos se abriram. Foi aí que a Vigília chegou e cravou um lacre de chumbo no bocal. A nota nunca terminou."
+		},
+		{
+			"titulo": "Os Não-Julgados",
+			"texto": "Os mortos levantaram para o Juízo, mas o Juízo não veio. Vagam pela paróquia com o lacre de cera do julgamento ainda inteiro no peito. Não estão vivos, não estão mortos, não estão salvos nem condenados. Esperam."
+		},
+		{
+			"titulo": "A rua de hoje é o telhado de ontem",
+			"texto": "A areia engoliu São Lázaro até o quarto andar. Os sobreviventes entram nas casas pelas janelas, e os bondes da linha 7 correm sobre os trilhos que a areia deixa à mostra, empurrados por velas de lona, como barcos de terra."
+		},
+		{
+			"titulo": "O Amargo",
+			"texto": "Um pó fino, esverdeado, que cai até hoje como neve que não derrete. Amarga a água, adoece o corpo e brilha fraco no escuro. Os Tecnomancers medem com contadores que estalam como contas de terço; os Arautos chamam de sacramento."
+		}
+	]
+}

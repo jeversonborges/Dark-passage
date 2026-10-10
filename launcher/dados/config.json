@@ -1,0 +1,8 @@
+{
+	"manifesto": "https://darkpassage.com.br/downloads/cliente.json",
+	"noticias": "https://darkpassage.com.br/downloads/noticias.json",
+	"site": "https://darkpassage.com.br/",
+	"criar_conta": "https://darkpassage.com.br/#conta",
+	"servidor_nome": "São Lázaro",
+	"executavel": "DarkPassage.exe"
+}

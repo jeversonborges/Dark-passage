@@ -99,6 +99,7 @@ Fontes: `design/mapas/level_design.md`, `design/mapas/mundo/proposta_areas.md`, 
 | Pasta | O quê | Documento |
 |---|---|---|
 | `game/` | projeto Godot (sim em `scripts/sim/`, cliente em `scripts/client/`, rede em `scripts/net/`) | `game/README.md` |
+| `launcher/` | launcher Windows (Godot): notícias, atualiza o cliente pelo `cliente.json` do site, botão Jogar | `launcher/LEIAME.md` |
 | `design/classes.md` | facções, classes, atributos, recursos | |
 | `design/estilo-visual.md`, `design/estilo/` | guia de arte "Ferrugem Sagrada" | |
 | `design/combate/` | fórmulas, classes, mobs, chefes, drops, progressão (o JSON vale mais que o .md) | `combate.md`; rode `simular.py` e `farm.py` |
