@@ -28,6 +28,7 @@ const COR_ROTULO := Color("#a8916a")
 var placa_txt: Label
 var rodape_srv: Label
 var fundo_arte: TextureRect
+var moldura: PanelContainer
 
 func _ready() -> void:
 	Tema.carregar()
@@ -35,42 +36,48 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var preto := ColorRect.new(); preto.color = Color(0.02, 0.016, 0.014)
 	preto.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); add_child(preto)
-	# fundo: o Acampamento da Vela à noite, com um zoom lento
-	fundo_arte = TextureRect.new(); fundo_arte.texture = Tema.tex(M + "fundo.png")
-	fundo_arte.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	fundo_arte.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	fundo_arte.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	add_child(fundo_arte)
-	fundo_arte.resized.connect(func(): fundo_arte.pivot_offset = fundo_arte.size * Vector2(0.72, 0.5))
-	var tw := create_tween().set_loops()
-	tw.tween_property(fundo_arte, "scale", Vector2(1.05, 1.05), 28.0).set_trans(Tween.TRANS_SINE)
-	tw.tween_property(fundo_arte, "scale", Vector2.ONE, 28.0).set_trans(Tween.TRANS_SINE)
-	_particulas()
-	# logo e frase
+	_fundo_vivo()
+	# janelinha no centro, igual ao MU: logo, frase e o painel que cresce com o conteúdo
+	var centro := CenterContainer.new(); centro.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(centro)
+	var coluna := VBoxContainer.new(); coluna.add_theme_constant_override("separation", 0)
+	coluna.alignment = BoxContainer.ALIGNMENT_CENTER
+	centro.add_child(coluna)
 	var logo := TextureRect.new(); logo.texture = Tema.tex(M + "logo.png")
-	logo.position = Vector2(44, 20); logo.size = Vector2(496, 120)
-	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
-	add_child(logo)
-	var frase := Tema.rotulo("Deserto de Absinto, onde o Juízo travou.", 18, Color("#cbbd9f"), Tema.FONTE_ITALICO, 3)
-	frase.position = Vector2(56, 150); frase.size = Vector2(480, 26)
+	logo.custom_minimum_size = Vector2(496, 120)
+	logo.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; logo.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	coluna.add_child(logo)
+	var frase := Tema.rotulo("Deserto de Absinto, onde o Juízo travou.", 18, Color("#d6c8a8"), Tema.FONTE_ITALICO, 4)
 	frase.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	add_child(frase)
-	# painel de ferro e couro com a placa do título
-	var painel := TextureRect.new(); painel.texture = Tema.tex(M + "painel.png")
-	painel.position = Vector2(72, 192); painel.size = Vector2(440, 490)
-	add_child(painel)
+	frase.custom_minimum_size = Vector2(0, 40)
+	coluna.add_child(frase)
+	# painel de ferro e couro (nove-fatias, cresce com o conteúdo) com a placa do título por cima
+	moldura = PanelContainer.new()
+	var sb := StyleBoxTexture.new(); sb.texture = Tema.tex(M + "painel.png")
+	sb.set_texture_margin_all(40)
+	sb.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE_FIT
+	sb.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE_FIT
+	sb.content_margin_left = 34; sb.content_margin_right = 34; sb.content_margin_top = 40; sb.content_margin_bottom = 30
+	moldura.add_theme_stylebox_override("panel", sb)
+	moldura.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	coluna.add_child(moldura)
+	caixa = VBoxContainer.new()
+	caixa.custom_minimum_size = Vector2(372, 0)
+	caixa.add_theme_constant_override("separation", 9)
+	moldura.add_child(caixa)
 	var placa := TextureRect.new(); placa.texture = Tema.tex(M + "placa.png")
-	placa.position = Vector2(152, 178); placa.size = Vector2(280, 34)
+	placa.size = Vector2(280, 34)
 	add_child(placa)
 	placa_txt = Tema.rotulo("", 14, Color("#f6e3b4"), Tema.FONTE_TITULO, 3)
-	placa_txt.position = Vector2(176, 185); placa_txt.size = Vector2(232, 20)
+	placa_txt.size = Vector2(232, 20)
 	placa_txt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	placa_txt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	add_child(placa_txt)
-	caixa = VBoxContainer.new()
-	caixa.position = Vector2(106, 236); caixa.size = Vector2(372, 420)
-	caixa.add_theme_constant_override("separation", 9)
-	add_child(caixa)
+	var prender := func():
+		var topo := moldura.global_position + Vector2(moldura.size.x * 0.5, 0)
+		placa.position = topo + Vector2(-140, -14); placa_txt.position = topo + Vector2(-116, -7)
+	moldura.item_rect_changed.connect(prender)
+	centro.resized.connect(prender)
 	# rodapé: versão e servidor
 	var faixa := TextureRect.new()
 	var g := Gradient.new(); g.colors = PackedColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0.85)])
@@ -120,6 +127,88 @@ func _ready() -> void:
 func rede_versao() -> String:
 	return rede.VERSAO if rede != null else "0.7"
 
+const NEVOA := """
+shader_type canvas_item;
+// névoa do Amargo rolando baixa sobre o deserto, mais densa perto do horizonte
+uniform vec3 cor_a = vec3(0.50, 0.56, 0.40);
+uniform vec3 cor_b = vec3(0.62, 0.50, 0.34);
+uniform float forca = 0.34;
+float h(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float n(vec2 p) {
+	vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+	return mix(mix(h(i), h(i + vec2(1, 0)), f.x), mix(h(i + vec2(0, 1)), h(i + vec2(1, 1)), f.x), f.y);
+}
+float fbm(vec2 p) { float v = 0.0, a = 0.5; for (int k = 0; k < 5; k++) { v += a * n(p); p = p * 2.03 + 7.1; a *= 0.5; } return v; }
+void fragment() {
+	vec2 uv = UV;
+	float t = TIME;
+	vec2 p = vec2(uv.x * 3.2, uv.y * 7.0);
+	float w = fbm(p * 0.7 + vec2(t * 0.010, 0.0));
+	float f = fbm(p + vec2(t * 0.022 + w * 1.6, t * 0.004));
+	float f2 = fbm(p * 1.8 + vec2(-t * 0.035, 3.0));
+	float banda = smoothstep(0.30, 0.62, uv.y) * (0.75 + 0.25 * smoothstep(0.62, 1.0, uv.y));
+	float a = smoothstep(0.38, 0.85, f * 0.75 + f2 * 0.4) * banda * forca;
+	COLOR = vec4(mix(cor_a, cor_b, smoothstep(0.2, 0.9, uv.x + (w - 0.5) * 0.4)), a);
+}
+"""
+
+var _pan_t := 0.0
+
+## Fundo vivo: a panorâmica do deserto passando devagar, névoa rolando, relâmpagos verdes ao longe,
+## poeira e brasas no ar e uma vinheta escura segurando o olhar no centro.
+func _fundo_vivo() -> void:
+	var pano := Tema.tex(M + "panorama.png")
+	fundo_arte = TextureRect.new(); fundo_arte.texture = pano if pano else Tema.tex(M + "fundo.png")
+	fundo_arte.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	fundo_arte.stretch_mode = TextureRect.STRETCH_SCALE
+	fundo_arte.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(fundo_arte)
+	# relâmpago: clarão esverdeado só no céu, de vez em quando
+	var g := Gradient.new(); g.colors = PackedColorArray([Color(0.55, 0.8, 0.45, 1), Color(0.55, 0.8, 0.45, 0)])
+	var gt := GradientTexture2D.new(); gt.gradient = g; gt.fill_from = Vector2(0, 0); gt.fill_to = Vector2(0, 0.55)
+	var clarao := TextureRect.new(); clarao.texture = gt; clarao.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	clarao.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); clarao.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var add := CanvasItemMaterial.new(); add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	clarao.material = add; clarao.modulate.a = 0.0
+	add_child(clarao)
+	var relampago := Timer.new(); relampago.one_shot = true; add_child(relampago)
+	relampago.timeout.connect(func():
+		var tw := create_tween()
+		tw.tween_property(clarao, "modulate:a", randf_range(0.10, 0.22), 0.06)
+		tw.tween_property(clarao, "modulate:a", 0.02, 0.12)
+		tw.tween_property(clarao, "modulate:a", randf_range(0.06, 0.14), 0.05)
+		tw.tween_property(clarao, "modulate:a", 0.0, 0.9)
+		relampago.start(randf_range(7.0, 16.0)))
+	relampago.start(4.0)
+	# névoa
+	var nevoa := ColorRect.new(); nevoa.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var sh := Shader.new(); sh.code = NEVOA
+	var sm := ShaderMaterial.new(); sm.shader = sh; nevoa.material = sm
+	nevoa.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(nevoa)
+	_particulas()
+	# vinheta
+	var gv := Gradient.new(); gv.colors = PackedColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0.18), Color(0, 0, 0, 0.82)])
+	gv.offsets = PackedFloat32Array([0.0, 0.55, 1.0])
+	var vt := GradientTexture2D.new(); vt.gradient = gv; vt.fill = GradientTexture2D.FILL_RADIAL
+	vt.fill_from = Vector2(0.5, 0.5); vt.fill_to = Vector2(1.08, 0.5)
+	var vin := TextureRect.new(); vin.texture = vt; vin.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	vin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); vin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(vin)
+
+## A câmera passeia devagar pela panorâmica, de um lado ao outro e de volta (cerca de 2 minutos por ida).
+func _process(dt: float) -> void:
+	if fundo_arte == null or fundo_arte.texture == null: return
+	_pan_t += dt
+	var tela := size
+	var tex := fundo_arte.texture.get_size()
+	var esc := maxf(tela.y / tex.y, tela.x / tex.x) * 1.04
+	var tam := tex * esc
+	var folga := tam - tela
+	var u := 0.5 - 0.5 * cos(_pan_t * TAU / 240.0)
+	fundo_arte.size = tam
+	fundo_arte.position = Vector2(-folga.x * lerpf(0.08, 0.92, u), -folga.y * (0.5 + 0.3 * sin(_pan_t * TAU / 90.0)))
+
 ## Brasas subindo e poeira do Amargo flutuando por cima da arte.
 func _particulas() -> void:
 	var g := Gradient.new(); g.colors = PackedColorArray([Color(1, 1, 1, 1), Color(1, 1, 1, 0)])
@@ -127,14 +216,17 @@ func _particulas() -> void:
 	pt.fill = GradientTexture2D.FILL_RADIAL; pt.fill_from = Vector2(0.5, 0.5); pt.fill_to = Vector2(1.0, 0.5)
 	var camada := Node2D.new(); add_child(camada)
 	var tela := get_viewport_rect().size
-	for cfg in [[Color(1.0, 0.55, 0.2), 70, Vector2(0, -38), 0.35, 9.0], [Color(0.61, 1.0, 0.23), 26, Vector2(6, -14), 0.28, 14.0]]:
+	for cfg in [[Color(1.0, 0.55, 0.2), 60, Vector2(4, -38), 0.35, 9.0], [Color(0.61, 1.0, 0.23), 26, Vector2(6, -14), 0.28, 14.0], [Color(0.85, 0.72, 0.5), 90, Vector2(22, -2), 0.22, 16.0, true]]:
 		var p := CPUParticles2D.new()
 		p.texture = pt
 		p.amount = cfg[1]; p.lifetime = cfg[4]; p.preprocess = cfg[4]
 		p.emission_shape = CPUParticles2D.EMISSION_SHAPE_RECTANGLE
-		p.emission_rect_extents = Vector2(tela.x * 0.42, 40)
-		p.position = Vector2(tela.x * 0.6, tela.y + 20)
+		p.emission_rect_extents = Vector2(tela.x * 0.55, 40)
+		p.position = Vector2(tela.x * 0.5, tela.y + 20)
 		p.direction = Vector2(0, -1); p.spread = 25.0
+		if cfg.size() > 5:   # poeira do Amargo: atravessa a tela de lado, no ar todo
+			p.emission_rect_extents = tela * 0.55; p.position = tela * 0.5
+			p.direction = Vector2(1, -0.1); p.spread = 12.0
 		p.gravity = cfg[2]; p.initial_velocity_min = 10.0; p.initial_velocity_max = 34.0
 		p.scale_amount_min = 0.12; p.scale_amount_max = cfg[3]
 		var cor: Color = cfg[0]

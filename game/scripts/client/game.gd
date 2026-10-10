@@ -916,6 +916,11 @@ func _vfx(d: Dictionary) -> void:
 			var o2 := opc.duplicate()
 			if n.contains("aura") or (de != null and not segue_alvo and not d.has("pos")):
 				o2["segue"] = de
+			if int(Defs.VFX.get(n, {}).get("directions", 1)) > 1 and d.has("dir"):
+				# folha em 8 direções (leque): âncora no pé de quem usa, linha da direção do golpe; a parte de trás fica atrás do corpo
+				if de != null: p = de.position
+				o2["dir"] = d["dir"]
+				if n.ends_with("_tras"): o2["atras"] = true
 			fx.folha(n, p, o2)
 
 func _chefe(d: Dictionary) -> void:

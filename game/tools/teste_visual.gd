@@ -49,6 +49,27 @@ func _ready() -> void:
 				[0.2, "ir", Vector2(88.5, 106.5)], [2.0, "foto", "p2_ponte_enforcados_margem_oeste"],
 				[0.1, "mover", Vector2(102.5, 106.5)], [1.8, "foto", "p2_ponte_enforcados_no_meio"], [3.2, "foto", "p2_ponte_enforcados_margem_leste"],
 				[0.3, "fim", ""]]
+		"panorama":   # vistas largas do deserto para o fundo do menu (sem HUD, sem o jogador)
+			roteiro = [[1.5, "zoom", float(args.get("zoom", "0.55"))]]
+			var i := 0
+			for par in str(args.get("pontos", "95,90")).split(";"):
+				var xy := par.split(",")
+				roteiro.append([0.2, "ir", Vector2(float(xy[0]), float(xy[1]))])
+				roteiro.append([0.1, "sumir_jogador", ""])
+				roteiro.append([6.5, "foto", "pan%d_%s_%s" % [i, xy[0], xy[1]]])
+				i += 1
+			roteiro.append([0.3, "fim", ""])
+		"leque":   # skill em área do nível 5 lançada para várias direções: arte virada para onde mira e fogo no caminho
+			roteiro = [[2.0, "ir", Vector2(70, 92)], [0.1, "forte", ""], [0.3, "zoom", 1.3]]
+			for d in [["sudeste", Vector2(1, 0)], ["norte", Vector2(-1, 1)], ["noroeste", Vector2(-1, 0)], ["sul", Vector2(1, -1)]]:
+				roteiro.append([0.3, "skill_area", d[1]])
+				roteiro.append([0.3, "foto", "l_%s_golpe" % d[0]])
+				roteiro.append([1.2, "foto", "l_%s_fogo" % d[0]])
+				roteiro.append([2.6, "foto", "l_%s_fim" % d[0]])
+				roteiro.append([0.8, "nada", ""])
+			roteiro.append([0.3, "skill_area", Vector2(1, 0), true])
+			roteiro.append([1.2, "foto", "l_com_bichos"])
+			roteiro.append([0.3, "fim", ""])
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 
@@ -68,6 +89,10 @@ func _process(dt: float) -> void:
 			print("foto ", p[2])
 		"janela": jogo.janelas.alternar(p[2])
 		"zoom": jogo.cam.zoom = Vector2(p[2], p[2])
+		"sumir_jogador":
+			if jogo.views.has(jogo.jog.id): jogo.views[jogo.jog.id].visible = false
+			jogo.jog.invuln_t = 999.0; jogo.jog.imune_t = 999.0
+			if jogo.get("titulo_zona") != null: jogo.titulo_zona.visible = false
 		"mover":
 			Jogador.cmd_mover(jogo.sim, jogo.jog, p[2])
 			print("andando para ", p[2], " de ", jogo.jog.pos)
@@ -138,4 +163,13 @@ func _process(dt: float) -> void:
 					jogo.jog.pos = jogo.sim.celula_livre_perto(e.pos + Vector2(1.2, 0.6))
 					Jogador.cmd_interagir(jogo.sim, jogo.jog, e.id)
 					break
+		"skill_area":   # bonecos em volta para o leque acertar e a skill do nível 5 na direção pedida
+			var j: Ent = jogo.jog
+			j.rec = j.rec_max; j.cds.clear()
+			var dir: Vector2 = (p[2] as Vector2).normalized()
+			for k in (3 if p.size() > 3 else 0):
+				var m: Ent = jogo.sim.criar_mob("cao_de_vala", j.pos + dir.rotated((k - 1) * 0.6) * 2.4, 5)
+				if m: m.hp_max = 99999.0; m.hp = m.hp_max
+			Jogador.cmd_skill(jogo.sim, j, Jogador.slot_auto(j), -1, j.pos + dir * 3.0)
+		"nada": pass
 		"fim": get_tree().quit()

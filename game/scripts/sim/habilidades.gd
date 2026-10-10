@@ -271,6 +271,8 @@ static func area_nivel5(sim: WorldSim, e: Ent, h: Dictionary, forma: String, cen
 		if h.has("chance_atordoar") and a.vivo and sim.rng.randf() < float(h["chance_atordoar"]):
 			sim.aplicar_status(a, "atordoado", float(h.get("atordoar_s", 0.5)), e)
 	if h.has("chao_em_chamas_s"):
-		var pc := centro if forma != "cone" else e.pos + dir * float(h.get("raio", 3.0)) * 0.55
-		sim.criar_area({"pos": pc, "raio": float(h.get("raio", 2.0)) * (0.8 if forma != "cone" else 0.6), "dur": float(h["chao_em_chamas_s"]), "tick": 0.5,
-			"dono": e.id, "tipo": "fogo", "op": _op(e, h, {"mult": 0.12, "area": true, "nunca_erra": true, "sensacao": "dano_tempo", "postura": 0.0, "sem_recurso": true})})
+		var fogo := {"pos": centro, "raio": float(h.get("raio", 2.0)) * 0.8, "dur": float(h["chao_em_chamas_s"]), "tick": 0.5,
+			"dono": e.id, "tipo": "fogo", "op": _op(e, h, {"mult": 0.12, "area": true, "nunca_erra": true, "sensacao": "dano_tempo", "postura": 0.0, "sem_recurso": true})}
+		if forma == "cone":   # o chão queima em todo o caminho do leque, não numa bola na frente
+			fogo["pos"] = e.pos; fogo["raio"] = float(h.get("raio", 3.0)); fogo["dir"] = dir; fogo["graus"] = float(h.get("cone_graus", 90))
+		sim.criar_area(fogo)
