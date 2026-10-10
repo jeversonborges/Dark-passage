@@ -1,0 +1,197 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Peças da tela de abertura/login do DARK PASSAGE. Cada [data-peca] vira game/assets/menu/<nome>.png (gerar.js).
+     Mesmos materiais do kit da HUD (assets/ui/src/barra) e do launcher, para o jogo e o launcher terem a mesma mão.
+     Servir a raiz do repositório (onde ficam game/, assets/ e site/): python3 -m http.server 8768 -->
+<style>
+@font-face{font-family:Cinzel;src:url(/game/assets/ext/fontes/cinzel-bold.woff2);font-weight:700}
+@font-face{font-family:Pirata;src:url(/game/assets/ext/fontes/PirataOne-Regular.ttf)}
+@font-face{font-family:Spectral;src:url(/game/assets/fontes/spectral-500-italic.woff2);font-style:italic}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;padding:20px;color:#e8dfc9}
+.peca{position:relative;margin:0 20px 30px 0;overflow:hidden;display:inline-block;vertical-align:top}
+.abs{position:absolute}
+.latao{background:url(/assets/ui/src/barra/tex_latao.svg)}
+.couro{background:url(/assets/ui/src/barra/tex_couro.svg)}
+.ferro{background:url(/assets/ui/src/barra/tex_ferro.svg)}
+.rebite{position:absolute;width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffe6b0 0,#c9954a 30%,#6a4418 70%,#1a0e04 100%);box-shadow:0 1px 1.5px rgba(0,0,0,.9),0 0 0 .5px #000}
+.rebite.p{width:6px;height:6px}
+.rebite.f{background:radial-gradient(circle at 35% 30%,#b9b2a6 0,#6c655c 35%,#2a2622 75%,#0a0807 100%)}
+.costura{position:absolute;border:1.2px dashed rgba(214,180,120,.45)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <filter id="grao" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 .5 -.18"/>
+  </filter>
+  <filter id="nevoa" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".0025 .008" numOctaves="4" seed="12" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .55  0 0 0 0 .58  0 0 0 0 .52  0 0 0 1.4 -.62"/>
+  </filter>
+  <filter id="sombra"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#000" flood-opacity=".95"/></filter>
+  <linearGradient id="latD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d998"/><stop offset=".3" stop-color="#b07a3a"/><stop offset=".6" stop-color="#5a3816"/><stop offset=".85" stop-color="#a87238"/><stop offset="1" stop-color="#3a2208"/></linearGradient>
+  <linearGradient id="latH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b07a3a" stop-opacity="0"/><stop offset=".18" stop-color="#e2be78"/><stop offset=".5" stop-color="#f6d998"/><stop offset=".82" stop-color="#e2be78"/><stop offset="1" stop-color="#b07a3a" stop-opacity="0"/></linearGradient>
+  <radialGradient id="gema" cx=".38" cy=".32" r=".7"><stop offset="0" stop-color="#eaffc0"/><stop offset=".25" stop-color="#9cff3a"/><stop offset=".7" stop-color="#2f6a10"/><stop offset="1" stop-color="#0c1a04"/></radialGradient>
+  <radialGradient id="gemaBrilho" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9cff3a" stop-opacity=".55"/><stop offset="1" stop-color="#9cff3a" stop-opacity="0"/></radialGradient>
+  <pattern id="pTexLat" width="512" height="256" patternUnits="userSpaceOnUse"><image href="/assets/ui/src/barra/tex_latao.svg" width="512" height="256"/></pattern>
+  <!-- canto gótico de latão (o mesmo do launcher) -->
+  <symbol id="canto" viewBox="0 0 70 70">
+   <path d="M2 2 H66 L60 10 H18 Q12 10 10 16 V60 L2 66 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.4"/>
+   <path d="M2 2 H66 L60 10 H18 Q12 10 10 16 V60 L2 66 Z" fill="url(#pTexLat)" opacity=".55"/>
+   <path d="M5 5 H58" stroke="rgba(255,230,170,.55)" stroke-width="1"/>
+   <path d="M5 5 V58" stroke="rgba(255,230,170,.4)" stroke-width="1"/>
+   <path d="M4 4 H34 V22 Q34 34 22 34 H4 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.4"/>
+   <path d="M4 4 H34 V22 Q34 34 22 34 H4 Z" fill="url(#pTexLat)" opacity=".5"/>
+   <path d="M11 28 V17 Q11 11 18 9 Q25 11 25 17 V28 Z" fill="#0c0806" stroke="rgba(255,220,150,.35)" stroke-width=".8"/>
+   <path d="M18 13 V26 M14 17.5 H22" stroke="#b07a3a" stroke-width="1.6" stroke-linecap="square"/>
+   <circle cx="30" cy="8" r="2.1" fill="#e7c27c" stroke="#1a0e04" stroke-width=".8"/>
+   <circle cx="8" cy="30" r="2.1" fill="#e7c27c" stroke="#1a0e04" stroke-width=".8"/>
+   <circle cx="48" cy="6" r="1.6" fill="#d9b06a" stroke="#1a0e04" stroke-width=".7"/>
+   <circle cx="6" cy="48" r="1.6" fill="#d9b06a" stroke="#1a0e04" stroke-width=".7"/>
+  </symbol>
+  <!-- ícones dos campos -->
+  <symbol id="icUsuario" viewBox="0 0 20 20"><circle cx="10" cy="6.5" r="3.6" fill="currentColor"/><path d="M3 18 Q3 11.5 10 11.5 Q17 11.5 17 18 Z" fill="currentColor"/></symbol>
+  <symbol id="icRede" viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 10 H17.5 M10 2.5 Q5.5 10 10 17.5 M10 2.5 Q14.5 10 10 17.5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="icChave" viewBox="0 0 20 20"><circle cx="6.5" cy="10" r="4.2" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10.5 10 H18 M15 10 V13.5 M17.5 10 V12.5" stroke="currentColor" stroke-width="2.4" fill="none"/></symbol>
+ </defs>
+</svg>
+
+<!-- ============================================================ FUNDO 1920x1080 -->
+<!-- o Acampamento da Vela à noite (render do site), espelhado: a arte fica à direita, a coluna da esquerda escurece para o painel -->
+<div class="peca" data-peca="fundo" style="width:1920px;height:1080px;background:#050404">
+ <div class="abs" style="left:-40px;top:-70px;width:2060px;height:1159px;background:url(/site/publico/img/cena_deserto.jpg) center/cover;transform:scaleX(-1);filter:saturate(.78) sepia(.18) brightness(1.12) contrast(1.1)"></div>
+ <svg class="abs" width="1920" height="1080" style="left:0;top:0;mix-blend-mode:screen;opacity:.38"><rect width="1920" height="1080" filter="url(#nevoa)"/></svg>
+ <!-- brasa e Amargo: luz quente perto do domo, verde fraco no chão -->
+ <div class="abs" style="inset:0;background:radial-gradient(ellipse 30% 26% at 70% 52%,rgba(255,150,60,.16),rgba(255,150,60,0)),radial-gradient(ellipse 40% 20% at 58% 88%,rgba(156,255,58,.08),rgba(156,255,58,0))"></div>
+ <div class="abs" style="inset:0;background:linear-gradient(90deg,rgba(4,3,3,.94) 0,rgba(4,3,3,.86) 22%,rgba(4,3,3,.5) 38%,rgba(4,3,3,.06) 56%,rgba(4,3,3,.2) 100%)"></div>
+ <div class="abs" style="inset:0;background:linear-gradient(0deg,rgba(3,2,2,.95) 0,rgba(3,2,2,.5) 12%,rgba(3,2,2,0) 30%)"></div>
+ <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(3,2,2,.75) 0,rgba(3,2,2,0) 20%)"></div>
+ <div class="abs" style="inset:0;background:radial-gradient(ellipse 70% 80% at 64% 46%,rgba(0,0,0,0) 45%,rgba(0,0,0,.7) 100%)"></div>
+ <svg class="abs" width="1920" height="1080" style="left:0;top:0;mix-blend-mode:overlay;opacity:.45"><rect width="1920" height="1080" filter="url(#grao)"/></svg>
+</div>
+
+<!-- ============================================================ LOGO 620x150 -->
+<div class="peca" data-peca="logo" style="width:620px;height:150px">
+ <div class="abs" style="left:14px;top:8px;font:104px Pirata;letter-spacing:.02em;line-height:1;white-space:nowrap;
+   background:linear-gradient(180deg,#e4573a 0,#b0281d 42%,#6a120c 78%,#3c0806 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+   filter:drop-shadow(0 0 1px #000) drop-shadow(0 3px 0 #000) drop-shadow(0 0 18px rgba(150,24,12,.6))">DARK PASSAGE</div>
+ <svg class="abs" width="620" height="30" style="left:0;top:116px">
+  <path d="M18 14 H286" stroke="url(#latH)" stroke-width="1.6"/>
+  <path d="M334 14 H602" stroke="url(#latH)" stroke-width="1.6"/>
+  <g filter="url(#sombra)">
+   <path d="M310 3 L322 14 L310 25 L298 14 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.2"/>
+   <circle cx="310" cy="14" r="7" fill="url(#gemaBrilho)"/>
+   <circle cx="310" cy="14" r="4.2" fill="url(#gema)" stroke="#120a04" stroke-width=".8"/>
+   <circle cx="291" cy="14" r="1.8" fill="#e7c27c" stroke="#1a0e04" stroke-width=".6"/>
+   <circle cx="329" cy="14" r="1.8" fill="#e7c27c" stroke="#1a0e04" stroke-width=".6"/>
+  </g>
+ </svg>
+</div>
+
+<!-- ============================================================ PAINEL 440x490 -->
+<div class="peca" data-peca="painel" style="width:440px;height:490px">
+ <!-- couro escuro com ferro nas bordas -->
+ <div class="abs ferro" style="left:6px;top:6px;width:428px;height:478px;border-radius:4px;box-shadow:inset 0 1px 0 rgba(200,190,170,.3),inset 0 -1px 0 #000,0 0 0 1px #000"></div>
+ <div class="abs couro" style="left:18px;top:18px;width:404px;height:454px;border-radius:2px;filter:brightness(.34) saturate(.8)"></div>
+ <div class="abs" style="left:18px;top:18px;width:404px;height:454px;background:linear-gradient(180deg,rgba(6,5,4,.55),rgba(6,5,4,.25) 30%,rgba(6,5,4,.5));box-shadow:inset 0 0 0 1px #000,inset 0 0 0 2px rgba(176,122,58,.7),inset 0 0 0 3px #000,inset 0 0 36px rgba(0,0,0,.9)"></div>
+ <div class="costura" style="left:26px;top:26px;width:388px;height:438px;border-radius:2px;opacity:.38"></div>
+ <div id="rebitesPainel"></div>
+ <!-- cantos -->
+ <svg class="abs" width="58" height="58" style="left:0;top:0" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="58" height="58" style="right:0;top:0;transform:scaleX(-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="58" height="58" style="left:0;bottom:0;transform:scaleY(-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="58" height="58" style="right:0;bottom:0;transform:scale(-1,-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+</div>
+
+<!-- ============================================================ PLACA DO TÍTULO 280x34 -->
+<div class="peca" data-peca="placa" style="width:280px;height:34px">
+ <div class="abs latao" style="left:0;top:2px;width:280px;height:30px;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,14px 100%,0 50%);
+   box-shadow:inset 0 1px 0 rgba(255,226,160,.55),inset 0 -2px 0 rgba(0,0,0,.6)"></div>
+ <div class="abs" style="left:24px;top:7px;width:232px;height:20px;background:rgba(40,22,6,.22);box-shadow:inset 0 1px 2px rgba(0,0,0,.45),0 1px 0 rgba(255,226,160,.35)"></div>
+ <div class="rebite p" style="left:13px;top:14px"></div><div class="rebite p" style="left:261px;top:14px"></div>
+</div>
+
+<!-- ============================================================ DIVISOR 372x14 -->
+<div class="peca" data-peca="divisor" style="width:372px;height:14px">
+ <svg width="372" height="14"><path d="M8 7 H170 M202 7 H364" stroke="url(#latH)" stroke-width="1.2"/>
+  <g filter="url(#sombra)"><path d="M186 1 L193 7 L186 13 L179 7 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1"/><circle cx="186" cy="7" r="2.4" fill="url(#gema)"/></g></svg>
+</div>
+
+<!-- ============================================================ BOTÃO 372x40 -->
+<template id="tBotao">
+ <div class="peca" style="width:372px;height:40px">
+  <div class="abs latao" style="inset:0;border-radius:3px;box-shadow:inset 0 1px 0 rgba(255,232,170,.6),inset 0 -2px 0 rgba(0,0,0,.6),inset 0 0 0 1px #1a0e04;FILTRO"></div>
+  <div class="abs ferro" style="left:5px;top:5px;width:362px;height:30px;border-radius:2px;box-shadow:inset 0 2px 5px rgba(0,0,0,.85),inset 0 0 0 1px #000;filter:brightness(FERRO)"></div>
+  <div class="abs" style="left:5px;top:5px;width:362px;height:30px;background:BRILHO"></div>
+  <div class="rebite p" style="left:-1px;top:17px"></div><div class="rebite p" style="left:367px;top:17px"></div>
+ </div>
+</template>
+
+<!-- ============================================================ BOTÃO PRINCIPAL 372x58 -->
+<template id="tPrincipal">
+ <div class="peca" style="width:372px;height:58px">
+  <div class="abs latao" style="inset:0;border-radius:4px;clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
+     box-shadow:inset 0 2px 0 rgba(255,232,170,.7),inset 0 -3px 0 rgba(0,0,0,.6),inset 0 0 0 2px #1a0e04;FILTRO"></div>
+  <div class="abs couro" style="left:8px;top:8px;width:356px;height:42px;border-radius:3px;clip-path:polygon(7px 0,calc(100% - 7px) 0,100% 7px,100% calc(100% - 7px),calc(100% - 7px) 100%,7px 100%,0 calc(100% - 7px),0 7px);
+     box-shadow:inset 0 3px 6px rgba(0,0,0,.85),inset 0 -2px 3px rgba(0,0,0,.7);filter:brightness(COURO) saturate(SAT)"></div>
+  <div class="costura" style="left:13px;top:13px;width:346px;height:32px;border-radius:2px;opacity:COST"></div>
+  <div class="abs" style="left:8px;top:8px;width:356px;height:42px;background:BRILHO"></div>
+  <div class="rebite" style="left:3px;top:25px"></div><div class="rebite" style="left:361px;top:25px"></div>
+ </div>
+</template>
+
+<!-- ============================================================ CAMPO 372x40 (com ícone) -->
+<template id="tCampo">
+ <div class="peca" style="width:372px;height:40px">
+  <div class="abs latao" style="inset:0;border-radius:3px;box-shadow:inset 0 1px 0 rgba(255,232,170,.5),inset 0 -2px 0 rgba(0,0,0,.6),inset 0 0 0 1px #1a0e04;filter:brightness(LAT)"></div>
+  <div class="abs" style="left:4px;top:4px;width:364px;height:32px;border-radius:2px;background:linear-gradient(180deg,#060504,#0f0c0a);box-shadow:inset 0 3px 6px #000,inset 0 0 0 1px #000,BORDA"></div>
+  <div class="abs" style="left:4px;top:4px;width:34px;height:32px;border-right:1px solid rgba(176,122,58,.35);background:rgba(176,122,58,.06)"></div>
+  <svg class="abs" width="18" height="18" style="left:12px;top:11px;color:COR"><use href="#ICONE"/></svg>
+ </div>
+</template>
+
+<!-- ============================================================ CARTÃO DE PERSONAGEM 372x58 -->
+<template id="tCartao">
+ <div class="peca" style="width:372px;height:58px">
+  <div class="abs" style="inset:0;border-radius:3px;background:linear-gradient(90deg,rgba(30,22,14,.92),rgba(14,11,9,.88));box-shadow:inset 0 0 0 1px #000,inset 0 0 0 2px BORDA,inset 0 0 18px rgba(0,0,0,.8)"></div>
+  <div class="abs" style="left:0;top:0;width:372px;height:58px;background:BRILHO"></div>
+  <!-- poço do retrato -->
+  <div class="abs" style="left:6px;top:6px;width:46px;height:46px;border-radius:2px;background:radial-gradient(circle at 50% 70%,rgba(60,44,26,.9),#070505 75%);box-shadow:inset 0 2px 5px #000,0 0 0 1px #000,0 0 0 2px rgba(176,122,58,.55)"></div>
+  <div class="rebite p" style="left:362px;top:8px"></div><div class="rebite p" style="left:362px;top:44px"></div>
+ </div>
+</template>
+
+<script>
+const $=s=>document.querySelector(s);
+let r='';
+for(let x=70;x<=370;x+=50){ r+=`<div class="rebite f p" style="left:${x}px;top:9px"></div><div class="rebite f p" style="left:${x}px;top:475px"></div>`; }
+for(let y=70;y<=420;y+=50){ r+=`<div class="rebite f p" style="left:9px;top:${y}px"></div><div class="rebite f p" style="left:425px;top:${y}px"></div>`; }
+$('#rebitesPainel').innerHTML=r;
+function peca(tpl,nome,subs){
+  let h=$(tpl).innerHTML;
+  for(const k in subs) h=h.split(k).join(subs[k]);
+  const d=document.createElement('div'); d.innerHTML=h.trim(); const el=d.firstElementChild;
+  el.dataset.peca=nome; document.body.appendChild(el);
+}
+const B={
+ normal:{FILTRO:'filter:none',FERRO:'.62',BRILHO:'none'},
+ hover:{FILTRO:'filter:brightness(1.22)',FERRO:'.9',BRILHO:'radial-gradient(ellipse 60% 90% at 50% 50%,rgba(255,170,80,.24),rgba(255,170,80,0))'},
+ pressed:{FILTRO:'filter:brightness(.8)',FERRO:'.5',BRILHO:'linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,0) 55%)'},
+ disabled:{FILTRO:'filter:grayscale(.9) brightness(.5)',FERRO:'.4',BRILHO:'none'},
+};
+for(const e in B) peca('#tBotao','botao_'+e,B[e]);
+const P={
+ normal:{FILTRO:'filter:none',COURO:'.55',SAT:'1',COST:'.55',BRILHO:'radial-gradient(ellipse 60% 90% at 50% 50%,rgba(176,40,24,.18),rgba(176,40,24,0))'},
+ hover:{FILTRO:'filter:brightness(1.18)',COURO:'.68',SAT:'1.1',COST:'.8',BRILHO:'radial-gradient(ellipse 65% 95% at 50% 50%,rgba(255,130,50,.34),rgba(255,130,50,0))'},
+ pressed:{FILTRO:'filter:brightness(.82)',COURO:'.42',SAT:'1',COST:'.45',BRILHO:'linear-gradient(180deg,rgba(0,0,0,.4),rgba(0,0,0,0) 45%)'},
+ disabled:{FILTRO:'filter:grayscale(.85) brightness(.55)',COURO:'.32',SAT:'.2',COST:'.25',BRILHO:'none'},
+};
+for(const e in P) peca('#tPrincipal','principal_'+e,P[e]);
+const C={normal:{LAT:'.7',BORDA:'0 0 0 0 transparent',COR:'#8a7656'},foco:{LAT:'1.15',BORDA:'0 0 10px rgba(156,255,58,.18),inset 0 0 0 1px rgba(156,255,58,.35)',COR:'#d8c08a'}};
+for(const e in C){ peca('#tCampo','campo_usuario_'+e,{...C[e],ICONE:'icUsuario'}); peca('#tCampo','campo_senha_'+e,{...C[e],ICONE:'icChave'}); peca('#tCampo','campo_ip_'+e,{...C[e],ICONE:'icRede'}); }
+peca('#tCartao','cartao_normal',{BORDA:'rgba(120,88,46,.55)',BRILHO:'none'});
+peca('#tCartao','cartao_hover',{BORDA:'rgba(226,190,120,.9)',BRILHO:'radial-gradient(ellipse 70% 120% at 30% 50%,rgba(255,160,70,.16),rgba(255,160,70,0))'});
+document.fonts.ready.then(()=>setTimeout(()=>document.title='ready',400));
+</script>
+</body></html>
