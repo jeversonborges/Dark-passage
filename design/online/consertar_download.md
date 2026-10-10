@@ -1,8 +1,8 @@
 # Consertar o download do site (para o Claude do PC do Jefin)
 
 O site mostra "arquivo não está disponível" quando o nginx não acha o zip em `/var/www/darkpassage/downloads/`.
-O GitHub está certo: o branch `downloads` tem `cliente/cliente.json` (versão 0.7.3), o jogo em 4 partes
-(`DarkPassage-v0.7.3-windows.zip.parte00..03`) e `DarkPassage-Launcher.zip`. Falta a VPS montar e servir.
+O GitHub está certo: o branch `downloads` tem `cliente/cliente.json` (versão 0.7.4), o jogo em 4 partes
+(`DarkPassage-v0.7.4-windows.zip.parte00..03`) e `DarkPassage-Launcher.zip`. Falta a VPS montar e servir.
 
 Antes de rodar: o Jefin precisa mergear o PR #4 no GitHub (ele traz o instalador novo e o site com o launcher).
 
@@ -15,7 +15,7 @@ Antes de rodar: o Jefin precisa mergear o PR #4 no GitHub (ele traz o instalador
     systemctl status darkpassage-atualizar.timer --no-pager | head -5
     journalctl -u darkpassage-atualizar -n 30 --no-pager
     curl -sI https://darkpassage.com.br/downloads/cliente.json | head -1
-    curl -sI https://darkpassage.com.br/downloads/DarkPassage-v0.7.3-windows.zip | head -1
+    curl -sI https://darkpassage.com.br/downloads/DarkPassage-v0.7.4-windows.zip | head -1
 
 O que cada resultado quer dizer:
 - `/home/dark/downloads` não existe: a VPS nunca clonou o branch `downloads`.
@@ -36,7 +36,7 @@ troca o atualizador pelo novo e religa o HTTPS. Mostre ao Jefin o que vai rodar 
 ## 3. Conferir
 
     curl -s https://darkpassage.com.br/downloads/cliente.json
-    curl -sI https://darkpassage.com.br/downloads/DarkPassage-v0.7.3-windows.zip | head -1   # 200
+    curl -sI https://darkpassage.com.br/downloads/DarkPassage-v0.7.4-windows.zip | head -1   # 200
     curl -sI https://darkpassage.com.br/downloads/DarkPassage-Launcher.zip | head -1          # 200
 
 Se o `git clone` do branch `downloads` falhar com "Permission denied (publickey)", a deploy key do usuário `dark`
