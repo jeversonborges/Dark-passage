@@ -2,7 +2,7 @@ class_name Tema
 ## Recursos visuais compartilhados do cliente: fontes, peças da barra de HUD, ícones, cores e caixas de painel.
 
 static var FONTE_TITULO: Font      # Cinzel Bold: números e títulos
-static var FONTE_TEXTO: Font       # IM Fell: texto corrido
+static var FONTE_TEXTO: Font       # Spectral Medium: texto corrido (a mesma do site; a IM Fell era difícil de ler)
 static var FONTE_ITALICO: Font
 static var FONTE_PIXEL: Font       # Silkscreen: números pequenos
 static var FONTE_GOTICA: Font      # Pirata One: nomes de zona e chefe
@@ -26,15 +26,16 @@ static func carregar() -> void:
 	if pronto: return
 	pronto = true
 	FONTE_TITULO = _fonte("cinzel-bold.woff2")
-	FONTE_TEXTO = _fonte("fell.woff2")
-	FONTE_ITALICO = _fonte("fell-italic.woff2")
+	FONTE_TEXTO = _fonte("spectral-500-normal.woff2")
+	FONTE_ITALICO = _fonte("spectral-500-italic.woff2")
 	FONTE_PIXEL = _fonte("silkscreen.woff2")
 	FONTE_GOTICA = _fonte("PirataOne-Regular.ttf")
 	LAYOUT = Defs.ler("res://assets/ext/ui/layout.json")
 	ICONES = Defs.ICONES
 
 static func _fonte(f: String) -> Font:
-	var p := "res://assets/ext/fontes/" + f
+	var p := "res://assets/fontes/" + f   # fontes do próprio jogo; as do kit da HUD vêm em assets/ext/fontes
+	if not ResourceLoader.exists(p): p = "res://assets/ext/fontes/" + f
 	if ResourceLoader.exists(p):
 		var ff: FontFile = load(p)
 		ff.antialiasing = TextServer.FONT_ANTIALIASING_GRAY
