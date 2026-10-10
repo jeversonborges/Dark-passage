@@ -125,7 +125,7 @@ func _ready() -> void:
 	bv.add_theme_font_size_override("font_size", 13)
 	bv.pressed.connect(func(): voltar.emit())
 	baixo.add_child(bv)
-	var rod := Tema.rotulo("Prévia v0.6 · " + ("novo personagem na conta do servidor" if modo_rede else "Deserto de Absinto e a Cripta da Trombeta Calada · um jogador"), 12, Color("#6d665c"), Tema.FONTE_ITALICO, 2)
+	var rod := Tema.rotulo("Prévia v0.7 · " + ("novo personagem na conta do servidor" if modo_rede else "Deserto de Absinto e a Cripta da Trombeta Calada · um jogador"), 12, Color("#6d665c"), Tema.FONTE_ITALICO, 2)
 	rod.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	baixo.add_child(rod)
 	_selecionar("humano")

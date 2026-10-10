@@ -1,0 +1,43 @@
+DARK PASSAGE - imagens de referência para a cinemática "A Meia Nota"
+Mande ao Gemini/Veo junto com o prompt do plano. Os números são os planos de prompts-veo3.md.
+
+personagens/
+  00_seis_classes.png ......... as 6 classes lado a lado (planos 10, 14 e versão de 8 s)
+  01_anjo_e_humano_detalhe.png  Anjo e Humano em detalhe (planos 1, 2, 12, 14)
+  anjo.png .................... planos 1, 2, 12, 14 (também base para o Zacarias, planos 7 e 9)
+  demonio.png ................. planos 10, 12, 14 (soldados da Legião Blasfema)
+  cultista.png ................ plano 14
+  humano.png .................. planos 10, 14
+  mutante.png ................. planos 10, 14
+  tecnomancer.png ............. planos 9 (engenheiros da Vigília), 10, 14
+
+chefes/
+  andras_rugindo.png .......... Andras inteiro, com estandarte (plano 11)
+  andras_hoje.png ............. Andras partido, se arrastando (plano 15)
+  andras_e_carnical_cena.png .. Andras no fosso, cena do jogo (plano 15)
+  nao_julgado.png ............. mortos com lacre no peito (planos 8, 14)
+
+ambiente/
+  00_cena_deserto.png ......... Deserto de Absinto, clima geral (planos 6, 13, 14)
+  01_mapa_visao_geral.png ..... mapa da área inteira visto de cima (plano 13)
+  02_print_do_jogo_v06.png .... print do jogo (tom geral)
+  03_rua_noite.png ............ rua à noite com personagens (plano 14)
+  capela_enterrada.png ........ Capela de São Lázaro afundada na areia (plano 14)
+  cupula_estacao.png .......... Acampamento da Vela, cúpula da estação (plano 14)
+  lampada_arco.png ............ a Vela, lâmpada de arco (plano 14)
+  bonde_veleiro.png ........... bonde com vela de lona (plano 13)
+  bonde_queimado.png .......... bonde da linha 7 (plano 11)
+  frigorifico_enterrado.png ... frigorífico/abatedouro (planos 5, 13, 15)
+  chamine_enterrada.png ....... chaminés saindo da areia (planos 5, 13)
+  casa_ruina.png .............. prédios engolidos pela areia (planos 6, 13)
+  entrada_cripta.png .......... entrada da cripta (plano 15)
+  arvore_enforcados.png, mar_de_lapides.png ... cemitério (plano 8)
+
+estilo/
+  conceitos_das_classes.png ... desenhos de conceito das 6 classes, de frente
+  paleta.png .................. cores oficiais do jogo
+  cena_estilo.png ............. o estilo "Ferrugem Sagrada" numa cena
+
+Dica: as imagens do jogo são isométricas e pequenas. Peça ao Gemini para usar só a roupa,
+as cores e a silhueta, e deixar a câmera e o realismo como descritos no prompt
+("use these images only as reference for costume, colors and silhouette").

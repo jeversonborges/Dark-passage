@@ -6,40 +6,61 @@ signal mensagem(m: Dictionary)   # servidor -> este cliente
 signal caiu(motivo: String)
 
 const PORTA := 7777
+const VERSAO := "0.7"                      # cliente e servidor precisam bater (o servidor recusa outra)
+const ONLINE := "darkpassage.com.br"       # servidor oficial (a VPS)
+const ONLINE_IP := "213.109.169.186"       # se o DNS do domínio falhar, vai direto no IP
+const MAX_MSG_SEG := 60                    # mais que isso por segundo (média de 2 s) derruba a conexão
+const MAX_PACOTE := 64 * 1024              # do cliente para o servidor, já descomprimido
 const Servidor := preload("res://scripts/net/servidor.gd")
 
 var servidor: Node = null
 var ip_servidor := ""
+var online := false                        # conectado ao servidor oficial (com DTLS)
+var _contagem := {}                        # peer -> [início da janela, mensagens]
 
 ## Sobe o servidor neste PC. Devolve "" ou o motivo do erro.
-func hospedar(porta := PORTA) -> String:
+## Com `tls` (certificado + chave) a conexão é cifrada (DTLS), como no servidor online.
+func hospedar(porta := PORTA, maximo := 48, tls: TLSOptions = null) -> String:
 	var p = ClassDB.instantiate("ENetMultiplayerPeer")
 	if p == null: return "Rede local não disponível nesta versão."
-	var err: int = p.create_server(porta, 16)
+	var err: int = p.create_server(porta, maximo)
 	if err != OK: return "Não deu para abrir a porta %d (já tem outro servidor aberto?)." % porta
+	if tls != null:
+		err = p.host.dtls_server_setup(tls)
+		if err != OK: p.close(); return "Não deu para ligar a criptografia (DTLS): erro %d." % err
 	multiplayer.multiplayer_peer = p
 	servidor = Servidor.new()
 	servidor.name = "Servidor"
 	servidor.rede = self
 	add_child(servidor)
 	multiplayer.peer_connected.connect(func(id): print("[servidor] conexão nova: ", id))
-	multiplayer.peer_disconnected.connect(func(id): if servidor: servidor.desconectou(id))
+	multiplayer.peer_disconnected.connect(func(id):
+		_contagem.erase(id)
+		if servidor: servidor.desconectou(id))
 	ip_servidor = "127.0.0.1"
 	return ""
 
-## Entra no servidor de outro PC.
-func conectar(ip: String, porta := PORTA) -> String:
+## Entra no servidor de outro PC. `tls_nome` liga o DTLS e confere o certificado desse domínio.
+func conectar(ip: String, porta := PORTA, tls_nome := "", tls_inseguro := false) -> String:
 	if ip.count(":") == 1:   # "192.168.0.10:7777"
 		porta = int(ip.get_slice(":", 1)); ip = ip.get_slice(":", 0)
 	var p = ClassDB.instantiate("ENetMultiplayerPeer")
 	if p == null: return "Rede local não disponível nesta versão."
 	var err: int = p.create_client(ip, porta)
 	if err != OK: return "Endereço inválido: " + ip
+	if tls_nome != "":
+		err = p.host.dtls_client_setup(tls_nome, TLSOptions.client_unsafe() if tls_inseguro else TLSOptions.client())
+		if err != OK: p.close(); return "Não deu para ligar a criptografia (DTLS): erro %d." % err
 	multiplayer.multiplayer_peer = p
 	ip_servidor = ip
+	online = tls_nome != ""
 	multiplayer.connected_to_server.connect(func(): mensagem.emit({"t": "conectado"}), CONNECT_ONE_SHOT)
-	multiplayer.connection_failed.connect(func(): _fechar(); caiu.emit("Não achei nenhum servidor em %s. Confira o IP e se o outro PC clicou em Hospedar." % ip), CONNECT_ONE_SHOT)
-	multiplayer.server_disconnected.connect(func(): _fechar(); caiu.emit("O servidor fechou a partida."), CONNECT_ONE_SHOT)
+	var on := tls_nome != ""
+	multiplayer.connection_failed.connect(func(): _fechar(); caiu.emit(
+		"O servidor online não respondeu. Ele pode estar em manutenção; tente de novo em alguns minutos." if on
+		else "Não achei nenhum servidor em %s. Confira o IP e se o outro PC clicou em Hospedar." % ip), CONNECT_ONE_SHOT)
+	multiplayer.server_disconnected.connect(func(): _fechar(); caiu.emit(
+		"A conexão com o servidor caiu." if on else "O servidor fechou a partida."), CONNECT_ONE_SHOT)
 	return ""
 
 func hospedando() -> bool:
@@ -49,6 +70,33 @@ func sair() -> void:
 	if servidor != null:
 		servidor.queue_free(); servidor = null
 	_fechar()
+
+## Entra no servidor oficial (darkpassage.com.br), sempre cifrado.
+func conectar_online(endereco := "", tls_inseguro := false) -> String:
+	var host := endereco if endereco != "" else ONLINE
+	var porta := PORTA
+	if host.count(":") == 1: porta = int(host.get_slice(":", 1)); host = host.get_slice(":", 0)
+	var ip := host
+	if not host.is_valid_ip_address():
+		ip = IP.resolve_hostname(host, IP.TYPE_IPV4)
+		if ip == "": ip = ONLINE_IP if host == ONLINE else ""
+	if ip == "": return "Não achei o endereço %s. Confira a internet." % host
+	var err := conectar(ip, porta, host if not host.is_valid_ip_address() else ONLINE, tls_inseguro)
+	if err == "": ip_servidor = host
+	return err
+
+## O servidor derruba quem manda mensagem demais (robô, cliente alterado).
+func _derrubar(peer: int, motivo: String) -> void:
+	print("[servidor] derrubado %d: %s" % [peer, motivo])
+	_contagem.erase(peer)
+	var p = multiplayer.multiplayer_peer
+	if p is ENetMultiplayerPeer: (p as ENetMultiplayerPeer).disconnect_peer(peer)
+
+func ip_do_peer(peer: int) -> String:
+	var p = multiplayer.multiplayer_peer
+	if peer == 1 or not p is ENetMultiplayerPeer: return "local"
+	var pp = (p as ENetMultiplayerPeer).get_peer(peer)
+	return pp.get_remote_address() if pp != null else "?"
 
 func _fechar() -> void:
 	if multiplayer.multiplayer_peer != null and not multiplayer.multiplayer_peer is OfflineMultiplayerPeer:
@@ -87,8 +135,16 @@ func enviar(peer: int, m: Dictionary) -> void:
 @rpc("any_peer", "call_remote", "reliable")
 func _srv(b: PackedByteArray) -> void:
 	if servidor == null: return
-	var m := _dec(b)
-	if not m.is_empty(): servidor.receber(multiplayer.get_remote_sender_id(), m)
+	var peer := multiplayer.get_remote_sender_id()
+	var agora := Time.get_ticks_msec()
+	var c: Array = _contagem.get(peer, [agora, 0])
+	if agora - c[0] > 2000: c = [agora, 0]
+	c[1] += 1
+	_contagem[peer] = c
+	if c[1] > MAX_MSG_SEG * 2: _derrubar(peer, "mensagens demais"); return
+	var m := _dec(b, MAX_PACOTE)
+	if m.is_empty(): _derrubar(peer, "pacote inválido ou grande demais"); return
+	servidor.receber(peer, m)
 
 @rpc("authority", "call_remote", "reliable")
 func _cli(b: PackedByteArray) -> void:
@@ -108,13 +164,14 @@ static func _cod(m: Dictionary) -> PackedByteArray:
 	o2.append_array(z)
 	return o2
 
-static func _dec(o: PackedByteArray) -> Dictionary:
-	if o.size() < 2: return {}
+static func _dec(o: PackedByteArray, limite := 16 * 1024 * 1024) -> Dictionary:
+	if o.size() < 2 or o.size() > limite + 5: return {}
 	var b: PackedByteArray
 	if o[0] == 0: b = o.slice(1)
 	else:
+		if o.size() < 6: return {}
 		var n := o.decode_u32(1)
-		if n > 16 * 1024 * 1024: return {}
+		if n > limite: return {}
 		b = o.slice(5).decompress(n, FileAccess.COMPRESSION_DEFLATE)
 	var v = bytes_to_var(b)
 	return v if v is Dictionary else {}
