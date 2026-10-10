@@ -40,8 +40,10 @@ Endereços e nome do servidor ficam em `dados/config.json`.
     /opt/godot/godot --headless --import
     /opt/godot/godot --headless --export-release "Windows" build/DarkPassage-Launcher.exe
 
-O .exe tem ~94 MB (zipado, ~33 MB), quase tudo é o próprio motor do Godot. O ícone do .exe precisa do rcedit;
-sem ele, a janela usa o ícone certo mas o arquivo mostra o do Godot.
+O .exe tem ~94 MB (zipado, ~33 MB), quase tudo é o próprio motor do Godot. O ícone do .exe é gravado pelo rcedit
+via wine: `apt-get install -y wine`, baixe `rcedit-x64.exe` (github.com/electron/rcedit, v2.0.0) e ponha em
+`~/.config/godot/editor_settings-4.4.tres` as linhas `export/windows/rcedit = "<caminho>"` e
+`export/windows/wine = "/usr/bin/wine"`.
 
 ## Testar sem a VPS
 
