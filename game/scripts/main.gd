@@ -31,6 +31,10 @@ func _ready() -> void:
 	if args.has("classe") and not args.has("conectar"):
 		_comecar(args["classe"], "Teste", {})
 		return
+	Tela.aplicar_salvo()
+	var at := AtalhoTela.new()
+	at.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(at)
 	_abertura("")
 	if args.has("foto_menu"):   # teste: print da tela de abertura
 		get_tree().create_timer(2.0).timeout.connect(func():
@@ -39,6 +43,13 @@ func _ready() -> void:
 		if jogo != null:   # caiu no meio do jogo: volta para a abertura com o motivo
 			jogo.queue_free(); jogo = null
 			_abertura(motivo))
+
+## F11 / Alt+Enter também com o jogo pausado (menu Esc).
+class AtalhoTela extends Node:
+	func _input(ev: InputEvent) -> void:
+		if Tela.atalho(ev):
+			Tela.alternar()
+			get_viewport().set_input_as_handled()
 
 func _abertura(motivo: String) -> void:
 	if camada: camada.queue_free()

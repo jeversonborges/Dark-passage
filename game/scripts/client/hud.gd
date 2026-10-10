@@ -962,6 +962,7 @@ func mostrar_ajuda() -> void:
 Na mochila: [b]botão direito[/b] usa ou equipa; [b]arraste[/b] para mover, equipar ou jogar fora.
 Os [b]![/b] em cima das pessoas são missões novas; [b]?[/b] são missões prontas para entregar.
 Áreas vermelhas no chão avisam um golpe: saia delas.
+[b]F11[/b] ou [b]Alt + Enter[/b] liga e desliga a tela cheia.
 
 [color=#a89f8c][i]H mostra esta ajuda de novo.[/i][/color]"""
 		v.add_child(r)
