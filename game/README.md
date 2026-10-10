@@ -1,4 +1,4 @@
-# DARK PASSAGE · cliente Godot 4 (prévia v0.6)
+# DARK PASSAGE · cliente Godot 4 (prévia v0.7)
 
 Prévia jogável: Paróquia de São Lázaro (Deserto de Absinto, mapa 160x160 da thread de level design) e a
 Cripta da Trombeta Calada (3 andares: Porão do Matadouro, Ossário das Carpideiras, Câmara da Trombeta),
@@ -13,12 +13,30 @@ Lote 2 de monstros: alfa em toda matilha de 3+ cães (uiva ao avistar), salto do
 e fica tonto (stun) ao bater na parede, Filho de Cardo se enterra para trocar de posição (burrow/emerge).
 Teste headless dos especiais: `godot --headless -s tools/teste_bichos.gd`.
 
-Jogar: https://claude.ai/artifact/CzSX1qdoE9wb1qHour4e4o · Windows: `builds/DarkPassage-v0.6-windows.zip`.
+Jogar: https://claude.ai/artifact/CzSX1qdoE9wb1qHour4e4o · Windows: `builds/DarkPassage-v0.7-windows.zip`.
 
 v0.6: contas e rede local (abaixo); linhas de missão D (Isaura, A Estrela Que Nós Soltamos) e E (Corvina, A Legião Sem
 General) com objetivo `farmar_spot`; mapa novo com 8 spots de farm (temperamento por spawn: neutro, agressivo, territorial),
 fogueiras com o carrinho de poções do Tobias; skills de área do nível 5 das 6 classes; modo automático (Z); curva de XP
 75L²+375L e poções baratas. Monstros novos sem arte própria usam variantes (`data/v06_extra.json`, `data/sprites_substitutos.json`).
+
+v0.7: servidor online (abaixo).
+
+## Servidor online (darkpassage.com.br)
+- Botão "Jogar online" na abertura (só Windows): `rede.conectar_online()` resolve darkpassage.com.br (sem DNS cai no
+  IP 213.109.169.186) e liga DTLS conferindo o certificado do domínio. Rede local continua sem criptografia.
+- Servidor: `godot --headless --main-pack DarkPassage-servidor.pck -- servidor=1 max=48`. Com `~/certs/darkpassage.crt|.key`
+  (ou `cert=`/`chave=`) liga o DTLS sozinho; `tls_teste=1` faz um certificado na hora (teste, cliente com `tls_inseguro=1`).
+- `rede.VERSAO` precisa bater: o servidor recusa outra versão com "Atualize o jogo". Subir a versão a cada mudança
+  que quebre a rede ou os saves.
+- Proteções: 5 senhas erradas por conexão ou por IP bloqueiam 60 s (antes do hash); 5 contas novas por IP a cada
+  10 min; mais de 120 mensagens em 2 s ou pacote acima de 64 KB derruba a conexão.
+- Publicar: `godot --headless --export-pack "Servidor Linux" build/servidor/DarkPassage-servidor.pck` (2 MB, sem
+  texturas/áudio) e push do .pck + `servidor/VERSAO` no branch `servidor` de jeversonborges/Dark-passage (só esses
+  arquivos). A VPS puxa a cada 2 min e reinicia (`/mnt/project-files/design/online/instalar_servidor.sh`;
+  certificado: `certificado_tls.sh`).
+- Teste local: `godot --headless --main-pack build/servidor/DarkPassage-servidor.pck -- servidor=1 tls_teste=1` e
+  clientes com `conectar=online online=127.0.0.1 tls_inseguro=1 usuario=ana senha=1234 classe=anjo teste_rede=/tmp/r`.
 
 ## Rede local (Windows)
 - Abertura: Jogar sozinho · Hospedar partida (este PC vira servidor e também joga) · Entrar numa partida (IP).

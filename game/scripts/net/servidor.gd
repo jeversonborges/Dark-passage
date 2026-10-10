@@ -6,6 +6,14 @@ extends Node
 const ARQ := "user://servidor/contas.json"
 const MAX_PERSONAGENS := 6
 const ITER_HASH := 4000
+const MAX_ERROS := 5          # erros de senha seguidos (por conexão e por IP) antes de bloquear
+const BLOQUEIO_SEG := 60
+const MAX_CADASTROS_IP := 5   # contas novas por IP a cada 10 minutos
+## Na VPS o site (darkpassage.com.br) é o dono das contas: o jogo confere a senha com ele numa chamada local
+## (design/online/site-e-contas.md). Sem a variável CHAVE_INTERNA (rede local) as contas ficam no contas.json.
+const SITE_AUTENTICAR := "http://127.0.0.1:8080/api/interno/autenticar"
+var contas_pelo_site := OS.has_environment("CHAVE_INTERNA")
+var conferindo := {}        # peer -> HTTPRequest em andamento
 
 var rede: Node
 var contas := {}            # usuario -> {sal, hash, personagens: [save]}
@@ -15,9 +23,12 @@ var mundos := {}            # id do mapa -> WorldSim
 var movimentos: Array = []  # [id do jogador, mapa, pos] (portal, vela de retorno)
 var acc := 0.0
 var t_salvar := 0.0
+var erros := {}             # "peer:N" / "ip:X" -> [erros, bloqueado até (ms)]
+var cadastros := {}         # ip -> [contas novas, início da janela (ms)]
 
 func _ready() -> void:
 	_carregar_contas()
+	print("[servidor] contas: ", "pelo site (%s)" % SITE_AUTENTICAR if contas_pelo_site else "neste servidor (%s)" % ARQ)
 
 # =================================================================== contas
 func _carregar_contas() -> void:
@@ -61,22 +72,34 @@ func receber(peer: int, m: Dictionary) -> void:
 	match t:
 		"cadastro", "login":
 			if not s.is_empty() and s.get("u", "") != "": return
+			if str(m.get("v", "")) != rede.VERSAO:
+				_erro(peer, "Atualize o jogo: o servidor está na versão %s e o seu jogo é %s. Baixe a versão nova no site." % [rede.VERSAO, str(m.get("v", "antiga"))]); return
+			var ip: String = rede.ip_do_peer(peer)
+			var espera := maxi(_bloqueado("peer:%d" % peer), _bloqueado("ip:" + ip))
+			if espera > 0: _erro(peer, "Muitas tentativas erradas. Espere %d segundos." % espera); return
 			var u := str(m.get("u", "")).strip_edges().to_lower()
 			var h := str(m.get("h", ""))
 			if not _usuario_ok(u): _erro(peer, "Usuário precisa ter de 3 a 16 letras ou números (sem espaço)."); return
 			if h.length() != 64: _erro(peer, "Senha inválida."); return
+			if contas_pelo_site:
+				if t == "cadastro": _erro(peer, "Crie sua conta no site darkpassage.com.br e depois clique em Entrar."); return
+				_conferir_no_site(peer, u, h, ip); return
 			if t == "cadastro":
 				if contas.has(u): _erro(peer, "Esse usuário já existe. Use Entrar."); return
+				var agora := Time.get_ticks_msec()
+				var c: Array = cadastros.get(ip, [0, agora])
+				if agora - c[1] > 600000: c = [0, agora]
+				if ip != "local" and c[0] >= MAX_CADASTROS_IP: _erro(peer, "Contas demais criadas deste lugar. Tente mais tarde."); return
+				c[0] += 1; cadastros[ip] = c
 				var sal := Crypto.new().generate_random_bytes(16).hex_encode()
 				contas[u] = {"sal": sal, "hash": _resumo(sal, h), "personagens": [], "criada": Time.get_datetime_string_from_system()}
 				_gravar_contas()
 			else:
 				if not contas.has(u) or _resumo(contas[u]["sal"], h) != contas[u]["hash"]:
+					_errou("peer:%d" % peer); _errou("ip:" + ip)
 					_erro(peer, "Usuário ou senha errados."); return
-			for p in sessoes:
-				if sessoes[p].get("u", "") == u: _erro(peer, "Essa conta já está no jogo em outro PC."); return
-			sessoes[peer] = {"u": u, "jog": null, "mapa": "", "idx": -1, "cache": {}, "saida": [], "chefe": ""}
-			rede.enviar(peer, {"t": "conta", "u": u, "personagens": _lista(u), "novo": t == "cadastro"})
+				erros.erase("peer:%d" % peer); erros.erase("ip:" + ip)
+			_logar(peer, u, t == "cadastro")
 		"criar":
 			if s.is_empty() or s["jog"] != null: return
 			var classe := str(m.get("classe", ""))
@@ -102,11 +125,60 @@ func receber(peer: int, m: Dictionary) -> void:
 			if n is String and a is Array and mundos.has(s["mapa"]):
 				Comandos.executar(mundos[s["mapa"]], s["jog"], n, a)
 
+func _logar(peer: int, u: String, novo: bool) -> void:
+	for p in sessoes:
+		if sessoes[p].get("u", "") == u: _erro(peer, "Essa conta já está no jogo em outro PC."); return
+	if not contas.has(u):   # conta criada no site: aqui só guardamos os personagens
+		contas[u] = {"personagens": [], "criada": Time.get_datetime_string_from_system()}
+		_gravar_contas()
+	sessoes[peer] = {"u": u, "jog": null, "mapa": "", "idx": -1, "cache": {}, "saida": [], "chefe": ""}
+	rede.enviar(peer, {"t": "conta", "u": u, "personagens": _lista(u), "novo": novo})
+
+## Pergunta ao site se a senha confere (só na VPS, chamada local com a chave interna).
+func _conferir_no_site(peer: int, u: String, h: String, ip: String) -> void:
+	if conferindo.has(peer): return
+	var req := HTTPRequest.new()
+	req.timeout = 8.0
+	add_child(req)
+	conferindo[peer] = req
+	req.request_completed.connect(func(res: int, cod: int, _cab, corpo: PackedByteArray):
+		conferindo.erase(peer); req.queue_free()
+		if not multiplayer.get_peers().has(peer) and peer != 1: return   # desistiu no meio
+		if res != HTTPRequest.RESULT_SUCCESS or (cod != 200 and cod != 401):
+			printerr("[servidor] site de contas não respondeu: resultado %d, código %d" % [res, cod])
+			_erro(peer, "O servidor de contas está fora do ar. Tente de novo em alguns minutos."); return
+		var d = JSON.parse_string(corpo.get_string_from_utf8())
+		if cod == 401 or not (d is Dictionary and d.get("ok", false)):
+			_errou("peer:%d" % peer); _errou("ip:" + ip)
+			_erro(peer, "Usuário ou senha errados."); return
+		erros.erase("peer:%d" % peer); erros.erase("ip:" + ip)
+		_logar(peer, u, false))
+	var err := req.request(SITE_AUTENTICAR, ["Content-Type: application/json", "X-Chave: " + OS.get_environment("CHAVE_INTERNA")],
+		HTTPClient.METHOD_POST, JSON.stringify({"u": u, "h": h}))
+	if err != OK:
+		conferindo.erase(peer); req.queue_free()
+		_erro(peer, "O servidor de contas está fora do ar. Tente de novo em alguns minutos.")
+
+## Segundos que faltam de bloqueio (0 = liberado).
+func _bloqueado(k: String) -> int:
+	var e: Array = erros.get(k, [0, 0])
+	var falta: int = e[1] - Time.get_ticks_msec()
+	if falta <= 0 and e[1] > 0: erros.erase(k); return 0
+	return ceili(falta / 1000.0) if falta > 0 else 0
+
+func _errou(k: String) -> void:
+	var e: Array = erros.get(k, [0, 0])
+	e[0] += 1
+	if e[0] >= MAX_ERROS: e = [0, Time.get_ticks_msec() + BLOQUEIO_SEG * 1000]
+	erros[k] = e
+
 func _erro(peer: int, msg: String) -> void:
 	rede.enviar(peer, {"t": "erro", "msg": msg})
 
 ## Conexão caiu ou o jogador saiu: salva e tira o personagem do mundo.
 func desconectou(peer: int) -> void:
+	erros.erase("peer:%d" % peer)
+	if conferindo.has(peer): conferindo[peer].queue_free(); conferindo.erase(peer)
 	if not sessoes.has(peer): return
 	var s: Dictionary = sessoes[peer]
 	if s["jog"] != null:

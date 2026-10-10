@@ -38,7 +38,7 @@ func _ready() -> void:
 	tit.offset_left = -420; tit.offset_right = 420; tit.offset_top = 40; tit.offset_bottom = 140
 	tit.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(tit)
-	var sub := Tema.rotulo("Deserto de Absinto · Prévia v0.6", 17, Color("#c8bfa8"), Tema.FONTE_ITALICO, 3)
+	var sub := Tema.rotulo("Deserto de Absinto · Prévia v0.7", 17, Color("#c8bfa8"), Tema.FONTE_ITALICO, 3)
 	sub.set_anchors_preset(Control.PRESET_CENTER_TOP)
 	sub.offset_left = -400; sub.offset_right = 400; sub.offset_top = 132; sub.offset_bottom = 160
 	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -78,6 +78,7 @@ func _ready() -> void:
 	if auto.has("conectar"):
 		ip_edit.text = auto["conectar"]; u_edit.text = auto.get("usuario", "teste"); s_edit.text = auto.get("senha", "1234")
 		if auto["conectar"] == "hospedar": _hospedar()
+		elif auto["conectar"] == "online": _online()
 		else: _conectar()
 
 func _limpar() -> void:
@@ -108,13 +109,15 @@ func _avisar(txt: String, erro := false) -> void:
 func _inicio() -> void:
 	tela = "inicio"
 	_limpar()
-	_botao("Jogar sozinho", func(): solo.emit(), true)
 	if OS.has_feature("web"):
-		_texto("Para jogar com amigos na rede local, use a versão de Windows.", 13, Color("#8a8070"), Tema.FONTE_ITALICO)
+		_botao("Jogar sozinho", func(): solo.emit(), true)
+		_texto("Para jogar online ou com amigos na rede local, use a versão de Windows.", 13, Color("#8a8070"), Tema.FONTE_ITALICO)
 		return
+	_botao("Jogar online", _online, true)
+	_botao("Jogar sozinho", func(): solo.emit())
 	_botao("Hospedar partida na rede local", _hospedar)
 	_botao("Entrar numa partida (IP)", _tela_ip)
-	_texto("Hospedar: este PC vira o servidor e guarda as contas.\nEntrar: use o IP que aparece na tela de quem hospedou.", 12, Color("#8a8070"), Tema.FONTE_ITALICO)
+	_texto("Online: servidor oficial em %s, conta e personagens ficam lá.\nRede local: um PC hospeda e os outros entram pelo IP dele." % rede.ONLINE, 12, Color("#8a8070"), Tema.FONTE_ITALICO)
 
 func _tela_ip() -> void:
 	tela = "ip"
@@ -140,6 +143,13 @@ func _conectar() -> void:
 	_texto("Conectando em %s..." % ip, 16)
 	_botao("Cancelar", func(): rede.sair(); _inicio())
 
+func _online() -> void:
+	_limpar()
+	_texto("Conectando ao servidor online...", 16)
+	var err: String = rede.conectar_online(auto.get("online", ""), auto.has("tls_inseguro"))
+	if err != "": _inicio(); _avisar(err, true); return
+	_botao("Cancelar", func(): rede.sair(); _inicio())
+
 func _tela_login() -> void:
 	tela = "login"
 	_limpar()
@@ -147,6 +157,8 @@ func _tela_login() -> void:
 		var ips: Array = rede.meus_ips()
 		var t := "Você está hospedando. Seus amigos entram pelo IP:\n" + ("  ou  ".join(ips) if not ips.is_empty() else "(sem rede local encontrada)")
 		_texto(t, 14, Color("#9fd0ff"), Tema.FONTE_TITULO)
+	elif rede.online:
+		_texto("Servidor online · %s · conexão cifrada" % rede.ip_servidor, 14, Color("#a8d890"), Tema.FONTE_ITALICO)
 	else:
 		_texto("Conectado a %s" % rede.ip_servidor, 14, Color("#a8d890"), Tema.FONTE_ITALICO)
 	caixa.add_child(u_edit)
@@ -164,7 +176,7 @@ func _conta(tipo: String) -> void:
 	if s.length() < 4: _avisar("A senha precisa ter pelo menos 4 caracteres.", true); return
 	_guardar("usuario", u)
 	# a senha nunca viaja pela rede: vai só o resumo; o servidor ainda põe sal e milhares de rodadas
-	rede.enviar_srv({"t": tipo, "u": u, "h": (u + ":dark_passage:" + s).sha256_text()})
+	rede.enviar_srv({"t": tipo, "u": u, "h": (u + ":dark_passage:" + s).sha256_text(), "v": rede.VERSAO})
 	_avisar("Aguarde...")
 
 func _tela_personagens(lista: Array, conta: String) -> void:
@@ -197,6 +209,9 @@ func _msg(m: Dictionary) -> void:
 			if tela != "login" and tela != "personagens": _tela_login()
 			if auto.has("conectar") and str(m["msg"]).contains("já existe"): _conta("login"); return
 			_avisar(str(m.get("msg", "")), true)
+			if str(m.get("msg", "")).contains("no site") and tela == "login" and not caixa.has_node("Site"):
+				var b := _botao("Abrir o site darkpassage.com.br", func(): OS.shell_open("https://" + rede.ONLINE))
+				b.name = "Site"
 		"conta":
 			_tela_personagens(m.get("personagens", []), str(m.get("u", "")))
 			if auto.has("conectar"):

@@ -5,4 +5,4 @@ case "$f" in
   ./ambiente/*) opts="-ac 1 -q:a 0";;
   *) opts="-ac 1 -q:a 1";;
 esac
-ffmpeg -loglevel error -y -i "$f" -c:a libvorbis $opts "${f%.ogg}.tmp.ogg" && mv "${f%.ogg}.tmp.ogg" "$f"
+ffmpeg -nostdin -loglevel error -y -i "$f" -c:a libvorbis $opts "${f%.ogg}.tmp.ogg" && mv "${f%.ogg}.tmp.ogg" "$f"

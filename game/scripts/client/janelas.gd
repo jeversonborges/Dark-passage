@@ -912,7 +912,7 @@ func abrir_menu() -> void:
 		b.add_theme_font_size_override("font_size", 15)
 		b.pressed.connect(it[1])
 		c.add_child(b)
-	var v := Tema.rotulo("Prévia v0.6 · " + ("jogo pausado · salva sozinho" if game.rede == null else "em rede o mundo não pausa · o servidor salva"), 12, Color("#7d7466"), Tema.FONTE_ITALICO)
+	var v := Tema.rotulo("Prévia v0.7 · " + ("jogo pausado · salva sozinho" if game.rede == null else "em rede o mundo não pausa · o servidor salva"), 12, Color("#7d7466"), Tema.FONTE_ITALICO)
 	v.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	c.add_child(v)
 

@@ -1,8 +1,10 @@
 extends Node
 ## Entrada: carrega os dados, mostra a tela de abertura (sozinho / hospedar / entrar pelo IP) e liga o jogo.
 ## Argumentos de teste (depois de --): classe=humano mapa=area_inicial pos=57,53 fotos=pasta
-## Rede: servidor=1 [porta=7777] sobe só o servidor (sem tela); conectar=IP|hospedar usuario=x senha=y classe=anjo
-## entra sozinho (teste_rede=pasta tira fotos e sai).
+## Rede: servidor=1 [porta=7777] [max=48] [cert=arquivo.crt chave=arquivo.key | tls_teste=1] sobe só o servidor (sem tela);
+## sem cert= ele procura ~/certs/darkpassage.crt e .key (a VPS) e, achando, liga o DTLS.
+## conectar=IP|hospedar|online [online=host:porta tls_inseguro=1] usuario=x senha=y classe=anjo entra sozinho
+## (teste_rede=pasta tira fotos e sai).
 
 const Jogo := preload("res://scripts/client/game.gd")
 const Selecao := preload("res://scripts/client/char_select.gd")
@@ -24,9 +26,11 @@ func _ready() -> void:
 	rede.name = "Rede"
 	add_child(rede)
 	if args.has("servidor"):
-		var err: String = rede.hospedar(int(args.get("porta", Rede.PORTA)))
+		var tls := _tls_servidor()
+		var err: String = rede.hospedar(int(args.get("porta", Rede.PORTA)), int(args.get("max", 48)), tls)
 		if err != "": printerr(err); get_tree().quit(1); return
-		print("[servidor] DARK PASSAGE ouvindo na porta %s. IPs: %s" % [args.get("porta", Rede.PORTA), ", ".join(rede.meus_ips())])
+		print("[servidor] DARK PASSAGE v%s ouvindo na porta %s, até %s conexões, %s. IPs: %s" % [Rede.VERSAO, args.get("porta", Rede.PORTA),
+			args.get("max", 48), "cifrado (DTLS)" if tls else "sem criptografia (rede local)", ", ".join(rede.meus_ips())])
 		return
 	if args.has("classe") and not args.has("conectar"):
 		_comecar(args["classe"], "Teste", {})
@@ -39,6 +43,23 @@ func _ready() -> void:
 		if jogo != null:   # caiu no meio do jogo: volta para a abertura com o motivo
 			jogo.queue_free(); jogo = null
 			_abertura(motivo))
+
+## Certificado do servidor online: cert=/chave= na linha de comando, ou ~/certs/darkpassage.crt|.key.
+func _tls_servidor() -> TLSOptions:
+	if args.has("tls_teste"):   # só para teste: certificado feito na hora
+		var c := Crypto.new()
+		var k := c.generate_rsa(2048)
+		return TLSOptions.server(k, c.generate_self_signed_certificate(k, "CN=darkpassage.com.br"))
+	var dir := OS.get_environment("HOME") + "/certs/"
+	var cert: String = args.get("cert", dir + "darkpassage.crt")
+	var chave: String = args.get("chave", dir + "darkpassage.key")
+	if not FileAccess.file_exists(cert) or not FileAccess.file_exists(chave):
+		if args.has("cert"): printerr("[servidor] certificado não encontrado: ", cert)
+		return null
+	var x := X509Certificate.new(); var k := CryptoKey.new()
+	if x.load(cert) != OK or k.load(chave) != OK:
+		printerr("[servidor] não deu para ler o certificado/chave em ", cert); return null
+	return TLSOptions.server(k, x)
 
 func _abertura(motivo: String) -> void:
 	if camada: camada.queue_free()
