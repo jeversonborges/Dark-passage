@@ -42,6 +42,13 @@ func _ready() -> void:
 		"itens":   # itens no chão: brilho, hover de item e de NPC
 			roteiro = [[2.5, "afastar", ""], [1.5, "soltar_itens", ""], [1.5, "foto", "i1_chao"], [0.1, "mouse_item", 2], [0.4, "foto", "i2_hover_item"],
 				[0.1, "mouse_item", 0], [0.4, "foto", "i3_hover_ouro"], [0.1, "mouse_npc", "ir"], [1.5, "mouse_npc", ""], [0.5, "foto", "i4_hover_npc"], [0.3, "fim", ""]]
+		"pontes":   # atravessa as duas pontes do Rio Amargo andando (prova visual e de colisão)
+			roteiro = [[2.0, "zoom", 0.8],
+				[0.2, "ir", Vector2(95.5, 71.5)], [2.0, "foto", "p1_ponte_bonde_margem_oeste"],
+				[0.1, "mover", Vector2(107.5, 71.5)], [1.6, "foto", "p1_ponte_bonde_no_meio"], [3.0, "foto", "p1_ponte_bonde_margem_leste"],
+				[0.2, "ir", Vector2(88.5, 106.5)], [2.0, "foto", "p2_ponte_enforcados_margem_oeste"],
+				[0.1, "mover", Vector2(102.5, 106.5)], [1.8, "foto", "p2_ponte_enforcados_no_meio"], [3.2, "foto", "p2_ponte_enforcados_margem_leste"],
+				[0.3, "fim", ""]]
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 
@@ -54,11 +61,16 @@ func _process(dt: float) -> void:
 	passo += 1
 	match p[1]:
 		"foto":
+			print("pos ", p[2], " ", jogo.jog.pos)
 			await RenderingServer.frame_post_draw
 			var img := get_viewport().get_texture().get_image()
 			img.save_png(pasta + "/" + p[2] + ".png")
 			print("foto ", p[2])
 		"janela": jogo.janelas.alternar(p[2])
+		"zoom": jogo.cam.zoom = Vector2(p[2], p[2])
+		"mover":
+			Jogador.cmd_mover(jogo.sim, jogo.jog, p[2])
+			print("andando para ", p[2], " de ", jogo.jog.pos)
 		"afastar":   # sai do acampamento para um descampado
 			var d := Vector2(float(args.get("dx", "12")), float(args.get("dy", "-6")))
 			jogo.jog.pos = jogo.sim.celula_livre_perto(jogo.jog.pos + d)
