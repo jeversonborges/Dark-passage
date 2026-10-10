@@ -1,0 +1,271 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Peças do launcher do DARK PASSAGE. Cada elemento com data-peca vira um PNG transparente (gerar.js).
+     Materiais e fontes vêm do kit da HUD (assets/ui/src/barra) para o launcher ter a mesma mão do jogo. -->
+<style>
+@font-face{font-family:Cinzel;src:url(/launcher/fontes/cinzel-bold.woff2);font-weight:700}
+@font-face{font-family:Cinzel;src:url(/launcher/fontes/cinzel.woff2);font-weight:400}
+@font-face{font-family:Fell;src:url(/launcher/fontes/fell.woff2)}
+@font-face{font-family:Fell;src:url(/launcher/fontes/fell-italic.woff2);font-style:italic}
+@font-face{font-family:Pirata;src:url(/launcher/fontes/PirataOne-Regular.ttf)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;padding:20px;font-family:Cinzel;color:#e8dfc9}
+.peca{position:relative;margin:0 20px 30px 0;overflow:hidden;display:inline-block;vertical-align:top}
+.abs{position:absolute}
+.latao{background:url(/assets/ui/src/barra/tex_latao.svg)}
+.couro{background:url(/assets/ui/src/barra/tex_couro.svg)}
+.ferro{background:url(/assets/ui/src/barra/tex_ferro.svg)}
+.bisel{box-shadow:inset 0 1px 0 rgba(255,226,160,.55),inset 0 2px 0 rgba(255,210,140,.18),inset 0 -2px 0 rgba(0,0,0,.6),inset 0 -3px 6px rgba(0,0,0,.35),0 0 0 1px #0b0806}
+.rebite{position:absolute;width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffe6b0 0,#c9954a 30%,#6a4418 70%,#1a0e04 100%);box-shadow:0 1px 1.5px rgba(0,0,0,.9),0 0 0 .5px #000}
+.rebite.p{width:6px;height:6px}
+.rebite.f{background:radial-gradient(circle at 35% 30%,#b9b2a6 0,#6c655c 35%,#2a2622 75%,#0a0807 100%)}
+.poco{position:absolute;background:#090706;border-radius:2px;
+  box-shadow:inset 0 3px 6px #000,inset 0 0 0 1px #000,0 1px 0 rgba(255,220,150,.28),0 -1px 0 rgba(0,0,0,.6)}
+.costura{position:absolute;border:1.2px dashed rgba(214,180,120,.45)}
+.painel{position:absolute;border-radius:3px;
+  background:linear-gradient(180deg,rgba(14,11,9,.86),rgba(8,6,5,.9));
+  box-shadow:0 0 0 1px #000,0 0 0 2px rgba(150,112,60,.55),0 0 0 3px #000,inset 0 0 40px rgba(0,0,0,.8),0 6px 18px rgba(0,0,0,.8)}
+.grav{font-family:Cinzel;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#2a1806;text-shadow:0 1px 0 rgba(255,226,160,.55),0 -1px 0 rgba(0,0,0,.5)}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <filter id="grao" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 .5 -.18"/>
+  </filter>
+  <filter id="nevoa" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".004 .012" numOctaves="4" seed="12" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .55  0 0 0 0 .58  0 0 0 0 .52  0 0 0 1.4 -.62"/>
+  </filter>
+  <filter id="liq" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".09 .35" numOctaves="3" seed="21" stitchTiles="stitch" result="t"/>
+   <feColorMatrix in="t" type="matrix" values="0 0 0 0 .75  0 0 0 0 1  0 0 0 0 .45  0 0 0 1.3 -.55" result="w"/>
+   <feComposite in="w" in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="sombra"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#000" flood-opacity=".95"/></filter>
+  <linearGradient id="latG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6d998"/><stop offset=".25" stop-color="#c08a44"/><stop offset=".6" stop-color="#7a4f22"/><stop offset="1" stop-color="#2e1a08"/></linearGradient>
+  <linearGradient id="latD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6d998"/><stop offset=".3" stop-color="#b07a3a"/><stop offset=".6" stop-color="#5a3816"/><stop offset=".85" stop-color="#a87238"/><stop offset="1" stop-color="#3a2208"/></linearGradient>
+  <linearGradient id="ferG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c756c"/><stop offset=".4" stop-color="#37322e"/><stop offset="1" stop-color="#121010"/></linearGradient>
+  <radialGradient id="gema" cx=".38" cy=".32" r=".7"><stop offset="0" stop-color="#eaffc0"/><stop offset=".25" stop-color="#9cff3a"/><stop offset=".7" stop-color="#2f6a10"/><stop offset="1" stop-color="#0c1a04"/></radialGradient>
+  <radialGradient id="gemaBrilho" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9cff3a" stop-opacity=".55"/><stop offset="1" stop-color="#9cff3a" stop-opacity="0"/></radialGradient>
+  <!-- canto gótico de latão: esquadro com arco ogival vazado, rebites e cruz -->
+  <symbol id="canto" viewBox="0 0 70 70">
+   <path d="M2 2 H66 L60 10 H18 Q12 10 10 16 V60 L2 66 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.4"/>
+   <path d="M2 2 H66 L60 10 H18 Q12 10 10 16 V60 L2 66 Z" fill="url(#pTexLat)" opacity=".55"/>
+   <path d="M5 5 H58" stroke="rgba(255,230,170,.55)" stroke-width="1"/>
+   <path d="M5 5 V58" stroke="rgba(255,230,170,.4)" stroke-width="1"/>
+   <path d="M2 2 L30 30" stroke="#0b0806" stroke-width="0"/>
+   <!-- placa com arco -->
+   <path d="M4 4 H34 V22 Q34 34 22 34 H4 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.4"/>
+   <path d="M4 4 H34 V22 Q34 34 22 34 H4 Z" fill="url(#pTexLat)" opacity=".5"/>
+   <path d="M11 28 V17 Q11 11 18 9 Q25 11 25 17 V28 Z" fill="#0c0806" stroke="rgba(255,220,150,.35)" stroke-width=".8"/>
+   <path d="M18 13 V26 M14 17.5 H22" stroke="#b07a3a" stroke-width="1.6" stroke-linecap="square"/>
+   <circle cx="30" cy="8" r="2.1" fill="#e7c27c" stroke="#1a0e04" stroke-width=".8"/>
+   <circle cx="8" cy="30" r="2.1" fill="#e7c27c" stroke="#1a0e04" stroke-width=".8"/>
+   <circle cx="48" cy="6" r="1.6" fill="#d9b06a" stroke="#1a0e04" stroke-width=".7"/>
+   <circle cx="6" cy="48" r="1.6" fill="#d9b06a" stroke="#1a0e04" stroke-width=".7"/>
+  </symbol>
+  <pattern id="pTexLat" width="512" height="256" patternUnits="userSpaceOnUse"><image href="/assets/ui/src/barra/tex_latao.svg" width="512" height="256"/></pattern>
+ </defs>
+</svg>
+
+<!-- ============================================================ FUNDO 960x600 -->
+<div class="peca" data-peca="fundo" style="width:960px;height:600px;background:#050404">
+ <!-- arte: o Acampamento da Vela à noite, puxado para sépia frio -->
+ <div class="abs" style="left:12px;top:12px;width:936px;height:576px;overflow:hidden">
+  <div class="abs" style="left:-40px;top:-112px;width:992px;height:558px;background:url(/site/publico/img/cena_deserto.jpg) center/cover;transform:scaleX(-1);filter:saturate(.75) sepia(.2) brightness(1.08) contrast(1.1)"></div>
+  <svg class="abs" width="936" height="576" style="left:0;top:0;mix-blend-mode:screen;opacity:.42"><rect width="936" height="576" filter="url(#nevoa)"/></svg>
+  <!-- leitura: escuro à esquerda (notícias) e embaixo (barra) -->
+  <div class="abs" style="inset:0;background:linear-gradient(90deg,rgba(4,3,3,.86) 0,rgba(4,3,3,.55) 34%,rgba(4,3,3,.05) 58%,rgba(4,3,3,.3) 100%)"></div>
+  <div class="abs" style="inset:0;background:linear-gradient(0deg,rgba(3,2,2,.98) 0,rgba(3,2,2,.92) 30%,rgba(3,2,2,.4) 46%,rgba(3,2,2,0) 62%)"></div>
+  <div class="abs" style="inset:0;background:linear-gradient(180deg,rgba(3,2,2,.8) 0,rgba(3,2,2,0) 22%)"></div>
+  <div class="abs" style="inset:0;background:radial-gradient(ellipse 75% 80% at 62% 42%,rgba(0,0,0,0) 40%,rgba(0,0,0,.75) 100%)"></div>
+  <svg class="abs" width="936" height="576" style="left:0;top:0;mix-blend-mode:overlay;opacity:.5"><rect width="936" height="576" filter="url(#grao)"/></svg>
+ </div>
+
+ <!-- moldura de ferro -->
+ <div class="abs ferro" style="left:0;top:0;width:960px;height:12px;box-shadow:inset 0 1px 0 rgba(200,190,170,.35),inset 0 -1px 0 #000"></div>
+ <div class="abs ferro" style="left:0;bottom:0;width:960px;height:12px;box-shadow:inset 0 1px 0 rgba(200,190,170,.25),inset 0 -1px 0 #000"></div>
+ <div class="abs ferro" style="left:0;top:0;width:12px;height:600px;box-shadow:inset 1px 0 0 rgba(200,190,170,.3),inset -1px 0 0 #000"></div>
+ <div class="abs ferro" style="right:0;top:0;width:12px;height:600px;box-shadow:inset 1px 0 0 rgba(200,190,170,.2),inset -1px 0 0 #000"></div>
+ <div class="abs" style="left:11px;top:11px;width:938px;height:578px;box-shadow:0 0 0 1px #000,0 0 0 2px rgba(176,122,58,.75),inset 0 0 0 1px #000,inset 0 0 24px rgba(0,0,0,.9)"></div>
+ <!-- rebites do ferro -->
+ <div id="rebites"></div>
+
+ <!-- barra de título: tira de couro com costura -->
+ <div class="abs couro" style="left:12px;top:12px;width:936px;height:30px;filter:brightness(.62);box-shadow:inset 0 -1px 0 rgba(255,220,150,.18),0 1px 0 #000"></div>
+ <div class="costura" style="left:20px;top:17px;width:920px;height:20px;border-left:0;border-right:0;opacity:.6"></div>
+ <div class="abs" style="left:46px;top:19px;font:700 11px Cinzel;letter-spacing:.32em;color:#a8916a;text-shadow:0 1px 0 #000">DARK PASSAGE</div>
+ <div class="abs" style="left:182px;top:19px;font:italic 13px Fell;color:#7d6c52;text-shadow:0 1px 0 #000;margin-top:-2px">· o portão de São Lázaro</div>
+ <!-- medalhão central com a gema do Amargo -->
+ <svg class="abs" width="90" height="50" style="left:435px;top:4px" filter="url(#sombra)">
+  <path d="M6 18 H30 Q36 6 45 4 Q54 6 60 18 H84 L78 26 H60 Q54 40 45 44 Q36 40 30 26 H12 Z" fill="url(#latD)" stroke="#0b0806" stroke-width="1.3"/>
+  <path d="M6 18 H30 Q36 6 45 4 Q54 6 60 18 H84 L78 26 H60 Q54 40 45 44 Q36 40 30 26 H12 Z" fill="url(#pTexLat)" opacity=".5"/>
+  <circle cx="45" cy="23" r="15" fill="url(#gemaBrilho)"/>
+  <circle cx="45" cy="23" r="9.5" fill="#120a04" stroke="#e2bd78" stroke-width="1.2"/>
+  <circle cx="45" cy="23" r="7" fill="url(#gema)"/>
+  <ellipse cx="42.6" cy="20.4" rx="2.4" ry="1.5" fill="#f4ffd8" opacity=".85"/>
+  <circle cx="18" cy="22" r="1.7" fill="#e7c27c" stroke="#1a0e04" stroke-width=".7"/>
+  <circle cx="72" cy="22" r="1.7" fill="#e7c27c" stroke="#1a0e04" stroke-width=".7"/>
+ </svg>
+
+ <!-- logo -->
+ <div class="abs" style="left:36px;top:52px;font:72px Pirata;letter-spacing:.02em;line-height:1;color:#a8231b;
+   background:linear-gradient(180deg,#d8452f 0,#a8231b 45%,#5e0f0b 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+   filter:drop-shadow(0 0 1px #000) drop-shadow(0 2px 0 #000) drop-shadow(0 0 14px rgba(140,20,10,.55))">DARK PASSAGE</div>
+ <div class="abs" style="left:40px;top:126px;font:italic 17px Fell;color:#cbbd9f;text-shadow:0 1px 2px #000">Deserto de Absinto, onde o Juízo travou.</div>
+ <div class="abs" style="left:40px;top:118px;width:400px;height:1px;background:linear-gradient(90deg,rgba(176,122,58,.8),rgba(176,122,58,0))"></div>
+
+ <!-- painel das notícias -->
+ <div class="painel" style="left:36px;top:318px;width:548px;height:156px"></div>
+ <div class="abs" style="left:36px;top:318px;width:548px;height:156px;border-radius:3px;overflow:hidden;opacity:.18"><div class="couro" style="width:100%;height:100%"></div></div>
+ <div class="abs" style="left:36px;top:317px;width:548px;height:2px;background:linear-gradient(90deg,rgba(176,122,58,0),rgba(226,190,120,.7) 20%,rgba(226,190,120,.7) 80%,rgba(176,122,58,0))"></div>
+
+ <!-- painel do servidor -->
+ <div class="painel" style="left:608px;top:318px;width:316px;height:156px"></div>
+ <div class="abs" style="left:608px;top:318px;width:316px;height:156px;border-radius:3px;overflow:hidden;opacity:.2"><div class="ferro" style="width:100%;height:100%"></div></div>
+ <!-- placa do título do painel -->
+ <div class="abs latao bisel" style="left:674px;top:306px;width:184px;height:26px;clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 50%,calc(100% - 10px) 100%,10px 100%,0 50%)"></div>
+ <div class="abs grav" style="left:674px;top:312px;width:184px;text-align:center;font-size:12px">O Servidor</div>
+ <div class="rebite p" style="left:684px;top:316px"></div><div class="rebite p" style="left:842px;top:316px"></div>
+ <!-- divisórias -->
+ <div class="abs" style="left:624px;top:403px;width:284px;height:1px;background:linear-gradient(90deg,rgba(176,122,58,0),rgba(176,122,58,.6),rgba(176,122,58,0))"></div>
+
+ <!-- calha da barra de progresso -->
+ <div class="abs latao bisel" style="left:30px;top:519px;width:668px;height:26px;border-radius:4px"></div>
+ <div class="poco" style="left:40px;top:525px;width:648px;height:14px"></div>
+ <div class="rebite p" style="left:33px;top:529px"></div><div class="rebite p" style="left:689px;top:529px"></div>
+ <!-- marcas de 10% na calha -->
+ <div id="marcas"></div>
+
+ <!-- berço do botão Jogar -->
+ <div class="abs" style="left:706px;top:488px;width:224px;height:88px;border-radius:5px;background:linear-gradient(180deg,#2c2724,#151210 60%,#0c0a09);box-shadow:inset 0 1px 0 rgba(200,190,170,.25),inset 0 -2px 4px #000,0 0 0 1px #000,0 4px 14px rgba(0,0,0,.9)"></div>
+ <div class="rebite f" style="left:711px;top:493px"></div><div class="rebite f" style="left:917px;top:493px"></div>
+ <div class="rebite f" style="left:711px;top:563px"></div><div class="rebite f" style="left:917px;top:563px"></div>
+
+ <!-- cantos -->
+ <svg class="abs" width="70" height="70" style="left:0;top:0" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="70" height="70" style="right:0;top:0;transform:scaleX(-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="70" height="70" style="left:0;bottom:0;transform:scaleY(-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+ <svg class="abs" width="70" height="70" style="right:0;bottom:0;transform:scale(-1,-1)" filter="url(#sombra)"><use href="#canto"/></svg>
+</div>
+
+<!-- ============================================================ BOTÃO JOGAR 212x76 -->
+<template id="tJogar">
+ <div class="peca" style="width:212px;height:76px">
+  <div class="abs latao" style="inset:0;border-radius:4px;clip-path:polygon(14px 0,calc(100% - 14px) 0,100% 14px,100% calc(100% - 14px),calc(100% - 14px) 100%,14px 100%,0 calc(100% - 14px),0 14px);
+     box-shadow:inset 0 2px 0 rgba(255,232,170,.7),inset 0 -3px 0 rgba(0,0,0,.6),inset 0 0 0 2px #1a0e04;FILTRO"></div>
+  <div class="abs couro" style="left:10px;top:10px;width:192px;height:56px;border-radius:3px;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px);
+     box-shadow:inset 0 3px 6px rgba(0,0,0,.85),inset 0 -2px 3px rgba(0,0,0,.7);filter:brightness(COURO) saturate(SAT)"></div>
+  <div class="costura" style="left:16px;top:16px;width:180px;height:44px;border-radius:2px;opacity:COST"></div>
+  <div class="abs" style="left:10px;top:10px;width:192px;height:56px;background:BRILHO"></div>
+  <div class="rebite" style="left:4px;top:34px"></div><div class="rebite" style="left:200px;top:34px"></div>
+  <div class="rebite p" style="left:20px;top:2px"></div><div class="rebite p" style="left:186px;top:2px"></div>
+  <div class="rebite p" style="left:20px;top:68px"></div><div class="rebite p" style="left:186px;top:68px"></div>
+ </div>
+</template>
+
+<!-- ============================================================ BOTÃO PEQUENO 150x30 -->
+<template id="tBotao">
+ <div class="peca" style="width:140px;height:28px">
+  <div class="abs latao" style="inset:0;border-radius:3px;box-shadow:inset 0 1px 0 rgba(255,232,170,.6),inset 0 -2px 0 rgba(0,0,0,.6),inset 0 0 0 1px #1a0e04;FILTRO"></div>
+  <div class="abs ferro" style="left:4px;top:4px;width:132px;height:20px;border-radius:2px;box-shadow:inset 0 2px 4px rgba(0,0,0,.85),inset 0 0 0 1px #000;filter:brightness(FERRO)"></div>
+  <div class="abs" style="left:4px;top:4px;width:132px;height:20px;background:BRILHO"></div>
+ </div>
+</template>
+
+<!-- ============================================================ ABA 128x30 -->
+<template id="tAba">
+ <div class="peca" style="width:128px;height:30px">
+  <div class="abs" style="left:0;top:0;width:128px;height:30px;border-radius:4px 4px 0 0;background:FUNDO;box-shadow:inset 0 1px 0 rgba(255,220,150,.2),inset 1px 0 0 rgba(0,0,0,.8),inset -1px 0 0 rgba(0,0,0,.8)"></div>
+  <div class="abs" style="left:6px;bottom:0;width:116px;height:2px;background:FAIXA"></div>
+ </div>
+</template>
+
+<!-- ============================================================ JANELA 22x22 -->
+<template id="tJanela">
+ <div class="peca" style="width:22px;height:22px">
+  <div class="abs latao" style="inset:0;border-radius:50%;box-shadow:inset 0 1px 0 rgba(255,232,170,.7),inset 0 -2px 0 rgba(0,0,0,.6),0 0 0 1px #0b0806;FILTRO"></div>
+  <div class="abs" style="left:4px;top:4px;width:14px;height:14px;border-radius:50%;background:#0c0806;box-shadow:inset 0 2px 3px #000"></div>
+  <svg class="abs" width="22" height="22" style="left:0;top:0">ICONE</svg>
+ </div>
+</template>
+
+<!-- ============================================================ BARRA -->
+<div class="peca" data-peca="barra_liquido" style="width:64px;height:14px">
+ <div class="abs" style="inset:0;background:linear-gradient(180deg,#d8ff9a 0,#9cff3a 22%,#4fa818 58%,#1f5208 100%)"></div>
+ <svg class="abs" width="64" height="14" style="left:0;top:0;mix-blend-mode:multiply;opacity:.55"><rect width="64" height="14" fill="#7a9a40" filter="url(#liq)"/></svg>
+</div>
+<div class="peca" data-peca="barra_ponta" style="width:10px;height:14px">
+ <div class="abs" style="inset:0;background:radial-gradient(ellipse 60% 70% at 40% 50%,rgba(240,255,200,.95),rgba(156,255,58,.6) 45%,rgba(156,255,58,0) 100%)"></div>
+</div>
+<div class="peca" data-peca="barra_vidro" style="width:648px;height:14px">
+ <div class="abs" style="left:2px;top:1px;width:644px;height:4px;border-radius:2px;background:linear-gradient(180deg,rgba(255,255,240,.32),rgba(255,255,240,0))"></div>
+ <div class="abs" style="left:0;bottom:0;width:648px;height:3px;background:linear-gradient(0deg,rgba(0,0,0,.45),rgba(0,0,0,0))"></div>
+</div>
+
+<!-- ============================================================ ÍCONE 256x256 -->
+<div class="peca" data-peca="icone" style="width:256px;height:256px">
+ <svg width="256" height="256" viewBox="0 0 256 256">
+  <circle cx="128" cy="128" r="122" fill="#0b0806"/>
+  <circle cx="128" cy="128" r="118" fill="url(#latD)"/>
+  <circle cx="128" cy="128" r="118" fill="url(#pTexLat)" opacity=".5"/>
+  <circle cx="128" cy="128" r="96" fill="#120a04" stroke="#0b0806" stroke-width="4"/>
+  <circle cx="128" cy="128" r="92" fill="none" stroke="rgba(255,226,160,.35)" stroke-width="2"/>
+  <circle cx="128" cy="128" r="84" fill="url(#gemaBrilho)"/>
+  <path d="M128 52 V204 M86 100 H170" stroke="url(#latG)" stroke-width="16" stroke-linecap="square"/>
+  <path d="M128 52 V204 M86 100 H170" stroke="#0b0806" stroke-width="16" stroke-linecap="square" fill="none" opacity="0" />
+  <circle cx="128" cy="100" r="30" fill="#120a04" stroke="#e2bd78" stroke-width="5"/>
+  <circle cx="128" cy="100" r="23" fill="url(#gema)"/>
+  <ellipse cx="120" cy="91" rx="8" ry="5" fill="#f4ffd8" opacity=".85"/>
+  <g fill="#e7c27c" stroke="#1a0e04" stroke-width="2">
+   <circle cx="128" cy="20" r="6"/><circle cx="128" cy="236" r="6"/><circle cx="20" cy="128" r="6"/><circle cx="236" cy="128" r="6"/>
+   <circle cx="52" cy="52" r="5"/><circle cx="204" cy="52" r="5"/><circle cx="52" cy="204" r="5"/><circle cx="204" cy="204" r="5"/>
+  </g>
+ </svg>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+// rebites ao longo da moldura de ferro
+let r='';
+for(let x=90;x<=870;x+=60){ r+=`<div class="rebite f p" style="left:${x}px;top:3px"></div><div class="rebite f p" style="left:${x}px;top:591px"></div>`; }
+for(let y=90;y<=510;y+=60){ r+=`<div class="rebite f p" style="left:3px;top:${y}px"></div><div class="rebite f p" style="left:951px;top:${y}px"></div>`; }
+$('#rebites').innerHTML=r;
+let m='';
+for(let i=1;i<10;i++){ const x=40+648*i/10; m+=`<div class="abs" style="left:${x}px;top:521px;width:1px;height:4px;background:#2a1806;box-shadow:1px 0 0 rgba(255,226,160,.35)"></div>`; }
+$('#marcas').innerHTML=m;
+
+function peca(tpl,nome,subs){
+  let h=$(tpl).innerHTML;
+  for(const k in subs) h=h.split(k).join(subs[k]);
+  const d=document.createElement('div'); d.innerHTML=h.trim(); const el=d.firstElementChild;
+  el.dataset.peca=nome; document.body.appendChild(el);
+}
+const J={
+ normal:{FILTRO:'filter:none',COURO:'.5',SAT:'1',COST:'.55',BRILHO:'none'},
+ hover:{FILTRO:'filter:brightness(1.18)',COURO:'.62',SAT:'1.1',COST:'.75',BRILHO:'radial-gradient(ellipse 70% 80% at 50% 50%,rgba(255,140,50,.28),rgba(255,140,50,0))'},
+ pressed:{FILTRO:'filter:brightness(.82)',COURO:'.4',SAT:'1',COST:'.45',BRILHO:'linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 40%)'},
+ disabled:{FILTRO:'filter:grayscale(.85) brightness(.55)',COURO:'.32',SAT:'.2',COST:'.25',BRILHO:'none'},
+};
+for(const e in J) peca('#tJogar','jogar_'+e,J[e]);
+const B={
+ normal:{FILTRO:'filter:none',FERRO:'.7',BRILHO:'none'},
+ hover:{FILTRO:'filter:brightness(1.2)',FERRO:'.95',BRILHO:'radial-gradient(ellipse 70% 90% at 50% 50%,rgba(255,170,80,.22),rgba(255,170,80,0))'},
+ pressed:{FILTRO:'filter:brightness(.8)',FERRO:'.55',BRILHO:'linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 50%)'},
+ disabled:{FILTRO:'filter:grayscale(.9) brightness(.5)',FERRO:'.45',BRILHO:'none'},
+};
+for(const e in B) peca('#tBotao','botao_'+e,B[e]);
+peca('#tAba','aba_ativa',{FUNDO:'linear-gradient(180deg,rgba(60,42,22,.95),rgba(20,14,10,.92))',FAIXA:'linear-gradient(90deg,rgba(156,255,58,0),rgba(156,255,58,.85),rgba(156,255,58,0))'});
+peca('#tAba','aba_normal',{FUNDO:'linear-gradient(180deg,rgba(30,24,20,.8),rgba(12,10,8,.8))',FAIXA:'transparent'});
+peca('#tAba','aba_hover',{FUNDO:'linear-gradient(180deg,rgba(46,34,22,.9),rgba(16,12,9,.85))',FAIXA:'linear-gradient(90deg,rgba(176,122,58,0),rgba(176,122,58,.6),rgba(176,122,58,0))'});
+const MIN='<path d="M7.5 11.5 H14.5" stroke="COR" stroke-width="2" stroke-linecap="round"/>';
+const FEC='<path d="M8 8 L14 14 M14 8 L8 14" stroke="COR" stroke-width="2" stroke-linecap="round"/>';
+peca('#tJanela','janela_min_normal',{FILTRO:'filter:none',ICONE:MIN.replace('COR','#c9a46a')});
+peca('#tJanela','janela_min_hover',{FILTRO:'filter:brightness(1.25)',ICONE:MIN.replace('COR','#f2dca8')});
+peca('#tJanela','janela_fechar_normal',{FILTRO:'filter:none',ICONE:FEC.replace('COR','#c9a46a')});
+peca('#tJanela','janela_fechar_hover',{FILTRO:'filter:brightness(1.25)',ICONE:FEC.replace('COR','#ff6a4a')});
+document.fonts.ready.then(()=>setTimeout(()=>document.title='ready',300));
+</script>
+</body></html>

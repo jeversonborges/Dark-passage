@@ -1,0 +1,30 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="DARK PASSAGE"
+config/description="Launcher do DARK PASSAGE: notícias, atualização do cliente e botão Jogar."
+config/version="1.0"
+run/main_scene="res://launcher.tscn"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="res://arte/pecas/icone.png"
+config/windows_native_icon="res://arte/icone.ico"
+boot_splash/show_image=false
+boot_splash/bg_color=Color(0.0196, 0.0157, 0.0157, 1)
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=600
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=1
+environment/defaults/default_clear_color=Color(0.0196, 0.0157, 0.0157, 1)
