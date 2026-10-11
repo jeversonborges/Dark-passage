@@ -26,3 +26,9 @@ Para gerar de novo, use `tools/icones/` (precisa de `pip install pillow numpy` e
 Uma por classe, feitas para farmar em spots e para o modo automático: Leque do Juízo (Anjo), Espinhos de Sangue (Cultista), Terremoto Pútrido (Mutante), Ceifa Infernal (Demônio), Coquetel de Querosene (Humano) e Tempestade de Bobina (Tecnomancer).
 Cada uma tem `formato_area` (cone ou círculo, raio, ângulo), dano por alvo, custo, recarga e `economia_auto`: quanto gasta e ganha por segundo e quantos segundos de uso contínuo aguenta do recurso cheio (~20 s; Cultista ~40 s até 25% de HP).
 A proposta do modo automático e das poções está em `skills.json > modo_automatico`. Tudo PROVISÓRIO até a thread Design do combate fechar a economia de mana e poções.
+
+## Pacto do Familiar (2026-10-11)
+O Cultista ganhou a **racial Pacto do Familiar** (`cultista_familiar_pacto`, `tipo: racial`, não ocupa slot nem tecla; o Servo de Carne continua), a pedido do Jefin:
+um demônio permanente que anda com o Cultista, ataca quem bater no mestre e evolui com o nível dele (Diabrete de Fuligem no 1,
+Algoz de Enxofre no 6, Tirano da Fornalha no 16). Números em `classes_base.json > cultista > racial > familiar`;
+plano de sprites e prévia em `design/personagens/familiar_cultista.md`. Falta o ícone da racial (motivo novo em `tools/icones/`).

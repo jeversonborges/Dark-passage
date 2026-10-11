@@ -36,7 +36,7 @@ for s in S:
             for k in ("dano", "cura", "escudo", "invocacao"): s.pop(k, None)   # números de dano ficam no bloco 'combate'
         s["fonte_numeros"] = "design/combate/classes_base.json"
     else:
-        s["fonte_numeros"] = "provisório: skill de área do nível 5, aguardando Design do combate" if s.get("area_nivel5") else "provisório (suprema, fora da 1ª entrega)"
+        s["fonte_numeros"] = "design/combate/classes_base.json > %s > racial" % cls if s.get("racial") else "provisório: skill de área do nível 5, aguardando Design do combate" if s.get("area_nivel5") else "provisório (suprema, fora da 1ª entrega)"
     s["provisorio"] = True
     s["icone"] = {t: f"assets/icones/skills/{t}/{s['id']}.png" for t in (64, 40, 32)}
     skills.append(s)
