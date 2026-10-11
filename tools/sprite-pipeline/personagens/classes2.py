@@ -366,6 +366,11 @@ def tecnomancer():
         ch.append(along("primitive_cylinder_add", arc, p, q, .004, vertices=4)); p = q
     # cano da caldeira até o braço mecânico
     ch += curve_tube(copper, bezier((.1,.18,1.4), (.25,.2,1.5), (.3,.05,1.5), (.22,0,1.45), 6), .016, .016, 8)[:-1]
+    # detalhes leves: rebites de latão no peito e tubo de escape com ponta de arco na lateral da caldeira
+    for k in range(6):
+        ch.append(prim("primitive_uv_sphere_add", brass, (-.1 + .04*k, -.16, 1.36 - .02*(k % 2)), (.008,)*3, segments=6, ring_count=4))
+    ch.append(along("primitive_cylinder_add", copper, (.13, .17, 1.2), (.2, .19, 1.36), .012, vertices=8))
+    ch.append(prim("primitive_uv_sphere_add", arc, (.2, .19, 1.37), (.014,)*3, segments=6, ring_count=4))
     parts.append(rigid(ch, arm, "chest"))
     parts.append(pauldron(arm, "R", coat, brass, brass, layers=2))
     # braço mecânico esquerdo: pistões e juntas de latão, mão-garra

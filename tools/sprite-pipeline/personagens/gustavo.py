@@ -10,7 +10,7 @@ from rig import *
 from classes import bone_frame, L, body_parts, arc_tube, pauldron, chain_links, _apply_mods
 from classes2 import curve_tube, bezier, head_base
 
-AMBAR = (1, .52, .13)
+VIOLETA = (.62, .3, 1)   # a válvula do Primarca acende roxa (mesma cor da Chave-Mestra, item Lendário)
 
 def _flicker(m, base, n=8, seed=3):
     """Brilho das válvulas tremula de leve a cada quadro (corrente irregular da caldeira)."""
@@ -36,7 +36,7 @@ def gustavo_primarca():
     beard = mat("barba_branca", (.6,.57,.52), 0, .8, dirt=.7, grime=0)
     glassd = mat("vidro_escuro", (.05,.07,.07), .5, .1, dirt=1, grime=0)
     dial = mat("mostrador", (.5,.46,.36), 0, .6, dirt=.6, grime=0)
-    tube = mat("valvula_ambar", (1,.6,.25), emit=AMBAR, strength=14)
+    tube = mat("valvula_roxa", (.75,.55,1), emit=VIOLETA, strength=14)
     _flicker(tube, 14)
     arm = make_armature("gustavo_primarca")
     parts = body_parts(arm, pants, dark, coat, {"L": iron, "R": dark}, cuff=.07, sleeve_r=1.18, top_r=1.1,

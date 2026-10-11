@@ -5,6 +5,8 @@
 import sys, os, json, glob
 from PIL import Image, ImageDraw, ImageFilter
 src, dst = sys.argv[1], sys.argv[2]; ncol = int(sys.argv[3]) if len(sys.argv) > 3 else 40
+# cor do brilho dos emissivos (padrão: tom quente); ex.: 200,150,255 para o roxo do Primarca
+GLOW = [int(v) for v in sys.argv[4].split(",")] if len(sys.argv) > 4 else [255, 214, 150]
 meta = json.load(open(f"{src}/meta.json")); W, H = meta["frame_size"]; ax, ay = meta["anchor"]
 os.makedirs(dst, exist_ok=True)
 frames = {}; glows = {}
@@ -14,7 +16,7 @@ def glow_of(im2x):
     a = np.asarray(im2x).astype(np.float32)
     rgb, al = a[..., :3], a[..., 3]
     hot = ((al > 200) & (rgb.min(-1) > 215)).astype(np.float32)   # quase branco = emissivo estourado
-    col = np.where(hot[..., None] > 0, np.maximum(rgb, [255, 214, 150]) * [1, .95, .8], 0)  # tom quente
+    col = np.where(hot[..., None] > 0, np.maximum(rgb, GLOW) * ([1, .95, .8] if len(sys.argv) <= 4 else [1, 1, 1]), 0)  # tom quente
     def blur(x): return np.asarray(Image.fromarray(x.astype(np.uint8)).filter(ImageFilter.GaussianBlur(6))).astype(np.float32)
     m = blur(hot*255)
     c = np.stack([blur(col[..., k]*hot) for k in range(3)], -1)

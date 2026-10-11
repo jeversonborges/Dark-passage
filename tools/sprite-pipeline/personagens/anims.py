@@ -201,3 +201,93 @@ def humano_dual_anims(arm):
                                       "root": (0, 0, h)}))
     acts["dash"] = make_action(arm, "dash", dash)
     return acts, {"shoot": [k[5] for k in K]}
+
+FLY_H = .3   # altura do voo (m); a sombra fica no chão, no ponto da âncora
+
+def _beat(p, down=.4):
+    """Batida de asa com ritmo de verdade: descida rápida (força) e subida lenta. p em voltas (0..1).
+    Devolve (posição -1..1 com 1 = no alto, velocidade da descida 0..1)."""
+    p %= 1
+    if p < down: return math.cos(math.pi*p/down), math.sin(math.pi*p/down)
+    return math.cos(math.pi + math.pi*(p - down)/(1 - down)), 0.0
+
+def _wings(p, amp=30, open_=30, sweep=0, down=.4):
+    """Asas abertas batendo. Na descida elas varrem para frente e abrem tudo; na subida recolhem um pouco
+    (como um pássaro) e a ponta chega atrasada."""
+    f, push = _beat(p, down); g, _ = _beat(p - .06, down)
+    tuck = 10*(1 - push)*(f < .9)
+    o = open_ - tuck
+    return {"wing.L": {"y": -amp*g - o*.6, "z": 12 - o + sweep - 8*push},
+            "wing.R": {"y": amp*g + o*.6, "z": -12 + o - sweep + 8*push}}
+
+def _wings_at(f, amp, open_, push=0):
+    """Asas numa posição fixa da batida (f: 1 = no alto, -1 = embaixo), para golpes com tempo próprio."""
+    return {"wing.L": {"y": -amp*f - open_*.6, "z": 12 - open_ - 8*push},
+            "wing.R": {"y": amp*f + open_*.6, "z": -12 + open_ + 8*push}}
+
+def _lift(p, down=.4):
+    """Sobe e desce do corpo: a descida da asa empurra o corpo para cima um pouco depois."""
+    return math.sin(2*math.pi*(p - down*.9) + math.pi/2)
+
+def _dangle(p, lean=0, amp=1):
+    """Pernas soltas no ar, com atraso em relação ao corpo (peso e follow-through)."""
+    s = _lift(p - .12)*amp; s2 = _lift(p - .2)*amp
+    return {"thigh.L": {"x": -10 - 5*s + lean}, "shin.L": {"bend": 28 + 8*s2}, "foot.L": {"x": 22 + 6*s2},
+            "thigh.R": {"x": -2 - 4*s + lean}, "shin.R": {"bend": 42 + 9*s2}, "foot.R": {"x": 26 + 6*s2}}
+
+def flyer_anims(arm, extra=None):
+    """Personagens com asas (Anjo, Demônio): pairam no ar como no MU Online, batendo as asas."""
+    base = merge(ARMS_DOWN, {"forearm.R": {"bend": -8}, "upper_arm.R": {"x": 4, "y": -6}, "hand.R": {"bend": 32}})
+    idle = []
+    for i in range(12):   # pairando: 1 batida por segundo, corpo e membros respondem com atraso
+        p = i/12; b = _lift(p); b1 = _lift(p - .08); b2 = _lift(p - .16)
+        idle.append(merge(base, _wings(p), _dangle(p), {
+            "hips": {"x": 9, "z": 2*math.sin(2*math.pi*p)}, "spine": {"x": 3 - 1.5*b1}, "chest": {"x": 2 + 2*b1},
+            "neck": {"x": -5 - 1.5*b2}, "head": {"x": -6 - 2.5*b2},
+            "upper_arm.L": {"x": -4*b2, "y": -5 - 2*b1}, "forearm.L": {"bend": -14 - 6*b2},
+            "upper_arm.R": {"x": 3*b2, "y": -1*b1}, "forearm.R": {"bend": -4*b2}, "hand.R": {"bend": 4*b2},
+            "root": (0, 0, FLY_H + .05*b)}))
+    walk = []
+    for i in range(12):   # voando para frente: corpo inclinado, pernas arrastando atrás, batidas mais fortes
+        p = i/12; b = _lift(p, .35); b1 = _lift(p - .08, .35); b2 = _lift(p - .16, .35)
+        walk.append(merge(base, _wings(p, 36, 24, 10, .35), _dangle(p, 8, 1.3), {
+            "hips": {"x": 18, "z": 3*math.sin(2*math.pi*p)}, "spine": {"x": 6 - 2*b1, "z": -2*math.sin(2*math.pi*p)},
+            "chest": {"x": 4 + 2.5*b1}, "neck": {"x": -12}, "head": {"x": -16 - 2*b2},
+            "upper_arm.L": {"x": 26 + 6*b2, "y": -6 - 3*b1}, "forearm.L": {"bend": -18 - 8*b2},
+            "upper_arm.R": {"x": 18 + 5*b2, "y": 4}, "forearm.R": {"bend": -14 - 6*b2}, "hand.R": {"bend": 10 + 5*b2},
+            "root": (0, 0, FLY_H + .06*b)}))
+    # ataque no ar: recolhe e sobe com as asas abertas, desce o golpe junto com uma batida forte,
+    # passa do ponto e volta a pairar com as asas ainda abertas
+    KEYS = [  # (tempo, braço dir x, z, antebraço, tronco z, coluna x, asas abertas, avanço, asa (1 alto, -1 baixo), altura extra)
+        (0.00, -30, 0, -55, -8, 0, 30, 0, .3, 0),
+        (0.16, -110, 22, -85, -26, 6, 40, -.2, .8, .06),
+        (0.30, -180, 18, -100, -40, 9, 50, -.3, 1.1, .11),
+        (0.36, -172, 14, -96, -38, 8, 52, -.25, 1.15, .12),
+        (0.44, -110, -10, -30, 0, -8, 48, .5, .3, .06),
+        (0.50, -45, -38, -4, 34, -18, 44, 1, -.45, -.01),
+        (0.58, -12, -52, -2, 46, -22, 40, 1.12, -.6, -.04),
+        (0.70, -16, -40, -12, 36, -15, 36, .95, -.3, -.03),
+        (0.84, -20, -16, -26, 14, -6, 32, .45, .1, 0),
+        (1.00, -30, 0, -55, -8, 0, 30, 0, .3, 0),
+    ]
+    def sample(t):
+        for (t0, *a), (t1, *b) in zip(KEYS, KEYS[1:]):
+            if t <= t1:
+                u = (t - t0)/(t1 - t0); u = u*u*(3 - 2*u)
+                return [x + (y - x)*u for x, y in zip(a, b)]
+        return KEYS[-1][1:]
+    attack = []
+    for i in range(16):
+        ax, az, fb, cz, sx, wg, lg, wf, h = sample(i/16)
+        _, axp, azp, fbp, *_r = sample(max(0, i - 1)/16)
+        wfp = sample(max(0, i - 1)/16)[7]; push = max(0, min(1, (wfp - wf)*1.5))
+        attack.append(merge(ARMS_DOWN, _wings_at(wf, 32, wg, push), _dangle(i/16 + .3, 12*lg, .8), {
+            "upper_arm.R": {"y": 34, "x": ax, "z": az}, "forearm.R": {"bend": fb}, "hand.R": {"bend": -.15*fbp},
+            "upper_arm.L": {"x": -15*lg, "y": -10*max(lg, 0)}, "forearm.L": {"bend": -30*max(lg, 0) - 10},
+            "chest": {"z": cz}, "spine": {"x": -.7*sx, "z": cz*.4}, "head": {"z": -cz*.45, "x": sx*.4 - 6},
+            "hips": {"x": 9 + 8*max(lg, 0), "z": cz*.15}, "neck": {"x": -4},
+            "root": (0, -.1*lg, FLY_H + h)}))
+    if extra:
+        idle, walk, attack = ([merge(f, extra) for f in L_] for L_ in (idle, walk, attack))
+    return {"idle": make_action(arm, "idle", idle), "walk": make_action(arm, "walk", walk),
+            "attack": make_action(arm, "attack", attack)}

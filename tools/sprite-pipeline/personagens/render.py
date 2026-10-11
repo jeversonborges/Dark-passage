@@ -11,8 +11,9 @@ import classes, anims
 from classes2 import *  # demonio, cultista, mutante, tecnomancer
 import classes2
 for _k in ("demonio", "cultista", "mutante", "tecnomancer"): setattr(classes, _k, getattr(classes2, _k))
-import gustavo  # NPC: Gustavo, o Primarca
-classes.gustavo_primarca = gustavo.gustavo_primarca
+import classes3; classes.mutante = classes3.mutante
+import turret; classes.torreta = turret.torreta
+import gustavo; classes.gustavo_primarca = gustavo.gustavo_primarca  # NPC: Gustavo, o Primarca
 sc = bpy.context.scene
 
 PX = 192           # tamanho final do quadro (renderiza em 2x)
@@ -23,10 +24,12 @@ DIRS = ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]  # direção para onde o per
 
 arm, info = getattr(classes, kind)()
 style = info.get("anim", "melee"); flash = info.get("flash"); flash_frames = None
-if style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
+if kind == "torreta": acts = turret.torreta_anims(arm)
+elif style == "primarca": acts = gustavo.primarca_anims(arm)
+elif kind in ("anjo", "demonio"): acts = anims.flyer_anims(arm, info.get("extra"))
+elif style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
 elif style == "gun": acts, flash_frames = anims.humano_anims(arm, flash)
 elif style == "dual": acts, flash_frames = anims.humano_dual_anims(arm)
-elif style == "primarca": acts = gustavo.primarca_anims(arm)
 else: acts, flash_frames = anims.caster_anims(arm, info.get("extra"), info.get("hold_extra"))
 if flash and not flash_frames: flash_frames = [0]*8
 if flash and not isinstance(flash_frames, dict): flash_frames = {"attack": flash_frames}
@@ -60,8 +63,8 @@ for name, act in acts.items():
     n = int(act.frame_range[1])
     frames = range(1, n+1)
     dirs = range(8)
-    if test: frames, dirs = ((list(range(1, n+1)), [1]) if argv[2] == "se" else ([1, n//2 + 1] if name != "idle" else [], [0, 1, 3]))
-    meta["anims"][name] = {"frames": n, "fps": round({"idle": 4*n/4 if n <= 4 else 6, "walk": 10*n/8, "attack": 12*n/8, "shoot": 12, "spin": 14, "dash": 18}[name]),
+    if test: frames, dirs = ((list(range(1, n+1)), [int(os.environ.get("DIR", 1))]) if argv[2] == "se" else ([1, n//2 + 1] if name != "idle" else [], [0, 1, 3]))
+    meta["anims"][name] = {"frames": n, "fps": round({"idle": 4 if n == 4 else (6 if style == "primarca" else 12), "walk": 10*n/8 if kind not in ("anjo", "demonio") else 16, "attack": 12*n/8, "shoot": 12, "spin": 14, "dash": 18}[name]),
                            "loop": name not in ("attack", "shoot", "spin", "dash")}
     for f in frames:
         sc.frame_set(f)
