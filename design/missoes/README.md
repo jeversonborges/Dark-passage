@@ -2,7 +2,7 @@
 
 Primeiro pacote de conteúdo da **Paróquia de São Lázaro** (área inicial, nível 1 a 8) e da dungeon **Cripta da Trombeta Calada** (nível 6 a 12, 3 chefes nos níveis 8, 10 e 12).
 
-- `historia.md`: a lore (o que aconteceu, as bases, o coveiro, os chefes, o arco do jogador, o tom de escrita).
+- `historia.md`: a Bíblia do Impasse (mote, calendário, Sete Trombetas, facções como instituições, a regra das vozes) e a lore (o que aconteceu, as bases, o coveiro, os chefes, o arco do jogador, o tom de escrita).
 - `dados/`: tudo em JSON para o jogo ler direto.
 - `validar.py`: confere se todas as referências entre os arquivos batem. Rode depois de qualquer edição: `python3 validar.py`.
 
@@ -18,6 +18,7 @@ Primeiro pacote de conteúdo da **Paróquia de São Lázaro** (área inicial, n�
 | `itens.json` | 56 itens: de missão, consumíveis, textos de leitura e equipamentos com nome |
 | `objetos.json` | Objetos interativos e baús de história (inclui 3 baús de chefe e 1 baú amaldiçoado) |
 | `lojas.json` | Estoque de história das lojas, ferreiros e treinador |
+| `citacoes.json` | 40 citações assinadas para a tela de carregamento (`faccao`: ambas, vigilia ou arautos) |
 
 Números de combate (HP, dano, IA) e tabelas de drop genéricas não estão aqui: são da thread de combate e do sistema de loot. Os atributos dos equipamentos são sugestões.
 
@@ -74,3 +75,11 @@ Os ids de spot são os da Level design (`design/mapas/spots.json`). Os marcados 
 **Facção:** NPCs da Vigília só conversam com jogadores da Vigília e os dos Arautos só com Arautos. Simão e Frei Anacleto falam com os dois. Os monstros `patrulha_arauto` e `patrulha_vigilia` só aparecem para a facção inimiga.
 
 **Flags que ficam para o futuro:** `bocal_destruido`, `bocal_estudo_vigilia`, `bocal_anjos`, `bocal_demonios`, `lucio_denunciado`.
+
+## Como os textos são contados (v0.4)
+
+Regra da `historia.md` seção 7: nenhum texto do jogo é narrado por ninguém. Todo texto tem autor, data e lado.
+
+- **Missões:** `descricao` é um documento do mundo. Primeira linha em maiúsculas (formato, número, data), depois o texto, e a última linha é a assinatura começando com "— ". O cliente pode destacar a primeira linha e pôr a assinatura em itálico.
+- **Itens:** `citacao {texto, autor}` é uma linha assinada mostrada em itálico abaixo da descrição técnica. O gerador `design/skills-itens/fontes/gerar_json.py` repassa o campo.
+- **Monstros:** `registros` é uma lista de `{fonte, titulo, texto}`, com `fonte` igual a `caderno_coveiro`, `despacho_vela` ou `versiculo_coro`. A Vigília vê o despacho, os Arautos veem o versículo e todos veem o Caderno do Coveiro. As fontes se contradizem de propósito.

@@ -97,6 +97,7 @@ for m in mis:
     mot, tint, em, grade = I.MISSOES[m["id"]]
     nome = m["nome"]
     d = {"id": m["id"], "nome": nome, "fonte": "design/missoes/dados/itens.json", "motivo": mot, "tint": tint, "emissivo": em, "grade": grade}
+    if "citacao" in m: d["citacao"] = m["citacao"]
     if m["tipo"] == "equipamento":
         rar = I.RARIDADE_MISSAO[m["raridade"]]; tags = []
         if m["id"] in em_pool:
