@@ -70,6 +70,9 @@ func _ready() -> void:
 			roteiro.append([0.3, "skill_area", Vector2(1, 0), true])
 			roteiro.append([1.2, "foto", "l_com_bichos"])
 			roteiro.append([0.3, "fim", ""])
+		"voo":   # personagem parado e andando de perto, num descampado (prova das folhas novas)
+			roteiro = [[2.0, "ir", Vector2(70, 92)], [0.2, "zoom", 1.8], [1.5, "foto", "v1_parado"], [0.35, "foto", "v2_parado"],
+				[0.1, "mover", Vector2(76, 92)], [0.5, "foto", "v3_andando"], [0.25, "foto", "v4_andando"], [2.5, "mover", Vector2(70, 98)], [0.6, "foto", "v5_andando"], [0.3, "fim", ""]]
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 

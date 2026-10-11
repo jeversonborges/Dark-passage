@@ -10,7 +10,7 @@ cp $P/design/combate/*.json $D/combate/
 cp $P/design/missoes/dados/*.json $D/missoes/
 cp $P/design/skills-itens/itens.json $P/design/skills-itens/skills.json $D/skills-itens/
 # personagens: só as folhas e o manifesto
-for c in $P/assets/personagens/*/; do n=$(basename $c); mkdir -p $E/personagens/$n
+for c in $P/assets/personagens/*/; do [ -f $c/sprites.json ] || continue; n=$(basename $c); mkdir -p $E/personagens/$n
   cp $c/sprites.json $E/personagens/$n/
   for f in $(python3 -c "import json,sys;print(' '.join(v['file'] for v in json.load(open(sys.argv[1]))['anims'].values()))" $c/sprites.json); do cp $c/$f $E/personagens/$n/; done; done
 # monstros: folhas + meta
