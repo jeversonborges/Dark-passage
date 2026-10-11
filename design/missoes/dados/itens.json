@@ -13,21 +13,33 @@
       "nome": "Bobina de Cobre",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Cobre de bonde enrolado à mão. Os corvos acham que é joia. O Doutor Anselmo acha que é vida."
+      "descricao": "Cobre de bonde enrolado à mão. Os corvos acham que é joia. O Doutor Anselmo acha que é vida.",
+      "citacao": {
+        "texto": "Cobre não reza. Mas segura a luz melhor que muita oração.",
+        "autor": "Dr. Anselmo Graxa"
+      }
     },
     {
       "id": "pena_querubim",
       "nome": "Pena de Querubim",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Pena branca e suja, longa como um braço. Ainda morna. Os corvos arrancam dos anjos caídos nos campos."
+      "descricao": "Pena branca e suja, longa como um braço. Ainda morna. Os corvos arrancam dos anjos caídos nos campos.",
+      "citacao": {
+        "texto": "Ainda morna. O Céu esfria devagar.",
+        "autor": "Abdiel"
+      }
     },
     {
       "id": "dente_vala",
       "nome": "Dente de Vala",
       "tipo": "missao",
       "pilha": 50,
-      "descricao": "Dente amarelo de um Cão de Vala. Malfas aceita como moeda: diz que cada dente mordeu uma alma."
+      "descricao": "Dente amarelo de um Cão de Vala. Malfas aceita como moeda: diz que cada dente mordeu uma alma.",
+      "citacao": {
+        "texto": "Cada dente mordeu alguém. Eu cobro por mordida.",
+        "autor": "Malfas"
+      }
     },
     {
       "id": "raiz_cova",
@@ -49,7 +61,11 @@
       "nome": "Medalhinha de Joaquim",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Medalha de batismo de latão, amassada, presa num lenço florido. No verso: 'Joaquim, que a mãe te guarde'."
+      "descricao": "Medalha de batismo de latão, amassada, presa num lenço florido. No verso: 'Joaquim, que a mãe te guarde'.",
+      "citacao": {
+        "texto": "Que a mãe te guarde. Ela tentou.",
+        "autor": "inscrição no verso"
+      }
     },
     {
       "id": "sebo_rancoso",
@@ -78,35 +94,55 @@
       "tipo": "missao",
       "pilha": 1,
       "leitura": "leitura_obitos",
-      "descricao": "Livro-razão do coveiro, roubado do cemitério. Nas últimas páginas a letra muda: vira a letra de um comerciante."
+      "descricao": "Livro-razão do coveiro, roubado do cemitério. Nas últimas páginas a letra muda: vira a letra de um comerciante.",
+      "citacao": {
+        "texto": "Quem escreve o nome dos mortos acaba sabendo demais.",
+        "autor": "Caderno do Coveiro"
+      }
     },
     {
       "id": "chave_gancho",
       "nome": "Chave de Gancho",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Chave de ferro em forma de gancho de carne, presa a um chaveiro de couro com o nome CARNIÇA. Abre a porta do porão."
+      "descricao": "Chave de ferro em forma de gancho de carne, presa a um chaveiro de couro com o nome CARNIÇA. Abre a porta do porão.",
+      "citacao": {
+        "texto": "CARNIÇA · DESDE 1871 · NINGUÉM PASSA FOME",
+        "autor": "inscrição no chaveiro"
+      }
     },
     {
       "id": "lacre_carne",
       "nome": "Lacre de Carne",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "O primeiro dos dois lacres que trancam a porta da câmara da trombeta. Estava pregado no mastro do estandarte de Andras. Cera vermelha que pulsa como músculo."
+      "descricao": "O primeiro dos dois lacres que trancam a porta da câmara da trombeta. Estava pregado no mastro do estandarte de Andras. Cera vermelha que pulsa como músculo.",
+      "citacao": {
+        "texto": "Pulsa. Ninguém consegue dizer se é dele ou se é seu.",
+        "autor": "Fr. Anacleto"
+      }
     },
     {
       "id": "lacre_lagrimas",
       "nome": "Lacre de Lágrimas",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "O segundo lacre da porta da câmara. Cera clara, sempre úmida. Se você encostar no ouvido, alguém está chorando."
+      "descricao": "O segundo lacre da porta da câmara. Cera clara, sempre úmida. Se você encostar no ouvido, alguém está chorando.",
+      "citacao": {
+        "texto": "Encoste no ouvido. Ela ainda está cantando.",
+        "autor": "Fr. Anacleto"
+      }
     },
     {
       "id": "bocal_trombeta",
       "nome": "Bocal da Quinta Trombeta",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "O bocal da trombeta de São Lázaro, ainda tampado pelo lacre de chumbo da Vigília. Vibra em silêncio, como se prendesse a respiração."
+      "descricao": "O bocal da trombeta de São Lázaro, ainda tampado pelo lacre de chumbo da Vigília. Vibra em silêncio, como se prendesse a respiração.",
+      "citacao": {
+        "texto": "Não sopre. Nem para ver.",
+        "autor": "Dr. Anselmo Graxa, à margem do caderno"
+      }
     },
     {
       "id": "carta_lucio",
@@ -129,21 +165,33 @@
       "nome": "Relicário Vazio",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Relicário de prata escurecida. Devia guardar um osso de São Lázaro. Está vazio, e o Irmão Lúcio sabe por quê."
+      "descricao": "Relicário de prata escurecida. Devia guardar um osso de São Lázaro. Está vazio, e o Irmão Lúcio sabe por quê.",
+      "citacao": {
+        "texto": "Os ossos de Lázaro não estão em relicário nenhum. O dono ainda está usando.",
+        "autor": "Malfas"
+      }
     },
     {
       "id": "pa_simao",
       "nome": "Pá do Coveiro",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "A pá de Simão. O cabo foi trocado mil vezes; a lâmina, nunca."
+      "descricao": "A pá de Simão. O cabo foi trocado mil vezes; a lâmina, nunca.",
+      "citacao": {
+        "texto": "O cabo foi trocado mil vezes. A lâmina, nunca. Nem o coveiro.",
+        "autor": "Caderno do Coveiro"
+      }
     },
     {
       "id": "caixinha_musica",
       "nome": "Caixinha de Música Amassada",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Caixinha de latão com uma bailarina sem cabeça. Toca três notas de uma canção de ninar e trava. Tobias diz que era da mãe dele, e depois diz que é mentira."
+      "descricao": "Caixinha de latão com uma bailarina sem cabeça. Toca três notas de uma canção de ninar e trava. Tobias diz que era da mãe dele, e depois diz que é mentira.",
+      "citacao": {
+        "texto": "Três notas. A quarta ficou com a minha irmã.",
+        "autor": "Tobias 'Pavio'"
+      }
     },
     {
       "id": "pao_duro",
@@ -155,7 +203,11 @@
         "duracao_s": 10
       },
       "preco": 8,
-      "descricao": "Pão de centeio de três dias. Mãe Cardo jura que tem fermento. Cura devagar."
+      "descricao": "Pão de centeio de três dias. Mãe Cardo jura que tem fermento. Cura devagar.",
+      "citacao": {
+        "texto": "Tem fermento. Eu juro pela minha mão boa.",
+        "autor": "Mãe Cardo"
+      }
     },
     {
       "id": "agua_doce",
@@ -167,7 +219,11 @@
         "remove": "amargo"
       },
       "preco": 20,
-      "descricao": "Água sem Amargo, filtrada no carvão da Vela ou destilada do orvalho dos vidros. No deserto de Absinto, vale mais que pão. Limpa o efeito Amargo das tempestades."
+      "descricao": "Água sem Amargo, filtrada no carvão da Vela ou destilada do orvalho dos vidros. No deserto de Absinto, vale mais que pão. Limpa o efeito Amargo das tempestades.",
+      "citacao": {
+        "texto": "A água mais cara do deserto é a que não tem gosto de nada.",
+        "autor": "pichado no muro da estação"
+      }
     },
     {
       "id": "tonico_graxa",
@@ -179,7 +235,11 @@
         "cura_hp": 120
       },
       "preco": 25,
-      "descricao": "Garrafinha de vidro azul com um líquido que formiga. Rótulo: 'Agite. Não pergunte.'"
+      "descricao": "Garrafinha de vidro azul com um líquido que formiga. Rótulo: 'Agite. Não pergunte.'",
+      "citacao": {
+        "texto": "Agite. Não pergunte.",
+        "autor": "rótulo"
+      }
     },
     {
       "id": "hostia_negra",
@@ -191,7 +251,11 @@
         "cura_hp": 120
       },
       "preco": 25,
-      "descricao": "Hóstia de pão queimado com uma gota do sangue da Madre. Desce amarga e fecha as feridas."
+      "descricao": "Hóstia de pão queimado com uma gota do sangue da Madre. Desce amarga e fecha as feridas.",
+      "citacao": {
+        "texto": "Desce amarga. Como tudo que salva.",
+        "autor": "Ivone das Chagas"
+      }
     },
     {
       "id": "vela_simao",
@@ -203,7 +267,11 @@
         "duracao_s": 30
       },
       "preco": 15,
-      "descricao": "Vela amarela e fedorenta. Enquanto ela queima, os Não-Julgados abaixam a cabeça e deixam você passar, e a poeira de Amargo assenta em volta da chama."
+      "descricao": "Vela amarela e fedorenta. Enquanto ela queima, os Não-Julgados abaixam a cabeça e deixam você passar, e a poeira de Amargo assenta em volta da chama.",
+      "citacao": {
+        "texto": "Enquanto ela queima, os mortos lembram de ter educação.",
+        "autor": "Caderno do Coveiro"
+      }
     },
     {
       "id": "agua_benta_polvora",
@@ -219,7 +287,11 @@
         "elemento": "sagrado_fogo"
       },
       "preco": 30,
-      "descricao": "Frasco de água benta com pólvora preta e um pavio. Gaspar chama de 'bênção expressa'."
+      "descricao": "Frasco de água benta com pólvora preta e um pavio. Gaspar chama de 'bênção expressa'.",
+      "citacao": {
+        "texto": "Bênção expressa. Acenda e reze rápido.",
+        "autor": "Gaspar Bigorna"
+      }
     },
     {
       "id": "caldo_cardo_comum",
@@ -235,7 +307,11 @@
         }
       },
       "preco": 12,
-      "descricao": "A sopa do caldeirão. Ninguém sabe o que tem, mas quem toma levanta mais forte."
+      "descricao": "A sopa do caldeirão. Ninguém sabe o que tem, mas quem toma levanta mais forte.",
+      "citacao": {
+        "texto": "Não pergunte o que tem. Pergunte se quer mais.",
+        "autor": "Mãe Cardo"
+      }
     },
     {
       "id": "figo_anacleto",
@@ -245,7 +321,11 @@
       "efeito": {
         "cura_hp_pct": 100
       },
-      "descricao": "Um figo seco de trezentos anos, guardado no hábito de um monge emparedado para comer no dia do Juízo. Recupera toda a vida. Tem gosto de poeira e de paciência."
+      "descricao": "Um figo seco de trezentos anos, guardado no hábito de um monge emparedado para comer no dia do Juízo. Recupera toda a vida. Tem gosto de poeira e de paciência.",
+      "citacao": {
+        "texto": "Guardei para o Juízo. O Juízo não tem fome.",
+        "autor": "Fr. Anacleto"
+      }
     },
     {
       "id": "leitura_obitos",
@@ -311,7 +391,11 @@
       "atributos": {
         "vit": 2
       },
-      "descricao": "Braçadeira azul aço com uma vela bordada dentro de uma engrenagem. Odete costura uma para cada recruta e não cobra."
+      "descricao": "Braçadeira azul aço com uma vela bordada dentro de uma engrenagem. Odete costura uma para cada recruta e não cobra.",
+      "citacao": {
+        "texto": "Costurada com a mesma linha dos mortos. Economize as duas.",
+        "autor": "Capitã Odete Ferrolho"
+      }
     },
     {
       "id": "fita_juizo",
@@ -324,7 +408,11 @@
       "atributos": {
         "esp": 2
       },
-      "descricao": "Fita vermelha com a trombeta partida pintada em ouro sujo. A Madre amarra no pulso de cada irmão com um nó que ninguém sabe desfazer."
+      "descricao": "Fita vermelha com a trombeta partida pintada em ouro sujo. A Madre amarra no pulso de cada irmão com um nó que ninguém sabe desfazer.",
+      "citacao": {
+        "texto": "O nó aperta para lembrar. Quem esquece, sangra.",
+        "autor": "Ivone das Chagas"
+      }
     },
     {
       "id": "escopeta_badalada",
@@ -343,7 +431,11 @@
         ],
         "agi": 3
       },
-      "descricao": "Escopeta de cano duplo com balas fundidas dos sinos de São Lázaro. Cada disparo soa como uma badalada distante."
+      "descricao": "Escopeta de cano duplo com balas fundidas dos sinos de São Lázaro. Cada disparo soa como uma badalada distante.",
+      "citacao": {
+        "texto": "Cada bala aqui já foi sino. Ainda toca quando sai.",
+        "autor": "Gaspar Bigorna, sineiro"
+      }
     },
     {
       "id": "machado_bonde",
@@ -362,7 +454,11 @@
         ],
         "for": 3
       },
-      "descricao": "A placa da linha 7 dos bondes, afiada e presa num cabo de trilho. Ainda dá para ler: PARÓQUIA — ESTAÇÃO."
+      "descricao": "A placa da linha 7 dos bondes, afiada e presa num cabo de trilho. Ainda dá para ler: PARÓQUIA — ESTAÇÃO.",
+      "citacao": {
+        "texto": "PARÓQUIA — ESTAÇÃO. A linha 7 não para. Só mudou de direção.",
+        "autor": "inscrição"
+      }
     },
     {
       "id": "cajado_lampiao",
@@ -381,7 +477,11 @@
         ],
         "esp": 4
       },
-      "descricao": "Um poste de gás desmontado com uma lâmpada de arco na ponta, alimentado por fios que descem até a mochila. Feito com sobras da Vela."
+      "descricao": "Um poste de gás desmontado com uma lâmpada de arco na ponta, alimentado por fios que descem até a mochila. Feito com sobras da Vela.",
+      "citacao": {
+        "texto": "Luz roubada da Vela. Devolva acesa.",
+        "autor": "Dr. Anselmo Graxa"
+      }
     },
     {
       "id": "espada_escudeiro",
@@ -401,7 +501,11 @@
         "esp": 2,
         "for": 2
       },
-      "descricao": "A espada que Abdiel carregava quando era escudeiro de Zacarias. Ele não a usa desde a noite em que não desceu."
+      "descricao": "A espada que Abdiel carregava quando era escudeiro de Zacarias. Ele não a usa desde a noite em que não desceu.",
+      "citacao": {
+        "texto": "E o escudeiro guardou a espada, porque seu senhor não subiu.",
+        "autor": "Versículo do Coro, Livro da Retirada"
+      }
     },
     {
       "id": "foice_penhor",
@@ -420,7 +524,11 @@
         ],
         "for": 3
       },
-      "descricao": "Foice que Malfas aceitou como pagamento de uma dívida de alma. A etiqueta de penhor ainda está amarrada no cabo, com um nome riscado."
+      "descricao": "Foice que Malfas aceitou como pagamento de uma dívida de alma. A etiqueta de penhor ainda está amarrada no cabo, com um nome riscado.",
+      "citacao": {
+        "texto": "Vencida e não paga. A alma do antigo dono ainda vem buscar de vez em quando.",
+        "autor": "Malfas"
+      }
     },
     {
       "id": "adaga_chaga",
@@ -439,7 +547,11 @@
         ],
         "esp": 4
       },
-      "descricao": "Adaga ritual curva que a Madre Ivone usa para abrir as próprias palmas. Ela tem outra igual."
+      "descricao": "Adaga ritual curva que a Madre Ivone usa para abrir as próprias palmas. Ela tem outra igual.",
+      "citacao": {
+        "texto": "Uma para as palmas. A outra eu não conto.",
+        "autor": "Ivone das Chagas"
+      }
     },
     {
       "id": "badalo_de_guerra",
@@ -454,7 +566,11 @@
         "for": 2
       },
       "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
-      "descricao": "Gaspar fundiu um pedaço do último badalo num amuleto. Disse que um sino de São Lázaro ainda tinha que tocar uma vez."
+      "descricao": "Gaspar fundiu um pedaço do último badalo num amuleto. Disse que um sino de São Lázaro ainda tinha que tocar uma vez.",
+      "citacao": {
+        "texto": "Um sino de São Lázaro ainda tem uma badalada para dar.",
+        "autor": "Gaspar Bigorna"
+      }
     },
     {
       "id": "lenco_cardo",
@@ -468,7 +584,11 @@
         "hp": 40
       },
       "efeito": "Comida e sopas curam 25% a mais.",
-      "descricao": "O lenço que Joaquim usava no pescoço, igual ao da mãe. Mãe Cardo lavou, passou e deu para você."
+      "descricao": "O lenço que Joaquim usava no pescoço, igual ao da mãe. Mãe Cardo lavou, passou e deu para você.",
+      "citacao": {
+        "texto": "Lavado, passado e dobrado. Como se ele fosse voltar.",
+        "autor": "Mãe Cardo"
+      }
     },
     {
       "id": "terco_lucio",
@@ -483,7 +603,11 @@
         "agi": 2
       },
       "efeito": "Cura recebida aumenta 10%.",
-      "descricao": "Terço de contas de osso que Lúcio quebrou ao meio. Ficou com uma metade e mandou a outra para a irmã."
+      "descricao": "Terço de contas de osso que Lúcio quebrou ao meio. Ficou com uma metade e mandou a outra para a irmã.",
+      "citacao": {
+        "texto": "Meio terço reza meia oração. Já é mais do que a Madre reza.",
+        "autor": "Lúcio"
+      }
     },
     {
       "id": "selo_madre",
@@ -498,7 +622,11 @@
         "vit": 1
       },
       "efeito": "Dano contra jogadores e NPCs da Vigília aumenta 5%.",
-      "descricao": "Anel de ferro com a trombeta partida. A Madre dá a quem prova que a fé está acima do sangue. Pesa mais do que parece."
+      "descricao": "Anel de ferro com a trombeta partida. A Madre dá a quem prova que a fé está acima do sangue. Pesa mais do que parece.",
+      "citacao": {
+        "texto": "A fé está acima do sangue. Acima do seu, inclusive.",
+        "autor": "Ivone das Chagas"
+      }
     },
     {
       "id": "dragonas_general",
@@ -513,7 +641,11 @@
         "for": 2
       },
       "efeito": "Matar um inimigo recupera 3% do HP.",
-      "descricao": "A casaca de oficial da Legião Blasfema que Andras usava, cortada na cintura onde o bonde passou. As dragonas ainda brilham em brasa."
+      "descricao": "A casaca de oficial da Legião Blasfema que Andras usava, cortada na cintura onde o bonde passou. As dragonas ainda brilham em brasa.",
+      "citacao": {
+        "texto": "A Andras, até o fim. O fim chegou na cintura.",
+        "autor": "Despacho da Vela, arquivo da Grande Batalha"
+      }
     },
     {
       "id": "veu_carpideira",
@@ -527,7 +659,11 @@
         "esp": 5
       },
       "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
-      "descricao": "Renda negra presa com pregos de caixão. Ainda úmida de lágrimas de cera."
+      "descricao": "Renda negra presa com pregos de caixão. Ainda úmida de lágrimas de cera.",
+      "citacao": {
+        "texto": "Dorme, que o Juízo tarda.",
+        "autor": "Hino das Carpideiras"
+      }
     },
     {
       "id": "estilhaco_lacre",
@@ -542,7 +678,11 @@
         "esp": 3
       },
       "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
-      "descricao": "Um pedaço do lacre de chumbo que calou a quinta trombeta, recuperado das cinzas quando Odete esmagou o bocal. Quente para sempre."
+      "descricao": "Um pedaço do lacre de chumbo que calou a quinta trombeta, recuperado das cinzas quando Odete esmagou o bocal. Quente para sempre.",
+      "citacao": {
+        "texto": "Três segundos entre o sopro e a nota. Foi o que bastou.",
+        "autor": "Dr. Anselmo Graxa"
+      }
     },
     {
       "id": "diapasao_reverso",
@@ -557,7 +697,11 @@
         "agi": 3
       },
       "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
-      "descricao": "Anselmo desmontou o bocal e afinou um diapasão com o metal dele. Diz que é o primeiro passo de uma trombeta que toca ao contrário."
+      "descricao": "Anselmo desmontou o bocal e afinou um diapasão com o metal dele. Diz que é o primeiro passo de uma trombeta que toca ao contrário.",
+      "citacao": {
+        "texto": "Se uma nota abriu o mundo, outra pode fechar. Ainda estou procurando qual.",
+        "autor": "Dr. Anselmo Graxa"
+      }
     },
     {
       "id": "pena_zacarias",
@@ -572,7 +716,11 @@
         "vit": 3
       },
       "efeito": "Curas e escudos que você lança são 12% mais fortes. Ao morrer, uma vez a cada 10 min, volta com 20% de HP.",
-      "descricao": "Uma pena das seis asas do arauto. Abdiel a entregou de cabeça baixa: disse que era a última ordem que ele conseguia cumprir pelo mestre."
+      "descricao": "Uma pena das seis asas do arauto. Abdiel a entregou de cabeça baixa: disse que era a última ordem que ele conseguia cumprir pelo mestre.",
+      "citacao": {
+        "texto": "A última pena limpa do Coro. Foi de quem mais esperou.",
+        "autor": "Abdiel"
+      }
     },
     {
       "id": "etiqueta_branca",
@@ -587,7 +735,11 @@
         "agi": 4
       },
       "efeito": "Inimigos derrubados deixam 15% mais ouro. Roubo de vida de 4% em alvos abaixo de 30% de HP.",
-      "descricao": "Malfas arrancou uma etiqueta do próprio colar e escreveu nela só um traço. 'Um favor, qualquer um, cobrado quando eu quiser. Bom negócio pra nós dois.'"
+      "descricao": "Malfas arrancou uma etiqueta do próprio colar e escreveu nela só um traço. 'Um favor, qualquer um, cobrado quando eu quiser. Bom negócio pra nós dois.'",
+      "citacao": {
+        "texto": "Um favor, qualquer um. Depois a gente discute o preço.",
+        "autor": "Malfas"
+      }
     },
     {
       "id": "gancho_capataz",
@@ -610,7 +762,11 @@
         "for": 3
       },
       "efeito": "Golpes têm 10% de chance de puxar o alvo para perto.",
-      "descricao": "Um dos ganchos que o capataz usava no lugar das mãos, com uma luva de couro costurada para quem ainda tem mão."
+      "descricao": "Um dos ganchos que o capataz usava no lugar das mãos, com uma luva de couro costurada para quem ainda tem mão.",
+      "citacao": {
+        "texto": "Ele trocou as mãos por ganchos. Trabalhava melhor.",
+        "autor": "Caderno do Coveiro"
+      }
     },
     {
       "id": "estandarte_legiao",
@@ -635,7 +791,11 @@
         "vit": 3
       },
       "efeito": "Ataques causam sangramento. Ao matar um inimigo, ganha +5% de dano por 8 s (acumula 3 vezes).",
-      "descricao": "O estandarte partido do exército de Andras, com o mastro de ferro afiado na ponta. Os mortos ainda o reconhecem: às vezes, quando você o ergue, alguma coisa embaixo da terra tenta ficar em sentido."
+      "descricao": "O estandarte partido do exército de Andras, com o mastro de ferro afiado na ponta. Os mortos ainda o reconhecem: às vezes, quando você o ergue, alguma coisa embaixo da terra tenta ficar em sentido.",
+      "citacao": {
+        "texto": "Partido ao meio, como o general. Os dois continuam de pé.",
+        "autor": "Corvina"
+      }
     },
     {
       "id": "bacula_femur",
@@ -659,7 +819,11 @@
         "esp": 8
       },
       "efeito": "Ao matar um inimigo, um crânio canta e cura aliados próximos em 5% do HP.",
-      "descricao": "O báculo de regência da Irmã Celeste, feito do fêmur de um homem muito alto. Quem segura ouve, de vez em quando, o coro."
+      "descricao": "O báculo de regência da Irmã Celeste, feito do fêmur de um homem muito alto. Quem segura ouve, de vez em quando, o coro.",
+      "citacao": {
+        "texto": "Fêmur de um homem muito alto. Pergunte ao coveiro de quem.",
+        "autor": "Fr. Anacleto"
+      }
     },
     {
       "id": "halo_incandescente",
@@ -676,49 +840,77 @@
         "vit": 4
       },
       "efeito": "Emite luz própria em volta do personagem (raio pequeno). Não-Julgados e mortos-vivos recebem 15% a mais de dano seu.",
-      "descricao": "O halo inteiro de Zacarias, ainda em brasa. Queima o cabelo de quem usa, e ninguém que usou tirou por vontade própria."
+      "descricao": "O halo inteiro de Zacarias, ainda em brasa. Queima o cabelo de quem usa, e ninguém que usou tirou por vontade própria.",
+      "citacao": {
+        "texto": "Ninguém veio ninguém veio ninguém veio.",
+        "autor": "escrito na ordem de Zacarias"
+      }
     },
     {
       "id": "valvula_radio",
       "nome": "Válvula de Rádio",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Válvula de vidro de um rádio militar, ainda inteira. Os cães engolem qualquer coisa que brilhe na areia."
+      "descricao": "Válvula de vidro de um rádio militar, ainda inteira. Os cães engolem qualquer coisa que brilhe na areia.",
+      "citacao": {
+        "texto": "Vidro que ainda conversa. Melhor que muita gente.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "pagina_ordem",
       "nome": "Página da Ordem de Lançamento",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Folha de papel carbono amarelado, com carimbo do Comando Sul. As viúvas da vila militar guardam pedaços nas mortalhas, sem saber o que dizem."
+      "descricao": "Folha de papel carbono amarelado, com carimbo do Comando Sul. As viúvas da vila militar guardam pedaços nas mortalhas, sem saber o que dizem.",
+      "citacao": {
+        "texto": "LIDO E CONFIRMADO, 03H11.",
+        "autor": "carimbo do Comando Sul"
+      }
     },
     {
       "id": "amostra_amarga",
       "nome": "Amostra de Água Amarga",
       "tipo": "missao",
       "pilha": 5,
-      "descricao": "Frasco de água verde do Rio Amargo. O contador de Isaura estala só de chegar perto."
+      "descricao": "Frasco de água verde do Rio Amargo. O contador de Isaura estala só de chegar perto.",
+      "citacao": {
+        "texto": "A água lembra. Por isso ninguém gosta de beber.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "fragmento_clarao",
       "nome": "Fragmento de Clarão",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Lasca de pedra do muro onde uma sombra estava gravada. Por trás, a pedra é mais clara: ali a luz não chegou porque alguém estava na frente."
+      "descricao": "Lasca de pedra do muro onde uma sombra estava gravada. Por trás, a pedra é mais clara: ali a luz não chegou porque alguém estava na frente.",
+      "citacao": {
+        "texto": "A pedra é mais clara onde alguém estava.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "chave_lancamento",
       "nome": "Chave de Lançamento da Absinto-2",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Uma chave de latão num cordão de couro, ainda morna do peito do Sargento Brandão. Gira a segunda estrela."
+      "descricao": "Uma chave de latão num cordão de couro, ainda morna do peito do Sargento Brandão. Gira a segunda estrela.",
+      "citacao": {
+        "texto": "Ainda morna. Trinta e um anos no peito de um homem esperando ordem.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "insignia_arrancada",
       "nome": "Insígnia Arrancada",
       "tipo": "missao",
       "pilha": 10,
-      "descricao": "Divisa da Legião Blasfema arrancada de uma casaca de desertor. No verso, costurado à mão: 'A Andras, até o fim'."
+      "descricao": "Divisa da Legião Blasfema arrancada de uma casaca de desertor. No verso, costurado à mão: 'A Andras, até o fim'.",
+      "citacao": {
+        "texto": "A Andras, até o fim.",
+        "autor": "costura no verso"
+      }
     },
     {
       "id": "carta_apostata",
@@ -726,14 +918,22 @@
       "tipo": "missao",
       "pilha": 1,
       "leitura": "leitura_carta_apostata",
-      "descricao": "Carta lacrada com cera preta, achada com um Sangrador Apóstata. Fala de veneno, de um anjo e de um demônio para levar a culpa."
+      "descricao": "Carta lacrada com cera preta, achada com um Sangrador Apóstata. Fala de veneno, de um anjo e de um demônio para levar a culpa.",
+      "citacao": {
+        "texto": "Fé sem asa, fé sem chifre.",
+        "autor": "lema dos Apóstatas"
+      }
     },
     {
       "id": "meia_dragona",
       "nome": "Meia Dragona do General",
       "tipo": "missao",
       "pilha": 1,
-      "descricao": "Metade de uma dragona de general da Legião Blasfema, cortada reto, como por uma roda de ferro. Estava presa debaixo do bonde tombado."
+      "descricao": "Metade de uma dragona de general da Legião Blasfema, cortada reto, como por uma roda de ferro. Estava presa debaixo do bonde tombado.",
+      "citacao": {
+        "texto": "Cortada reto. Bonde não erra.",
+        "autor": "Capitã Odete Ferrolho"
+      }
     },
     {
       "id": "leitura_ordem_lancamento",
@@ -760,7 +960,11 @@
         "esp": 2
       },
       "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
-      "descricao": "Contador de radiação do exército, consertado com um terço de contas de vidro. Isaura usou por quarenta anos e diz que agora ele confia em você."
+      "descricao": "Contador de radiação do exército, consertado com um terço de contas de vidro. Isaura usou por quarenta anos e diz que agora ele confia em você.",
+      "citacao": {
+        "texto": "Estala como conta de terço. Reza o tempo que falta.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "estilhaco_absinto",
@@ -774,7 +978,11 @@
         "vit": 4
       },
       "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
-      "descricao": "Uma lasca do invólucro da segunda ogiva, desarmada por você. Brilha verde e esquenta quando alguém mente perto dela."
+      "descricao": "Uma lasca do invólucro da segunda ogiva, desarmada por você. Brilha verde e esquenta quando alguém mente perto dela.",
+      "citacao": {
+        "texto": "A segunda estrela não vai cair. Este pedaço é a prova.",
+        "autor": "Rádio São Lázaro"
+      }
     },
     {
       "id": "chave_segunda_estrela",
@@ -789,7 +997,11 @@
         "vit": 2
       },
       "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
-      "descricao": "Isaura fez uma cópia de latão da chave antes de você entregar a original à sua facção. 'Para você lembrar o peso', ela disse."
+      "descricao": "Isaura fez uma cópia de latão da chave antes de você entregar a original à sua facção. 'Para você lembrar o peso', ela disse.",
+      "citacao": {
+        "texto": "Para o caso de alguém, um dia, precisar desfazer o que você fez.",
+        "autor": "Isaura Valente"
+      }
     },
     {
       "id": "divisa_legiao",
@@ -803,7 +1015,104 @@
         "vit": 3
       },
       "efeito": "Desertores da Legião não atacam você primeiro.",
-      "descricao": "A única divisa da Legião Blasfema que ninguém arrancou. Quem a usa é reconhecido pelos desertores como alguém que procurou o general."
+      "descricao": "A única divisa da Legião Blasfema que ninguém arrancou. Quem a usa é reconhecido pelos desertores como alguém que procurou o general.",
+      "citacao": {
+        "texto": "A única que ninguém arrancou. Dizem que era dele.",
+        "autor": "Corvina"
+      }
+    },
+    {
+      "id": "placa_coveiro",
+      "nome": "Placa de Cova de Ferro",
+      "tipo": "missao",
+      "pilha": 3,
+      "descricao": "Placa de ferro fundido, comida de ferrugem. As letras foram batidas a martelo: SIMÃO · COVEIRO e uma data.",
+      "citacao": {
+        "texto": "Coveiro também morre. Quem enterra o coveiro?",
+        "autor": "ditado da paróquia"
+      }
+    },
+    {
+      "id": "folha_tombo",
+      "nome": "Folha do Livro do Tombo",
+      "tipo": "missao",
+      "pilha": 5,
+      "descricao": "Folha de pergaminho grosso com iluminuras em ouro sujo, bicada nas bordas. Os corvos levaram para o ninho por causa do dourado.",
+      "citacao": {
+        "texto": "Corvo não lê. Mas guarda tudo que vale a pena ler.",
+        "autor": "Corvina"
+      }
+    },
+    {
+      "id": "ultimo_tijolo",
+      "nome": "Último Tijolo de Anacleto",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Tijolo de barro cozido, mais pesado do que devia. Numa face, um nome riscado à unha.",
+      "citacao": {
+        "texto": "Não tenha medo, irmão. Eu sei o que é esperar dentro da pedra.",
+        "autor": "o coveiro, em 1693, segundo Fr. Anacleto"
+      }
+    },
+    {
+      "id": "leitura_livro_tombo",
+      "nome": "Livro do Tombo (folha primeira)",
+      "tipo": "leitura",
+      "texto": "LIVRO DO TOMBO DA PARÓQUIA · FOLHA PRIMEIRA\nNo ano de 1688 chegou a este ermo um homem muito alto e muito magro, com faixas de linho nos pulsos e no pescoço, como quem saiu de uma mortalha e não quis tirá-la.\nDisse vir de Betânia. Não pediu terra nem esmola. Pediu o ofício de coveiro.\nPerguntado por que não temia os mortos, respondeu: \"Já fui um.\"\nOs moradores, por gratidão a quem enterrava os seus de graça, deram à vila o nome que ele trazia.\n\n(à margem, outra tinta, 1714) O coveiro morreu de febre e foi enterrado por nós. Mandamos entalhar a imagem dele para o andor. Na manhã seguinte, a cova estava fechada por dentro, e ele cobria a de outro.\n(à margem, outra tinta, 1803) De novo.\n(à margem, outra tinta, 1891) De novo. O padre proibiu que se escrevesse mais sobre isso.\n(à margem, letra de criança) ele me deu uma bala de hortelã",
+      "citacao": {
+        "texto": "Já fui um.",
+        "autor": "o coveiro, 1688"
+      }
+    },
+    {
+      "id": "faixas_betania",
+      "nome": "Faixas de Betânia",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "vit": 4,
+        "esp": 3
+      },
+      "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+      "descricao": "Tiras de linho amarelado, muito velhas, que não apodrecem. Simão desenrolou uma do próprio pulso e amarrou no seu.",
+      "citacao": {
+        "texto": "Ficam bem em quem já devia ter morrido. Ou vai.",
+        "autor": "Simão"
+      }
+    },
+    {
+      "id": "eco_do_nome",
+      "nome": "Eco de um Nome",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Um pedaço de som preso num caco de bronze da trombeta. Encostado no ouvido, uma voz do Coro chama alguém, com raiva e com saudade.",
+      "citacao": {
+        "texto": "Rafael. Volte para o seu posto. Rafael.",
+        "autor": "o eco"
+      }
+    },
+    {
+      "id": "elmo_rafael",
+      "nome": "Elmo de Rafael",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "for": 5,
+        "agi": 5,
+        "vit": 5,
+        "esp": 5,
+        "hp": 200
+      },
+      "efeito": "Dano recebido de jogadores reduzido em 14%.",
+      "descricao": "Elmo de arcanjo em prata escurecida, amassado no lado esquerdo e sem as asas de metal que um dia teve nas têmporas. Ficou enterrado no Primeiro Sepulcro desde a Batalha do Impasse. Simão o desenterrou para você com a mesma pá de sempre.",
+      "citacao": {
+        "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
+        "autor": "Simão"
+      }
     }
   ]
 }

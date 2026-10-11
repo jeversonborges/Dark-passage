@@ -45,6 +45,17 @@ p{margin:0}
 .prosa{display:flex; flex-direction:column; gap:1.1em; max-width:62ch}
 .prosa strong{color:var(--osso); font-weight:600}
 .sumido{color:var(--cinza)}
+.documento{display:flex; flex-direction:column; gap:1em; max-width:62ch; margin:0; padding:4px 0 4px 24px; border-left:2px solid var(--ferrugem)}
+.documento .doc-cab{font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.2em; font-size:12.5px; color:var(--ouro); margin:0}
+.documento p{margin:0}
+.documento .assinatura{font-style:italic; color:var(--cinza); font-size:15.5px}
+.documento .estatica{font-style:italic; color:var(--cinza)}
+.mote{font-family:var(--display); font-weight:700; letter-spacing:.04em; color:var(--osso); font-size:clamp(19px,2.3vw,24px); margin:0}
+.cit{font-style:italic; color:#b3aa9d; font-size:15px; margin:10px 0 0}
+.cit span{font-style:normal; font-family:var(--rotulo); letter-spacing:.14em; text-transform:uppercase; font-size:11px; color:var(--cinza); display:block; margin-top:4px}
+.faccao .partes{color:#b3aa9d; font-size:15.5px}
+.chefe .fonte{display:block; font-family:var(--rotulo); letter-spacing:.16em; text-transform:uppercase; font-size:11px; color:var(--cinza); margin-bottom:4px}
+
 
 /* ------------------------------------------------------------------ topo */
 .topo{
@@ -164,6 +175,10 @@ section > .env{padding-block:var(--faixa)}
 .chefe b{font-family:var(--display); font-weight:700; font-size:18px; letter-spacing:.03em}
 .chefe p{grid-column:2; font-size:15.5px; color:#b3aa9d}
 @media (max-width:560px){ .chefe{grid-template-columns:1fr} .chefe p{grid-column:1} }
+.trombetas .chefe .andar{color:var(--ouro)}
+.trombetas .chefe.viva .andar{color:var(--acido)}
+.trombetas .chefe{grid-template-columns:150px 1fr}
+@media (max-width:560px){ .trombetas .chefe{grid-template-columns:1fr} }
 
 /* ------------------------------------------------------------------ conta */
 .conta-secao{background:
@@ -228,6 +243,7 @@ footer p{font-size:14px; color:#6f675f}
     <div class="marca">DARK<span>·</span>PASSAGE</div>
     <nav class="menu">
       <a href="#mundo" data-opcional>O mundo</a>
+      <a href="#trombetas" data-opcional>Trombetas</a>
       <a href="#faccoes" data-opcional>Facções</a>
       <a href="#classes">Classes</a>
       <a href="#cripta" data-opcional>A cripta</a>
@@ -244,7 +260,8 @@ footer p{font-size:14px; color:#6f675f}
     <div class="heroi-txt">
       <p class="rotulo">MMORPG isométrico · em desenvolvimento</p>
       <h1 class="titulao">DARK<br>PASSAGE</h1>
-      <p class="chamada">As trombetas soaram, o céu rachou e os homens seguraram o golpe. O fim do mundo começou e travou — e alguém ainda vai decidir se ele continua.</p>
+      <p class="mote">O fim começou. O fim não termina.</p>
+      <p class="chamada">Ano 31 do Impasse. Deus ordenou o fim do mundo, e o homem disse não.</p>
       <div class="acoes">
         <a class="btn btn-forte" href="#conta">Criar conta</a>
         <a class="btn" href="#baixar">Baixar o jogo</a>
@@ -260,11 +277,15 @@ footer p{font-size:14px; color:#6f675f}
       <h2>O Juízo começou e parou no meio</h2>
     </div>
     <div class="dupla">
-      <div class="prosa">
-        <p>Deus ordenou o fim e mandou suas forças numa <strong>Guerra de Extermínio</strong>. As pragas vieram, os anjos desceram e, pela promessa das ruínas da Terra, até o Inferno marchou ao lado deles.</p>
-        <p>Contra toda expectativa, os homens resistiram. Levantaram ogivas contra a hoste celeste e seguraram o Apocalipse no lugar. Desde então nenhum lado consegue vencer: o mundo acabou pela metade, e cada relíquia, cada território e cada trombeta selada pode desempatar a guerra.</p>
-        <p>Você entra nesse empate, numa paróquia enterrada na areia, onde os mortos esperam de pé um julgamento que não chega.</p>
-      </div>
+      <blockquote class="documento">
+        <p class="doc-cab">Da Crônica do Emparedado · escrita a unha por Frei Anacleto</p>
+        <p>No Ano do Senhor de 1962, Deus ordenou que o mundo acabasse.</p>
+        <p>As sete trombetas foram entregues aos arautos e enterradas sob sete cidades. O céu se abriu em asas. O abismo se abriu em chifres. E o homem, pela primeira vez desde o Éden, disse não.</p>
+        <p>Respondeu com chumbo, com fé herege e com uma estrela feita à mão. Calou a quinta trombeta no meio do sopro.</p>
+        <p>Isso foi há trinta e um anos. Os mortos levantaram para o Juízo, e o Juízo não veio. A areia é santa e envenena. Anjos marcham ao lado de demônios e os odeiam mais do que odeiam o homem.</p>
+        <p>Não há salvação no Impasse. Há a Vigília, há o Juízo, e a noite comprida entre os dois.</p>
+        <p class="mote">O fim começou. O fim não termina.</p>
+      </blockquote>
       <figure class="quadro">
         <img src="img/rua.jpg" alt="Rua em ruínas iluminada por fogueiras, com sobreviventes das seis classes">
         <figcaption>Paróquia de São Lázaro · captura do jogo</figcaption>
@@ -273,21 +294,44 @@ footer p{font-size:14px; color:#6f675f}
   </div>
 </section>
 
-<section id="deserto" class="fundo-breu">
+<section id="trombetas" class="fundo-breu">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">A guerra no mundo</p>
+      <h2>As Sete Trombetas</h2>
+      <p class="sumido" style="max-width:62ch">Cada trombeta foi enterrada sob uma cidade e entregue a um arauto. Cada uma é uma frente da guerra. São Lázaro é só uma delas.</p>
+    </div>
+    <div class="chefes trombetas">
+      <div class="chefe"><span class="andar">I · tocou</span><b>Granizo e fogo</b><p>Um terço das árvores queimou numa noite. As que ficaram de pé nunca mais deram folha.</p></div>
+      <div class="chefe"><span class="andar">II · tocou</span><b>A montanha no mar</b><p>O litoral virou cinza flutuante. Quem vem de lá diz que o mar ainda fumega.</p></div>
+      <div class="chefe"><span class="andar">III · tocou</span><b>Absinto</b><p>Dizem que a estrela caiu e amargou um terço das águas. A Rádio São Lázaro diz outra coisa, toda noite, às 03h11.</p></div>
+      <div class="chefe"><span class="andar">IV · tocou</span><b>O sol partido</b><p>Um terço da luz se apagou. O meio-dia virou crepúsculo, e uma geração nasceu sem ver o sol inteiro.</p></div>
+      <div class="chefe viva"><span class="andar">V · calada</span><b>São Lázaro</b><p>O poço do abismo abriu, e a Legião Blasfema subiu por ele. A trombeta deu meia nota e foi lacrada com chumbo. É aqui que você entra.</p></div>
+      <div class="chefe"><span class="andar">VI · ninguém sabe</span><b>O Eufrates</b><p>Peregrinos falam de quatro anjos soltos no Oriente e de um exército que não cabe no horizonte. Nenhum peregrino voltou para confirmar.</p></div>
+      <div class="chefe"><span class="andar">VII · perdida</span><b>A última</b><p>Nunca foi encontrada. O Juízo e a Vigília procuram. Quem achar a sétima decide o fim.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="deserto" class="fundo-pedra">
   <div class="env">
     <div class="cab">
       <p class="rotulo">Área inicial</p>
       <h2>Deserto de Absinto</h2>
     </div>
-    <div class="prosa">
-      <p>Dizem que a estrela <strong>Absinto</strong> caiu no terceiro toque e amargou a água. O que ficou dela o povo chama de <strong>Amargo</strong>: a doença que queima a pele, deforma os vivos e segura os mortos de pé, com o selo de cera ainda intacto no peito.</p>
-      <p>A areia subiu até o quarto andar de São Lázaro — <em>a rua de hoje é o telhado de ontem</em>. A maré de areia muda as dunas de lugar, os bondes viram veleiros sobre os trilhos que o vento descobre, e o Rio Amargo, verde e quase seco, é a única água corrente que sobrou. Na beira dele ainda nasce alguma coisa: um oásis torto, no meio de um mundo que já devia ter acabado.</p>
-      <p class="sumido">Mesmo que seja o fim do mundo, ainda pode ser bonito.</p>
-    </div>
+    <blockquote class="documento">
+      <p class="doc-cab">Rádio São Lázaro · boletim das 03h11 · noite 11.214 do Impasse</p>
+      <p class="estatica">(estática)</p>
+      <p>Boa noite, ouvinte. O Amargo caiu de novo a tarde inteira, fino como farinha. Não bebam da chuva. A água do Rio Amargo continua verde e continua sendo a única que corre. Na beira dele ainda nasce alguma coisa.</p>
+      <p>A maré de areia andou três metros para o leste. A rua de hoje continua sendo o telhado de ontem: quem tiver parente no quarto andar, cave pela janela. O bonde da linha 7 sai com vento norte. Sem vento, ninguém sai.</p>
+      <p>Os mortos do cemitério continuam de pé, com o lacre de cera inteiro no peito. Não estão com pressa. Já foram chamados uma vez.</p>
+      <p>E ela continua no lugar. Repito: continua no lugar. Aqui é a Rádio São Lázaro. Boa noite.</p>
+      <p class="assinatura">— Isaura Valente</p>
+    </blockquote>
   </div>
 </section>
 
-<section id="faccoes" class="fundo-pedra">
+<section id="faccoes" class="fundo-breu">
   <div class="env">
     <div class="cab">
       <p class="rotulo">Escolha um lado</p>
@@ -309,8 +353,9 @@ footer p{font-size:14px; color:#6f675f}
           </g>
         </svg>
         <h3>Arautos do Juízo</h3>
-        <p class="lema">“O fim foi ordenado. Falta cumprir.”</p>
-        <p>Anjos, demônios e cultistas servem à mesma ordem por motivos diferentes — obediência, cobiça e fé. Ninguém ali confia em ninguém.</p>
+        <p class="lema">“Que a nota termine.”</p>
+        <p>Três exércitos que o Céu obrigou a marchar juntos. O <strong>Coro</strong> dos anjos obedece. A <strong>Legião Blasfema</strong> cobra as ruínas prometidas e ainda grita por um general que sumiu. A <strong>Comunhão do Amargo</strong> bebe a água envenenada como sacramento e sabe que é descartável.</p>
+        <p class="cit">E o Coro recebeu ordem de subir, e subiu. E a Legião, que não tinha asas, ficou para segurar a terra.<span>Versículo do Coro · Livro da Retirada</span></p>
         <ul>
           <li>Objetivo: consumar o Apocalipse</li>
           <li>Símbolo: trombeta partida em chamas brancas</li>
@@ -329,8 +374,9 @@ footer p{font-size:14px; color:#6f675f}
           </g>
         </svg>
         <h3>Vigília</h3>
-        <p class="lema">“A vela acesa é teimosia, não esperança.”</p>
-        <p>Humanos, mutantes e tecnomancers sobrevivem no mundo apocalíptico e procuram um jeito de cancelar o fim — mesmo que precisem herdar as ruínas.</p>
+        <p class="lema">“Enquanto houver vela, não é noite.”</p>
+        <p>Um povo que se recusou a morrer e virou exército por falta de opção. A <strong>Cerca</strong> segura o arame. Os <strong>Engenheiros Hereges</strong> mantêm a Vela acesa com cobre e blasfêmia. Os <strong>Sineiros</strong> derretem os sinos da paróquia e fazem bala.</p>
+        <p class="cit">Daqui ninguém passa. Até hoje ninguém passou.<span>Despacho da Vela nº 0 · Capitã Odete Ferrolho</span></p>
         <ul>
           <li>Objetivo: cancelar o Apocalipse</li>
           <li>Símbolo: vela acesa dentro de uma engrenagem</li>
@@ -341,7 +387,7 @@ footer p{font-size:14px; color:#6f675f}
   </div>
 </section>
 
-<section id="classes" class="fundo-breu">
+<section id="classes" class="fundo-pedra">
   <div class="env">
     <div class="cab">
       <p class="rotulo">Seis classes · três papéis de cada lado</p>
@@ -354,6 +400,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag a">Arautos · Suporte</p>
           <h3>Anjo</h3>
           <p>Soldado frio da ordem divina. Cura os seus enquanto julga todo o resto.</p>
+          <p class="cit">Eu não odeio você, homem. Eu só fui feito antes de você.<span>Arauto do Coro, a um prisioneiro</span></p>
           <div class="ficha"><span>Graça</span><span>ESP · FOR</span></div>
         </div>
       </article>
@@ -363,6 +410,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag a">Arautos · Tanque</p>
           <h3>Demônio</h3>
           <p>Marcha ao lado dos anjos pela promessa das ruínas. Quanto mais bate, mais queima.</p>
+          <p class="cit">Prometeram-nos a Terra. Ninguém disse que viria cheia de gente.<span>Malfas</span></p>
           <div class="ficha"><span>Brasa Infernal</span><span>FOR · VIT</span></div>
         </div>
       </article>
@@ -372,6 +420,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag a">Arautos · Dano mágico</p>
           <h3>Cultista</h3>
           <p>Humano que viu salvação no fim do mundo. Paga cada magia com o próprio sangue.</p>
+          <p class="cit">O Amargo arde na boca. Depois arde a alma. Depois não arde mais nada.<span>Madre Ivone das Chagas</span></p>
           <div class="ficha"><span>Sangue</span><span>ESP</span></div>
         </div>
       </article>
@@ -381,6 +430,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag v">Vigília · Dano à distância</p>
           <h3>Humano</h3>
           <p>O povo comum que se recusou a morrer. Vive de pólvora, fôlego e água benta.</p>
+          <p class="cit">Cada bala aqui já foi sino. Ainda toca quando sai.<span>Gaspar Bigorna, sineiro</span></p>
           <div class="ficha"><span>Munição · Fôlego</span><span>AGI</span></div>
         </div>
       </article>
@@ -390,6 +440,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag v">Vigília · Tanque</p>
           <h3>Mutante</h3>
           <p>Deformado pelas pragas e chamado de abominação. Prova que a vida se adapta até ao fim.</p>
+          <p class="cit">Chamam meu filho de abominação. Ele ainda me chama de mãe.<span>Mãe Cardo</span></p>
           <div class="ficha"><span>Fúria</span><span>VIT · FOR</span></div>
         </div>
       </article>
@@ -399,6 +450,7 @@ footer p{font-size:14px; color:#6f675f}
           <p class="tag v">Vigília · Suporte</p>
           <h3>Tecnomancer</h3>
           <p>Cientista herege que soldou ocultismo em caldeira. Trabalha para calar as trombetas.</p>
+          <p class="cit">Se Ele não fala, alguém precisa interromper.<span>Doutor Anselmo Graxa, caderno da Vela</span></p>
           <div class="ficha"><span>Carga</span><span>ESP · AGI</span></div>
         </div>
       </article>
@@ -406,7 +458,7 @@ footer p{font-size:14px; color:#6f675f}
   </div>
 </section>
 
-<section id="cripta" class="fundo-pedra">
+<section id="cripta" class="fundo-breu">
   <div class="env">
     <div class="cab">
       <p class="rotulo">Primeira masmorra</p>
@@ -414,7 +466,12 @@ footer p{font-size:14px; color:#6f675f}
     </div>
     <div class="dupla">
       <div class="prosa">
-        <p>A entrada fica no porão do Abatedouro Carniça, atrás de uma porta que o Capataz do Gancho carrega a chave. Três andares abaixo da areia, alguma coisa segura a trombeta que deveria ter soado.</p>
+        <blockquote class="documento">
+          <p class="doc-cab">Caderno do Coveiro · página sem data</p>
+          <p>A entrada fica no porão do Abatedouro Carniça, atrás da porta dos ganchos. A chave anda no cinto do Capataz. Não peça.</p>
+          <p>Três andares para baixo, cada um mais velho que o de cima. No fundo de todos está a trombeta que devia ter soado. Eu cubro as covas de dia. Lá embaixo ninguém cobre nada.</p>
+          <p class="assinatura">— S.</p>
+        </blockquote>
         <p class="sumido">Grupo pequeno, luz curta e um chefe por andar.</p>
       </div>
       <figure class="quadro">
@@ -426,17 +483,17 @@ footer p{font-size:14px; color:#6f675f}
       <div class="chefe">
         <span class="andar">1º andar</span>
         <b>Andras, o General Partido</b>
-        <p>O general sumido da Legião Blasfema, cortado ao meio por um bonde na Batalha dos Campos de Cinza. Se arrasta, e come os mortos do campo para não apagar.</p>
+        <p><span class="fonte">Despacho da Vela · arquivo da Grande Batalha</span>O general inimigo ficou de pé nos trilhos. A Capitã Ferrolho não freou. Corpo não recuperado. Presumido destruído.</p>
       </div>
       <div class="chefe">
         <span class="andar">2º andar</span>
         <b>Irmã Celeste, a Carpideira</b>
-        <p>Chora pelos que ainda não morreram. O choro dela conserta os ossos dos outros enquanto desfaz os seus.</p>
+        <p><span class="fonte">Caderno do Coveiro</span>Desceu ao ossário para cantar até os mortos dormirem de novo. Cantou por anos. Os ossos aprenderam a letra.</p>
       </div>
       <div class="chefe">
         <span class="andar">3º andar</span>
         <b>Zacarias, o Arauto da Trombeta Calada</b>
-        <p>Anjo enlouquecido de esperar a ordem de tocar. Decidiu julgar todo mundo por conta própria, começando por quem descer até ele.</p>
+        <p><span class="fonte">Ordem encontrada no altar</span>Não abandonarás o posto até que a nota esteja completa. Não há outra ordem. <em>(abaixo, em letra tremida)</em> ninguém veio ninguém veio ninguém veio</p>
       </div>
     </div>
   </div>

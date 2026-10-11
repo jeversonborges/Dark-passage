@@ -1,7 +1,58 @@
-# DARK PASSAGE: História da Paróquia de São Lázaro (v0.3)
+# DARK PASSAGE: A Bíblia do Impasse (v0.4)
 
-> Bíblia de lore da primeira área jogável e da dungeon **Cripta da Trombeta Calada**.
+> Bíblia de lore do jogo: o mundo, a primeira área jogável (Paróquia de São Lázaro) e a dungeon **Cripta da Trombeta Calada**.
 > Base: `design/classes.md` (facções e classes). Dados do jogo em `design/missoes/dados/`.
+> v0.4 (Jefin aprovou em 10/10/2026): jeito de contar inspirado em Trench Crusade e Warhammer 40k. Mote, calendário,
+> Sete Trombetas, facções como instituições e a regra das vozes (seções 0 e 7). Os fatos das seções 1 a 6 não mudaram.
+>
+> **Este documento é a verdade dos bastidores** e pode explicar tudo. **Os textos do jogo e do site, não**: dentro do
+> jogo ninguém narra, sempre alguém do mundo escreve, com data e lado (seção 7).
+
+## 0. O Impasse
+
+### 0.1 O mote
+
+**O fim começou. O fim não termina.**
+
+Aparece sozinho antes de qualquer coisa: abertura, site, launcher, tela de morte. É o equivalente ao "há apenas guerra" do 40k.
+
+### 0.2 O calendário
+
+- O Juízo começou no **Ano do Senhor de 1962**. A tecnologia do mundo é a dessa época, suja: bondes, telégrafo, rádio a válvula, silos de míssil, lâmpadas de arco.
+- Desde a meia nota ninguém conta mais anos do Senhor. Conta **anos do Impasse**. O jogo se passa no **Ano 31 do Impasse** (o que seria 1993).
+- Quem precisa de precisão conta noites: a Rádio São Lázaro está na **noite 11.214** do Impasse no começo do jogo.
+- Todo documento do jogo leva data: "Despacho da Vela nº 4, Ano 31 do Impasse". Os Arautos não reconhecem o Impasse e datam pelo Juízo: "Ano 31 do Juízo Adiado".
+
+### 0.3 As Sete Trombetas (a guerra no mundo)
+
+Cada trombeta foi entregue a um anjo arauto e enterrada sob uma cidade. Cada uma é uma frente da guerra. São Lázaro é **uma** delas: o jogador é pequeno e o mundo é grande.
+
+| Trombeta | No Apocalipse | Estado no Ano 31 | O que explica no jogo |
+|---|---|---|---|
+| 1ª | Granizo e fogo; um terço das árvores queima | Tocou | Florestas mortas, árvores secas por toda parte |
+| 2ª | Uma montanha em chamas cai no mar | Tocou | Litoral perdido, mares de cinza (área futura) |
+| 3ª | A estrela Absinto amarga as águas | "Tocou". Na verdade foi a ogiva Absinto-1 (seção 1.2) | O Amargo e o Deserto de Absinto |
+| 4ª | Um terço do sol, da lua e das estrelas escurece | Tocou | O mundo quase preto: o sol nunca mais volta inteiro, o meio-dia é um crepúsculo |
+| 5ª | O poço do abismo se abre | **Calada pela metade** em São Lázaro (meia nota) | Por que os demônios andam na Terra e por que a cripta desce tão fundo |
+| 6ª | Quatro anjos presos junto ao Eufrates são soltos com um exército | Ninguém sabe. Rumores de uma frente no Oriente | Gancho de expansão |
+| 7ª | O fim de tudo | Nunca encontrada. Arautos e Vigília procuram | Objetivo final do mundo: quem achar a sétima decide o fim |
+
+Notícias das outras frentes chegam por rádio, por peregrinos e por desertores, sempre incompletas e contraditórias.
+
+### 0.4 As facções como instituições
+
+| | Arautos do Juízo | Vigília |
+|---|---|---|
+| O que são | Três exércitos que o Céu obrigou a marchar juntos | Um povo que se recusou a morrer e virou exército por falta de opção |
+| Partes | **O Coro** (os anjos); **a Legião Blasfema** (os demônios); **a Comunhão do Amargo** (os cultistas, que bebem a água com Amargo como comunhão) | **A Cerca** (os soldados de Odete); **os Engenheiros Hereges** (Anselmo e os tecnomancers); **os Sineiros** (Gaspar e quem funde os sinos da paróquia em bala) |
+| Patentes | Coro: Arauto, Comandante, Escudeiro. Comunhão: Madre, Irmão, Irmã. Legião: General, Centúrio, Legionário | Capitã, Doutor, Sargento, Soldado, Recruta |
+| Lema | **"Que a nota termine."** | **"Enquanto houver vela, não é noite."** |
+| Grito | Legião: **"A Andras, até o fim."** | Cerca: **"Daqui ninguém passa."** (frase de Odete no primeiro trilho) |
+| Livros | Versículos do Coro, o Livro da Retirada | Despachos da Vela, o Livro da Cerca (lista de recrutas e mortos) |
+| Como falam | Versículo, segunda pessoa solene, "irmão", "Juízo", "pureza". Os demônios debocham da liturgia | Despacho seco, números, nome de ferramenta, humor de forca |
+| O que escondem | Que a estrela foi uma bomba humana: um fim que o homem respondeu é um fim que o homem pode cancelar | Que o lacre e a Absinto-1 custaram vidas próprias, e que a Absinto-2 ainda está no silo |
+
+O jogador começa como **recruta sem nome** nas duas facções (no Livro da Cerca ou no rol da Comunhão) e ganha nome conforme prova valor.
 
 ## 1. O que aconteceu aqui
 
@@ -78,7 +129,27 @@ A igreja da paróquia, enterrada até as janelas do coro. Só a torre e o telhad
 
 **Simão** cuida do Cemitério de São Lázaro desde que alguém se lembra. No deserto, o trabalho do coveiro virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Ele é o único que anda entre os Não-Julgados sem ser atacado. Não serve nenhuma facção. Atende quem trouxer velas.
 
-O segredo dele (nunca dito em voz alta, só insinuado): Simão é **Lázaro**, o homem que foi chamado de volta da morte há dois mil anos. Morreu duas vezes e não conseguiu ficar morto nenhuma. A cidade tem o nome dele. Quando a trombeta der a nota inteira, ele finalmente será julgado, e ele ainda não decidiu se quer isso.
+O segredo dele (nunca dito em voz alta, só insinuado; ver 4.1, onde a linha F revela que até isso é disfarce): Simão é **Lázaro**, o homem que foi chamado de volta da morte há dois mil anos. Morreu duas vezes e não conseguiu ficar morto nenhuma. A cidade tem o nome dele. Quando a trombeta der a nota inteira, ele finalmente será julgado, e ele ainda não decidiu se quer isso.
+
+### 4.1 Linha F: Vem Para Fora (o mistério de quem foi São Lázaro)
+
+Pedida pelo Jefin (11/10/2026). Níveis 4 a 11, as duas facções. Nunca confirma em voz alta: o jogador junta as provas, e Simão só responde com o que Jesus fez antes de chamá-lo (Jo 11,35: "Jesus chorou"; Jo 11,43: "Lázaro, vem para fora").
+
+| Missão | Quem pede | O que se descobre |
+|---|---|---|
+| f01v / f01a | Mãe Cardo (os mortos abaixam a cabeça para o coveiro) / Lúcio ("o dono ainda está usando", de s05) | Três placas de cova de ferro: SIMÃO · COVEIRO · 1714, 1803 e 1891 |
+| f02 | Corvina (o segredo que ela nunca consegue vender) | A imagem do padroeiro no andor da Procissão Parada, de 1714, tem o rosto de Simão e uma pá na mão |
+| f03 | Corvina | O Livro do Tombo: em 1688 chegou "de Betânia" um homem com faixas de linho que pediu o ofício de coveiro; "Já fui um"; morreu em 1714, 1803 e 1891 e sempre voltou |
+| f04 | Frei Anacleto | Simão assentou o último tijolo da cela de Anacleto em 1693; o tijolo tem LAZARVS riscado e, embaixo, SIMÃO |
+| f05 | Simão | O Primeiro Sepulcro, vazio e varrido, com "Lázaro, vem para fora" gravado em grego. Escolha: guardar o segredo, perguntar o que ele quer quando a nota terminar, ou contar à facção |
+
+| f06 | Frei Anacleto, entrega Simão (requer f05 e c06) | **A verdade:** um eco na Câmara da Trombeta chama "Rafael". Simão não é Lázaro: é o **arcanjo Rafael** ("Deus cura"). |
+
+**A verdade de Simão (ideia do Jefin, 11/10/2026).** Em 1688 o Coro mandou o arcanjo Rafael guardar a quinta trombeta debaixo de uma vila sem nome. Ele tomou o nome de Lázaro, o homem que viu sair do túmulo em Betânia (foi lá que viu Jesus chorar por um humano e entendeu que o fim não era o plano inteiro), e o ofício de coveiro. Em três séculos se afeiçoou aos humanos; "morreu" em 1714, 1803 e 1891 e sempre voltou, porque arcanjo não morre direito. Na meia nota, não conseguiu permitir o fim: na **Batalha do Impasse**, no céu sobre São Lázaro, lutou contra o próprio Coro e segurou a guarda de Zacarias por três segundos, a janela que a Vigília precisou para vazar o chumbo no bocal. O Coro arrancou suas asas; as faixas de linho escondem as cicatrizes nas costas. O Livro da Retirada dos Arautos não fala dele. Eco bíblico: no livro de Tobias, Rafael andou disfarçado de homem ao lado do jovem Tobias; Simão tem carinho pelo Tobias 'Pavio'.
+
+Recompensa de f06: **Elmo de Rafael** (cabeça, único, nível 12): +5 em FOR, AGI, VIT e ESP, +200 de HP e 14% a menos de dano recebido de jogadores. Os números finais são da thread de combate.
+
+Flags: `lazaro_segredo_guardado`, `lazaro_pediu_cova` (ele quer que alguém o cubra, uma vez, e ficar), `lazaro_revelado` (a facção vai atrás dele: gancho para o futuro). Objetos novos `andor_padroeiro` e `sepulcro_primeiro` estão marcados `pendente` para a Level design posicionar no mapa.
 
 ## 5. A dungeon: Cripta da Trombeta Calada
 
@@ -114,11 +185,60 @@ Asas acorrentadas ao teto por correntes que ele mesmo prendeu para não fugir do
    - **Linha D, A Estrela Que Nós Soltamos** (Isaura): a estrela Absinto foi uma bomba humana. Termina no silo, com a Absinto-2.
    - **Linha E, A Legião Sem General** (Corvina): traições dentro dos Arautos e o sumiço de Andras. O último passo exige c02, porque o rastro desce para o porão do abatedouro.
 
-## 7. Tom de escrita
+## 7. Como contar: a regra das vozes
+
+Inspirado em Trench Crusade e 40k. Vale para todo texto que o jogador lê: missões, diálogos, itens, bestiário, telas de carregamento, site.
+
+**Regra única: nenhum texto do jogo é narrado por ninguém.** Todo texto tem autor, data e lado, e pode estar errado. A verdade aparece quando o jogador cruza duas fontes. Contradição entre fontes é proposital.
+
+### 7.1 As vozes
+
+| Formato | Quem escreve | Onde aparece | Tom |
+|---|---|---|---|
+| Despacho da Vela | Odete e a Cerca (Anselmo assina os técnicos, Gaspar os da forja) | Missões da Vigília | Militar, numerado, assinado. Frases de uma linha |
+| Versículo do Coro | Abdiel; Madre Ivone pela Comunhão; Malfas zomba no rodapé | Missões dos Arautos | Escritura: "E disse o Comandante...", segunda pessoa solene |
+| Transmissão da Rádio São Lázaro | Isaura Valente | Linha D, tela de carregamento | Boletim noturno, contagem, estática, "ouvinte" |
+| Caderno do Coveiro | Simão | Bestiário, missões do cemitério | Quem enterra tudo; seco, sem data; nunca diz quem é |
+| Crônica do Emparedado | Frei Anacleto | História do mundo (abertura, site) | Cronista erudito, emparedado: ouve o mundo pela parede |
+| Bilhete de Corvina | Corvina | Linha E | Venda de segredo, com preço anotado |
+| Inscrição | Ninguém sabe | Itens, paredes, baús | Uma linha só |
+
+### 7.2 Missões
+
+Cada missão é um documento do mundo, sem mudar objetivos, recompensas nem números:
+
+1. **O papel** (primeira linha de `descricao`, em maiúsculas): formato, número e data. Ex.: `DESPACHO DA VELA · Nº 1 · ANO 31 DO IMPASSE`.
+2. **O porquê grande**: a tarefa pequena ligada à guerra (seis carniçais abrem uma brecha; uma brecha apaga a Vela).
+3. **A ordem**: o que fazer, curto.
+4. **A assinatura** (última linha, itálico no jogo): `— C. O. Ferrolho, Capitã da Cerca`.
+5. **O depois** (`texto_conclusao`): uma consequência e um fragmento de verdade; quando der, algo que contradiz o que o NPC disse.
+
+`resumo` continua uma linha prática (é o que o rastreador mostra). Os documentos concluídos formam o **Arquivo** do diário.
+
+### 7.3 Itens, bestiário e carregamento
+
+- Todo item com nome ganha `citacao`: uma linha em itálico, assinada, abaixo da descrição técnica.
+- Monstros ganham `registros`: duas ou três versões curtas, cada uma de uma fonte (Despacho, Versículo, Caderno do Coveiro). Cada facção vê a sua; o Caderno do Coveiro todos veem.
+- Tela de carregamento: citações assinadas em `dados/citacoes.json`, sorteadas.
+
+### 7.4 Tom
 
 - Frases curtas, secas, com humor de forca. Ninguém faz discurso longo, exceto quem é fanático.
-- A Vigília fala como gente cansada: gíria, ironia, nomes de ferramenta.
+- A Vigília fala como gente cansada **de guerra**: ironia, ferramenta, número. Nada de gíria de conversa de bar ("Novo, né?", "tá ligado").
 - Os Arautos falam com liturgia: "irmão", "Juízo", "pureza". Os demônios zombam da liturgia.
 - Nenhum lado é bom. A Vigília salva vidas e faz coisas horríveis para isso; os Arautos são cruéis e sinceros.
-- O horror vem do cotidiano: carne, velas, sinos derretidos, crianças fazendo comércio de sucata, água que amarga a boca.
-- Evitar o deserto genérico de filme: sem carros, sem gasolina, sem gangues motorizadas. O punk está na roupa das pessoas, não em veículos. O deserto daqui é uma cidade afogada em areia sagrada.
+- O horror vem do cotidiano: carne, velas, sinos derretidos, crianças comerciando sucata, água que amarga a boca.
+- O mundo é maior que o jogador: cite as outras trombetas, outras frentes, gente que não volta.
+- Evitar o deserto genérico de filme: sem carros, sem gasolina, sem gangues motorizadas. O punk está na roupa. O deserto daqui é uma cidade afogada em areia sagrada.
+
+### 7.5 A abertura (texto canônico)
+
+> *Da Crônica do Emparedado, escrita a unha por Frei Anacleto*
+>
+> No Ano do Senhor de 1962, Deus ordenou que o mundo acabasse.
+> As sete trombetas foram entregues aos arautos e enterradas sob sete cidades. O céu se abriu em asas. O abismo se abriu em chifres. E o homem, pela primeira vez desde o Éden, disse não.
+> Respondeu com chumbo, com fé herege e com uma estrela feita à mão. Calou a quinta trombeta no meio do sopro.
+> Isso foi há trinta e um anos. Os mortos levantaram para o Juízo, e o Juízo não veio. A areia é santa e envenena. Anjos marcham ao lado de demônios e os odeiam mais do que odeiam o homem.
+> Não há salvação no Impasse. Há a Vigília, há o Juízo, e a noite comprida entre os dois.
+>
+> **O fim começou. O fim não termina.**

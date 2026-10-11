@@ -3080,6 +3080,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Cobre não reza. Mas segura a luz melhor que muita oração.",
+    "autor": "Dr. Anselmo Graxa"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3100,6 +3104,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Ainda morna. O Céu esfria devagar.",
+    "autor": "Abdiel"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3120,6 +3128,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Cada dente mordeu alguém. Eu cobro por mordida.",
+    "autor": "Malfas"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3180,6 +3192,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Que a mãe te guarde. Ela tentou.",
+    "autor": "inscrição no verso"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3260,6 +3276,10 @@
     2,
     2
    ],
+   "citacao": {
+    "texto": "Quem escreve o nome dos mortos acaba sabendo demais.",
+    "autor": "Caderno do Coveiro"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3280,6 +3300,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "CARNIÇA · DESDE 1871 · NINGUÉM PASSA FOME",
+    "autor": "inscrição no chaveiro"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3300,6 +3324,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Pulsa. Ninguém consegue dizer se é dele ou se é seu.",
+    "autor": "Fr. Anacleto"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3320,6 +3348,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Encoste no ouvido. Ela ainda está cantando.",
+    "autor": "Fr. Anacleto"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3340,6 +3372,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Não sopre. Nem para ver.",
+    "autor": "Dr. Anselmo Graxa, à margem do caderno"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3400,6 +3436,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Os ossos de Lázaro não estão em relicário nenhum. O dono ainda está usando.",
+    "autor": "Malfas"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3420,6 +3460,10 @@
     1,
     4
    ],
+   "citacao": {
+    "texto": "O cabo foi trocado mil vezes. A lâmina, nunca. Nem o coveiro.",
+    "autor": "Caderno do Coveiro"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3440,6 +3484,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Três notas. A quarta ficou com a minha irmã.",
+    "autor": "Tobias 'Pavio'"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -3460,6 +3508,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Tem fermento. Eu juro pela minha mão boa.",
+    "autor": "Mãe Cardo"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3480,6 +3532,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "A água mais cara do deserto é a que não tem gosto de nada.",
+    "autor": "pichado no muro da estação"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3500,6 +3556,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Agite. Não pergunte.",
+    "autor": "rótulo"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3520,6 +3580,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Desce amarga. Como tudo que salva.",
+    "autor": "Ivone das Chagas"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3540,6 +3604,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Enquanto ela queima, os mortos lembram de ter educação.",
+    "autor": "Caderno do Coveiro"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3560,6 +3628,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Bênção expressa. Acenda e reze rápido.",
+    "autor": "Gaspar Bigorna"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3580,6 +3652,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Não pergunte o que tem. Pergunte se quer mais.",
+    "autor": "Mãe Cardo"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3600,6 +3676,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Guardei para o Juízo. O Juízo não tem fome.",
+    "autor": "Fr. Anacleto"
+   },
    "tipo_missao": "consumivel",
    "categoria": "consumivel",
    "icone": {
@@ -3780,6 +3860,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Costurada com a mesma linha dos mortos. Economize as duas.",
+    "autor": "Capitã Odete Ferrolho"
+   },
    "raridade": "comum",
    "slot": "anel",
    "nivel": 1,
@@ -3808,6 +3892,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "O nó aperta para lembrar. Quem esquece, sangra.",
+    "autor": "Ivone das Chagas"
+   },
    "raridade": "comum",
    "slot": "anel",
    "nivel": 1,
@@ -3836,6 +3924,10 @@
     1,
     4
    ],
+   "citacao": {
+    "texto": "Cada bala aqui já foi sino. Ainda toca quando sai.",
+    "autor": "Gaspar Bigorna, sineiro"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -3875,6 +3967,10 @@
     2,
     3
    ],
+   "citacao": {
+    "texto": "PARÓQUIA — ESTAÇÃO. A linha 7 não para. Só mudou de direção.",
+    "autor": "inscrição"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -3914,6 +4010,10 @@
     1,
     4
    ],
+   "citacao": {
+    "texto": "Luz roubada da Vela. Devolva acesa.",
+    "autor": "Dr. Anselmo Graxa"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -3953,6 +4053,10 @@
     1,
     3
    ],
+   "citacao": {
+    "texto": "E o escudeiro guardou a espada, porque seu senhor não subiu.",
+    "autor": "Versículo do Coro, Livro da Retirada"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -3993,6 +4097,10 @@
     2,
     4
    ],
+   "citacao": {
+    "texto": "Vencida e não paga. A alma do antigo dono ainda vem buscar de vez em quando.",
+    "autor": "Malfas"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -4032,6 +4140,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Uma para as palmas. A outra eu não conto.",
+    "autor": "Ivone das Chagas"
+   },
    "raridade": "magico",
    "slot": "arma",
    "nivel": 3,
@@ -4071,6 +4183,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Um sino de São Lázaro ainda tem uma badalada para dar.",
+    "autor": "Gaspar Bigorna"
+   },
    "raridade": "raro",
    "slot": "amuleto",
    "nivel": 5,
@@ -4101,6 +4217,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Lavado, passado e dobrado. Como se ele fosse voltar.",
+    "autor": "Mãe Cardo"
+   },
    "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:cardo de drops.json, vira Relíquia (lendário).",
    "raridade": "lendario",
    "slot": "amuleto",
@@ -4134,6 +4254,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Meio terço reza meia oração. Já é mais do que a Madre reza.",
+    "autor": "Lúcio"
+   },
    "raridade": "raro",
    "slot": "amuleto",
    "nivel": 5,
@@ -4164,6 +4288,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A fé está acima do sangue. Acima do seu, inclusive.",
+    "autor": "Ivone das Chagas"
+   },
    "raridade": "raro",
    "slot": "anel",
    "nivel": 5,
@@ -4194,6 +4322,10 @@
     2,
     3
    ],
+   "citacao": {
+    "texto": "A Andras, até o fim. O fim chegou na cintura.",
+    "autor": "Despacho da Vela, arquivo da Grande Batalha"
+   },
    "raridade": "raro",
    "slot": "peito",
    "nivel": 8,
@@ -4226,6 +4358,10 @@
     2,
     2
    ],
+   "citacao": {
+    "texto": "Dorme, que o Juízo tarda.",
+    "autor": "Hino das Carpideiras"
+   },
    "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:celeste de drops.json, vira Relíquia (lendário).",
    "raridade": "lendario",
    "slot": "cabeca",
@@ -4260,6 +4396,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Três segundos entre o sopro e a nota. Foi o que bastou.",
+    "autor": "Dr. Anselmo Graxa"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4290,6 +4430,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Se uma nota abriu o mundo, outra pode fechar. Ainda estou procurando qual.",
+    "autor": "Dr. Anselmo Graxa"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4320,6 +4464,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "A última pena limpa do Coro. Foi de quem mais esperou.",
+    "autor": "Abdiel"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4350,6 +4498,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Um favor, qualquer um. Depois a gente discute o preço.",
+    "autor": "Malfas"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4380,6 +4532,10 @@
     1,
     3
    ],
+   "citacao": {
+    "texto": "Ele trocou as mãos por ganchos. Trabalhava melhor.",
+    "autor": "Caderno do Coveiro"
+   },
    "nota_raridade": "Missões marcou 'raro'; como sai pela tag lendario:capataz de drops.json, vira Relíquia (lendário).",
    "raridade": "lendario",
    "slot": "arma",
@@ -4424,6 +4580,10 @@
     2,
     4
    ],
+   "citacao": {
+    "texto": "Partido ao meio, como o general. Os dois continuam de pé.",
+    "autor": "Corvina"
+   },
    "raridade": "lendario",
    "slot": "arma",
    "nivel": 8,
@@ -4469,6 +4629,10 @@
     1,
     4
    ],
+   "citacao": {
+    "texto": "Fêmur de um homem muito alto. Pergunte ao coveiro de quem.",
+    "autor": "Fr. Anacleto"
+   },
    "raridade": "lendario",
    "slot": "arma",
    "nivel": 10,
@@ -4513,6 +4677,10 @@
     2,
     2
    ],
+   "citacao": {
+    "texto": "Ninguém veio ninguém veio ninguém veio.",
+    "autor": "escrito na ordem de Zacarias"
+   },
    "raridade": "lendario",
    "slot": "cabeca",
    "nivel": 12,
@@ -4547,6 +4715,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Vidro que ainda conversa. Melhor que muita gente.",
+    "autor": "Isaura Valente"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4567,6 +4739,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "LIDO E CONFIRMADO, 03H11.",
+    "autor": "carimbo do Comando Sul"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4587,6 +4763,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A água lembra. Por isso ninguém gosta de beber.",
+    "autor": "Isaura Valente"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4607,6 +4787,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A pedra é mais clara onde alguém estava.",
+    "autor": "Isaura Valente"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4627,6 +4811,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Ainda morna. Trinta e um anos no peito de um homem esperando ordem.",
+    "autor": "Isaura Valente"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4647,6 +4835,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A Andras, até o fim.",
+    "autor": "costura no verso"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4667,6 +4859,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Fé sem asa, fé sem chifre.",
+    "autor": "lema dos Apóstatas"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4687,6 +4883,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "Cortada reto. Bonde não erra.",
+    "autor": "Capitã Odete Ferrolho"
+   },
    "tipo_missao": "missao",
    "categoria": "missao",
    "icone": {
@@ -4747,6 +4947,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Estala como conta de terço. Reza o tempo que falta.",
+    "autor": "Isaura Valente"
+   },
    "raridade": "raro",
    "slot": "amuleto",
    "nivel": 8,
@@ -4777,6 +4981,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A segunda estrela não vai cair. Este pedaço é a prova.",
+    "autor": "Rádio São Lázaro"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4807,6 +5015,10 @@
     1,
     2
    ],
+   "citacao": {
+    "texto": "Para o caso de alguém, um dia, precisar desfazer o que você fez.",
+    "autor": "Isaura Valente"
+   },
    "raridade": "lendario",
    "slot": "amuleto",
    "nivel": 12,
@@ -4838,6 +5050,10 @@
     1,
     1
    ],
+   "citacao": {
+    "texto": "A única que ninguém arrancou. Dizem que era dele.",
+    "autor": "Corvina"
+   },
    "raridade": "raro",
    "slot": "amuleto",
    "nivel": 8,
@@ -4856,6 +5072,197 @@
     "32": "assets/icones/itens/32/divisa_legiao.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/divisa_legiao.png"
+  },
+  {
+   "id": "placa_coveiro",
+   "nome": "Placa de Cova de Ferro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "etiqueta",
+   "tint": "ferro",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Coveiro também morre. Quem enterra o coveiro?",
+    "autor": "ditado da paróquia"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/placa_coveiro.png",
+    "40": "assets/icones/itens/40/placa_coveiro.png",
+    "32": "assets/icones/itens/32/placa_coveiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/placa_coveiro.png"
+  },
+  {
+   "id": "folha_tombo",
+   "nome": "Folha do Livro do Tombo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "pergaminho",
+   "tint": "ouro",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Corvo não lê. Mas guarda tudo que vale a pena ler.",
+    "autor": "Corvina"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/folha_tombo.png",
+    "40": "assets/icones/itens/40/folha_tombo.png",
+    "32": "assets/icones/itens/32/folha_tombo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/folha_tombo.png"
+  },
+  {
+   "id": "ultimo_tijolo",
+   "nome": "Último Tijolo de Anacleto",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "tabua",
+   "tint": "cinza",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Não tenha medo, irmão. Eu sei o que é esperar dentro da pedra.",
+    "autor": "o coveiro, em 1693, segundo Fr. Anacleto"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/ultimo_tijolo.png",
+    "40": "assets/icones/itens/40/ultimo_tijolo.png",
+    "32": "assets/icones/itens/32/ultimo_tijolo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/ultimo_tijolo.png"
+  },
+  {
+   "id": "leitura_livro_tombo",
+   "nome": "Livro do Tombo (folha primeira)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "livro",
+   "tint": "couro",
+   "emissivo": null,
+   "grade": [
+    2,
+    2
+   ],
+   "citacao": {
+    "texto": "Já fui um.",
+    "autor": "o coveiro, 1688"
+   },
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_livro_tombo.png",
+    "40": "assets/icones/itens/40/leitura_livro_tombo.png",
+    "32": "assets/icones/itens/32/leitura_livro_tombo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_livro_tombo.png"
+  },
+  {
+   "id": "faixas_betania",
+   "nome": "Faixas de Betânia",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "fita",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ficam bem em quem já devia ter morrido. Ou vai.",
+    "autor": "Simão"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 11,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 3
+   },
+   "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/faixas_betania.png",
+    "40": "assets/icones/itens/40/faixas_betania.png",
+    "32": "assets/icones/itens/32/faixas_betania.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/faixas_betania.png"
+  },
+  {
+   "id": "eco_do_nome",
+   "nome": "Eco de um Nome",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estilhaco",
+   "tint": "bronze",
+   "emissivo": "#fff2c0",
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Rafael. Volte para o seu posto. Rafael.",
+    "autor": "o eco"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/eco_do_nome.png",
+    "40": "assets/icones/itens/40/eco_do_nome.png",
+    "32": "assets/icones/itens/32/eco_do_nome.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/eco_do_nome.png"
+  },
+  {
+   "id": "elmo_rafael",
+   "nome": "Elmo de Rafael",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "elmo_pesado",
+   "tint": "prata",
+   "emissivo": "#fff2c0",
+   "grade": [
+    2,
+    2
+   ],
+   "citacao": {
+    "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
+    "autor": "Simão"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 5,
+    "agi": 5,
+    "vit": 5,
+    "esp": 5,
+    "hp": 200
+   },
+   "efeito": "Dano recebido de jogadores reduzido em 14%.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/elmo_rafael.png",
+    "40": "assets/icones/itens/40/elmo_rafael.png",
+    "32": "assets/icones/itens/32/elmo_rafael.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png"
   }
  ]
 }
