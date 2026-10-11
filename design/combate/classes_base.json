@@ -145,7 +145,7 @@
     },
     "cultista": {
       "faccao": "arautos",
-      "papel": "mago de dano continuo e invocador",
+      "papel": "mago de dano continuo com familiar demoniaco",
       "atributos_iniciais": {
         "FOR": 14,
         "AGI": 18,
@@ -242,14 +242,21 @@
           "nao_usa_abaixo_de_hp": 0.25
         },
         {
-          "id": "servo_carne",
-          "nome": "Servo de Carne",
-          "nivel": 6,
-          "custo": 0.15,
-          "recarga": 25.0,
-          "invoca": "servo_de_carne",
-          "duracao": 20.0,
+          "id": "familiar_pacto",
+          "nome": "Pacto do Familiar",
+          "nivel": 1,
+          "_doc": "Substitui o Servo de Carne (2026-10-11, pedido do Jefin). O familiar e permanente: nasce com o Cultista e evolui com o nivel do dono (1, 6, 16). A tecla manda o familiar atacar o alvo do mouse; se ele estiver morto, a tecla o invoca de volta.",
+          "custo": 0.02,
+          "recarga": 4.0,
+          "alcance": 8,
+          "invoca": "familiar_do_pacto",
+          "permanente": true,
           "max": 1,
+          "reinvocar": {
+            "custo": 0.12,
+            "conjuracao": 1.5,
+            "volta_sozinho_s": 30.0
+          },
           "sensacao": "invocacao"
         },
         {
@@ -287,14 +294,145 @@
         }
       ],
       "invocacoes": {
-        "servo_de_carne": {
-          "hp": "max_hp_dono * 0.6",
-          "dano": "dano_magico_dono * 0.5",
-          "intervalo": 1.4,
-          "ameaca_mult": 2.0,
-          "tags": [
-            "invocacao"
-          ]
+        "familiar_do_pacto": {
+          "_doc": "Segue o dono a 1,5-2 tiles. Nao puxa briga: so ataca quem bateu no dono (ou nele) e o alvo que o dono mandar com a tecla. Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma.",
+          "segue": {
+            "distancia_tiles": [
+              1.5,
+              2.0
+            ],
+            "teleporta_acima_de_tiles": 12,
+            "vel_mult_dono": 1.1
+          },
+          "alvo": {
+            "prioridade": [
+              "ultimo_que_bateu_no_dono",
+              "quem_bateu_no_familiar",
+              "alvo_mandado_pela_tecla"
+            ],
+            "nao_ataca_neutro_parado": true,
+            "larga_alvo_se_dono_a_mais_de_tiles": 9
+          },
+          "formas": [
+            {
+              "id": "familiar_diabrete",
+              "nome": "Diabrete de Fuligem",
+              "nivel_dono": 1,
+              "altura_m": 0.75,
+              "hp": "max_hp_dono * 0.35",
+              "defesa": "defesa_dono * 0.5",
+              "dano": "dano_magico_dono * 0.30",
+              "intervalo": 1.2,
+              "alcance": 4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cuspe_de_brasa",
+                "nome": "Cuspe de Brasa",
+                "projetil_vel": 9,
+                "efeito": {
+                  "queimadura": {
+                    "duracao": 3.0,
+                    "dano_por_s_mult": 0.1
+                  }
+                }
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_algoz",
+              "nome": "Algoz de Enxofre",
+              "nivel_dono": 6,
+              "altura_m": 1.9,
+              "hp": "max_hp_dono * 0.70",
+              "defesa": "defesa_dono * 0.8",
+              "dano": "dano_magico_dono * 0.45",
+              "intervalo": 1.4,
+              "alcance": 1.4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cutelo_de_enxofre",
+                "nome": "Cutelo de Enxofre"
+              },
+              "especial": {
+                "id": "puxao_de_corrente",
+                "nome": "Pux\u00e3o de Corrente",
+                "recarga": 10.0,
+                "alcance": 5,
+                "puxa_ate_familiar": true,
+                "provoca_s": 3.0,
+                "_doc": "usa no inimigo que bateu no dono"
+              },
+              "passiva": {
+                "id": "guarda_costas",
+                "nome": "Guarda-Costas",
+                "desvia_dano_do_dono": 0.15,
+                "raio_tiles": 4
+              },
+              "ameaca_mult": 2.5,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_tirano",
+              "nome": "Tirano da Fornalha",
+              "nivel_dono": 16,
+              "altura_m": 2.7,
+              "hp": "max_hp_dono * 1.10",
+              "defesa": "defesa_dono * 1.2",
+              "dano": "dano_magico_dono * 0.60",
+              "intervalo": 1.7,
+              "alcance": 1.6,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "punho_de_fornalha",
+                "nome": "Punho de Fornalha",
+                "postura": 20
+              },
+              "especial": {
+                "id": "canhao_de_brasa",
+                "nome": "Canh\u00e3o de Brasa",
+                "recarga": 12.0,
+                "alcance": 6,
+                "area_raio": 2.0,
+                "mult": 1.6,
+                "chao_em_chamas_s": 3.0
+              },
+              "especial_2": {
+                "id": "rugido_da_legiao",
+                "nome": "Rugido da Legi\u00e3o",
+                "recarga": 20.0,
+                "area_raio": 3.0,
+                "provoca_s": 3.0,
+                "_doc": "quando 2 ou mais inimigos batem no dono"
+              },
+              "passiva": {
+                "id": "guarda_costas",
+                "nome": "Guarda-Costas",
+                "desvia_dano_do_dono": 0.25,
+                "raio_tiles": 4
+              },
+              "ameaca_mult": 3.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            }
+          ],
+          "evolucao": {
+            "quando": "dono sobe para o nivel da forma",
+            "anim": "evolve",
+            "cura_total": true,
+            "_doc": "casulo de brasa e carne de 2 s; o familiar fica invulneravel durante a troca"
+          }
         }
       }
     },

@@ -422,6 +422,97 @@
    }
   },
   {
+   "id": "cultista_familiar_pacto",
+   "classe": "cultista",
+   "nome": "Pacto do Familiar",
+   "tipo": "invocacao",
+   "nivel": 1,
+   "custo": "2% HP",
+   "recarga": 4.0,
+   "conjuracao": 0.0,
+   "alcance": 8,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "fogo",
+   "escala": [
+    "ESP",
+    "VIT"
+   ],
+   "substitui": "cultista_servo_carne (Servo de Carne), trocado a pedido do Jefin em 2026-10-11",
+   "efeitos": [
+    "familiar demoníaco permanente que anda com o Cultista",
+    "ataca quem bater no mestre; nunca puxa briga sozinho",
+    "tecla: manda o familiar atacar o alvo do mouse",
+    "se o familiar morrer, a tecla o invoca de volta (12% HP, 1,5 s) ou ele volta sozinho em 30 s",
+    "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16)"
+   ],
+   "descricao": "O livro acorrentado tem uma página que ninguém escreveu. Quem assina com sangue ganha um demônio de estimação, e o demônio cresce junto com a dívida.",
+   "fx": "selo de cera rachando no chão + fuligem subindo; o familiar sai de dentro da fumaça",
+   "som": "risada curta e aguda + estalo de brasa",
+   "familiar": {
+    "dados_combate": "design/combate/classes_base.json > cultista > invocacoes > familiar_do_pacto",
+    "plano_sprites": "design/personagens/familiar_cultista.md",
+    "formas": [
+     {
+      "id": "familiar_diabrete",
+      "nome": "Diabrete de Fuligem",
+      "nivel": 1,
+      "descricao": "Um diabinho do tamanho de um gato, de avental de couro queimado e óculos de soldador rachados. Cospe brasa em quem encosta no mestre e ri de tudo.",
+      "ataque": "Cuspe de Brasa: projétil de brasa que deixa queimadura leve",
+      "fx": "cuspe laranja com fagulhas",
+      "som": "risadinha + cuspe chiando"
+     },
+     {
+      "id": "familiar_algoz",
+      "nome": "Algoz de Enxofre",
+      "nivel": 6,
+      "descricao": "O diabrete engordou de dívida. Agora é um carrasco do tamanho de um homem, capuz de couro, chifres serrados, corrente no pescoço e um cutelo de açougue. Puxa pela corrente quem ousou bater no mestre.",
+      "ataque": "Cutelo de Enxofre (corpo a corpo)",
+      "especial": "Puxão de Corrente: arrasta o agressor até ele e o provoca por 3 s",
+      "passiva": "Guarda-Costas: recebe 15% do dano que o mestre levaria",
+      "fx": "corrente com gancho em brasa + rastro de enxofre amarelo-sujo",
+      "som": "corrente arrastando + grunhido"
+     },
+     {
+      "id": "familiar_tirano",
+      "nome": "Tirano da Fornalha",
+      "nivel": 16,
+      "descricao": "Um couraçado da Legião Blasfema que perdeu o general e jurou ao Cultista. Quase três metros de placas rebitadas, chifres de carneiro, uma fornalha acesa no peito, pistão na perna e um canhão de brasa no lugar do braço.",
+      "ataque": "Punho de Fornalha (corpo a corpo, quebra postura)",
+      "especial": "Canhão de Brasa: tiro em área de 2 tiles que deixa o chão em chamas por 3 s; Rugido da Legião: provoca todos em 3 tiles",
+      "passiva": "Guarda-Costas: recebe 25% do dano que o mestre levaria",
+      "fx": "tiro de brasa com fumaça preta + anel de fogo no chão; vapor saindo do pistão",
+      "som": "rugido grave + escape de vapor + explosão abafada"
+     }
+    ]
+   },
+   "combate": {
+    "id": "familiar_pacto",
+    "nome": "Pacto do Familiar",
+    "nivel": 1,
+    "_doc": "Substitui o Servo de Carne (2026-10-11, pedido do Jefin). O familiar e permanente: nasce com o Cultista e evolui com o nivel do dono (1, 6, 16). A tecla manda o familiar atacar o alvo do mouse; se ele estiver morto, a tecla o invoca de volta.",
+    "custo": 0.02,
+    "recarga": 4.0,
+    "alcance": 8,
+    "invoca": "familiar_do_pacto",
+    "permanente": true,
+    "max": 1,
+    "reinvocar": {
+     "custo": 0.12,
+     "conjuracao": 1.5,
+     "volta_sozinho_s": 30.0
+    },
+    "sensacao": "invocacao"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_familiar_pacto.png",
+    "40": "assets/icones/skills/40/cultista_familiar_pacto.png",
+    "32": "assets/icones/skills/32/cultista_familiar_pacto.png"
+   }
+  },
+  {
    "id": "cultista_pacto_rubro",
    "classe": "cultista",
    "nome": "Pacto Rubro",
@@ -538,49 +629,6 @@
     "64": "assets/icones/skills/64/cultista_espinhos_sangue.png",
     "40": "assets/icones/skills/40/cultista_espinhos_sangue.png",
     "32": "assets/icones/skills/32/cultista_espinhos_sangue.png"
-   }
-  },
-  {
-   "id": "cultista_servo_carne",
-   "classe": "cultista",
-   "nome": "Servo de Carne",
-   "tipo": "invocacao",
-   "nivel": 6,
-   "custo": "15% HP",
-   "recarga": 25.0,
-   "conjuracao": 1.5,
-   "alcance": 3,
-   "area": 0,
-   "duracao": 30.0,
-   "elemento": "sombra",
-   "escala": [
-    "ESP",
-    "VIT"
-   ],
-   "efeitos": [
-    "invoca um zumbi costurado por 30s",
-    "o servo provoca inimigos que ele golpeia"
-   ],
-   "descricao": "A terra cospe pedaços que se costuram sozinhos num corpo obediente.",
-   "fx": "poça de sangue que borbulha e ergue o zumbi",
-   "som": "carne e ossos estalando",
-   "combate": {
-    "id": "servo_carne",
-    "nome": "Servo de Carne",
-    "nivel": 6,
-    "custo": 0.15,
-    "recarga": 25.0,
-    "invoca": "servo_de_carne",
-    "duracao": 20.0,
-    "max": 1,
-    "sensacao": "invocacao"
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
-   "provisorio": true,
-   "icone": {
-    "64": "assets/icones/skills/64/cultista_servo_carne.png",
-    "40": "assets/icones/skills/40/cultista_servo_carne.png",
-    "32": "assets/icones/skills/32/cultista_servo_carne.png"
    }
   },
   {
