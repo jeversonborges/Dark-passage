@@ -12,7 +12,7 @@
       "entrega": "capita_odete",
       "requer": [],
       "resumo": "Limpe a cerca do Acampamento da Vela.",
-      "descricao": "A Capitã Odete quer ver se você aguenta o tranco. Carniçais estão arranhando a cerca pelos Campos de Cinza. Derrube seis.",
+      "descricao": "DESPACHO DA VELA · Nº 1 · ANO 31 DO IMPASSE\nAo recruta sem nome. Apresente-se à cerca leste.\nCarniçais voltaram a arranhar o arame nos Campos de Cinza. Seis bastam para abrir uma brecha. Uma brecha basta para apagar a Vela. Derrube-os antes do toque de recolher.\nNão desperdice cartucho. Cada bala aqui já foi sino.\n— C. O. Ferrolho, Capitã da Cerca",
       "objetivos": [
         {
           "tipo": "matar",
@@ -38,7 +38,7 @@
           }
         ]
       },
-      "texto_conclusao": "Odete costurou uma Faixa da Vigília no seu braço sem dizer nada. Depois disse: 'Não morre, que dá trabalho costurar outra.'"
+      "texto_conclusao": "Odete costurou a Faixa da Vigília no seu braço com a mesma linha que usa nos mortos. \"Não morre\", disse. \"A linha está cara.\" No Livro da Cerca, ao lado do seu número, ela escreveu um nome. Era o seu."
     },
     {
       "id": "v02",
@@ -52,7 +52,7 @@
         "v01"
       ],
       "resumo": "Recupere bobinas de cobre roubadas pelos Corvos de Cinza.",
-      "descricao": "A Vela está piscando, e sem ela a poeira de Amargo invade o acampamento. O Doutor Anselmo precisa de cobre para as bobinas, e os Corvos de Cinza roubaram as que estavam secando no telhado. Tire de volta, de preferência de dentro dos corvos.",
+      "descricao": "ORDEM TÉCNICA DA VELA · Nº 212 · ANO 31 DO IMPASSE\nA Vela pisca. Quando ela pisca, o Amargo entra no acampamento e assenta no pulmão das crianças primeiro.\nAs bobinas de cobre que secavam no telhado foram levadas pelos Corvos de Cinza. Corvo engole o que brilha. Recupere cinco, de preferência de dentro dos corvos.\nEnquanto houver vela, não é noite. Sem cobre, é.\n— Dr. A. Graxa, Engenheiro Herege",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -70,7 +70,7 @@
           }
         ]
       },
-      "texto_conclusao": "A Vela voltou a zumbir firme. Anselmo beijou uma bobina e depois a sua testa, nessa ordem."
+      "texto_conclusao": "A Vela voltou a zumbir firme. Anselmo beijou uma bobina e depois a sua testa, nessa ordem. Na ordem técnica, ele riscou o 212 e escreveu 213 embaixo. Ninguém nunca chegou ao fim da lista."
     },
     {
       "id": "v03",
@@ -84,7 +84,7 @@
         "v02"
       ],
       "resumo": "Acabe com a matilha da Vala antes que ela ache o caminho para o acampamento.",
-      "descricao": "Os Cães de Vala estão rondando o portão toda noite, atrás da sopa que alguém deixa lá fora. Odete quer a matilha morta antes que aprendam a pular a cerca.",
+      "descricao": "DESPACHO DA VELA · Nº 2 · ANO 31 DO IMPASSE\nA matilha da Vala ronda o portão toda noite. Alguém deixa sopa do lado de fora. Descobrirei quem.\nCão que come na porta aprende a abrir a porta. Oito cães. Antes que aprendam.\n— C. O. Ferrolho, Capitã da Cerca",
       "objetivos": [
         {
           "tipo": "matar",
@@ -101,7 +101,7 @@
           "tecnomancer": "cajado_lampiao"
         }
       },
-      "texto_conclusao": "Odete mandou o Gaspar te dar uma arma de verdade. 'Recruta não. Soldado. Por enquanto.'"
+      "texto_conclusao": "Odete mandou o Gaspar te dar uma arma de verdade. \"Recruta não. Soldado. Por enquanto.\" Na mesma noite, a tigela de sopa do portão sumiu. Mãe Cardo não olhou para ninguém no jantar."
     },
     {
       "id": "v04",
@@ -115,7 +115,7 @@
         "v03"
       ],
       "resumo": "Investigue o cemitério e encontre o coveiro.",
-      "descricao": "Os Não-Julgados do cemitério estão andando em fila na direção do abatedouro. Odete quer saber por quê. Derrube alguns, examine os lacres no peito deles e procure o velho coveiro, Simão, o único que mora lá.",
+      "descricao": "DESPACHO DA VELA · Nº 3 · ANO 31 DO IMPASSE\nOs Não-Julgados do cemitério andam em fila na direção do abatedouro. Trinta e um anos parados e agora andam. Quero saber por quê.\nDerrube alguns. Examine o lacre de cera no peito. Depois procure o coveiro, Simão. É o único vivo que mora lá, se é que mora.\n— C. O. Ferrolho, Capitã da Cerca",
       "objetivos": [
         {
           "tipo": "matar",
@@ -144,7 +144,7 @@
           }
         ]
       },
-      "texto_conclusao": "Os lacres estão todos inteiros. Ninguém aqui foi julgado. Simão te ofereceu chá e disse que estava esperando alguém da Vela."
+      "texto_conclusao": "Os lacres estão todos inteiros. Ninguém aqui foi julgado. Simão serviu chá em duas xícaras, como se já esperasse visita, e disse: \"A Vela demorou.\" A segunda xícara já estava fria."
     },
     {
       "id": "a01",
@@ -156,7 +156,7 @@
       "entrega": "madre_ivone",
       "requer": [],
       "resumo": "Entregue os Carniçais dos Campos de Cinza ao Juízo.",
-      "descricao": "A Madre Ivone quer que sua primeira oração seja feita com as mãos. Os Carniçais dos Campos de Cinza nem esperaram o lacre: são restos sem propósito. Derrube seis.",
+      "descricao": "COMUNHÃO DO AMARGO · PRIMEIRA ORAÇÃO · ANO 31 DO JUÍZO ADIADO\nE disse a Madre: a primeira oração não se faz com a boca. Faz-se com as mãos.\nOs Carniçais dos Campos de Cinza não esperaram o lacre. São restos sem propósito, carne que esqueceu o chamado. Devolve seis deles ao pó, e o pó te reconhecerá.\nQue a nota termine.\n— Ivone das Chagas, Madre da Comunhão",
       "objetivos": [
         {
           "tipo": "matar",
@@ -182,7 +182,7 @@
           }
         ]
       },
-      "texto_conclusao": "A Madre amarrou a Fita do Juízo no seu pulso com um nó apertado demais. 'Agora você sangra conosco.'"
+      "texto_conclusao": "A Madre amarrou a Fita do Juízo no seu pulso com um nó apertado demais. \"Agora você sangra conosco.\" Seu nome entrou no rol da Comunhão, logo abaixo de um nome riscado."
     },
     {
       "id": "a02",
@@ -196,7 +196,7 @@
         "a01"
       ],
       "resumo": "Recupere as penas dos anjos caídos roubadas pelos Corvos de Cinza.",
-      "descricao": "Anjos morreram nos Campos de Cinza na noite da meia nota e ninguém os recolheu. Os Corvos de Cinza arrancam as penas deles. O Comandante Abdiel quer as penas de volta para queimá-las no altar, como manda o rito.",
+      "descricao": "VERSÍCULO DO CORO · LIVRO DAS PENAS · 1\nE na noite da meia nota caíram irmãos do Coro sobre os Campos de Cinza, e ninguém os recolheu.\nE os corvos desceram e arrancaram-lhes as penas, uma a uma, como quem conta.\nRecolhe as penas. Não é dado ao corvo o que foi do Céu. Elas arderão no altar, como manda o rito.\n— Abdiel, Comandante do Coro em São Lázaro",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -214,7 +214,7 @@
           }
         ]
       },
-      "texto_conclusao": "Abdiel queimou as penas uma por uma. Não disse nada, mas você jurou ouvir a porcelana do rosto dele rachar mais um pouco."
+      "texto_conclusao": "Abdiel queimou as penas uma por uma. Não disse nada, mas você jurou ouvir a porcelana do rosto dele rachar mais um pouco. Uma das penas não pegou fogo. Ele a guardou no peito, contra o rito."
     },
     {
       "id": "a03",
@@ -228,7 +228,7 @@
         "a02"
       ],
       "resumo": "Traga dentes de Cães de Vala para Malfas.",
-      "descricao": "Malfas, o penhorista do pátio, diz que pode equipar você direito, mas nada sai de graça. Ele aceita Dentes de Vala como pagamento. Abdiel fez cara de nojo quando ouviu, o que deixou Malfas muito feliz.",
+      "descricao": "NOTA DE PENHOR · Nº 4.113 · ANO 31 DO JUÍZO ADIADO\nO portador desta tem crédito na banca de Malfas, penhorista do pátio, mediante entrega de Dentes de Vala.\nJuros: nenhum. Malfas cobra de outro jeito.\n(no rodapé, em letra caprichada) O Comandante fez cara de nojo ao ler esta nota. Isso, por si só, já vale o desconto.\n— Malfas, Legião Blasfema (afastado)",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -245,7 +245,7 @@
           "cultista": "adaga_chaga"
         }
       },
-      "texto_conclusao": "Malfas contou os dentes duas vezes, mordeu um, e tirou uma arma de dentro do sobretudo. 'Pra um anjo, eu ia cobrar o dobro. Mas você tem cara de quem volta.'"
+      "texto_conclusao": "Malfas contou os dentes duas vezes, mordeu um e tirou uma arma de dentro do sobretudo. \"Para um anjo, eu cobraria o dobro. Mas você tem cara de quem volta.\" Na sua nota de penhor, ele escreveu: \"Cliente. Por enquanto.\""
     },
     {
       "id": "a04",
@@ -259,7 +259,7 @@
         "a03"
       ],
       "resumo": "Examine os lacres dos Não-Julgados e encontre o coveiro.",
-      "descricao": "A Madre sente que a quinta trombeta está perto, debaixo da paróquia. Os Não-Julgados do cemitério andam em fila na direção do abatedouro, como se a ouvissem. Derrube alguns, examine os lacres e procure o coveiro Simão: ele sabe mais do que diz.",
+      "descricao": "COMUNHÃO DO AMARGO · SEGUNDA ORAÇÃO · ANO 31 DO JUÍZO ADIADO\nE disse a Madre: eu a sinto debaixo dos meus pés. A quinta trombeta está perto.\nOs Não-Julgados andam em fila para o abatedouro, como quem ouve um chamado. Derruba alguns. Lê o lacre no peito deles. Depois procura o coveiro, Simão.\nEle sabe mais do que diz. Todos os velhos sabem. Ele é mais velho do que todos.\n— Ivone das Chagas, Madre da Comunhão",
       "objetivos": [
         {
           "tipo": "matar",
@@ -288,7 +288,7 @@
           }
         ]
       },
-      "texto_conclusao": "Os lacres estão inteiros: ninguém foi julgado. Simão te recebeu sem medo e disse que a Capela demorou para mandar alguém."
+      "texto_conclusao": "Os lacres estão inteiros: ninguém foi julgado. Simão te recebeu sem medo, com duas xícaras de chá na mesa. \"A Capela demorou\", disse. \"A Vela também.\""
     },
     {
       "id": "c01",
@@ -303,7 +303,7 @@
         "a04"
       ],
       "resumo": "Traga sebo do abatedouro para o coveiro fazer velas.",
-      "descricao": "Simão faz velas que acalmam os Não-Julgados, mas o sebo acabou. Os Porcos Pestilentos do Abatedouro Carniça são gordos o bastante. Enquanto você caça, ele promete contar por que os mortos andam para lá.",
+      "descricao": "CADERNO DO COVEIRO · PÁGINA SEM DATA\nSebo: acabou.\nVelas: nenhuma.\nOs mortos ficam inquietos sem vela. Eu também.\nOs porcos do Carniça estão gordos. Ninguém pergunta do que. Seis pedaços de sebo. Enquanto você caça, eu conto por que os mortos andam para lá.\n— S.",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -321,7 +321,7 @@
           }
         ]
       },
-      "texto_conclusao": "Simão contou a história da meia nota: a quinta trombeta está debaixo da cidade, calada com chumbo, e os mortos se arrastam na direção dela como girassóis de noite."
+      "texto_conclusao": "Simão contou a história da meia nota: a quinta trombeta está debaixo da cidade, calada com chumbo, e os mortos se arrastam na direção dela como girassóis de noite. Ele fez a primeira vela e a acendeu sem fósforo. Você não viu como."
     },
     {
       "id": "c02",
@@ -335,7 +335,7 @@
         "c01"
       ],
       "resumo": "Recupere o Livro de Óbitos no escritório do Abatedouro Carniça.",
-      "descricao": "O Livro de Óbitos do cemitério sumiu na época do cerco. Simão acha que está no escritório do capataz do abatedouro. Ele não explica por que acha isso. O Capataz Gancho guarda o mezanino e as chaves do lugar.",
+      "descricao": "CADERNO DO COVEIRO · PÁGINA ARRANCADA\nO Livro de Óbitos sumiu na época do cerco. Deve estar no escritório do capataz do abatedouro.\nNão pergunte como eu sei.\nO Capataz Gancho guarda o mezanino e as chaves. Ele não vai entregar nenhum dos dois.\n— S.",
       "objetivos": [
         {
           "tipo": "matar",
@@ -375,7 +375,7 @@
           }
         ]
       },
-      "texto_conclusao": "O livro revelou tudo: Benedito Carniça alimentou a cidade com os mortos do cemitério e do campo de batalha, e jogou o resto num fosso do porão, onde alguém pela metade comia e pedia mais. Um tal de 'S.' vendia corpos para ele. Simão leu, fechou o livro e ficou um tempo olhando para as próprias mãos."
+      "texto_conclusao": "O livro revelou tudo: Benedito Carniça alimentou a cidade com os mortos do cemitério e do campo de batalha, e jogou o resto num fosso do porão, onde alguém pela metade comia e pedia mais. Um tal de \"S.\" vendia corpos para ele. Simão leu, fechou o livro e ficou um tempo olhando para as próprias mãos."
     },
     {
       "id": "c03",
@@ -390,7 +390,7 @@
       ],
       "ao_concluir_inicia": "c04",
       "resumo": "Abra o porão do abatedouro e desça.",
-      "descricao": "A Chave de Gancho abre a porta do porão do Abatedouro Carniça. Benedito desceu por ali para ver quem comia no fosso e nunca voltou. Lá embaixo começa a Cripta da Trombeta Calada.",
+      "descricao": "CADERNO DO COVEIRO · PÁGINA SEM DATA\nA Chave de Gancho abre a porta do porão.\nBenedito desceu por ali para ver quem pedia mais carne. Não subiu.\nEmbaixo do porão estão as catacumbas. Embaixo das catacumbas, a trombeta. Eu não desço. Já desci uma vez, num lugar parecido, e foi difícil sair.\n— S.",
       "objetivos": [
         {
           "tipo": "usar_item",
@@ -408,7 +408,7 @@
         "xp": 4410,
         "ouro": 0
       },
-      "texto_conclusao": "A porta rangeu como um animal. O cheiro que subiu tinha gosto de ferro e açúcar."
+      "texto_conclusao": "A porta rangeu como um animal. O cheiro que subiu tinha gosto de ferro e açúcar. Atrás de você, no alto da escada, ninguém. Mas a vela do coveiro estava acesa no degrau."
     },
     {
       "id": "c04",
@@ -422,7 +422,7 @@
         "c03"
       ],
       "resumo": "Desça até a Vala da Grande Batalha e derrote Andras.",
-      "descricao": "No fundo do porão, onde Benedito jogou os mortos da Grande Batalha, vive Andras, o general demônio que o bonde da linha 7 partiu ao meio. Ele sobreviveu comendo os soldados mortos e está ficando forte para subir. O primeiro lacre da câmara da trombeta está pregado no estandarte dele.",
+      "descricao": "INSCRIÇÃO NO MASTRO DE UM ESTANDARTE · PORÃO DO MATADOURO\nLEGIÃO BLASFEMA · PRIMEIRA COORTE · A ANDRAS, ATÉ O FIM\n(embaixo, arranhado com unha, recente) ATÉ O FIM. ATÉ O FIM. ATÉ O FIM.\nNo fundo do porão, onde Benedito jogou os mortos da Grande Batalha, alguma coisa se arrasta e come. O primeiro lacre da câmara da trombeta está pregado nesse estandarte.",
       "objetivos": [
         {
           "tipo": "matar",
@@ -459,7 +459,7 @@
         "c04"
       ],
       "resumo": "Cale a Irmã Celeste e recupere o Lacre de Lágrimas.",
-      "descricao": "Frei Anacleto, um monge emparedado há trezentos anos, diz que a Irmã Celeste rege um coro de ossos no fundo do ossário e guarda o segundo lacre. Ele pede que você faça silêncio. 'Por favor. Ela canta desafinado.'",
+      "descricao": "CRÔNICA DO EMPAREDADO · FOLHA DE TIJOLO\nEscrevo a unha, que a tinta acabou no século passado.\nLá no fundo do ossário, a Irmã Celeste rege um coro de ossos. Canta há trinta e um anos sem parar, e guarda o segundo lacre no peito.\nPeço-lhe um favor de irmão: faça silêncio. Por caridade. Ela canta desafinado.\n— Fr. Anacleto, emparedado",
       "objetivos": [
         {
           "tipo": "matar",
@@ -482,7 +482,7 @@
           }
         ]
       },
-      "texto_conclusao": "O coro parou. Pela primeira vez em anos o ossário ficou em silêncio, e Anacleto chorou de alívio, o que para um fantasma é só um brilho mais forte."
+      "texto_conclusao": "O coro parou. Pela primeira vez em trinta e um anos o ossário ficou em silêncio, e Anacleto chorou de alívio, o que para um fantasma é só um brilho mais forte. Depois corrigiu a letra do hino, baixinho, de memória."
     },
     {
       "id": "c06",
@@ -496,7 +496,7 @@
         "c05"
       ],
       "resumo": "Abra a Câmara da Trombeta, derrote Zacarias e traga o bocal para Simão.",
-      "descricao": "Com os dois lacres, a porta da Câmara da Trombeta se abre. Lá embaixo, o arauto Zacarias segura a quinta trombeta há anos e quer terminar a nota, julgando todos, de qualquer lado. Tire o bocal das mãos dele e leve para o coveiro, que pediu para vê-lo uma vez.",
+      "descricao": "CRÔNICA DO EMPAREDADO · ÚLTIMA FOLHA\nCom os dois lacres, a porta da Câmara se abre.\nLá embaixo, o arauto Zacarias segura a quinta trombeta desde a meia nota. Quer terminar a nota e julgar todos, de qualquer lado, começando por quem descer.\nTire o bocal das mãos dele. O coveiro pediu para vê-lo uma vez. Não sei por quê. Desconfio.\n— Fr. Anacleto, emparedado",
       "objetivos": [
         {
           "tipo": "usar_item",
@@ -532,7 +532,7 @@
         "xp": 10710,
         "ouro": 400
       },
-      "texto_conclusao": "Simão segurou o bocal por um longo tempo, com o polegar em cima do lacre de chumbo. Depois devolveu. 'Esperei dois mil anos. Espero mais um pouco.'"
+      "texto_conclusao": "Simão segurou o bocal por um longo tempo, com o polegar em cima do lacre de chumbo. Depois devolveu. \"Esperei muito tempo para ser julgado. Espero mais um pouco.\" Ele não disse quanto tempo."
     },
     {
       "id": "v05",
@@ -546,7 +546,7 @@
         "c06"
       ],
       "resumo": "Decida o que a Vigília faz com o bocal da quinta trombeta.",
-      "descricao": "Odete quer esmagar o bocal na bigorna do Gaspar agora mesmo. Anselmo implora para estudá-lo: acha que pode construir uma trombeta reversa que desfaça a meia nota. Os dois esperam que você decida.",
+      "descricao": "DESPACHO DA VELA · Nº 9 · RESERVADO\nOdete quer esmagar o bocal na bigorna do Gaspar. Agora.\nAnselmo implora para estudá-lo. Acha que pode construir uma trombeta reversa que desfaça a meia nota.\nOs dois esperam que você decida. A Cerca assina embaixo do que você escolher. Escolha como quem assina.\n— C. O. Ferrolho e Dr. A. Graxa (em desacordo)",
       "objetivos": [
         {
           "tipo": "decidir",
@@ -590,7 +590,7 @@
         }
       ],
       "recompensas": {},
-      "texto_conclusao": "A decisão foi tomada. São Lázaro continua no impasse, mas o impasse agora tem a sua assinatura."
+      "texto_conclusao": "A decisão foi tomada. São Lázaro continua no impasse, mas o impasse agora tem a sua assinatura. No Livro da Cerca, Odete escreveu o seu nome sem o número na frente."
     },
     {
       "id": "a05",
@@ -607,7 +607,7 @@
         "c06"
       ],
       "resumo": "Decida a quem os Arautos confiam o bocal da quinta trombeta.",
-      "descricao": "A Madre Ivone diz que o bocal deve ir para quem vai arrancar o lacre de chumbo. Abdiel exige guardá-lo, por direito de escudeiro de Zacarias. Malfas oferece um preço que ninguém mais pode pagar. A Madre deixa a escolha com você, o que não é um elogio.",
+      "descricao": "VERSÍCULO DO CORO · LIVRO DO BOCAL · 1\nE disse a Madre: o bocal irá para quem arrancar o chumbo.\nE disse Abdiel: é meu, por direito de escudeiro de Zacarias.\nE disse Malfas, rindo: tenho um preço que nenhum dos dois pode pagar.\nE a Madre deixou a escolha contigo, o que não é um elogio. Que a nota termine.\n— registrado por Lúcio, irmão escrivão",
       "objetivos": [
         {
           "tipo": "decidir",
@@ -654,7 +654,7 @@
         }
       ],
       "recompensas": {},
-      "texto_conclusao": "O bocal mudou de mãos. Do outro lado do pátio, alguém nunca vai te perdoar por isso."
+      "texto_conclusao": "O bocal mudou de mãos. Do outro lado do pátio, alguém nunca vai te perdoar por isso. No livro da Capela, o versículo seguinte ficou em branco."
     },
     {
       "id": "s01",
@@ -668,7 +668,7 @@
         "v02"
       ],
       "resumo": "Colete Raiz-de-Cova no cemitério para Mãe Cardo.",
-      "descricao": "Mãe Cardo precisa de Raiz-de-Cova para um caldo especial. Só nasce em terra de enterro, e os Não-Julgados costumam carregar algumas nas mortalhas.",
+      "descricao": "BILHETE DA COZINHA DA VELA · ESCRITO A CARVÃO\nMenino, preciso de Raiz-de-Cova para um caldo.\nSó nasce em terra de enterro. Os Não-Julgados carregam algumas presas na mortalha, sem saber.\nNão pergunte para quem é o caldo.\n— Mãe Cardo",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -686,7 +686,7 @@
           }
         ]
       },
-      "texto_conclusao": "Mãe Cardo cheirou as raízes e ficou quieta. 'Era o preferido dele', ela disse, e não explicou de quem."
+      "texto_conclusao": "Mãe Cardo cheirou as raízes e ficou quieta. \"Era o preferido dele\", disse, e não explicou de quem. O caldeirão ficou no fogo a noite inteira, para uma pessoa que não veio jantar."
     },
     {
       "id": "s02",
@@ -700,7 +700,7 @@
         "s01"
       ],
       "resumo": "Leve o caldo ao túmulo do marido de Cardo e encontre o filho dela.",
-      "descricao": "Mãe Cardo finalmente contou: o filho dela, Joaquim, virou uma besta e ronda o túmulo do pai no cemitério. Ela quer que ele tome o caldo de quando era menino, uma última vez. E quer que você faça o que precisar ser feito depois.",
+      "descricao": "BILHETE DA COZINHA DA VELA · ESCRITO A CARVÃO, BORRADO\nO nome dele é Joaquim. É meu filho. O Amargo o fez grande demais para a porta de casa.\nEle ronda o túmulo do pai, no cemitério. Leve o caldo de quando era menino. Uma última vez.\nDepois, faça o que precisar ser feito. Não me conte como foi.\n— Mãe Cardo",
       "objetivos": [
         {
           "tipo": "usar_item",
@@ -751,7 +751,7 @@
         "v03"
       ],
       "resumo": "Traga ferro do abatedouro e o último badalo da torre do cemitério.",
-      "descricao": "Gaspar quer fundir munição nova e precisa de ferro: os cutelos dos Açougueiros Ocos servem. Ele também pede, sem olhar nos seus olhos, o badalo do último sino de São Lázaro, que ficou na torre do cemitério.",
+      "descricao": "ORDEM DA FORJA · SINEIROS DA VELA\nFerro: cutelos dos Açougueiros Ocos.\nBronze: o badalo do último sino de São Lázaro, na torre do cemitério.\nO sino tocou meu batizado. Vai tocar mais uma vez, dentro de uma escopeta.\n— G. Bigorna",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -785,7 +785,7 @@
           }
         ]
       },
-      "texto_conclusao": "Gaspar derreteu o ferro sem hesitar. O badalo ele segurou por uma hora antes de jogar na forja. Guardou um pedaço para você."
+      "texto_conclusao": "Gaspar derreteu o ferro sem hesitar. O badalo ele segurou por uma hora antes de jogar na forja. Guardou um pedaço para você. \"Cada bala aqui já foi sino\", disse. \"Esta foi o meu.\""
     },
     {
       "id": "s04",
@@ -799,7 +799,7 @@
         "v01"
       ],
       "resumo": "Siga o mapa do Tobias e abra os três esconderijos.",
-      "descricao": "Tobias tem um mapa de três esconderijos que a maré de areia ainda não engoliu. Ele é pequeno demais para abrir os baús sozinho. O que estiver dentro é seu, menos uma caixinha de música, que é dele, e ele vai saber se você ficar com ela.",
+      "descricao": "MAPA DO TOBIAS · DESENHADO NO VERSO DE UM RÓTULO DE TÔNICO\nTrês X. Três baús que a maré de areia ainda não engoliu. Eu sou pequeno demais para as tampas.\nO que tiver dentro é seu. Menos a caixinha de música. Essa é minha. Eu vou saber.\n— Tobias 'Pavio' (assinado com um desenho de vela)",
       "objetivos": [
         {
           "tipo": "interagir",
@@ -849,7 +849,7 @@
         "a01"
       ],
       "resumo": "Recupere com Malfas o osso que Lúcio penhorou.",
-      "descricao": "Lúcio penhorou a relíquia da capela, um osso de São Lázaro, com Malfas durante o cerco, em troca de pão. A Madre vai rezar com o relicário na próxima missa. Malfas aceita devolver por dez Dentes de Vala.",
+      "descricao": "CARTA SEM LACRE · ANO 31 DO JUÍZO ADIADO\nIrmão, eu penhorei o relicário durante o cerco. O osso de São Lázaro, por três pães. A Madre vai rezar com ele na próxima missa.\nMalfas aceita devolver por dez Dentes de Vala. Não conte a ninguém. Muito menos a ela.\n— Lúcio, irmão escrivão",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -878,7 +878,7 @@
           }
         ]
       },
-      "texto_conclusao": "Malfas devolveu um osso de galinha e riu. 'Esse relicário nunca teve osso de santo, menino. Os ossos de Lázaro não estão em relicário nenhum. O dono ainda está usando.' Lúcio colocou o osso de galinha no relicário mesmo assim."
+      "texto_conclusao": "Malfas devolveu um osso de galinha e riu. \"Esse relicário nunca teve osso de santo, menino. Os ossos de Lázaro não estão em relicário nenhum. O dono ainda está usando.\" Lúcio colocou o osso de galinha no relicário mesmo assim."
     },
     {
       "id": "s06",
@@ -892,7 +892,7 @@
         "s05"
       ],
       "resumo": "Deixe a carta de Lúcio no Poço Seco, onde a irmã dele busca.",
-      "descricao": "Lúcio tem uma irmã do outro lado, no Acampamento da Vela. Eles trocam cartas pelo Poço Seco, nos Campos de Cinza. Ele pede que você leve a próxima. Se a Madre souber, os dois pagam caro.",
+      "descricao": "CARTA SEM LACRE · DOBRADA EM QUATRO\nMinha irmã, Rosa, está do outro lado, no Acampamento da Vela.\nA gente troca cartas pelo Poço Seco, nos Campos de Cinza. Leve a próxima. Se a Madre souber, nós dois pagamos.\nEla ainda acha que eu vou voltar. Às vezes eu também acho.\n— Lúcio",
       "objetivos": [
         {
           "tipo": "usar_item",
@@ -918,7 +918,7 @@
           }
         ]
       },
-      "texto_conclusao": "No fundo do poço já havia uma resposta: meio terço de contas de osso e um bilhete, 'O joelho ainda estala. Volta pra casa.' Lúcio te deu a outra metade."
+      "texto_conclusao": "No fundo do poço já havia uma resposta: meio terço de contas de osso e um bilhete. \"O joelho ainda estala. Volta para casa.\" Lúcio te deu a outra metade."
     },
     {
       "id": "s07",
@@ -933,7 +933,7 @@
       ],
       "oculta": true,
       "resumo": "Você entregou a carta de Lúcio à Madre Ivone.",
-      "descricao": "Só aparece se o jogador entregar a Carta para Rosa à Madre em vez de levá-la ao poço. Falha 'Carta para Rosa'.",
+      "descricao": "COMUNHÃO DO AMARGO · TERCEIRA ORAÇÃO\nE entregaste à Madre o que não era teu entregar. E a Madre agradeceu.\nA fé está acima do sangue. Acima do sangue da tua irmã, se tiveres uma. Acima do de qualquer irmão.\n— Ivone das Chagas, Madre da Comunhão",
       "objetivos": [
         {
           "tipo": "falar",
@@ -956,7 +956,7 @@
           }
         ]
       },
-      "texto_conclusao": "A Madre leu a carta inteira, dobrou com cuidado e agradeceu. Lúcio não está mais na sacristia. Ninguém fala dele."
+      "texto_conclusao": "A Madre leu a carta inteira, dobrou com cuidado e agradeceu. Lúcio não está mais na sacristia. Ninguém fala dele. No rol da Comunhão, o nome dele foi riscado com a mesma tinta que escreveu o seu."
     },
     {
       "id": "s08",
@@ -971,7 +971,7 @@
         "a04"
       ],
       "resumo": "Use a pá de Simão para cobrir os túmulos que a areia descobriu.",
-      "descricao": "A maré de areia desenterra os túmulos toda noite, e os Não-Julgados que você derruba ficam expostos ao vento. Simão está velho demais para cobrir todos. Ele empresta a pá dele, o que, segundo ele, nunca fez.",
+      "descricao": "CADERNO DO COVEIRO · PÁGINA SEM DATA\nA maré de areia desenterra as covas toda noite. Eu cubro toda manhã. Faço isso há mais tempo do que gosto de dizer.\nCinco covas abertas. Empresto a pá. Nunca emprestei a pá.\n— S.",
       "objetivos": [
         {
           "tipo": "interagir",
@@ -996,7 +996,7 @@
           }
         ]
       },
-      "texto_conclusao": "Simão pegou a pá de volta e passou o dedo na lâmina. 'Você cava torto. Mas cava com respeito. Isso não se ensina.'"
+      "texto_conclusao": "Simão pegou a pá de volta e passou o dedo na lâmina. \"Você cava torto. Mas cava com respeito. Isso não se ensina.\" Na lâmina, gasta de séculos, alguém gravou uma data. Ele virou a pá antes que você lesse."
     },
     {
       "id": "s09",
@@ -1010,7 +1010,7 @@
         "c04"
       ],
       "resumo": "Leia as confissões nas celas dos monges emparedados.",
-      "descricao": "Cada monge emparedado no ossário escreveu a própria confissão na parede antes de morrer. Ninguém nunca leu. Anacleto diz que uma confissão que ninguém escuta não vale. Leia cinco.",
+      "descricao": "CRÔNICA DO EMPAREDADO · FOLHA DE TIJOLO\nCada irmão emparedado neste ossário escreveu a própria confissão na parede antes do último tijolo.\nNinguém nunca leu. Uma confissão que ninguém escuta não vale. Leia cinco. Leia devagar.\n— Fr. Anacleto, emparedado",
       "objetivos": [
         {
           "tipo": "interagir",
@@ -1029,7 +1029,7 @@
           }
         ]
       },
-      "texto_conclusao": "Anacleto te deu o figo seco que guardava para o dia do Juízo. 'Acho que o Juízo vai demorar. E você parece com fome.'"
+      "texto_conclusao": "Anacleto te deu o figo seco que guardava para o dia do Juízo. \"Acho que o Juízo vai demorar. E você parece com fome.\""
     },
     {
       "id": "r01",
@@ -1044,7 +1044,7 @@
         "v03"
       ],
       "resumo": "Patrulhe a cerca e derrube o que estiver arranhando.",
-      "descricao": "Todo dia alguém faz a ronda da cerca. Hoje é você.",
+      "descricao": "DESPACHO DA VELA · RONDA DIÁRIA\nTodo dia alguém faz a ronda da cerca. Hoje é você.\nDaqui ninguém passa.\n— C. O. Ferrolho",
       "objetivos": [
         {
           "tipo": "matar",
@@ -1067,7 +1067,7 @@
           }
         ]
       },
-      "texto_conclusao": "Cerca inteira. Por hoje."
+      "texto_conclusao": "Cerca inteira. Por hoje. Odete riscou mais um dia no poste do portão. Faltava lugar."
     },
     {
       "id": "r02",
@@ -1082,7 +1082,7 @@
         "a03"
       ],
       "resumo": "Traga o dízimo diário de Dentes de Vala para Malfas.",
-      "descricao": "Malfas paga bem por dentes, todo dia. Ele chama de dízimo para irritar o Abdiel.",
+      "descricao": "NOTA DE PENHOR · DÍZIMO\nMalfas paga por dentes, todo dia.\nChama de dízimo para irritar o Comandante. Funciona todo dia também.\n— Malfas",
       "objetivos": [
         {
           "tipo": "coletar",
@@ -1115,7 +1115,7 @@
         "v03"
       ],
       "resumo": "Siga a voz que lê números no rádio até o Bairro Afogado.",
-      "descricao": "O rádio do Doutor Anselmo pega toda noite uma voz de mulher lendo números: 'Absinto-dois, ainda aqui.' Ele quer saber quem é. A voz vem da torre da Rádio São Lázaro, no Bairro Afogado, e a matilha tomou os becos do caminho.",
+      "descricao": "ORDEM TÉCNICA DA VELA · Nº 230 · ANO 31 DO IMPASSE\nToda noite, às 03h11, o rádio da Vela pega uma voz de mulher lendo números. \"Absinto-dois, ainda aqui.\"\nNão é oração. É contagem. Quem conta, conta alguma coisa.\nA voz vem da torre da Rádio São Lázaro, no Bairro Afogado. A matilha tomou os becos do caminho. Descubra quem fala.\n— Dr. A. Graxa, Engenheiro Herege",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1138,7 +1138,7 @@
         ],
         "xp": 2640
       },
-      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército que mora na torre enterrada. Ela não pareceu surpresa ao ver alguém da Vela."
+      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército que mora na torre enterrada. Ela não pareceu surpresa ao ver alguém da Vela. \"O Doutor ainda escuta na frequência de serviço\", disse. \"Ele sempre escutou.\""
     },
     {
       "id": "d01a",
@@ -1153,7 +1153,7 @@
         "a03"
       ],
       "resumo": "Encontre quem profana o nome da estrela no rádio.",
-      "descricao": "Toda noite uma voz no rádio diz que a estrela Absinto tinha número de série. A Madre Ivone quer que essa voz se cale, ou que se explique. Ela vem da torre da Rádio São Lázaro, no Bairro Afogado, e a matilha tomou os becos do caminho.",
+      "descricao": "COMUNHÃO DO AMARGO · ORDEM DE SILÊNCIO\nE há uma voz no rádio que diz que a estrela Absinto tinha número de série.\nIsso é blasfêmia, ou é testemunho. Em ambos os casos, cala-se.\nA voz vem da torre da Rádio São Lázaro, no Bairro Afogado. A matilha guarda os becos. Vai. Que se cale, ou que se explique.\n— Ivone das Chagas, Madre da Comunhão",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1176,7 +1176,7 @@
         ],
         "xp": 2640
       },
-      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército. Ela ofereceu chá e disse: 'A Madre ainda acha que foi Deus? Senta. Vai demorar.'"
+      "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército. Ela ofereceu chá e disse: \"A Madre ainda acha que foi Deus? Senta. Vai demorar.\""
     },
     {
       "id": "d02",
@@ -1192,7 +1192,7 @@
         "d01a"
       ],
       "resumo": "Traga válvulas de rádio e conserte a antena da torre.",
-      "descricao": "A antena da Rádio São Lázaro está morrendo. Isaura precisa de válvulas de vidro, e os Cães de Vala engolem qualquer coisa que brilhe na areia. A toca da matilha, na Vala, deve estar cheia delas.",
+      "descricao": "RÁDIO SÃO LÁZARO · BOLETIM DAS 03H11 · NOITE 11.209 DO IMPASSE\n(estática) ...ouvinte, a antena está morrendo. Se ela morrer, eu paro de contar, e se eu paro de contar, ninguém mais conta.\nPreciso de válvulas de vidro. Os Cães de Vala engolem tudo que brilha na areia. A toca deles, na Vala, deve estar cheia.\nTraga cinco e suba ao telhado. Eu não subo mais escada.\n— Isaura Valente, Rádio São Lázaro",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1222,7 +1222,7 @@
         ],
         "xp": 3480
       },
-      "texto_conclusao": "Com a antena viva, Isaura contou a primeira parte: ela era a radiotelegrafista do Comando Sul, e o Silo São Lázaro ficava a poucos quilômetros dali."
+      "texto_conclusao": "Com a antena viva, Isaura contou a primeira parte: ela era a radiotelegrafista do Comando Sul, e o Silo São Lázaro ficava a poucos quilômetros dali. Ela disse \"silo\" como quem diz o nome de um morto."
     },
     {
       "id": "d03",
@@ -1237,7 +1237,7 @@
         "d02"
       ],
       "resumo": "Recupere as páginas da ordem de lançamento com as viúvas da vila militar.",
-      "descricao": "Isaura leu a ordem de lançamento em voz alta uma única vez, há muitos anos. As cópias de carbono ficaram na vila militar do silo, que afundou onde hoje é o Bosque das Viúvas. As viúvas guardam pedaços nas mortalhas sem saber o que dizem.",
+      "descricao": "RÁDIO SÃO LÁZARO · BOLETIM DAS 03H11 · NOITE 11.214 DO IMPASSE\n(estática) ...e continua no lugar. Repito: continua no lugar.\nOuvinte, a mensagem de hoje é para você. Eu li uma ordem em voz alta uma vez. Uma vez basta para a vida inteira. As cópias de carbono afundaram com a vila militar, lá onde hoje cantam as Viúvas. Elas costuraram as páginas nas mortalhas. Não sabem ler. Eu sei.\nTraga as quatro páginas. Depois a gente decide se você pode ouvir o resto.\n— Isaura Valente, Rádio São Lázaro",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1260,7 +1260,7 @@
         ],
         "xp": 4410
       },
-      "texto_conclusao": "A ordem está inteira. Alvo: uma formação alada sobre a capital. Arma: Ogiva Absinto-1. A estrela que caiu e amargou as águas não veio do céu. Subiu daqui."
+      "texto_conclusao": "A ordem está inteira. Alvo: formação alada sobre a capital. Arma: Ogiva Absinto-1. No rodapé, carimbado: LIDO E CONFIRMADO, 03H11. OP. I. VALENTE. Isaura desliga o microfone antes de você terminar de ler o nome."
     },
     {
       "id": "d04",
@@ -1275,7 +1275,7 @@
         "d03"
       ],
       "resumo": "Colete amostras do Rio Amargo e descubra de onde vem o Amargo.",
-      "descricao": "Se a estrela foi uma bomba, o Amargo é a cinza dela. Isaura quer provar com o contador: a água do Rio Amargo deve ter a mesma assinatura da Absinto-1. A margem está tomada pela matilha e por desertores da Legião.",
+      "descricao": "RÁDIO SÃO LÁZARO · BOLETIM DAS 03H11 · NOITE 11.218 DO IMPASSE\n(estática) ...os Arautos chamam o Amargo de sacramento. Eu chamo de cinza.\nSe a estrela foi uma bomba, a água lembra. Leve meu contador ao Rio Amargo e colha três amostras. Se o contador estalar igual ao pó que cai do céu, não há mais o que discutir.\nA margem é da matilha e dos desertores da Legião. Eles cobram pedágio. Não pague.\n— Isaura Valente, Rádio São Lázaro",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1310,7 +1310,7 @@
         ],
         "xp": 5460
       },
-      "texto_conclusao": "O contador estalou igual para as três amostras e para o pó que cai do céu. O Amargo é a radiação da bomba, trazida pelo vento da cratera lá longe. A praga, as mutações, o rio que quase secou: tudo veio do mesmo botão."
+      "texto_conclusao": "O contador estalou igual para as três amostras e para o pó que cai do céu. O Amargo é a radiação da bomba, trazida pelo vento da cratera lá longe. A praga, as mutações, o rio que quase secou: tudo veio do mesmo botão. Isaura não leu os números naquela noite. Leu um salmo."
     },
     {
       "id": "d05",
@@ -1325,7 +1325,7 @@
         "d04"
       ],
       "resumo": "Atravesse o muro das sombras na borda da tempestade.",
-      "descricao": "O silo fica dentro da tempestade, atrás do muro da vila militar. O clarão do lançamento gravou ali a sombra de quem estava olhando, e à noite as sombras descolam. Isaura precisa de fragmentos do muro para achar a escotilha de serviço: onde a sombra é mais densa, a porta está atrás.",
+      "descricao": "RÁDIO SÃO LÁZARO · BOLETIM DAS 03H11 · NOITE 11.225 DO IMPASSE\n(estática) ...o silo fica dentro da tempestade, atrás do muro da vila militar.\nO clarão do lançamento gravou no muro a sombra de quem olhava para o céu. À noite as sombras descolam e andam. Elas não sabem que morreram. Eu não conto a elas.\nTraga fragmentos do muro. Onde a sombra é mais densa, a escotilha de serviço está atrás.\n— Isaura Valente, Rádio São Lázaro",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1348,7 +1348,7 @@
         ],
         "xp": 7860
       },
-      "texto_conclusao": "Num dos fragmentos, a sombra de uma mulher de fones de ouvido segura a sombra de um menino. Isaura olhou muito tempo e disse que era só uma coincidência."
+      "texto_conclusao": "Num dos fragmentos, a sombra de uma mulher de fones de ouvido segura a sombra de um menino. Isaura olhou muito tempo e disse que era só uma coincidência. Naquela noite, o boletim atrasou onze minutos."
     },
     {
       "id": "d06",
@@ -1363,7 +1363,7 @@
         "d05"
       ],
       "resumo": "Entre no silo, derrote o último operador e decida o destino da segunda ogiva.",
-      "descricao": "A Absinto-2 nunca foi lançada. O Sargento Brandão, fundido à cadeira de comando, ainda guarda a chave e espera a segunda ordem. Tire a chave dele. Depois, Isaura quer que você decida: desarmar a ogiva para sempre ou levar a chave para a sua facção.",
+      "descricao": "RÁDIO SÃO LÁZARO · ÚLTIMO BOLETIM · NOITE 11.231 DO IMPASSE\n(estática) ...ouvinte, a segunda estrela continua no lugar. Há trinta e um anos eu digo isso. Hoje eu quero parar.\nO Sargento Brandão, fundido à cadeira de comando, ainda guarda a chave e espera a segunda ordem. Ninguém vai mandar. Tire a chave dele.\nDepois, a escolha é sua: desarmar a Absinto-2 para sempre, ou levar a chave para quem você chama de lado.\n— Isaura Valente, Rádio São Lázaro",
       "objetivos": [
         {
           "tipo": "interagir",
@@ -1425,7 +1425,7 @@
           }
         }
       ],
-      "texto_conclusao": "A segunda estrela tem dono agora, ou não tem mais. Isaura desligou o transmissor pela primeira vez em quarenta anos.",
+      "texto_conclusao": "A segunda estrela tem dono agora, ou não tem mais. Isaura desligou o transmissor pela primeira vez em trinta e um anos. O silêncio na frequência das 03h11 foi ouvido na Vela e na Capela, e ninguém dormiu.",
       "recompensas": {}
     },
     {
@@ -1441,7 +1441,7 @@
         "a03"
       ],
       "resumo": "Procure o corpo do general Andras no campo da Grande Batalha.",
-      "descricao": "Desde a Grande Batalha, ninguém sabe do general da Legião Blasfema. Os demônios dizem que os anjos o mataram pelas costas; os anjos dizem que os cultistas o venderam. Malfas quer uma prova, qualquer prova, que possa usar. Vá aos Campos de Cinza e examine os estandartes caídos da Legião. Depois procure Corvina, a atravessadora: ela sabe de tudo e vende tudo.",
+      "descricao": "NOTA DE PENHOR · Nº 4.180 · SERVIÇO ESPECIAL\nDesde a Grande Batalha ninguém sabe do general. Os chifrudos dizem que o Coro o apunhalou. O Coro diz que a Comunhão o vendeu.\nEu quero uma prova. Qualquer prova. Desde que me sirva.\nExamine os estandartes caídos da Legião nos Campos de Cinza. Depois procure Corvina, no sótão do Bairro Afogado. Ela vende tudo. Pague o que ela pedir. Eu reembolso. Talvez.\n— Malfas",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1470,7 +1470,7 @@
         ],
         "xp": 2640
       },
-      "texto_conclusao": "Nenhum corpo de general no campo. Corvina riu quando ouviu o nome de Malfas: 'Ele quer o general morto? Que curioso. Os demônios querem ele vivo.'"
+      "texto_conclusao": "Nenhum corpo de general no campo. Corvina riu quando ouviu o nome de Malfas: \"Ele quer o general morto? Que curioso. A Legião quer ele vivo.\""
     },
     {
       "id": "e01v",
@@ -1485,7 +1485,7 @@
         "v03"
       ],
       "resumo": "Descubra por que anjos e demônios estão brigando na Capela.",
-      "descricao": "Tobias jura que ouviu, do alto de um telhado enterrado, anjos e demônios gritando na Capela. Algo sobre um general que sumiu. Odete quer saber se é briga de verdade ou armadilha. Examine os estandartes da Legião nos Campos de Cinza e procure Corvina, que vende segredos para os dois lados.",
+      "descricao": "DESPACHO DA VELA · Nº 6 · ANO 31 DO IMPASSE\nO menino Tobias jura que ouviu, de um telhado enterrado, anjos e demônios gritando dentro da Capela. Algo sobre um general sumido.\nBriga de verdade ou armadilha? Examine os estandartes da Legião nos Campos de Cinza. Depois procure Corvina, que vende segredo para os dois lados. Pague. Pechinche.\n— C. O. Ferrolho, Capitã da Cerca",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1514,7 +1514,7 @@
         ],
         "xp": 2640
       },
-      "texto_conclusao": "É briga de verdade. O general da Legião Blasfema sumiu na Grande Batalha, e a aliança dos Arautos está apodrecendo por dentro. Corvina cobrou caro, mas deu o nome: Andras."
+      "texto_conclusao": "É briga de verdade. O general da Legião Blasfema sumiu na Grande Batalha, e a aliança dos Arautos está apodrecendo por dentro. Corvina cobrou caro, mas deu o nome: Andras. Odete ouviu o nome e foi, sem dizer nada, olhar o bonde da linha 7."
     },
     {
       "id": "e02",
@@ -1530,7 +1530,7 @@
         "e01v"
       ],
       "resumo": "Afaste os desertores da Legião do Rio Amargo.",
-      "descricao": "Sem general, metade da Legião Blasfema desertou. Os desertores acamparam no Rio Amargo, cobram pedágio da água e atrapalham os negócios de Corvina. Ela troca o próximo segredo por um acampamento limpo e um punhado de insígnias arrancadas, para saber quem eram.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: UM ACAMPAMENTO LIMPO\nSem general, metade da Legião Blasfema desertou. Acamparam no Rio Amargo e cobram pedágio da água. Espantam meus clientes.\nLimpe o acampamento e me traga as insígnias que eles arrancaram das casacas. Quero saber quem eram. Nome vale dinheiro.\n— C.",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1553,7 +1553,7 @@
         ],
         "xp": 3480
       },
-      "texto_conclusao": "Atrás de cada insígnia, a mesma costura: 'A Andras, até o fim.' Eles não desertaram da Legião. Desertaram da aliança que deixou o general para trás."
+      "texto_conclusao": "Atrás de cada insígnia, a mesma costura: \"A Andras, até o fim.\" Eles não desertaram da Legião. Desertaram da aliança que deixou o general para trás."
     },
     {
       "id": "e03",
@@ -1568,7 +1568,7 @@
         "e02"
       ],
       "resumo": "Descubra o plano dos cultistas apóstatas e decida a quem contar.",
-      "descricao": "Corvina ouviu que uma célula de cultistas, os Apóstatas, se esconde entre as viúvas do Bosque. Eles odeiam a aliança e querem a Capela só para humanos de fé. Ache a carta que eles trocam e traga para ela. Depois, alguém vai ter que saber. A escolha de quem é sua.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: UMA ESCOLHA\nUma célula de cultistas se esconde entre as Viúvas do Bosque. Chamam-se Apóstatas. Odeiam asa, odeiam chifre, e acham que a Madre vendeu o culto a quem tem um ou outro.\nEles trocam cartas lacradas com cera preta. Traga uma. Depois alguém vai ter que saber o que está escrito. A escolha de quem é sua. Isso vale ouro.\n— C.",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1621,7 +1621,7 @@
           }
         }
       ],
-      "texto_conclusao": "A carta foi parar onde você quis. A aliança dos Arautos ficou mais podre, ou um pouco menos, conforme a mão que a entregou.",
+      "texto_conclusao": "A carta foi parar onde você quis. A aliança dos Arautos ficou mais podre, ou um pouco menos, conforme a mão que a entregou. Corvina anotou o seu nome numa coluna nova do caderno. Não disse qual.",
       "recompensas": {}
     },
     {
@@ -1637,7 +1637,7 @@
         "e03"
       ],
       "resumo": "Investigue o bonde tombado onde o general foi visto pela última vez.",
-      "descricao": "Um desertor bêbado contou a Corvina que viu o general pela última vez nos trilhos, segurando a linha, um segundo antes de um bonde passar. O bonde tombado ainda está lá, no meio dos Campos de Cinza. Desertores rondam o lugar procurando o corpo.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: O QUE VOCÊ ACHAR\nUm desertor bêbado me contou que viu o general pela última vez de pé nos trilhos, segurando a linha, um segundo antes de um bonde passar.\nO bonde tombado ainda está lá, no meio dos Campos de Cinza. Os desertores rondam o lugar procurando o corpo. Ache antes deles.\n— C.",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1688,7 +1688,7 @@
         "c02"
       ],
       "resumo": "Siga o rastro até o abatedouro e leve a verdade a Malfas.",
-      "descricao": "O rastro de arrasto atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga, confirme que ele desce para o porão e leve a meia dragona a Malfas. O que ele faz com a verdade é problema da aliança.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: NENHUM (ESTA EU QUERO VER)\nO rastro atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga. Confirme que ele desce para o porão.\nDepois leve a meia dragona a Malfas. O que ele fizer com a verdade é problema da aliança. Eu só quero estar na sala.\n— C.",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1754,7 +1754,7 @@
         "c02"
       ],
       "resumo": "Siga o rastro até o abatedouro e leve a meia dragona à Capitã Odete.",
-      "descricao": "O rastro de arrasto atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga, confirme que ele desce para o porão e leve a meia dragona a Odete. Ela dirigia o bonde da linha 7 naquela noite.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: NENHUM (ESTA EU QUERO VER)\nO rastro atravessa o chiqueiro do Carniça e some debaixo do frigorífico. Siga. Confirme que ele desce para o porão.\nDepois leve a meia dragona a Odete. Pergunte quem dirigia o bonde da linha 7 naquela noite. Ela sabe a resposta.\n— C.",
       "objetivos": [
         {
           "tipo": "farmar_spot",
@@ -1809,7 +1809,7 @@
           }
         }
       ],
-      "texto_conclusao": "Odete segurou a meia dragona como quem segura um bilhete de bonde antigo. 'Eu passei por cima dele e não olhei para trás. Pelo jeito, ele olhou.'",
+      "texto_conclusao": "Odete segurou a meia dragona como quem segura um bilhete de bonde antigo. \"Eu passei por cima dele e não olhei para trás. Pelo jeito, ele olhou.\"",
       "recompensas": {}
     }
   ]
