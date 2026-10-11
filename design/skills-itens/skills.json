@@ -2054,6 +2054,71 @@
    }
   },
   {
+   "id": "tecnomancer_rosario_voltaico",
+   "classe": "tecnomancer",
+   "nome": "Rosário Voltaico",
+   "tipo": "area",
+   "nivel": 16,
+   "custo": 34,
+   "recarga": 4.0,
+   "conjuracao": 0.35,
+   "alcance": 7,
+   "area": "salta até 6 alvos (3.5 tiles entre um e outro)",
+   "duracao": 0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP",
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "cadeia",
+    "alvos_max": 6,
+    "raio_salto_tiles": 3.5,
+    "origem": "alvo_do_mouse"
+   },
+   "efeitos": [
+    "raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum",
+    "cada salto perde 12% do dano",
+    "15% de chance de paralisar 0.5 s",
+    "+15% de dano em invocações",
+    "pedido do Jefin (2026-10-11)"
+   ],
+   "descricao": "Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
+   "fx": "raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão",
+   "som": "estalo elétrico forte + estalos menores em cadeia, cada um um tom acima",
+   "combate": {
+    "id": "tecnomancer_rosario_voltaico",
+    "nome": "Rosário Voltaico",
+    "nivel": 16,
+    "custo": 34,
+    "recarga": 4.0,
+    "conjuracao": 0.35,
+    "mult": 1.6,
+    "alvos_max": 6,
+    "saltos": 5,
+    "queda_por_salto": 0.12,
+    "raio_salto": 3.5,
+    "alcance": 7,
+    "elemento": "eletrico",
+    "nao_repete_alvo": true,
+    "chance_paralisar": 0.15,
+    "paralisar_s": 0.5,
+    "bonus_vs": {
+     "tag:invocacao": 1.15
+    },
+    "postura": 20,
+    "sensacao": "raio",
+    "_doc": "pedido do Jefin (2026-10-11): raio que salta ate 6 alvos. Versao grande do Arco Voltaico. Dano por alvo = mult * (1-queda)^n: 1.60, 1.41, 1.24, 1.09, 0.96, 0.84 (total 7.14x). PROVISORIO ate o Design do combate revisar."
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_rosario_voltaico.png",
+    "40": "assets/icones/skills/40/tecnomancer_rosario_voltaico.png",
+    "32": "assets/icones/skills/32/tecnomancer_rosario_voltaico.png"
+   }
+  },
+  {
    "id": "tecnomancer_maquina_juizo_reverso",
    "classe": "tecnomancer",
    "nome": "Máquina do Juízo Reverso",

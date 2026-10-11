@@ -287,3 +287,14 @@ def tecnomancer_tempestade_bobina(E):
  <rect x="22" y="24" width="20" height="22" rx="4" fill="#b07a3a" {o}/><path d="M24 28 L40 28" stroke="#e6b866" stroke-width="1.4"/>{"".join(f'<rect x="{x}" y="10" width="5" height="16" rx="2" fill="#b0603a" {o}/><path d="M{x} {y} l5 0" stroke="#e09a68" stroke-width="1"/>' for x in (23,36) for y in (14,18,22))}
  {dot(25.5,9,2.6,E)}{dot(38.5,9,2.6,E)}<circle cx="32" cy="36" r="4" fill="#141012" {o}/>{dot(32,36,2,"#ff9a3a")}
  {"".join(f'<path d="M{x} {y} l2 -3 l2 3" fill="none" stroke="#ffffff" stroke-width="1"/>' for x,y in ((6,52),(54,50),(10,14),(50,12)))}'''
+
+def tecnomancer_rosario_voltaico(E):
+    # terço de 6 contas de cobre; o raio salta de conta em conta, cruz de latão no pé
+    pts = ((10,14),(26,8),(44,12),(54,28),(46,44),(30,48))
+    zz = "M6 30 L10 14 L16 13 L14 10 L26 8 L33 12 L34 9 L44 12 L47 19 L50 18 L54 28 L49 35 L52 37 L46 44 L39 44 L40 48 L30 48"
+    fio = "M10 14 Q16 6 26 8 Q36 6 44 12 Q56 18 54 28 Q54 40 46 44 Q38 52 30 48 Q22 52 20 56"
+    contas = "".join(f'<circle cx="{x}" cy="{y}" r="5" fill="#8a4a24" {o}/><path d="M{x-2.6} {y-1.6} a3 3 0 0 1 3 -2" stroke="#e09a68" stroke-width="1.2" fill="none"/>' for x,y in pts)
+    return f'''<path d="{fio}" fill="none" stroke="{K}" stroke-width="2.8"/><path d="{fio}" fill="none" stroke="#b07a3a" stroke-width="1.2"/>
+ {gl(zz, E, 2.6)}<path d="{zz}" fill="none" stroke="#ffffff" stroke-width="1"/>{contas}{"".join(dot(x,y,1.7,E) for x,y in pts)}
+ <path d="M20 54 L20 62 M16 57 L24 57" stroke="{K}" stroke-width="4.2" stroke-linecap="square"/><path d="M20 54 L20 62 M16 57 L24 57" stroke="#e6b866" stroke-width="2"/>
+ {"".join(f'<path d="M{x} {y} l2 -3 l2 3" fill="none" stroke="#ffffff" stroke-width="1"/>' for x,y in ((4,40),(58,52),(36,26)))}'''

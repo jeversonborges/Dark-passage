@@ -882,6 +882,30 @@
           },
           "postura": 40,
           "sensacao": "area"
+        },
+        {
+          "id": "tecnomancer_rosario_voltaico",
+          "nome": "Rosário Voltaico",
+          "nivel": 16,
+          "custo": 34,
+          "recarga": 4.0,
+          "conjuracao": 0.35,
+          "mult": 1.6,
+          "alvos_max": 6,
+          "saltos": 5,
+          "queda_por_salto": 0.12,
+          "raio_salto": 3.5,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "nao_repete_alvo": true,
+          "chance_paralisar": 0.15,
+          "paralisar_s": 0.5,
+          "bonus_vs": {
+            "tag:invocacao": 1.15
+          },
+          "postura": 20,
+          "sensacao": "raio",
+          "_doc": "pedido do Jefin (2026-10-11): raio que salta ate 6 alvos. Versao grande do Arco Voltaico. Dano por alvo = mult * (1-queda)^n: 1.60, 1.41, 1.24, 1.09, 0.96, 0.84 (total 7.14x). PROVISORIO ate o Design do combate revisar."
         }
       ],
       "invocacoes": {

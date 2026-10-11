@@ -205,6 +205,13 @@ sk(id="tecnomancer_campo_forca", classe="tecnomancer", nome="Campo de Força", t
    escudo={"base":60,"pct_esp":150}, efeitos=["aliados na área ganham escudo que absorve dano por 6s"],
    descricao="Uma cúpula de estática que faz o cabelo de todo mundo arrepiar.",
    fx="cúpula azul translúcida com hexágonos e faíscas", som="zumbido grave de transformador")
+sk(id="tecnomancer_rosario_voltaico", classe="tecnomancer", nome="Rosário Voltaico", tipo="area", nivel=16,
+   custo=34, recarga=4.0, conjuracao=0.35, alcance=7, area="salta até 6 alvos (3.5 tiles entre um e outro)", duracao=0, elemento="eletrico", escala=["ESP","AGI"],
+   formato_area={"forma":"cadeia","alvos_max":6,"raio_salto_tiles":3.5,"origem":"alvo_do_mouse"},
+   dano={"mult":1.6,"queda_por_salto":0.12,"mult_por_alvo":[1.6,1.41,1.24,1.09,0.96,0.84]},
+   efeitos=["raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum", "cada salto perde 12% do dano", "15% de chance de paralisar 0.5 s", "+15% de dano em invocações", "pedido do Jefin (2026-10-11)"],
+   descricao="Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
+   fx="raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão", som="estalo elétrico forte + estalos menores em cadeia, cada um um tom acima")
 sk(id="tecnomancer_pulso_antidivino", classe="tecnomancer", nome="Pulso Anti-Divino", tipo="debuff", nivel=22,
    custo=45, recarga=28.0, conjuracao=0.6, alcance=6, area=3, duracao=3.0, elemento="eletrico", escala=["ESP"],
    efeitos=["silencia magias na área por 3s", "remove 1 buff de cada inimigo", "+50% de duração contra Anjos"],

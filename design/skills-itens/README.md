@@ -26,3 +26,7 @@ Para gerar de novo, use `tools/icones/` (precisa de `pip install pillow numpy` e
 Uma por classe, feitas para farmar em spots e para o modo automático: Leque do Juízo (Anjo), Espinhos de Sangue (Cultista), Terremoto Pútrido (Mutante), Ceifa Infernal (Demônio), Coquetel de Querosene (Humano) e Tempestade de Bobina (Tecnomancer).
 Cada uma tem `formato_area` (cone ou círculo, raio, ângulo), dano por alvo, custo, recarga e `economia_auto`: quanto gasta e ganha por segundo e quantos segundos de uso contínuo aguenta do recurso cheio (~20 s; Cultista ~40 s até 25% de HP).
 A proposta do modo automático e das poções está em `skills.json > modo_automatico`. Tudo PROVISÓRIO até a thread Design do combate fechar a economia de mana e poções.
+
+## Rosário Voltaico (Tecnomancer, nível 16, 2026-10-11)
+
+Pedido do Jefin: raio que salta até 6 alvos. Id `tecnomancer_rosario_voltaico`, mesmo id em `classes_base.json` (números PROVISÓRIOS até o Design do combate revisar). Custo 34 de Carga, recarga 4 s (pedido do Jefin), alcance 7, salto de até 3.5 tiles, não repete alvo, -12% por salto (1.60, 1.41, 1.24, 1.09, 0.96, 0.84 = 7.14x no total), 15% de chance de paralisar 0.5 s. Ícone em `assets/icones/skills/*/tecnomancer_rosario_voltaico.png`, prévia em `previas/rosario_voltaico.png`. Ainda sem VFX e som próprios (o Arco Voltaico serve de base).
