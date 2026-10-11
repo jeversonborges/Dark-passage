@@ -1,13 +1,12 @@
 # Familiar do Cultista: plano de sprites (v0.1, 2026-10-11)
 
-Pedido do Jefin: o Cultista troca uma skill por um pet demônio que anda com ele o tempo todo, evolui nos
+Pedido do Jefin: o Cultista ganha, como racial, um pet demônio que anda com ele o tempo todo, evolui nos
 níveis 1, 6 e 16, protege o mestre e ataca quando o mestre é atacado.
 
-- **Skill que saiu:** Servo de Carne (`cultista_servo_carne`, invocação temporária de 20 s). O Cultista já
-  era o "invocador" da facção, então o familiar ocupa o mesmo papel, só que permanente.
-- **Skill nova:** Pacto do Familiar (`cultista_familiar_pacto`, nível 1). Dados em
+- **É racial, não skill** (Jefin, 2026-10-11): não ocupa slot nem tecla, e o Servo de Carne continua.
+- **Racial:** Pacto do Familiar (`cultista_familiar_pacto`, `tipo: racial`). Texto em
   `design/skills-itens/skills.json` (gerado por `fontes/skills_data.py`) e números em
-  `design/combate/classes_base.json > cultista > invocacoes > familiar_do_pacto`.
+  `design/combate/classes_base.json > cultista > racial > familiar`.
 - **Prévia:** `familiar/previa.png` (idle SE em 2x ao lado do Cultista) e `familiar/*_idle_SE.gif`.
 
 ## As três formas
@@ -47,7 +46,7 @@ Saída final em `assets/monstros/familiar_<forma>/` (mesmo formato dos monstros:
 | `hit` | 3q | 3q | 3q | |
 | `death` | 8q, vira fuligem no chão | 8q, ajoelha e tomba | 9q, desaba, fornalha apaga | segurar o último quadro; volta em 30 s |
 | `evolve` | 12q | 12q | – | casulo de brasa e carne de 2 s; o jogo troca para a próxima forma no último quadro |
-| `spawn` | 8q, sai da fumaça do lacre | 8q | 8q | quando a tecla reinvoca |
+| `spawn` | 8q, sai da fumaça do lacre | 8q | 8q | quando volta sozinho 30 s depois de morrer |
 
 Efeitos para a thread Efeitos visuais: cuspe de brasa, corrente com gancho em brasa, tiro do Canhão de
 Brasa com anel de fogo no chão, fumaça das chaminés (partícula leve em loop), casulo da evolução.
@@ -55,7 +54,7 @@ Sons para Som e música: risadinha do Diabrete, corrente arrastando, rugido grav
 
 ## Para a Prévia jogável (integração em `game/`)
 
-O familiar usa a lógica genérica de invocação (`invoca` na skill) com três diferenças: é permanente
-(`permanente: true`), escolhe a forma pelo nível do dono (`formas[].nivel_dono`) e só ataca quem bateu
-no dono, quem bateu nele ou o alvo da tecla (`alvo.prioridade`, nunca puxa neutro parado). Os ids
-antigos `servo_carne` e `servo_de_carne` saíram de `classes_base.json`.
+O familiar é uma racial (`cultista > racial` em `classes_base.json`), sem tecla: nasce com o Cultista,
+escolhe a forma pelo nível do dono (`formas[].nivel_dono`), só ataca quem bateu no dono ou nele
+(`alvo.prioridade`, nunca puxa neutro parado) e volta sozinho 30 s depois de morrer. O Servo de Carne
+continua igual, então o Cultista pode ter os dois ao mesmo tempo.

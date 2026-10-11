@@ -145,7 +145,7 @@
     },
     "cultista": {
       "faccao": "arautos",
-      "papel": "mago de dano continuo com familiar demoniaco",
+      "papel": "mago de dano continuo e invocador",
       "atributos_iniciais": {
         "FOR": 14,
         "AGI": 18,
@@ -242,21 +242,14 @@
           "nao_usa_abaixo_de_hp": 0.25
         },
         {
-          "id": "familiar_pacto",
-          "nome": "Pacto do Familiar",
-          "nivel": 1,
-          "_doc": "Substitui o Servo de Carne (2026-10-11, pedido do Jefin). O familiar e permanente: nasce com o Cultista e evolui com o nivel do dono (1, 6, 16). A tecla manda o familiar atacar o alvo do mouse; se ele estiver morto, a tecla o invoca de volta.",
-          "custo": 0.02,
-          "recarga": 4.0,
-          "alcance": 8,
-          "invoca": "familiar_do_pacto",
-          "permanente": true,
+          "id": "servo_carne",
+          "nome": "Servo de Carne",
+          "nivel": 6,
+          "custo": 0.15,
+          "recarga": 25.0,
+          "invoca": "servo_de_carne",
+          "duracao": 20.0,
           "max": 1,
-          "reinvocar": {
-            "custo": 0.12,
-            "conjuracao": 1.5,
-            "volta_sozinho_s": 30.0
-          },
           "sensacao": "invocacao"
         },
         {
@@ -294,8 +287,22 @@
         }
       ],
       "invocacoes": {
-        "familiar_do_pacto": {
-          "_doc": "Segue o dono a 1,5-2 tiles. Nao puxa briga: so ataca quem bateu no dono (ou nele) e o alvo que o dono mandar com a tecla. Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma.",
+        "servo_de_carne": {
+          "hp": "max_hp_dono * 0.6",
+          "dano": "dano_magico_dono * 0.5",
+          "intervalo": 1.4,
+          "ameaca_mult": 2.0,
+          "tags": [
+            "invocacao"
+          ]
+        }
+      },
+      "racial": {
+        "id": "pacto_do_familiar",
+        "nome": "Pacto do Familiar",
+        "tipo": "racial",
+        "familiar": {
+          "_doc": "RACIAL do Cultista (Jefin, 2026-10-11): nao ocupa slot de skill nem tecla. Nasce com o Cultista, segue o dono a 1,5-2 tiles e so ataca quem bateu no dono ou nele (nunca puxa neutro parado). Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Se morrer, volta sozinho. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma.",
           "segue": {
             "distancia_tiles": [
               1.5,
@@ -307,8 +314,7 @@
           "alvo": {
             "prioridade": [
               "ultimo_que_bateu_no_dono",
-              "quem_bateu_no_familiar",
-              "alvo_mandado_pela_tecla"
+              "quem_bateu_no_familiar"
             ],
             "nao_ataca_neutro_parado": true,
             "larga_alvo_se_dono_a_mais_de_tiles": 9
@@ -432,6 +438,10 @@
             "anim": "evolve",
             "cura_total": true,
             "_doc": "casulo de brasa e carne de 2 s; o familiar fica invulneravel durante a troca"
+          },
+          "morte": {
+            "volta_sozinho_s": 30.0,
+            "anim_volta": "spawn"
           }
         }
       }

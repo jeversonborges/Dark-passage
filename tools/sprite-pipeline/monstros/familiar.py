@@ -1,4 +1,4 @@
-# Familiar do Cultista (skill Pacto do Familiar): um demônio de estimação que evolui com o nível do dono.
+# Familiar do Cultista (racial Pacto do Familiar): um demônio de estimação que evolui com o nível do dono.
 #   familiar:diabrete  Diabrete de Fuligem (nível 1, 0,75 m): diabinho cinza-fuligem de cabeça grande, orelhas
 #                      de morcego, óculos de soldador rachados na testa, avental de couro queimado, coleira com
 #                      lacre de cera do pacto, asinhas rasgadas e rabo de ponta de seta.

@@ -28,7 +28,7 @@ Cada uma tem `formato_area` (cone ou círculo, raio, ângulo), dano por alvo, cu
 A proposta do modo automático e das poções está em `skills.json > modo_automatico`. Tudo PROVISÓRIO até a thread Design do combate fechar a economia de mana e poções.
 
 ## Pacto do Familiar (2026-10-11)
-O Servo de Carne do Cultista foi trocado pelo **Pacto do Familiar** (`cultista_familiar_pacto`, nível 1), a pedido do Jefin:
+O Cultista ganhou a **racial Pacto do Familiar** (`cultista_familiar_pacto`, `tipo: racial`, não ocupa slot nem tecla; o Servo de Carne continua), a pedido do Jefin:
 um demônio permanente que anda com o Cultista, ataca quem bater no mestre e evolui com o nível dele (Diabrete de Fuligem no 1,
-Algoz de Enxofre no 6, Tirano da Fornalha no 16). Números em `classes_base.json > cultista > invocacoes > familiar_do_pacto`;
-plano de sprites e prévia em `design/personagens/familiar_cultista.md`. O ícone ainda é o do Servo (falta motivo novo em `tools/icones/`).
+Algoz de Enxofre no 6, Tirano da Fornalha no 16). Números em `classes_base.json > cultista > racial > familiar`;
+plano de sprites e prévia em `design/personagens/familiar_cultista.md`. Falta o ícone da racial (motivo novo em `tools/icones/`).

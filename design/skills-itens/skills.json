@@ -425,12 +425,12 @@
    "id": "cultista_familiar_pacto",
    "classe": "cultista",
    "nome": "Pacto do Familiar",
-   "tipo": "invocacao",
+   "tipo": "racial",
    "nivel": 1,
-   "custo": "2% HP",
-   "recarga": 4.0,
+   "custo": 0,
+   "recarga": 0,
    "conjuracao": 0.0,
-   "alcance": 8,
+   "alcance": 0,
    "area": 0,
    "duracao": 0,
    "elemento": "fogo",
@@ -438,19 +438,20 @@
     "ESP",
     "VIT"
    ],
-   "substitui": "cultista_servo_carne (Servo de Carne), trocado a pedido do Jefin em 2026-10-11",
+   "racial": true,
+   "slot": null,
    "efeitos": [
     "familiar demoníaco permanente que anda com o Cultista",
     "ataca quem bater no mestre; nunca puxa briga sozinho",
-    "tecla: manda o familiar atacar o alvo do mouse",
-    "se o familiar morrer, a tecla o invoca de volta (12% HP, 1,5 s) ou ele volta sozinho em 30 s",
+    "racial: não ocupa slot de skill nem tecla",
+    "se o familiar morrer, volta sozinho em 30 s",
     "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16)"
    ],
    "descricao": "O livro acorrentado tem uma página que ninguém escreveu. Quem assina com sangue ganha um demônio de estimação, e o demônio cresce junto com a dívida.",
    "fx": "selo de cera rachando no chão + fuligem subindo; o familiar sai de dentro da fumaça",
    "som": "risada curta e aguda + estalo de brasa",
    "familiar": {
-    "dados_combate": "design/combate/classes_base.json > cultista > invocacoes > familiar_do_pacto",
+    "dados_combate": "design/combate/classes_base.json > cultista > racial > familiar",
     "plano_sprites": "design/personagens/familiar_cultista.md",
     "formas": [
      {
@@ -486,25 +487,7 @@
      }
     ]
    },
-   "combate": {
-    "id": "familiar_pacto",
-    "nome": "Pacto do Familiar",
-    "nivel": 1,
-    "_doc": "Substitui o Servo de Carne (2026-10-11, pedido do Jefin). O familiar e permanente: nasce com o Cultista e evolui com o nivel do dono (1, 6, 16). A tecla manda o familiar atacar o alvo do mouse; se ele estiver morto, a tecla o invoca de volta.",
-    "custo": 0.02,
-    "recarga": 4.0,
-    "alcance": 8,
-    "invoca": "familiar_do_pacto",
-    "permanente": true,
-    "max": 1,
-    "reinvocar": {
-     "custo": 0.12,
-     "conjuracao": 1.5,
-     "volta_sozinho_s": 30.0
-    },
-    "sensacao": "invocacao"
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
+   "fonte_numeros": "design/combate/classes_base.json > cultista > racial",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/cultista_familiar_pacto.png",
@@ -629,6 +612,49 @@
     "64": "assets/icones/skills/64/cultista_espinhos_sangue.png",
     "40": "assets/icones/skills/40/cultista_espinhos_sangue.png",
     "32": "assets/icones/skills/32/cultista_espinhos_sangue.png"
+   }
+  },
+  {
+   "id": "cultista_servo_carne",
+   "classe": "cultista",
+   "nome": "Servo de Carne",
+   "tipo": "invocacao",
+   "nivel": 6,
+   "custo": "15% HP",
+   "recarga": 25.0,
+   "conjuracao": 1.5,
+   "alcance": 3,
+   "area": 0,
+   "duracao": 30.0,
+   "elemento": "sombra",
+   "escala": [
+    "ESP",
+    "VIT"
+   ],
+   "efeitos": [
+    "invoca um zumbi costurado por 30s",
+    "o servo provoca inimigos que ele golpeia"
+   ],
+   "descricao": "A terra cospe pedaços que se costuram sozinhos num corpo obediente.",
+   "fx": "poça de sangue que borbulha e ergue o zumbi",
+   "som": "carne e ossos estalando",
+   "combate": {
+    "id": "servo_carne",
+    "nome": "Servo de Carne",
+    "nivel": 6,
+    "custo": 0.15,
+    "recarga": 25.0,
+    "invoca": "servo_de_carne",
+    "duracao": 20.0,
+    "max": 1,
+    "sensacao": "invocacao"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_servo_carne.png",
+    "40": "assets/icones/skills/40/cultista_servo_carne.png",
+    "32": "assets/icones/skills/32/cultista_servo_carne.png"
    }
   },
   {

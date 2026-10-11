@@ -77,7 +77,7 @@ Animações: `idle`, `walk`, `attack`, `hit`, `death` (todas as criaturas); chef
   de soldador de latão (lentes acesas), avental curto (`apron_sheet` de `acougueiro.py`), bandoleira de corrente, ganchos no
   cinto e nas costas. `attack` arremessa (osso `hook` some em voo pela chave `scale`); extra `pull` (corrente esticada com o
   gancho na ponta no osso `line`, escondido fora dela; puxa duas vezes com o corpo todo). Quadro 224 px.
-- `familiar.py`: familiar do Cultista (skill Pacto do Familiar), variantes `diabrete`, `algoz` e `tirano` (formas dos níveis 1, 6
+- `familiar.py`: familiar do Cultista (racial Pacto do Familiar), variantes `diabrete`, `algoz` e `tirano` (formas dos níveis 1, 6
   e 16; plano em `design/personagens/familiar_cultista.md`). Por enquanto só `idle`.
 - `fogo_de_vela.py`: Fogo-de-Vela (cripta, andar 2): velas de igreja derretidas fundidas num corpinho flutuante (cera com
   subsurface, escorridos, rosto derretido, aro de lustre com corrente); chamas em ossos `fl*` tremulando por escala, luz
