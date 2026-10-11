@@ -5,7 +5,7 @@ config_version=5
 
 config/name="DARK PASSAGE"
 config/description="Launcher do DARK PASSAGE: notícias, atualização do cliente e botão Jogar."
-config/version="1.0"
+config/version="1.1"
 run/main_scene="res://launcher.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://arte/pecas/icone.png"

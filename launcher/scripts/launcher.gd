@@ -4,7 +4,7 @@ extends Control
 ##
 ## Argumentos (depois de --): pasta=DIR (onde fica jogo/), manifesto=URL, noticias=URL, fotos=ARQ.png (tira um print e sai).
 
-const VERSAO_LAUNCHER := "1.0"
+const VERSAO_LAUNCHER := "1.1"
 
 const C_OSSO := Color("#e8dfc9")
 const C_FRACO := Color("#a89f8c")
@@ -527,7 +527,7 @@ func _atualizar_estado_texto() -> void:
 		"offline": "Sem contato com o servidor",
 		"instalar": "O jogo ainda não está neste PC",
 		"atualizar": "Há uma prévia nova",
-		"baixando": "Baixando a prévia v%s" % _v(remoto.get("versao", "")),
+		"baixando": _texto_baixando(),
 		"conferindo": "Conferindo o arquivo",
 		"extraindo": "Instalando",
 		"pronto": "Tudo pronto. A areia espera.",
@@ -535,6 +535,12 @@ func _atualizar_estado_texto() -> void:
 	}
 	_lbl_estado.text = r.get(estado, "")
 	_lbl_estado.add_theme_color_override("font_color", C_SANGUE if estado == "erro" else C_OSSO)
+
+func _texto_baixando() -> String:
+	var antes := String(at.instalada().get("versao", ""))
+	if antes != "" and _v(antes) != _v(remoto.get("versao", "")):
+		return "Atualizando da v%s para a v%s" % [_v(antes), _v(remoto.get("versao", ""))]
+	return "Baixando a prévia v%s" % _v(remoto.get("versao", ""))
 
 func _detalhe_parado(local: Dictionary) -> String:
 	if _erro_msg != "": return _erro_msg
@@ -555,15 +561,37 @@ func _url_manifesto() -> String:
 func _pasta_base() -> String:
 	if args.has("pasta"): return args["pasta"]
 	if OS.has_feature("editor"): return "user://"
-	# ao lado do launcher, se der para escrever lá; senão, na pasta do usuário
+	# 1) uma instalação que já existe ao lado do launcher continua valendo (menos se ele roda de dentro do zip)
 	var aqui := OS.get_executable_path().get_base_dir()
-	var teste := aqui.path_join(".teste_escrita")
-	var f := FileAccess.open(teste, FileAccess.WRITE)
-	if f:
-		f.close()
-		DirAccess.remove_absolute(teste)
+	if not _pasta_temporaria(aqui) and FileAccess.file_exists(aqui.path_join("jogo/versao.json")):
+		return aqui
+	if FileAccess.file_exists("user://jogo/versao.json"):
+		return "user://"
+	# 2) senão, um lugar fixo do usuário, que não depende de onde o launcher foi aberto:
+	#    aberto de dentro do zip, o Windows roda o launcher numa pasta temporária que some depois,
+	#    e o jogo instalado ali era baixado de novo a cada vez
+	var local := OS.get_environment("LOCALAPPDATA")
+	if local != "":
+		var fixo := local.path_join("DarkPassage")
+		if DirAccess.make_dir_recursive_absolute(fixo) == OK and _gravavel(fixo):
+			return fixo
+	if not _pasta_temporaria(aqui) and _gravavel(aqui):
 		return aqui
 	return "user://"
+
+static func _pasta_temporaria(p: String) -> bool:
+	var q := p.replace("\\", "/").to_lower()
+	for t in [OS.get_environment("TEMP"), OS.get_environment("TMP")]:
+		if t != "" and q.begins_with(t.replace("\\", "/").to_lower()): return true
+	return q.contains("/temp/") or q.contains("/tmp/") or q.contains(".zip")
+
+static func _gravavel(p: String) -> bool:
+	var teste := p.path_join(".teste_escrita")
+	var f := FileAccess.open(teste, FileAccess.WRITE)
+	if f == null: return false
+	f.close()
+	DirAccess.remove_absolute(teste)
+	return true
 
 func _get_json(url: String, fim: Callable) -> void:
 	var h := HTTPRequest.new()
