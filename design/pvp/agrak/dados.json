@@ -1,0 +1,728 @@
+{
+ "_doc": "Evento PvP do Agrak (pedido do Jefin, 11/10/2026). Fonte de verdade dos números; README.md explica. Tempos em segundos, distâncias em tiles (1 tile = 1 m). Formato dos chefes = design/combate/chefes.json; itens = design/missoes/dados/itens.json.",
+ "versao": "0.1",
+ "evento": {
+  "id": "agrak",
+  "nome": "O Agrak, o Grande Coliseu",
+  "mapa": "agrak",
+  "agenda": {
+   "fuso": "America/Sao_Paulo",
+   "diario": [
+    "20:00",
+    "22:00"
+   ],
+   "sabado_domingo_extra": [
+    "15:00"
+   ]
+  },
+  "inscricao": {
+   "abre_min_antes": 10,
+   "avisos_min": [
+    10,
+    5,
+    1
+   ],
+   "nivel_min": 25,
+   "custo_ouro": 100,
+   "onde": [
+    "cartaz_agrak (Acampamento da Vela)",
+    "cartaz_agrak (Capela de São Lázaro)",
+    "npc caim_abel (Barraca do Ogro, área inicial)"
+   ],
+   "min_jogadores": 4,
+   "max_por_arena": 20,
+   "acima_do_max": "abre outra instância do mapa agrak",
+   "cancelado": "devolve o ouro e avisa no chat do sistema"
+  },
+  "faixas": {
+   "ligado": false,
+   "lista": [
+    [
+     25,
+     49
+    ],
+    [
+     50,
+     400
+    ]
+   ]
+  },
+  "etapas": [
+   {
+    "id": "chamada",
+    "dur": 45,
+    "pvp": false,
+    "prender_no_circulo": true,
+    "raio_circulo": 3.5
+   },
+   {
+    "id": "luta_leoes",
+    "dur_max": 240,
+    "pvp": false,
+    "chefes": [
+     "leao_sansao",
+     "leao_dalila",
+     "leao_nabucodonosor"
+    ],
+    "portao": "portao_leoes"
+   },
+   {
+    "id": "respiro",
+    "dur": 20,
+    "pvp": false,
+    "recupera_frac": 0.5
+   },
+   {
+    "id": "luta_gigante",
+    "dur_max": 300,
+    "pvp": false,
+    "chefes": [
+     "golias"
+    ],
+    "portao": "portao_gigante"
+   },
+   {
+    "id": "respiro",
+    "dur": 15,
+    "pvp": false,
+    "recupera_frac": 0.5
+   },
+   {
+    "id": "ultimo_de_pe",
+    "dur_max": 180,
+    "pvp": true,
+    "pocoes": false,
+    "anel_do_amargo": {
+     "comeca_s": 60,
+     "raio_inicial": 13,
+     "raio_final": 4,
+     "fecha_em_s": 90,
+     "dano_frac_hp_por_s": 0.08
+    }
+   },
+   {
+    "id": "coroacao",
+    "dur": 15,
+    "pvp": false
+   }
+  ],
+  "tempo_esgotado": {
+   "luta_leoes": "monstros recuam; todos os vivos passam",
+   "luta_gigante": "monstros recuam; todos os vivos passam",
+   "ultimo_de_pe": "vence quem tiver mais % de HP"
+  },
+  "morte": {
+   "penalidade": false,
+   "vira": "espectador",
+   "lugar": "camarote_derrotados",
+   "desconectar": "eliminado"
+  },
+  "premio": {
+   "vencedor": {
+    "ficha_sangue": 1
+   },
+   "sem_vencedor_fala": "O Agrak comeu todo mundo hoje. Voltem amanhã com mais carne."
+  },
+  "consolacao": {
+   "ligado": false,
+   "passou_luta_leoes": {
+    "ouro": 300
+   },
+   "passou_luta_gigante": {
+    "ouro": 600
+   }
+  }
+ },
+ "regras_pvp": {
+  "dano_jogador_em_jogador": 0.6,
+  "cura_em_jogador_luta_final": 0.7,
+  "controle_em_jogador": {
+   "duracao_mult": 0.5,
+   "imunidade_mesmo_efeito_s": 4
+  },
+  "invocacoes": "contam como do dono; somem quando ele é eliminado",
+  "lado_na_luta_final": "cada jogador vira o próprio lado (todos inimigos); nas lutas 1 e 2 todos os gladiadores são do lado 'agrak'"
+ },
+ "escala_por_jogadores": {
+  "_doc": "HP do chefe = hp_base + hp_por_jogador * N, onde N = gladiadores vivos quando a luta começa.",
+  "leoes": {
+   "hp_por_jogador": 450
+  },
+  "golias": {
+   "hp_por_jogador": 1500
+  }
+ },
+ "chefes": {
+  "leao_sansao": {
+   "nome": "Sansão, Leão do Amargo",
+   "sprite": "leao_do_amargo",
+   "variante": "maior",
+   "nivel": 30,
+   "tags": [
+    "animal",
+    "praga"
+   ],
+   "hp": 2600,
+   "defesa": 50,
+   "dano_base": 70,
+   "intervalo_ataque": 1.6,
+   "velocidade_mov": 3.0,
+   "postura_max": 260,
+   "res": {
+    "veneno": 0.3,
+    "fogo": -0.2
+   },
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.4,
+     "alcance": 1.6
+    },
+    {
+     "id": "bote",
+     "mult": 1.4,
+     "preparo": 0.7,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 6,
+      "largura": 1.4
+     },
+     "deslocamento": 6,
+     "derruba": 1.0,
+     "recarga": 10,
+     "alvo": "mais_longe"
+    },
+    {
+     "id": "dilacerar",
+     "mult": 0.8,
+     "preparo": 0.5,
+     "alcance": 1.6,
+     "efeito": {
+      "sangramento": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 8
+    }
+   ]
+  },
+  "leao_dalila": {
+   "nome": "Dalila, Leoa do Amargo",
+   "sprite": "leao_do_amargo",
+   "variante": "leoa",
+   "nivel": 30,
+   "tags": [
+    "animal",
+    "praga"
+   ],
+   "hp": 2000,
+   "defesa": 38,
+   "dano_base": 62,
+   "intervalo_ataque": 1.2,
+   "velocidade_mov": 3.8,
+   "postura_max": 200,
+   "res": {
+    "veneno": 0.3,
+    "fogo": -0.2
+   },
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.3,
+     "alcance": 1.5
+    },
+    {
+     "id": "bote",
+     "mult": 1.3,
+     "preparo": 0.55,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 7,
+      "largura": 1.2
+     },
+     "deslocamento": 7,
+     "derruba": 1.0,
+     "recarga": 7,
+     "alvo": "mais_longe"
+    },
+    {
+     "id": "dilacerar",
+     "mult": 0.8,
+     "preparo": 0.4,
+     "alcance": 1.5,
+     "efeito": {
+      "sangramento": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 6
+    }
+   ]
+  },
+  "leao_nabucodonosor": {
+   "nome": "Nabucodonosor, o Leão Velho",
+   "sprite": "leao_do_amargo",
+   "variante": "velho",
+   "nivel": 30,
+   "tags": [
+    "animal",
+    "praga"
+   ],
+   "hp": 2300,
+   "defesa": 44,
+   "dano_base": 66,
+   "intervalo_ataque": 1.6,
+   "velocidade_mov": 2.8,
+   "postura_max": 240,
+   "res": {
+    "veneno": 0.3,
+    "fogo": -0.2
+   },
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.4,
+     "alcance": 1.6
+    },
+    {
+     "id": "rugido",
+     "mult": 0,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 4
+     },
+     "efeito": {
+      "medo": 1.5
+     },
+     "recarga": 20
+    },
+    {
+     "id": "bote",
+     "mult": 1.4,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 5,
+      "largura": 1.4
+     },
+     "deslocamento": 5,
+     "derruba": 1.0,
+     "recarga": 12,
+     "alvo": "mais_longe"
+    }
+   ]
+  },
+  "_bando": {
+   "ao_morrer_um": {
+    "dano": 0.15,
+    "velocidade": 0.1,
+    "acumula": true
+   },
+   "alvos_espalhados": "a ameaça de um jogador já perseguido por outro leão conta x0.5"
+  },
+  "golias": {
+   "nome": "Golias, o Pião do Agrak",
+   "sprite": "golias",
+   "nivel": 35,
+   "tags": [
+    "praga",
+    "mutante",
+    "gigante"
+   ],
+   "hp": 6000,
+   "defesa": 60,
+   "dano_base": 90,
+   "intervalo_ataque": 2.2,
+   "velocidade_mov": 1.8,
+   "postura_max": 400,
+   "res": {
+    "veneno": 0.5,
+    "sagrado": -0.2
+   },
+   "raio": 1.1,
+   "furia_tempo_s": 300,
+   "fala_entrada": "GOLIAS! GOLIAS! (a plateia grita; ele bate no peito e não diz nada)",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.4
+     ],
+     "ataques": [
+      {
+       "id": "bolada",
+       "anim": "attack",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 2.6,
+        "angulo": 110
+       }
+      },
+      {
+       "id": "esmagar",
+       "anim": "attack",
+       "mult": 2.2,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2,
+        "distancia": 3
+       },
+       "efeito": {
+        "atordoado": 1.0
+       },
+       "recarga": 9
+      },
+      {
+       "id": "piao",
+       "anim": [
+        "spin_start",
+        "spin",
+        "spin_end"
+       ],
+       "preparo": 0.7,
+       "telegrafo": {
+        "forma": "anel_que_segue",
+        "raio": 3.5
+       },
+       "duracao": 10,
+       "dano_frac_hp_max_por_s": 0.2,
+       "tick": 0.25,
+       "ignora_defesa": true,
+       "interrompivel": false,
+       "velocidade_mov_girando": 1.2,
+       "segue": "maior_ameaca",
+       "primeiro_aos_s": 15,
+       "recarga": 30,
+       "depois": {
+        "status": "tonto",
+        "duracao": 4,
+        "dano_recebido": 0.5,
+        "anim": "spin_end"
+       }
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.4,
+      0.0
+     ],
+     "anim_entrada": "roar",
+     "mudancas": {
+      "piao": {
+       "recarga": 20,
+       "telegrafo": {
+        "raio": 4
+       },
+       "velocidade_mov_girando": 1.6
+      }
+     }
+    }
+   ]
+  }
+ },
+ "itens": [
+  {
+   "id": "ficha_sangue",
+   "nome": "Ficha de Sangue",
+   "tipo": "moeda",
+   "pilha": 99,
+   "vinculado": true,
+   "icone": "ficha_sangue",
+   "descricao": "Uma ficha de latão cunhada com um dente de leão no meio, ainda grudenta. No Agrak, é o único dinheiro que compra respeito.",
+   "citacao": {
+    "texto": "Ouro qualquer um acha na areia. Isto aqui você tem que tirar de alguém.",
+    "autor": "Pedro, o Penitente"
+   }
+  },
+  {
+   "id": "agrak_elmo",
+   "nome": "Elmo de Grade do Agrak",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "raro",
+   "nivel": 25,
+   "conjunto": "couraca_do_agrak",
+   "atributos": {
+    "defesa": 8,
+    "vit": 4,
+    "hp": 60,
+    "dano_recebido_jogadores": -0.04
+   },
+   "efeito": "Couro Curtido: dano recebido de jogadores reduzido em 4%.",
+   "preco": {
+    "ficha_sangue": 4
+   },
+   "descricao": "Elmo de murmilão batido de calota de bonde, grade soldada na frente. Cheira a areia molhada de sangue."
+  },
+  {
+   "id": "agrak_peito",
+   "nome": "Couraça do Agrak",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "raro",
+   "nivel": 25,
+   "conjunto": "couraca_do_agrak",
+   "atributos": {
+    "defesa": 16,
+    "vit": 6,
+    "for": 2,
+    "esp": 2,
+    "dano_recebido_jogadores": -0.04
+   },
+   "efeito": "Couro Curtido: dano recebido de jogadores reduzido em 4%.",
+   "preco": {
+    "ficha_sangue": 4
+   },
+   "descricao": "Placas de placar de estádio rebitadas em couro de leão. Ainda dá para ler um número: 0."
+  },
+  {
+   "id": "agrak_luvas",
+   "nome": "Manoplas de Correia",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "raro",
+   "nivel": 25,
+   "conjunto": "couraca_do_agrak",
+   "atributos": {
+    "defesa": 6,
+    "for": 3,
+    "agi": 3,
+    "dano_recebido_jogadores": -0.04
+   },
+   "efeito": "Couro Curtido: dano recebido de jogadores reduzido em 4%.",
+   "preco": {
+    "ficha_sangue": 4
+   },
+   "descricao": "Correias de couro cru e placas de latão. Seguram arma, corrente e o resto de dignidade."
+  },
+  {
+   "id": "agrak_calcas",
+   "nome": "Saiote de Tiras",
+   "tipo": "equipamento",
+   "slot": "calcas",
+   "raridade": "raro",
+   "nivel": 25,
+   "conjunto": "couraca_do_agrak",
+   "atributos": {
+    "defesa": 10,
+    "vit": 4,
+    "agi": 2,
+    "dano_recebido_jogadores": -0.04
+   },
+   "efeito": "Couro Curtido: dano recebido de jogadores reduzido em 4%.",
+   "preco": {
+    "ficha_sangue": 4
+   },
+   "descricao": "Tiras de couro com tachas, do jeito que os antigos usavam. A plateia não sabe disso; gosta mesmo assim."
+  },
+  {
+   "id": "agrak_botas",
+   "nome": "Grevas da Areia",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "raro",
+   "nivel": 25,
+   "conjunto": "couraca_do_agrak",
+   "atributos": {
+    "defesa": 5,
+    "agi": 4,
+    "dano_recebido_jogadores": -0.04
+   },
+   "efeito": "Couro Curtido: dano recebido de jogadores reduzido em 4%.",
+   "preco": {
+    "ficha_sangue": 4
+   },
+   "descricao": "Caneleiras de cano de ferro, forradas de pano. Pisam firme em areia que escorrega."
+  },
+  {
+   "id": "agrak_arma_anjo",
+   "nome": "Gládio da Trégua",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "anjo"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     34,
+     50
+    ],
+    "esp": 4,
+    "for": 3,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "Espada curta de gladiador com uma pena de ferro na guarda. No Agrak, até anjo sangra."
+  },
+  {
+   "id": "agrak_arma_cultista",
+   "nome": "Cetro do Polegar Pra Baixo",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "cultista"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     26,
+     40
+    ],
+    "esp": 7,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "Cetro de osso com uma mão de latão na ponta, polegar virado. A plateia obedece."
+  },
+  {
+   "id": "agrak_arma_demonio",
+   "nome": "Foice da Corrente Curta",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "demonio"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     36,
+     54
+    ],
+    "for": 5,
+    "agi": 2,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "Foice presa ao punho por uma corrente de três elos. Golias aprovou."
+  },
+  {
+   "id": "agrak_arma_humano",
+   "nome": "Escopeta do Placar",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "humano"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     33,
+     51
+    ],
+    "agi": 5,
+    "for": 2,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "Cano serrado com a coronha feita de tábua de arquibancada. Seis entalhes, seis vitórias."
+  },
+  {
+   "id": "agrak_arma_mutante",
+   "nome": "Bola de Golias, a Pequena",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "mutante"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     38,
+     56
+    ],
+    "for": 5,
+    "vit": 3,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "Mangual com uma bola cravejada do tamanho de uma cabeça. A grande ficou com ele."
+  },
+  {
+   "id": "agrak_arma_tecnomancer",
+   "nome": "Chave de Grade do Agrak",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "classe": [
+    "tecnomancer"
+   ],
+   "raridade": "raro",
+   "nivel": 25,
+   "atributos": {
+    "dano": [
+     25,
+     39
+    ],
+    "esp": 6,
+    "agi": 2,
+    "dano_em_jogadores": 0.08
+   },
+   "efeito": "Sede da Arena: dano em jogadores +8%.",
+   "preco": {
+    "ficha_sangue": 10
+   },
+   "descricao": "A chave que abria a jaula dos leões, recheada de bobina. Abre outras coisas agora."
+  }
+ ],
+ "loja": {
+  "npc": "pedro",
+  "nome": "Banca de Sangue do Agrak",
+  "moeda": "ficha_sangue",
+  "precos": {
+   "armadura": 4,
+   "arma": 10
+  }
+ },
+ "conjunto": {
+  "id": "couraca_do_agrak",
+  "nome": "Couraça do Agrak",
+  "pecas": [
+   "agrak_elmo",
+   "agrak_peito",
+   "agrak_luvas",
+   "agrak_calcas",
+   "agrak_botas"
+  ],
+  "bonus": {
+   "3": {
+    "hp": 150
+   },
+   "5": {
+    "dano_recebido_jogadores": -0.05,
+    "titulo": "Gladiador do Agrak"
+   }
+  }
+ }
+}
