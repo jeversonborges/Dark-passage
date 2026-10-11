@@ -95,3 +95,11 @@ Animações: `idle`, `walk`, `attack`, `hit`, `death` (todas as criaturas); chef
   com gravação acesa, asas grandes de penas (3 ossos por asa, `FOLD` fechada). Extras `lance`, `wings` (giro de 360°),
   `mark`, `channel` (flutua), `exhausted` (ajoelhado). Variante `zacarias_chamas` (fase 3, asas em chamas). Escala 1,55x,
   quadro 512 px.
+- `golias.py`: Golias, o Pião do Agrak (chefe da luta 2 do evento PvP do Agrak, `design/pvp/agrak/`): mutante gigante
+  (3,2 m, `SCALE` 1,78) de gladiador de sucata, elmo de murmilão com grade e crista de arame, manica no braço esquerdo,
+  galerus no direito, saiote de tiras, tumor com pústulas do Amargo (único emissivo). Bola cravejada numa corrente de
+  6 elos-osso (`ch1..ch6` + `ball`, filhos de `hand.R`); `GRig.set_pose` aponta os elos depois da pose (chave `chain`:
+  modos `drape` pendurada/arrastando, `fling` esticada pelo giro, `dir` direção dada), sem atravessar o chão. Extras
+  `spin_start`, `spin` (loop de 12 quadros, uma volta), `spin_end` (tonto), `roar`. Quadro 512 px.
+  `AMOSTRAS=32 blender -b -P render.py -- golias /tmp/brutos/golias` e
+  `python3 process.py /tmp/brutos/golias /mnt/project-files/assets/monstros/golias 48 1.4`.
