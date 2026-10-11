@@ -57,7 +57,7 @@ d05 O Muro das Sombras    beira_da_tempestade  e05a (Malfas) / e05v (Odete), req
 d06 Absinto-2 (elite Brandão) [escolha]         chiqueiro_do_carnica [escolha]
 ```
 
-Linha F, Vem Para Fora (o mistério de quem foi São Lázaro, níveis 4 a 11, as duas facções):
+Linha F, Vem Para Fora (o mistério de quem foi São Lázaro, níveis 4 a 12, as duas facções):
 
 ```
 f01v (Mãe Cardo) / f01a (Lúcio, requer s05) -> Corvina
@@ -65,6 +65,7 @@ f02 O Rosto do Padroeiro     procissao_parada + andor_padroeiro*
 f03 As Folhas do Livro do Tombo  torre_sino + folhas com os corvos
 f04 O Último Tijolo (Anacleto, requer c04)  monges emparedados
 f05 Vem Para Fora (Simão)     sepulcro_primeiro* [escolha]
+f06 O Que Cura (Anacleto -> Simão, requer c06)  ecos da trombeta -> a verdade: Rafael; Elmo de Rafael
 ```
 
 Objetos marcados com * são novos e têm `pendente: true` e `posicao_sugerida` em `objetos.json` para a Level design posicionar.

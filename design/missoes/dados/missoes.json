@@ -2077,6 +2077,50 @@
         }
       ],
       "texto_conclusao": "Simão serviu o chá em duas xícaras e bebeu a dele devagar. \"Ele chorou, sabe. Antes de chamar. Todo mundo lembra que eu saí. Ninguém lembra que Ele chorou.\" Depois pegou a pá e foi cobrir as covas, como toda manhã."
+    },
+    {
+      "id": "f06",
+      "titulo": "O Que Cura",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "ambas",
+      "nivel": 12,
+      "doador": "frei_anacleto",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "f05",
+        "c06"
+      ],
+      "resumo": "Recolha nos Ecos da Trombeta a voz que chama um nome e leve a Simão.",
+      "descricao": "CRÔNICA DO EMPAREDADO · FOLHA DE TIJOLO, A ÚLTIMA QUE ME RESTA\nDesde que Zacarias caiu, a Câmara da Trombeta ficou cheia de ecos daquela noite. A meia nota. Os gritos do Coro. E uma voz que não é de Zacarias.\nEla chama um nome. Não é Lázaro. Eu ouço através de três paredes e ainda assim reconheço o tom de quem chama um irmão.\nRecolha o eco que chama o nome. Depois leve ao coveiro, e olhe o rosto dele quando ouvir.\n— Fr. Anacleto, emparedado",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "eco_da_trombeta",
+          "qtd": 10
+        },
+        {
+          "tipo": "coletar",
+          "item": "eco_do_nome",
+          "qtd": 1
+        },
+        {
+          "tipo": "falar",
+          "npc": "simao_coveiro",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 12000,
+        "ouro": 500,
+        "itens": [
+          {
+            "id": "elmo_rafael",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "O eco disse \"Rafael\" e se desfez. Simão tirou o chapéu e, pela primeira vez, desenrolou as faixas de linho das costas: duas cicatrizes do ombro à cintura, onde um dia houve asas. Ele não era o homem que voltou da morte. Era o arcanjo que se recusou a deixar o mundo acabar, e pagou por três segundos de impasse com as próprias asas."
     }
   ]
 }

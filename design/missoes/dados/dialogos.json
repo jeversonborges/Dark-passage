@@ -1813,6 +1813,13 @@
               }
             },
             {
+              "texto": "Trouxe uma coisa da Câmara. Uma voz.",
+              "ir": "f06_fim",
+              "se": {
+                "missao_pronta": "f06"
+              }
+            },
+            {
               "texto": "Até mais, Simão."
             }
           ]
@@ -2104,6 +2111,37 @@
               "texto": "Sinto muito."
             }
           ]
+        },
+        "f06_fim": {
+          "fala": "(o eco diz \"Rafael\" e se desfaz na mão dele; Simão fica muito tempo calado) Faz trinta e um anos que ninguém me chama assim. (ele tira o chapéu e desenrola as faixas das costas: duas cicatrizes, do ombro à cintura) Eu não voltei da morte, criança. Eu nunca morri direito. Fui mandado em 1688 para guardar a trombeta debaixo de uma vila sem nome. Peguei o nome de um homem que vi sair do túmulo em Betânia, porque foi lá que eu vi Ele chorar por um de vocês, e entendi que o fim não era o plano inteiro.",
+          "opcoes": [
+            {
+              "texto": "E na noite da meia nota?",
+              "ir": "f06_fim_2"
+            }
+          ]
+        },
+        "f06_fim_2": {
+          "fala": "Zacarias soprou. Eu subi. Lutei contra o meu próprio Coro no céu em cima desta cidade, e segurei a guarda dele por três segundos. Foi o tempo que os seus precisaram para vazar o chumbo no bocal. Arrancaram minhas asas por isso. Caí aqui, no meu cemitério, e continuei cobrindo covas. (ele vai até o fundo da casa e volta com a pá suja de terra velha e um elmo amassado) Estava no Primeiro Sepulcro. Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Rafael.",
+              "ir": "f06_fim_3",
+              "acoes": [
+                {
+                  "concluir_missao": "f06"
+                }
+              ]
+            }
+          ]
+        },
+        "f06_fim_3": {
+          "fala": "Simão. Rafael ficou lá em cima. (ele põe o chapéu de volta) E diga ao menino das poções que o nome dele é bonito. Já acompanhei um Tobias, uma vez, numa estrada longa. Ele também não sabia quem eu era.",
+          "opcoes": [
+            {
+              "texto": "Até amanhã, Simão."
+            }
+          ]
         }
       }
     },
@@ -2176,6 +2214,13 @@
               "ir": "f04_fim",
               "se": {
                 "missao_pronta": "f04"
+              }
+            },
+            {
+              "texto": "Que voz é essa na Câmara da Trombeta?",
+              "ir": "f06_oferta",
+              "se": {
+                "missao_disponivel": "f06"
               }
             },
             {
@@ -2292,6 +2337,22 @@
                   "concluir_missao": "f04"
                 }
               ]
+            }
+          ]
+        },
+        "f06_oferta": {
+          "fala": "Você também ouviu? Desde que Zacarias caiu, os ecos daquela noite correm soltos pela Câmara. A meia nota, os gritos do Coro e uma voz chamando um irmão. O nome não é Lázaro. Recolha esse eco e leve ao coveiro. E olhe o rosto dele quando ouvir. Eu daria os meus trezentos anos para ver.",
+          "opcoes": [
+            {
+              "texto": "Eu trago o eco.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f06"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
             }
           ]
         }

@@ -733,7 +733,13 @@
       "descricao": "Pedaços da meia nota que ficaram presos na câmara. Têm forma porque o som tinha vontade.",
       "aparencia": "Silhueta dourada distorcida, como uma onda de calor no formato de um homem com a boca aberta.",
       "comportamento": "Invisível até chegar perto. Dá um grito que empurra e atordoa. Imune a dano físico por 2 segundos após gritar.",
-      "drops_missao": [],
+      "drops_missao": [
+        {
+          "item": "eco_do_nome",
+          "chance": 0.25,
+          "missao": "f06"
+        }
+      ],
       "registros": [
         {
           "fonte": "caderno_coveiro",

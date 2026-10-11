@@ -129,7 +129,7 @@ A igreja da paróquia, enterrada até as janelas do coro. Só a torre e o telhad
 
 **Simão** cuida do Cemitério de São Lázaro desde que alguém se lembra. No deserto, o trabalho do coveiro virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Ele é o único que anda entre os Não-Julgados sem ser atacado. Não serve nenhuma facção. Atende quem trouxer velas.
 
-O segredo dele (nunca dito em voz alta, só insinuado): Simão é **Lázaro**, o homem que foi chamado de volta da morte há dois mil anos. Morreu duas vezes e não conseguiu ficar morto nenhuma. A cidade tem o nome dele. Quando a trombeta der a nota inteira, ele finalmente será julgado, e ele ainda não decidiu se quer isso.
+O segredo dele (nunca dito em voz alta, só insinuado; ver 4.1, onde a linha F revela que até isso é disfarce): Simão é **Lázaro**, o homem que foi chamado de volta da morte há dois mil anos. Morreu duas vezes e não conseguiu ficar morto nenhuma. A cidade tem o nome dele. Quando a trombeta der a nota inteira, ele finalmente será julgado, e ele ainda não decidiu se quer isso.
 
 ### 4.1 Linha F: Vem Para Fora (o mistério de quem foi São Lázaro)
 
@@ -142,6 +142,12 @@ Pedida pelo Jefin (11/10/2026). Níveis 4 a 11, as duas facções. Nunca confirm
 | f03 | Corvina | O Livro do Tombo: em 1688 chegou "de Betânia" um homem com faixas de linho que pediu o ofício de coveiro; "Já fui um"; morreu em 1714, 1803 e 1891 e sempre voltou |
 | f04 | Frei Anacleto | Simão assentou o último tijolo da cela de Anacleto em 1693; o tijolo tem LAZARVS riscado e, embaixo, SIMÃO |
 | f05 | Simão | O Primeiro Sepulcro, vazio e varrido, com "Lázaro, vem para fora" gravado em grego. Escolha: guardar o segredo, perguntar o que ele quer quando a nota terminar, ou contar à facção |
+
+| f06 | Frei Anacleto, entrega Simão (requer f05 e c06) | **A verdade:** um eco na Câmara da Trombeta chama "Rafael". Simão não é Lázaro: é o **arcanjo Rafael** ("Deus cura"). |
+
+**A verdade de Simão (ideia do Jefin, 11/10/2026).** Em 1688 o Coro mandou o arcanjo Rafael guardar a quinta trombeta debaixo de uma vila sem nome. Ele tomou o nome de Lázaro, o homem que viu sair do túmulo em Betânia (foi lá que viu Jesus chorar por um humano e entendeu que o fim não era o plano inteiro), e o ofício de coveiro. Em três séculos se afeiçoou aos humanos; "morreu" em 1714, 1803 e 1891 e sempre voltou, porque arcanjo não morre direito. Na meia nota, não conseguiu permitir o fim: na **Batalha do Impasse**, no céu sobre São Lázaro, lutou contra o próprio Coro e segurou a guarda de Zacarias por três segundos, a janela que a Vigília precisou para vazar o chumbo no bocal. O Coro arrancou suas asas; as faixas de linho escondem as cicatrizes nas costas. O Livro da Retirada dos Arautos não fala dele. Eco bíblico: no livro de Tobias, Rafael andou disfarçado de homem ao lado do jovem Tobias; Simão tem carinho pelo Tobias 'Pavio'.
+
+Recompensa de f06: **Elmo de Rafael** (cabeça, único, nível 12): +5 em FOR, AGI, VIT e ESP, +200 de HP e 14% a menos de dano recebido de jogadores. Os números finais são da thread de combate.
 
 Flags: `lazaro_segredo_guardado`, `lazaro_pediu_cova` (ele quer que alguém o cubra, uma vez, e ficar), `lazaro_revelado` (a facção vai atrás dele: gancho para o futuro). Objetos novos `andor_padroeiro` e `sepulcro_primeiro` estão marcados `pendente` para a Level design posicionar no mapa.
 

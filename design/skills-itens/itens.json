@@ -5202,6 +5202,67 @@
     "32": "assets/icones/itens/32/faixas_betania.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/faixas_betania.png"
+  },
+  {
+   "id": "eco_do_nome",
+   "nome": "Eco de um Nome",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "estilhaco",
+   "tint": "bronze",
+   "emissivo": "#fff2c0",
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Rafael. Volte para o seu posto. Rafael.",
+    "autor": "o eco"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/eco_do_nome.png",
+    "40": "assets/icones/itens/40/eco_do_nome.png",
+    "32": "assets/icones/itens/32/eco_do_nome.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/eco_do_nome.png"
+  },
+  {
+   "id": "elmo_rafael",
+   "nome": "Elmo de Rafael",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "elmo_pesado",
+   "tint": "prata",
+   "emissivo": "#fff2c0",
+   "grade": [
+    2,
+    2
+   ],
+   "citacao": {
+    "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
+    "autor": "Simão"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 5,
+    "agi": 5,
+    "vit": 5,
+    "esp": 5,
+    "hp": 200
+   },
+   "efeito": "Dano recebido de jogadores reduzido em 14%.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/elmo_rafael.png",
+    "40": "assets/icones/itens/40/elmo_rafael.png",
+    "32": "assets/icones/itens/32/elmo_rafael.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png"
   }
  ]
 }

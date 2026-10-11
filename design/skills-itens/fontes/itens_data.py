@@ -144,6 +144,7 @@ MISSOES = {
  "leitura_carta_apostata":("carta","pano",None,[1,1]), "contador_isaura":("diapasao","latao","#9dff4a",[1,2]),
  "placa_coveiro":("etiqueta","ferro",None,[1,1]), "folha_tombo":("pergaminho","ouro",None,[1,1]), "ultimo_tijolo":("tabua","cinza",None,[1,1]),
  "leitura_livro_tombo":("livro","couro",None,[2,2]), "faixas_betania":("fita","pano",None,[1,1]),
+ "eco_do_nome":("estilhaco","bronze","#fff2c0",[1,1]), "elmo_rafael":("elmo_pesado","prata","#fff2c0",[2,2]),
 }
 # lendario:<chefe/elite> de drops.json -> itens com nome da thread Missões
 POOLS_LENDARIOS = {

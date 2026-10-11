@@ -1081,6 +1081,38 @@
         "texto": "Ficam bem em quem já devia ter morrido. Ou vai.",
         "autor": "Simão"
       }
+    },
+    {
+      "id": "eco_do_nome",
+      "nome": "Eco de um Nome",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Um pedaço de som preso num caco de bronze da trombeta. Encostado no ouvido, uma voz do Coro chama alguém, com raiva e com saudade.",
+      "citacao": {
+        "texto": "Rafael. Volte para o seu posto. Rafael.",
+        "autor": "o eco"
+      }
+    },
+    {
+      "id": "elmo_rafael",
+      "nome": "Elmo de Rafael",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "raridade": "unico",
+      "nivel": 12,
+      "atributos": {
+        "for": 5,
+        "agi": 5,
+        "vit": 5,
+        "esp": 5,
+        "hp": 200
+      },
+      "efeito": "Dano recebido de jogadores reduzido em 14%.",
+      "descricao": "Elmo de arcanjo em prata escurecida, amassado no lado esquerdo e sem as asas de metal que um dia teve nas têmporas. Ficou enterrado no Primeiro Sepulcro desde a Batalha do Impasse. Simão o desenterrou para você com a mesma pá de sempre.",
+      "citacao": {
+        "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
+        "autor": "Simão"
+      }
     }
   ]
 }
