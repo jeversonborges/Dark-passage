@@ -241,6 +241,30 @@
       "texto": "Nenhum lado é bom. Um lado só é mais sincero.",
       "autor": "Crônica do Emparedado",
       "faccao": "ambas"
+    },
+    {
+      "id": "c041",
+      "texto": "E fechou a mão sobre uma semente, e a mão não tornou a abrir. Chamai-o o Ladrão.",
+      "autor": "Versículo do Coro, Livro das Acusações",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c042",
+      "texto": "O Céu não erra. O Céu insiste.",
+      "autor": "Versículo do Coro, Livro das Acusações",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c043",
+      "texto": "Toda semente é roubada de alguém.",
+      "autor": "Caderno do Coveiro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c044",
+      "texto": "A árvore do meio da mata queimou por fora e não morreu por dentro. Ninguém corta. Ninguém pergunta.",
+      "autor": "ditado dos carvoeiros",
+      "faccao": "ambas"
     }
   ]
 }

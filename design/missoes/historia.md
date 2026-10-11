@@ -54,6 +54,33 @@ Notícias das outras frentes chegam por rádio, por peregrinos e por desertores,
 
 O jogador começa como **recruta sem nome** nas duas facções (no Livro da Cerca ou no rol da Comunhão) e ganha nome conforme prova valor.
 
+### 0.5 A Árvore-Mãe e o Ladrão do Éden
+
+Decisão do Jefin (11/10/2026). No centro da floresta da 1ª trombeta (a Mata do Granizo da proposta de mundo, área 2) há uma árvore gigante, a **Árvore-Mãe**. Por fora é carvão; por dentro está viva. Ela nasceu de uma **semente da Árvore da Vida, roubada do Éden** pelo arcanjo **Rafael**, o mesmo que vive como Simão em São Lázaro (seção 4.1).
+
+- **O roubo.** Desde a Queda, o caminho da Árvore da Vida é guardado por querubins e por uma espada de fogo. Rafael, "o que cura", passou por eles porque ninguém no Coro vigia um irmão que só sabe curar. Levou uma semente na mão fechada. Não roubou para si: escondeu para que, se o fim viesse, alguma coisa pudesse nascer de novo depois dele. Plantou a semente numa floresta sem nome, longe de qualquer trombeta.
+- **A primeira trombeta.** O Coro descobriu o furto tarde. O granizo e o fogo misturados com sangue da 1ª trombeta não caíram ao acaso: caíram sobre a floresta onde estava a semente. Um terço das árvores queimou de pé. A Árvore-Mãe queimou por fora e continuou viva por dentro. O granizo de sangue que nunca derrete é o Céu ainda tentando.
+- **A heresia.** Para os Arautos, Rafael é o **Ladrão do Éden** e o maior herege da criação: tirou do Paraíso o que Deus fechou ao homem. O Coro risca o nome dele dos livros e o chama só de "o Ladrão". Ninguém no Coro sabe que o Ladrão e o desertor da Batalha do Impasse são o mesmo, nem que ele cobre covas em São Lázaro.
+- **Quem sabe o quê.** Os carvoeiros acham que a árvore é santa e não deixam ninguém cortar. A Vigília não sabe de nada. Simão não fala da árvore; perguntado, muda de assunto e diz que "toda semente é roubada de alguém".
+- **Gancho.** Uma árvore da vida no mundo do Impasse é a coisa que os dois lados mais querem: os Arautos para queimá-la, a Vigília para entender por que ela não morre. É conteúdo da área 2 e do fim da linha de Rafael.
+
+Como contar (seção 7), sempre por documentos:
+
+> **Versículo do Coro · Livro das Acusações · 1**
+> E houve no Coro um que curava, e por curar demais entrou onde não lhe era dado entrar. E passou pelos querubins, porque querubim não vigia irmão. E fechou a mão sobre uma semente, e a mão não tornou a abrir.
+> Seu nome está riscado. Chamai-o o Ladrão.
+
+> **Versículo do Coro · Livro das Acusações · 4**
+> E o primeiro sopro desceu em granizo e fogo misturados com sangue sobre a mata onde o Ladrão enterrou o furto. E um terço das árvores ardeu. E a árvore do furto ardeu por fora, e não morreu por dentro.
+> O Céu não erra. O Céu insiste.
+
+> **Inscrição no oco da Árvore-Mãe**, entalhada fundo, em letra que nenhum carvoeiro sabe ler (é aramaico):
+> Para quando tudo queimar.
+> (embaixo, uma única letra) R.
+
+> **Caderno do Coveiro**, página sem data:
+> Toda semente é roubada de alguém. A terra rouba do morto, a árvore rouba da terra. Não me pergunte da floresta. Eu cubro covas, não planto.
+
 ## 1. O que aconteceu aqui
 
 Quando as sete trombetas começaram a soar, cada uma foi confiada a um anjo arauto e escondida num ponto da Terra.
