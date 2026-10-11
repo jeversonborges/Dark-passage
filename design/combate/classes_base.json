@@ -817,10 +817,10 @@
           "nome": "Torreta Sentinela",
           "nivel": 3,
           "custo": 35,
-          "recarga": 18.0,
+          "recarga": 10.0,
           "invoca": "torreta",
-          "duracao": 15.0,
-          "max": 1,
+          "duracao": 40.0,
+          "max": 2,
           "sensacao": "invocacao"
         },
         {
