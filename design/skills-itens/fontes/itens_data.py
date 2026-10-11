@@ -142,6 +142,8 @@ MISSOES = {
  "fragmento_clarao":("estilhaco","cinza","#fff2c0",[1,1]), "chave_lancamento":("chave_gancho","latao","#ffe08a",[1,2]), "insignia_arrancada":("medalha","sangue",None,[1,1]),
  "carta_apostata":("carta","pano",None,[1,1]), "meia_dragona":("bracadeira","ouro",None,[1,1]), "leitura_ordem_lancamento":("pergaminho","pano",None,[1,1]),
  "leitura_carta_apostata":("carta","pano",None,[1,1]), "contador_isaura":("diapasao","latao","#9dff4a",[1,2]),
+ "placa_coveiro":("etiqueta","ferro",None,[1,1]), "folha_tombo":("pergaminho","ouro",None,[1,1]), "ultimo_tijolo":("tabua","cinza",None,[1,1]),
+ "leitura_livro_tombo":("livro","couro",None,[2,2]), "faixas_betania":("fita","pano",None,[1,1]),
 }
 # lendario:<chefe/elite> de drops.json -> itens com nome da thread Missões
 POOLS_LENDARIOS = {

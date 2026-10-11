@@ -1020,6 +1020,67 @@
         "texto": "A única que ninguém arrancou. Dizem que era dele.",
         "autor": "Corvina"
       }
+    },
+    {
+      "id": "placa_coveiro",
+      "nome": "Placa de Cova de Ferro",
+      "tipo": "missao",
+      "pilha": 3,
+      "descricao": "Placa de ferro fundido, comida de ferrugem. As letras foram batidas a martelo: SIMÃO · COVEIRO e uma data.",
+      "citacao": {
+        "texto": "Coveiro também morre. Quem enterra o coveiro?",
+        "autor": "ditado da paróquia"
+      }
+    },
+    {
+      "id": "folha_tombo",
+      "nome": "Folha do Livro do Tombo",
+      "tipo": "missao",
+      "pilha": 5,
+      "descricao": "Folha de pergaminho grosso com iluminuras em ouro sujo, bicada nas bordas. Os corvos levaram para o ninho por causa do dourado.",
+      "citacao": {
+        "texto": "Corvo não lê. Mas guarda tudo que vale a pena ler.",
+        "autor": "Corvina"
+      }
+    },
+    {
+      "id": "ultimo_tijolo",
+      "nome": "Último Tijolo de Anacleto",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Tijolo de barro cozido, mais pesado do que devia. Numa face, um nome riscado à unha.",
+      "citacao": {
+        "texto": "Não tenha medo, irmão. Eu sei o que é esperar dentro da pedra.",
+        "autor": "o coveiro, em 1693, segundo Fr. Anacleto"
+      }
+    },
+    {
+      "id": "leitura_livro_tombo",
+      "nome": "Livro do Tombo (folha primeira)",
+      "tipo": "leitura",
+      "texto": "LIVRO DO TOMBO DA PARÓQUIA · FOLHA PRIMEIRA\nNo ano de 1688 chegou a este ermo um homem muito alto e muito magro, com faixas de linho nos pulsos e no pescoço, como quem saiu de uma mortalha e não quis tirá-la.\nDisse vir de Betânia. Não pediu terra nem esmola. Pediu o ofício de coveiro.\nPerguntado por que não temia os mortos, respondeu: \"Já fui um.\"\nOs moradores, por gratidão a quem enterrava os seus de graça, deram à vila o nome que ele trazia.\n\n(à margem, outra tinta, 1714) O coveiro morreu de febre e foi enterrado por nós. Mandamos entalhar a imagem dele para o andor. Na manhã seguinte, a cova estava fechada por dentro, e ele cobria a de outro.\n(à margem, outra tinta, 1803) De novo.\n(à margem, outra tinta, 1891) De novo. O padre proibiu que se escrevesse mais sobre isso.\n(à margem, letra de criança) ele me deu uma bala de hortelã",
+      "citacao": {
+        "texto": "Já fui um.",
+        "autor": "o coveiro, 1688"
+      }
+    },
+    {
+      "id": "faixas_betania",
+      "nome": "Faixas de Betânia",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "vit": 4,
+        "esp": 3
+      },
+      "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+      "descricao": "Tiras de linho amarelado, muito velhas, que não apodrecem. Simão desenrolou uma do próprio pulso e amarrou no seu.",
+      "citacao": {
+        "texto": "Ficam bem em quem já devia ter morrido. Ou vai.",
+        "autor": "Simão"
+      }
     }
   ]
 }

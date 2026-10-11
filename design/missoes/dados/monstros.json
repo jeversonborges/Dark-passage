@@ -27,6 +27,11 @@
           "item": "pena_querubim",
           "chance": 0.45,
           "missao": "a02"
+        },
+        {
+          "item": "folha_tombo",
+          "chance": 0.4,
+          "missao": "f03"
         }
       ],
       "registros": [
@@ -57,7 +62,18 @@
       "descricao": "Os primeiros mortos do cerco, os que nem esperaram o lacre. Ficaram com fome em vez de esperança. Cavam a areia com as mãos atrás de qualquer coisa que um dia foi carne.",
       "aparencia": "Cadáver magro e curvado, pele cinza-esverdeada, unhas compridas, restos de roupa de operário.",
       "comportamento": "Anda devagar, corre nos últimos metros. Para para comer corpos caídos.",
-      "drops_missao": [],
+      "drops_missao": [
+        {
+          "item": "placa_coveiro",
+          "chance": 0.35,
+          "missao": "f01v"
+        },
+        {
+          "item": "placa_coveiro",
+          "chance": 0.35,
+          "missao": "f01a"
+        }
+      ],
       "registros": [
         {
           "fonte": "despacho_vela",
@@ -543,7 +559,13 @@
       "descricao": "Monges que se deixaram emparedar vivos por penitência séculos atrás. A meia nota os acordou dentro da parede. Alguns saíram.",
       "aparencia": "Esqueleto de hábito marrom podre com tijolos e argamassa grudados no corpo, ainda com o terço na mão.",
       "comportamento": "Sai da parede quando o jogador passa perto. Golpe de terço com chance de silenciar.",
-      "drops_missao": [],
+      "drops_missao": [
+        {
+          "item": "ultimo_tijolo",
+          "chance": 0.2,
+          "missao": "f04"
+        }
+      ],
       "registros": [
         {
           "fonte": "caderno_coveiro",

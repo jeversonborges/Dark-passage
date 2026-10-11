@@ -566,6 +566,20 @@
               "ir": "braco"
             },
             {
+              "texto": "O Joaquim viu alguma coisa no cemitério?",
+              "ir": "f01v_oferta",
+              "se": {
+                "missao_disponivel": "f01v"
+              }
+            },
+            {
+              "texto": "Trouxe as placas das covas.",
+              "ir": "f01v_fim",
+              "se": {
+                "missao_pronta": "f01v"
+              }
+            },
+            {
               "texto": "Até logo, Mãe Cardo."
             }
           ]
@@ -632,6 +646,35 @@
               "acoes": [
                 {
                   "concluir_missao": "s02"
+                }
+              ]
+            }
+          ]
+        },
+        "f01v_oferta": {
+          "fala": "Viu. Os mortos abaixam a cabeça quando o Simão passa. Todos, menino. Eu enterrei o meu Firmino pelas mãos dele e nunca perguntei nada. Agora pergunto. Os carniçais estão cavando as covas velhas dos Campos de Cinza. Traga o que tiver nome.",
+          "opcoes": [
+            {
+              "texto": "Eu trago.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f01v"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "f01v_fim": {
+          "fala": "(ela lê devagar, uma placa de cada vez) Simão. Simão. Simão. Coveiro, coveiro, coveiro. (pausa) Nome de família. Só pode. (ela não acredita) Leve para a Corvina, no sótão do Bairro Afogado. Ela compra o que ninguém quer saber.",
+          "opcoes": [
+            {
+              "texto": "Vou até ela.",
+              "acoes": [
+                {
+                  "concluir_missao": "f01v"
                 }
               ]
             }
@@ -1536,6 +1579,20 @@
               ]
             },
             {
+              "texto": "Você ainda pensa no que o Malfas disse?",
+              "ir": "f01a_oferta",
+              "se": {
+                "missao_disponivel": "f01a"
+              }
+            },
+            {
+              "texto": "Trouxe as placas das covas velhas.",
+              "ir": "f01a_fim",
+              "se": {
+                "missao_pronta": "f01a"
+              }
+            },
+            {
               "texto": "Até, Lúcio."
             }
           ]
@@ -1593,6 +1650,35 @@
               "acoes": [
                 {
                   "concluir_missao": "s06"
+                }
+              ]
+            }
+          ]
+        },
+        "f01a_oferta": {
+          "fala": "Todas as noites, irmão. \"O dono ainda está usando.\" Se é deboche, por que não consigo esquecer? Os carniçais reviram as covas mais antigas dos Campos de Cinza. Se o santo está enterrado aqui, a placa dele está lá. Traga o que tiver nome. E não conte à Madre.",
+          "opcoes": [
+            {
+              "texto": "Fica entre nós.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f01a"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "f01a_fim": {
+          "fala": "(ele lê as placas como quem reza) Nenhuma diz santo. Todas dizem coveiro. (ele guarda as mãos nas mangas) Leve isto à Corvina, no Bairro Afogado. Ela vende verdades. Talvez esta ela não consiga vender.",
+          "opcoes": [
+            {
+              "texto": "Vou até ela.",
+              "acoes": [
+                {
+                  "concluir_missao": "f01a"
                 }
               ]
             }
@@ -1711,6 +1797,20 @@
             {
               "texto": "Há quanto tempo você mora aqui?",
               "ir": "idade"
+            },
+            {
+              "texto": "Andei perguntando por você.",
+              "ir": "f05_oferta",
+              "se": {
+                "missao_disponivel": "f05"
+              }
+            },
+            {
+              "texto": "Estive no Primeiro Sepulcro.",
+              "ir": "f05_fim",
+              "se": {
+                "missao_pronta": "f05"
+              }
             },
             {
               "texto": "Até mais, Simão."
@@ -1926,6 +2026,84 @@
               ]
             }
           ]
+        },
+        "f05_oferta": {
+          "fala": "Eu sei. Para a Corvina, para o frade, para as placas de ferro. (ele estende uma vela) No fundo do cemitério, atrás do mausoléu, há um sepulcro mais velho que a paróquia. A pedra está rolada para o lado. Acenda isto lá dentro e leia a parede. Depois volte. Eu faço o chá.",
+          "opcoes": [
+            {
+              "texto": "Eu vou.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f05"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não."
+            }
+          ]
+        },
+        "f05_fim": {
+          "fala": "(duas xícaras na mesa; ele bebe a dele devagar) Você leu. Não precisa dizer. (pausa) Ele chorou, sabe. Antes de chamar. Todo mundo lembra que eu saí. Ninguém lembra que Ele chorou. (ele olha para a pá encostada na porta) Agora você sabe uma coisa sobre mim. O que vai fazer com ela?",
+          "opcoes": [
+            {
+              "texto": "Nada. O segredo é seu.",
+              "ir": "f05_guardar",
+              "acoes": [
+                {
+                  "concluir_missao": "f05",
+                  "escolha": "guardar"
+                }
+              ]
+            },
+            {
+              "texto": "Quando a nota terminar, o que você quer?",
+              "ir": "f05_perguntar",
+              "acoes": [
+                {
+                  "concluir_missao": "f05",
+                  "escolha": "perguntar"
+                }
+              ]
+            },
+            {
+              "texto": "A minha facção precisa saber.",
+              "ir": "f05_contar",
+              "acoes": [
+                {
+                  "concluir_missao": "f05",
+                  "escolha": "contar"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "f05_guardar": {
+          "fala": "(ele desenrola uma faixa de linho do pulso e amarra no seu) Ficam bem em quem já devia ter morrido. Ou vai. Obrigado. Faz tempo que ninguém me deixa em paz por gentileza.",
+          "opcoes": [
+            {
+              "texto": "Até amanhã, Simão."
+            }
+          ]
+        },
+        "f05_perguntar": {
+          "fala": "(ele demora) Que alguém me cubra. Direito, com respeito, mesmo cavando torto. Eu cubro os outros há trezentos anos. Uma vez só, eu queria ficar. (ele amarra uma faixa de linho no seu pulso) Guarde isto até lá.",
+          "opcoes": [
+            {
+              "texto": "Eu prometo."
+            }
+          ]
+        },
+        "f05_contar": {
+          "fala": "(ele não parece surpreso) Conte. Eles vão vir com perguntas, com correntes, ou com velas. Já vieram de todos os jeitos. (ele pega a pá) Eu continuo aqui de manhã. Sempre continuo.",
+          "opcoes": [
+            {
+              "texto": "Sinto muito."
+            }
+          ]
         }
       }
     },
@@ -1985,6 +2163,20 @@
             {
               "texto": "Por que te emparedaram?",
               "ir": "historia"
+            },
+            {
+              "texto": "O que você sabe sobre o coveiro?",
+              "ir": "f04_oferta",
+              "se": {
+                "missao_disponivel": "f04"
+              }
+            },
+            {
+              "texto": "Achei o seu tijolo.",
+              "ir": "f04_fim",
+              "se": {
+                "missao_pronta": "f04"
+              }
             },
             {
               "texto": "Adeus, Frei."
@@ -2069,6 +2261,35 @@
               "acoes": [
                 {
                   "concluir_missao": "s09"
+                }
+              ]
+            }
+          ]
+        },
+        "f04_oferta": {
+          "fala": "Sei como ele assenta tijolo. Foi ele quem fechou a minha parede, em 1693. Os irmãos acordados pela meia nota arrancaram tijolos das celas e carregam como relíquia. Um deles carrega o meu. Tem uma marca. Traga-o, e eu conto o que ele me disse antes de fechar a luz. Ah, e é Lazarus, com V. Os vivos sempre escrevem errado.",
+          "opcoes": [
+            {
+              "texto": "Eu trago o tijolo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f04"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "f04_fim": {
+          "fala": "(o fantasma passa o dedo na marca) LAZARVS. E embaixo, mais novo, SIMÃO. Ele me disse: não tenha medo, irmão. Eu sei o que é esperar dentro da pedra, e sei que alguém chama. (pausa longa) Trezentos anos depois, ele ainda passa do outro lado da parede, às vezes. Eu ouço a pá. Vá falar com ele. Ele já sabe que você vem.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, Frei.",
+              "acoes": [
+                {
+                  "concluir_missao": "f04"
                 }
               ]
             }
@@ -2563,6 +2784,34 @@
               "ir": "lado"
             },
             {
+              "texto": "Mandaram-me trazer umas placas de cova.",
+              "ir": "f02_oferta",
+              "se": {
+                "missao_disponivel": "f02"
+              }
+            },
+            {
+              "texto": "Vi o rosto do padroeiro.",
+              "ir": "f02_fim",
+              "se": {
+                "missao_pronta": "f02"
+              }
+            },
+            {
+              "texto": "Quem fundou São Lázaro?",
+              "ir": "f03_oferta",
+              "se": {
+                "missao_disponivel": "f03"
+              }
+            },
+            {
+              "texto": "Trouxe as folhas do Livro do Tombo.",
+              "ir": "f03_fim",
+              "se": {
+                "missao_pronta": "f03"
+              }
+            },
+            {
               "texto": "Até mais, Corvina."
             }
           ]
@@ -2770,6 +3019,64 @@
             },
             {
               "texto": "Depois."
+            }
+          ]
+        },
+        "f02_oferta": {
+          "fala": "(ela nem olha as placas) Simão, Simão, Simão. Eu sei, querido. Tenho esse segredo há doze anos e nunca consegui vender. Ninguém quer um santo que trabalha de pá. Quer prova? A Procissão Parada carrega o andor do padroeiro desde a meia nota. Abra caminho e olhe o rosto da imagem.",
+          "opcoes": [
+            {
+              "texto": "Eu vou olhar.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f02"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "f02_fim": {
+          "fala": "Alto, magro, faixas nos pulsos, uma pá na mão. E 1714 na base. (ela sorri sem graça nenhuma) Agora você também tem um segredo que ninguém compra. Bem-vindo ao ramo.",
+          "opcoes": [
+            {
+              "texto": "Isso não prova nada.",
+              "acoes": [
+                {
+                  "concluir_missao": "f02"
+                }
+              ]
+            }
+          ]
+        },
+        "f03_oferta": {
+          "fala": "Ninguém lembra. E isso, por si só, é resposta. A torre do sino guardava o Livro do Tombo, o primeiro registro da paróquia. Os corvos fizeram ninho no arquivo e levaram as folhas por causa do dourado. Suba na torre e depois tire as folhas dos corvos.",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "f03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "f03_fim": {
+          "fala": "(ela lê duas vezes e devolve) Fique com isso. Há verdades que só dão prejuízo. (pausa) Você sabe onde fica Betânia? Não? Pergunte ao frade emparedado, lá embaixo. Ele estava aqui antes de todo mundo. Quase todo mundo.",
+          "opcoes": [
+            {
+              "texto": "Vou perguntar.",
+              "acoes": [
+                {
+                  "concluir_missao": "f03"
+                }
+              ]
             }
           ]
         }

@@ -1811,6 +1811,272 @@
       ],
       "texto_conclusao": "Odete segurou a meia dragona como quem segura um bilhete de bonde antigo. \"Eu passei por cima dele e não olhei para trás. Pelo jeito, ele olhou.\"",
       "recompensas": {}
+    },
+    {
+      "id": "f01v",
+      "titulo": "Três Placas, Um Nome",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "vigilia",
+      "nivel": 4,
+      "doador": "mae_cardo",
+      "entrega": "mae_cardo",
+      "requer": [
+        "v04"
+      ],
+      "resumo": "Recupere placas de cova antigas com os carniçais das Covas Rasas.",
+      "descricao": "BILHETE DA COZINHA DA VELA · ESCRITO A CARVÃO NO VERSO DE UMA LISTA\nMenino, o Joaquim viu de novo. Os mortos do cemitério abaixam a cabeça quando o coveiro passa. Todos. Até os que em vida não abaixavam para padre nenhum.\nEu enterrei o meu Firmino pelas mãos daquele homem. Quero saber a quem entreguei o meu marido: a um santo ou a outra coisa.\nOs carniçais cavam as covas rasas dos Campos de Cinza, as mais velhas da paróquia. Traga o que eles desenterrarem com nome escrito.\n— Mãe Cardo",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "covas_rasas",
+          "qtd": 10
+        },
+        {
+          "tipo": "coletar",
+          "item": "placa_coveiro",
+          "qtd": 3
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "caldo_cardo_comum",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Três placas de ferro, três séculos: SIMÃO · COVEIRO · 1714. SIMÃO · COVEIRO · 1803. SIMÃO · COVEIRO · 1891. São placas de cova. Os três foram enterrados. O mesmo homem cobre as covas toda manhã.Mãe Cardo esfregou a ferrugem com o polegar até a última data aparecer. \"Nome de família\", disse, sem acreditar. \"Leve para a Corvina. Ela compra o que ninguém quer saber.\""
+    },
+    {
+      "id": "f01a",
+      "titulo": "O Dono Ainda Está Usando",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "irmao_lucio",
+      "entrega": "irmao_lucio",
+      "requer": [
+        "s05"
+      ],
+      "resumo": "Recupere placas de cova antigas com os carniçais das Covas Rasas.",
+      "descricao": "CARTA SEM LACRE · ANO 31 DO JUÍZO ADIADO\nIrmão, o penhorista riu de mim. Disse que os ossos de São Lázaro não estão em relicário nenhum, porque o dono ainda está usando.\nA Madre diz que é deboche de demônio. Eu não durmo desde então.\nOs carniçais cavam as covas velhas dos Campos de Cinza, as de antes de a paróquia ter nome. Se o santo foi enterrado aqui, a placa dele está lá. Traga o que tiver nome. Não conte à Madre.\n— Lúcio, irmão escrivão",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "covas_rasas",
+          "qtd": 10
+        },
+        {
+          "tipo": "coletar",
+          "item": "placa_coveiro",
+          "qtd": 3
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Três placas de ferro, três séculos: SIMÃO · COVEIRO · 1714. SIMÃO · COVEIRO · 1803. SIMÃO · COVEIRO · 1891. São placas de cova. Os três foram enterrados. O mesmo homem cobre as covas toda manhã.Lúcio leu as três placas em voz baixa, como quem reza. \"Nenhuma diz santo\", murmurou. \"Todas dizem coveiro.\" Ele mandou você à Corvina. \"Ela vende verdades. Talvez esta ela não consiga vender.\""
+    },
+    {
+      "id": "f02",
+      "titulo": "O Rosto do Padroeiro",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "ambas",
+      "nivel": 5,
+      "doador": "corvina_atravessadora",
+      "entrega": "corvina_atravessadora",
+      "requer_qualquer": [
+        "f01v",
+        "f01a"
+      ],
+      "resumo": "Abra caminho na Procissão Parada e examine a imagem do padroeiro no andor.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: NENHUM (ESTA NINGUÉM COMPRA)\nTrês placas, um nome. Tenho esse segredo há doze anos, querido. Tentei vender para a Vela e para a Capela. Ninguém pagou. Ninguém quer um santo que trabalha de pá.\nQuer prova? Os Não-Julgados da Procissão Parada carregam o andor do padroeiro desde a meia nota, para uma festa que não vai acontecer. Abra caminho e olhe o rosto da imagem.\nDepois me diga se ainda acha que é nome de família.\n— C.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "procissao_parada",
+          "qtd": 12
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "andor_padroeiro",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 2640,
+        "ouro": 60
+      },
+      "texto_conclusao": "A imagem de São Lázaro no andor é de madeira escura, entalhada em 1714. Alta demais, magra demais, faixas de linho nos pulsos. Na mão direita, onde todo santo segura uma palma, ela segura uma pá. O rosto é o do coveiro. Ninguém errou nada: é o mesmo rosto, e a mesma idade."
+    },
+    {
+      "id": "f03",
+      "titulo": "As Folhas do Livro do Tombo",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "ambas",
+      "nivel": 6,
+      "doador": "corvina_atravessadora",
+      "entrega": "corvina_atravessadora",
+      "requer": [
+        "f02"
+      ],
+      "resumo": "Suba à torre do sino e recupere as folhas do Livro do Tombo com os corvos.",
+      "descricao": "BILHETE DE CORVINA · PREÇO: UMA RESPOSTA\nA torre do sino guardava o Livro do Tombo, o primeiro registro da paróquia. Quando a areia subiu, os corvos fizeram ninho no arquivo e levaram as folhas. Corvo gosta de papel com tinta dourada. O Livro do Tombo tinha muita.\nQuero saber quem fundou São Lázaro. Ninguém lembra. Isso, por si só, já é resposta.\n— C.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "torre_sino",
+          "subzona": "cemiterio_sao_lazaro",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "folha_tombo",
+          "qtd": 5,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 3480,
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "leitura_livro_tombo",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "As cinco folhas montam a primeira página do Livro do Tombo. Corvina leu duas vezes e devolveu sem cobrar. \"Fique com isso. Há verdades que só dão prejuízo.\" Depois perguntou, sem olhar: \"Você sabe onde fica Betânia?\""
+    },
+    {
+      "id": "f04",
+      "titulo": "O Último Tijolo",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "ambas",
+      "nivel": 9,
+      "doador": "frei_anacleto",
+      "entrega": "frei_anacleto",
+      "requer": [
+        "f03",
+        "c04"
+      ],
+      "resumo": "Recupere dos monges emparedados o tijolo que fechou a cela de Anacleto.",
+      "descricao": "CRÔNICA DO EMPAREDADO · FOLHA DE TIJOLO\nVocê me pergunta pelo coveiro. Eu lhe pergunto pelo tijolo.\nEm 1693 fecharam-me nesta parede, por penitência, como era o costume. Quem assentou o último tijolo foi o coveiro da vila. Lembro das mãos. Lembro que chorou.\nOs irmãos que a meia nota acordou arrancaram tijolos das próprias celas e os carregam como relíquia. Um deles carrega o meu. Tem uma marca. Traga-o, e eu conto o que ele me disse antes de fechar a luz.\n— Fr. Anacleto, emparedado",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "monge_emparedado",
+          "qtd": 8
+        },
+        {
+          "tipo": "coletar",
+          "item": "ultimo_tijolo",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 4200,
+        "ouro": 90
+      },
+      "texto_conclusao": "Anacleto passou o dedo de fantasma na marca do tijolo: um nome riscado à unha, LAZARVS, e embaixo, em letra mais nova, SIMÃO. \"Ele me disse: não tenha medo, irmão. Eu sei o que é esperar dentro da pedra. E sei que alguém chama.\" Anacleto ficou calado um tempo. \"Trezentos anos depois, ele ainda passa aqui embaixo, às vezes. Do outro lado da parede. Eu ouço a pá.\""
+    },
+    {
+      "id": "f05",
+      "titulo": "Vem Para Fora",
+      "tipo": "principal",
+      "linha": "Vem Para Fora",
+      "faccao": "ambas",
+      "nivel": 11,
+      "doador": "simao_coveiro",
+      "entrega": "simao_coveiro",
+      "requer": [
+        "f04"
+      ],
+      "resumo": "Acenda uma vela no Primeiro Sepulcro e diga a Simão o que você sabe.",
+      "descricao": "CADERNO DO COVEIRO · PÁGINA SEM DATA\nVocê anda perguntando por mim. Pergunta para a Corvina, para o frade, para as placas de ferro.\nNo fundo do cemitério, atrás do mausoléu, há um sepulcro mais velho que a paróquia. A pedra da entrada está rolada para o lado. Leve esta vela e acenda lá dentro. Leia o que está escrito na parede.\nDepois volte. Eu faço o chá.\n— S.",
+      "ao_aceitar_recebe": [
+        {
+          "id": "vela_simao",
+          "qtd": 1
+        }
+      ],
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "vela_simao",
+          "objeto": "sepulcro_primeiro",
+          "subzona": "cemiterio_sao_lazaro"
+        },
+        {
+          "tipo": "decidir",
+          "npc": "simao_coveiro",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "guardar",
+          "texto": "Guardar o segredo dele",
+          "flags": [
+            "lazaro_segredo_guardado"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 150,
+            "itens": [
+              {
+                "id": "faixas_betania",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "perguntar",
+          "texto": "Perguntar o que ele quer quando a nota terminar",
+          "flags": [
+            "lazaro_pediu_cova"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 150,
+            "itens": [
+              {
+                "id": "faixas_betania",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "contar",
+          "texto": "Contar à sua facção quem ele é",
+          "flags": [
+            "lazaro_revelado"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 400
+          }
+        }
+      ],
+      "texto_conclusao": "Simão serviu o chá em duas xícaras e bebeu a dele devagar. \"Ele chorou, sabe. Antes de chamar. Todo mundo lembra que eu saí. Ninguém lembra que Ele chorou.\" Depois pegou a pá e foi cobrir as covas, como toda manhã."
     }
   ]
 }

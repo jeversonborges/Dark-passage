@@ -131,6 +131,20 @@ A igreja da paróquia, enterrada até as janelas do coro. Só a torre e o telhad
 
 O segredo dele (nunca dito em voz alta, só insinuado): Simão é **Lázaro**, o homem que foi chamado de volta da morte há dois mil anos. Morreu duas vezes e não conseguiu ficar morto nenhuma. A cidade tem o nome dele. Quando a trombeta der a nota inteira, ele finalmente será julgado, e ele ainda não decidiu se quer isso.
 
+### 4.1 Linha F: Vem Para Fora (o mistério de quem foi São Lázaro)
+
+Pedida pelo Jefin (11/10/2026). Níveis 4 a 11, as duas facções. Nunca confirma em voz alta: o jogador junta as provas, e Simão só responde com o que Jesus fez antes de chamá-lo (Jo 11,35: "Jesus chorou"; Jo 11,43: "Lázaro, vem para fora").
+
+| Missão | Quem pede | O que se descobre |
+|---|---|---|
+| f01v / f01a | Mãe Cardo (os mortos abaixam a cabeça para o coveiro) / Lúcio ("o dono ainda está usando", de s05) | Três placas de cova de ferro: SIMÃO · COVEIRO · 1714, 1803 e 1891 |
+| f02 | Corvina (o segredo que ela nunca consegue vender) | A imagem do padroeiro no andor da Procissão Parada, de 1714, tem o rosto de Simão e uma pá na mão |
+| f03 | Corvina | O Livro do Tombo: em 1688 chegou "de Betânia" um homem com faixas de linho que pediu o ofício de coveiro; "Já fui um"; morreu em 1714, 1803 e 1891 e sempre voltou |
+| f04 | Frei Anacleto | Simão assentou o último tijolo da cela de Anacleto em 1693; o tijolo tem LAZARVS riscado e, embaixo, SIMÃO |
+| f05 | Simão | O Primeiro Sepulcro, vazio e varrido, com "Lázaro, vem para fora" gravado em grego. Escolha: guardar o segredo, perguntar o que ele quer quando a nota terminar, ou contar à facção |
+
+Flags: `lazaro_segredo_guardado`, `lazaro_pediu_cova` (ele quer que alguém o cubra, uma vez, e ficar), `lazaro_revelado` (a facção vai atrás dele: gancho para o futuro). Objetos novos `andor_padroeiro` e `sepulcro_primeiro` estão marcados `pendente` para a Level design posicionar no mapa.
+
 ## 5. A dungeon: Cripta da Trombeta Calada
 
 Entrada pelo porão do Abatedouro Carniça, atrás de uma porta de ganchos. Três andares, cada um mais antigo que o anterior.
