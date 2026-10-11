@@ -291,6 +291,39 @@ def halo(t, e):
  <ellipse cx="32" cy="32" rx="20" ry="12" fill="none" stroke="{K}" stroke-width="6"/><ellipse cx="32" cy="32" rx="20" ry="12" fill="none" stroke="{M}" stroke-width="3.6"/>
  <path d="M14 30 Q20 21 32 20" fill="none" stroke="{ec}" stroke-width="1.6" filter="url(#glow)"/><path d="M44 42 L48 36" stroke="{K}" stroke-width="2"/>'''
 
+def chave_mestra(t, e):
+    """Chave-Mestra do Primarca (cajado Lendário do Gustavo): anel de chave dentado com válvula roxa acesa,
+    coroa de cinco válvulas, cabo de ferro com cintas de latão, dentes de chave, lacre de chumbo e faíscas roxas."""
+    L,M,D = t
+    ec = e or "#c89bff"; R = "#8a3cff"; CH = TINTS["chumbo"]; cx, cy = 32, 17
+    def P(a, r): return f"{cx+r*math.cos(a):.1f} {cy+r*math.sin(a):.1f}"
+    teeth = "".join(f'<rect x="{cx+11*math.cos(a)-1.5:.1f}" y="{cy+11*math.sin(a)-1.5:.1f}" width="3" height="3" fill="{M}" {o} transform="rotate({math.degrees(a):.0f} {cx+11*math.cos(a):.1f} {cy+11*math.sin(a):.1f})"/>' for a in [i*math.pi*2/10 + .3 for i in range(10)] if not (-2.4 < a - 2*math.pi < -.7 or -2.4 < a < -.7))
+    crown = ""
+    for i in range(5):
+        a = math.pi*(1.2 + i*.15)
+        crown += f'<path d="M{P(a, 9.5)} L{P(a, 12.4)}" stroke="{K}" stroke-width="4.4" stroke-linecap="round"/><path d="M{P(a, 9.5)} L{P(a, 12.4)}" stroke="{M}" stroke-width="2.4" stroke-linecap="round"/>'
+        crown += f'<ellipse cx="{cx+15*math.cos(a):.1f}" cy="{cy+15*math.sin(a):.1f}" rx="2.3" ry="3.2" fill="#3a1a5a" {o} transform="rotate({math.degrees(a)+90:.0f} {cx+15*math.cos(a):.1f} {cy+15*math.sin(a):.1f})"/>'
+        crown += gdot(round(cx+15*math.cos(a),1), round(cy+15*math.sin(a),1), 1.4, "#e8d4ff")
+    bands = "".join(f'<rect x="28.6" y="{y}" width="6.8" height="2.6" rx=".6" fill="{M}" {o}/><path d="M29.4 {y+.8} L34.6 {y+.8}" stroke="{L}" stroke-width=".7"/>' for y in (31,39,46))
+    arcs = (glow("M42 19 L45.5 17 L44.5 21 L48.5 20", ec, 1) + glow("M22 21 L18.5 19.5 L19.5 23.5 L15.5 23", ec, 1))
+    return diag(f"""
+ {crown}
+ <rect x="30" y="26" width="4" height="35" fill="{FER[1]}" {o}/><path d="M31.2 28 L31.2 59" stroke="{FER[0]}" stroke-width=".9"/>
+ {bands}
+ <path d="M34 50 L41 50 L41 53 L38 53 L38 55.5 L41 55.5 L41 59 L34 59" fill="{D}" {o}/><path d="M35 51.5 L39.5 51.5" stroke="{M}" stroke-width=".8"/>
+ <path d="M30 61 L32 64 L34 61 Z" fill="{FER[2]}" {o}/>
+ {teeth}
+ <circle cx="{cx}" cy="{cy}" r="9.6" fill="#1c0f2a"/>
+ <circle cx="{cx}" cy="{cy}" r="9.6" fill="none" stroke="{K}" stroke-width="4.6"/><circle cx="{cx}" cy="{cy}" r="9.6" fill="none" stroke="{M}" stroke-width="2.6"/>
+ <circle cx="{cx}" cy="{cy}" r="9.6" fill="none" stroke="{L}" stroke-width=".7" stroke-dasharray="4 3.5"/>
+ <ellipse cx="{cx}" cy="{cy+.5}" rx="4.4" ry="6.2" fill="{R}" fill-opacity=".55" {o}/>
+ <path d="M{cx-1.8} {cy+4.5} L{cx-1.8} {cy-1} Q{cx} {cy-4.2} {cx+1.8} {cy-1} L{cx+1.8} {cy+4.5}" fill="none" stroke="{ec}" stroke-width="1.7" filter="url(#glow)"/>
+ {gdot(cx, cy-1.5, 2.1, "#f4e8ff")}
+ <rect x="28.4" y="{cy+5.4}" width="7.2" height="2.4" fill="{M}" {o}/><rect x="28.8" y="{cy-8}" width="6.4" height="2" fill="{M}" {o}/>
+ {arcs}
+ <path d="M30 29 Q24 33 25 40" fill="none" stroke="{K}" stroke-width="2"/><path d="M30 29 Q24 33 25 40" fill="none" stroke="{CH[0]}" stroke-width="1" stroke-dasharray="1.4 1"/>
+ <path d="M22.5 40 L27.5 40 L27 45.5 Q25 47 23 45.5 Z" fill="{CH[1]}" {o}/><path d="M24 42.5 L26 42.5 M25 41.5 L25 44.5" stroke="{CH[2]}" stroke-width=".9"/>""")
+
 MOTIVOS = {k: v for k, v in globals().items() if callable(v) and not k.startswith("_") and k not in ("glow", "diag", "rot", "gdot")}
 for k in list(MOTIVOS):
     if k in ("math",): MOTIVOS.pop(k)

@@ -1113,6 +1113,73 @@
         "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
         "autor": "Simão"
       }
+    },
+    {
+      "id": "chave_mestra_primarca",
+      "nome": "Chave-Mestra do Primarca",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "raridade": "primordial",
+      "classe": [
+        "tecnomancer"
+      ],
+      "nivel": 1,
+      "atributos": {
+        "dano": [
+          34,
+          56
+        ],
+        "esp": 30,
+        "vit": 15,
+        "agi": 10,
+        "hp": 400
+      },
+      "efeito": "Coroa de Válvulas: a cada 4º ataque básico, um arco roxo salta do alvo para até 4 inimigos a 4 m (70% do dano). O Primeiro Engenheiro: torretas e invocações causam +40% de dano e duram o dobro. Faísca Herege: +25% de dano contra Não-Julgados e servos do Coro. Vela que Não Apaga: abaixo de 25% de vida, escudo de 30% da vida máxima por 6 s (recarga 60 s). Mãos de Mestre: recarga de todas as skills -15%. Vinculada à conta: não se vende, não se troca, não cai.",
+      "efeitos_unicos": [
+        {
+          "id": "coroa_valvulas",
+          "a_cada_ataques": 4,
+          "saltos": 4,
+          "raio_m": 4.0,
+          "mult": 0.7,
+          "elemento": "eletrico"
+        },
+        {
+          "id": "primeiro_engenheiro",
+          "dano_invocacoes": 0.4,
+          "duracao_invocacoes_mult": 2.0
+        },
+        {
+          "id": "faisca_herege",
+          "dano_contra": [
+            "nao_julgados",
+            "coro"
+          ],
+          "bonus": 0.25
+        },
+        {
+          "id": "vela_nao_apaga",
+          "limiar_hp": 0.25,
+          "escudo_hp_max": 0.3,
+          "duracao_s": 6,
+          "recarga_s": 60
+        },
+        {
+          "id": "maos_de_mestre",
+          "valor": 0.15
+        }
+      ],
+      "vinculado": {
+        "conta": "gustavo",
+        "vende": false,
+        "troca": false,
+        "larga": false
+      },
+      "descricao": "REGISTRO DOS ENGENHEIROS HEREGES, FOLHA PRIMEIRA. Antes de haver Vigília, houve um homem com uma chave de válvula na mão. Gustavo, o Primarca, o primeiro de nós, juntou os Engenheiros Hereges no entulho da meia nota e os comandou na Guerra da Heresia, quando o Coro decretou que toda máquina era pecado e todo engenheiro, alvo. Dos grandes líderes daquela guerra, foi o que mais trouxe os seus de volta. Esta é a Chave-Mestra que ele carregava. A válvula do topo só acende roxa na mão de quem veio primeiro. — copiado por Anselmo, aprendiz dele, Ano 31 do Impasse",
+      "citacao": {
+        "texto": "Disseram que acender o que só Deus acendia era heresia. Eu acendi. Depois ensinei vocês.",
+        "autor": "Gustavo, o Primarca"
+      }
     }
   ]
 }

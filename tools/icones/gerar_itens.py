@@ -14,7 +14,7 @@ TMP = os.environ.get("TMPDIR_ICONES", "/tmp/icones") + "_itens"
 MOT = {**MI.MOTIVOS, **MX.MOTIVOS}
 GIRA_GRADE = {"besta": -90, "pistola_raio": 0}      # arte da mochila: besta deitada (3x2), como no mock da UI
 DEFS = '<defs><filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="1.6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'
-COR_RAR = {"magico":"#6f9fc9","raro":"#c99a3e","excelente":"#9cff3a","lendario":"#c8302a"}
+COR_RAR = {"magico":"#6f9fc9","raro":"#c99a3e","excelente":"#9cff3a","lendario":"#c8302a","primordial":"#a05cff"}
 dados = json.load(open(f"{PF}/design/skills-itens/itens.json"))
 so = set(sys.argv[1:])
 itens = [i for i in dados["itens"] if not so or i["id"] in so]

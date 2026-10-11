@@ -89,7 +89,7 @@ for a in I.CHAVES_BAUS:
 # itens com nome da thread Missões
 mis = json.load(open(f"{DES}/missoes/dados/itens.json"))["itens"]
 em_pool = {i: tag for tag, ids in I.POOLS_LENDARIOS.items() for i in ids}
-MULT_RAR = {"comum":1.0,"magico":1.0,"raro":1.1,"lendario":1.25}
+MULT_RAR = {"comum":1.0,"magico":1.0,"raro":1.1,"lendario":1.25,"primordial":1.0}
 SLOT = {"cabeca":"cabeca","peito":"peito","amuleto":"amuleto","arma":"arma"}
 for m in mis:
     if m["id"] not in I.MISSOES:
@@ -109,14 +109,17 @@ for m in mis:
         d.update(raridade=rar, slot=slot, nivel=m["nivel"], tags=tags, classes=m.get("classe"), faccao=m.get("faccao"))
         at = dict(m.get("atributos", {}))
         if "dano" in at:
-            d["dano_sugerido_missoes"] = at.pop("dano"); d["dano"] = dano(m["nivel"], MULT_RAR[rar])
+            if rar == "primordial": d["dano"] = at.pop("dano")   # únicos de homenagem: números fechados à mão
+            else: d["dano_sugerido_missoes"] = at.pop("dano"); d["dano"] = dano(m["nivel"], MULT_RAR[rar])
             d["intervalo"] = INTERVALO.get({"escopeta_badalada":"escopeta","machado_bonde":"machado","cajado_lampiao":"cajado","espada_escudeiro":"espada",
-                "foice_penhor":"foice","adaga_chaga":"adaga","gancho_capataz":"machado","estandarte_legiao":"lanca","bacula_femur":"cajado"}.get(m["id"]), 1.0)
+                "foice_penhor":"foice","adaga_chaga":"adaga","gancho_capataz":"machado","estandarte_legiao":"lanca","bacula_femur":"cajado","chave_mestra_primarca":"cajado"}.get(m["id"]), 1.0)
         if "defesa" in at:
             frac = I.FRACAO_DEF.get(slot, 0.2)
             d["defesa_sugerida_missoes"] = at.pop("defesa"); d["defesa"] = max(1, round(1.5*m["nivel"]*frac*MULT_RAR[rar]*1.2))
         d["atributos"] = at
         if "efeito" in m: d["efeito"] = m["efeito"]
+        for k in ("efeitos_unicos", "vinculado", "descricao"):
+            if k in m and rar == "primordial": d[k] = m[k]
         add("arma" if slot == "arma" else ("armadura" if slot in ("cabeca","peito") else "acessorio"), d)
     else:
         d["tipo_missao"] = m["tipo"]

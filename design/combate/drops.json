@@ -45,6 +45,14 @@
       "feixe": true,
       "peso_base": 10,
       "_doc": "itens unicos com nome e historia; so de chefe, elite, raro e Relicario"
+    },
+    "primordial": {
+      "nome_exibido": "Lendário",
+      "cor": "#a05cff",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 0,
+      "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
     }
   },
   "nivel_de_refino_no_drop": {

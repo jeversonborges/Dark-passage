@@ -113,7 +113,7 @@ CHAVES_BAUS = [
 ]
 
 # ---------- Itens da thread Missões: só completamos o que faltava ----------
-RARIDADE_MISSAO = {"comum":"comum","magico":"magico","raro":"raro","unico":"lendario"}
+RARIDADE_MISSAO = {"comum":"comum","magico":"magico","raro":"raro","unico":"lendario","primordial":"primordial"}
 # motivo, tint, emissivo, grade, tag de drop (quando existe), slot normalizado
 MISSOES = {
  "bobina_cobre":("bobina","cobre",None,[1,1]), "pena_querubim":("pena","prata",None,[1,2]), "dente_vala":("dente","osso",None,[1,1]),
@@ -145,6 +145,7 @@ MISSOES = {
  "placa_coveiro":("etiqueta","ferro",None,[1,1]), "folha_tombo":("pergaminho","ouro",None,[1,1]), "ultimo_tijolo":("tabua","cinza",None,[1,1]),
  "leitura_livro_tombo":("livro","couro",None,[2,2]), "faixas_betania":("fita","pano",None,[1,1]),
  "eco_do_nome":("estilhaco","bronze","#fff2c0",[1,1]), "elmo_rafael":("elmo_pesado","prata","#fff2c0",[2,2]),
+ "chave_mestra_primarca":("chave_mestra","latao","#c89bff",[1,4]),
 }
 # lendario:<chefe/elite> de drops.json -> itens com nome da thread Missões
 POOLS_LENDARIOS = {
