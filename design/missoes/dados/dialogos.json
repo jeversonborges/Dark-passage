@@ -1788,11 +1788,7 @@
             },
             {
               "texto": "Quero guardar minhas coisas.",
-              "acoes": [
-                {
-                  "abrir_armazem": true
-                }
-              ]
+              "ir": "armazem_gustavo"
             },
             {
               "texto": "Há quanto tempo você mora aqui?",
@@ -2140,6 +2136,15 @@
           "opcoes": [
             {
               "texto": "Até amanhã, Simão."
+            }
+          ]
+        },
+        "armazem_gustavo": {
+          "fala": "As covas numeradas eram minhas. Agora quem guarda é o velho das válvulas, aí do lado. Ele não perde nada. Eu perdia, às vezes, de propósito.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
             }
           ]
         }
@@ -3138,6 +3143,84 @@
                   "concluir_missao": "f03"
                 }
               ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_gustavo",
+      "npc": "gustavo_primarca",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "faccao": "arautos"
+              },
+              "texto": "Um do Coro na minha porta. Na Guerra da Heresia vocês me caçaram por nove anos. Hoje eu guardo as suas coisas. Entre, aprendiz. A Arca não pergunta de que lado você está."
+            },
+            {
+              "se": {
+                "faccao": "vigilia"
+              },
+              "texto": "Mais um da Vela. O Anselmo ainda queima os dedos naquela lâmpada? Diga a ele que eu ensinei a usar luva. Entre, aprendiz."
+            },
+            {
+              "texto": "Aprendiz. Limpe a areia das botas. A Arca é velha e tem manias."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Quero guardar minhas coisas.",
+              "acoes": [
+                {
+                  "abrir_armazem": true
+                }
+              ]
+            },
+            {
+              "texto": "Por que te chamam de Primarca?",
+              "ir": "primarca"
+            },
+            {
+              "texto": "Como funciona a Arca?",
+              "ir": "arca"
+            },
+            {
+              "texto": "Até mais, Primarca."
+            }
+          ]
+        },
+        "primarca": {
+          "fala": "Porque eu fui o primeiro. Na noite da meia nota o Coro decretou que toda máquina era pecado. Eu tinha uma chave de válvula e trinta homens que sabiam soldar. Viramos os Engenheiros Hereges. Eles chamaram de Guerra da Heresia. Nós chamamos de trabalho.",
+          "opcoes": [
+            {
+              "texto": "E você venceu?",
+              "ir": "primarca_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "primarca_2": {
+          "fala": "Ninguém venceu. Mas eu trouxe mais gente de volta do que qualquer general daquela guerra, e é só isso que eu conto. Quando a Vigília virou exército, larguei o comando. Eu fiz ferramentas, não generais.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "arca": {
+          "fala": "Sete válvulas sabem o seu nome. Você guarda, ela fecha, e só abre de novo para a mesma mão. Já tentaram arrombar. O volante gira para os dois lados e nenhum dos dois é o certo. (ele bate de leve no tampo, e as válvulas acendem roxas)",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
             }
           ]
         }

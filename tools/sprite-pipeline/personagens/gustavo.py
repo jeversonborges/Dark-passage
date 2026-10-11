@@ -10,7 +10,7 @@ from rig import *
 from classes import bone_frame, L, body_parts, arc_tube, pauldron, chain_links, _apply_mods
 from classes2 import curve_tube, bezier, head_base
 
-VIOLETA = (.62, .3, 1)   # a válvula do Primarca acende roxa (mesma cor da Chave-Mestra, item Lendário)
+VIOLETA = (.42, .18, 1)   # a válvula do Primarca acende roxa (mesma cor da Chave-Mestra, item Lendário)
 
 def _flicker(m, base, n=8, seed=3):
     """Brilho das válvulas tremula de leve a cada quadro (corrente irregular da caldeira)."""
@@ -36,8 +36,10 @@ def gustavo_primarca():
     beard = mat("barba_branca", (.6,.57,.52), 0, .8, dirt=.7, grime=0)
     glassd = mat("vidro_escuro", (.05,.07,.07), .5, .1, dirt=1, grime=0)
     dial = mat("mostrador", (.5,.46,.36), 0, .6, dirt=.6, grime=0)
-    tube = mat("valvula_roxa", (.75,.55,1), emit=VIOLETA, strength=14)
-    _flicker(tube, 14)
+    tube = mat("valvula_roxa", (.75,.55,1), emit=VIOLETA, strength=5)
+    bulb = mat("vidro_valvula", (.4,.25,.6), emit=VIOLETA, strength=1.1)
+    _flicker(tube, 5)
+    _flicker(bulb, 1.1, seed=5)
     arm = make_armature("gustavo_primarca")
     parts = body_parts(arm, pants, dark, coat, {"L": iron, "R": dark}, cuff=.07, sleeve_r=1.18, top_r=1.1,
                        boot_top=.34, buckle=brass, m_arms={"L": iron, "R": coat}, arm_scale={"L": .92, "R": 1.0})
@@ -71,7 +73,7 @@ def gustavo_primarca():
         st = skirt("pesponto", stitch, [(z+.006,rx,ry,.01), (z-.006,rx*1.004,ry*1.004,.01)], open_front=.42, seed=12, folds=12, famp=.06, thick=.006)
         bind(st, arm, ["chest","neck","spine","upper_arm.L","upper_arm.R"], power=3); parts.append(st)
     # gola alta de couro com fivelas
-    col = skirt("gola", dark, [(1.68,.09,.085,.012), (1.6,.095,.09,.008), (1.52,.12,.105,0)], open_front=.75, seed=3, thick=.012)
+    col = skirt("gola", dark, [(1.6,.092,.088,.02), (1.55,.1,.095,.01), (1.5,.12,.105,0)], open_front=1.1, seed=3, thick=.012)
     bind(col, arm, ["neck","chest","head"], power=3); parts.append(col)
 
     # ------------------------------------------------ peito: medalhão da engrenagem, cinto, chaveiro
@@ -134,9 +136,9 @@ def gustavo_primarca():
         b = ap(a); d = (b - C).normalized()
         h = .13 if k == 3 else .1
         bk.append(along("primitive_cylinder_add", brass, b - d*.02, b + d*.03, .022, vertices=10))     # soquete
-        bk.append(along("primitive_cylinder_add", glassd, b + d*.03, b + d*(.03 + h), .02, vertices=10))  # bulbo
+        bk.append(along("primitive_cylinder_add", bulb, b + d*.03, b + d*(.03 + h), .02, vertices=10))  # bulbo
         bk.append(along("primitive_cylinder_add", tube, b + d*.045, b + d*(.02 + h), .009, vertices=8))   # filamento
-        bk.append(prim("primitive_uv_sphere_add", glassd, b + d*(.03 + h), (.02,)*3, segments=10, ring_count=6))
+        bk.append(prim("primitive_uv_sphere_add", bulb, b + d*(.03 + h), (.02,)*3, segments=10, ring_count=6))
         bk.append(along("primitive_cone_add", brass_dk, b + d*(.045 + h), b + d*(.085 + h), 1, radius1=.008, radius2=0, vertices=6))
         if k < 6:  # raios de ferro entre as válvulas
             a2 = a + math.radians(11); b2 = ap(a2); d2 = (b2 - C).normalized()
@@ -255,7 +257,7 @@ def primarca_anims(arm):
     Andar com o cajado e um gesto (attack) de bater o cajado no chão, para quando o jogo pedir."""
     import anims as A
     hold = merge(ARMS_DOWN, {"upper_arm.R": {"x": -10, "y": -6}, "forearm.R": {"bend": -60},
-                             "spine": {"x": 4}, "chest": {"x": 3}, "neck": {"x": -2}})
+                             "chest": {"x": -2}, "head": {"x": -5}})
     idle = []
     for i in range(8):
         t = i/8*2*math.pi; b = math.sin(t)
@@ -268,6 +270,6 @@ def primarca_anims(arm):
         t = i/8*2*math.pi; s = math.sin(t)
         walk.append(merge(hold, A.walk_legs(t, 18), {"upper_arm.L": {"x": 14*s}, "upper_arm.R": {"x": -8*s}, "head": {"z": 2*s}}))
     K = [(-10, -60, 0), (-30, -70, -4), (-55, -60, -6), (-40, -30, 2), (-12, -35, 6), (-8, -55, 3), (-10, -60, 0), (-10, -60, 0)]
-    attack = [merge(ARMS_DOWN, {"upper_arm.R": {"x": ux, "y": -6}, "forearm.R": {"bend": fb}, "spine": {"x": 4 + cx}, "chest": {"x": 3 + cx},
+    attack = [merge(ARMS_DOWN, {"upper_arm.R": {"x": ux, "y": -6}, "forearm.R": {"bend": fb}, "spine": {"x": cx}, "chest": {"x": -2 + cx},
                                 "upper_arm.L": {"x": -10}, "forearm.L": {"bend": -30}, "root": (0, 0, -.004*abs(cx))}) for ux, fb, cx in K]
     return {"idle": make_action(arm, "idle", idle), "walk": make_action(arm, "walk", walk), "attack": make_action(arm, "attack", attack)}

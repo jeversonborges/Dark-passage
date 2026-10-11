@@ -175,13 +175,11 @@
         "subzona": "cemiterio_sao_lazaro",
         "ponto": "casa_simao"
       },
-      "servicos": [
-        "armazem"
-      ],
+      "servicos": [],
       "dialogo": "dlg_simao",
       "aparencia": "Velho muito alto e muito magro, pele cinza de quem já foi enterrado, faixas de linho velho enroladas nos pulsos e no pescoço. Chapéu de aba larga, pá apoiada no ombro, lampião com uma vela de sebo.",
       "personalidade": "Gentil, lento, cansado de um jeito que não é de sono. Responde perguntas com perguntas. Gosta de quem trabalha com as mãos.",
-      "historia": "Cuida do cemitério desde que alguém lembra. No deserto o ofício virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Os Não-Julgados não o atacam: abaixam a cabeça quando ele passa. Guarda os pertences dos vivos em covas numeradas, porque ninguém rouba de um cemitério. Segredo em duas camadas (linha F, Vem Para Fora): a primeira, que o jogador descobre em f01 a f05, é que ele seria Lázaro, o homem chamado de volta da morte. A verdade, revelada só em f06: ele é o arcanjo Rafael, que tomou o nome de Lázaro e o ofício de coveiro em 1688 para guardar a quinta trombeta, se afeiçoou aos humanos e, na meia nota, lutou contra o próprio Coro na Batalha do Impasse para dar à humanidade uma chance. Perdeu as asas; as faixas de linho escondem as cicatrizes. Não morre: volta."
+      "historia": "Cuida do cemitério desde que alguém lembra. No deserto o ofício virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Os Não-Julgados não o atacam: abaixam a cabeça quando ele passa. Guardava os pertences dos vivos em covas numeradas, porque ninguém rouba de um cemitério; hoje quem guarda é Gustavo, o Primarca, que montou a Arca ao lado da casa dele. Segredo em duas camadas (linha F, Vem Para Fora): a primeira, que o jogador descobre em f01 a f05, é que ele seria Lázaro, o homem chamado de volta da morte. A verdade, revelada só em f06: ele é o arcanjo Rafael, que tomou o nome de Lázaro e o ofício de coveiro em 1688 para guardar a quinta trombeta, se afeiçoou aos humanos e, na meia nota, lutou contra o próprio Coro na Batalha do Impasse para dar à humanidade uma chance. Perdeu as asas; as faixas de linho escondem as cicatrizes. Não morre: volta."
     },
     {
       "id": "frei_anacleto",
@@ -233,6 +231,29 @@
       "aparencia": "Mulher jovem de capa de penas pretas costuradas em couro, metade do rosto pintada de branco osso e metade sem pintura, um olho de vidro verde. Mora num sótão afogado em que se entra por uma janela na duna.",
       "personalidade": "Simpática, curiosa, sem lealdade nenhuma. Cobra por tudo e não mente nunca: vende a verdade inteira para os dois lados.",
       "historia": "Foi cultista na Capela até perceber que segredo vale mais que fé. Hoje compra e vende informação entre a Capela e o Acampamento da Vela. Foi ela quem espalhou, dos dois lados, que o general da Legião Blasfema sumiu, e cobrou caro das duas vezes."
+    },
+    {
+      "id": "gustavo_primarca",
+      "nome": "Gustavo",
+      "titulo": "O Primarca",
+      "faccao": "neutro",
+      "classe_visual": "gustavo_primarca",
+      "local": {
+        "subzona": "cemiterio_sao_lazaro",
+        "ponto": "arca_primarca"
+      },
+      "servicos": [
+        "armazem"
+      ],
+      "armazem": {
+        "titulo": "Arca do Primarca",
+        "fala": "O que entra na Arca não pertence a guerra nenhuma."
+      },
+      "dialogo": "dlg_gustavo",
+      "homenagem": "Ao primeiro jogador do DARK PASSAGE, o Gustavo.",
+      "aparencia": "Velho enorme e ainda reto, careca, barba branca até o peito presa em duas tranças com anéis de latão. Lupa de três lentes no olho direito. Sobretudo azul-ferro até o chão com debrum de latão, manto acolchoado de isolamento nos ombros, braço esquerdo mecânico com manômetro no antebraço. Atrás da cabeça, presa a uma caldeira de cobre, a Coroa de Válvulas: sete válvulas em leque que acendem roxas. Apoia-se na Chave-Mestra, um cajado com um anel de chave no alto. Ao lado dele, a Arca: um baú de carvalho negro e ferro com volante de cofre, manômetros e cinco válvulas roxas no tampo.",
+      "personalidade": "Calmo, lento, preciso como um relojoeiro. Fala pouco e sempre em ordem, como quem dita instruções. Trata todo mundo por aprendiz. Não escolhe lado faz trinta anos e não deixa ninguém brigar perto da Arca.",
+      "historia": "O primeiro Tecnomancer. Na noite da meia nota, quando o Coro decretou que toda máquina era pecado e todo engenheiro, alvo, Gustavo juntou os sobreviventes que sabiam soldar e fundou os Engenheiros Hereges. Comandou-os na Guerra da Heresia e foi um dos maiores líderes daquela guerra: o que mais trouxe os seus de volta. Anselmo foi aprendiz dele. Quando a Vigília virou exército, ele largou o comando ('eu fiz ferramentas, não generais') e veio para o cemitério de São Lázaro, onde Simão guardava as coisas dos vivos em covas. Montou a Arca do lado da casa do coveiro: um cofre de válvulas que só abre para quem guardou. Arautos e Vigília deixam suas coisas com ele, e nenhum dos dois lados ousa levantar arma perto da Coroa. Dizem que Simão e ele conversam a noite inteira, e que são as únicas duas pessoas em São Lázaro que lembram do mundo antes de 1962."
     }
   ]
 }
