@@ -594,12 +594,66 @@ POSE = {
 TAIL = {"tail1": {"x": 0}, "tail2": {"x": 0}, "tail3": {"x": 0}}
 
 def anims(R):
-    base = POSE[V["name"]]
+    nm = V["name"]; base = POSE[nm]
+    def M(*ps): return merge(base, *ps)
+    wings = nm == "diabrete"
     idle = []
     for i in range(6):
         t = i/6*2*math.pi; b, c = math.sin(t), math.cos(t)
         p = {"chest": {"x": 2*b}, "head": {"x": -2*b, "z": 5*c}, "upper_arm.L": {"x": 3*b}, "upper_arm.R": {"x": -3*b},
              "tail2": {"z": 10*c}, "tail3": {"z": 16*math.sin(t - 1)}}
-        if V["name"] == "diabrete": p.update({"wing.L": {"z": 12*b}, "wing.R": {"z": -12*b}})
-        idle.append(merge(base, p))
-    return {"idle": idle}
+        if wings: p.update({"wing.L": {"z": 12*b}, "wing.R": {"z": -12*b}})
+        idle.append(M(p))
+    # andar: passo de bode (Diabrete saltita, Algoz pesa, Tirano bombeia o pistão)
+    amp = {"diabrete": 30, "algoz": 24, "tirano": 18}[nm]
+    walk = []
+    for i in range(8):
+        t = i/8*2*math.pi; s, c = math.sin(t), math.cos(t); th = amp*s
+        p = {"thigh.L": {"x": -th}, "thigh.R": {"x": th},
+             "shin.L": {"bend": 8 + 46*max(0, c)**1.3}, "shin.R": {"bend": 8 + 46*max(0, -c)**1.3},
+             "foot.L": {"x": .3*th - 10*max(0, c)}, "foot.R": {"x": -.3*th - 10*max(0, -c)},
+             "hips": {"z": 6*s, "y": 3*c}, "chest": {"z": -8*s, "y": -3*c, "x": 3*abs(c)}, "head": {"z": 5*s},
+             "upper_arm.L": {"x": .6*th}, "upper_arm.R": {"x": -.6*th if nm != "tirano" else -.2*th},
+             "tail2": {"z": 14*s}, "tail3": {"z": 20*math.sin(t - 1)}}
+        if nm == "diabrete": p["root"] = (0, 0, .03*abs(math.sin(t)))
+        if wings: p.update({"wing.L": {"z": 25*math.sin(2*t)}, "wing.R": {"z": -25*math.sin(2*t)}})
+        if nm == "tirano": p["chest"]["x"] += 2*abs(s)
+        walk.append(M(p))
+    # ataque
+    if nm == "diabrete":   # junta o ar, estufa e cospe brasa para a frente
+        wind = M({"chest": {"x": -22}, "spine": {"x": -10}, "head": {"x": -26}, "upper_arm.L": {"x": -30, "y": 20},
+                  "upper_arm.R": {"x": -30, "y": -20}, "wing.L": {"z": 35}, "wing.R": {"z": -35}, "root": (0, .05, 0)})
+        spit = M({"chest": {"x": 26}, "spine": {"x": 12}, "head": {"x": 22}, "upper_arm.L": {"x": 30, "y": -10},
+                  "upper_arm.R": {"x": 30, "y": 10}, "wing.L": {"z": -20}, "wing.R": {"z": 20}, "tail3": {"x": 30}, "root": (0, -.06, 0)})
+        keys = [(0, M()), (.35, wind), (.55, spit), (.75, merge(spit, {"head": {"x": 6}})), (1, M())]
+        attack = keys_to_frames(keys, 8)
+    elif nm == "algoz":    # ergue o cutelo acima da cabeça e desce com o corpo todo
+        up = M({"upper_arm.R": {"x": -150, "y": 20}, "forearm.R": {"bend": -60}, "hand.R": {"x": -30},
+                "chest": {"x": -14, "z": 18}, "spine": {"x": -6}, "head": {"x": 10}, "upper_arm.L": {"x": -30, "y": 10},
+                "thigh.L": {"x": -20}, "shin.L": {"bend": 20}, "root": (0, .05, 0)})
+        chop = M({"upper_arm.R": {"x": -20, "y": 5}, "forearm.R": {"bend": -5}, "hand.R": {"x": 20},
+                  "chest": {"x": 30, "z": -10}, "spine": {"x": 14}, "head": {"x": -10}, "upper_arm.L": {"x": 20},
+                  "thigh.L": {"x": -36}, "shin.L": {"bend": 34}, "thigh.R": {"x": 16}, "root": (0, -.14, -.04)})
+        keys = [(0, M()), (.3, up), (.42, merge(up, {"upper_arm.R": {"x": -10}})), (.56, chop), (.75, merge(chop, {"chest": {"x": -4}})), (1, M())]
+        attack = keys_to_frames(keys, 10)
+    else:                  # soco de manopla (esquerda) com o peso do corpo
+        cock = M({"upper_arm.L": {"x": 30, "y": 40}, "forearm.L": {"bend": -100}, "chest": {"z": -30, "x": -6},
+                  "spine": {"z": -10}, "head": {"z": 20}, "thigh.R": {"x": 10}, "root": (0, .06, 0)})
+        punch = M({"upper_arm.L": {"x": -85, "y": 5, "z": -10}, "forearm.L": {"bend": -5}, "chest": {"z": 28, "x": 14},
+                   "spine": {"z": 10, "x": 6}, "head": {"z": -14}, "upper_arm.R": {"x": 15},
+                   "thigh.L": {"x": -30}, "shin.L": {"bend": 24}, "thigh.R": {"x": 14}, "root": (0, -.16, -.03)})
+        keys = [(0, M()), (.32, cock), (.5, punch), (.68, merge(punch, {"upper_arm.L": {"x": 10}})), (1, M())]
+        attack = keys_to_frames(keys, 10)
+    hitp = M({"chest": {"x": -18, "z": 10}, "spine": {"x": -8}, "head": {"x": -20, "z": -12},
+              "upper_arm.L": {"y": 14, "x": 20}, "upper_arm.R": {"y": -14, "x": 18}, "tail3": {"z": 25}, "root": (0, .06, 0)})
+    hit = [hitp, lerp_pose(hitp, M(), .5), M()]
+    kneel = M({"thigh.L": {"x": -70}, "thigh.R": {"x": -50}, "shin.L": {"bend": 100}, "shin.R": {"bend": 95},
+               "chest": {"x": 20}, "head": {"x": 22}, "upper_arm.L": {"x": 10}, "upper_arm.R": {"x": 20}})
+    fall = merge(kneel, {"hips": {"x": -35, "y": -10}, "spine": {"x": -12}, "tail1": {"x": -40}, "ground": .08*V["s"]})
+    down = M({"hips": {"x": -86, "y": -14}, "spine": {"x": -6}, "chest": {"x": -4}, "head": {"z": -45, "x": 10},
+              "upper_arm.L": {"x": -30, "y": -10}, "upper_arm.R": {"x": -60, "y": 60}, "forearm.L": {"bend": -40},
+              "thigh.L": {"x": -40}, "thigh.R": {"x": -12}, "shin.L": {"bend": 70}, "shin.R": {"bend": 20},
+              "tail1": {"x": -80}, "tail2": {"z": 30}, "ground": .06*V["s"]})
+    if wings: down.update({"wing.L": {"z": -30}, "wing.R": {"z": 30}})
+    death = keys_to_frames([(0, hitp), (.3, kneel), (.6, fall), (.85, down), (1, merge(down, {"head": {"x": 4}}))], 8)
+    return {"idle": idle, "walk": walk, "attack": attack, "hit": hit, "death": death}

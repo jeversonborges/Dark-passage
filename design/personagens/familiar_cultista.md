@@ -35,16 +35,19 @@ Módulo `tools/sprite-pipeline/monstros/familiar.py`, uma variante por forma (es
 Saída final em `assets/monstros/familiar_<forma>/` (mesmo formato dos monstros: folha por animação,
 8 linhas de direção, `meta.json`).
 
-## Animações a fazer (só o idle existe, para a prévia)
+## Animações
+
+Prontas em `assets/monstros/familiar_<forma>/` (`familiar_<forma>_<anim>.png` + `meta.json`): idle, walk, attack, hit, death.
+Faltam special, evolve e spawn (o jogo pode trocar de forma direto e usar idle no spawn até lá).
 
 | Animação | Diabrete | Algoz | Tirano | Notas |
 |---|---|---|---|---|
 | `idle` (loop) | ✓ 6q | ✓ 6q | ✓ 6q | feito |
-| `walk` (loop) | 8q, saltitante, asas batendo | 8q, passo pesado de bode | 8q, pistão bombeando, vapor | precisa acompanhar o mestre (vel. 1,1x) |
-| `attack` | 8q, cospe brasa | 10q, golpe de cutelo de cima | 10q, soco com a manopla | o jogo cria o projétil do Diabrete |
+| `walk` (loop) | ✓ 8q, saltitante, asas batendo | ✓ 8q, passo pesado de bode | ✓ 8q, pistão | feito |
+| `attack` | ✓ 8q, cospe brasa | ✓ 10q, golpe de cutelo de cima | ✓ 10q, soco com a manopla | feito; o jogo cria o projétil do Diabrete |
 | `special` | – | 10q, Puxão de Corrente (corrente esticada, osso escondido fora dela, como o `pull` do Gancheiro) | 12q, Canhão de Brasa (recuo, vapor) + 10q Rugido | |
-| `hit` | 3q | 3q | 3q | |
-| `death` | 8q, vira fuligem no chão | 8q, ajoelha e tomba | 9q, desaba, fornalha apaga | segurar o último quadro; volta em 30 s |
+| `hit` | ✓ 3q | ✓ 3q | ✓ 3q | feito |
+| `death` | ✓ 8q, ajoelha e tomba | ✓ 8q | ✓ 8q | feito; segurar o último quadro; volta em 30 s |
 | `evolve` | 12q | 12q | – | casulo de brasa e carne de 2 s; o jogo troca para a próxima forma no último quadro |
 | `spawn` | 8q, sai da fumaça do lacre | 8q | 8q | quando volta sozinho 30 s depois de morrer |
 
