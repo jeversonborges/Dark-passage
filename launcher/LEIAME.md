@@ -24,8 +24,11 @@ do jogo, no visual "Ferrugem Sagrada" (latão, couro e ferro do kit da HUD, cena
    `jogo/`. Um download quebrado nunca deixa o jogo pela metade. **Reparar** baixa tudo de novo.
 4. **Jogar** abre `jogo/DarkPassage.exe` e fecha o launcher.
 
-O jogo fica numa pasta `jogo/` ao lado do launcher. Se não der para escrever ali (Arquivos de Programas), usa a
-pasta de dados do usuário do Godot (`%APPDATA%\Godot\app_userdata\DARK PASSAGE\jogo`).
+O jogo fica em `%LOCALAPPDATA%\DarkPassage\jogo`, um lugar fixo que não depende de onde o launcher foi aberto
+(aberto de dentro do zip, o Windows roda o launcher numa pasta temporária que some, e o jogo era baixado de novo
+a cada vez). Uma instalação que já exista em `jogo/` ao lado do launcher, fora de pasta temporária, continua valendo.
+Cada prévia nova ainda baixa o zip inteiro (~160 MB): o .exe do jogo leva o pacote embutido, então não há como
+baixar só a diferença sem mudar o export do jogo.
 
 Notícias: o launcher tenta `https://darkpassage.com.br/downloads/noticias.json` (mesmo formato de
 `dados/noticias.json`, com as listas `noticias` e `cronicas`). Sem ele, mostra as que vêm embutidas. Para publicar
