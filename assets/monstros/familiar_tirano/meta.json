@@ -52,27 +52,27 @@
  },
  "sheets": {
   "idle": {
-   "file": "tirano_idle.png",
+   "file": "familiar_tirano_idle.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "walk": {
-   "file": "tirano_walk.png",
+   "file": "familiar_tirano_walk.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "attack": {
-   "file": "tirano_attack.png",
+   "file": "familiar_tirano_attack.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "hit": {
-   "file": "tirano_hit.png",
+   "file": "familiar_tirano_hit.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "death": {
-   "file": "tirano_death.png",
+   "file": "familiar_tirano_death.png",
    "rows": "dirs",
    "cols": "frames"
   }
