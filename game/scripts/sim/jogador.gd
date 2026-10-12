@@ -111,6 +111,9 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 	if e.aux.get("auto", false): _auto_pocoes(sim, e)
 	if not e.pronto():
 		return
+	if e.classe == "cultista":
+		_pet_auto_invocar(sim, e)
+		if not e.pronto(): return
 	if e.tem("provocado") and false: pass
 	# habilidade pedida fora de alcance: anda até o alcance (buffer de 2 s)
 	if not e.buffer_skill.is_empty():
@@ -152,6 +155,21 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 					sim.ir_para(e, al.pos); e.aux["repath"] = 0.4
 				e.aux["repath"] = e.aux.get("repath", 0.0) - dt
 	sim.mover_ao_longo(e, dt, 1.0 - clampf((am - 5) * 0.13, 0.0, 0.55))
+
+static func _pet_auto_invocar(sim: WorldSim, e: Ent) -> void:
+	var skill_id := "servo_carne"
+	if not e.aux.get("pet_foi_invocado", false): return
+	if e.cds.has(skill_id): return
+	for o: Ent in sim.ents.values():
+		if o.tipo == "invocacao" and o.dono == e.id and o.kind == "servo_de_carne" and o.vivo: return
+	var slot := -1
+	for i in e.skills_slots.size():
+		if skill_def(e, i).get("id", "") == skill_id: slot = i; break
+	if slot < 0: return
+	var h := skill_def(e, slot)
+	var custo_pet := custo(e, h)
+	if e.nivel < int(h.get("nivel", 99)) or e.hp - custo_pet < 1.0 or e.frac_hp() < float(h.get("nao_usa_abaixo_de_hp", 0.25)): return
+	_tentar_skill(sim, e, slot, -1, e.pos, true)
 
 static func _checar_zona(sim: WorldSim, e: Ent) -> void:
 	var z := sim.zona_em(e.pos)

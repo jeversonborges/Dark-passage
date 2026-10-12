@@ -343,6 +343,44 @@ class Projetil extends Node2D:
 const COR_ELEM := {"fisico": Color("#e8d8b0"), "fogo": Color("#ff8a2a"), "sagrado": Color("#fff0a0"), "sangue": Color("#d0202a"),
 	"veneno": Color("#9cff3a"), "eletrico": Color("#8ad8ff"), "profano": Color("#b060ff"), "gelo": Color("#a0e0ff")}
 
+class EspinhosSangue extends Node2D:
+	var raio := Vector2(120.0, 60.0)
+	var tempo := 0.0
+	func _process(dt: float) -> void:
+		tempo += dt
+		if tempo >= 0.95: queue_free(); return
+		queue_redraw()
+	func _draw() -> void:
+		var a := clampf(1.0 - tempo / 0.95, 0.0, 1.0)
+		var anel := PackedVector2Array()
+		for i in 49:
+			var ang := TAU * float(i) / 48.0
+			anel.append(Vector2(cos(ang) * raio.x, sin(ang) * raio.y))
+		draw_colored_polygon(anel, Color(0.22, 0.015, 0.035, 0.18 * a))
+		draw_polyline(anel, Color(0.73, 0.08, 0.16, 0.8 * a), 2.0, true)
+		for i in 8:
+			var ang := TAU * float(i) / 8.0 + 0.18
+			var p := Vector2(cos(ang) * raio.x * 0.84, sin(ang) * raio.y * 0.84)
+			draw_line(Vector2.ZERO, p, Color(0.84, 0.2, 0.24, 0.38 * a), 1.5, true)
+		for i in 10:
+			var ang := TAU * (float(i) + 0.5) / 10.0
+			var base := Vector2(cos(ang) * raio.x * 0.72, sin(ang) * raio.y * 0.72)
+			var subir := clampf((tempo - float(i % 4) * 0.035) / 0.22, 0.0, 1.0)
+			var alto := (30.0 + float(i % 3) * 9.0) * subir
+			var lado := Vector2(-sin(ang), cos(ang)) * (5.0 + float(i % 2) * 2.0)
+			var ponta := base + Vector2(0, -alto)
+			var espinho := PackedVector2Array([base - lado, ponta, base + lado, base - lado])
+			draw_colored_polygon(espinho, Color(0.42, 0.025, 0.075, 0.96 * a))
+			draw_polyline(espinho, Color(1.0, 0.33, 0.34, 0.88 * a), 1.4, true)
+			draw_line(ponta, base - lado, Color(1.0, 0.68, 0.58, 0.72 * a), 1.0, true)
+
+func espinhos_sangue(pos: Vector2, raio_tiles: float) -> void:
+	var efeito := EspinhosSangue.new()
+	efeito.position = Iso.to_screen(pos)
+	efeito.raio = Vector2(45.25 * raio_tiles, 22.63 * raio_tiles)
+	if chao_fx != null: chao_fx.add_child(efeito)
+	else: add_child(efeito)
+
 func projetil(d: Dictionary) -> void:
 	var pr := Projetil.new()
 	pr.pos = d["pos"]

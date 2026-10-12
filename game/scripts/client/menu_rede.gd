@@ -125,7 +125,7 @@ func _ready() -> void:
 		else: _conectar()
 
 func rede_versao() -> String:
-	return rede.VERSAO if rede != null else "0.7"
+	return rede.VERSAO if rede != null else "0.9.1"
 
 const NEVOA := """
 shader_type canvas_item;

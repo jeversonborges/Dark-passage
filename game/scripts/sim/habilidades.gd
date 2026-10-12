@@ -53,13 +53,18 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 				for i in int(h["golpes"]):
 					var ult: bool = i == int(h["golpes"]) - 1
 					var op := _op(e, h, {"mult": float(h["mult_por_golpe"]), "postura": float(h["postura_por_golpe"]), "sensacao": "golpe_pesado" if ult else "combo"})
+					if h.has("sangramento"): op["efeito"] = {"sangramento": h["sangramento"]}
 					if i == 0:
 						var a := sim.valido(aid)
-						if a != null: sim.aplicar_golpe(e, a, op)
+						if a != null:
+							sim.aplicar_golpe(e, a, op)
+							_golpe_splash(sim, e, a, aid, op, h)
 					else:
 						sim.atrasar(float(h["intervalo_golpes"]) * i, func():
 							var a2 := sim.valido(aid)
-							if a2 != null and e.vivo and e.pos.distance_to(a2.pos) < 2.5: sim.aplicar_golpe(e, a2, op))
+							if a2 != null and e.vivo and e.pos.distance_to(a2.pos) < 2.5:
+								sim.aplicar_golpe(e, a2, op)
+								_golpe_splash(sim, e, a2, aid, op, h))
 			})
 		"arco_voltaico":
 			sim.iniciar_acao(e, {"preparo": prep, "rec": 0.25, "alvo": aid, "skill": id, "impacto": func():
@@ -218,19 +223,35 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 			for o in sim.ents.values():
 				if o.tipo == "invocacao" and o.dono == e.id and o.kind == tipo_inv: sim.matar(o, null)
 			var d: Dictionary = Defs.CLASSES[e.classe]["invocacoes"][tipo_inv]
+			if tipo_inv == "servo_de_carne": e.aux["pet_foi_invocado"] = true
 			var inv := Ent.new()
 			inv.id = sim.novo_id(); inv.tipo = "invocacao"; inv.kind = tipo_inv; inv.dono = e.id
 			inv.nome = "Servo de Carne" if tipo_inv == "servo_de_carne" else "Torreta Sentinela"
 			inv.pos = sim.celula_livre_perto(e.pos + e.facing * 1.2)
 			inv.casa = inv.pos
-			inv.hp_max = e.hp_max * (0.6 if tipo_inv == "servo_de_carne" else 0.5); inv.hp = inv.hp_max
+			inv.hp_max = e.hp_max * (1.8 if tipo_inv == "servo_de_carne" else 0.5); inv.hp = inv.hp_max
 			var m := 0.5 if tipo_inv == "servo_de_carne" else 0.45
-			inv.dano_min = e.dano_min * m; inv.dano_max = e.dano_max * m
-			inv.intervalo = float(d["intervalo"]); inv.alcance = float(d.get("alcance", 1.3))
-			inv.vel = 2.8 if tipo_inv == "servo_de_carne" else 0.0
-			inv.nivel = e.nivel; inv.ar = e.ar; inv.er = e.er; inv.critico = 0.05; inv.crit_mult = 1.5
-			inv.defesa = e.defesa; inv.tags = d.get("tags", []).duplicate()
+			var ef_dono: Dictionary = e.aux.get("ef", e.stats)
+			var bonus_esp := float(ef_dono.get("ESP", 0.0)) * 0.08 if tipo_inv == "servo_de_carne" else 0.0
+			inv.dano_min = e.dano_min * m + bonus_esp; inv.dano_max = e.dano_max * m + bonus_esp
+			inv.intervalo = float(d["intervalo"]) / maxf(e.vel_ataque, 0.1) if tipo_inv == "servo_de_carne" else float(d["intervalo"])
+			inv.alcance = float(d.get("alcance", 1.3))
+			inv.vel = (2.8 * (1.0 + float(ef_dono.get("AGI", 0.0)) * 0.002)) if tipo_inv == "servo_de_carne" else 0.0
+			inv.nivel = e.nivel; inv.stats = e.stats.duplicate(true); inv.ar = e.ar; inv.er = e.er; inv.critico = e.critico; inv.crit_mult = e.crit_mult
+			inv.defesa = e.defesa * (0.5 if tipo_inv == "servo_de_carne" else 1.0); inv.tags = d.get("tags", []).duplicate()
 			inv.aux["ameaca_mult"] = float(d.get("ameaca_mult", 1.0))
+			if tipo_inv == "servo_de_carne":
+				inv.aux["servo_intervalo_base"] = float(d["intervalo"])
+				inv.aux["servo_bonus_esp"] = float(d.get("dano_esp_mult", 0.08))
+				inv.aux["pet_modo"] = str(e.aux.get("pet_modo", "agressivo"))
+				if e.aux.has("pet_destino"):
+					inv.aux["pet_destino"] = e.aux["pet_destino"]
+					inv.aux["pet_modo"] = "mover"
+				if e.aux.has("pet_alvo_pendente"):
+					var alvo_pet := sim.valido(int(e.aux["pet_alvo_pendente"]))
+					if alvo_pet != null and e.eh_inimigo_de(alvo_pet):
+						inv.alvo = alvo_pet.id; inv.aux["pet_ordem_alvo"] = true
+					e.aux.erase("pet_alvo_pendente")
 			inv.elemento = "sangue" if tipo_inv == "servo_de_carne" else "eletrico"
 			inv.dura_t = float(h["duracao"])
 			inv.raio = 0.45
@@ -252,6 +273,15 @@ static func alvos_area5(sim: WorldSim, e: Ent, h: Dictionary, forma: String, cen
 		out = sim.inimigos_de(e, centro, raio + 0.3)
 	out.sort_custom(func(a, b): return a.pos.distance_squared_to(centro) < b.pos.distance_squared_to(centro))
 	return out
+
+static func _golpe_splash(sim: WorldSim, e: Ent, centro: Ent, alvo_principal: int, op: Dictionary, h: Dictionary) -> void:
+	var raio := float(h.get("splash_raio", 0.0))
+	if raio <= 0.0: return
+	var secundario := op.duplicate(true)
+	secundario["area"] = true
+	secundario["mult"] = float(op.get("mult", 1.0)) * float(h.get("splash_mult", 0.7))
+	for a in sim.inimigos_de(e, centro.pos, raio):
+		if a.id != alvo_principal: sim.aplicar_golpe(e, a, secundario)
 
 static func area_nivel5(sim: WorldSim, e: Ent, h: Dictionary, forma: String, centro: Vector2, dir: Vector2) -> void:
 	var id: String = h["id"]

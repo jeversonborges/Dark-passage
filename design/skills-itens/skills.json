@@ -550,7 +550,7 @@
    "recarga": 2.2,
    "conjuracao": 0.5,
    "alcance": 7,
-   "area": "círculo de 2.2 tiles no ponto do mouse",
+   "area": "círculo de 2.64 tiles no ponto do mouse",
    "duracao": 0.6,
    "elemento": "sangue",
    "escala": [
@@ -558,25 +558,26 @@
    ],
    "formato_area": {
     "forma": "circulo",
-    "raio_tiles": 2.2,
+    "raio_tiles": 2.64,
     "origem": "ponto_alvo",
     "alcance_max_tiles": 7
    },
    "dano": {
-    "mult": 1.35,
+    "mult": 1.755,
     "sangramento": {
      "duracao": 4,
-     "dano_por_s_mult": 0.12
+     "dano_por_s_mult": 0.12,
+     "pilhas": 2
     }
    },
    "efeitos": [
-    "lanças de sangue brotam do chão no círculo",
+    "espinhos de sangue cravam e rompem o chão em todo o círculo",
     "lentidão de 20% por 1.5 s",
     "abates com esta skill devolvem só 3% de HP (metade do normal)",
     "modo automático para sozinho abaixo de 25% de HP"
    ],
    "descricao": "O Cultista crava a adaga na própria palma e aponta. O sangue que pinga lá longe vira um campo de espinhos vermelhos.",
-   "fx": "círculo de runas vermelhas no chão + estacas de sangue subindo e quebrando + respingos",
+   "fx": "círculo ritual carmesim + espinhos pontiagudos de sangue surgindo em sequência + rachaduras e respingos",
    "som": "chiado úmido + estalo de cristal",
    "id_combate": "cultista_espinhos_sangue",
    "substitui_no_combate": "mesmo id em classes_base.json; números de lá, nome, descrição, FX e ícone daqui.",
@@ -587,7 +588,7 @@
     "nivel": 5,
     "custo": 0.035,
     "recarga": 2.2,
-    "mult": 1.35,
+    "mult": 1.755,
     "elemento": "sangue",
     "preparo": 0.25,
     "postura": 18,
@@ -599,10 +600,11 @@
     "custo_em": "pct_hp_max",
     "sangramento": {
      "duracao": 4,
-     "dano_por_s_mult": 0.12
+     "dano_por_s_mult": 0.12,
+     "pilhas": 2
     },
     "forma": "circulo_no_mouse",
-    "raio": 2.2,
+    "raio": 2.64,
     "alcance": 7,
     "nao_usa_abaixo_de_hp": 0.25
    },
@@ -625,15 +627,16 @@
    "conjuracao": 1.5,
    "alcance": 3,
    "area": 0,
-   "duracao": 30.0,
+   "duracao": 20.0,
    "elemento": "sombra",
    "escala": [
     "ESP",
     "VIT"
    ],
    "efeitos": [
-    "invoca um zumbi costurado por 30s",
-    "o servo provoca inimigos que ele golpeia"
+    "invoca um servo resistente por 20s; vida, defesa, dano e velocidade acompanham os atributos do mestre; ESP aumenta diretamente o dano; retorna quando a recarga termina",
+    "o servo provoca inimigos que ele golpeia",
+    "controle: atacar, mover, seguir, agressivo ou passivo"
    ],
    "descricao": "A terra cospe pedaços que se costuram sozinhos num corpo obediente.",
    "fx": "poça de sangue que borbulha e ergue o zumbi",
@@ -646,6 +649,7 @@
     "recarga": 25.0,
     "invoca": "servo_de_carne",
     "duracao": 20.0,
+    "nao_usa_abaixo_de_hp": 0.1,
     "max": 1,
     "sensacao": "invocacao"
    },
@@ -1138,11 +1142,12 @@
     "AGI"
    ],
    "efeitos": [
-    "combo de 3 golpes rápidos",
+    "combo de 3 golpes rápidos com dano em área ao redor do alvo",
+    "aplica sangramento por 4 s",
     "cada golpe gera 4 de Brasa"
    ],
-   "descricao": "Três rasgos rápidos que deixam a carne fumegando.",
-   "fx": "três arcos laranja brasa + fumaça",
+   "descricao": "Três rasgos rápidos que abrem feridas e espalham o corte aos inimigos próximos.",
+   "fx": "três arcos de brasa com impacto carmesim que alcança os inimigos ao redor",
    "som": "três cortes rápidos com chiado",
    "combate": {
     "id": "garra_abismo",
@@ -1152,9 +1157,15 @@
     "gera": 18,
     "recarga": 3.5,
     "golpes": 3,
-    "mult_por_golpe": 0.65,
+    "mult_por_golpe": 0.7,
     "intervalo_golpes": 0.12,
     "alcance": 1.4,
+    "splash_raio": 1.8,
+    "splash_mult": 0.7,
+    "sangramento": {
+     "duracao": 4,
+     "dano_por_s_mult": 0.12
+    },
     "postura_por_golpe": 10,
     "sensacao": "combo"
    },

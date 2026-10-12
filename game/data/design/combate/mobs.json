@@ -15,7 +15,7 @@
       "5*L"
     ]
   },
-  "velocidade_mov_jogador": 3.2,
+  "velocidade_mov_jogador": 3.84,
   "arquetipos": {
     "rasteiro": {
       "hp": 0.6,
@@ -453,6 +453,11 @@
         6
       ],
       "arquetipo": "raro",
+      "ajuste": {
+        "hp": 0.5,
+        "dano": 0.7,
+        "defesa": 0.5
+      },
       "tags": [
         "praga",
         "planta"

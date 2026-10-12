@@ -914,13 +914,14 @@ func aplicar_status(alvo: Ent, s: String, v, atk: Ent) -> void:
 	dur *= 1.0 - clampf(float(alvo.res.get(s, 0.0)), 0.0, 0.9)
 	var def: Dictionary = Defs.EFEITOS["status"].get(s, {})
 	var atual: Dictionary = alvo.status.get(s, {})
-	var novo := {"t": dur, "dados": dados, "de": atk.id if atk != null else -1, "tick": float(def.get("tick_s", 1.0)), "pilhas": 1}
+	var qtd_pilhas := maxi(1, int(dados.get("pilhas", 1)))
+	var novo := {"t": dur, "dados": dados, "de": atk.id if atk != null else -1, "tick": float(def.get("tick_s", 1.0)), "pilhas": qtd_pilhas}
 	if def.get("tipo", "") == "dano_tempo":
 		var dm: float = float(dados.get("dano_por_s_mult", 0.2))
 		novo["dps"] = (atk.dano_medio() if atk != null else 5.0) * dm
 		if not atual.is_empty():
-			var mx: int = int(def.get("acumula", 1))
-			novo["pilhas"] = mini(int(atual.get("pilhas", 1)) + 1, mx)
+			var mx: int = maxi(int(def.get("acumula", 1)), qtd_pilhas)
+			novo["pilhas"] = mini(int(atual.get("pilhas", 1)) + qtd_pilhas, mx)
 			novo["tick"] = atual["tick"]
 	elif not atual.is_empty():
 		novo["t"] = maxf(dur, float(atual["t"]))

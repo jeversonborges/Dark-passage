@@ -159,7 +159,7 @@
         "ESP": 4
       },
       "hp": {
-        "base": 95,
+        "base": 125,
         "por_nivel": 2.0,
         "por_vit": 3.0
       },
@@ -222,7 +222,7 @@
           "nivel": 5,
           "custo": 0.035,
           "recarga": 2.2,
-          "mult": 1.35,
+          "mult": 1.755,
           "elemento": "sangue",
           "preparo": 0.25,
           "postura": 18,
@@ -234,10 +234,11 @@
           "custo_em": "pct_hp_max",
           "sangramento": {
             "duracao": 4,
-            "dano_por_s_mult": 0.12
+            "dano_por_s_mult": 0.12,
+            "pilhas": 2
           },
           "forma": "circulo_no_mouse",
-          "raio": 2.2,
+          "raio": 2.64,
           "alcance": 7,
           "nao_usa_abaixo_de_hp": 0.25
         },
@@ -249,6 +250,7 @@
           "recarga": 25.0,
           "invoca": "servo_de_carne",
           "duracao": 20.0,
+          "nao_usa_abaixo_de_hp": 0.1,
           "max": 1,
           "sensacao": "invocacao"
         },
@@ -288,9 +290,10 @@
       ],
       "invocacoes": {
         "servo_de_carne": {
-          "hp": "max_hp_dono * 0.6",
-          "dano": "dano_magico_dono * 0.5",
-          "intervalo": 1.4,
+          "hp": "max_hp_dono * 1.8",
+          "dano": "dano_magico_dono * 0.5 + ESP_dono * 0.08",
+          "dano_esp_mult": 0.08,
+          "intervalo": 1.077,
           "ameaca_mult": 2.0,
           "tags": [
             "invocacao"
@@ -486,9 +489,15 @@
           "gera": 18,
           "recarga": 3.5,
           "golpes": 3,
-          "mult_por_golpe": 0.65,
+          "mult_por_golpe": 0.7,
           "intervalo_golpes": 0.12,
           "alcance": 1.4,
+          "splash_raio": 1.8,
+          "splash_mult": 0.7,
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.12
+          },
           "postura_por_golpe": 10,
           "sensacao": "combo"
         },

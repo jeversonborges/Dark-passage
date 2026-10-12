@@ -373,23 +373,57 @@ static func _separar(sim: WorldSim, e: Ent, dt: float) -> void:
 
 # =================================================================== invocações do jogador
 static func passo_invocacao(sim: WorldSim, e: Ent, dt: float) -> void:
-	if not e.pronto(): return
 	var dono: Ent = sim.ents.get(e.dono)
 	if dono == null or not dono.vivo:
 		sim.matar(e, null); return
+	if e.kind == "servo_de_carne": _sincronizar_servo(e, dono)
+	if not e.pronto(): return
+	var modo: String = str(e.aux.get("pet_modo", dono.aux.get("pet_modo", "agressivo")))
+	var destino = e.aux.get("pet_destino", dono.aux.get("pet_destino"))
+	if modo == "mover" and destino is Vector2:
+		if e.pos.distance_to(destino) <= 0.55:
+			e.caminho.clear(); e.aux.erase("pet_destino"); dono.aux.erase("pet_destino")
+			e.aux["pet_pos_parado"] = destino; dono.aux["pet_pos_parado"] = destino
+			e.aux["pet_modo"] = "parado"; dono.aux["pet_modo"] = "parado"
+		else:
+			if e.caminho.is_empty(): sim.ir_para(e, destino)
+			sim.mover_ao_longo(e, dt)
+		return
+	var ordem_alvo: bool = e.aux.get("pet_ordem_alvo", false)
+	if modo == "parado" and not ordem_alvo:
+		var pos_parado = e.aux.get("pet_pos_parado", e.pos)
+		if pos_parado is Vector2 and e.pos.distance_to(pos_parado) > 0.55:
+			if e.caminho.is_empty(): sim.ir_para(e, pos_parado)
+			sim.mover_ao_longo(e, dt)
+		else: e.caminho.clear()
+		return
 	var alvo := sim.valido(e.alvo)
-	if alvo == null or not alvo.alvejavel or alvo.pos.distance_to(dono.pos) > 10.0:
-		alvo = sim.valido(dono.alvo)
-		if alvo == null:
-			var melhor: Ent = null
-			for o in sim.inimigos_de(e, e.pos, 6.0):
-				if o.tipo != "objeto" and (melhor == null or o.pos.distance_to(e.pos) < melhor.pos.distance_to(e.pos)): melhor = o
-			alvo = melhor
-		e.alvo = alvo.id if alvo != null else -1
+	if alvo != null and (not alvo.alvejavel or not e.eh_inimigo_de(alvo) or alvo.pos.distance_to(dono.pos) > 16.0): alvo = null
 	if alvo == null:
-		if e.vel > 0.0 and e.pos.distance_to(dono.pos) > 2.5:
+		e.alvo = -1
+		e.aux["pet_ordem_alvo"] = false
+		ordem_alvo = false
+		if modo == "agressivo":
+			var alvo_dono := sim.valido(dono.alvo)
+			if alvo_dono != null and e.eh_inimigo_de(alvo_dono) and alvo_dono.pos.distance_to(dono.pos) <= 12.0:
+				alvo = alvo_dono
+			else:
+				var melhor: Ent = null
+				for o in sim.inimigos_de(e, e.pos, 8.0):
+					if o.tipo != "objeto" and o.pos.distance_to(dono.pos) <= 12.0 and (melhor == null or o.pos.distance_squared_to(e.pos) < melhor.pos.distance_squared_to(e.pos)): melhor = o
+				alvo = melhor
+		if alvo != null: e.alvo = alvo.id
+	if modo in ["seguir", "passivo", "parado"] and not ordem_alvo:
+		alvo = null
+	if alvo == null:
+		var dist_dono := e.pos.distance_to(dono.pos)
+		if e.vel > 0.0 and dist_dono > 4.5:
 			if e.caminho.is_empty(): sim.ir_para(e, dono.pos)
 			sim.mover_ao_longo(e, dt)
+		if not e.aux.has("fala_proxima") or sim.tempo >= float(e.aux["fala_proxima"]):
+			var falas := ["Mestre, os vivos estão fazendo barulho de novo.", "Eu protejo você. Depois conversamos sobre o preço.", "Esse cheiro... tem sangue novo por perto.", "Mestre, posso morder aquele ali?", "Prometo que desta vez não vou morrer. Talvez.", "O pacto continua. Eu ainda estou com fome."]
+			sim.emitir_a(dono, "fala", {"id": e.id, "texto": falas[randi_range(0, falas.size() - 1)], "cor": "#d94b52"})
+			e.aux["fala_proxima"] = sim.tempo + randf_range(14.0, 24.0)
 		return
 	var d := e.pos.distance_to(alvo.pos) - alvo.raio
 	if d <= e.alcance:
@@ -406,3 +440,22 @@ static func passo_invocacao(sim: WorldSim, e: Ent, dt: float) -> void:
 	elif e.vel > 0.0:
 		if e.caminho.is_empty(): sim.ir_para(e, alvo.pos)
 		sim.mover_ao_longo(e, dt)
+
+static func _sincronizar_servo(e: Ent, dono: Ent) -> void:
+	var atributos: Dictionary = dono.aux.get("ef", dono.stats)
+	var fracao_hp := e.frac_hp()
+	var hp_novo := dono.hp_max * 1.8
+	if not is_equal_approx(e.hp_max, hp_novo):
+		e.hp_max = hp_novo
+		e.hp = minf(hp_novo, hp_novo * fracao_hp)
+	e.stats = dono.stats.duplicate(true)
+	e.nivel = dono.nivel
+	var esp := float(atributos.get("ESP", dono.stats.get("ESP", 0.0)))
+	var bonus_esp := esp * float(e.aux.get("servo_bonus_esp", 0.08))
+	e.dano_min = dono.dano_min * 0.5 + bonus_esp
+	e.dano_max = dono.dano_max * 0.5 + bonus_esp
+	e.defesa = dono.defesa * 0.5
+	e.ar = dono.ar; e.er = dono.er
+	e.critico = dono.critico; e.crit_mult = dono.crit_mult
+	e.intervalo = float(e.aux.get("servo_intervalo_base", 1.077)) / maxf(dono.vel_ataque, 0.1)
+	e.vel = 2.8 * (1.0 + float(atributos.get("AGI", 0.0)) * 0.002)

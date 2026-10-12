@@ -46,6 +46,8 @@ var tremor_px := 0.0
 var mostrar_nomes := false
 var luz_jogador: Sprite2D
 var trocando := false
+var pet_mover_armed := false
+var pet_click_consumed := false
 var cortina := ColorRect.new()
 var chefe_view: Node2D = null
 var t_salvar := 0.0
@@ -903,6 +905,11 @@ func _vfx(d: Dictionary) -> void:
 		var nomes: Array = fx.nome_skill(d["skill"])
 		var classe: String = d["skill"].split("/")[0]
 		var sid: String = d["skill"].split("/")[1] if d["skill"].contains("/") else ""
+		if sid == "cultista_espinhos_sangue":
+			if audio.sons.has("skills/" + classe + "_" + sid): audio.tocar("skills/" + classe + "_" + sid, pos)
+			var centro: Vector2 = d.get("pos", sim.ents.get(int(d.get("de", -1))).pos if sim.ents.has(int(d.get("de", -1))) else Vector2.ZERO)
+			fx.espinhos_sangue(centro, 2.64)
+			return
 		var som := classe + "_" + sid
 		if audio.sons.has("skills/" + som): audio.tocar("skills/" + som, pos)
 		if nomes.is_empty(): return
@@ -1071,7 +1078,9 @@ func _unhandled_input(ev: InputEvent) -> void:
 		if ev.button_index == MOUSE_BUTTON_LEFT:
 			if ev.pressed:
 				_clique(ev.shift_pressed)
-				segurando = true; t_seguro = 0.0
+				if pet_click_consumed:
+					pet_click_consumed = false; segurando = false
+				else: segurando = true; t_seguro = 0.0
 			else: segurando = false
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_UP and ev.pressed: cam.zoom = (cam.zoom * 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_DOWN and ev.pressed: cam.zoom = (cam.zoom / 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
@@ -1116,6 +1125,11 @@ func usar_skill(slot: int) -> void:
 	cmd("skill", [slot, alvo, mouse_mundo()])
 
 func _clique(shift: bool) -> void:
+	if pet_mover_armed:
+		pet_mover_armed = false
+		pet_click_consumed = true
+		cmd("pet_mover", [mouse_mundo()])
+		return
 	_sob_mouse()
 	if hover_chao != -1:
 		cmd("pegar", [hover_chao]); return

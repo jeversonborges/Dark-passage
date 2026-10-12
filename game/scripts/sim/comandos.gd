@@ -3,7 +3,8 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto",
+	"pet_modo", "pet_atacar", "pet_mover"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -60,8 +61,59 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if a.size() > 0 and a[0] is bool:
 				e.aux["auto"] = a[0]
 				sim.emitir_a(e, "aviso", {"texto": "Modo automático ligado." if a[0] else "Modo automático desligado."})
+		"pet_modo":
+			if _str(a, 0) and a[0] in ["agressivo", "passivo", "seguir", "parado"]: _pet_modo(sim, e, a[0])
+		"pet_atacar":
+			if _int(a, 0): _pet_atacar(sim, e, a[0])
+		"pet_mover":
+			if _v2(a, 0): _pet_mover(sim, e, a[0])
 		"fechar":
 			if _str(a, 0) and a[0] in ["dialogo", "servico"]: e.aux.erase(a[0])
+
+static func _pets(sim: WorldSim, e: Ent) -> Array:
+	var out: Array = []
+	if e.classe != "cultista": return out
+	for pet: Ent in sim.ents.values():
+		if pet.tipo == "invocacao" and pet.dono == e.id and pet.kind == "servo_de_carne" and pet.vivo: out.append(pet)
+	return out
+
+static func _pet_modo(sim: WorldSim, e: Ent, modo: String) -> void:
+	if e.classe != "cultista": return
+	e.aux["pet_modo"] = modo
+	e.aux.erase("pet_destino"); e.aux.erase("pet_pos_parado"); e.aux.erase("pet_alvo_pendente")
+	for pet: Ent in _pets(sim, e):
+		pet.aux["pet_modo"] = modo
+		pet.aux.erase("pet_destino"); pet.aux.erase("pet_pos_parado"); pet.aux.erase("pet_ordem_alvo")
+		pet.alvo = -1; pet.caminho.clear()
+	var texto := {"agressivo": "Servo em modo agressivo.", "passivo": "Servo em modo passivo.", "seguir": "Servo vai acompanhar você.", "parado": "Servo vai ficar neste local."}
+	sim.emitir_a(e, "aviso", {"texto": texto[modo]})
+
+static func _pet_atacar(sim: WorldSim, e: Ent, alvo_id: int) -> void:
+	if e.classe != "cultista": return
+	var alvo: Ent = sim.valido(alvo_id)
+	if alvo == null or not e.eh_inimigo_de(alvo) or alvo.pos.distance_to(e.pos) > 16.0:
+		sim.emitir_a(e, "aviso", {"texto": "Escolha um inimigo próximo para o Servo atacar."}); return
+	var pets := _pets(sim, e)
+	if pets.is_empty():
+		e.aux["pet_alvo_pendente"] = alvo_id
+		sim.emitir_a(e, "aviso", {"texto": "Ordem guardada: o Servo atacará esse alvo quando voltar."}); return
+	for pet: Ent in pets:
+		pet.alvo = alvo_id; pet.aux["pet_ordem_alvo"] = true
+		pet.aux.erase("pet_destino"); pet.caminho.clear()
+	sim.emitir_a(e, "aviso", {"texto": "Servo, ataque!"})
+
+static func _pet_mover(sim: WorldSim, e: Ent, destino: Vector2) -> void:
+	if e.classe != "cultista": return
+	var alvo := destino
+	if alvo.distance_to(e.pos) > 10.0: alvo = e.pos + (alvo - e.pos).normalized() * 10.0
+	alvo = sim.celula_livre_perto(alvo)
+	e.aux["pet_modo"] = "mover"; e.aux["pet_destino"] = alvo; e.aux.erase("pet_alvo_pendente")
+	e.aux.erase("pet_pos_parado")
+	for pet: Ent in _pets(sim, e):
+		pet.aux["pet_modo"] = "mover"; pet.aux["pet_destino"] = alvo
+		pet.aux.erase("pet_pos_parado")
+		pet.aux.erase("pet_ordem_alvo"); pet.alvo = -1; pet.caminho.clear()
+	sim.emitir_a(e, "aviso", {"texto": "Servo, fique neste local."})
 
 static func _int(a: Array, i: int) -> bool:
 	return a.size() > i and a[i] is int

@@ -5,6 +5,8 @@ extends CanvasLayer
 var game
 var raiz := Control.new()
 var barra: Control
+var pet_barra: Control
+var hover_pet := -1
 var topo_esq: Control
 var alvo_ui: Control
 var minimapa: Control
@@ -51,6 +53,7 @@ func _ready() -> void:
 	raiz.theme = Tema.tema_janelas()
 	add_child(raiz)
 	_montar_barra()
+	_montar_pet_barra()
 	_montar_topo()
 	_montar_alvo()
 	_montar_minimapa()
@@ -108,6 +111,58 @@ func _montar_barra() -> void:
 	barra.entrada = _entrada_barra
 	barra.mouse_exited.connect(func(): hover_slot = -1; hover_cinto = -1; hover_menu = -1; esconder_tip())
 	raiz.add_child(barra)
+
+func _montar_pet_barra() -> void:
+	pet_barra = _painel(_desenhar_pet_barra)
+	pet_barra.size = Vector2(450, 74)
+	pet_barra.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	pet_barra.offset_left = -225; pet_barra.offset_right = 225; pet_barra.offset_top = -226; pet_barra.offset_bottom = -152
+	pet_barra.mouse_filter = Control.MOUSE_FILTER_STOP
+	pet_barra.dentro = func(p: Vector2) -> bool: return Rect2(Vector2.ZERO, Vector2(450, 74)).has_point(p)
+	pet_barra.entrada = _entrada_pet_barra
+	raiz.add_child(pet_barra)
+
+func _pet_botao(i: int) -> Rect2:
+	return Rect2(12 + i * 85, 31, 82, 31)
+
+func _desenhar_pet_barra(c: Painel) -> void:
+	var j := _jog()
+	if j == null or j.classe != "cultista": return
+	c.draw_style_box(Tema.caixa(Color(0.055, 0.035, 0.04, 0.94), Color("#7c272d"), 2, 3), Rect2(0, 0, 450, 74))
+	var pet: Ent = null
+	for e: Ent in game.sim.ents.values():
+		if e.tipo == "invocacao" and e.kind == "servo_de_carne" and e.dono == j.id and e.vivo: pet = e; break
+	var modo: String = str(j.aux.get("pet_modo", "agressivo")).to_upper()
+	var estado := "VIVO · %d/%d HP" % [ceili(pet.hp), ceili(pet.hp_max)] if pet != null else "AUSENTE · retorna quando a recarga acabar"
+	_txt(c, Vector2(14, 22), "SERVO DE CARNE  ·  " + modo, 13, Color("#f0c8a0"), Tema.FONTE_TITULO, -1, 3)
+	_txt(c, Vector2(436, 21), estado, 10, Color("#d69a8c") if pet == null else Color("#d9c9ad"), Tema.FONTE_PIXEL, 1, 2)
+	var nomes := ["ATACAR", "MOVER", "AGRESSIVO", "PASSIVO", "SEGUIR"]
+	for i in nomes.size():
+		var r := _pet_botao(i)
+		var ativo := (i == 2 and modo == "AGRESSIVO") or (i == 3 and modo == "PASSIVO") or (i == 4 and modo == "SEGUIR")
+		var cor := Color("#673039") if ativo else (Color("#49302b") if i == hover_pet else Color("#271d1c"))
+		c.draw_rect(r, cor)
+		c.draw_rect(r, Color("#a45b50") if ativo or i == hover_pet else Color("#74513d"), false, 1.0)
+		_txt(c, r.position + Vector2(r.size.x * 0.5, 20), nomes[i], 9, Color("#f2dfc3"), Tema.FONTE_TITULO, 0, 2)
+
+func _entrada_pet_barra(ev: InputEvent) -> void:
+	if ev is InputEventMouseMotion:
+		hover_pet = -1
+		for i in 5:
+			if _pet_botao(i).has_point(ev.position): hover_pet = i
+		pet_barra.queue_redraw()
+	elif ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+		match hover_pet:
+			0:
+				var alvo: int = game.hover_id if game.hover_id >= 0 else _jog().alvo
+				game.cmd("pet_atacar", [alvo])
+			1:
+				game.pet_mover_armed = true
+				aviso("Clique no chão para mandar o Servo andar até lá.", Color("#e5b1a2"))
+			2: game.cmd("pet_modo", ["agressivo"])
+			3: game.cmd("pet_modo", ["passivo"])
+			4: game.cmd("pet_modo", ["seguir"])
+		pet_barra.accept_event()
 
 func _slot_rect(i: int) -> Rect2:
 	return Rect2(222 + 54 * i, 90, 52, 52)
@@ -1051,7 +1106,9 @@ func _process(dt: float) -> void:
 		if canal_t > float(canal_d.get("dur", 1.0)) + 0.6: canal_d = {}
 	if morte_ui and morte_ui.visible: morte_ui.set_meta("t", float(morte_ui.get_meta("t")) + dt); morte_ui.queue_redraw()
 	if game.jog == null: return
+	pet_barra.visible = game.jog.classe == "cultista"
 	barra.queue_redraw(); topo_esq.queue_redraw(); alvo_ui.queue_redraw(); minimapa.queue_redraw(); banner.queue_redraw(); canal_ui.queue_redraw()
+	pet_barra.queue_redraw()
 	if mapa_ui and mapa_ui.visible: mapa_ui.queue_redraw()
 	if Engine.get_process_frames() % 15 == 0: _atualizar_rastreador()
 	if tooltip.visible:
