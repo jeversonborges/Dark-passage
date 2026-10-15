@@ -1,0 +1,681 @@
+--- a/game/scripts/client/janelas.gd
++++ b/game/scripts/client/janelas.gd
+@@ -19,9 +19,16 @@
+ 
+ const CEL := 30
+ const POS_EQUIP := {
+-	"arma": Rect2(8, 8, 62, 126), "cabeca": Rect2(80, 8, 52, 52), "peito": Rect2(80, 66, 52, 68),
+-	"amuleto": Rect2(250, 8, 52, 52), "luvas": Rect2(250, 66, 52, 52), "segunda_mao": Rect2(312, 8, 62, 126),
+-	"anel1": Rect2(8, 146, 40, 40), "anel2": Rect2(54, 146, 40, 40), "calcas": Rect2(140, 140, 52, 52), "botas": Rect2(250, 140, 52, 52)}
++	"cabeca": Rect2(4, 4, 52, 52), "peito": Rect2(4, 62, 52, 66), "calcas": Rect2(4, 134, 52, 52),
++	"arma": Rect2(60, 4, 52, 124), "anel1": Rect2(60, 134, 52, 52),
++	"segunda_mao": Rect2(268, 4, 52, 124), "anel2": Rect2(268, 134, 52, 52),
++	"amuleto": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52)}
++const AREA_EQUIP := Vector2(380, 236)
++var _ganho_cache := {}        # uid -> quanto o Poder sobe ao equipar (cache por atualização do inventário)
++var _poder_cache := -1
++var _poder_flash := {}        # {v, t}: número que sobe da placa quando o Poder muda
++var _poder_visto := -1
++var _grade_mochila: Control
+ 
+ func _ready() -> void:
+ 	layer = 20
+@@ -55,8 +62,10 @@
+ 		jan[nome].visible = true
+ 		return corpo[nome]
+ 	var p := PanelContainer.new()
+-	var sb := Tema.caixa(Color(0.065, 0.052, 0.045, 0.96), Color(0.42, 0.34, 0.2), 2, 3)
+-	sb.set_content_margin_all(12)
++	var sb: StyleBox = _sb("menu_moldura", [56, 56, 56, 56], [18, 16, 18, 18])
++	if sb == null:
++		sb = Tema.caixa(Color(0.065, 0.052, 0.045, 0.96), Color(0.42, 0.34, 0.2), 2, 3)
++		sb.set_content_margin_all(12)
+ 	p.add_theme_stylebox_override("panel", sb)
+ 	p.custom_minimum_size = tam
+ 	p.mouse_filter = Control.MOUSE_FILTER_STOP
+@@ -81,14 +90,18 @@
+ 	tl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 	tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ 	tl.name = "Titulo"
++	var placa := _sb("menu_titulo", [60, 0, 60, 0], [44, 3, 44, 7])
++	if placa: tl.add_theme_stylebox_override("normal", placa); tl.custom_minimum_size.y = 40
+ 	topo.add_child(tl)
+ 	var x := Button.new(); x.text = "✕"; x.custom_minimum_size = Vector2(26, 24)
+ 	x.add_theme_font_override("font", Tema.FONTE_TEXTO)
++	Tema.estilo_fechar(x)
+ 	x.pressed.connect(func(): fechar(nome))
+ 	topo.add_child(x)
+ 	v.add_child(topo)
+-	var linha := ColorRect.new(); linha.color = Color(0.42, 0.34, 0.2, 0.6); linha.custom_minimum_size.y = 1
+-	v.add_child(linha)
++	if placa == null:
++		var linha := ColorRect.new(); linha.color = Color(0.42, 0.34, 0.2, 0.6); linha.custom_minimum_size.y = 1
++		v.add_child(linha)
+ 	var c := VBoxContainer.new()
+ 	c.add_theme_constant_override("separation", 8)
+ 	c.size_flags_vertical = Control.SIZE_EXPAND_FILL
+@@ -98,6 +111,9 @@
+ 	game.audio.tocar("ui/abrir_janela", null, -6.0)
+ 	return c
+ 
++func _sb(peca: String, m: Array, cm: Array = []) -> StyleBoxTexture:
++	return Tema.sb_ui(peca, m, cm)
++
+ func _titulo(nome: String, txt: String) -> void:
+ 	if jan.has(nome): jan[nome].get_child(0).get_child(0).get_node("Titulo").text = txt
+ 
+@@ -147,16 +163,118 @@
+ 	for f in c.get_children(): c.remove_child(f); f.queue_free()
+ 
+ func atualizar() -> void:
++	_limpar_cache_poder()
++	if game.jog:
++		var p := poder()
++		if _poder_visto >= 0 and p != _poder_visto and aberta("inventario"):
++			_poder_flash = {"v": p - _poder_visto, "t": 1.8}
++			if p > _poder_visto: game.audio.tocar("ui/confirmar", null, -12.0)
++		_poder_visto = p
+ 	if aberta("inventario"): _atualizar_inventario()
+ 	if aberta("personagem"): abrir_personagem()
+ 	if aberta("servico") and servico_d.get("tipo") == "ferreiro": _corpo_ferreiro()
+-	for n in ["inventario", "armazem"]:
++	_atualizar_arca()
++	for n in ["inventario", "servico"]:
+ 		if jan.has(n): _redesenhar(jan[n])
+ 
+ func _redesenhar(n: Node) -> void:
+ 	if n is CanvasItem: n.queue_redraw()
+ 	for c in n.get_children(): _redesenhar(c)
+ 
++# =================================================================== Poder do equipamento (comparação e incentivo a equipar)
++## Personagem de mentira com o equipamento trocado; "troca" é slot -> item ({} tira). Só o cliente usa.
++func _simular(troca: Dictionary) -> Ent:
++	var j := _jog()
++	var f := Ent.new()
++	f.tipo = j.tipo; f.kind = j.kind; f.classe = j.classe; f.faccao = j.faccao; f.nivel = j.nivel
++	f.stats = j.stats; f.buffs = j.buffs; f.hp = 1.0
++	f.equip = j.equip.duplicate()
++	for s in troca:
++		if (troca[s] as Dictionary).is_empty(): f.equip.erase(s)
++		else: f.equip[s] = troca[s]
++	Regras.recalc_jogador(f)
++	return f
++
++## Um número só para "quanto o personagem rende": dano por segundo e quanto aguenta.
++func _poder_de(f: Ent) -> int:
++	var crit := f.critico * maxf(f.crit_mult - 1.0, 0.0)
++	var dps := f.dano_medio() * (1.0 + crit) * (1.0 + f.excelente * 0.5) / maxf(f.intervalo, 0.15)
++	var aguenta := f.hp_max * (1.0 + f.defesa / 100.0)
++	return roundi(dps * 3.0 + aguenta * 0.2)
++
++func poder() -> int:
++	if _poder_cache < 0: _poder_cache = _poder_de(_simular({}))
++	return _poder_cache
++
++## Troca que equipar "it" faria (anel escolhe o pior dos dois, duas mãos tira o escudo).
++func _troca_para(it: Dictionary, slot: String) -> Dictionary:
++	var j := _jog()
++	var t := {slot: it}
++	if slot == "arma" and int(Itens.defn(it["id"]).get("maos", 1)) == 2: t["segunda_mao"] = {}
++	if slot == "segunda_mao" and j.equip.has("arma") and int(Itens.defn(j.equip["arma"]["id"]).get("maos", 1)) == 2: t["arma"] = {}
++	return t
++
++func _slots_de(it: Dictionary) -> Array:
++	var sd := Itens.slot_de(it)
++	return ["anel1", "anel2"] if sd == "anel" else ([sd] if sd != "" else [])
++
++## [ganho de Poder, slot] do melhor jeito de equipar o item; ganho 0 se não dá para usar.
++func _melhor_slot(it: Dictionary) -> Array:
++	if not Itens.equipavel(it) or Itens.pode_usar(it, _jog()) != "": return [0, ""]
++	var melhor := [-999999, ""]
++	for s in _slots_de(it):
++		var g := _poder_de(_simular(_troca_para(it, s))) - poder()
++		if g > melhor[0]: melhor = [g, s]
++	return melhor
++
++func ganho(it: Dictionary) -> int:
++	var uid := int(it.get("uid", -1))
++	if not _ganho_cache.has(uid): _ganho_cache[uid] = _melhor_slot(it)[0]
++	return _ganho_cache[uid]
++
++func _limpar_cache_poder() -> void:
++	_ganho_cache.clear(); _poder_cache = -1
++
++## Quantos itens da mochila deixariam o personagem mais forte.
++func melhorias_na_mochila() -> int:
++	var n := 0
++	for it in _jog().inv:
++		if ganho(it) > 0: n += 1
++	return n
++
++## Algum item da mochila melhora este slot?
++func _slot_tem_melhoria(slot: String) -> bool:
++	for it in _jog().inv:
++		if slot in _slots_de(it) and ganho(it) > 0 and _melhor_slot(it)[1] == slot: return true
++	return false
++
++func _comparacao(it: Dictionary) -> String:
++	if not Itens.equipavel(it) or Itens.pode_usar(it, _jog()) != "": return ""
++	var ms := _melhor_slot(it)
++	var slot: String = ms[1]
++	if slot == "": return ""
++	var a := _simular({})
++	var b := _simular(_troca_para(it, slot))
++	var s := "[color=#6b5634]────────────[/color]\n"
++	var atual: Dictionary = _jog().equip.get(slot, {})
++	s += "[color=#a89f8c]Se equipar%s:[/color]\n" % ((" (no lugar de %s)" % Itens.nome(atual)) if not atual.is_empty() else "")
++	var dp := _poder_de(b) - _poder_de(a)
++	s += "Poder %d → [b]%d[/b] %s\n" % [_poder_de(a), _poder_de(b), _delta(dp)]
++	var linhas := [["Dano", "%d–%d" % [roundi(a.dano_min), roundi(a.dano_max)], "%d–%d" % [roundi(b.dano_min), roundi(b.dano_max)], b.dano_medio() - a.dano_medio()],
++		["Defesa", "%d" % roundi(a.defesa), "%d" % roundi(b.defesa), b.defesa - a.defesa],
++		["Vida", "%d" % roundi(a.hp_max), "%d" % roundi(b.hp_max), b.hp_max - a.hp_max],
++		["Crítico", "%d%%" % roundi(a.critico * 100.0), "%d%%" % roundi(b.critico * 100.0), (b.critico - a.critico) * 100.0],
++		["Ataques por s", "%.2f" % (1.0 / maxf(a.intervalo, 0.1)), "%.2f" % (1.0 / maxf(b.intervalo, 0.1)), (1.0 / maxf(b.intervalo, 0.1) - 1.0 / maxf(a.intervalo, 0.1)) * 10.0]]
++	for l in linhas:
++		if absf(float(l[3])) < 0.5: continue
++		s += "[color=#a89f8c]%s[/color] %s → %s %s\n" % [l[0], l[1], l[2], _delta(roundi(l[3])) if l[0] != "Ataques por s" else ("[color=#9cff3a]▲[/color]" if l[3] > 0 else "[color=#ff6a4a]▼[/color]")]
++	return s
++
++func _delta(v: int) -> String:
++	if v > 0: return "[color=#9cff3a]▲ +%d[/color]" % v
++	if v < 0: return "[color=#ff6a4a]▼ %d[/color]" % v
++	return "[color=#8a8070]=[/color]"
++
+ # =================================================================== tooltip de item
+ func tip_item(it: Dictionary, contexto := "") -> String:
+ 	var d := Itens.defn(it["id"])
+@@ -215,6 +333,7 @@
+ 	var cl = d.get("classes")
+ 	if cl is Array and cl.size() > 0 and cl.size() < 6:
+ 		s += "[color=#8a8070]%s[/color]\n" % ", ".join(cl.map(func(x): return {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}.get(x, x)))
++	if contexto in ["mochila", "armazem", "loja_compra"]: s += _comparacao(it)
+ 	match contexto:
+ 		"loja_compra": s += "[color=#e0b84a]Preço: %d de ouro[/color]" % Itens.preco(it)
+ 		"mochila":
+@@ -273,11 +392,15 @@
+ 	var W: int = g.dados["W"]; var H: int = g.dados["H"]
+ 	var lista := _lista(g.dados["onde"])
+ 	g.draw_rect(Rect2(Vector2.ZERO, g.size), Color(0.03, 0.025, 0.02, 0.9))
++	var cel := Tema.ui("menu_celula")
+ 	for y in H:
+ 		for x in W:
++			if cel: g.draw_texture(cel, Vector2(x * CEL, y * CEL)); continue
+ 			var r := Rect2(x * CEL + 1, y * CEL + 1, CEL - 2, CEL - 2)
+ 			g.draw_rect(r, Color(0.075, 0.065, 0.055))
+ 			g.draw_rect(r, Color(0.16, 0.13, 0.1), false, 1.0)
++	var seta := Tema.ui("menu_seta")
++	var pulso := 0.75 + 0.25 * sin(Time.get_ticks_msec() * 0.006)
+ 	for it in lista:
+ 		if not mao.is_empty() and mao["it"] == it: continue
+ 		var gr := Itens.grade(it)
+@@ -291,6 +414,8 @@
+ 		var na_troca: bool = g.dados["onde"] == "mochila" and _na_troca(int(it["uid"]))
+ 		_desenhar_icone(g, it, r.grow(-1), Color(1, 1, 1, 0.3) if na_troca else Color.WHITE)
+ 		if na_troca: g.draw_rect(r, Color(0.85, 0.68, 0.3, 0.7), false, 1.0)
++		if seta and g.dados["onde"] == "mochila" and not na_troca and ganho(it) > 0:
++			g.draw_texture(seta, Vector2(r.end.x - 15, r.position.y + 1), Color(1, 1, 1, pulso))
+ 		if int(it.get("qtd", 1)) > 1:
+ 			var q := str(int(it["qtd"]))
+ 			var p := r.end - Vector2(2, 3)
+@@ -440,6 +565,8 @@
+ func _process(dt: float) -> void:
+ 	if not mao.is_empty(): mao_ui.queue_redraw()
+ 	if not troca_d.is_empty() and jan.has("troca"): _botao_ok_troca()
++	if _poder_flash.get("t", 0.0) > 0.0: _poder_flash["t"] -= dt
++	if aberta("inventario") and is_instance_valid(_grade_mochila) and Engine.get_process_frames() % 3 == 0: _grade_mochila.queue_redraw()
+ 	if dialogo_t < 1.0 and aberta("dialogo"):
+ 		dialogo_t += dt * 2.5
+ 		var rl: RichTextLabel = jan["dialogo"].find_child("Fala", true, false)
+@@ -469,10 +596,21 @@
+ 	s.desenhar = func(c: Desenho):
+ 		var it: Dictionary = _jog().equip.get(slot, {})
+ 		var rr := Rect2(Vector2.ZERO, c.size)
+-		c.draw_rect(rr, Color(0.03, 0.025, 0.02, 0.95))
+ 		var borda := Color(0.42, 0.34, 0.2) if not c.dados["hover"] else Color(0.8, 0.65, 0.35)
++		var peca := "menu_slot_hover" if c.dados["hover"] else "menu_slot"
+ 		if not mao.is_empty() and mao["de"] != "equip" and Jogador.slot_para(_jog(), mao["it"]) .begins_with(slot.substr(0, 4)):
+-			borda = Color(0.4, 0.85, 0.35) if Itens.pode_usar(mao["it"], _jog()) == "" else Color(0.9, 0.25, 0.2)
++			var pode := Itens.pode_usar(mao["it"], _jog()) == ""
++			borda = Color(0.4, 0.85, 0.35) if pode else Color(0.9, 0.25, 0.2)
++			peca = "menu_slot_pronto" if pode else "menu_slot_ruim"
++		elif mao.is_empty() and not c.dados["hover"] and _slot_tem_melhoria(slot):
++			peca = "menu_slot_pronto"   # tem coisa melhor na mochila para este lugar
++		var moldura := _sb(peca, [14, 14, 14, 14])
++		if moldura: c.draw_style_box(moldura, rr)
++		else: c.draw_rect(rr, Color(0.03, 0.025, 0.02, 0.95))
++		var vazio: bool = it.is_empty() or (not mao.is_empty() and mao["it"] == it)
++		if vazio:
++			var gl := Tema.ui("menu_glifo_" + ("anel" if slot.begins_with("anel") else slot))
++			if gl: c.draw_texture(gl, (c.size - gl.get_size()) * 0.5, Color(1, 1, 1, 0.85))
+ 		if not it.is_empty() and not (not mao.is_empty() and mao["it"] == it):
+ 			var cor := Defs.cor_raridade(it.get("raridade", "comum"))
+ 			if it.get("raridade", "comum") != "comum": c.draw_rect(rr, Color(cor.r, cor.g, cor.b, 0.12))
+@@ -480,17 +618,18 @@
+ 			if int(it.get("refino", 0)) > 0:
+ 				c.draw_string_outline(Tema.FONTE_PIXEL, Vector2(3, 10), "+%d" % int(it["refino"]), HORIZONTAL_ALIGNMENT_LEFT, -1, 8, 3, Color.BLACK)
+ 				c.draw_string(Tema.FONTE_PIXEL, Vector2(3, 10), "+%d" % int(it["refino"]), HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color("#e0b84a"))
+-		else:
++		elif moldura == null:
+ 			var nome: String = Itens.NOME_SLOT[slot].to_upper()
+ 			var w := Tema.FONTE_PIXEL.get_string_size(nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 7).x
+ 			c.draw_string(Tema.FONTE_PIXEL, Vector2((c.size.x - w) * 0.5, c.size.y * 0.5 + 3), nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 7, Color(0.42, 0.37, 0.3))
+-		c.draw_rect(rr, borda, false, 1.5)
++		if moldura == null: c.draw_rect(rr, borda, false, 1.5)
+ 	s.entrada = func(c: Desenho, ev: InputEvent):
+ 		var it: Dictionary = _jog().equip.get(slot, {})
+ 		if ev is InputEventMouseMotion:
+ 			if not c.dados["hover"]:
+ 				c.dados["hover"] = true; c.queue_redraw()
+ 				if not it.is_empty() and mao.is_empty(): game.hud.mostrar_tip(tip_item(it, "equip"))
++				elif it.is_empty() and mao.is_empty(): game.hud.mostrar_tip(_tip_slot_vazio(slot))
+ 		elif ev is InputEventMouseButton and ev.pressed:
+ 			if ev.button_index == MOUSE_BUTTON_LEFT:
+ 				if mao.is_empty():
+@@ -520,23 +659,12 @@
+ 
+ # =================================================================== mochila + equipamento
+ func abrir_inventario() -> void:
+-	var c := _janela("inventario", "EQUIPAMENTO", Vector2(400, 590), "direita")
++	var c := _janela("inventario", "EQUIPAMENTO", Vector2(416, 560), "direita")
+ 	if c.get_child_count() > 0: _atualizar_inventario(); return
++	c.add_theme_constant_override("separation", 4)
+ 	var eq := Desenho.new()
+-	eq.custom_minimum_size = Vector2(376, 192)
+-	eq.desenhar = func(cc: Desenho):
+-		# figura do personagem no meio
+-		var j := _jog()
+-		var meta: Dictionary = Defs.SPR.get(j.classe, {})
+-		if meta.is_empty(): return
+-		var tex := Tema.tex(meta["anims"]["idle"]["file"])
+-		var fr: Array = meta["frame"]; var anc: Array = meta["anchor"]
+-		var f := int(Time.get_ticks_msec() / 160) % int(meta["anims"]["idle"]["frames"])
+-		cc.draw_rect(Rect2(140, 6, 104, 130), Color(0.03, 0.025, 0.02, 0.5))
+-		var esc := 1.15
+-		var pe := Vector2(192, 128)
+-		if tex: cc.draw_texture_rect_region(tex, Rect2(pe - Vector2(anc[0], anc[1]) * esc, Vector2(fr[0], fr[1]) * esc), Rect2(f * fr[0], 0, fr[0], fr[1]))
+-		cc.queue_redraw()
++	eq.custom_minimum_size = AREA_EQUIP
++	eq.desenhar = _desenhar_boneco
+ 	for slot in POS_EQUIP: eq.add_child(_slot_equip(slot))
+ 	c.add_child(eq)
+ 	# atributos
+@@ -545,19 +673,82 @@
+ 	c.add_child(at)
+ 	var der := Tema.rotulo("", 13, Color("#c8bfa8")); der.name = "Derivados"
+ 	c.add_child(der)
+-	var tm := Tema.rotulo("MOCHILA", 15, Color("#e0c890"), Tema.FONTE_TITULO, 2)
+-	tm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+-	c.add_child(tm)
+-	var cg := CenterContainer.new(); cg.add_child(_grade("mochila")); c.add_child(cg)
+-	var rod := HBoxContainer.new(); rod.name = "Rodape"
+-	var ouro := Tema.rotulo("", 15, Tema.COR_OURO, Tema.FONTE_TITULO, 2); ouro.name = "Ouro"
+-	ouro.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+-	rod.add_child(ouro)
+-	var dica := Tema.rotulo("arraste para fora para jogar no chão", 12, Color("#7d7466"), Tema.FONTE_ITALICO)
+-	rod.add_child(dica)
+-	c.add_child(rod)
++	var dv := Tema.ui("menu_divisor")
++	if dv:
++		var tr := TextureRect.new(); tr.texture = dv; tr.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
++		tr.custom_minimum_size = Vector2(380, 14)
++		c.add_child(tr)
++	else:
++		var tm := Tema.rotulo("MOCHILA", 15, Color("#e0c890"), Tema.FONTE_TITULO, 2)
++		tm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
++		c.add_child(tm)
++	var cg := CenterContainer.new(); _grade_mochila = _grade("mochila"); cg.add_child(_grade_mochila); c.add_child(cg)
+ 	_atualizar_inventario()
+ 
++## Retrato no pedestal, placa de Poder e o aviso de melhorias na mochila.
++func _desenhar_boneco(cc: Desenho) -> void:
++	var j := _jog()
++	var cx := AREA_EQUIP.x * 0.5
++	var ped := Tema.ui("menu_pedestal")
++	if ped: cc.draw_texture(ped, Vector2(cx - ped.get_width() * 0.5, 0))
++	else: cc.draw_rect(Rect2(cx - 52, 6, 104, 130), Color(0.03, 0.025, 0.02, 0.5))
++	var meta: Dictionary = Defs.SPR.get(j.classe, {})
++	if not meta.is_empty():
++		var tex := Tema.tex(meta["anims"]["idle"]["file"])
++		var fr: Array = meta["frame"]; var anc: Array = meta["anchor"]
++		var f := int(Time.get_ticks_msec() / 160) % int(meta["anims"]["idle"]["frames"])
++		var esc := 1.45
++		var pe := Vector2(cx, 178)
++		if tex: cc.draw_texture_rect_region(tex, Rect2(pe - Vector2(anc[0], anc[1]) * esc, Vector2(fr[0], fr[1]) * esc), Rect2(f * fr[0], 0, fr[0], fr[1]))
++	# placa de Poder
++	var pl := Tema.ui("menu_poder")
++	var py := 202.0
++	if pl: cc.draw_texture(pl, Vector2(cx - pl.get_width() * 0.5, py))
++	var txt := "PODER  %d" % poder()
++	var w := Tema.FONTE_TITULO.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16).x
++	cc.draw_string_outline(Tema.FONTE_TITULO, Vector2(cx - w * 0.5, py + 21), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, 3, Color(0, 0, 0))
++	cc.draw_string(Tema.FONTE_TITULO, Vector2(cx - w * 0.5, py + 21), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 16, Color("#f0d48a"))
++	# o Poder subiu: número verde subindo da placa
++	if _poder_flash.get("t", 0.0) > 0.0:
++		var t: float = _poder_flash["t"]
++		var v: int = _poder_flash["v"]
++		var ft := ("+%d" % v) if v > 0 else str(v)
++		var cor := Color("#9cff3a") if v > 0 else Color("#ff6a4a")
++		cor.a = clampf(t / 0.6, 0.0, 1.0)
++		var fp := Vector2(cx + w * 0.5 + 8, py + 18 - (1.8 - t) * 14.0)
++		cc.draw_string_outline(Tema.FONTE_TITULO, fp, ft, HORIZONTAL_ALIGNMENT_LEFT, -1, 15, 3, Color(0, 0, 0, cor.a))
++		cc.draw_string(Tema.FONTE_TITULO, fp, ft, HORIZONTAL_ALIGNMENT_LEFT, -1, 15, cor)
++	# melhorias esperando na mochila
++	var n := melhorias_na_mochila()
++	if n > 0:
++		var seta := Tema.ui("menu_seta")
++		var pulso := 0.7 + 0.3 * sin(Time.get_ticks_msec() * 0.006)
++		if seta: cc.draw_texture(seta, Vector2(4, py + 8), Color(1, 1, 1, pulso))
++		var mt := "%d melhoria%s" % [n, "s" if n > 1 else ""]
++		cc.draw_string_outline(Tema.FONTE_TEXTO, Vector2(22, py + 14), mt, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, 3, Color(0, 0, 0))
++		cc.draw_string(Tema.FONTE_TEXTO, Vector2(22, py + 14), mt, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, Color("#b8f070"))
++		cc.draw_string(Tema.FONTE_ITALICO, Vector2(22, py + 27), "na mochila", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color("#7d8a66"))
++	var linhas := [["◉ %d" % j.ouro, Tema.COR_OURO, 14]]
++	if j.classe == "humano": linhas.append(["%d balas" % j.municao, Color("#a89f8c"), 12])
++	for i in linhas.size():
++		var l: Array = linhas[i]
++		var wn := Tema.FONTE_TITULO.get_string_size(l[0], HORIZONTAL_ALIGNMENT_LEFT, -1, l[2]).x
++		var lp := Vector2(AREA_EQUIP.x - 4 - wn, py + (14 if linhas.size() > 1 else 20) + i * 14)
++		cc.draw_string_outline(Tema.FONTE_TITULO, lp, l[0], HORIZONTAL_ALIGNMENT_LEFT, -1, l[2], 3, Color(0, 0, 0))
++		cc.draw_string(Tema.FONTE_TITULO, lp, l[0], HORIZONTAL_ALIGNMENT_LEFT, -1, l[2], l[1])
++	cc.queue_redraw()
++
++func _tip_slot_vazio(slot: String) -> String:
++	var s := "[font_size=16][color=#e0c890]%s[/color][/font_size]\n" % Itens.NOME_SLOT[slot]
++	var melhor := {}; var g := 0
++	for it in _jog().inv:
++		if slot in _slots_de(it) and ganho(it) > g and _melhor_slot(it)[1] == slot: melhor = it; g = ganho(it)
++	if not melhor.is_empty():
++		s += "[color=#9cff3a]%s, na mochila, serve aqui: Poder +%d.[/color]\n[color=#8a8070]Botão direito nele equipa.[/color]" % [Itens.nome(melhor), g]
++	else:
++		s += "[i][color=#a89f8c]Vazio. Monstros, chefes e baús deixam cair peças para este lugar.[/color][/i]"
++	return s
++
+ func _atualizar_inventario() -> void:
+ 	if not jan.has("inventario"): return
+ 	var c: Control = corpo["inventario"]
+@@ -566,9 +757,9 @@
+ 	_limpar(at)
+ 	for k in ["FOR", "AGI", "VIT", "ESP"]:
+ 		var b := PanelContainer.new()
+-		var sb := Tema.caixa(Color(0.09, 0.075, 0.06), Color(0.3, 0.25, 0.17), 1, 2); sb.set_content_margin_all(4); sb.shadow_size = 0
++		var sb := Tema.caixa_menu(4)
+ 		b.add_theme_stylebox_override("panel", sb)
+-		b.custom_minimum_size = Vector2(88, 44)
++		b.custom_minimum_size = Vector2(88, 40)
+ 		var h := HBoxContainer.new()
+ 		var v := VBoxContainer.new(); v.add_theme_constant_override("separation", -2)
+ 		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+@@ -587,7 +778,6 @@
+ 	if j.pontos > 0: txt += "\n[%d pontos para distribuir]" % j.pontos
+ 	der.text = txt
+ 	der.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+-	(c.get_node("Rodape/Ouro") as Label).text = "◉ %d ouro" % j.ouro + (("    %d balas" % j.municao) if j.classe == "humano" else "")
+ 	_redesenhar(jan["inventario"])
+ 
+ # =================================================================== personagem
+@@ -699,6 +889,7 @@
+ 	var abas := HBoxContainer.new()
+ 	for a in [["ativas", "Em andamento"], ["concluidas", "Concluídas"]]:
+ 		var b := Button.new(); b.text = a[1]; b.toggle_mode = true; b.button_pressed = _sel_aba == a[0]
++		Tema.estilo_aba(b, _sel_aba == a[0])
+ 		b.pressed.connect(func(): _sel_aba = a[0]; missao_sel = ""; abrir_missoes())
+ 		abas.add_child(b)
+ 	c.add_child(abas)
+@@ -892,14 +1083,52 @@
+ 		v.add_child(b)
+ 
+ func _abrir_armazem(d: Dictionary) -> void:
+-	var c := _janela("servico", d.get("titulo", "Armazém"), Vector2(400, 360), "esquerda")
++	var c := _janela("servico", d.get("titulo", "Armazém"), Vector2(416, 540), "esquerda")
+ 	_limpar(c)
+ 	_titulo("servico", d.get("titulo", "Armazém"))
+ 	_fala_servico(c, d)
+ 	var cg := CenterContainer.new(); cg.add_child(_grade("armazem")); c.add_child(cg)
+-	c.add_child(Tema.rotulo("Arraste entre o armazém e a mochila, ou use o botão direito.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
++	var rod := HBoxContainer.new()
++	var livre := Tema.rotulo("", 13, Color("#c8bfa8"), Tema.FONTE_TITULO); livre.name = "ArcaLivre"
++	livre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
++	rod.add_child(livre)
++	rod.add_child(_botao_menu("Guardar materiais", _guardar_materiais))
++	c.add_child(rod)
++	_atualizar_arca()
+ 	abrir_inventario()
+ 
++func _atualizar_arca() -> void:
++	if not jan.has("servico") or servico_d.get("tipo") != "armazem": return
++	var l: Label = corpo["servico"].find_child("ArcaLivre", true, false)
++	if l == null: return
++	var usados := 0
++	for it in _jog().armazem:
++		var g := Itens.grade(it); usados += g.x * g.y
++	var tot := Itens.ARMAZEM_W * Itens.ARMAZEM_H
++	l.text = "%d de %d espaços livres" % [tot - usados, tot]
++	l.add_theme_color_override("font_color", Color("#ff6a4a") if tot - usados < 12 else Color("#c8bfa8"))
++
++## Manda para a arca todo material e joia da mochila (a posição é escolhida aqui; o servidor confere cada uma).
++func _guardar_materiais() -> void:
++	var j := _jog()
++	var lista: Array = j.armazem.duplicate()
++	var n := 0
++	for it in j.inv.duplicate():
++		if not Itens.categoria(it) in ["material", "joia"]: continue
++		var p := Itens.achar_lugar(lista, Itens.ARMAZEM_W, Itens.ARMAZEM_H, it)
++		if p.x < 0: game.hud.aviso("A arca está cheia."); break
++		var cp: Dictionary = it.duplicate(); cp["x"] = p.x; cp["y"] = p.y
++		lista.append(cp)
++		game.cmd("mover_item", [int(it["uid"]), "mochila", "armazem", p.x, p.y])
++		n += 1
++	if n == 0: game.hud.aviso("Nenhum material ou joia na mochila.")
++	else: game.audio.tocar("ui/soltar_item", null, -6.0)
++
++func _botao_menu(txt: String, acao: Callable) -> Button:
++	var b := Button.new(); b.text = txt
++	b.pressed.connect(func(): game.audio.tocar("ui/clique", null, -6.0); acao.call())
++	return b
++
+ func _abrir_treinador(d: Dictionary) -> void:
+ 	var c := _janela("servico", d.get("titulo", "Treino"), Vector2(380, 220), "esquerda")
+ 	_limpar(c)
+--- a/game/scripts/client/tema.gd
++++ b/game/scripts/client/tema.gd
+@@ -112,6 +112,50 @@
+ 		l.add_theme_color_override("font_outline_color", Color(0.04, 0.03, 0.03))
+ 	return l
+ 
++## Kit "Ferrugem Sagrada" das janelas (assets/ui/hud/1x/menu_*.png): peça como 9-slice.
++## m e cm: margens da textura e do conteúdo, [esq, topo, dir, baixo]. Devolve null se a peça não existir.
++static var _sb_ui := {}
++static func sb_ui(peca: String, m: Array, cm: Array = []) -> StyleBoxTexture:
++	var chave := "%s%s%s" % [peca, m, cm]
++	if _sb_ui.has(chave): return _sb_ui[chave]
++	var t := ui(peca)
++	if t == null: return null
++	var sb := StyleBoxTexture.new()
++	sb.texture = t
++	sb.texture_margin_left = m[0]; sb.texture_margin_top = m[1]; sb.texture_margin_right = m[2]; sb.texture_margin_bottom = m[3]
++	if cm.size() == 4:
++		sb.content_margin_left = cm[0]; sb.content_margin_top = cm[1]; sb.content_margin_right = cm[2]; sb.content_margin_bottom = cm[3]
++	_sb_ui[chave] = sb
++	return sb
++
++## Caixa interna (atributos, listas, cartões).
++static func caixa_menu(conteudo := 6) -> StyleBox:
++	var sb := sb_ui("menu_caixa", [10, 10, 10, 10], [conteudo, conteudo, conteudo, conteudo])
++	if sb: return sb
++	var c := caixa(Color(0.09, 0.075, 0.06), Color(0.3, 0.25, 0.17), 1, 2); c.set_content_margin_all(conteudo); c.shadow_size = 0
++	return c
++
++## Aba de janela (Diário, Automático...): ativa fica em latão, colada ao painel.
++static func estilo_aba(b: Button, ativa: bool) -> void:
++	var n := sb_ui("menu_aba_ativa" if ativa else "menu_aba", [14, 12, 14, 4], [16, 8, 16, 6])
++	if n == null: return
++	for est in ["normal", "hover", "pressed", "hover_pressed", "focus"]:
++		b.add_theme_stylebox_override(est, n if est != "focus" else StyleBoxEmpty.new())
++	b.add_theme_color_override("font_color", Color("#f0d48a") if ativa else Color("#9a8c74"))
++	b.add_theme_color_override("font_hover_color", Color("#fff2d0"))
++	b.add_theme_color_override("font_pressed_color", Color("#f0d48a"))
++	b.custom_minimum_size.y = 32
++
++## Botão redondo de fechar (medalhão de latão).
++static func estilo_fechar(b: Button) -> void:
++	var n := sb_ui("menu_fechar", [0, 0, 0, 0]); var h := sb_ui("menu_fechar_hover", [0, 0, 0, 0])
++	if n == null: return
++	b.text = ""
++	b.add_theme_stylebox_override("normal", n); b.add_theme_stylebox_override("hover", h)
++	b.add_theme_stylebox_override("pressed", h); b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
++	b.custom_minimum_size = Vector2(28, 28)
++	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
++
+ static func tema_janelas() -> Theme:
+ 	var t := Theme.new()
+ 	t.default_font = FONTE_TEXTO
+@@ -126,21 +170,37 @@
+ 	bp.set_content_margin_all(6); bp.shadow_size = 0
+ 	var bd := caixa(Color(0.1, 0.09, 0.08), Color(0.25, 0.22, 0.2), 1, 2)
+ 	bd.set_content_margin_all(6); bd.shadow_size = 0
+-	t.set_stylebox("normal", "Button", b)
+-	t.set_stylebox("hover", "Button", bh)
+-	t.set_stylebox("pressed", "Button", bp)
+-	t.set_stylebox("disabled", "Button", bd)
++	var cm := [16, 6, 16, 9]
++	if ui("menu_botao"):   # botões em relevo do kit
++		var kp := sb_ui("menu_botao_press", [14, 14, 14, 14], [16, 7, 16, 8])
++		t.set_stylebox("normal", "Button", sb_ui("menu_botao", [14, 14, 14, 14], cm))
++		t.set_stylebox("hover", "Button", sb_ui("menu_botao_hover", [14, 14, 14, 14], cm))
++		t.set_stylebox("pressed", "Button", kp); t.set_stylebox("hover_pressed", "Button", kp)
++		t.set_stylebox("disabled", "Button", sb_ui("menu_botao_off", [14, 14, 14, 14], cm))
++		t.set_color("font_pressed_color", "Button", Color("#ffd58a"))
++		t.set_color("font_color", "Button", Color("#e8d4a4"))
++		t.set_constant("outline_size", "Button", 3)
++		t.set_color("font_outline_color", "Button", Color(0, 0, 0, 0.85))
++	else:
++		t.set_stylebox("normal", "Button", b)
++		t.set_stylebox("hover", "Button", bh)
++		t.set_stylebox("pressed", "Button", bp)
++		t.set_stylebox("disabled", "Button", bd)
+ 	t.set_stylebox("focus", "Button", StyleBoxEmpty.new())
+-	t.set_color("font_color", "Button", COR_TEXTO)
++	if not ui("menu_botao"): t.set_color("font_color", "Button", COR_TEXTO)
+ 	t.set_color("font_hover_color", "Button", Color("#fff2d0"))
+ 	t.set_color("font_disabled_color", "Button", Color("#6d665c"))
+ 	t.set_font("font", "Button", FONTE_TITULO)
+ 	t.set_font_size("font_size", "Button", 13)
+-	t.set_stylebox("panel", "PanelContainer", caixa())
+-	t.set_stylebox("panel", "Panel", caixa())
++	t.set_stylebox("panel", "PanelContainer", caixa_menu() if ui("menu_caixa") else caixa())
++	t.set_stylebox("panel", "Panel", caixa_menu() if ui("menu_caixa") else caixa())
+ 	var sb := StyleBoxFlat.new(); sb.bg_color = Color(0.3, 0.24, 0.16); sb.set_corner_radius_all(2)
+ 	t.set_stylebox("grabber_area", "VScrollBar", sb)
+ 	t.set_stylebox("grabber", "VScrollBar", sb)
+ 	var sbs := StyleBoxFlat.new(); sbs.bg_color = Color(0.08, 0.06, 0.05)
+ 	t.set_stylebox("scroll", "VScrollBar", sbs)
++	var tri := sb_ui("menu_rolagem_trilho", [0, 8, 0, 8]); var peg := sb_ui("menu_rolagem_pegador", [0, 12, 0, 12])
++	if tri and peg:
++		t.set_stylebox("scroll", "VScrollBar", tri)
++		for e in ["grabber", "grabber_highlight", "grabber_pressed"]: t.set_stylebox(e, "VScrollBar", peg)
+ 	return t
+--- a/game/scripts/client/hud.gd
++++ b/game/scripts/client/hud.gd
+@@ -1376,8 +1376,10 @@
+ # =================================================================== tooltip
+ func _montar_tooltip() -> void:
+ 	tooltip = PanelContainer.new()
+-	var sb := Tema.caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2)
+-	sb.set_content_margin_all(10)
++	var sb: StyleBox = Tema.sb_ui("menu_dica", [18, 18, 18, 18], [14, 11, 14, 12])
++	if sb == null:
++		sb = Tema.caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2)
++		sb.set_content_margin_all(10)
+ 	tooltip.add_theme_stylebox_override("panel", sb)
+ 	tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+ 	tip_lbl = RichTextLabel.new()
+--- a/game/tools/teste_visual.gd
++++ b/game/tools/teste_visual.gd
+@@ -24,6 +24,10 @@
+ 				[0.1, "mapa", ""], [0.5, "foto", "5_mapa"], [0.1, "mapa", ""],
+ 				[0.1, "npc", ""], [2.5, "foto", "6_dialogo"],
+ 				[0.5, "fim", ""]]
++		"menu":   # menu do personagem: equipamento, melhorias na mochila, comparação e a arca
++			roteiro = [[2.0, "preparar_menu", ""], [0.2, "janela", "inventario"], [0.2, "abrir_arca", ""], [1.0, "foto", "menu_1"],
++				[0.1, "tip_melhoria", ""], [0.5, "foto", "menu_2_tip"], [0.1, "tip_slot", ""], [0.5, "foto", "menu_3_slot"],
++				[0.1, "janela", "missoes"], [0.6, "foto", "menu_4_diario"], [0.3, "fim", ""]]
+ 		"chefe":
+ 			roteiro = [[1.5, "forte", ""], [0.1, "lutar_chefe", ""], [6.0, "foto", "c1"], [6.0, "foto", "c2"], [8.0, "foto", "c3"], [0.5, "fim", ""]]
+ 		"tour":
+@@ -82,11 +86,6 @@
+ 		"voo":   # personagem parado e andando de perto, num descampado (prova das folhas novas)
+ 			roteiro = [[2.0, "ir", Vector2(70, 92)], [0.2, "zoom", 1.8], [1.5, "foto", "v1_parado"], [0.35, "foto", "v2_parado"],
+ 				[0.1, "mover", Vector2(76, 92)], [0.5, "foto", "v3_andando"], [0.25, "foto", "v4_andando"], [2.5, "mover", Vector2(70, 98)], [0.6, "foto", "v5_andando"], [0.3, "fim", ""]]
+-		"auto":   # modo automático novo: skills marcadas na barra, farm no spot e a janela de ajustes (Shift+Z)
+-			roteiro = [[2.0, "ir", Vector2(84, 115)], [0.1, "forte", ""], [0.3, "auto_marcar", [0, 3]], [0.2, "auto_ligar", ""],
+-				[7.0, "foto", "a1_farm"], [0.2, "janela", "auto"], [0.6, "foto", "a2_janela"], [0.3, "fim", ""]]
+-		"talentos":
+-			roteiro = [[2.0, "forte", ""], [0.2, "talentos_por", ""], [0.3, "janela", "talentos"], [0.8, "foto", "t1_arvore"], [0.3, "fim", ""]]
+ 		"so_foto":
+ 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
+ 
+@@ -105,14 +104,24 @@
+ 			img.save_png(pasta + "/" + p[2] + ".png")
+ 			print("foto ", p[2])
+ 		"janela": jogo.janelas.alternar(p[2])
+-		"auto_marcar":
+-			for s in p[2]: jogo.cmd("auto_skill", [s])
+-		"auto_ligar": jogo.cmd("auto", [true])
+-		"talentos_por":
+-			var hs: Array = []
+-			for h in Defs.CLASSES[jogo.jog.classe]["habilidades"]:
+-				if not h.get("passiva", false) and int(h["nivel"]) <= jogo.jog.nivel: hs.append(h["id"])
+-			for k in 3: for id in hs.slice(0, 2): jogo.cmd("talento", [id])
++		"preparar_menu": _preparar_menu()
++		"abrir_arca":
++			jogo.janelas.servico({"tipo": "armazem", "titulo": "Arca do Primarca", "fala": "O que entra na arca não enferruja. Nem a memória.", "npc": jogo.jog.id})
++		"tip_melhoria":
++			var jn = jogo.janelas
++			for it in jogo.jog.inv:
++				if jn.ganho(it) > 0:
++					var g: Control = jn._grade_mochila
++					var mp: Vector2 = g.get_global_rect().position + Vector2(int(it["x"]) * 30 + 14, int(it["y"]) * 30 + 14)
++					get_viewport().warp_mouse(mp)
++					jogo.hud.mostrar_tip(jn.tip_item(it, "mochila")); break
++		"tip_slot":
++			var jn2 = jogo.janelas
++			for a in jn2.alvos_soltar:
++				if is_instance_valid(a) and a.dados.has("slot") and not jogo.jog.equip.has(a.dados["slot"]):
++					get_viewport().warp_mouse(a.get_global_rect().get_center())
++					a.dados["hover"] = true
++					jogo.hud.mostrar_tip(jn2._tip_slot_vazio(a.dados["slot"])); break
+ 		"zoom": jogo.cam.zoom = Vector2(p[2], p[2])
+ 		"sumir_jogador":
+ 			if jogo.views.has(jogo.jog.id): jogo.views[jogo.jog.id].visible = false
+@@ -201,3 +210,31 @@
+ 			Jogador.cmd_skill(jogo.sim, j, Jogador.slot_auto(j), -1, j.pos + dir * 3.0)
+ 		"nada": pass
+ 		"fim": get_tree().quit()
++
++## Equipamento modesto no corpo, peças melhores na mochila, materiais para guardar e alguns itens na arca.
++func _preparar_menu() -> void:
++	var j: Ent = jogo.jog
++	j.nivel = int(args.get("nivel", "14")); j.ouro = 4812
++	var rng := RandomNumberGenerator.new(); rng.seed = 7
++	var por_slot := {}
++	for id in Defs.ITENS:
++		var d: Dictionary = Defs.ITENS[id]
++		if d.get("slot") == null or str(d.get("raridade", "rolada")) != "rolada": continue
++		if Itens.pode_usar(Itens.novo(id), j) != "": continue
++		if Tema.icone_mochila(id) == null and Tema.icone_item(id, true).is_empty(): continue
++		if not por_slot.has(str(d["slot"])): por_slot[str(d["slot"])] = []
++		por_slot[str(d["slot"])].append(id)
++	j.inv.clear(); j.equip.clear(); j.armazem.clear()
++	var vestir := {"arma": "arma", "peito": "peito", "cabeca": "cabeca", "botas": "botas", "anel": "anel1", "luvas": "luvas"}
++	for s in por_slot:
++		var ids: Array = por_slot[s]
++		ids.sort_custom(func(a, b): return int(Defs.ITENS[a].get("nivel", 1)) < int(Defs.ITENS[b].get("nivel", 1)))
++		if vestir.has(s): j.equip[vestir[s]] = Itens.gerar_equip(ids[0], rng, "comum", 1)
++		if s in ["arma", "peito", "calcas", "anel", "amuleto"]:
++			Itens.guardar(j.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, Itens.gerar_equip(ids[-1], rng, "raro", 2))
++	for id in Defs.ITENS:
++		var c := Itens.categoria(Itens.novo(id))
++		if c in ["material", "joia"] and j.inv.size() < 14: Itens.guardar(j.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, Itens.novo(id, 3 if c == "material" else 1))
++		if c == "consumivel" and j.armazem.size() < 6: Itens.guardar(j.armazem, Itens.ARMAZEM_W, Itens.ARMAZEM_H, Itens.novo(id, 5))
++	Regras.recalc_jogador(j)
++	jogo.janelas.atualizar()
