@@ -48,3 +48,23 @@ pesam 40% menos por nível, como pedido.
 Observação para Skills, itens e ícones: `gerar_json.py` quebrava com a raridade `primordial`; agora pula esse item (o jogo
 já o lê de Missões). Ao rodar de novo, entram 3 itens de Missões ainda sem ícone (`livro_dos_vencidos`,
 `faixa_de_linho_rafael`, `pena_que_ficou`); por isso o `itens.json` desta revisão só trocou os números do Elmo.
+
+## Refino com as Lágrimas (+15 = 2,2× o dano ou a defesa base)
+
+Não quebra a curva, então os números ficam como a thread das Lágrimas entregou. Conta com o jogador Humano no nível 12:
+
+| Refino da arma | Golpes para matar um monstro normal | Dano total do jogador | Redução de dano com o conjunto todo refinado |
+|---|---|---|---|
+| +0 | 5,3 | 1,0× | 15% a 17% |
+| +6 (só Angélica, sempre dá certo) | 4,1 | cerca de 1,27× | 19% a 21% |
+| +15 | 3,1 | cerca de 1,6× a 1,7× | 24% a 26% |
+
+O dano do jogador não dobra porque o refino só multiplica o dano da arma, e uma parte do dano vem dos atributos. A
+defesa tem retorno decrescente, então mesmo um conjunto +15 corta pouco mais de um quarto do dano.
+
+- Um +6 devolve a velocidade de abate de antes do +30% de HP, mas custa umas 6 Angélicas por item (cerca de 2 h de spot
+  no nível 10, com 0,26% por abate). É recompensa de quem farmou, não o ponto de partida.
+- Com as falhas (perde 1 ou 2 níveis), levar um item do +6 ao +15 custa em média cerca de **550 Sanguíneas**. Do +6 ao +9
+  são 6 e do +6 ao +12 são 36. No nível 20 o spot dá cerca de 2,7 Sanguíneas por hora, então o +15 fica para o fim de
+  jogo, como no MU.
+- Um chefe da cripta com arma +15 cai em uns 60% do tempo, o que é aceitável para quem gastou centenas de horas nisso.
