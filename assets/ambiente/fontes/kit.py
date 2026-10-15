@@ -188,6 +188,7 @@ def bump(nt, b, height, strength=.4, dist=.05):
 
 # ---------------------------------------------------------------- materiais
 _cache = {}
+EXTRA_GROUND = {}   # pisos definidos em outros módulos (eden_tiles.py): kind -> fn(nt, b, v, w, seed)
 def cached(fn):
     def w(*a, **k):
         key = (fn.__name__, a, tuple(sorted(k.items())))
@@ -358,11 +359,14 @@ def mat_stained_glass(name="vitral", hue=(.9, .06, .03), strength=3):
     b.inputs["Emission Strength"].default_value = strength; b.inputs["Roughness"].default_value = .3
     return m
 
+EXTRA_GROUND = {}
 @cached
 def mat_ground(kind, period, seed=0.0):
     """Materiais de chão periódicos (período = bloco de tiles)."""
     m, nt, b = new_mat(f"chao_{kind}_{seed}")
     v, w = coords(nt, period, seed)
+    if kind in EXTRA_GROUND:       # pisos definidos em outros módulos (eden_tiles.py)
+        EXTRA_GROUND[kind](nt, b, v, w, seed); return m
     if kind in ("calcamento", "laje", "cripta", "capela"):
         sc_ = {"calcamento": 3.6, "laje": 1.7, "cripta": 2.2, "capela": 1.5}[kind]
         rnd_ = .85 if kind == "calcamento" else .35
@@ -555,6 +559,27 @@ def mat_ground(kind, period, seed=0.0):
         L(nt, math_(nt, 'ADD', .01, math_(nt, 'MULTIPLY', scr.outputs[0], .12)), b.inputs["Emission Strength"])
         L(nt, math_(nt, 'ADD', .05, math_(nt, 'MULTIPLY', scr.outputs[0], .8)), b.inputs["Roughness"])
         bump(nt, b, math_(nt, 'ADD', n.outputs["Fac"], math_(nt, 'MULTIPLY', n2.outputs["Fac"], .5)), .25, .02)
+    elif kind == "musgo_lume":   # Novo Éden: musgo escuro com trevo e pontos de seiva acesos (ciano)
+        n = noise(nt, v, w, 1.4, 8, .6, seed)
+        n2 = noise(nt, v, w, 12, 5, .55, seed+4)
+        r = ramp(nt, [(.3, (.005, .02, .013)), (.55, (.014, .045, .028)), (.8, (.03, .08, .048))]); L(nt, n.outputs["Fac"], r.inputs[0])
+        col = mix(nt, r.outputs[0], n2.outputs["Color"], .25, 'OVERLAY')
+        tv = voronoi(nt, v, w, 22, 'F1', seed+5)
+        tr = ramp(nt, [(0, (1, 1, 1)), (.22, (0, 0, 0))]); L(nt, tv.outputs["Distance"], tr.inputs[0])
+        col = mix(nt, col, (.06, .15, .07), math_(nt, 'MULTIPLY', tr.outputs[0], .8))          # tufos de trevo
+        tm = noise(nt, v, w, 2.2, 4, .5, seed+15)
+        tmr = ramp(nt, [(.58, (0, 0, 0)), (.66, (1, 1, 1))]); L(nt, tm.outputs["Fac"], tmr.inputs[0])
+        col = mix(nt, col, (.018, .014, .01), math_(nt, 'MULTIPLY', tmr.outputs[0], .7))           # manchas de terra
+        lv = voronoi(nt, v, w, 6, 'F1', seed+9)
+        lr = ramp(nt, [(0, (1, 1, 1)), (.13, (0, 0, 0))]); L(nt, lv.outputs["Distance"], lr.inputs[0])
+        lm = noise(nt, v, w, 1.8, 3, .5, seed+12)
+        lmr = ramp(nt, [(.4, (0, 0, 0)), (.5, (1, 1, 1))]); L(nt, lm.outputs["Fac"], lmr.inputs[0])
+        glow = math_(nt, 'MULTIPLY', lr.outputs[0], lmr.outputs[0])
+        L(nt, mix(nt, col, (0, .5, .6), glow), b.inputs["Base Color"])
+        b.inputs["Emission Color"].default_value = (0, .8, 1.0, 1)
+        L(nt, math_(nt, 'MULTIPLY', glow, 7.0), b.inputs["Emission Strength"])
+        b.inputs["Roughness"].default_value = .8
+        bump(nt, b, math_(nt, 'ADD', n.outputs["Fac"], math_(nt, 'MULTIPLY', tr.outputs[0], .4)), .4, .04)
     elif kind in ("cinza", "leito"):   # Campos de Cinza / leito seco do Jordão
         n = noise(nt, v, w, 1.3, 10, .62, seed)
         n2 = noise(nt, v, w, 8, 6, .55, seed+4)
@@ -585,7 +610,7 @@ def obj(o, m=None, parent=None, smooth=False, bevel=0.0, segs=2):
 def box(m, loc, size, rot=(0, 0, 0), bevel=.01, parent=None):
     bpy.ops.mesh.primitive_cube_add(location=loc, rotation=[math.radians(r) for r in rot])
     o = bpy.context.object; o.scale = (size[0]/2, size[1]/2, size[2]/2)
-    bpy.ops.object.transform_apply(scale=True)
+    bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     return obj(o, m, parent, bevel=bevel)
 
 def cyl(m, loc, r, depth, rot=(0, 0, 0), verts=16, parent=None, smooth=True, bevel=0.0, r2=None):
@@ -597,7 +622,7 @@ def cyl(m, loc, r, depth, rot=(0, 0, 0), verts=16, parent=None, smooth=True, bev
 
 def sphere(m, loc, scale, parent=None, segs=16):
     bpy.ops.mesh.primitive_uv_sphere_add(segments=segs, ring_count=segs//2, location=loc)
-    o = bpy.context.object; o.scale = scale; bpy.ops.object.transform_apply(scale=True)
+    o = bpy.context.object; o.scale = scale; bpy.ops.object.transform_apply(location=False, rotation=False, scale=True)
     return obj(o, m, parent, True)
 
 def along(m, a, b, r, r2=None, verts=10, parent=None):
