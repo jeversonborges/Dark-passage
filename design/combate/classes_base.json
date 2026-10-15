@@ -14,10 +14,10 @@
       "faccao": "arautos",
       "papel": "suporte de cura e corpo a corpo leve",
       "atributos_iniciais": {
-        "FOR": 22,
-        "AGI": 18,
-        "VIT": 22,
-        "ESP": 28
+        "FOR": 13,
+        "AGI": 11,
+        "VIT": 13,
+        "ESP": 17
       },
       "build_sugerida_por_nivel": {
         "FOR": 1,
@@ -147,10 +147,10 @@
       "faccao": "arautos",
       "papel": "mago de dano continuo e invocador",
       "atributos_iniciais": {
-        "FOR": 14,
-        "AGI": 18,
-        "VIT": 20,
-        "ESP": 38
+        "FOR": 8,
+        "AGI": 11,
+        "VIT": 12,
+        "ESP": 23
       },
       "build_sugerida_por_nivel": {
         "FOR": 0,
@@ -366,7 +366,7 @@
               },
               "especial": {
                 "id": "puxao_de_corrente",
-                "nome": "Pux\u00e3o de Corrente",
+                "nome": "Puxão de Corrente",
                 "recarga": 10.0,
                 "alcance": 5,
                 "puxa_ate_familiar": true,
@@ -404,7 +404,7 @@
               },
               "especial": {
                 "id": "canhao_de_brasa",
-                "nome": "Canh\u00e3o de Brasa",
+                "nome": "Canhão de Brasa",
                 "recarga": 12.0,
                 "alcance": 6,
                 "area_raio": 2.0,
@@ -413,7 +413,7 @@
               },
               "especial_2": {
                 "id": "rugido_da_legiao",
-                "nome": "Rugido da Legi\u00e3o",
+                "nome": "Rugido da Legião",
                 "recarga": 20.0,
                 "area_raio": 3.0,
                 "provoca_s": 3.0,
@@ -450,10 +450,10 @@
       "faccao": "vigilia",
       "papel": "tanque e berserker",
       "atributos_iniciais": {
-        "FOR": 26,
-        "AGI": 14,
-        "VIT": 34,
-        "ESP": 16
+        "FOR": 16,
+        "AGI": 8,
+        "VIT": 20,
+        "ESP": 10
       },
       "build_sugerida_por_nivel": {
         "FOR": 3,
@@ -584,10 +584,10 @@
       "faccao": "arautos",
       "papel": "tanque ofensivo e assassino corpo a corpo",
       "atributos_iniciais": {
-        "FOR": 32,
-        "AGI": 24,
-        "VIT": 22,
-        "ESP": 12
+        "FOR": 19,
+        "AGI": 14,
+        "VIT": 13,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 3,
@@ -708,10 +708,10 @@
       "faccao": "vigilia",
       "papel": "hibrido: tiro a distancia + espada larga corpo a corpo (mudanca do Jefin, 2026-10-04)",
       "atributos_iniciais": {
-        "FOR": 28,
-        "AGI": 30,
-        "VIT": 20,
-        "ESP": 12
+        "FOR": 17,
+        "AGI": 18,
+        "VIT": 12,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 2,
@@ -909,10 +909,10 @@
       "faccao": "vigilia",
       "papel": "suporte, controle e invocacoes mecanicas",
       "atributos_iniciais": {
-        "FOR": 14,
-        "AGI": 24,
-        "VIT": 20,
-        "ESP": 32
+        "FOR": 8,
+        "AGI": 14,
+        "VIT": 12,
+        "ESP": 19
       },
       "build_sugerida_por_nivel": {
         "FOR": 0,
@@ -965,10 +965,10 @@
           "nome": "Torreta Sentinela",
           "nivel": 3,
           "custo": 35,
-          "recarga": 18.0,
+          "recarga": 10.0,
           "invoca": "torreta",
-          "duracao": 15.0,
-          "max": 1,
+          "duracao": 40.0,
+          "max": 2,
           "sensacao": "invocacao"
         },
         {
@@ -1030,6 +1030,30 @@
           },
           "postura": 40,
           "sensacao": "area"
+        },
+        {
+          "id": "tecnomancer_rosario_voltaico",
+          "nome": "Rosário Voltaico",
+          "nivel": 16,
+          "custo": 34,
+          "recarga": 4.0,
+          "conjuracao": 0.35,
+          "mult": 1.6,
+          "alvos_max": 6,
+          "saltos": 5,
+          "queda_por_salto": 0.12,
+          "raio_salto": 3.5,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "nao_repete_alvo": true,
+          "chance_paralisar": 0.15,
+          "paralisar_s": 0.5,
+          "bonus_vs": {
+            "tag:invocacao": 1.15
+          },
+          "postura": 20,
+          "sensacao": "raio",
+          "_doc": "pedido do Jefin (2026-10-11): raio que salta ate 6 alvos. Versao grande do Arco Voltaico. Dano por alvo = mult * (1-queda)^n: 1.60, 1.41, 1.24, 1.09, 0.96, 0.84 (total 7.14x). PROVISORIO ate o Design do combate revisar."
         }
       ],
       "invocacoes": {
@@ -1051,5 +1075,7 @@
     "media_dano_arma": "5 + 1.2*nivel_requerido",
     "spread_min_max": 0.6,
     "defesa_armadura_completa": "1.5*nivel_requerido"
-  }
+  },
+  "peso_por_ponto": 1.6,
+  "_peso_por_ponto": "Pedido do Jefin (2026-10-11): atributos iniciais -40% e cada ponto distribuido vale 1.6 no atributo efetivo. atributo_efetivo = inicial + pontos_distribuidos * 1.6 (itens somam direto, sem o peso). Todas as formulas usam o atributo efetivo. Resultado: comeco mais fraco, e no nivel ~12 fica igual ao balanceamento anterior."
 }

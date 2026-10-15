@@ -12,7 +12,7 @@
         "custo": 18,
         "recarga": 2.2,
         "extra": {
-          "chao_em_chamas_s": 2.0,
+          "chao_em_chamas_s": 3.0,
           "queimadura": {
             "duracao": 2,
             "dano_por_s_mult": 0.15

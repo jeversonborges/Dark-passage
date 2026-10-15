@@ -149,6 +149,14 @@ Ninguém perguntou de onde vinha. O Livro de Óbitos do coveiro tem a resposta: 
 ### Acampamento da Vela (Vigília)
 Montado no teto de vidro da antiga estação de bondes, a única cúpula que a areia não quebrou. Os bondes-veleiros atracam nos trilhos que saem da duna. No centro, a **Vela**: uma lâmpada de arco gigante que o Doutor Anselmo construiu com bobinas de bonde e fé herege. A luz dela queima os Não-Julgados e, por algum motivo que nem ele entende, faz o Amargo assentar no chão em volta, deixando o ar limpo. Por isso o acampamento ainda existe. A Vela come óleo, cobre e paciência.
 
+**Quem mora na cúpula** (NPCs próprios, cada um com sprite próprio a fazer; fichas em `dados/npcs.json`):
+- **Nhá Zulmira**, faroleira cega da Vela. Ficou cega na noite em que ligou o arco e escuta o zumbido para saber se tem Não-Julgado na beira da luz.
+- **Mestre Bento Catraca**, atracador dos bondes-veleiros. Foi ele quem cortou o freio do bonde 7 na Grande Batalha; Odete só segurou o volante.
+- **Dona Celina**, vidraceira de mãos de vidro. Remenda a cúpula com a areia vitrificada dos Campos de Cinza.
+- **Cabo Damião Pé-de-Chumbo**, sentinela do portão. Era guarda da vila militar do silo e escapou do clarão porque estava de costas (ligação com a linha D).
+- **Lindalva**, parteira. Guarda a "lista dos vivos", o contrário da lista de mortos do Simão, e vende tônicos.
+- **Ferrolho**, moleque de recados de três braços que mora nas costelas da cúpula e vende fofoca por parafuso.
+
 ### Capela de São Lázaro (Arautos)
 A igreja da paróquia, enterrada até as janelas do coro. Só a torre e o telhado saem da duna, e os Arautos entram pela rosácea quebrada e descem por escadas de corda até a nave, onde a luz entra verde pelos vitrais cobertos de areia. A cruz da torre foi trocada por uma **trombeta partida em chamas brancas**. Os cultistas bebem água com Amargo de propósito, como comunhão. Anjos e cultistas rezam no altar; os demônios ficam do lado de fora, no cemitério de trás, porque o Comandante Abdiel não os deixa entrar. Eles querem a mesma coisa que a Vigília quer impedir: descer à cripta, arrancar o lacre de chumbo e deixar a quinta trombeta terminar a nota.
 
@@ -174,7 +182,7 @@ Pedida pelo Jefin (11/10/2026). Níveis 4 a 11, as duas facções. Nunca confirm
 
 **A verdade de Simão (ideia do Jefin, 11/10/2026).** Em 1688 o Coro mandou o arcanjo Rafael guardar a quinta trombeta debaixo de uma vila sem nome. Ele tomou o nome de Lázaro, o homem que viu sair do túmulo em Betânia (foi lá que viu Jesus chorar por um humano e entendeu que o fim não era o plano inteiro), e o ofício de coveiro. Em três séculos se afeiçoou aos humanos; "morreu" em 1714, 1803 e 1891 e sempre voltou, porque arcanjo não morre direito. Na meia nota, não conseguiu permitir o fim: na **Batalha do Impasse**, no céu sobre São Lázaro, lutou contra o próprio Coro e segurou a guarda de Zacarias por três segundos, a janela que a Vigília precisou para vazar o chumbo no bocal. O Coro arrancou suas asas; as faixas de linho escondem as cicatrizes nas costas. O Livro da Retirada dos Arautos não fala dele. Eco bíblico: no livro de Tobias, Rafael andou disfarçado de homem ao lado do jovem Tobias; Simão tem carinho pelo Tobias 'Pavio'.
 
-Recompensa de f06: **Elmo de Rafael** (cabeça, único, nível 12): +5 em FOR, AGI, VIT e ESP, +200 de HP e 14% a menos de dano recebido de jogadores. Os números finais são da thread de combate.
+Recompensa de f06: **Elmo de Rafael** (cabeça, único, nível 12): +4 em FOR, AGI, VIT e ESP, +50 de HP e 14% a menos de dano recebido de jogadores (revisão de balanceamento de 15/10/2026; era +5 e +200 de HP).
 
 Flags: `lazaro_segredo_guardado`, `lazaro_pediu_cova` (ele quer que alguém o cubra, uma vez, e ficar), `lazaro_revelado` (a facção vai atrás dele: gancho para o futuro). Objetos novos `andor_padroeiro` e `sepulcro_primeiro` estão marcados `pendente` para a Level design posicionar no mapa.
 
@@ -211,6 +219,10 @@ Asas acorrentadas ao teto por correntes que ele mesmo prendeu para não fugir do
 5. **O deserto (níveis 5 a 12, as duas facções).** Depois da arma (v03/a03), duas linhas correm em paralelo e mandam o jogador para os spots de farm:
    - **Linha D, A Estrela Que Nós Soltamos** (Isaura): a estrela Absinto foi uma bomba humana. Termina no silo, com a Absinto-2.
    - **Linha E, A Legião Sem General** (Corvina): traições dentro dos Arautos e o sumiço de Andras. O último passo exige c02, porque o rastro desce para o porão do abatedouro.
+
+## 6.1 O Livro dos Vencidos (evolução de classe)
+
+Depois que o jogador descobre que Simão é o arcanjo Rafael (f06), ele abre um livro em branco: "Eu enterro todo mundo que cai. Os grandes eu escrevo aqui." Cada chefe de dungeon derrubado aparece no livro. Quando o livro está cheio até a altura do jogador, Simão o chama para fora da cova, como um dia chamaram Lázaro: é a evolução de classe. No nível 150 ele chama (Primeiro Chamado). No 400 o jogador sai sozinho (Segundo Chamado) e ganha a última pena das asas de Rafael. Para Simão, ninguém é chamado por merecer: ele evolui anjos, demônios e cultistas do mesmo jeito que evolui humanos.
 
 ## 7. Como contar: a regra das vozes
 

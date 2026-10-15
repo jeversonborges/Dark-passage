@@ -5,13 +5,20 @@ Uso: python3 simular.py
 """
 import json, os
 D = os.path.dirname(os.path.abspath(__file__))
-C = json.load(open(f"{D}/classes_base.json"))["classes"]
+CB = json.load(open(f"{D}/classes_base.json"))
+C = CB["classes"]
 M = json.load(open(f"{D}/mobs.json"))
 B = json.load(open(f"{D}/chefes.json"))["chefes"]
+# chefes da Torre e da Catacumba (Mata do Granizo) ficam no design da area; entram na conta se o arquivo existir
+_EX = os.path.join(D, "..", "mapas", "mata_do_granizo", "dados.json")
+if os.path.exists(_EX):
+    for _k, _b in json.load(open(_EX)).get("chefes", {}).items():
+        B.setdefault(_k, _b)
 
 def stats(cls, L):
     c = C[cls]; a = dict(c["atributos_iniciais"])
-    for k, v in c["build_sugerida_por_nivel"].items(): a[k] += v * (L - 1)
+    K = CB.get("peso_por_ponto", 1.0)
+    for k, v in c["build_sugerida_por_nivel"].items(): a[k] += v * (L - 1) * K
     return a
 
 def player(cls, L):
@@ -42,9 +49,10 @@ def mitig(deff, Latk): return min(0.7, deff / (deff + 40 + 8 * Latk))
 def hitch(ar, er, dl=0): return max(0.55, min(0.98, 0.90 + 0.25 * (ar - er) / (ar + er) - 0.03 * max(0, dl)))
 
 cb = M["curva_base"]
+def curva(expr, L): return eval(expr, {"L": L})
 def mob(L, arq="normal", aj=None):
     m = M["arquetipos"][arq]; aj = aj or {}
-    hp = (32 + 7*L) * m["hp"] * aj.get("hp", 1)
+    hp = curva(cb["hp"], L) * m["hp"] * aj.get("hp", 1)
     dmg = ((5 + 1.6*L) + (8 + 2.2*L)) / 2 * m["dano"] * aj.get("dano", 1)
     deff = (2 + 1.5*L) * m["defesa"] * aj.get("defesa", 1)
     return dict(hp=hp, dmg=dmg, deff=deff, interval=m["intervalo"], ar=L*4 + 10, er=L*3 + 5)
@@ -69,7 +77,7 @@ for L in [1, 3, 5, 7, 9, 11, 13]:
 
 print("\n=== Chefes (solo, jogador no nivel do chefe, rotacao por classe) ===")
 for bid, b in B.items():
-    L = b["nivel"]; print(f"\n{b['nome']} (nivel {L}, HP {b['hp']}, alvo ~{b['duracao_alvo_s']}s)")
+    L = b["nivel"]; print(f"\n{b['nome']} (nivel {L}, HP {b['hp']}, alvo ~{b.get('duracao_alvo_s', '?')}s)")
     for cls in C:
         p = player(cls, L)
         dps = per_hit(p, L, b["defesa"], L) * hitch(p["ar"], b["nivel"]*3+5) / p["interval"] * ROTS[cls]

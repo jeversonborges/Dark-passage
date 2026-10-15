@@ -1101,18 +1101,128 @@
       "raridade": "unico",
       "nivel": 12,
       "atributos": {
-        "for": 5,
-        "agi": 5,
-        "vit": 5,
-        "esp": 5,
-        "hp": 200
+        "for": 4,
+        "agi": 4,
+        "vit": 4,
+        "esp": 4,
+        "hp": 50
       },
+      "_balanceamento": "2026-10-15: era +5 em tudo e +200 de HP. No nivel 12 o jogador tem 200 a 400 de HP, entao o elmo quase dobrava a vida; os outros unicos do nivel 12 dao 9 a 10 pontos. Agora 16 pontos e +50 de HP: segue o melhor elmo da faixa.",
       "efeito": "Dano recebido de jogadores reduzido em 14%.",
       "descricao": "Elmo de arcanjo em prata escurecida, amassado no lado esquerdo e sem as asas de metal que um dia teve nas têmporas. Ficou enterrado no Primeiro Sepulcro desde a Batalha do Impasse. Simão o desenterrou para você com a mesma pá de sempre.",
       "citacao": {
         "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
         "autor": "Simão"
       }
+    },
+    {
+      "id": "chave_mestra_primarca",
+      "nome": "Chave-Mestra do Primarca",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "raridade": "primordial",
+      "classe": [
+        "tecnomancer"
+      ],
+      "nivel": 1,
+      "dano": [
+        15,
+        28
+      ],
+      "atributos": {
+        "dano": [
+          15,
+          28
+        ],
+        "esp": 8,
+        "vit": 4,
+        "agi": 3,
+        "hp": 40
+      },
+      "_balanceamento": "2026-10-15: era dano 34-56, ESP 30, VIT 15, AGI 10 e +400 de HP num item de nivel 1 (o Tecnomancer nasce com 127 de HP). Agora tem o dano do melhor cajado unico do nivel 10 (Bacula de Femur, 15-28) e cerca de 15 pontos + 40 de HP: forte do 1 ao 15 e superado por drop depois, como toda arma. O que faz dela primordial sao os 5 efeitos, que ficam (um pouco mais baixos). 'dano' tambem no topo porque o jogo so le dali (sem isso a arma batia 3-6).",
+      "efeito": "Coroa de Válvulas: a cada 4º ataque básico, um arco roxo salta do alvo para até 4 inimigos a 4 m (50% do dano). O Primeiro Engenheiro: torretas e invocações causam +25% de dano e duram 50% a mais. Faísca Herege: +15% de dano contra Não-Julgados e servos do Coro. Vela que Não Apaga: abaixo de 25% de vida, escudo de 20% da vida máxima por 6 s (recarga 60 s). Mãos de Mestre: recarga de todas as skills -10%. Vinculada à conta: não se vende, não se troca, não cai.",
+      "efeitos_unicos": [
+        {
+          "id": "coroa_valvulas",
+          "a_cada_ataques": 4,
+          "saltos": 4,
+          "raio_m": 4.0,
+          "mult": 0.5,
+          "elemento": "eletrico"
+        },
+        {
+          "id": "primeiro_engenheiro",
+          "dano_invocacoes": 0.25,
+          "duracao_invocacoes_mult": 1.5
+        },
+        {
+          "id": "faisca_herege",
+          "dano_contra": [
+            "nao_julgados",
+            "coro"
+          ],
+          "bonus": 0.15
+        },
+        {
+          "id": "vela_nao_apaga",
+          "limiar_hp": 0.25,
+          "escudo_hp_max": 0.2,
+          "duracao_s": 6,
+          "recarga_s": 60
+        },
+        {
+          "id": "maos_de_mestre",
+          "valor": 0.1
+        }
+      ],
+      "vinculado": {
+        "conta": "gustavo",
+        "vende": false,
+        "troca": false,
+        "larga": false
+      },
+      "descricao": "REGISTRO DOS ENGENHEIROS HEREGES, FOLHA PRIMEIRA. Antes de haver Vigília, houve um homem com uma chave de válvula na mão. Gustavo, o Primarca, o primeiro de nós, juntou os Engenheiros Hereges no entulho da meia nota e os comandou na Guerra da Heresia, quando o Coro decretou que toda máquina era pecado e todo engenheiro, alvo. Dos grandes líderes daquela guerra, foi o que mais trouxe os seus de volta. Esta é a Chave-Mestra que ele carregava. A válvula do topo só acende roxa na mão de quem veio primeiro. — copiado por Anselmo, aprendiz dele, Ano 31 do Impasse",
+      "citacao": {
+        "texto": "Disseram que acender o que só Deus acendia era heresia. Eu acendi. Depois ensinei vocês.",
+        "autor": "Gustavo, o Primarca"
+      }
+    },
+    {
+      "id": "livro_dos_vencidos",
+      "nome": "Livro dos Vencidos",
+      "tipo": "missao",
+      "pilha": 1,
+      "descricao": "Um livro de capa de couro de coveiro, igual ao Livro de Óbitos, só que em branco no começo. Cada chefe de dungeon que você derruba aparece escrito nele, na letra miúda de Simão, com a data e a causa da morte. Abrir o livro mostra quais chefes ainda faltam para o próximo chamado."
+    },
+    {
+      "id": "faixa_de_linho_rafael",
+      "nome": "Faixa de Linho de Rafael",
+      "tipo": "equipamento",
+      "slot": "acessorio",
+      "raridade": "unico",
+      "nivel": 150,
+      "atributos": {
+        "vit": 20,
+        "esp": 20
+      },
+      "efeito": "Uma vez a cada 10 minutos, ao receber um golpe que mataria, você fica com 1 de vida e recupera 30% dela em 3 s.",
+      "descricao": "Uma das faixas que Simão usava para cobrir as cicatrizes das asas. Ele amarrou no seu pulso no dia do Primeiro Chamado. Cheira a terra molhada."
+    },
+    {
+      "id": "pena_que_ficou",
+      "nome": "A Pena Que Ficou",
+      "tipo": "equipamento",
+      "slot": "amuleto",
+      "raridade": "unico",
+      "nivel": 400,
+      "atributos": {
+        "for": 30,
+        "agi": 30,
+        "vit": 30,
+        "esp": 30
+      },
+      "efeito": "Todo dano recebido é reduzido em 8%. Ao derrotar um chefe, cura todo o grupo em 25%.",
+      "descricao": "A única pena que sobrou das asas de Rafael. Ele guardou por três mil anos dentro da bota. Diz que agora é sua, porque você pagou o mesmo preço por outro caminho."
     }
   ]
 }
