@@ -154,3 +154,41 @@ POOLS_LENDARIOS = {
   "lendario:celeste":  ["bacula_femur", "veu_carpideira"],
   "lendario:zacarias": ["halo_incandescente"],
 }
+
+# ---------- Arte pronta do Jefin (2026-10-15): anéis e túnicas, os itens PADRÃO do jogo ----------
+# A arte vem pintada (assets/icones/fontes/*.png, grade 4x2 lida da esquerda para a direita, de cima para baixo);
+# tools/icones/arte_pronta.py recorta cada peça e gera os ícones. Regra do Jefin: quanto mais bonito o item, mais atributos.
+# Raridade rolada como as outras bases (comum..excelente, opções extras de drops.json); a base já vem forte.
+# bonus_fixo usa as mesmas chaves de Itens.bonus() no jogo (dano_plano, defesa, hp, critico, velocidade_ataque,
+# roubo_de_vida, reduz_dano, dano_magico_extra, ouro, res:{elemento}). peso_drop: os mais bonitos caem menos.
+# Túnicas: armadura de peito de pano, todas as classes; o visual do personagem não muda (só a arma muda).
+ANEIS_SIMPLES = [  # (id, nome, nível, índice na folha, atributos, bonus_fixo, lore)
+ ("aro_ferro_velho", "Aro de Ferro Velho", 1, 0, {"vit":2}, {}, "Batido de um rebite de trilho. Todo mundo em São Lázaro começou com um destes."),
+ ("alianca_cobre_silo", "Aliança de Cobre do Silo", 2, 3, {"vit":2,"esp":1}, {}, "Fio de cobre tirado da fiação do Silo. Esquenta um pouco quando o contador estala."),
+ ("anel_couro_arreio", "Anel de Couro de Arreio", 3, 5, {"agi":3,"for":1}, {}, "Tira de arreio de bonde-veleiro amarrada num aro de lata. Segura firme como corda de vela."),
+ ("anel_osso_cintado", "Anel de Osso Cintado", 4, 7, {"vit":3,"esp":2}, {"hp":10}, "Falange de santo cintada com ferro, para não fugir de volta para o relicário."),
+ ("anel_coroa_espinhos", "Anel da Coroa de Espinhos", 6, 2, {"for":4,"vit":2}, {"dano_plano":1}, "Latão cortado em dentes, como a coroa do Cristo da capela. Machuca quem dá o soco também."),
+ ("anel_luto_negro", "Anel do Luto Negro", 7, 4, {"esp":4,"vit":3}, {"hp":15}, "Azeviche de viúva em aro de ferro. As carpideiras usavam um para cada morto que não levantou."),
+ ("anel_vento_absinto", "Anel do Vento de Absinto", 9, 1, {"agi":5,"esp":3}, {"critico":0.01}, "Prata gravada com o redemoinho que a tempestade faz quando passa pelo Rio Amargo."),
+ ("alianca_ouro_enterrado", "Aliança de Ouro Enterrado", 11, 6, {"for":3,"agi":2,"vit":2,"esp":2}, {"hp":20,"ouro":0.05}, "Achada no quarto andar de uma casa que hoje é porão. A rua de hoje é o telhado de ontem, e o ouro ficou lá embaixo."),
+]
+ANEIS_GEMAS = [
+ ("anel_runas_bobina", "Anel das Runas de Bobina", 7, 1, {"esp":4,"agi":2}, {"hp":15,"dano_magico_extra":2}, "As runas acendem em azul quando passa corrente. Os Tecnomancers dizem que é eletricidade; os padres dizem que não."),
+ ("anel_nao_julgado", "Anel do Não-Julgado", 8, 3, {"vit":5,"for":2}, {"hp":25,"reduz_dano":0.02}, "Obsidiana lacrada com uma caveira que ainda espera o Juízo. Quem usa também aprende a esperar."),
+ ("serpente_rio_amargo", "Serpente do Rio Amargo", 9, 4, {"agi":5,"vit":3}, {"hp":20,"res":{"veneno":0.1}}, "Escamas de bronze verdes do Amargo. Bebeu do rio e não morreu, e agora não solta o dedo."),
+ ("sinete_bispo_violeta", "Sinete do Bispo Violeta", 10, 7, {"esp":6,"vit":3}, {"hp":30,"res":{"sagrado":0.08}}, "Ametista de bispo em bronze velho. Lacrou as últimas indulgências vendidas antes da terceira trombeta."),
+ ("anel_segunda_estrela", "Anel da Segunda Estrela", 11, 5, {"esp":5,"agi":4,"vit":2}, {"hp":35,"critico":0.02}, "Uma safira presa numa estrela de quatro pontas. Dizem que aponta para o Silo, onde a outra estrela ainda dorme."),
+ ("anel_cardeal_carmim", "Anel do Cardeal Carmim", 12, 2, {"for":6,"vit":4}, {"hp":45,"roubo_de_vida":0.02}, "Ouro e rubi de cardeal. O cardeal benzeu a guerra; o anel lembra o gosto."),
+ ("coracao_enxofre", "Coração de Enxofre", 13, 0, {"for":7,"vit":5}, {"hp":55,"dano_plano":3,"res":{"fogo":0.1}}, "Um rubi que bate. Ferro de forja infernal cravado em volta para ele não sair correndo."),
+ ("garra_legiao_blasfema", "Garra da Legião Blasfema", 15, 6, {"for":8,"agi":5,"vit":5}, {"hp":70,"critico":0.03,"velocidade_ataque":0.03}, "Anel de oficial da Legião Blasfema. As garras seguram a gema como seguravam a tropa: até o general sumir."),
+]
+TUNICAS = [  # (id, nome, nível, índice, defesa, atributos, bonus_fixo, lore)
+ ("tunica_saco_peregrino", "Túnica de Saco do Peregrino", 1, 0, 1, {"vit":1}, {}, "Saco de farinha com buraco para a cabeça. Os peregrinos chegavam a São Lázaro vestindo isto e esperança."),
+ ("gibao_batedor_vela", "Gibão do Batedor da Vela", 3, 4, 2, {"agi":2,"vit":1}, {}, "Lona de vela de bonde, costurada em dupla. A bolsa na cintura sempre tem um cartucho e um pedaço de pão."),
+ ("gibao_fivelas_bondeiro", "Gibão de Fivelas do Bondeiro", 5, 1, 3, {"for":2,"vit":2}, {"hp":10}, "Os bondeiros se prendem ao mastro pelas fivelas quando a tempestade vira o bonde de lado."),
+ ("tunica_margem_amarga", "Túnica da Margem Amarga", 7, 6, 4, {"vit":3,"agi":2}, {"hp":20,"res":{"veneno":0.08}}, "Tingida com as folhas retorcidas da beira do rio. O verde não sai, nem fervendo."),
+ ("tunica_vigia_anil", "Túnica do Vigia Anil", 9, 3, 5, {"esp":3,"vit":3}, {"hp":30,"defesa":1}, "Anil e prata de quem ficava acordado na torre esperando o clarão. Viu o clarão. Continua acordado."),
+ ("habito_penitente_carmim", "Hábito do Penitente Carmim", 11, 2, 6, {"for":3,"vit":4}, {"hp":40,"roubo_de_vida":0.01}, "Vermelho de flagelante, com a cruz bordada a ouro. Cada ponto da costura foi uma reza; cada reza, uma chicotada."),
+ ("sobreveste_setimo_selo", "Sobreveste do Sétimo Selo", 13, 5, 7, {"esp":5,"vit":4}, {"hp":50,"dano_magico_extra":3}, "Preta e violeta, com a ametista do sétimo selo no peito. Quem a costurou não quis dizer o que ela abre."),
+ ("alva_juizo_dourado", "Alva do Juízo Dourado", 15, 7, 9, {"for":3,"agi":3,"vit":4,"esp":4}, {"hp":70,"reduz_dano":0.03}, "Veste branca de altar com o sol do Juízo bordado a ouro. Limpa demais para este mundo, e mesmo assim ninguém consegue sujá-la."),
+]

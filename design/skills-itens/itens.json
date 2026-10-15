@@ -202,7 +202,15 @@
    "placas_sino_calcas",
    "placas_sino_botas",
    "anel_prego_caixao",
-   "colar_dentes"
+   "colar_dentes",
+   "aro_ferro_velho",
+   "alianca_cobre_silo",
+   "anel_couro_arreio",
+   "anel_osso_cintado",
+   "anel_coroa_espinhos",
+   "tunica_saco_peregrino",
+   "gibao_batedor_vela",
+   "gibao_fivelas_bondeiro"
   ],
   "equip:faixa2": [
    "espada_sineiro",
@@ -233,7 +241,23 @@
    "juramento_quebrado_calcas",
    "juramento_quebrado_botas",
    "anel_ferro_cripta",
-   "rosario_ossos"
+   "rosario_ossos",
+   "anel_luto_negro",
+   "anel_vento_absinto",
+   "alianca_ouro_enterrado",
+   "anel_runas_bobina",
+   "anel_nao_julgado",
+   "serpente_rio_amargo",
+   "sinete_bispo_violeta",
+   "anel_segunda_estrela",
+   "anel_cardeal_carmim",
+   "coracao_enxofre",
+   "garra_legiao_blasfema",
+   "tunica_margem_amarga",
+   "tunica_vigia_anil",
+   "habito_penitente_carmim",
+   "sobreveste_setimo_selo",
+   "alva_juizo_dourado"
   ],
   "joia:refino": [
    "lagrima_anjo",
@@ -2376,6 +2400,912 @@
     "32": "assets/icones/itens/32/rosario_ossos.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png"
+  },
+  {
+   "id": "aro_ferro_velho",
+   "nome": "Aro de Ferro Velho",
+   "slot": "anel",
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 2
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Batido de um rebite de trilho. Todo mundo em São Lázaro começou com um destes.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 0
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/aro_ferro_velho.png",
+    "40": "assets/icones/itens/40/aro_ferro_velho.png",
+    "32": "assets/icones/itens/32/aro_ferro_velho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/aro_ferro_velho.png"
+  },
+  {
+   "id": "alianca_cobre_silo",
+   "nome": "Aliança de Cobre do Silo",
+   "slot": "anel",
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 2,
+    "esp": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.89,
+   "lore": "Fio de cobre tirado da fiação do Silo. Esquenta um pouco quando o contador estala.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 3
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/alianca_cobre_silo.png",
+    "40": "assets/icones/itens/40/alianca_cobre_silo.png",
+    "32": "assets/icones/itens/32/alianca_cobre_silo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/alianca_cobre_silo.png"
+  },
+  {
+   "id": "anel_couro_arreio",
+   "nome": "Anel de Couro de Arreio",
+   "slot": "anel",
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "agi": 3,
+    "for": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.79,
+   "lore": "Tira de arreio de bonde-veleiro amarrada num aro de lata. Segura firme como corda de vela.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 5
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_couro_arreio.png",
+    "40": "assets/icones/itens/40/anel_couro_arreio.png",
+    "32": "assets/icones/itens/32/anel_couro_arreio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_couro_arreio.png"
+  },
+  {
+   "id": "anel_osso_cintado",
+   "nome": "Anel de Osso Cintado",
+   "slot": "anel",
+   "nivel": 4,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 3,
+    "esp": 2
+   },
+   "bonus_fixo": {
+    "hp": 10
+   },
+   "peso_drop": 0.68,
+   "lore": "Falange de santo cintada com ferro, para não fugir de volta para o relicário.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 7
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_osso_cintado.png",
+    "40": "assets/icones/itens/40/anel_osso_cintado.png",
+    "32": "assets/icones/itens/32/anel_osso_cintado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_osso_cintado.png"
+  },
+  {
+   "id": "anel_coroa_espinhos",
+   "nome": "Anel da Coroa de Espinhos",
+   "slot": "anel",
+   "nivel": 6,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 4,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "dano_plano": 1
+   },
+   "peso_drop": 0.57,
+   "lore": "Latão cortado em dentes, como a coroa do Cristo da capela. Machuca quem dá o soco também.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 2
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_coroa_espinhos.png",
+    "40": "assets/icones/itens/40/anel_coroa_espinhos.png",
+    "32": "assets/icones/itens/32/anel_coroa_espinhos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_coroa_espinhos.png"
+  },
+  {
+   "id": "anel_luto_negro",
+   "nome": "Anel do Luto Negro",
+   "slot": "anel",
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 4,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "hp": 15
+   },
+   "peso_drop": 0.46,
+   "lore": "Azeviche de viúva em aro de ferro. As carpideiras usavam um para cada morto que não levantou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 4
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_luto_negro.png",
+    "40": "assets/icones/itens/40/anel_luto_negro.png",
+    "32": "assets/icones/itens/32/anel_luto_negro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_luto_negro.png"
+  },
+  {
+   "id": "anel_vento_absinto",
+   "nome": "Anel do Vento de Absinto",
+   "slot": "anel",
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "agi": 5,
+    "esp": 3
+   },
+   "bonus_fixo": {
+    "critico": 0.01
+   },
+   "peso_drop": 0.36,
+   "lore": "Prata gravada com o redemoinho que a tempestade faz quando passa pelo Rio Amargo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 1
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_vento_absinto.png",
+    "40": "assets/icones/itens/40/anel_vento_absinto.png",
+    "32": "assets/icones/itens/32/anel_vento_absinto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_vento_absinto.png"
+  },
+  {
+   "id": "alianca_ouro_enterrado",
+   "nome": "Aliança de Ouro Enterrado",
+   "slot": "anel",
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 3,
+    "agi": 2,
+    "vit": 2,
+    "esp": 2
+   },
+   "bonus_fixo": {
+    "hp": 20,
+    "ouro": 0.05
+   },
+   "peso_drop": 0.25,
+   "lore": "Achada no quarto andar de uma casa que hoje é porão. A rua de hoje é o telhado de ontem, e o ouro ficou lá embaixo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 6
+   },
+   "colecao": "aneis_simples",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/alianca_ouro_enterrado.png",
+    "40": "assets/icones/itens/40/alianca_ouro_enterrado.png",
+    "32": "assets/icones/itens/32/alianca_ouro_enterrado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/alianca_ouro_enterrado.png"
+  },
+  {
+   "id": "anel_runas_bobina",
+   "nome": "Anel das Runas de Bobina",
+   "slot": "anel",
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 4,
+    "agi": 2
+   },
+   "bonus_fixo": {
+    "hp": 15,
+    "dano_magico_extra": 2
+   },
+   "peso_drop": 0.5,
+   "lore": "As runas acendem em azul quando passa corrente. Os Tecnomancers dizem que é eletricidade; os padres dizem que não.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 1
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_runas_bobina.png",
+    "40": "assets/icones/itens/40/anel_runas_bobina.png",
+    "32": "assets/icones/itens/32/anel_runas_bobina.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_runas_bobina.png"
+  },
+  {
+   "id": "anel_nao_julgado",
+   "nome": "Anel do Não-Julgado",
+   "slot": "anel",
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 5,
+    "for": 2
+   },
+   "bonus_fixo": {
+    "hp": 25,
+    "reduz_dano": 0.02
+   },
+   "peso_drop": 0.45,
+   "lore": "Obsidiana lacrada com uma caveira que ainda espera o Juízo. Quem usa também aprende a esperar.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 3
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_nao_julgado.png",
+    "40": "assets/icones/itens/40/anel_nao_julgado.png",
+    "32": "assets/icones/itens/32/anel_nao_julgado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_nao_julgado.png"
+  },
+  {
+   "id": "serpente_rio_amargo",
+   "nome": "Serpente do Rio Amargo",
+   "slot": "anel",
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "agi": 5,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "hp": 20,
+    "res": {
+     "veneno": 0.1
+    }
+   },
+   "peso_drop": 0.4,
+   "lore": "Escamas de bronze verdes do Amargo. Bebeu do rio e não morreu, e agora não solta o dedo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 4
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/serpente_rio_amargo.png",
+    "40": "assets/icones/itens/40/serpente_rio_amargo.png",
+    "32": "assets/icones/itens/32/serpente_rio_amargo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/serpente_rio_amargo.png"
+  },
+  {
+   "id": "sinete_bispo_violeta",
+   "nome": "Sinete do Bispo Violeta",
+   "slot": "anel",
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 6,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "hp": 30,
+    "res": {
+     "sagrado": 0.08
+    }
+   },
+   "peso_drop": 0.34,
+   "lore": "Ametista de bispo em bronze velho. Lacrou as últimas indulgências vendidas antes da terceira trombeta.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 7
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/sinete_bispo_violeta.png",
+    "40": "assets/icones/itens/40/sinete_bispo_violeta.png",
+    "32": "assets/icones/itens/32/sinete_bispo_violeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sinete_bispo_violeta.png"
+  },
+  {
+   "id": "anel_segunda_estrela",
+   "nome": "Anel da Segunda Estrela",
+   "slot": "anel",
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 5,
+    "agi": 4,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 35,
+    "critico": 0.02
+   },
+   "peso_drop": 0.28,
+   "lore": "Uma safira presa numa estrela de quatro pontas. Dizem que aponta para o Silo, onde a outra estrela ainda dorme.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 5
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_segunda_estrela.png",
+    "40": "assets/icones/itens/40/anel_segunda_estrela.png",
+    "32": "assets/icones/itens/32/anel_segunda_estrela.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_segunda_estrela.png"
+  },
+  {
+   "id": "anel_cardeal_carmim",
+   "nome": "Anel do Cardeal Carmim",
+   "slot": "anel",
+   "nivel": 12,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 6,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 45,
+    "roubo_de_vida": 0.02
+   },
+   "peso_drop": 0.23,
+   "lore": "Ouro e rubi de cardeal. O cardeal benzeu a guerra; o anel lembra o gosto.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 2
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/anel_cardeal_carmim.png",
+    "40": "assets/icones/itens/40/anel_cardeal_carmim.png",
+    "32": "assets/icones/itens/32/anel_cardeal_carmim.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/anel_cardeal_carmim.png"
+  },
+  {
+   "id": "coracao_enxofre",
+   "nome": "Coração de Enxofre",
+   "slot": "anel",
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 7,
+    "vit": 5
+   },
+   "bonus_fixo": {
+    "hp": 55,
+    "dano_plano": 3,
+    "res": {
+     "fogo": 0.1
+    }
+   },
+   "peso_drop": 0.18,
+   "lore": "Um rubi que bate. Ferro de forja infernal cravado em volta para ele não sair correndo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 0
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/coracao_enxofre.png",
+    "40": "assets/icones/itens/40/coracao_enxofre.png",
+    "32": "assets/icones/itens/32/coracao_enxofre.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coracao_enxofre.png"
+  },
+  {
+   "id": "garra_legiao_blasfema",
+   "nome": "Garra da Legião Blasfema",
+   "slot": "anel",
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 8,
+    "agi": 5,
+    "vit": 5
+   },
+   "bonus_fixo": {
+    "hp": 70,
+    "critico": 0.03,
+    "velocidade_ataque": 0.03
+   },
+   "peso_drop": 0.12,
+   "lore": "Anel de oficial da Legião Blasfema. As garras seguram a gema como seguravam a tropa: até o general sumir.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_gemas.png",
+    "indice": 6
+   },
+   "colecao": "aneis_gemas",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/garra_legiao_blasfema.png",
+    "40": "assets/icones/itens/40/garra_legiao_blasfema.png",
+    "32": "assets/icones/itens/32/garra_legiao_blasfema.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/garra_legiao_blasfema.png"
+  },
+  {
+   "id": "tunica_saco_peregrino",
+   "nome": "Túnica de Saco do Peregrino",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Saco de farinha com buraco para a cabeça. Os peregrinos chegavam a São Lázaro vestindo isto e esperança.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 0
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/tunica_saco_peregrino.png",
+    "40": "assets/icones/itens/40/tunica_saco_peregrino.png",
+    "32": "assets/icones/itens/32/tunica_saco_peregrino.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tunica_saco_peregrino.png"
+  },
+  {
+   "id": "gibao_batedor_vela",
+   "nome": "Gibão do Batedor da Vela",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "agi": 2,
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.89,
+   "lore": "Lona de vela de bonde, costurada em dupla. A bolsa na cintura sempre tem um cartucho e um pedaço de pão.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 4
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/gibao_batedor_vela.png",
+    "40": "assets/icones/itens/40/gibao_batedor_vela.png",
+    "32": "assets/icones/itens/32/gibao_batedor_vela.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gibao_batedor_vela.png"
+  },
+  {
+   "id": "gibao_fivelas_bondeiro",
+   "nome": "Gibão de Fivelas do Bondeiro",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "for": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 10
+   },
+   "peso_drop": 0.79,
+   "lore": "Os bondeiros se prendem ao mastro pelas fivelas quando a tempestade vira o bonde de lado.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 1
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/gibao_fivelas_bondeiro.png",
+    "40": "assets/icones/itens/40/gibao_fivelas_bondeiro.png",
+    "32": "assets/icones/itens/32/gibao_fivelas_bondeiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gibao_fivelas_bondeiro.png"
+  },
+  {
+   "id": "tunica_margem_amarga",
+   "nome": "Túnica da Margem Amarga",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "vit": 3,
+    "agi": 2
+   },
+   "bonus_fixo": {
+    "hp": 20,
+    "res": {
+     "veneno": 0.08
+    }
+   },
+   "peso_drop": 0.68,
+   "lore": "Tingida com as folhas retorcidas da beira do rio. O verde não sai, nem fervendo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 6
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/tunica_margem_amarga.png",
+    "40": "assets/icones/itens/40/tunica_margem_amarga.png",
+    "32": "assets/icones/itens/32/tunica_margem_amarga.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tunica_margem_amarga.png"
+  },
+  {
+   "id": "tunica_vigia_anil",
+   "nome": "Túnica do Vigia Anil",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 5,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "esp": 3,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "hp": 30,
+    "defesa": 1
+   },
+   "peso_drop": 0.57,
+   "lore": "Anil e prata de quem ficava acordado na torre esperando o clarão. Viu o clarão. Continua acordado.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 3
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/tunica_vigia_anil.png",
+    "40": "assets/icones/itens/40/tunica_vigia_anil.png",
+    "32": "assets/icones/itens/32/tunica_vigia_anil.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tunica_vigia_anil.png"
+  },
+  {
+   "id": "habito_penitente_carmim",
+   "nome": "Hábito do Penitente Carmim",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 6,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "for": 3,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 40,
+    "roubo_de_vida": 0.01
+   },
+   "peso_drop": 0.46,
+   "lore": "Vermelho de flagelante, com a cruz bordada a ouro. Cada ponto da costura foi uma reza; cada reza, uma chicotada.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 2
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/habito_penitente_carmim.png",
+    "40": "assets/icones/itens/40/habito_penitente_carmim.png",
+    "32": "assets/icones/itens/32/habito_penitente_carmim.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/habito_penitente_carmim.png"
+  },
+  {
+   "id": "sobreveste_setimo_selo",
+   "nome": "Sobreveste do Sétimo Selo",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 7,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "esp": 5,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 50,
+    "dano_magico_extra": 3
+   },
+   "peso_drop": 0.36,
+   "lore": "Preta e violeta, com a ametista do sétimo selo no peito. Quem a costurou não quis dizer o que ela abre.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 5
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/sobreveste_setimo_selo.png",
+    "40": "assets/icones/itens/40/sobreveste_setimo_selo.png",
+    "32": "assets/icones/itens/32/sobreveste_setimo_selo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sobreveste_setimo_selo.png"
+  },
+  {
+   "id": "alva_juizo_dourado",
+   "nome": "Alva do Juízo Dourado",
+   "slot": "peito",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 9,
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "for": 3,
+    "agi": 3,
+    "vit": 4,
+    "esp": 4
+   },
+   "bonus_fixo": {
+    "hp": 70,
+    "reduz_dano": 0.03
+   },
+   "peso_drop": 0.25,
+   "lore": "Veste branca de altar com o sol do Juízo bordado a ouro. Limpa demais para este mundo, e mesmo assim ninguém consegue sujá-la.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 7
+   },
+   "colecao": "tunicas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/alva_juizo_dourado.png",
+    "40": "assets/icones/itens/40/alva_juizo_dourado.png",
+    "32": "assets/icones/itens/32/alva_juizo_dourado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/alva_juizo_dourado.png"
   },
   {
    "id": "pocao_vida_p",

@@ -80,6 +80,17 @@ for c in I.CONJUNTOS:
             motivo=f"{ {'cabeca':'elmo'}.get(slot, slot) }_{c['peso']}", tint=c["tint"], emissivo=c.get("emissivo"), lore=c["lore"]))
 for a in I.ACESSORIOS:
     a = dict(a); f = a.pop("faixa"); add("acessorio", a, raridade="rolada", tags=[f"equip:faixa{f}"])
+# arte pronta do Jefin: anéis e túnicas padrão (quanto mais bonito, mais atributos e mais raro no drop)
+def peso_drop(i, n): return round(1.0 - 0.75 * i / max(1, n - 1), 2)
+for folha, lista, base_peso in (("aneis_simples", I.ANEIS_SIMPLES, 1.0), ("aneis_gemas", I.ANEIS_GEMAS, 0.5)):
+    for i, (iid, nome, n, idx, at, bf, lore) in enumerate(lista):
+        add("acessorio", dict(id=iid, nome=nome, slot="anel", nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"], grade=[1,1],
+            atributos=at, bonus_fixo=bf, peso_drop=round(base_peso * peso_drop(i, len(lista)), 2), lore=lore,
+            motivo="arte_pronta", arte={"folha": f"assets/icones/fontes/{folha}.png", "indice": idx}, colecao="aneis_gemas" if base_peso < 1 else "aneis_simples"))
+for i, (iid, nome, n, idx, df, at, bf, lore) in enumerate(I.TUNICAS):
+    add("armadura", dict(id=iid, nome=nome, slot="peito", peso="tecido", classes=None, nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"],
+        defesa=df, grade=[2,3], atributos=at, bonus_fixo=bf, peso_drop=peso_drop(i, len(I.TUNICAS)), lore=lore,
+        motivo="arte_pronta", arte={"folha": "assets/icones/fontes/tunicas.png", "indice": idx}, colecao="tunicas"))
 for a in I.CONSUMIVEIS: add("consumivel", dict(a, tags=[a.pop("tag")] if "tag" in a else []))
 for a in I.MATERIAIS: add("material", dict(a, tags=[a.pop("tag")], pilha=99))
 for a in I.JOIAS: add("joia", dict(a, tags=[a.pop("tag")], raridade="excelente", pilha=20))
