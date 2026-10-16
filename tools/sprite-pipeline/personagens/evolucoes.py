@@ -344,83 +344,113 @@ def lorde_das_trevas():
     info.update({"rim": (1, .3, .12), "base": "demonio"}); return arm, info
 
 # ====================================================================== DEMÔNIO → CEIFADOR
+def shadow_mat(name, rgb=(.006,.005,.009), alpha=.95, scale=5.0, cut=.42):
+    """Sombra etérea: quase preta, com bordas que se desfazem em fumaça (alfa por ruído)."""
+    if name in bpy.data.materials: return bpy.data.materials[name]
+    m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; b = nt.nodes["Principled BSDF"]
+    b.inputs["Base Color"].default_value = (*rgb, 1); b.inputs["Roughness"].default_value = 1.0
+    tc = nt.nodes.new("ShaderNodeTexCoord"); nz = nt.nodes.new("ShaderNodeTexNoise")
+    nz.inputs["Scale"].default_value = scale; nz.inputs["Detail"].default_value = 10; nz.inputs["Roughness"].default_value = .65
+    nt.links.new(tc.outputs["Object"], nz.inputs["Vector"])
+    rp = nt.nodes.new("ShaderNodeValToRGB")
+    rp.color_ramp.elements[0].position = cut; rp.color_ramp.elements[0].color = (0, 0, 0, 1)
+    rp.color_ramp.elements[1].position = cut + .14; rp.color_ramp.elements[1].color = (alpha, alpha, alpha, 1)
+    nt.links.new(nz.outputs["Fac"], rp.inputs[0]); nt.links.new(rp.outputs[0], b.inputs["Alpha"])
+    m.blend_method = 'HASHED' if hasattr(m, "blend_method") else None
+    return m
+
+def smoke_strip(name, m, pts, w0, w1, normal, seed=0, wave=.03):
+    """Tira de fumaça/sombra afinando ao longo de uma curva, com ondulação."""
+    rnd = random.Random(seed); bm = bmesh.new(); prev = None; n = len(pts)
+    for i, p in enumerate(pts):
+        t = i/(n-1); d = (pts[min(i+1, n-1)] - pts[max(i-1, 0)]).normalized(); side = d.cross(normal).normalized()
+        w = w0 + (w1 - w0)*t; c = p + side*wave*math.sin(t*7 + seed)
+        pair = (bm.verts.new(c + side*w*rnd.uniform(.8, 1.1)), bm.verts.new(c - side*w*rnd.uniform(.8, 1.1)))
+        if prev: bm.faces.new((prev[0], prev[1], pair[1], pair[0]))
+        prev = pair
+    o = obj_from_bm(name, bm, m); o.modifiers.new("s", 'SOLIDIFY').thickness = .004; _apply_mods(o); return o
+
 def ceifador():
-    """O que colhe a alma antes do Juízo: capuz e manto em farrapos, máscara de crânio, asas de ossos-lâmina
-    sem membrana e uma foice longa de ferro com o fio em brasa. Assassino: some, aparece atrás e corta."""
+    """O que colhe a alma antes do Juízo, feito de sombra: mortalha esfarrapada que se desfaz em fumaça na barra,
+    capuz fundo sem rosto (só dois olhos frios no escuro), asas etéreas de sombra em tiras e uma foice de ferro negro
+    com o fio em luz morta. Assassino: some na própria sombra, aparece atrás e corta."""
+    mat("brasa", (.55,.5,1), emit=(.5,.45,1), strength=7)          # o brilho da classe vira luz morta, fria
+    mat("carne_demoniaca", (.03,.025,.035), 0, .6, dirt=.6, grime=.5)
     arm, info = classes2.demonio()
-    drop("moicano_vermelho", "asa_couro")       # cabeça e asas antigas
-    drop_named("demonio_hand.R", "sobretudo_sem_manga", "demonio_upper_arm.L")
-    leather = mat("couro_negro", (.016,.013,.014)); flesh = mat("carne_demoniaca", (.16,.035,.028))
-    iron = mat("ferro_velho", (.1,.095,.09)); horn = mat("chifre", (.07,.055,.045)); ember = mat("brasa", (1,.4,.08))
-    shroud = mat("mortalha_negra", (.022,.02,.022), 0, .8, dirt=.55, grime=.6)
-    bone = mat("osso_ceifa", (.42,.38,.31), 0, .6, dirt=.5, grime=.6)
-    black = mat("ferro_negro", (.05,.045,.045), 1, .42, dirt=.6, grime=.3)
+    drop("moicano_vermelho", "asa_couro")
+    drop_named("demonio_hand.R", "sobretudo_sem_manga", "demonio_upper_arm.L", "demonio_chest", "demonio_forearm.R", "demonio_hips")
+    leather = mat("couro_negro", (.016,.013,.014)); light = mat("brasa", (.55,.5,1))
+    shroud = mat("mortalha_negra", (.02,.018,.024), 0, .9, dirt=.5, grime=.5)
+    rag = mat("trapo_cinza", (.06,.055,.06), 0, .95, dirt=.45, grime=.6)
+    black = mat("ferro_negro", (.05,.045,.05), 1, .42, dirt=.6, grime=.3)
+    shade = shadow_mat("sombra_eterea"); shade2 = shadow_mat("sombra_fina", alpha=.8, scale=8, cut=.48)
     parts = []
-    # manto em farrapos até o chão, aberto, com tiras soltas
-    m1 = skirt("manto_ceifa", shroud, [(1.5,.19,.13,0), (1.3,.23,.16,.01), (1.0,.25,.18,.02), (.7,.28,.2,.03), (.4,.3,.22,.04), (.1,.34,.25,.05)],
-               open_front=.55, jag=.14, seed=41, folds=11, famp=.09)
-    bind(m1, arm, ["chest","spine","hips","thigh.L","thigh.R","upper_arm.L","upper_arm.R"], power=3); parts.append(m1)
+    # mortalha em várias camadas rasgadas, a barra se desfaz em sombra
+    for nm, m_, rings, of, jag, sd_ in (
+        ("mortalha", shroud, [(1.52,.19,.13,0), (1.3,.24,.17,.01), (1.0,.27,.2,.02), (.7,.3,.22,.03), (.42,.32,.24,.04), (.2,.34,.26,.05)], .5, .16, 41),
+        ("trapos", rag, [(1.46,.2,.14,.005), (1.2,.255,.18,.015), (.95,.28,.21,.02), (.75,.3,.22,.03)], .7, .2, 7)):
+        o_ = skirt(nm, m_, rings, open_front=of, jag=jag, seed=sd_, folds=13, famp=.1)
+        bind(o_, arm, ["chest","spine","hips","thigh.L","thigh.R","upper_arm.L","upper_arm.R"], power=3); parts.append(o_)
     rnd = random.Random(4)
-    for k in range(7):
-        a = math.radians(110 + k*22); x, y = .3*math.cos(a), .22*math.sin(a) + .04
-        t = tabard(f"farrapo{k}", shroud, x, y, .55, .55 - rnd.uniform(.38, .55), .02, seed=k, back=True)
+    for k in range(14):   # farrapos soltos em volta e fumaça saindo da barra até o chão
+        a = math.radians(-70 + k*26); x, y = .31*math.sin(a), -.24*math.cos(a)*(-1 if k > 6 else 1)
+        x, y = .32*math.sin(math.radians(k*25.7)), .25*math.cos(math.radians(k*25.7))
+        t = tabard(f"farrapo{k}", rag if k % 3 else shroud, x, y, .62, .62 - rnd.uniform(.25, .45), .022, seed=k, back=y > 0)
         bind(t, arm, ["hips","thigh.L","thigh.R"], power=2); parts.append(t)
-    # correias cruzadas no peito e cinta com ossos pendurados
-    ch = []
-    for s in (1, -1): ch.append(along("primitive_cube_add", leather, (.16*s,-.15,1.45), (-.12*s,-.16,1.04), .022))
-    ch.append(plate(black, (0,-.17,1.27), (.035,.02,.035), (0,0,45)))
+        p0 = Vector((x*1.05, y*1.05, .28)); sm = smoke_strip(f"fumaca{k}", shade2, [p0 + Vector((x*.3*i/5, y*.3*i/5, -.055*i)) for i in range(6)], .05, .015, Vector((0,0,1)).cross(Vector((x, y, 0))).normalized(), seed=k)
+        bind(sm, arm, ["hips","thigh.L","thigh.R"], power=2); parts.append(sm)
+    # cinta de trapo com fivela de ferro negro e correias cruzadas
+    ch = [along("primitive_cube_add", leather, (.16*s,-.15,1.45), (-.12*s,-.16,1.04), .02) for s in (1, -1)]
+    ch.append(plate(black, (0,-.17,1.26), (.03,.018,.03), (0,0,45)))
     parts.append(rigid(ch, arm, "chest"))
-    hp = [prim("primitive_torus_add", leather, (0,0,.98), (1,.8,1.4), major_radius=.19, minor_radius=.018)]
-    for k in range(5):
-        x = -.15 + .075*k
-        hp.append(prim("primitive_uv_sphere_add", bone, (x, -.17 + abs(x)*.25, .9), (.022,.018,.03), segments=8, ring_count=6))
-    parts.append(rigid(hp, arm, "hips"))
-    # braçadeira de lâminas no antebraço esquerdo
-    o, ax, up, sd = bone_frame("forearm.L")
-    parts.append(rigid([along("primitive_cone_add", black, o + ax*.04, o + ax*.18, 1, radius1=.062, radius2=.052, vertices=10)] +
-                       [along("primitive_cone_add", black, o + ax*(.06 + .05*k) + Vector((0,.05,0)), o + ax*(.11 + .05*k) + Vector((0,.15,.03)), 1, radius1=.012, radius2=0, vertices=4) for k in range(3)], arm, "forearm.L"))
-    # capuz fundo com máscara de crânio cornudo e olhos de brasa
-    hd = [head_base(bone, (.072,.082,.1)),
-          cowl("capuz_ceifa", shroud, seed=41, sc=1.05),
-          prim("primitive_uv_sphere_add", bone, (0,-.07,1.61), (.05,.04,.035))]
+    parts.append(rigid([prim("primitive_torus_add", rag, (0,0,.98), (1,.8,1.6), major_radius=.19, minor_radius=.02)], arm, "hips"))
+    # braços envoltos em ataduras sujas
+    for n in "LR":
+        o, ax, up, sd = bone_frame(f"forearm.{n}"); w_ = []
+        for k in range(6):
+            r_ = prim("primitive_torus_add", rag, o + ax*(.03 + .03*k), (1,1,1), major_radius=.056, minor_radius=.008); r_.rotation_euler = ax.to_track_quat('Z','Y').to_euler(); r_.rotation_euler.x += .25*(k % 2); w_.append(r_)
+        w_.append(along("primitive_cube_add", rag, o + ax*.18, o + ax*.18 + Vector((0,.02,-.2)), .012))
+        parts.append(rigid(w_, arm, f"forearm.{n}"))
+    # cabeça: capuz fundo, por dentro só escuro; dois olhos frios e fumaça escorrendo deles
+    hd = [head_base(mat("vazio", (.0,.0,.0), 0, 1, dirt=1, grime=0), (.07,.08,.095)),
+          cowl("capuz_ceifa", shroud, seed=41, sc=1.08)]
+    hd.append(skirt("capuz_trapo", rag, [(1.5,.19,.16,.02), (1.4,.24,.2,.03), (1.32,.27,.21,.03)], open_front=.6, jag=.06, seed=9, folds=8, famp=.08))
     for s in (1, -1):
-        hd.append(prim("primitive_uv_sphere_add", leather, (.03*s,-.088,1.69), (.022,.012,.016)))
-        hd.append(prim("primitive_uv_sphere_add", ember, (.03*s,-.096,1.688), (.008,.005,.006)))
-        hd += curve_tube(horn, bezier((.06*s,-.05,1.79), (.1*s,-.08,1.86), (.12*s,-.06,1.95), (.1*s,.0,2.02), 5), .02, .003, 6)
-    for k in range(5): hd.append(prim("primitive_cube_add", bone, (-.024 + .012*k,-.104,1.6), (.004,.004,.012)))
+        hd.append(prim("primitive_uv_sphere_add", light, (.028*s,-.085,1.69), (.011,.005,.006)))
+        hd.append(smoke_strip(f"lagrima_sombra{s}", shade2, [Vector((.028*s,-.088,1.68 - .03*i)) + Vector((.004*i*s, -.004*i, 0)) for i in range(5)], .008, .002, Vector((0,1,0)), seed=3 + s))
     parts.append(rigid(hd, arm, "head"))
-    # asas de ossos-lâmina: dedos longos de osso com lâminas de ferro negro e farrapos presos
+    # asas etéreas de sombra: muitas tiras longas de fumaça abrindo em leque, sem osso nenhum, presas às asas do esqueleto
     for side in (1, -1):
-        n = "L" if side > 0 else "R"
-        root = P(f"wing.{n}"); el = Vector((.32*side, .32, 1.86)); wr = Vector((.6*side, .48, 1.8))
-        tips = [Vector((1.08*side, .56, 1.7)), Vector((1.1*side, .62, 1.3)), Vector((.9*side, .6, .95)), Vector((.62*side, .5, .74))]
-        wb = [along("primitive_cylinder_add", bone, root, el, .028, vertices=8), along("primitive_cylinder_add", bone, el, wr, .024, vertices=8),
-              prim("primitive_uv_sphere_add", bone, el, (.034,.034,.034)), prim("primitive_uv_sphere_add", bone, wr, (.03,.03,.03))]
-        for i, t in enumerate(tips):
-            mid = wr.lerp(t, .4) + Vector((0, .03, .03))
-            wb += curve_tube(bone, [wr, mid, mid.lerp(t, .5)], .022, .012, 6)
-            bl_ = along("primitive_cone_add", black, mid, t, 1, radius1=.05, radius2=0, vertices=4)
-            bl_.scale = (.05, .012, (t - mid).length/2); wb.append(bl_)
-        wb.append(along("primitive_cone_add", black, el, el + Vector((.04*side, -.03, .16)), 1, radius1=.024, radius2=0, vertices=5))
+        n = "L" if side > 0 else "R"; root = P(f"wing.{n}"); wb = []
+        rnd = random.Random(10 + side)
+        for i in range(13):
+            t = i/12; ang = math.radians(78 - 112*t)
+            dirv = Vector((side*math.cos(ang), .35 + .15*t, math.sin(ang))).normalized()
+            ln = .95 + .35*math.sin(math.pi*t) + rnd.uniform(-.1, .1)
+            p0 = root + Vector((.03*side, .02, .02))
+            mid = p0 + dirv*ln*.5 + Vector((0, .08, .06*(1 - t)))
+            tip = p0 + dirv*ln + Vector((0, .12, -.12*t))
+            pts = [bezier(p0, p0.lerp(mid, .6), mid, tip, 8)][0]
+            nrm = Vector((0, 1, 0)).cross(dirv).cross(dirv).normalized()
+            wb.append(smoke_strip(f"asa_sombra{n}{i}", shade if i % 3 else shade2, pts, .055 + .03*math.sin(math.pi*t), .004, Vector((-.2*side, 1, .1)).normalized(), seed=i + 5*side, wave=.04))
         parts.append(rigid(wb, arm, f"wing.{n}"))
-    # foice longa: cabo de ferro com anéis, lâmina curva larga com o fio em brasa
+    # foice longa de ferro negro com o fio em luz morta, cabo enrolado em trapos
     fr, bd, g = weapon_frame(); o, ax, up, sd = fr; perp = bd.cross(sd).normalized()
     w = [along("primitive_cylinder_add", black, g - bd*.55, g + bd*.95, .017, vertices=8),
          along("primitive_cone_add", black, g - bd*.55, g - bd*.68, 1, radius1=.02, radius2=0, vertices=5)]
-    for k in range(4):
-        r_ = prim("primitive_torus_add", iron, g + bd*(-.35 + .32*k), (1,1,1), major_radius=.021, minor_radius=.006)
-        r_.rotation_euler = bd.to_track_quat('Z','Y').to_euler(); w.append(r_)
-    top = g + bd*.95; w.append(prim("primitive_uv_sphere_add", bone, top, (.045,.04,.05)))
-    pts = [top + (-perp*math.sin(a)*.62 + bd*(math.cos(a) - 1)*.35 + bd*.02) for a in [k*.14 for k in range(14)]]
-    w.append(blade_mesh("foice", black, pts, [.035 + .06*math.sin(math.pi*k/13) if k < 13 else 0 for k in range(14)], sd, .012))
-    wid = [.035 + .06*math.sin(math.pi*k/13) if k < 13 else 0 for k in range(14)]
+    for k in range(5): w.append(along("primitive_cylinder_add", rag, g + bd*(-.4 + .25*k), g + bd*(-.34 + .25*k), .022, vertices=8))
+    top = g + bd*.95; w.append(plate(black, top, (.03,.03,.04)))
+    pts = [top + (-perp*math.sin(a)*.66 + bd*(math.cos(a) - 1)*.36 + bd*.02) for a in [k*.14 for k in range(14)]]
+    wid = [.035 + .065*math.sin(math.pi*k/13) if k < 13 else 0 for k in range(14)]
+    w.append(blade_mesh("foice", black, pts, wid, sd, .012))
     edge = []
-    for i, p_ in enumerate(pts):  # fio de brasa na borda de fora da lâmina
+    for i, p_ in enumerate(pts):
         d_ = (pts[min(i+1, 13)] - pts[max(i-1, 0)]).normalized(); edge.append(p_ - d_.cross(sd).normalized()*wid[i])
-    w += [along("primitive_cube_add", ember, edge[k], edge[k+1], .005) for k in range(1, 13)]
+    w += [along("primitive_cube_add", light, edge[k], edge[k+1], .004) for k in range(1, 13)]
+    w.append(smoke_strip("foice_fumaca", shade2, [top + Vector((0, .0, -.04*i)) + sd*.01*i for i in range(6)], .03, .005, perp, seed=2))
     parts.append(rigid(w, arm, "hand.R"))
     grow(arm, 1.03)
-    info.update({"rim": (1, .22, .14), "base": "demonio"}); return arm, info
+    info.update({"rim": (.38, .3, .62), "base": "demonio"}); return arm, info
 
 # ====================================================================== CULTISTA → ARQUIMAGO
 def arquimago():
@@ -579,6 +609,66 @@ def profeta_do_amargo():
     fx = rigid([prim("primitive_uv_sphere_add", burst, c, (.12,.12,.12)),
                 along("primitive_cone_add", burst, c, c + bd*.55, 1, radius1=.12, radius2=0, vertices=8)], arm, "hand.R")
     fx.name = "rajada"; info["flash"] = fx
+    # asas de mariposa podres nas costas (dois pares), membrana manchada, rasgada e furada, nervuras escuras
+    wing_m = mat("asa_mariposa_podre", (.2,.17,.11), 0, .9, dirt=.35, grime=.4)
+    wing_d = mat("asa_mariposa_mancha", (.08,.07,.05), 0, .9, dirt=.5, grime=.3)
+    vein = mat("nervura_podre", (.05,.045,.03), 0, .7, dirt=.6, grime=.2)
+    def moth_wing(side, ax_dir, length, spread, width_k, seed):
+        rnd = random.Random(seed); root = Vector((.07*side, .2, 1.38))
+        e1 = Vector(ax_dir).normalized(); e2 = e1.cross(Vector((0, -1, 0))).normalized()
+        if e2.z < 0: e2 = -e2
+        NU, NV = 22, 9; grid = []; bm = bmesh.new()
+        for i in range(NU + 1):
+            u = i/NU; th = (u - .5)*spread
+            R = length*(math.sin(math.pi*u)**.55)*(1 + .06*math.sin(u*31 + seed))*(1 - .25*abs(u - .62))
+            row = []
+            for j in range(NV + 1):
+                v = j/NV; r = R*v
+                p = root + e1*(r*math.cos(th)) + e2*(r*math.sin(th)*width_k) + Vector((0, .1*v*v + .03*math.sin(u*7)*v, 0))
+                row.append(bm.verts.new(p))
+            grid.append(row)
+        spots = []
+        for i in range(NU):
+            for j in range(NV):
+                edge = j >= NV - 1; hole = rnd.random() < (.35 if edge else (.06 if j >= NV - 3 else .0))
+                if hole: continue
+                f = bm.faces.new((grid[i][j], grid[i+1][j], grid[i+1][j+1], grid[i][j+1]))
+                f.material_index = 1 if ((i - NU*.6)**2/9 + (j - NV*.62)**2 < 1.6 or rnd.random() < .08) else 0
+        G = [[v.co.copy() for v in row] for row in grid]
+        o = obj_from_bm(f"asa_mariposa{side}{seed}", bm, wing_m); o.data.materials.append(wing_d)
+        o.modifiers.new("s", 'SOLIDIFY').thickness = .006; _apply_mods(o)
+        out = [o]
+        for i in range(2, NU, 3):   # nervuras
+            pts = [G[i][j] + Vector((0, -.006, 0)) for j in range(0, NV + 1, 3)]
+            out += curve_tube(vein, pts, .006, .002, 4)
+        ci = int(NU*.6); cj = int(NV*.62); c = G[ci][cj] + Vector((0, -.01, 0))   # olho falso verde no meio da asa
+        out.append(prim("primitive_torus_add", amargo, c, (1,1,1), (90,0,0), major_radius=.04*length, minor_radius=.006))
+        return out
+    wg = []
+    for side in (1, -1):
+        wg += moth_wing(side, (side*.75, .25, .9), .95, 1.25, 1.0, 3 + side)        # par de cima, grande
+        wg += moth_wing(side, (side*.85, .3, -.45), .6, 1.0, .9, 7 + side)          # par de baixo, menor
+    parts.append(rigid(wg, arm, "chest"))
+    # halo da podridão: aro de ferro enferrujado atrás da cabeça com três chaminés soltando fumaça verde e um enxame de moscas
+    fume = shadow_mat("fumaca_amarga", rgb=(.04,.06,.025), alpha=.85, scale=7, cut=.45)
+    hc = Vector((0, .16, 1.86)); hl = [prim("primitive_torus_add", rust, hc, (1,1,1), (78,0,0), major_radius=.24, minor_radius=.02, major_segments=40, minor_segments=8)]
+    Rm = Matrix.Rotation(math.radians(78), 3, 'X')
+    for k in range(12):   # pregos e argolas no aro
+        a = 2*math.pi*k/12; p = hc + Rm @ Vector((.24*math.cos(a), .24*math.sin(a), 0)); d = (p - hc).normalized()
+        hl.append(along("primitive_cone_add", rust, p, p + d*.05, 1, radius1=.008, radius2=0, vertices=4))
+    for a in (math.radians(55), math.radians(90), math.radians(125)):
+        p = hc + Rm @ Vector((.24*math.cos(a), .24*math.sin(a), 0))
+        hl.append(along("primitive_cylinder_add", lead, p, p + Vector((0, 0, .1)), .02, vertices=8))
+        hl.append(along("primitive_cylinder_add", rust, p + Vector((0, 0, .1)), p + Vector((0, 0, .115)), .027, vertices=8))
+        hl.append(prim("primitive_uv_sphere_add", amargo, p + Vector((0, 0, .11)), (.012,.012,.006)))
+        hl.append(smoke_strip(f"fumo{a:.1f}", fume, [p + Vector((.02*math.sin(i*1.3), .015*i, .12 + .07*i)) for i in range(7)], .02, .05, Vector((0, 1, 0)), seed=int(a*10), wave=.02))
+    flies = mat("mosca", (.01,.01,.008), 0, .4, dirt=1, grime=0)
+    rnd = random.Random(66)
+    for k in range(36):
+        a = rnd.uniform(0, 2*math.pi); r = rnd.uniform(.2, .45)
+        p = hc + Vector((r*math.cos(a), rnd.uniform(-.15, .15), r*math.sin(a)*.8))
+        hl.append(prim("primitive_uv_sphere_add", flies, p, (.008,.006,.006), segments=6, ring_count=4))
+    parts.append(rigid(hl, arm, "head"))
     grow(arm, 1.04)
     info.update({"rim": (.3, .5, .2), "base": "cultista"}); return arm, info
 
@@ -869,9 +959,38 @@ def abominacao():
         fa += curve_tube(acid, pts, .005, .002, 5)
     parts.append(rigid(fa, arm, "forearm.R"))
     for o_ in [o_ for o_ in bpy.data.objects if o_.name.startswith("mutante_hand.R")]: bpy.data.objects.remove(o_, do_unlink=True)
-    # braço mutado esquerdo ainda maior
-    for o_ in [o_ for o_ in bpy.data.objects if o_.name.startswith(("mutante_forearm.L", "mutante_hand.L", "braco.L"))]:
-        xform(o_, scl(1.15), P("forearm.L"))
+    # no lugar do braço mutado: um feixe de tentáculos de carne saindo do ombro, com ventosas e pontas de ácido
+    drop_named("braco.L", "mutante_upper_arm.L", "mutante_forearm.L", "mutante_hand.L")
+    sh = P("upper_arm.L"); el = P("forearm.L"); wr = P("hand.L"); dv = (wr - sh).normalized()
+    stump = [prim("primitive_uv_sphere_add", flesh, sh + Vector((.04,0,0)), (.16,.15,.15), segments=16, ring_count=10),
+             prim("primitive_uv_sphere_add", bruise, sh + Vector((.08,-.06,.06)), (.07,.07,.06))]
+    for k in range(4):
+        a_ = 2*math.pi*k/4 + .3
+        stump.append(prim("primitive_uv_sphere_add", acid, sh + Vector((.1 + .05*math.cos(a_), .1*math.sin(a_), .02 + .06*math.cos(a_))), (.022,.022,.022), segments=8, ring_count=5))
+    parts.append(rigid(stump, arm, "upper_arm.L"))
+    tent = mat("tentaculo", (.13,.05,.08), 0, .35, dirt=.6, grime=.3)
+    rnd = random.Random(33)
+    specs = [(.0, .0, 1.4, .085), (.06, -.07, 1.1, .068), (-.05, .08, 1.25, .072), (.04, .09, .9, .055), (-.03, -.09, 1.05, .058)]
+    for i, (oy, oz, ln, r0) in enumerate(specs):
+        base_ = sh + Vector((.1, oy, oz)); a_ = 2*math.pi*i/5 + .4; side = Vector((.3*math.cos(a_), math.cos(a_), math.sin(a_)))
+        pts = []
+        for j in range(13):
+            t = j/12
+            c = base_ + dv*ln*t + side.normalized()*(.3*t + .07*math.sin(t*math.pi*2.2 + i)) + Vector((0, 0, -.12*t*t))
+            if t > .75: c += Vector((.05*math.sin(i + t*9), .05*math.cos(i + t*9), .04*(t - .75)*4))   # ponta enrolando
+            pts.append(c)
+        tb = []
+        for j in range(12):
+            r = r0*(1 - j/12)**.8 + .006
+            tb.append(along("primitive_cylinder_add", tent, pts[j], pts[j+1], r, vertices=12))
+            tb.append(prim("primitive_uv_sphere_add", tent, pts[j+1], (r,)*3, segments=12, ring_count=6))
+            if 1 < j < 11:   # ventosas na parte de baixo
+                dn = (pts[j+1] - pts[j]).cross(Vector((0, 1, 0))).normalized()
+                if dn.z > 0: dn = -dn
+                tb.append(prim("primitive_uv_sphere_add", bone, pts[j] + dn*r*.9, (r*.35, r*.35, r*.2), segments=8, ring_count=4))
+        tb.append(along("primitive_cone_add", acid, pts[-1], pts[-1] + (pts[-1] - pts[-2]).normalized()*.06, 1, radius1=.012, radius2=0, vertices=6))
+        for j in (3, 7): tb += curve_tube(acid, [pts[j], pts[j].lerp(pts[j+2], .5) + Vector((0, 0, .01)), pts[j+2]], .004, .002, 4)
+        parts.append(rigid(tb, arm, "upper_arm.L"))
     grow(arm, 1.16)
     info.update({"base": "mutante"}); return arm, info
 
