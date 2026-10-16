@@ -1,0 +1,1163 @@
+{
+ "monstros": [
+  {
+   "id": "ibis_de_thoth",
+   "nome": "Íbis de Thoth",
+   "tipo": "normal",
+   "locais": [
+    "margem_papiro"
+   ],
+   "descricao": "As íbis de Thoth pescam no juncal desde antes das pirâmides; só bicam quem chega perto do ninho.",
+   "aparencia": "Circula a 2 tiles e mergulha. Neutra: só ataca quem bate.",
+   "drops_missao": [
+    {
+     "item": "pena_de_ibis",
+     "chance": 0.4,
+     "missao": "eg_k03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Íbis",
+     "texto": "Thoth tinha cabeça de íbis porque a íbis anda com o bico no chão, como quem lê."
+    }
+   ],
+   "nivel": [
+    50,
+    52
+   ]
+  },
+  {
+   "id": "crocodilo_do_nilo",
+   "nome": "Crocodilo do Nilo",
+   "tipo": "normal",
+   "locais": [
+    "faium",
+    "margem_papiro"
+   ],
+   "descricao": "Tomam sol no lodo da margem; o Nilo voltou e eles voltaram junto.",
+   "aparencia": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ],
+   "nivel": [
+    50,
+    64
+   ]
+  },
+  {
+   "id": "crocodilo_gigante",
+   "nome": "Crocodilo Gigante",
+   "tipo": "normal",
+   "locais": [
+    "catarata",
+    "faium"
+   ],
+   "descricao": "Os velhos machos da catarata e de Méris; defendem o pedaço de água que é deles.",
+   "aparencia": "Rabada em círculo empurra. Territorial.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Crocodilo Gigante",
+     "texto": "Os velhos machos da catarata e de Méris; defendem o pedaço de água que é deles."
+    }
+   ],
+   "nivel": [
+    62,
+    69
+   ]
+  },
+  {
+   "id": "escaravelho_sagrado",
+   "nome": "Escaravelho Sagrado",
+   "tipo": "normal",
+   "locais": [
+    "avenida_esfinges",
+    "campos_cheia",
+    "vila_artesaos"
+   ],
+   "descricao": "Rolam bolas de lodo pelos campos como Khepri rola o sol; ninguém mexe com eles, por respeito e por medo.",
+   "aparencia": "Neutro. Joga a bola de lodo (lentidão) e foge para a bola.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Khepri",
+     "texto": "Khepri, 'o que vem a ser'. O sol nasce porque um besouro o empurra. Neste ano 31 o besouro está cansado."
+    }
+   ],
+   "nivel": [
+    50,
+    56
+   ]
+  },
+  {
+   "id": "escaravelho_carniceiro",
+   "nome": "Escaravelho Carniceiro",
+   "tipo": "normal",
+   "locais": [
+    "campos_cheia",
+    "sacara"
+   ],
+   "descricao": "Os escaravelhos que os embalsamadores usavam para limpar os ossos; acharam as múmias de novo.",
+   "aparencia": "Sangramento; deixa um enxame no chão a cada 6 s.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escaravelho Carniceiro",
+     "texto": "Os escaravelhos que os embalsamadores usavam para limpar os ossos; acharam as múmias de novo."
+    }
+   ],
+   "nivel": [
+    51,
+    58
+   ]
+  },
+  {
+   "id": "escaravelho_rei",
+   "nome": "Escaravelho-Rei",
+   "tipo": "elite",
+   "locais": [
+    "gize"
+   ],
+   "descricao": "O escaravelho de lápis que guarda o ninho debaixo da escavação; os escavadores juram que ele tem nome.",
+   "aparencia": "Elite do spot. Disco solar em círculo; chama o ninho na metade da vida.",
+   "drops_missao": [
+    {
+     "item": "lampada_de_dendera",
+     "chance": 0.5,
+     "missao": "eg_v04"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escaravelho-Rei",
+     "texto": "O escaravelho de lápis que guarda o ninho debaixo da escavação; os escavadores juram que ele tem nome."
+    }
+   ],
+   "nivel": [
+    58,
+    64
+   ]
+  },
+  {
+   "id": "esfinge_carneiro",
+   "nome": "Esfinge de Carneiro",
+   "tipo": "normal",
+   "locais": [
+    "avenida_esfinges"
+   ],
+   "descricao": "As esfinges da avenida acordaram com a quarta trombeta e guardam a calçada de Amon; quem anda no meio é deixado em paz.",
+   "aparencia": "Territorial e lenta; investida em linha que empurra. Resiste a físico.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "diario_dalva",
+     "titulo": "Avenida",
+     "texto": "Duas fileiras de esfinges de carneiro, uma para cada lado, do templo de Ptah até Karnak. Vimos uma virar a cabeça. Ninguém mais anda fora da calçada."
+    }
+   ],
+   "nivel": [
+    53,
+    58
+   ]
+  },
+  {
+   "id": "mumia_operaria",
+   "nome": "Múmia Operária",
+   "tipo": "normal",
+   "locais": [
+    "gize",
+    "sacara",
+    "vila_artesaos"
+   ],
+   "descricao": "Os artesãos que cavaram as tumbas levantaram quando o coração do Faraó bateu; ainda tentam terminar o turno.",
+   "aparencia": "Lenta e teimosa; joga faixas de linho que deixam lento.",
+   "drops_missao": [
+    {
+     "item": "ostraco_de_faltas",
+     "chance": 0.3,
+     "missao": "eg_k08"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "ostraco_vila",
+     "titulo": "Lista de faltas",
+     "texto": "'Neferhotep: ausente, embalsamando o irmão. Hay: ausente, morto.' Ano 31: Hay voltou ao trabalho."
+    }
+   ],
+   "nivel": [
+    52,
+    63
+   ]
+  },
+  {
+   "id": "sacerdote_mumia",
+   "nome": "Sacerdote Mumificado",
+   "tipo": "normal",
+   "locais": [
+    "casa_vida",
+    "karnak",
+    "lago_sagrado",
+    "necropole"
+   ],
+   "descricao": "Os sacerdotes do rito de abertura da boca ainda rezam pelos mortos; defendem os textos que leem.",
+   "aparencia": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "drops_missao": [
+    {
+     "item": "vaso_canopico_lacrado",
+     "chance": 0.3,
+     "missao": "eg_a03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Sacerdote Mumificado",
+     "texto": "Os sacerdotes do rito de abertura da boca ainda rezam pelos mortos; defendem os textos que leem."
+    }
+   ],
+   "nivel": [
+    56,
+    70
+   ]
+  },
+  {
+   "id": "guardiao_mumia",
+   "nome": "Guardião Mumificado",
+   "tipo": "normal",
+   "locais": [
+    "gize",
+    "necropole"
+   ],
+   "descricao": "Os guardas da necrópole juraram defender o sono do rei; o rei acordou e eles continuam de guarda.",
+   "aparencia": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "drops_missao": [
+    {
+     "item": "pilar_djed_de_bronze",
+     "chance": 0.25,
+     "missao": "eg_v03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Guardião Mumificado",
+     "texto": "Os guardas da necrópole juraram defender o sono do rei; o rei acordou e eles continuam de guarda."
+    }
+   ],
+   "nivel": [
+    60,
+    70
+   ]
+  },
+  {
+   "id": "anubis_sentinela",
+   "nome": "Anúbis Sentinela",
+   "tipo": "normal",
+   "locais": [
+    "hatshepsut",
+    "karnak",
+    "necropole",
+    "vale_reis"
+   ],
+   "descricao": "Os chacais de Anúbis voltaram às portas dos templos e das tumbas; só deixam passar quem não toca em nada.",
+   "aparencia": "Alcance de lança; estocada em linha.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Anúbis Sentinela",
+     "texto": "Os chacais de Anúbis voltaram às portas dos templos e das tumbas; só deixam passar quem não toca em nada."
+    }
+   ],
+   "nivel": [
+    56,
+    70
+   ]
+  },
+  {
+   "id": "anubis_guardiao",
+   "nome": "Anúbis Guardião",
+   "tipo": "normal",
+   "locais": [
+    "vale_reis"
+   ],
+   "descricao": "A guarda de honra do Vale dos Reis; foram eles que deixaram os escavadores entrarem na tumba sem cartucho, e ninguém sabe por quê.",
+   "aparencia": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Anúbis Guardião",
+     "texto": "A guarda de honra do Vale dos Reis; foram eles que deixaram os escavadores entrarem na tumba sem cartucho, e ninguém sabe por quê."
+    }
+   ],
+   "nivel": [
+    64,
+    70
+   ]
+  },
+  {
+   "id": "sobekita",
+   "nome": "Sobekita",
+   "tipo": "normal",
+   "locais": [
+    "faium",
+    "lago_sagrado"
+   ],
+   "descricao": "Os guardiões de Sobek ainda vigiam as águas sagradas; atacam quem pisa no lodo deles.",
+   "aparencia": "Salta no jogador e deixa o chão de lodo.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Sobekita",
+     "texto": "Os guardiões de Sobek ainda vigiam as águas sagradas; atacam quem pisa no lodo deles."
+    }
+   ],
+   "nivel": [
+    57,
+    65
+   ]
+  },
+  {
+   "id": "guardiao_falcao",
+   "nome": "Guardião de Hórus",
+   "tipo": "normal",
+   "locais": [
+    "casa_vida",
+    "hatshepsut"
+   ],
+   "descricao": "Os falcões de Hórus guardam do alto os terraços e a biblioteca; atiram em quem rouba rolo.",
+   "aparencia": "Fica longe e atira; chuva de flechas em círculo.",
+   "drops_missao": [
+    {
+     "item": "pena_de_maat",
+     "chance": 0.4,
+     "missao": "eg_a02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Guardião de Hórus",
+     "texto": "Os falcões de Hórus guardam do alto os terraços e a biblioteca; atiram em quem rouba rolo."
+    }
+   ],
+   "nivel": [
+    59,
+    67
+   ]
+  },
+  {
+   "id": "escorpiao_de_serket",
+   "nome": "Escorpião de Serket",
+   "tipo": "normal",
+   "locais": [
+    "gize",
+    "sacara"
+   ],
+   "descricao": "A escavação rachou os ninhos de Serket debaixo das pirâmides; defendem o ninho e nada mais.",
+   "aparencia": "Ferrão envenena (pilha).",
+   "drops_missao": [
+    {
+     "item": "fragmento_de_esmeralda",
+     "chance": 0.3,
+     "missao": "eg_l04"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escorpião de Serket",
+     "texto": "A escavação rachou os ninhos de Serket debaixo das pirâmides; defendem o ninho e nada mais."
+    }
+   ],
+   "nivel": [
+    58,
+    66
+   ]
+  },
+  {
+   "id": "escorpiao_negro",
+   "nome": "Escorpião Negro",
+   "tipo": "normal",
+   "locais": [
+    "mar_areia"
+   ],
+   "descricao": "Os escorpiões do Mar de Areia, pretos como a noite do Duat, caçam na tempestade.",
+   "aparencia": "Ferrão em linha com veneno forte.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escorpião Negro",
+     "texto": "Os escorpiões do Mar de Areia, pretos como a noite do Duat, caçam na tempestade."
+    }
+   ],
+   "nivel": [
+    62,
+    66
+   ]
+  },
+  {
+   "id": "naja",
+   "nome": "Naja",
+   "tipo": "normal",
+   "locais": [
+    "catarata",
+    "faium",
+    "lago_sagrado"
+   ],
+   "descricao": "As najas da coroa do faraó; cospem nos olhos de quem chega perto do ovo.",
+   "aparencia": "Cospe veneno que cega (erra mais golpes).",
+   "drops_missao": [
+    {
+     "item": "glandula_de_naja",
+     "chance": 0.4,
+     "missao": "eg_v02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Naja",
+     "texto": "As najas da coroa do faraó; cospem nos olhos de quem chega perto do ovo."
+    }
+   ],
+   "nivel": [
+    54,
+    68
+   ]
+  },
+  {
+   "id": "cria_de_apofis",
+   "nome": "Cria de Apófis",
+   "tipo": "normal",
+   "locais": [
+    "catarata",
+    "mar_areia"
+   ],
+   "descricao": "Filhas da serpente do caos que saem da areia quando o sol escurece; mordem tudo o que brilha.",
+   "aparencia": "Constrição atordoa; cone de veneno.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Cria de Apófis",
+     "texto": "Filhas da serpente do caos que saem da areia quando o sol escurece; mordem tudo o que brilha."
+    }
+   ],
+   "nivel": [
+    63,
+    69
+   ]
+  },
+  {
+   "id": "crocodilo_sagrado",
+   "nome": "Crocodilo Sagrado",
+   "tipo": "normal",
+   "locais": [
+    "hawara_1"
+   ],
+   "descricao": "Os crocodilos que os sacerdotes de Sobek criavam para o deus; a água do Labirinto subiu e eles voltaram a nadar.",
+   "aparencia": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ],
+   "nivel": [
+    50,
+    51
+   ]
+  },
+  {
+   "id": "sacerdote_de_sobek",
+   "nome": "Sacerdote de Sobek",
+   "tipo": "normal",
+   "locais": [
+    "hawara_1",
+    "hawara_2",
+    "hawara_3"
+   ],
+   "descricao": "Os sacerdotes que enfeitavam Petsuchos de ouro; ainda cuidam dele.",
+   "aparencia": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Sacerdote de Sobek",
+     "texto": "Os sacerdotes que enfeitavam Petsuchos de ouro; ainda cuidam dele."
+    }
+   ],
+   "nivel": [
+    50,
+    52
+   ]
+  },
+  {
+   "id": "escaravelho_do_labirinto",
+   "nome": "Escaravelho do Labirinto",
+   "tipo": "normal",
+   "locais": [
+    "hawara_1",
+    "hawara_2"
+   ],
+   "descricao": "Limpam as três mil salas há três mil anos.",
+   "aparencia": "Sangramento; deixa um enxame no chão a cada 6 s.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escaravelho do Labirinto",
+     "texto": "Limpam as três mil salas há três mil anos."
+    }
+   ],
+   "nivel": [
+    50,
+    53
+   ]
+  },
+  {
+   "id": "guarda_do_labirinto",
+   "nome": "Guarda do Labirinto",
+   "tipo": "normal",
+   "locais": [
+    "hawara_1",
+    "hawara_2",
+    "hawara_3"
+   ],
+   "descricao": "Heródoto escreveu que os guardas não o deixaram descer; continuam não deixando.",
+   "aparencia": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Guarda do Labirinto",
+     "texto": "Heródoto escreveu que os guardas não o deixaram descer; continuam não deixando."
+    }
+   ],
+   "nivel": [
+    52,
+    54
+   ]
+  },
+  {
+   "id": "esfinge_do_patio",
+   "nome": "Esfinge do Pátio",
+   "tipo": "normal",
+   "locais": [
+    "hawara_2"
+   ],
+   "descricao": "Guardam os doze pátios; cada uma olha para uma porta.",
+   "aparencia": "Territorial e lenta; investida em linha que empurra. Resiste a físico.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "diario_dalva",
+     "titulo": "Avenida",
+     "texto": "Duas fileiras de esfinges de carneiro, uma para cada lado, do templo de Ptah até Karnak. Vimos uma virar a cabeça. Ninguém mais anda fora da calçada."
+    }
+   ],
+   "nivel": [
+    52,
+    53
+   ]
+  },
+  {
+   "id": "filha_de_serket",
+   "nome": "Filha de Serket",
+   "tipo": "normal",
+   "locais": [
+    "hawara_3"
+   ],
+   "descricao": "O ninho da deusa escorpião no fundo da tumba de Amenemés.",
+   "aparencia": "Ferrão envenena (pilha).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Filha de Serket",
+     "texto": "O ninho da deusa escorpião no fundo da tumba de Amenemés."
+    }
+   ],
+   "nivel": [
+    53,
+    54
+   ]
+  },
+  {
+   "id": "naja_do_labirinto",
+   "nome": "Naja do Labirinto",
+   "tipo": "normal",
+   "locais": [
+    "hawara_2",
+    "hawara_3"
+   ],
+   "descricao": "As najas que os construtores puseram nas falsas portas.",
+   "aparencia": "Cospe veneno que cega (erra mais golpes).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Naja do Labirinto",
+     "texto": "As najas que os construtores puseram nas falsas portas."
+    }
+   ],
+   "nivel": [
+    53,
+    54
+   ]
+  },
+  {
+   "id": "leoa_de_sekhmet",
+   "nome": "Leoa de Sekhmet",
+   "tipo": "normal",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "As leoas que caçavam ao lado da deusa no dia da Destruição da Humanidade.",
+   "aparencia": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "sacerdotisa_de_sekhmet",
+   "nome": "Sacerdotisa de Sekhmet",
+   "tipo": "normal",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "As sacerdotisas que acalmavam a leoa com cerveja e oração; agora a incitam.",
+   "aparencia": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Sacerdotisa de Sekhmet",
+     "texto": "As sacerdotisas que acalmavam a leoa com cerveja e oração; agora a incitam."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "serpente_de_bastao",
+   "nome": "Serpente de Bastão",
+   "tipo": "normal",
+   "locais": [
+    "coracao_2"
+   ],
+   "descricao": "O bastão dos magos que vira serpente (Êx 7:12); a de Arão engoliu as deles, mas Arão não está aqui.",
+   "aparencia": "Cospe veneno que cega (erra mais golpes).",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Serpente de Bastão",
+     "texto": "O bastão dos magos que vira serpente (Êx 7:12); a de Arão engoliu as deles, mas Arão não está aqui."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "guardiao_do_duat",
+   "nome": "Guardião do Duat",
+   "tipo": "normal",
+   "locais": [
+    "coracao_2",
+    "coracao_4",
+    "coracao_5",
+    "coracao_6"
+   ],
+   "descricao": "Os porteiros das doze horas da noite.",
+   "aparencia": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Guardião do Duat",
+     "texto": "Os porteiros das doze horas da noite."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "anubita_do_duat",
+   "nome": "Anúbis do Duat",
+   "tipo": "normal",
+   "locais": [
+    "coracao_3",
+    "coracao_5",
+    "coracao_6"
+   ],
+   "descricao": "A guarda dos vasos canópicos do rei.",
+   "aparencia": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Anúbis do Duat",
+     "texto": "A guarda dos vasos canópicos do rei."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "falcao_do_duat",
+   "nome": "Falcão do Duat",
+   "tipo": "normal",
+   "locais": [
+    "coracao_3"
+   ],
+   "descricao": "Olhos de Hórus nas paredes da câmara canópica.",
+   "aparencia": "Fica longe e atira; chuva de flechas em círculo.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Falcão do Duat",
+     "texto": "Olhos de Hórus nas paredes da câmara canópica."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "cria_do_duat",
+   "nome": "Cria do Rio do Duat",
+   "tipo": "normal",
+   "locais": [
+    "coracao_4"
+   ],
+   "descricao": "A cria de Apófis que sobe na barca da noite.",
+   "aparencia": "Constrição atordoa; cone de veneno.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Cria do Rio do Duat",
+     "texto": "A cria de Apófis que sobe na barca da noite."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "escaravelho_do_coracao",
+   "nome": "Escaravelho do Coração",
+   "tipo": "elite",
+   "locais": [
+    "coracao_5"
+   ],
+   "descricao": "Os escaravelhos do coração que mentem pelo morto na pesagem (feitiço 30B).",
+   "aparencia": "Elite do spot. Disco solar em círculo; chama o ninho na metade da vida.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Escaravelho do Coração",
+     "texto": "Os escaravelhos do coração que mentem pelo morto na pesagem (feitiço 30B)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "primogenito_do_egito",
+   "nome": "Primogênito do Egito",
+   "tipo": "normal",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Os primogênitos que o Anjo Destruidor levou na décima praga; o Faraó os chama na fúria.",
+   "aparencia": "Lenta e teimosa; joga faixas de linho que deixam lento.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "ostraco_vila",
+     "titulo": "Lista de faltas",
+     "texto": "'Neferhotep: ausente, embalsamando o irmão. Hay: ausente, morto.' Ano 31: Hay voltou ao trabalho."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "jambres",
+   "nome": "Jambres, o Mago de Faraó",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Adicional de chefe (controlado pelo chefe_egito.gd).",
+   "aparencia": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Jambres, o Mago de Faraó",
+     "texto": "Adicional de chefe (controlado pelo chefe_egito.gd)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "hapi",
+   "nome": "Hapi, o Babuíno do Norte",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Adicional de chefe (controlado pelo chefe_egito.gd).",
+   "aparencia": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Hapi, o Babuíno do Norte",
+     "texto": "Adicional de chefe (controlado pelo chefe_egito.gd)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "duamutef",
+   "nome": "Duamutef, o Chacal do Leste",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Adicional de chefe (controlado pelo chefe_egito.gd).",
+   "aparencia": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Duamutef, o Chacal do Leste",
+     "texto": "Adicional de chefe (controlado pelo chefe_egito.gd)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "qebehsenuef",
+   "nome": "Qebehsenuef, o Falcão do Oeste",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Adicional de chefe (controlado pelo chefe_egito.gd).",
+   "aparencia": "Fica longe e atira; chuva de flechas em círculo.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Qebehsenuef, o Falcão do Oeste",
+     "texto": "Adicional de chefe (controlado pelo chefe_egito.gd)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "ammit",
+   "nome": "Ammit, a Devoradora",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Adicional de chefe (controlado pelo chefe_egito.gd).",
+   "aparencia": "Rabada em círculo empurra. Territorial.",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Ammit, a Devoradora",
+     "texto": "Adicional de chefe (controlado pelo chefe_egito.gd)."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "petsuchos",
+   "nome": "Petsuchos, o Crocodilo Sagrado",
+   "tipo": "chefe",
+   "locais": [
+    "hawara_1"
+   ],
+   "descricao": "O crocodilo-deus de Crocodilópolis (Heródoto e Estrabão: enfeitado de ouro, alimentado pelos sacerdotes). Ficou no Labirinto quando a cheia o encheu.",
+   "aparencia": "",
+   "drops_missao": [
+    {
+     "item": "brinco_de_petsuchos",
+     "chance": 1.0,
+     "missao": "eg_h02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Petsuchos, o Crocodilo Sagrado",
+     "texto": "O crocodilo-deus de Crocodilópolis (Heródoto e Estrabão: enfeitado de ouro, alimentado pelos sacerdotes). Ficou no Labirinto quando a cheia o encheu."
+    }
+   ],
+   "nivel": [
+    51,
+    51
+   ]
+  },
+  {
+   "id": "esfinge_de_hawara",
+   "nome": "A Esfinge de Hawara",
+   "tipo": "chefe",
+   "locais": [
+    "hawara_2"
+   ],
+   "descricao": "A guardiã dos doze pátios. Não pergunta em voz: mostra no peito a sequência dos glifos e espera a resposta nos pedestais.",
+   "aparencia": "",
+   "drops_missao": [
+    {
+     "item": "glifo_da_resposta",
+     "chance": 1.0,
+     "missao": "eg_h03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "A Esfinge de Hawara",
+     "texto": "A guardiã dos doze pátios. Não pergunta em voz: mostra no peito a sequência dos glifos e espera a resposta nos pedestais."
+    }
+   ],
+   "nivel": [
+    53,
+    53
+   ]
+  },
+  {
+   "id": "serket",
+   "nome": "Serket, a Que Faz a Garganta Respirar",
+   "tipo": "chefe",
+   "locais": [
+    "hawara_3"
+   ],
+   "descricao": "A deusa escorpião que protegia os vasos canópicos e curava picada, guardando a tumba de Amenemés III no fundo do Labirinto. O título dela é a cura; a picada é o preço.",
+   "aparencia": "",
+   "drops_missao": [
+    {
+     "item": "ferrao_de_serket",
+     "chance": 1.0,
+     "missao": "eg_h04"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Serket, a Que Faz a Garganta Respirar",
+     "texto": "A deusa escorpião que protegia os vasos canópicos e curava picada, guardando a tumba de Amenemés III no fundo do Labirinto. O título dela é a cura; a picada é o preço."
+    }
+   ],
+   "nivel": [
+    54,
+    54
+   ]
+  },
+  {
+   "id": "sekhmet",
+   "nome": "Sekhmet, a Leoa Que Bebeu o Sangue",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_1"
+   ],
+   "descricao": "Rá mandou Sekhmet exterminar a humanidade e, arrependido, a deteve com sete mil jarras de cerveja tingida de ocre, que ela bebeu achando que era sangue. Foi o primeiro extermínio interrompido da história. O rito do Faraó a acordou para guardar o primeiro portão.",
+   "aparencia": "",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Sekhmet, a Leoa Que Bebeu o Sangue",
+     "texto": "Rá mandou Sekhmet exterminar a humanidade e, arrependido, a deteve com sete mil jarras de cerveja tingida de ocre, que ela bebeu achando que era sangue. Foi o primeiro extermínio interrompido da história. O rito do Faraó a acordou para guardar o primeiro portão."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "janes",
+   "nome": "Janes e Jambres, os Magos de Faraó",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_2"
+   ],
+   "descricao": "Os magos que imitaram Moisés diante de Faraó (Êx 7-8): também jogaram bastões que viraram serpentes, também tornaram a água em sangue, também fizeram subir rãs. Na terceira praga não conseguiram e disseram 'isto é o dedo de Deus'. O nome deles está em 2 Timóteo 3:8. Morreram juntos e foram enterrados de mãos dadas.",
+   "aparencia": "",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Janes e Jambres, os Magos de Faraó",
+     "texto": "Os magos que imitaram Moisés diante de Faraó (Êx 7-8): também jogaram bastões que viraram serpentes, também tornaram a água em sangue, também fizeram subir rãs. Na terceira praga não conseguiram e disseram 'isto é o dedo de Deus'. O nome deles está em 2 Timóteo 3:8. Morreram juntos e foram enterrados de mãos dadas."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "imseti",
+   "nome": "Os Quatro Filhos de Hórus",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_3"
+   ],
+   "descricao": "Imseti (homem, guarda o fígado, sul), Hapi (babuíno, os pulmões, norte), Duamutef (chacal, o estômago, leste) e Qebehsenuef (falcão, os intestinos, oeste), guardiões dos quatro vasos canópicos do rei. Imseti é o primogênito e o último a cair.",
+   "aparencia": "",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Os Quatro Filhos de Hórus",
+     "texto": "Imseti (homem, guarda o fígado, sul), Hapi (babuíno, os pulmões, norte), Duamutef (chacal, o estômago, leste) e Qebehsenuef (falcão, os intestinos, oeste), guardiões dos quatro vasos canópicos do rei. Imseti é o primogênito e o último a cair."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "apofis",
+   "nome": "Apófis, a Serpente Sem Fim",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_4"
+   ],
+   "descricao": "A serpente do caos que ataca a barca de Rá toda noite na sétima hora do Amduat. Toda noite perde. Desde que o Sol Terço ficou parado, a noite não acaba e a luta também não. O grupo luta em cima da barca da noite.",
+   "aparencia": "",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Apófis, a Serpente Sem Fim",
+     "texto": "A serpente do caos que ataca a barca de Rá toda noite na sétima hora do Amduat. Toda noite perde. Desde que o Sol Terço ficou parado, a noite não acaba e a luta também não. O grupo luta em cima da barca da noite."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "anubis_pesador",
+   "nome": "Anúbis, o Pesador",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_5"
+   ],
+   "descricao": "No Salão das Duas Verdades Anúbis põe o coração do morto num prato e a pena de Maat no outro; Thoth anota; Ammit espera o coração pesado. Há três mil e trezentos anos ele não consegue pesar o coração do Faraó. Vai pesar o seu.",
+   "aparencia": "",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Anúbis, o Pesador",
+     "texto": "No Salão das Duas Verdades Anúbis põe o coração do morto num prato e a pena de Maat no outro; Thoth anota; Ammit espera o coração pesado. Há três mil e trezentos anos ele não consegue pesar o coração do Faraó. Vai pesar o seu."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  },
+  {
+   "id": "farao_sem_nome",
+   "nome": "O Faraó Sem Nome",
+   "tipo": "chefe",
+   "locais": [
+    "coracao_6"
+   ],
+   "descricao": "O faraó do Êxodo, apagado das paredes pelos próprios sacerdotes. Dez vezes disse não; na última Deus endureceu o coração dele. O coração não coube na balança: nem julgado nem devorado. Em 1962 o coração bateu. A luta é o Êxodo ao contrário: ele lança as pragas.",
+   "aparencia": "",
+   "drops_missao": [
+    {
+     "item": "coracao_do_farao",
+     "chance": 1.0,
+     "missao": "eg_n10"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "O Faraó Sem Nome",
+     "texto": "O faraó do Êxodo, apagado das paredes pelos próprios sacerdotes. Dez vezes disse não; na última Deus endureceu o coração dele. O coração não coube na balança: nem julgado nem devorado. Em 1962 o coração bateu. A luta é o Êxodo ao contrário: ele lança as pragas."
+    }
+   ],
+   "nivel": [
+    60,
+    60
+   ]
+  }
+ ]
+}

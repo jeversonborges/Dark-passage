@@ -1,0 +1,36 @@
+{
+ "lojas": [
+  {
+   "id": "loja_hapu",
+   "npc": "hapu_mercador",
+   "nome": "Banca do Hapu",
+   "itens": [
+    "pao_de_cevada",
+    "cerveja_ocre",
+    "unguento_de_mirra"
+   ],
+   "fala_ao_abrir": "Tudo do Nilo. Quase tudo."
+  },
+  {
+   "id": "loja_nefer",
+   "npc": "nefer_aguadeira",
+   "nome": "Potes da Nefer",
+   "itens": [
+    "agua_do_nilo",
+    "unguento_de_mirra",
+    "cerveja_ocre"
+   ],
+   "fala_ao_abrir": "Fervida três vezes. Paga uma."
+  },
+  {
+   "id": "loja_carrinho_nefer",
+   "npc": "nefer_carrinho",
+   "nome": "Carrinho da Aguadeira",
+   "itens": [
+    "agua_do_nilo",
+    "unguento_de_mirra"
+   ],
+   "fala_ao_abrir": "Água! Mirra! Rápido que tem fila."
+  }
+ ]
+}

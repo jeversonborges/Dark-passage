@@ -1,0 +1,536 @@
+{
+ "areas": [
+  {
+   "id": "egito",
+   "nome": "Egito, a Terra Negra",
+   "tipo": "campo",
+   "faccao": null,
+   "nivel": [
+    50,
+    70
+   ],
+   "descricao": "A terra da quarta trombeta, sob o Sol Terço. O Nilo voltou e cobriu de lodo preto a areia que tinha enterrado tudo: Mênfis se reergueu em dois andares, o de lama é de agora e o de pedra é de antes. Do lado dos mortos, a maior escavação do mundo ao pé da Esfinge; no fundo do Vale dos Reis, a tumba sem cartucho do Faraó do Êxodo.",
+   "musica_sugerida": "harpa angular e alaúde de cordas de tripa, sistro de bronze, tambor de moldura grave, vento de areia, coro masculino distante em uníssono",
+   "subzonas": [
+    {
+     "id": "menfis",
+     "nome": "Mênfis Reerguida",
+     "tipo": "base",
+     "faccao": null,
+     "seguro": true,
+     "nivel": null
+    },
+    {
+     "id": "escavacao",
+     "nome": "Acampamento da Escavação",
+     "tipo": "base",
+     "faccao": null,
+     "seguro": true,
+     "nivel": null
+    },
+    {
+     "id": "margem_papiro",
+     "nome": "Margem do Papiro",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      50,
+      52
+     ]
+    },
+    {
+     "id": "campos_cheia",
+     "nome": "Campos da Cheia",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      51,
+      53
+     ]
+    },
+    {
+     "id": "vila_artesaos",
+     "nome": "Vila dos Artesãos",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      52,
+      55
+     ]
+    },
+    {
+     "id": "avenida_esfinges",
+     "nome": "Avenida das Esfinges",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      53,
+      56
+     ]
+    },
+    {
+     "id": "sacara",
+     "nome": "Mastabas de Sacará",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      55,
+      58
+     ]
+    },
+    {
+     "id": "karnak",
+     "nome": "Ipet-Isut, o Templo de Amon",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      56,
+      59
+     ]
+    },
+    {
+     "id": "lago_sagrado",
+     "nome": "Lago Sagrado",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      57,
+      60
+     ]
+    },
+    {
+     "id": "gize",
+     "nome": "Planalto de Gizé",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      58,
+      63
+     ]
+    },
+    {
+     "id": "casa_vida",
+     "nome": "Casa da Vida",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      59,
+      62
+     ]
+    },
+    {
+     "id": "faium",
+     "nome": "Oásis do Faium",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      61,
+      65
+     ]
+    },
+    {
+     "id": "mar_areia",
+     "nome": "Mar de Areia",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      63,
+      66
+     ]
+    },
+    {
+     "id": "hatshepsut",
+     "nome": "Terraços de Djeser-Djeseru",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      64,
+      67
+     ]
+    },
+    {
+     "id": "catarata",
+     "nome": "Primeira Catarata",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      66,
+      69
+     ]
+    },
+    {
+     "id": "vale_reis",
+     "nome": "Vale dos Reis",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      67,
+      70
+     ]
+    },
+    {
+     "id": "necropole",
+     "nome": "Necrópole Proibida",
+     "tipo": "campo",
+     "faccao": null,
+     "seguro": false,
+     "nivel": [
+      68,
+      70
+     ]
+    }
+   ]
+  }
+ ],
+ "dungeons": [
+  {
+   "id": "labirinto_de_hawara",
+   "nome": "O Labirinto de Hawara",
+   "faccao": null,
+   "nivel": [
+    50,
+    54
+   ],
+   "entrada": "faium",
+   "descricao": "O Labirinto que Heródoto viu 'acima das pirâmides': doze pátios e três mil salas, metade debaixo da terra. A cheia encheu as galerias de baixo; Petsuchos, a Esfinge e Serket guardam o rei que o construiu.",
+   "andares": [
+    {
+     "id": "hawara_1",
+     "nome": "Galerias Alagadas",
+     "nivel": [
+      50,
+      51
+     ],
+     "chefe": "petsuchos"
+    },
+    {
+     "id": "hawara_2",
+     "nome": "Os Doze Pátios",
+     "nivel": [
+      52,
+      53
+     ],
+     "chefe": "esfinge_de_hawara"
+    },
+    {
+     "id": "hawara_3",
+     "nome": "Câmara de Amenemés",
+     "nivel": [
+      53,
+      54
+     ],
+     "chefe": "serket"
+    }
+   ]
+  },
+  {
+   "id": "coracao_endurecido",
+   "nome": "O Coração Endurecido",
+   "faccao": null,
+   "nivel": [
+    60,
+    60
+   ],
+   "entrada": "vale_reis",
+   "raid": true,
+   "grupo": [
+    5,
+    10
+   ],
+   "descricao": "A tumba sem cartucho do Faraó do Êxodo: seis salões, do pátio de Sekhmet à câmara onde o coração que não coube na balança ainda bate.",
+   "andares": [
+    {
+     "id": "coracao_1",
+     "nome": "Pátio do Sol Terço",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "sekhmet"
+    },
+    {
+     "id": "coracao_2",
+     "nome": "Salão dos Magos",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "janes"
+    },
+    {
+     "id": "coracao_3",
+     "nome": "Câmara Canópica",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "imseti"
+    },
+    {
+     "id": "coracao_4",
+     "nome": "O Rio do Duat",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "apofis"
+    },
+    {
+     "id": "coracao_5",
+     "nome": "Salão das Duas Verdades",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "anubis_pesador"
+    },
+    {
+     "id": "coracao_6",
+     "nome": "Câmara do Coração",
+     "nivel": [
+      60,
+      60
+     ],
+     "chefe": "farao_sem_nome"
+    }
+   ]
+  }
+ ],
+ "spots_pedidos": [
+  {
+   "id": "juncal_do_papiro",
+   "nome": "Juncal do Papiro",
+   "nivel": [
+    50,
+    52
+   ],
+   "subzona": "margem_papiro",
+   "monstros": [
+    "crocodilo_do_nilo",
+    "ibis_de_thoth"
+   ]
+  },
+  {
+   "id": "campos_da_cheia",
+   "nome": "Campos da Cheia",
+   "nivel": [
+    51,
+    53
+   ],
+   "subzona": "campos_cheia",
+   "monstros": [
+    "escaravelho_carniceiro",
+    "escaravelho_sagrado"
+   ]
+  },
+  {
+   "id": "avenida_das_esfinges",
+   "nome": "Avenida das Esfinges",
+   "nivel": [
+    53,
+    56
+   ],
+   "subzona": "avenida_esfinges",
+   "monstros": [
+    "escaravelho_sagrado",
+    "esfinge_carneiro"
+   ]
+  },
+  {
+   "id": "salao_hipostilo",
+   "nome": "Salão Hipostilo",
+   "nivel": [
+    56,
+    59
+   ],
+   "subzona": "karnak",
+   "monstros": [
+    "anubis_sentinela",
+    "sacerdote_mumia"
+   ]
+  },
+  {
+   "id": "lago_sagrado",
+   "nome": "Margens do Lago Sagrado",
+   "nivel": [
+    57,
+    60
+   ],
+   "subzona": "lago_sagrado",
+   "monstros": [
+    "naja",
+    "sobekita"
+   ]
+  },
+  {
+   "id": "primeira_catarata",
+   "nome": "Pedreira da Catarata",
+   "nivel": [
+    66,
+    69
+   ],
+   "subzona": "catarata",
+   "monstros": [
+    "cria_de_apofis",
+    "crocodilo_gigante",
+    "naja"
+   ]
+  },
+  {
+   "id": "vila_dos_artesaos",
+   "nome": "Vila dos Artesãos",
+   "nivel": [
+    52,
+    55
+   ],
+   "subzona": "vila_artesaos",
+   "monstros": [
+    "mumia_operaria"
+   ]
+  },
+  {
+   "id": "mastabas_de_sacara",
+   "nome": "Mastabas de Sacará",
+   "nivel": [
+    55,
+    58
+   ],
+   "subzona": "sacara",
+   "monstros": [
+    "escaravelho_carniceiro",
+    "mumia_operaria"
+   ]
+  },
+  {
+   "id": "escavacao_de_queops",
+   "nome": "Escavação de Quéops",
+   "nivel": [
+    58,
+    61
+   ],
+   "subzona": "gize",
+   "monstros": [
+    "escaravelho_rei",
+    "escorpiao_de_serket"
+   ]
+  },
+  {
+   "id": "calcada_de_quefren",
+   "nome": "Calçada de Quéfren",
+   "nivel": [
+    60,
+    63
+   ],
+   "subzona": "gize",
+   "monstros": [
+    "guardiao_mumia",
+    "mumia_operaria"
+   ]
+  },
+  {
+   "id": "casa_da_vida",
+   "nome": "Casa da Vida",
+   "nivel": [
+    59,
+    62
+   ],
+   "subzona": "casa_vida",
+   "monstros": [
+    "guardiao_falcao",
+    "sacerdote_mumia"
+   ]
+  },
+  {
+   "id": "crocodilopolis",
+   "nome": "Crocodilópolis",
+   "nivel": [
+    61,
+    64
+   ],
+   "subzona": "faium",
+   "monstros": [
+    "crocodilo_do_nilo",
+    "sobekita"
+   ]
+  },
+  {
+   "id": "lago_meris",
+   "nome": "Margem do Lago Méris",
+   "nivel": [
+    62,
+    65
+   ],
+   "subzona": "faium",
+   "monstros": [
+    "crocodilo_gigante",
+    "naja"
+   ]
+  },
+  {
+   "id": "mar_de_areia",
+   "nome": "Mar de Areia",
+   "nivel": [
+    63,
+    66
+   ],
+   "subzona": "mar_areia",
+   "monstros": [
+    "cria_de_apofis",
+    "escorpiao_negro"
+   ]
+  },
+  {
+   "id": "terracos_de_hatshepsut",
+   "nome": "Terraços de Djeser-Djeseru",
+   "nivel": [
+    64,
+    67
+   ],
+   "subzona": "hatshepsut",
+   "monstros": [
+    "anubis_sentinela",
+    "guardiao_falcao"
+   ]
+  },
+  {
+   "id": "vale_dos_reis",
+   "nome": "Vale dos Reis",
+   "nivel": [
+    67,
+    70
+   ],
+   "subzona": "vale_reis",
+   "monstros": [
+    "anubis_guardiao",
+    "anubis_sentinela"
+   ]
+  },
+  {
+   "id": "necropole_proibida",
+   "nome": "Necrópole Proibida",
+   "nivel": [
+    68,
+    70
+   ],
+   "subzona": "necropole",
+   "monstros": [
+    "guardiao_mumia",
+    "sacerdote_mumia"
+   ]
+  }
+ ]
+}

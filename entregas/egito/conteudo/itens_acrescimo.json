@@ -1,0 +1,319 @@
+{
+ "_doc": "Consumíveis, itens de missão, leituras e recompensas únicas do Egito.",
+ "itens": [
+  {
+   "id": "pao_de_cevada",
+   "nome": "Pão de Cevada",
+   "tipo": "consumivel",
+   "pilha": 20,
+   "efeito": {
+    "cura_hp_pct": 12,
+    "duracao_s": 10
+   },
+   "preco": 40,
+   "descricao": "Pão achatado de cevada do Campo da Cheia, assado na pedra. Os operários de Gizé comiam isso. Os de agora também."
+  },
+  {
+   "id": "agua_do_nilo",
+   "nome": "Água do Nilo Fervida",
+   "tipo": "consumivel",
+   "pilha": 20,
+   "efeito": {
+    "cura_hp_pct": 8,
+    "remove": "veneno"
+   },
+   "preco": 60,
+   "descricao": "Água verde-escura do Nilo, fervida três vezes no pote da Nefer. Tira o gosto de veneno da boca e quase todo o resto.",
+   "citacao": {
+    "texto": "Fervida três vezes. A quarta é por sua conta.",
+    "autor": "Nefer, a Aguadeira"
+   }
+  },
+  {
+   "id": "unguento_de_mirra",
+   "nome": "Unguento de Mirra",
+   "tipo": "consumivel",
+   "pilha": 20,
+   "efeito": {
+    "cura_hp_pct": 35
+   },
+   "preco": 160,
+   "descricao": "Mirra, mel e gordura de ganso num pote de alabastro, como nas receitas do Papiro Ebers. Fecha ferida e espanta mosca."
+  },
+  {
+   "id": "cerveja_ocre",
+   "nome": "Cerveja Ocre",
+   "tipo": "consumivel",
+   "pilha": 20,
+   "efeito": {
+    "cura_hp_pct": 15,
+    "buff": {
+     "vit": 12,
+     "duracao_s": 300
+    }
+   },
+   "preco": 90,
+   "descricao": "Cerveja grossa de cevada tingida com ocre vermelho, como as sete mil jarras que salvaram a humanidade. Tem gosto de pão e de sangue.",
+   "citacao": {
+    "texto": "Bebe. Se ela achar que é sangue, melhor ainda.",
+    "autor": "Hapu, Mercador das Docas"
+   }
+  },
+  {
+   "id": "pena_de_ibis",
+   "nome": "Pena de Íbis",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Pena branca de ponta preta. Os escribas molhavam no ocre e escreviam com ela, em honra de Thoth."
+  },
+  {
+   "id": "ostraco_de_faltas",
+   "nome": "Óstraco de Faltas",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Caco de calcário com a lista de faltas dos operários da Vila, escrita em hierático. 'Hay: ausente, morto.' Desde o Ano 31 ninguém mais falta."
+  },
+  {
+   "id": "brinco_de_petsuchos",
+   "nome": "Brinco de Petsuchos",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Argola de ouro do tamanho de uma mão, ainda molhada, que os sacerdotes de Sobek penduravam na orelha do crocodilo sagrado.",
+   "citacao": {
+    "texto": "Ouro na orelha, água na boca.",
+    "autor": "Senebtisi, Sacerdotisa de Sobek"
+   }
+  },
+  {
+   "id": "glifo_da_resposta",
+   "nome": "Glifo da Resposta",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Uma placa de faiança turquesa com um glifo que muda quando ninguém está olhando. Caiu do peito da Esfinge de Hawara."
+  },
+  {
+   "id": "ferrao_de_serket",
+   "nome": "Ferrão de Serket",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "O ferrão da deusa escorpião, do tamanho de um punhal. Uma gota na ponta mata; duas, dizem os sacerdotes, curam."
+  },
+  {
+   "id": "fragmento_de_esmeralda",
+   "nome": "Fragmento de Esmeralda",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Lasca de pedra verde translúcida com sinais gravados que não são egípcios. Os escorpiões do planalto carregam no ninho como se fosse ovo."
+  },
+  {
+   "id": "glandula_de_naja",
+   "nome": "Glândula de Naja",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Bolsa de veneno de naja num frasco de vidro. Dalva diz que o veneno conduz. Ninguém sabe o quê."
+  },
+  {
+   "id": "pilar_djed_de_bronze",
+   "nome": "Pilar Djed de Bronze",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Um pilar djed de bronze maciço, com quatro discos no alto e um fio de cobre enrolado no meio. 'É um isolador', diz Dalva. 'É a coluna de Osíris', diz qualquer egípcio."
+  },
+  {
+   "id": "lampada_de_dendera",
+   "nome": "Lâmpada de Dendera",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Um bulbo de vidro do tamanho de um braço com uma serpente de metal dentro, encaixado numa flor de lótus de bronze. Acende quando alguém mente perto dela."
+  },
+  {
+   "id": "pena_de_maat",
+   "nome": "Pena de Maat",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Pena de avestruz branca, a medida da verdade. Os guardiões de Hórus a usavam na coroa. Pesa exatamente o que um coração justo pesa."
+  },
+  {
+   "id": "vaso_canopico_lacrado",
+   "nome": "Vaso Canópico Lacrado",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Vaso de alabastro com tampa em forma de cabeça, ainda lacrado com cera e linho. Dentro, algo de alguém."
+  },
+  {
+   "id": "coracao_do_farao",
+   "nome": "Coração do Faraó",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Um coração de granito do tamanho de um punho, pesado como uma pedra de moinho. Bate uma vez por minuto.",
+   "citacao": {
+    "texto": "Dez vezes eu disse não.",
+    "autor": "o Faraó Sem Nome"
+   }
+  },
+  {
+   "id": "leitura_estela_herodoto",
+   "nome": "Estela do Viajante (Heródoto)",
+   "tipo": "leitura",
+   "texto": "Vi este labirinto, e é maior do que as palavras. Se alguém juntar todas as muralhas e obras dos gregos, verá que custaram menos trabalho e dinheiro do que este labirinto. Tem doze pátios cobertos, seis para o norte e seis para o sul, e três mil salas, metade debaixo da terra. As de cima eu vi. As de baixo os guardas não me deixaram ver: disseram que ali estão as tumbas dos reis que o construíram e dos crocodilos sagrados.\n— Heródoto de Halicarnasso, Histórias, livro II"
+  },
+  {
+   "id": "leitura_rolo_magos",
+   "nome": "Rolo dos Magos",
+   "tipo": "leitura",
+   "texto": "E os magos fizeram também o mesmo com os seus encantamentos: lançaram cada um o seu bastão, e tornaram-se serpentes. Mas o bastão de Arão tragou os bastões deles.\nE os magos fizeram assim com os seus encantamentos, para tirar piolhos, mas não puderam. Então disseram os magos a Faraó: Isto é o dedo de Deus.\n(na margem, em hierático e com outra tinta): nós não dissemos isso."
+  },
+  {
+   "id": "leitura_confissao",
+   "nome": "A Confissão Negativa",
+   "tipo": "leitura",
+   "texto": "Salve, ó tu de grandes passos, que vens de Heliópolis: eu não cometi iniquidade.\nSalve, ó tu que abraças a chama: eu não roubei.\nSalve, ó nariz, que vens de Hermópolis: eu não fui violento.\n...\nSalve, ó tu de coração endurecido...\n(a linha 42 foi raspada da parede com uma lâmina)"
+  },
+  {
+   "id": "anel_da_nomarca",
+   "nome": "Anel da Nomarca",
+   "tipo": "equipamento",
+   "slot": "anel",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 52,
+   "atributos": {
+    "vit": 22,
+    "for": 14,
+    "hp": 260
+   },
+   "efeito": "Dízimo: +8% de ouro dos monstros.",
+   "descricao": "O anel de sinete de Tuya, com o escaravelho da cidade gravado. Quem usa, cobra.",
+   "citacao": {
+    "texto": "A terra é preta e a terra é minha.",
+    "autor": "Tuya, Nomarca de Mênfis"
+   }
+  },
+  {
+   "id": "colar_de_ouro_de_sobek",
+   "nome": "Colar de Ouro de Sobek",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 54,
+   "atributos": {
+    "vit": 26,
+    "esp": 14,
+    "hp": 320
+   },
+   "efeito": "Fome do Deus: cada abate cura 2% da vida máxima.",
+   "descricao": "Colar de contas de ouro e cornalina tirado do pescoço de Petsuchos. Pesa como o deus pesava."
+  },
+  {
+   "id": "sandalias_do_escriba",
+   "nome": "Sandálias do Escriba",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 57,
+   "atributos": {
+    "agi": 20,
+    "esp": 16,
+    "defesa": 34
+   },
+   "efeito": "Passo de Thoth: +8% de velocidade de movimento fora de combate.",
+   "descricao": "Sandálias de papiro trançado de um escriba da Casa da Vida. Não fazem barulho em biblioteca nenhuma."
+  },
+  {
+   "id": "olho_de_horus",
+   "nome": "Olho de Hórus (wedjat)",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 60,
+   "atributos": {
+    "esp": 24,
+    "vit": 18,
+    "hp": 300
+   },
+   "efeito": "Olho que Cura: +12% de cura recebida.",
+   "descricao": "Amuleto de faiança turquesa com o olho de Hórus, que Thoth remendou pedaço por pedaço depois da luta com Seth. É inteiro porque foi quebrado."
+  },
+  {
+   "id": "luvas_de_dalva",
+   "nome": "Luvas Isolantes de Dalva",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 62,
+   "atributos": {
+    "esp": 22,
+    "agi": 14,
+    "defesa": 40
+   },
+   "efeito": "Isolador Djed: -15% de dano elétrico e de raio recebido; torretas causam +8% de dano.",
+   "descricao": "Luvas de couro de crocodilo forradas de borracha de acácia, com fios de cobre costurados nas pontas dos dedos."
+  },
+  {
+   "id": "balanca_de_barnabe",
+   "nome": "Balança de Barnabé",
+   "tipo": "equipamento",
+   "slot": "segunda_mao",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 62,
+   "atributos": {
+    "esp": 26,
+    "vit": 16,
+    "hp": 260
+   },
+   "efeito": "Pesagem: ataques contra alvos com mais vida que você causam +8% de dano.",
+   "descricao": "A balança de bronze pequena que o Cônego equilibra nos dedos. Num prato, uma pena de verdade. No outro, nada, por enquanto."
+  },
+  {
+   "id": "khopesh_de_ramesses",
+   "nome": "Khopesh de Ramessés",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 64,
+   "atributos": {
+    "dano": [
+     118,
+     196
+    ],
+    "for": 30,
+    "agi": 14
+   },
+   "efeito": "Corte em Gancho: o 3º golpe seguido em um alvo puxa-o 1 m para perto e causa +30% de dano.",
+   "descricao": "Espada-foice de bronze com o cartucho de Ramessés II, achada no colosso tombado da praça. A lâmina é curva como o rio.",
+   "dano": [
+    118,
+    196
+   ]
+  },
+  {
+   "id": "cetro_was_do_pesador",
+   "nome": "Cetro Was do Pesador",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 66,
+   "atributos": {
+    "dano": [
+     104,
+     182
+    ],
+    "esp": 34,
+    "vit": 14
+   },
+   "efeito": "Domínio: +10% de dano mágico; inimigos abaixo de 30% de vida recebem +12% de dano.",
+   "descricao": "O cetro de cabeça de chacal e ponta bifurcada que Anúbis segurava no Salão das Duas Verdades. Quem segura sente o peso de quem está na frente.",
+   "dano": [
+    104,
+    182
+   ]
+  }
+ ]
+}

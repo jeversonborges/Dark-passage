@@ -1,0 +1,1431 @@
+{
+ "_doc": "Acrescentar a design/missoes/dados/missoes.json (Egito, nível 50 a 70).",
+ "missoes": [
+  {
+   "id": "eg_k01",
+   "titulo": "A Terra Negra",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 50,
+   "doador": "tuya_nomarca",
+   "entrega": "tuya_nomarca",
+   "requer": [],
+   "resumo": "Veja o nilômetro e fale com o barqueiro Ahmose.",
+   "descricao": "SELO DA NOMARCA · MÊNFIS REERGUIDA · ANO 31\nForasteiro: aqui a terra é preta e a terra é minha.\nDesça o nilômetro nas docas e veja onde a água chegou. Depois fale com Ahmose, o barqueiro: quem quer cavar do lado dos mortos atravessa com ele.\n— Tuya, Nomarca",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "marco_de_cheia",
+     "subzona": "menfis",
+     "qtd": 1
+    },
+    {
+     "tipo": "falar",
+     "npc": "ahmose_barqueiro"
+    }
+   ],
+   "recompensas": {
+    "xp": 28900,
+    "ouro": 1500,
+    "itens": [
+     {
+      "id": "pao_de_cevada",
+      "qtd": 10
+     },
+     {
+      "id": "agua_do_nilo",
+      "qtd": 5
+     }
+    ]
+   },
+   "texto_conclusao": "O nilômetro mostrou dois degraus acima da cheia mais alta de três mil anos. Ahmose olhou a marca e cuspiu no rio, por respeito."
+  },
+  {
+   "id": "eg_k02",
+   "titulo": "O Dízimo da Nomarca",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 51,
+   "doador": "tuya_nomarca",
+   "entrega": "tuya_nomarca",
+   "requer": [
+    "eg_k01"
+   ],
+   "resumo": "Sele as três estacas de dízimo e afaste os crocodilos dos campos.",
+   "descricao": "SELO DA NOMARCA · COBRANÇA\nTrês estacas nos Campos da Cheia estão sem o meu selo. Aperte o selo no barro de cada uma.\nE os crocodilos subiram do juncal para tomar sol na lavoura. Oito deles. Eles não pagam dízimo.\n— Tuya",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "selo_da_nomarca",
+     "subzona": "campos_cheia",
+     "qtd": 3
+    },
+    {
+     "tipo": "matar",
+     "alvo": "crocodilo_do_nilo",
+     "qtd": 8
+    }
+   ],
+   "recompensas": {
+    "xp": 30000,
+    "ouro": 1530,
+    "itens": [
+     {
+      "id": "unguento_de_mirra",
+      "qtd": 5
+     }
+    ]
+   },
+   "texto_conclusao": "Tuya contou os selos duas vezes e as cabeças de crocodilo três. 'Agora sim. Terra paga, terra limpa.'"
+  },
+  {
+   "id": "eg_k03",
+   "titulo": "O Juncal do Papiro",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 50,
+   "doador": "nefer_aguadeira",
+   "entrega": "nefer_aguadeira",
+   "requer": [
+    "eg_k01"
+   ],
+   "resumo": "Cace no Juncal do Papiro e traga penas de íbis.",
+   "descricao": "RECADO DA NEFER (riscado num caco)\nO juncal tá cheio de bicho e os escribas da Escavação pagam bem por pena de íbis. Seis penas. Cuidado que íbis bica e crocodilo morde.\n— N.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "juncal_do_papiro",
+     "qtd": 12
+    },
+    {
+     "tipo": "coletar",
+     "item": "pena_de_ibis",
+     "qtd": 6
+    }
+   ],
+   "recompensas": {
+    "xp": 28900,
+    "ouro": 1500,
+    "itens": [
+     {
+      "id": "agua_do_nilo",
+      "qtd": 8
+     }
+    ]
+   },
+   "texto_conclusao": "Nefer cheirou as penas, separou a mais bonita para o cabelo e pagou o resto com água e uma piscadela."
+  },
+  {
+   "id": "eg_k04",
+   "titulo": "Os Campos que Voltaram",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 52,
+   "doador": "tuya_nomarca",
+   "entrega": "tuya_nomarca",
+   "requer": [
+    "eg_k02"
+   ],
+   "resumo": "Limpe os Campos da Cheia dos escaravelhos que rolam o lodo.",
+   "descricao": "SELO DA NOMARCA · LAVOURA\nOs escaravelhos estão rolando o meu lodo em bolas e levando para o deserto. Dizem que é sagrado. Eu digo que é meu.\nDez deles. E fique no campo até ele ficar quieto.\n— Tuya",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "campos_da_cheia",
+     "qtd": 12
+    },
+    {
+     "tipo": "matar",
+     "alvo": "escaravelho_sagrado",
+     "qtd": 10
+    }
+   ],
+   "recompensas": {
+    "xp": 31100,
+    "ouro": 1560,
+    "itens": []
+   },
+   "texto_conclusao": "Os campos ficaram quietos. Um velho lavrador fez o sinal de Khepri e não olhou para você."
+  },
+  {
+   "id": "eg_k05",
+   "titulo": "Do Outro Lado do Rio",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 52,
+   "doador": "ahmose_barqueiro",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k01"
+   ],
+   "resumo": "Atravesse para a Escavação e procure o Reis Abdu.",
+   "descricao": "Ahmose falou devagar, como o rio: 'Do lado de lá enterravam. Do lado de cá esqueciam. Atravesse e procure o Abdu, o reis da escavação. Ele vende braços para os quatro acampamentos e jura que não toma partido.'",
+   "objetivos": [
+    {
+     "tipo": "explorar",
+     "subzona": "escavacao"
+    },
+    {
+     "tipo": "falar",
+     "npc": "reis_abdu"
+    }
+   ],
+   "recompensas": {
+    "xp": 31100,
+    "ouro": 1560,
+    "itens": []
+   },
+   "texto_conclusao": "Abdu anotou o seu nome no caderno, embaixo de uma lista de mortos que voltaram ao trabalho."
+  },
+  {
+   "id": "eg_k06",
+   "titulo": "Os Quatro Acampamentos",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 53,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k05"
+   ],
+   "resumo": "Apresente-se aos quatro acampamentos da Escavação.",
+   "descricao": "CADERNO DO REIS · FOLHA DO DIA\nQuatro acampamentos, um buraco. O velho Djedi, da Casa de Hermes. O atlante, que respira por máscara. A engenheira da Vigília. O cônego do Coro.\nVá dizer bom-dia a cada um. Depois volte e me diga quem paga mais.\n— Abdu",
+   "objetivos": [
+    {
+     "tipo": "falar",
+     "npc": "djedi_mago"
+    },
+    {
+     "tipo": "falar",
+     "npc": "diaprepes_atlante"
+    },
+    {
+     "tipo": "falar",
+     "npc": "dalva_ferraz"
+    },
+    {
+     "tipo": "falar",
+     "npc": "conego_barnabe"
+    }
+   ],
+   "recompensas": {
+    "xp": 32300,
+    "ouro": 1590,
+    "itens": []
+   },
+   "texto_conclusao": "Abdu ouviu os quatro nomes e escreveu um número ao lado de cada um. Não mostrou os números."
+  },
+  {
+   "id": "eg_k07",
+   "titulo": "A Quadrícula",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 53,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Peneire as três quadrículas e afaste as múmias operárias.",
+   "descricao": "CADERNO DO REIS · TURNO\nTrês quadrículas no planalto para peneirar. E as múmias da Vila desceram de novo para 'trabalhar'. Elas cavam errado e não pagam.\nOito delas para o chão. As quadrículas para a peneira.\n— Abdu",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "quadricula_da_escavacao",
+     "subzona": "gize",
+     "qtd": 3
+    },
+    {
+     "tipo": "matar",
+     "alvo": "mumia_operaria",
+     "qtd": 8
+    }
+   ],
+   "recompensas": {
+    "xp": 32300,
+    "ouro": 1590,
+    "itens": [
+     {
+      "id": "unguento_de_mirra",
+      "qtd": 5
+     }
+    ]
+   },
+   "texto_conclusao": "Na peneira, três contas de faiança acesas. Abdu guardou duas e deu uma para você 'pela sorte'."
+  },
+  {
+   "id": "eg_k08",
+   "titulo": "Turno da Noite em Deir el-Medina",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 54,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k07"
+   ],
+   "resumo": "Cace na Vila dos Artesãos e traga os óstracos de faltas.",
+   "descricao": "CADERNO DO REIS · AVISO\nOs operários mortos da Vila ainda carregam as listas de faltas, escritas em caco. Quero ver. Se os mortos têm escala de turno, eu quero copiar.\n— Abdu",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "vila_dos_artesaos",
+     "qtd": 20
+    },
+    {
+     "tipo": "coletar",
+     "item": "ostraco_de_faltas",
+     "qtd": 4
+    }
+   ],
+   "recompensas": {
+    "xp": 33500,
+    "ouro": 1620,
+    "itens": [
+     {
+      "id": "anel_da_nomarca",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Abdu leu os cacos com os óculos na ponta do nariz. 'Hay: ausente, morto. Ano 31: Hay voltou.' Ele riu, e depois não riu."
+  },
+  {
+   "id": "eg_k09",
+   "titulo": "A Avenida de Amon",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 55,
+   "doador": "tuya_nomarca",
+   "entrega": "tuya_nomarca",
+   "requer": [
+    "eg_k04"
+   ],
+   "resumo": "Abra caminho pela Avenida das Esfinges até Karnak.",
+   "descricao": "SELO DA NOMARCA · ESTRADA\nA avenida das esfinges de carneiro liga Mênfis ao templo de Amon. Elas acordaram com a trombeta e não deixam ninguém andar fora da calçada.\nSeis estão de cabeça virada para a estrada. Ponha-as de volta no lugar, ou no chão.\n— Tuya",
+   "objetivos": [
+    {
+     "tipo": "explorar",
+     "subzona": "avenida_esfinges"
+    },
+    {
+     "tipo": "matar",
+     "alvo": "esfinge_carneiro",
+     "qtd": 6
+    }
+   ],
+   "recompensas": {
+    "xp": 34600,
+    "ouro": 1650,
+    "itens": []
+   },
+   "texto_conclusao": "As esfinges que sobraram olham para a calçada de novo. Tuya mandou varrer as pegadas."
+  },
+  {
+   "id": "eg_h01",
+   "titulo": "Os Crocodilos de Ouro",
+   "tipo": "dungeon",
+   "faccao": "ambas",
+   "nivel": 50,
+   "doador": "senebtisi_sacerdotisa",
+   "entrega": "senebtisi_sacerdotisa",
+   "requer": [
+    "eg_k01"
+   ],
+   "resumo": "Vá ao Faium e deixe uma oferenda na mesa de Sobek.",
+   "descricao": "Senebtisi falou sem abrir os olhos: 'Heródoto viu os crocodilos de ouro. Eu os alimentei. O maior está no Labirinto, embaixo da água. Leve carne à mesa de Sobek, no lago. Veja se ele ainda come.'",
+   "objetivos": [
+    {
+     "tipo": "explorar",
+     "subzona": "faium"
+    },
+    {
+     "tipo": "interagir",
+     "objeto": "oferenda_a_sobek",
+     "subzona": "faium",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 28900,
+    "ouro": 1500,
+    "itens": []
+   },
+   "texto_conclusao": "Algo grande subiu da água, olhou a carne e afundou de novo. Senebtisi suspirou: 'Não come mais oferenda. Agora ele quer o que respira.'"
+  },
+  {
+   "id": "eg_h02",
+   "titulo": "O Deus que Come",
+   "tipo": "dungeon",
+   "faccao": "ambas",
+   "nivel": 51,
+   "doador": "senebtisi_sacerdotisa",
+   "entrega": "senebtisi_sacerdotisa",
+   "requer": [
+    "eg_h01"
+   ],
+   "resumo": "Desça às Galerias Alagadas e derrube Petsuchos.",
+   "descricao": "Senebtisi tirou um dos braceletes e pôs no seu pulso: 'Para ele reconhecer quem o manda descansar. Quando a água subir, suba nas ilhas. Quebre as mesas de oferenda, ou ele come e volta mais forte. Traga o brinco dele. Ele vai querer que alguém guarde.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "petsuchos",
+     "qtd": 1
+    },
+    {
+     "tipo": "coletar",
+     "item": "brinco_de_petsuchos",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 45000,
+    "ouro": 2295,
+    "itens": [
+     {
+      "id": "colar_de_ouro_de_sobek",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Senebtisi lavou o brinco no lago e o pendurou na própria orelha. Chorou sem fazer barulho."
+  },
+  {
+   "id": "eg_h03",
+   "titulo": "Os Doze Pátios",
+   "tipo": "dungeon",
+   "faccao": "ambas",
+   "nivel": 53,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_h02"
+   ],
+   "resumo": "Responda ao enigma da Esfinge de Hawara.",
+   "descricao": "Djedi riu baixinho: 'Doze pátios, seis para o norte, seis para o sul. A Esfinge de lá não fala, ela mostra. Quando ela sentar e acender três glifos no peito, procure o pedestal que completa a frase. Se errar, o teto responde por ela. Traga o glifo do peito dela: quero ler.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "esfinge_de_hawara",
+     "qtd": 1
+    },
+    {
+     "tipo": "coletar",
+     "item": "glifo_da_resposta",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 48450,
+    "ouro": 2385,
+    "itens": []
+   },
+   "texto_conclusao": "Djedi virou o glifo na mão e ele mudou de forma. 'Viu? A resposta muda quando ninguém pergunta.'"
+  },
+  {
+   "id": "eg_h04",
+   "titulo": "A Que Faz a Garganta Respirar",
+   "tipo": "dungeon",
+   "faccao": "ambas",
+   "nivel": 54,
+   "doador": "senebtisi_sacerdotisa",
+   "entrega": "senebtisi_sacerdotisa",
+   "requer": [
+    "eg_h03"
+   ],
+   "resumo": "Desça à Câmara de Amenemés e enfrente Serket.",
+   "descricao": "Senebtisi desenhou um ankh no seu peito com carvão: 'Serket fecha a garganta e abre a garganta. O veneno dela se acumula. Os ankhs acesos da câmara tiram tudo: use-os, mas eles apagam. Quebre os ninhos. E traga o ferrão: uma gota mata, duas curam.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "serket",
+     "qtd": 1
+    },
+    {
+     "tipo": "coletar",
+     "item": "ferrao_de_serket",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 50250,
+    "ouro": 2430,
+    "itens": []
+   },
+   "texto_conclusao": "Senebtisi guardou o ferrão num pote de mel. 'Agora o rei pode dormir. E nós podemos curar picada.'"
+  },
+  {
+   "id": "eg_l01",
+   "titulo": "O Velho de Cento e Dez Anos",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 55,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Leia a Estela do Sonho entre as patas da Esfinge.",
+   "descricao": "Djedi: 'Quéops me perguntou o número das câmaras secretas de Thoth. Eu disse que não sabia. Menti. Vá ler a estela entre as patas da Esfinge. Ela prometeu um reino a quem tirasse a areia. A areia saiu. Quem vai ser rei?'",
+   "objetivos": [
+    {
+     "tipo": "explorar",
+     "subzona": "gize"
+    },
+    {
+     "tipo": "interagir",
+     "objeto": "estela_do_sonho",
+     "subzona": "gize",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 34600,
+    "ouro": 1650,
+    "itens": []
+   },
+   "texto_conclusao": "Embaixo da estela, alguém riscou: 'E agora, quem vai ser rei?'. Djedi riu: 'Fui eu. Em 1962.'"
+  },
+  {
+   "id": "eg_l02",
+   "titulo": "Os Rolos da Casa da Vida",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 57,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_l01"
+   ],
+   "resumo": "Procure o catálogo da Casa da Vida e afaste os sacerdotes mumificados.",
+   "descricao": "Djedi: 'A Casa da Vida era a biblioteca do templo. Os sacerdotes mumificados ainda guardam os rolos. Procure nos nichos o catálogo: quero saber se o Livro de Thoth passou por lá.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "nicho_de_rolos",
+     "subzona": "casa_vida",
+     "qtd": 4
+    },
+    {
+     "tipo": "matar",
+     "alvo": "sacerdote_mumia",
+     "qtd": 8
+    }
+   ],
+   "recompensas": {
+    "xp": 37100,
+    "ouro": 1710,
+    "itens": []
+   },
+   "texto_conclusao": "No catálogo, uma linha riscada: 'Livro de Thoth: devolvido ao rio'. Djedi ficou um tempo quieto. 'Setne devolveu. Então Setne sabe.'"
+  },
+  {
+   "id": "eg_l03",
+   "titulo": "O Ka de Setne",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 58,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_l02"
+   ],
+   "resumo": "Fale com o ka de Setne Khamuas na Casa da Vida.",
+   "descricao": "Djedi: 'Setne Khamuas, filho de Ramessés, tirou o Livro de Thoth da tumba de Neferkaptah e devolveu depois de perder tudo. O ka dele mora numa estátua na Casa da Vida. Os falcões de Hórus guardam a estátua. Pergunte a ele onde está o que o Livro descrevia.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "ka_de_setne",
+     "subzona": "casa_vida",
+     "qtd": 1
+    },
+    {
+     "tipo": "matar",
+     "alvo": "guardiao_falcao",
+     "qtd": 6
+    }
+   ],
+   "recompensas": {
+    "xp": 38400,
+    "ouro": 1740,
+    "itens": []
+   },
+   "texto_conclusao": "O ka de Setne disse uma frase só: 'O Livro era o mapa. O lugar fica embaixo da pata direita.'"
+  },
+  {
+   "id": "eg_l04",
+   "titulo": "Embaixo da Pata",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 60,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_l03"
+   ],
+   "resumo": "Cace na escavação de Quéops e junte fragmentos de esmeralda dos ninhos de escorpião.",
+   "descricao": "Djedi: 'A laje da pata tem uma ranhura. Os escorpiões de Serket carregam no ninho umas lascas verdes que não são egípcias. São de Atlântida. Junte cinco: uma delas é a chave.'",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "escavacao_de_queops",
+     "qtd": 24
+    },
+    {
+     "tipo": "coletar",
+     "item": "fragmento_de_esmeralda",
+     "qtd": 5
+    }
+   ],
+   "recompensas": {
+    "xp": 41000,
+    "ouro": 1800,
+    "itens": []
+   },
+   "texto_conclusao": "Djedi juntou as lascas na palma da mão. Uma delas se encaixou nas outras sozinha, e zuniu."
+  },
+  {
+   "id": "eg_l05",
+   "titulo": "A Câmara de Thoth",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 62,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_l04"
+   ],
+   "resumo": "Encaixe a lasca na pata da Esfinge e leve o eco ao cristal dos atlantes.",
+   "descricao": "Djedi pôs a lasca na sua mão: 'Encaixe na ranhura da pata direita. O que está embaixo é como o que está em cima. Depois leve o que você ouvir ao cristal do atlante: ele vai entender.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "camara_de_thoth",
+     "subzona": "gize",
+     "qtd": 1
+    },
+    {
+     "tipo": "interagir",
+     "objeto": "coluna_do_ritmo_eco",
+     "subzona": "escavacao",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 43600,
+    "ouro": 1860,
+    "itens": []
+   },
+   "texto_conclusao": "A laje não abriu. Mas a lasca bateu no ritmo do cristal atlante, e o cristal parou de falhar por três batidas. Diaprepes chorou."
+  },
+  {
+   "id": "eg_l06",
+   "titulo": "O Atlante que Subiu",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 64,
+   "doador": "diaprepes_atlante",
+   "entrega": "diaprepes_atlante",
+   "requer": [
+    "eg_l05"
+   ],
+   "resumo": "Ouça de Djedi o destino de Thoth e proteja o caminho dos atlantes no Mar de Areia.",
+   "descricao": "Diaprepes: 'O cristal parou de falhar por três batidas. Eu preciso saber onde está Thoth. O velho sabe e não me diz. Pergunte você. E as crias da serpente estão comendo os meus batedores no Mar de Areia.'",
+   "objetivos": [
+    {
+     "tipo": "falar",
+     "npc": "djedi_mago"
+    },
+    {
+     "tipo": "matar",
+     "alvo": "cria_de_apofis",
+     "qtd": 10
+    }
+   ],
+   "recompensas": {
+    "xp": 46400,
+    "ouro": 1920,
+    "itens": []
+   },
+   "texto_conclusao": "Djedi contou a verdade: Thoth subiu, há muito tempo, e deixou a chave para quem soubesse ouvir. Diaprepes ouviu calado e, no fim, agradeceu."
+  },
+  {
+   "id": "eg_v01",
+   "titulo": "O Relevo",
+   "tipo": "faccao",
+   "faccao": "vigilia",
+   "nivel": 56,
+   "doador": "dalva_ferraz",
+   "entrega": "dalva_ferraz",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Copie os três relevos das lâmpadas.",
+   "descricao": "DESPACHO DA OFICINA · ENGENHEIROS HEREGES\nTrês relevos em Karnak têm o mesmo desenho do templo de Hathor em Dendera: bulbo, filamento-serpente, pilar djed. Copie os três. Papel no meu bolso esquerdo, carvão no direito.\n— Dalva",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "relevo_de_dendera",
+     "subzona": "karnak",
+     "qtd": 3
+    }
+   ],
+   "recompensas": {
+    "xp": 35900,
+    "ouro": 1680,
+    "itens": []
+   },
+   "texto_conclusao": "Dalva pôs as três cópias lado a lado e bateu na mesa: 'É um circuito! Está desenhado na parede há quatro mil anos!'"
+  },
+  {
+   "id": "eg_v02",
+   "titulo": "O Filamento-Serpente",
+   "tipo": "faccao",
+   "faccao": "vigilia",
+   "nivel": 58,
+   "doador": "dalva_ferraz",
+   "entrega": "dalva_ferraz",
+   "requer": [
+    "eg_v01"
+   ],
+   "resumo": "Traga glândulas de naja para a Dalva testar.",
+   "descricao": "DESPACHO DA OFICINA\nNo relevo, o filamento é uma serpente. Pode ser só desenho. Pode ser que o veneno de naja conduza. Quero testar. Cinco glândulas.\n— Dalva",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "naja",
+     "qtd": 10
+    },
+    {
+     "tipo": "coletar",
+     "item": "glandula_de_naja",
+     "qtd": 5
+    }
+   ],
+   "recompensas": {
+    "xp": 38400,
+    "ouro": 1740,
+    "itens": []
+   },
+   "texto_conclusao": "Dalva molhou um fio no veneno e encostou na pilha. Faiscou verde. Ela gritou de alegria e queimou a sobrancelha."
+  },
+  {
+   "id": "eg_v03",
+   "titulo": "O Pilar Djed",
+   "tipo": "faccao",
+   "faccao": "vigilia",
+   "nivel": 61,
+   "doador": "dalva_ferraz",
+   "entrega": "dalva_ferraz",
+   "requer": [
+    "eg_v02"
+   ],
+   "resumo": "Tire um pilar djed de bronze dos guardiões da Calçada de Quéfren.",
+   "descricao": "DESPACHO DA OFICINA\nOs guardiões mumificados da Calçada de Quéfren carregam pilares djed de bronze na cintura. Um isolador perfeito. Traga um. Eles não vão dar de boa vontade.\n— Dalva",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "calcada_de_quefren",
+     "qtd": 24
+    },
+    {
+     "tipo": "coletar",
+     "item": "pilar_djed_de_bronze",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 42300,
+    "ouro": 1830,
+    "itens": []
+   },
+   "texto_conclusao": "Dalva enrolou fio no pilar e ligou na pilha. Pela primeira vez, o bulbo de vidro dela brilhou sozinho, fraco como vaga-lume."
+  },
+  {
+   "id": "eg_v04",
+   "titulo": "Luz sem Fogo",
+   "tipo": "faccao",
+   "faccao": "vigilia",
+   "nivel": 63,
+   "doador": "dalva_ferraz",
+   "entrega": "dalva_ferraz",
+   "requer": [
+    "eg_v03"
+   ],
+   "resumo": "Encontre uma lâmpada inteira nos Terraços de Djeser-Djeseru.",
+   "descricao": "DESPACHO DA OFICINA\nOs escaravelhos-rei guardam o que brilha. Um deles foi visto nos terraços de Hatshepsut com um bulbo inteiro no ninho. Uma lâmpada de verdade, de quatro mil anos.\n— Dalva",
+   "objetivos": [
+    {
+     "tipo": "explorar",
+     "subzona": "hatshepsut"
+    },
+    {
+     "tipo": "coletar",
+     "item": "lampada_de_dendera",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 58500,
+    "ouro": 2457,
+    "itens": [
+     {
+      "id": "luvas_de_dalva",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Dalva segurou a lâmpada como se fosse um filho. Ligou na pilha. A oficina inteira ficou branca por um segundo. 'A Vela vai acender sem pavio', ela disse, e mandou um bonde inteiro de cartas para o Acampamento da Vela."
+  },
+  {
+   "id": "eg_a01",
+   "titulo": "A Balança do Templo",
+   "tipo": "faccao",
+   "faccao": "arautos",
+   "nivel": 56,
+   "doador": "conego_barnabe",
+   "entrega": "conego_barnabe",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Veja a balança de granito de Karnak.",
+   "descricao": "CARTA DO CORO · AO IRMÃO QUE PESA\nEm Karnak há uma balança de granito do tamanho de um homem. Vá vê-la. Diga-me se o prato vazio desce quando você chega perto.\n— Barnabé, Cônego",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "balanca_de_pedra",
+     "subzona": "karnak",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 35900,
+    "ouro": 1680,
+    "itens": []
+   },
+   "texto_conclusao": "Barnabé ouviu e equilibrou a balancinha dele nos dedos. 'Desceu. Então ela ainda pesa. Então ainda há juízo, mesmo travado.'"
+  },
+  {
+   "id": "eg_a02",
+   "titulo": "O Peso de uma Pena",
+   "tipo": "faccao",
+   "faccao": "arautos",
+   "nivel": 58,
+   "doador": "conego_barnabe",
+   "entrega": "conego_barnabe",
+   "requer": [
+    "eg_a01"
+   ],
+   "resumo": "Traga penas de Maat dos guardiões de Hórus.",
+   "descricao": "CARTA DO CORO\nO coração se pesa contra a pena de Maat. Os guardiões de cabeça de falcão as carregam na coroa. Precisamos de quatro: uma para a balança, três para errar.\n— Barnabé",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "guardiao_falcao",
+     "qtd": 8
+    },
+    {
+     "tipo": "coletar",
+     "item": "pena_de_maat",
+     "qtd": 4
+    }
+   ],
+   "recompensas": {
+    "xp": 38400,
+    "ouro": 1740,
+    "itens": []
+   },
+   "texto_conclusao": "Barnabé pôs uma pena no prato da balancinha. O prato desceu, devagar, e parou no meio. 'Exata. Perfeita. Assustadora.'"
+  },
+  {
+   "id": "eg_a03",
+   "titulo": "Os Corações nos Vasos",
+   "tipo": "faccao",
+   "faccao": "arautos",
+   "nivel": 61,
+   "doador": "conego_barnabe",
+   "entrega": "conego_barnabe",
+   "requer": [
+    "eg_a02"
+   ],
+   "resumo": "Traga vasos canópicos lacrados para o Coro estudar.",
+   "descricao": "CARTA DO CORO\nOs egípcios tiravam tudo do morto e guardavam em quatro vasos, menos o coração. O coração ficava no peito, para ser pesado. Quero ver o que eles guardavam. Os anúbis não vão gostar.\n— Barnabé",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "anubis_sentinela",
+     "qtd": 10
+    },
+    {
+     "tipo": "coletar",
+     "item": "vaso_canopico_lacrado",
+     "qtd": 4
+    }
+   ],
+   "recompensas": {
+    "xp": 42300,
+    "ouro": 1830,
+    "itens": []
+   },
+   "texto_conclusao": "Barnabé abriu um vaso e fechou logo. 'Fígado. Três mil anos e ainda cheira a fígado.' Ele anotou alguma coisa e rezou baixinho."
+  },
+  {
+   "id": "eg_a04",
+   "titulo": "Coração de Granito",
+   "tipo": "faccao",
+   "faccao": "arautos",
+   "nivel": 63,
+   "doador": "conego_barnabe",
+   "entrega": "conego_barnabe",
+   "requer": [
+    "eg_a03"
+   ],
+   "resumo": "Abra caminho pelo Vale dos Reis até a tumba sem cartucho.",
+   "descricao": "CARTA DO CORO\nA tumba sem cartucho está no fundo do Vale dos Reis, e os anúbis da guarda de honra deixaram os escavadores entrarem. Ninguém sabe por quê. Abra o caminho. O Coro vai pesar aquele coração, nem que seja com as mãos.\n— Barnabé",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "vale_dos_reis",
+     "qtd": 24
+    }
+   ],
+   "recompensas": {
+    "xp": 58500,
+    "ouro": 2457,
+    "itens": [
+     {
+      "id": "balanca_de_barnabe",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Barnabé chegou à porta da tumba e pôs a mão no cartucho raspado. A pedra bateu uma vez. Ele tirou a mão e sorriu: 'Ele está lá. E está com medo.'"
+  },
+  {
+   "id": "eg_n01",
+   "titulo": "As Pragas Recomeçam",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 60,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_l04"
+   ],
+   "resumo": "Colha a água do Nilo que virou sangue em três pontos.",
+   "descricao": "Djedi estava sério pela primeira vez: 'A Rádio do Cairo conta as pragas: sangue, rãs, piolhos, moscas, peste, úlceras, granizo, gafanhotos, trevas. Falta uma. O rio está virando sangue de novo nas margens. Colha em três lugares. Quero saber se é aviso ou é ordem.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "praga_de_sangue",
+     "subzona": "margem_papiro",
+     "qtd": 3
+    }
+   ],
+   "recompensas": {
+    "xp": 41000,
+    "ouro": 1800,
+    "itens": []
+   },
+   "texto_conclusao": "O sangue nos frascos não coagulou. Djedi encostou o ouvido no vidro. 'Bate. Como um coração. É ordem.'",
+   "requer_qualquer": [
+    "eg_v03",
+    "eg_a03",
+    "eg_l05"
+   ]
+  },
+  {
+   "id": "eg_n02",
+   "titulo": "As Portas Marcadas",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 62,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n01"
+   ],
+   "resumo": "Veja as portas marcadas com sangue em Mênfis.",
+   "descricao": "Djedi: 'Em Mênfis algumas famílias passaram sangue de cordeiro nos lintéis, como na noite da Páscoa. Alguém lembrou o que vem depois das trevas. Vá ver as portas.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "porta_marcada",
+     "subzona": "menfis",
+     "qtd": 3
+    }
+   ],
+   "recompensas": {
+    "xp": 43600,
+    "ouro": 1860,
+    "itens": []
+   },
+   "texto_conclusao": "Três portas, três famílias rezando em línguas que ninguém fala mais. Djedi fechou o olho bom: 'Eles sabem que o Anjo Destruidor vai passar. Ninguém sabe a quem ele obedece desta vez.'"
+  },
+  {
+   "id": "eg_n03",
+   "titulo": "A Tumba Sem Cartucho",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 64,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n02"
+   ],
+   "resumo": "Toque o cartucho raspado e abra a Necrópole Proibida.",
+   "descricao": "Djedi pôs a mão no seu ombro, e ela pesava como pedra: 'A tumba sem cartucho fica no fundo do Vale. Ponha a mão no nome raspado. Ele vai bater. Depois limpe a Necrópole, onde os sacerdotes enterraram o que tinham medo de pesar. Só entra no Coração Endurecido quem o coração reconheceu.'",
+   "objetivos": [
+    {
+     "tipo": "interagir",
+     "objeto": "cartucho_raspado",
+     "subzona": "vale_reis",
+     "qtd": 1
+    },
+    {
+     "tipo": "farmar_spot",
+     "spot": "necropole_proibida",
+     "qtd": 24
+    }
+   ],
+   "recompensas": {
+    "xp": 69600,
+    "ouro": 2880,
+    "itens": []
+   },
+   "texto_conclusao": "O cartucho bateu na sua mão. Desde então, uma vez por minuto, você sente uma segunda batida no peito que não é sua. A tumba sabe quem você é."
+  },
+  {
+   "id": "eg_n04",
+   "titulo": "A Leoa que Bebeu o Sangue",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 60,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n03"
+   ],
+   "resumo": "Derrote Sekhmet, a Leoa Que Bebeu o Sangue no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'Rá mandou Sekhmet acabar com a humanidade e a deteve com sete mil jarras de cerveja ocre. O rito do Faraó a acordou no primeiro portão. Quebre as jarras perto dela quando a Sede subir.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "sekhmet",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 82000,
+    "ouro": 3600,
+    "itens": []
+   },
+   "texto_conclusao": "Sekhmet deitou no pátio e dormiu, como depois da cerveja, há cinco mil anos."
+  },
+  {
+   "id": "eg_n05",
+   "titulo": "Os Magos de Faraó",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 61,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n04"
+   ],
+   "resumo": "Derrote Janes e Jambres, os Magos de Faraó no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'Janes e Jambres imitaram Moisés até a terceira praga. Eles imitam um ao outro: derrube os dois juntos, ou um levanta o outro. Separe-os.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "janes",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 84600,
+    "ouro": 3660,
+    "itens": []
+   },
+   "texto_conclusao": "Os magos caíram de mãos dadas, como foram enterrados. No chão, dois bastões que não viraram serpente."
+  },
+  {
+   "id": "eg_n06",
+   "titulo": "Os Quatro Filhos de Hórus",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 62,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n05"
+   ],
+   "resumo": "Derrote Os Quatro Filhos de Hórus no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'Os quatro guardiões dos vasos canópicos lutam dois de cada vez. Cada um que cai derrama o vaso dele no chão: escolha onde e em que ordem.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "imseti",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 87200,
+    "ouro": 3720,
+    "itens": [
+     {
+      "id": "olho_de_horus",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Os quatro vasos se quebraram. Imseti olhou o rei por cima do ombro, como quem pede desculpas."
+  },
+  {
+   "id": "eg_n07",
+   "titulo": "A Serpente Sem Fim",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 63,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n06"
+   ],
+   "resumo": "Derrote Apófis, a Serpente Sem Fim no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'Na sétima hora da noite, Apófis ataca a barca de Rá. Mantenha a Lanterna de Rá acesa com as brasas da proa e, quando os olhos acenderem, vire de costas.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "apofis",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 90000,
+    "ouro": 3780,
+    "itens": [
+     {
+      "id": "khopesh_de_ramesses",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "A serpente afundou no rio escuro. A barca seguiu para a oitava hora, e um pouco de luz passou pela fresta do Sol Terço."
+  },
+  {
+   "id": "eg_n08",
+   "titulo": "O Pesador",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 64,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n07"
+   ],
+   "resumo": "Derrote Anúbis, o Pesador no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'Anúbis vai pesar vocês: metade Coração, metade Pena, cada um no seu prato. Equilibrem a balança. Segurem Ammit longe dos caídos.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "anubis_pesador",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 92800,
+    "ouro": 3840,
+    "itens": [
+     {
+      "id": "cetro_was_do_pesador",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Anúbis baixou o cetro. 'A pena pesou. Agora vocês sabem o que eu sinto há três mil anos.'"
+  },
+  {
+   "id": "eg_n09",
+   "titulo": "O Faraó Sem Nome",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 65,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n08"
+   ],
+   "resumo": "Derrote O Faraó Sem Nome no Coração Endurecido.",
+   "descricao": "Djedi, diante da tumba sem cartucho: 'O Faraó lança as pragas na ordem do Êxodo. Na décima, o Anjo Destruidor passa: fiquem sob as portas com sangue no lintel, até três por porta.'",
+   "objetivos": [
+    {
+     "tipo": "matar",
+     "alvo": "farao_sem_nome",
+     "qtd": 1
+    }
+   ],
+   "recompensas": {
+    "xp": 95600,
+    "ouro": 3900,
+    "itens": []
+   },
+   "texto_conclusao": "O Faraó caiu dizendo não. O coração dele rolou pelo chão do salão, inteiro, batendo."
+  },
+  {
+   "id": "eg_n10",
+   "titulo": "O Que Fazer com um Coração",
+   "tipo": "principal",
+   "faccao": "ambas",
+   "nivel": 66,
+   "doador": "djedi_mago",
+   "entrega": "djedi_mago",
+   "requer": [
+    "eg_n09"
+   ],
+   "resumo": "Decida o destino do Coração do Faraó.",
+   "descricao": "Os quatro acampamentos esperam na tenda de Djedi. O Coração está na sua mão, batendo uma vez por minuto.\nBarnabé quer pesá-lo na balança: se cair, o Juízo destrava.\nDalva quer quebrá-lo: sem coração não há décima praga.\nDjedi quer devolvê-lo ao Nilo, como Setne devolveu o Livro: 'o que não se pode pesar nem destruir, se devolve'.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "coracao_do_farao",
+     "qtd": 1
+    },
+    {
+     "tipo": "decidir",
+     "npc": "djedi_mago"
+    }
+   ],
+   "recompensas": {
+    "xp": 98400,
+    "ouro": 3960,
+    "itens": []
+   },
+   "texto_conclusao": "O que você escolheu correu a Terra Negra antes do pôr do Sol Terço.",
+   "escolhas": [
+    {
+     "id": "pesar",
+     "texto": "Entregar o coração ao Coro para ser pesado.",
+     "flags": [
+      "coracao_pesado"
+     ],
+     "recompensas": {
+      "xp": 98400,
+      "ouro": 3960,
+      "itens": [
+       {
+        "id": "balanca_de_barnabe",
+        "qtd": 1
+       }
+      ]
+     },
+     "texto_conclusao": "Barnabé pôs o coração no prato. A pena subiu. O coração não desceu nem subiu: ficou no meio, para sempre. Barnabé chorou de alegria, ou de outra coisa."
+    },
+    {
+     "id": "quebrar",
+     "texto": "Entregar o coração à Dalva para ser quebrado.",
+     "flags": [
+      "coracao_quebrado"
+     ],
+     "recompensas": {
+      "xp": 98400,
+      "ouro": 3960,
+      "itens": [
+       {
+        "id": "luvas_de_dalva",
+        "qtd": 1
+       }
+      ]
+     },
+     "texto_conclusao": "Dalva bateu com o martelo três vezes. Na terceira o coração rachou e saiu de dentro um som de mar fechando. As portas marcadas de Mênfis foram lavadas no dia seguinte."
+    },
+    {
+     "id": "devolver",
+     "texto": "Devolver o coração ao Nilo, com Djedi.",
+     "flags": [
+      "coracao_devolvido"
+     ],
+     "recompensas": {
+      "xp": 98400,
+      "ouro": 3960,
+      "itens": [
+       {
+        "id": "olho_de_horus",
+        "qtd": 1
+       }
+      ]
+     },
+     "texto_conclusao": "Djedi e você soltaram o coração no meio do rio, de cima da feluca de Ahmose. Ele afundou batendo. Djedi fez cento e onze anos naquela noite."
+    }
+   ]
+  },
+  {
+   "id": "eg_r01",
+   "titulo": "Turno no Juncal",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 51,
+   "doador": "nefer_aguadeira",
+   "entrega": "nefer_aguadeira",
+   "requer": [
+    "eg_k03"
+   ],
+   "resumo": "Cace 30 no spot (juncal do papiro).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nJuncal cheio de novo. Limpa um pouco, que eu levo água para quem fica.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "juncal_do_papiro",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 18000,
+    "ouro": 918,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  },
+  {
+   "id": "eg_r02",
+   "titulo": "Turno na Vila",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 54,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Cace 30 no spot (vila dos artesaos).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nOs mortos da Vila voltaram ao turno. Você também.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "vila_dos_artesaos",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 20100,
+    "ouro": 972,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  },
+  {
+   "id": "eg_r03",
+   "titulo": "Turno em Karnak",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 58,
+   "doador": "tuya_nomarca",
+   "entrega": "tuya_nomarca",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Cace 30 no spot (salao hipostilo).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nO salão hipostilo tem guarda nova. Morta. Tire.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "salao_hipostilo",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 23040,
+    "ouro": 1044,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  },
+  {
+   "id": "eg_r04",
+   "titulo": "Turno em Gizé",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 61,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Cace 30 no spot (escavacao de queops).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nQuadrícula por quadrícula, escorpião por escorpião.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "escavacao_de_queops",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 25380,
+    "ouro": 1098,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  },
+  {
+   "id": "eg_r05",
+   "titulo": "Turno no Faium",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 64,
+   "doador": "senebtisi_sacerdotisa",
+   "entrega": "senebtisi_sacerdotisa",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Cace 30 no spot (lago meris).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nO lago tem filhos demais. Alguns precisam descansar.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "lago_meris",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 27840,
+    "ouro": 1152,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  },
+  {
+   "id": "eg_r06",
+   "titulo": "Turno no Vale",
+   "tipo": "repetivel",
+   "faccao": "ambas",
+   "nivel": 68,
+   "doador": "reis_abdu",
+   "entrega": "reis_abdu",
+   "requer": [
+    "eg_k06"
+   ],
+   "resumo": "Cace 30 no spot (vale dos reis).",
+   "descricao": "CADERNO DO REIS · DIÁRIA\nO Vale paga em dobro. Porque morre em dobro.",
+   "objetivos": [
+    {
+     "tipo": "farmar_spot",
+     "spot": "vale_dos_reis",
+     "qtd": 30
+    }
+   ],
+   "recompensas": {
+    "xp": 31260,
+    "ouro": 1224,
+    "itens": []
+   },
+   "texto_conclusao": "Diária feita. Volte amanhã.",
+   "repete": "diaria"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+--- a/game/scripts/sim/chefe_ctl.gd
++++ b/game/scripts/sim/chefe_ctl.gd	2026-10-16 09:03:12.655044612 +0000
+@@ -26,6 +26,7 @@
+ var horda_onda := -1         # próxima onda da horda (-1 = sem horda na luta atual)
+ var horda_t := 0.0           # pausa até a próxima onda, depois que a anterior morre
+ var horda_ids: Array = []    # ids dos mobs vivos da horda
++var egito: ChefeEgito = null # chefes do Egito (mecanica_egito em chefes.json): entregas/egito
+ 
+ func _init(p_sim: WorldSim, c: Dictionary) -> void:
+ 	sim = p_sim; cfg = c
+@@ -58,6 +59,7 @@
+ 		var c := _objeto_arena("corista", "Corista de Osso", Vector2(p[0], p[1]), 220.0, {})
+ 		sim.ents[c].alvejavel = false; sim.ents[c].defesa = 10.0
+ 		coristas.append(c)
++	if d.has("mecanica_egito"): egito = ChefeEgito.new(self)
+ 
+ func _objeto_arena(kind: String, nome: String, p: Vector2, hp: float, res: Dictionary) -> int:
+ 	var o := Ent.new()
+@@ -184,6 +186,7 @@
+ 	boss.ameaca[_jog().id] = 1.0
+ 	boss.cd_basico = 1.0
+ 	esp["devorar_t"] = 20.0
++	if egito != null: egito.iniciar()
+ 
+ ## Quem estava no vão da grade é empurrado para dentro da arena.
+ func _empurrar_da_porta() -> void:
+@@ -195,6 +198,7 @@
+ 			sim.emitir("teleporte", {"id": e.id, "pos": e.pos})
+ 
+ func _resetar() -> void:
++	if egito != null: egito.resetar()
+ 	for id in sim.ents.keys():
+ 		var o: Ent = sim.ents[id]
+ 		if o.tipo == "monstro" and o.renasce_s == 0 and o.pos.distance_to(centro) < raio_arena + 6: sim.remover(id)
+@@ -242,6 +246,7 @@
+ 			if n == 3: encolhe_t = 25.0; raio_fogo = raio_arena; nota_t = 45.0; esp["querubim_t"] = 5.0
+ 		"general_partido":
+ 			if n == 3: boss.vel_ataque = 1.25; boss.intervalo /= 1.25
++	if egito != null: egito.nova_fase(n)
+ 
+ func ao_quebrar(interrompeu: bool) -> void:
+ 	if esp.has("comendo"):
+@@ -259,8 +264,10 @@
+ 	if boss.aux.get("agarrando", false): _soltar_agarrado()
+ 
+ func ao_morrer_ent(e: Ent, killer: Ent) -> void:
++	if egito != null and e != boss: egito.morreu(e, killer)
+ 	if e == boss:
+ 		estado = "morto"
++		if egito != null: egito.encerrar()
+ 		sim.definir_bloqueio(cfg.get("porta", []), 0)
+ 		sim.emitir("porta", {"fechada": false, "celulas": cfg.get("porta", [])})
+ 		sim.emitir("chefe", {"id": boss.id, "fim": true, "morto": true})
+@@ -493,6 +500,7 @@
+ 		"general_partido": _general(dt, j)
+ 		"irma_celeste": _celeste(dt, j)
+ 		"zacarias_arauto": _zacarias(dt, j)
++		_: if egito != null: egito.passo(dt, j)
+ 
+ # --- Andras: Pilhas de Mortos, devorar, ordem aos mortos, banquete
+ func _general(dt: float, j: Ent) -> void:
