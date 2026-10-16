@@ -1777,7 +1777,7 @@
     2,
     2
    ],
-   "motivo": "elmo_leve",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "Roupa de seminarista de uma ordem que não existe mais.",
@@ -1789,7 +1789,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_cabeca"
   },
   {
    "id": "batina_remendada_peito",
@@ -1812,7 +1822,7 @@
     2,
     3
    ],
-   "motivo": "peito_leve",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "Roupa de seminarista de uma ordem que não existe mais.",
@@ -1824,7 +1834,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 4
+   },
+   "arte_de": "gibao_batedor_vela"
   },
   {
    "id": "batina_remendada_luvas",
@@ -1889,7 +1905,7 @@
     2,
     2
    ],
-   "motivo": "calcas_leve",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "Roupa de seminarista de uma ordem que não existe mais.",
@@ -1901,7 +1917,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_calcas"
   },
   {
    "id": "batina_remendada_botas",
@@ -1924,7 +1950,7 @@
     2,
     2
    ],
-   "motivo": "botas_leve",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "Roupa de seminarista de uma ordem que não existe mais.",
@@ -1936,7 +1962,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_botas"
   },
   {
    "id": "couro_sobrevivente_cabeca",
@@ -1960,7 +1996,7 @@
     2,
     2
    ],
-   "motivo": "elmo_medio",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
@@ -1972,7 +2008,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "peregrino_cabeca"
   },
   {
    "id": "couro_sobrevivente_peito",
@@ -1996,7 +2042,7 @@
     2,
     3
    ],
-   "motivo": "peito_medio",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
@@ -2008,7 +2054,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 0
+   },
+   "arte_de": "tunica_saco_peregrino"
   },
   {
    "id": "couro_sobrevivente_luvas",
@@ -2075,7 +2127,7 @@
     2,
     2
    ],
-   "motivo": "calcas_medio",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
@@ -2087,7 +2139,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "peregrino_calcas"
   },
   {
    "id": "couro_sobrevivente_botas",
@@ -2111,7 +2173,7 @@
     2,
     2
    ],
-   "motivo": "botas_medio",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
@@ -2123,7 +2185,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "peregrino_botas"
   },
   {
    "id": "placas_sino_cabeca",
@@ -2146,7 +2218,7 @@
     2,
     2
    ],
-   "motivo": "elmo_pesado",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
@@ -2158,7 +2230,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_cabeca"
   },
   {
    "id": "placas_sino_peito",
@@ -2181,7 +2263,7 @@
     2,
     3
    ],
-   "motivo": "peito_pesado",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
@@ -2193,7 +2275,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 4
+   },
+   "arte_de": "gibao_batedor_vela"
   },
   {
    "id": "placas_sino_luvas",
@@ -2258,7 +2346,7 @@
     2,
     2
    ],
-   "motivo": "calcas_pesado",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
@@ -2270,7 +2358,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_calcas"
   },
   {
    "id": "placas_sino_botas",
@@ -2293,7 +2391,7 @@
     2,
     2
    ],
-   "motivo": "botas_pesado",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
@@ -2305,7 +2403,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "batedor_vela_botas"
   },
   {
    "id": "coro_mudo_cabeca",
@@ -2328,7 +2436,7 @@
     2,
     2
    ],
-   "motivo": "elmo_leve",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#ff3a2a",
    "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
@@ -2340,7 +2448,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_cabeca"
   },
   {
    "id": "coro_mudo_peito",
@@ -2363,7 +2481,7 @@
     2,
     3
    ],
-   "motivo": "peito_leve",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#ff3a2a",
    "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
@@ -2375,7 +2493,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 2
+   },
+   "arte_de": "habito_penitente_carmim"
   },
   {
    "id": "coro_mudo_luvas",
@@ -2440,7 +2564,7 @@
     2,
     2
    ],
-   "motivo": "calcas_leve",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#ff3a2a",
    "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
@@ -2452,7 +2576,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_calcas"
   },
   {
    "id": "coro_mudo_botas",
@@ -2475,7 +2609,7 @@
     2,
     2
    ],
-   "motivo": "botas_leve",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#ff3a2a",
    "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
@@ -2487,7 +2621,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_botas"
   },
   {
    "id": "couraca_acougueiro_oco_cabeca",
@@ -2511,7 +2655,7 @@
     2,
     2
    ],
-   "motivo": "elmo_medio",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#9cff3a",
    "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
@@ -2523,7 +2667,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "vigia_anil_cabeca"
   },
   {
    "id": "couraca_acougueiro_oco_peito",
@@ -2547,7 +2701,7 @@
     2,
     3
    ],
-   "motivo": "peito_medio",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#9cff3a",
    "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
@@ -2559,7 +2713,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 3
+   },
+   "arte_de": "tunica_vigia_anil"
   },
   {
    "id": "couraca_acougueiro_oco_luvas",
@@ -2626,7 +2786,7 @@
     2,
     2
    ],
-   "motivo": "calcas_medio",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#9cff3a",
    "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
@@ -2638,7 +2798,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "vigia_anil_calcas"
   },
   {
    "id": "couraca_acougueiro_oco_botas",
@@ -2662,7 +2832,7 @@
     2,
     2
    ],
-   "motivo": "botas_medio",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#9cff3a",
    "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
@@ -2674,7 +2844,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "vigia_anil_botas"
   },
   {
    "id": "juramento_quebrado_cabeca",
@@ -2697,7 +2877,7 @@
     2,
     2
    ],
-   "motivo": "elmo_pesado",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff7a1a",
    "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
@@ -2709,7 +2889,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "elmo_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_cabeca"
   },
   {
    "id": "juramento_quebrado_peito",
@@ -2732,7 +2922,7 @@
     2,
     3
    ],
-   "motivo": "peito_pesado",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff7a1a",
    "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
@@ -2744,7 +2934,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "peito_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/tunicas.png",
+    "indice": 2
+   },
+   "arte_de": "habito_penitente_carmim"
   },
   {
    "id": "juramento_quebrado_luvas",
@@ -2809,7 +3005,7 @@
     2,
     2
    ],
-   "motivo": "calcas_pesado",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff7a1a",
    "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
@@ -2821,7 +3017,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "calcas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_calcas"
   },
   {
    "id": "juramento_quebrado_botas",
@@ -2844,7 +3050,7 @@
     2,
     2
    ],
-   "motivo": "botas_pesado",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff7a1a",
    "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
@@ -2856,7 +3062,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "botas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "penitente_carmim_botas"
   },
   {
    "id": "anel_prego_caixao",
@@ -2867,7 +3083,7 @@
     1,
     1
    ],
-   "motivo": "anel",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "atributo_base": {
     "vit": 2
@@ -2885,7 +3101,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "anel",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 7
+   },
+   "arte_de": "anel_osso_cintado"
   },
   {
    "id": "colar_dentes",
@@ -2896,7 +3118,7 @@
     1,
     1
    ],
-   "motivo": "colar_dentes",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "atributo_base": {
     "for": 2
@@ -2914,7 +3136,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "colar_dentes",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "colar_presas_vala"
   },
   {
    "id": "anel_ferro_cripta",
@@ -2925,7 +3157,7 @@
     1,
     1
    ],
-   "motivo": "anel",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "atributo_base": {
     "vit": 3
@@ -2943,7 +3175,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/anel_ferro_cripta.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "anel",
+   "arte": {
+    "folha": "assets/icones/fontes/aneis_simples.png",
+    "indice": 1
+   },
+   "arte_de": "anel_vento_absinto"
   },
   {
    "id": "rosario_ossos",
@@ -2954,7 +3192,7 @@
     1,
     1
    ],
-   "motivo": "rosario",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "atributo_base": {
     "esp": 3
@@ -2972,7 +3210,17 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true
+   "substituido_por_arte_pronta": true,
+   "motivo_antigo": "rosario",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "arte_de": "pingente_lua_anil"
   },
   {
    "id": "aro_ferro_velho",
@@ -7013,7 +7261,7 @@
    "id": "caixote_podre",
    "tipo": "bau",
    "nome": "Caixote Podre",
-   "motivo": "bau_madeira",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "lore": "Madeira mole, prego solto. Às vezes solta um gás verde.",
    "tags": [],
@@ -7027,7 +7275,16 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "bau_madeira",
+   "arte": {
+    "folha": "assets/icones/fontes/caixote_podre.png",
+    "indice": 0,
+    "grade": [
+     1,
+     1
+    ]
+   }
   },
   {
    "id": "bau_de_ferro",

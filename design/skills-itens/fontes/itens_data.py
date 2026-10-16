@@ -302,3 +302,10 @@ GRADE_FOLHA["missao_1"] = [8, 4]
 ARTE_EXISTENTES["leituras_1"] = ["leitura_obitos", "leitura_carta_lucio", "leitura_mapa_tobias", "leitura_anselmo", "leitura_tabela_carnica",
  "leitura_hino_carpideiras", "leitura_confissao_anacleto", "leitura_ordem_zacarias", "leitura_ordem_lancamento", "leitura_carta_apostata", "leitura_livro_tombo"]
 AUTO_FOLHA["leituras_1"] = {"dilata": 0}
+
+# Caixote Podre pintado pelo Jefin (peça única)
+ARTE_EXISTENTES["caixote_podre"] = ["caixote_podre"]
+GRADE_FOLHA["caixote_podre"] = [1,1]
+
+# itens novos sem arte pintada própria usam a de uma peça parecida até o Jefin mandar a dele (um padrão só de ícone)
+ALIAS_ARTE = {"carta_de_simao": "carta_apostata"}

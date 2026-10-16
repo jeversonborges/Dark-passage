@@ -176,6 +176,18 @@ for it in itens:
         else: it["arte"]["auto"] = len([1 for v in arte_de.values() if v[0] == folha])
         it["arte"].update(getattr(I, "AUTO_FOLHA", {}).get(folha, {}))
         it.pop("substituido_por_arte_pronta", None)
+# Jefin (16/10): um padrão só de ícone. As bases antigas desenhadas por código usam a arte pintada
+# da peça do mesmo slot com nível mais próximo (rolada), repartindo entre as peças para não repetir sempre a mesma.
+pintadas = [x for x in itens if x.get("motivo") == "arte_pronta" and x.get("raridade") == "rolada" and "arte" in x]
+usos = {}
+for it in itens:
+    if it.get("substituido_por_arte_pronta") and it.get("motivo") != "arte_pronta":
+        cands = [x for x in pintadas if x.get("slot") == it.get("slot")]
+        if not cands: continue
+        par = min(cands, key=lambda x: (abs(x.get("nivel", 0) - it.get("nivel", 0)), usos.get(x["id"], 0), x["id"]))
+        usos[par["id"]] = usos.get(par["id"], 0) + 1
+        it["motivo_antigo"] = it.get("motivo"); it["motivo"] = "arte_pronta"
+        it["arte"] = dict(par["arte"]); it["arte_de"] = par["id"]
 # Relíquias Sangrentas: armas lendárias com arte pintada, saem dos chefes (pools_lendarios)
 for (iid, nome, cls, tipo, maos, n, idx, tag, grade, at, bf, lore) in getattr(I, "RELIQUIAS_SANGRENTAS", []):
     d = dict(id=iid, nome=nome, classes=cls, tipo=tipo, slot="segunda_mao" if tipo == "escudo" else "arma", maos=maos, nivel=n, raridade="lendario",
@@ -185,6 +197,19 @@ for (iid, nome, cls, tipo, maos, n, idx, tag, grade, at, bf, lore) in getattr(I,
     else: d.update(dano=dano(n, 1.25), intervalo=INTERVALO.get(tipo, 1.0))
     add("arma", d)
     if iid not in I.POOLS_LENDARIOS.setdefault(tag, []): I.POOLS_LENDARIOS[tag].append(iid)
+# rede de segurança do padrão único: item que ficou sem arte pintada pega a de outro (ALIAS_ARTE, ou mesmo motivo e categoria)
+por_id = {x["id"]: x for x in itens}
+for it in itens:
+    if it.get("motivo") == "arte_pronta": continue
+    par = por_id.get(getattr(I, "ALIAS_ARTE", {}).get(it["id"], ""))
+    if par is None:
+        cands = [x for x in itens if x.get("motivo") == "arte_pronta" and "arte" in x and x.get("motivo_antigo") == it.get("motivo")]
+        cands.sort(key=lambda x: (x.get("categoria") != it.get("categoria"), x["id"]))
+        par = cands[0] if cands else None
+    if par is None or "arte" not in par:
+        print("SEM ARTE PINTADA:", it["id"]); continue
+    it["motivo_antigo"] = it.get("motivo"); it["motivo"] = "arte_pronta"
+    it["arte"] = dict(par["arte"]); it["arte_de"] = par["id"]
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}
