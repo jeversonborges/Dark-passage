@@ -52,27 +52,27 @@
  },
  "sheets": {
   "idle": {
-   "file": "algoz_idle.png",
+   "file": "familiar_algoz_idle.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "walk": {
-   "file": "algoz_walk.png",
+   "file": "familiar_algoz_walk.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "attack": {
-   "file": "algoz_attack.png",
+   "file": "familiar_algoz_attack.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "hit": {
-   "file": "algoz_hit.png",
+   "file": "familiar_algoz_hit.png",
    "rows": "dirs",
    "cols": "frames"
   },
   "death": {
-   "file": "algoz_death.png",
+   "file": "familiar_algoz_death.png",
    "rows": "dirs",
    "cols": "frames"
   }
