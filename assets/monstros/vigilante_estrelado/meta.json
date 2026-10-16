@@ -1,0 +1,115 @@
+{
+ "monstro": "vigilante_estrelado",
+ "frame_size": [
+  288,
+  288
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  144.0,
+  207.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "kneel": {
+   "frames": 2,
+   "fps": 2,
+   "loop": true
+  },
+  "rise": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "land": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "vigilante_estrelado_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "vigilante_estrelado_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "vigilante_estrelado_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "vigilante_estrelado_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "vigilante_estrelado_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "kneel": {
+   "file": "vigilante_estrelado_kneel.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "rise": {
+   "file": "vigilante_estrelado_rise.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "land": {
+   "file": "vigilante_estrelado_land.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.6
+ }
+}

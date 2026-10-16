@@ -1,0 +1,58 @@
+Godot Engine v4.4.1.stable.official.49a5bc7b6 - https://godotengine.org
+[agenda e convite]
+  ok   próxima subida 19:00 de Brasília (22:00 UTC)
+  ok   depois das 19h vai para as 19h do dia seguinte
+  ok   fora da janela às 12h
+  ok   convite fora da janela não gasta: O lacre não rompe. O Hermon chama de novo em 7h00.
+  ok   aviso de 10 min
+  ok   aviso não repete
+  ok   aviso de entrada aberta
+  ok   janela aberta, faltam 3 min
+  ok   janela fecha aos 5 min
+  ok   nível 10 não sobe
+  ok   não sobe de dentro da dungeon
+  ok   nível 30 sobe na faixa 15-49 (mob 30)
+  ok   21 jogadores = 2 cumes (20 + 1)
+  ok   nível 120 vai para outro cume (faixa 100-149)
+  ok   instância usa o mesmo arquivo de mapa
+[espera e juramento, 4 jogadores]
+  ok   mapa com 'hermon' cria o controle em espera
+  ok   58 Vigilantes ajoelhados (estátuas) na espera
+  ok   sem PvP na espera
+  ok   entrada fechou: juramento começou
+  ok   PvP ligado: cada um é o próprio lado
+  ok   20 + 2x4 = 28 Vigilantes levantaram (28)
+  ok   estátuas sumiram
+  ok   mistura de Vigilantes: { "vigilante_ferreiro": 7, "vigilante_jurado": 19, "vigilante_estrelado": 2 }
+  ok   aviso do anel 1 aos 160 s
+  ok   anel 1 ainda de pé aos 178 s
+  ok   juramento segue depois da queda do anel 1 (3 vivos)
+  ok   só caiu quem estava no anel 1 (raio > 17)
+  ok   anel 1 caiu aos 180 s e virou abismo
+  ok   quem estava no anel 1 caiu e foi eliminado
+  ok   sem perda de XP no evento
+  ok   eliminado volta para onde estava
+  ok   nenhum Vigilante vivo flutuando no abismo
+  ok   reforço desceu do céu quando o anel caiu
+  ok   empurrão na beira derrubou o Vigilante
+  ok   abate PvP: +3 pontos
+  ok   abate PvP: +1 Ficha de Sangue na hora
+  ok   no máximo 3 fichas por abate em um evento
+  ok   eliminado não renasce no cume
+[cancelado com 1 jogador]
+  ok   menos de 2: cancelado
+  ok   convite devolvido
+  ok   mandado de volta
+[clicar no convite]
+  ok   clicar no convite chama o servidor
+  ok   o convite só é gasto quando o servidor aceita
+[fim aos 15 min com 2 sobreviventes]
+  ok   vence quem tem mais pontos
+  ok   vencedor também leva o prêmio de sobrevivente (1 Angélica + 450 de ouro)
+  ok   sobrevivente: 1 Angélica
+  ok   fichas de PvP: sobrevivente 1, vencedor 3
+  ok   todos voltam depois da coroação
+  ok   arma lendária sai em ~30% dos vencedores (298 de 1000)
+  ok   a arma é sempre a lendária da classe do vencedor
+teste_hermon: 50 ok, 0 falhas
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
