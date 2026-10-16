@@ -929,6 +929,42 @@
           "alcance": 12,
           "area_raio": 3.0,
           "sensacao": "area"
+        },
+        {
+          "id": "bomba_atomica",
+          "nome": "Bomba Atômica",
+          "nivel": 75,
+          "custo": 80,
+          "recarga": 60.0,
+          "alvo": "chao",
+          "alcance": 12,
+          "preparo": 1.0,
+          "voo": 0.9,
+          "elemento": "fogo",
+          "dano": {
+            "mult_centro": 9.0,
+            "raio_centro": 1.2,
+            "raio": 5.5,
+            "mult_borda": 1.5,
+            "queda": "linear"
+          },
+          "radiacao": {
+            "raio": 6.0,
+            "duracao": 8.0,
+            "dano_por_s_mult": 0.35,
+            "cura_recebida_mult": 0.7,
+            "acumula": false
+          },
+          "empurrao": {
+            "raio": 3.0,
+            "forca": 2.5
+          },
+          "postura": 120,
+          "sensacao": "area",
+          "vfx": "herege_bomba_explosao",
+          "vfx_projetil": "herege_bomba_arremesso",
+          "vfx_chao": "herege_radiacao",
+          "descricao": "Arremessa uma ogiva herege no chão. Quem está no centro (até 1,2 m) toma 900% de dano; o dano cai até 150% na borda (5,5 m). A área fica radioativa por 8 s: quem estiver perto toma 35%/s e recebe 30% menos cura."
         }
       ]
     }

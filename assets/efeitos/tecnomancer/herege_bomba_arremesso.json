@@ -1,0 +1,21 @@
+{
+ "name": "herege_bomba_arremesso",
+ "cat": "tecnomancer",
+ "frames": 8,
+ "fps": 16,
+ "loop": true,
+ "anchor": [
+  20,
+  20
+ ],
+ "layer": "frente",
+ "desc": "Bomba Atômica (projétil): ogiva de latão com aletas, girando, luz verde piscando.",
+ "char": null,
+ "title": "Bomba Atômica (projétil)",
+ "resumo": "Ogiva de latão com aletas, girando, luz verde piscando.",
+ "frame_w": 40,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 1,
+ "sheet": "herege_bomba_arremesso.png"
+}

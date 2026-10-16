@@ -1,0 +1,21 @@
+{
+ "name": "herege_bomba_explosao",
+ "cat": "tecnomancer",
+ "frames": 40,
+ "fps": 15,
+ "loop": false,
+ "anchor": [
+  200,
+  332
+ ],
+ "layer": "frente",
+ "desc": "Bomba Atômica: clarão, bola de fogo, onda de choque no chão, anel de condensação e cogumelo atômico que sobe e escurece.",
+ "char": null,
+ "title": "Bomba Atômica",
+ "resumo": "Clarão, bola de fogo, onda de choque no chão, anel de condensação e cogumelo atômico que sobe e escurece.",
+ "frame_w": 400,
+ "frame_h": 424,
+ "cols": 5,
+ "rows": 8,
+ "sheet": "herege_bomba_explosao.png"
+}

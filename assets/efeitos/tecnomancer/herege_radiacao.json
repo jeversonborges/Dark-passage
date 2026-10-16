@@ -1,0 +1,21 @@
+{
+ "name": "herege_radiacao",
+ "cat": "tecnomancer",
+ "frames": 24,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  144,
+  80
+ ],
+ "layer": "chao",
+ "desc": "Zona radioativa da Bomba Atômica: chão queimado, brilho verde do Amargo e poeira radioativa subindo (repetir enquanto durar).",
+ "char": null,
+ "title": "Zona radioativa da Bomba Atômica",
+ "resumo": "Chão queimado, brilho verde do Amargo e poeira radioativa subindo (repetir enquanto durar).",
+ "frame_w": 288,
+ "frame_h": 160,
+ "cols": 7,
+ "rows": 4,
+ "sheet": "herege_radiacao.png"
+}

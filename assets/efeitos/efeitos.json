@@ -2020,6 +2020,69 @@
   "sheet": "status/status_veneno.png"
  },
  {
+  "name": "herege_bomba_arremesso",
+  "cat": "tecnomancer",
+  "frames": 8,
+  "fps": 16,
+  "loop": true,
+  "anchor": [
+   20,
+   20
+  ],
+  "layer": "frente",
+  "desc": "Bomba Atômica (projétil): ogiva de latão com aletas, girando, luz verde piscando.",
+  "char": null,
+  "title": "Bomba Atômica (projétil)",
+  "resumo": "Ogiva de latão com aletas, girando, luz verde piscando.",
+  "frame_w": 40,
+  "frame_h": 40,
+  "cols": 8,
+  "rows": 1,
+  "sheet": "tecnomancer/herege_bomba_arremesso.png"
+ },
+ {
+  "name": "herege_bomba_explosao",
+  "cat": "tecnomancer",
+  "frames": 40,
+  "fps": 15,
+  "loop": false,
+  "anchor": [
+   200,
+   332
+  ],
+  "layer": "frente",
+  "desc": "Bomba Atômica: clarão, bola de fogo, onda de choque no chão, anel de condensação e cogumelo atômico que sobe e escurece.",
+  "char": null,
+  "title": "Bomba Atômica",
+  "resumo": "Clarão, bola de fogo, onda de choque no chão, anel de condensação e cogumelo atômico que sobe e escurece.",
+  "frame_w": 400,
+  "frame_h": 424,
+  "cols": 5,
+  "rows": 8,
+  "sheet": "tecnomancer/herege_bomba_explosao.png"
+ },
+ {
+  "name": "herege_radiacao",
+  "cat": "tecnomancer",
+  "frames": 24,
+  "fps": 10,
+  "loop": true,
+  "anchor": [
+   144,
+   80
+  ],
+  "layer": "chao",
+  "desc": "Zona radioativa da Bomba Atômica: chão queimado, brilho verde do Amargo e poeira radioativa subindo (repetir enquanto durar).",
+  "char": null,
+  "title": "Zona radioativa da Bomba Atômica",
+  "resumo": "Chão queimado, brilho verde do Amargo e poeira radioativa subindo (repetir enquanto durar).",
+  "frame_w": 288,
+  "frame_h": 160,
+  "cols": 7,
+  "rows": 4,
+  "sheet": "tecnomancer/herege_radiacao.png"
+ },
+ {
   "name": "tec_arco_voltaico",
   "cat": "tecnomancer",
   "frames": 10,
