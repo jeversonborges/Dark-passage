@@ -1,0 +1,21 @@
+{
+ "name": "arquimago_meteoros",
+ "cat": "cultista",
+ "frames": 40,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  160,
+  250
+ ],
+ "layer": "frente",
+ "desc": "Chuva de Estrelas Rubras: o céu se rasga e catorze estrelas de sangue caem em diagonal, explodindo e deixando o chão em brasa.",
+ "char": null,
+ "title": "Chuva de Estrelas Rubras",
+ "resumo": "O céu se rasga e catorze estrelas de sangue caem em diagonal, explodindo e deixando o chão em brasa.",
+ "frame_w": 320,
+ "frame_h": 320,
+ "cols": 6,
+ "rows": 7,
+ "sheet": "arquimago_meteoros.png"
+}

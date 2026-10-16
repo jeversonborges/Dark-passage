@@ -1,0 +1,21 @@
+{
+ "name": "lorde_trono",
+ "cat": "demonio",
+ "frames": 28,
+ "fps": 12,
+ "loop": false,
+ "anchor": [
+  96,
+  168
+ ],
+ "layer": "frente",
+ "desc": "Trono da Legião: um trono de ossos e lâminas sobe do chão em brasa; correntes de provocação puxam os inimigos ao redor.",
+ "char": null,
+ "title": "Trono da Legião",
+ "resumo": "Um trono de ossos e lâminas sobe do chão em brasa; correntes de provocação puxam os inimigos ao redor.",
+ "frame_w": 192,
+ "frame_h": 208,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "lorde_trono.png"
+}

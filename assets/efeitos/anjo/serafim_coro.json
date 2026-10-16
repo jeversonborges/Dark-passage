@@ -1,0 +1,21 @@
+{
+ "name": "serafim_coro",
+ "cat": "anjo",
+ "frames": 32,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  144,
+  200
+ ],
+ "layer": "frente",
+ "desc": "Coro dos Seis Ais: seis asas de luz se abrem atrás do Serafim, colunas de luz ressuscitam os aliados e uma redoma protege o grupo.",
+ "char": null,
+ "title": "Coro dos Seis Ais",
+ "resumo": "Seis asas de luz se abrem atrás do Serafim, colunas de luz ressuscitam os aliados e uma redoma protege o grupo.",
+ "frame_w": 288,
+ "frame_h": 256,
+ "cols": 7,
+ "rows": 5,
+ "sheet": "serafim_coro.png"
+}

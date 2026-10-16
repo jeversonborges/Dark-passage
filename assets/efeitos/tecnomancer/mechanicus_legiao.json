@@ -1,0 +1,21 @@
+{
+ "name": "mechanicus_legiao",
+ "cat": "tecnomancer",
+ "frames": 32,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  128,
+  176
+ ],
+ "layer": "frente",
+ "desc": "Legião de Servos: engrenagem de runas gira no chão e quatro crânios-servos de latão sobem em espiral, ligados por arcos de sobrecarga.",
+ "char": null,
+ "title": "Legião de Servos",
+ "resumo": "Engrenagem de runas gira no chão e quatro crânios-servos de latão sobem em espiral, ligados por arcos de sobrecarga.",
+ "frame_w": 256,
+ "frame_h": 224,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "mechanicus_legiao.png"
+}

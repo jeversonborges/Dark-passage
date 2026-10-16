@@ -424,6 +424,48 @@
   "sheet": "anjo/anjo_trombeta_juizo.png"
  },
  {
+  "name": "arcanjo_sete_espadas",
+  "cat": "anjo",
+  "frames": 36,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   128,
+   168
+  ],
+  "layer": "frente",
+  "desc": "Sete Espadas do Juízo: sete montantes de fogo sagrado caem do céu em círculo e o último crava no centro.",
+  "char": null,
+  "title": "Sete Espadas do Juízo",
+  "resumo": "Sete montantes de fogo sagrado caem do céu em círculo e o último crava no centro.",
+  "frame_w": 256,
+  "frame_h": 240,
+  "cols": 8,
+  "rows": 5,
+  "sheet": "anjo/arcanjo_sete_espadas.png"
+ },
+ {
+  "name": "serafim_coro",
+  "cat": "anjo",
+  "frames": 32,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   144,
+   200
+  ],
+  "layer": "frente",
+  "desc": "Coro dos Seis Ais: seis asas de luz se abrem atrás do Serafim, colunas de luz ressuscitam os aliados e uma redoma protege o grupo.",
+  "char": null,
+  "title": "Coro dos Seis Ais",
+  "resumo": "Seis asas de luz se abrem atrás do Serafim, colunas de luz ressuscitam os aliados e uma redoma protege o grupo.",
+  "frame_w": 288,
+  "frame_h": 256,
+  "cols": 7,
+  "rows": 5,
+  "sheet": "anjo/serafim_coro.png"
+ },
+ {
   "name": "aura_anjo",
   "cat": "auras",
   "frames": 16,
@@ -1054,6 +1096,27 @@
   "sheet": "combate/sangue_poca.png"
  },
  {
+  "name": "arquimago_meteoros",
+  "cat": "cultista",
+  "frames": 40,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   160,
+   250
+  ],
+  "layer": "frente",
+  "desc": "Chuva de Estrelas Rubras: o céu se rasga e catorze estrelas de sangue caem em diagonal, explodindo e deixando o chão em brasa.",
+  "char": null,
+  "title": "Chuva de Estrelas Rubras",
+  "resumo": "O céu se rasga e catorze estrelas de sangue caem em diagonal, explodindo e deixando o chão em brasa.",
+  "frame_w": 320,
+  "frame_h": 320,
+  "cols": 6,
+  "rows": 7,
+  "sheet": "cultista/arquimago_meteoros.png"
+ },
+ {
   "name": "cult_chuva_cinzas",
   "cat": "cultista",
   "frames": 16,
@@ -1201,6 +1264,27 @@
   "sheet": "cultista/cult_setimo_selo.png"
  },
  {
+  "name": "profeta_enxame",
+  "cat": "cultista",
+  "frames": 24,
+  "fps": 14,
+  "loop": true,
+  "anchor": [
+   48,
+   96
+  ],
+  "layer": "frente",
+  "desc": "Enxame da Podridão: nuvem de moscas e mariposas podres girando em volta do alvo, pingando podridão verde (repetir enquanto durar).",
+  "char": null,
+  "title": "Enxame da Podridão",
+  "resumo": "Nuvem de moscas e mariposas podres girando em volta do alvo, pingando podridão verde (repetir enquanto durar).",
+  "frame_w": 96,
+  "frame_h": 112,
+  "cols": 8,
+  "rows": 3,
+  "sheet": "cultista/profeta_enxame.png"
+ },
+ {
   "name": "dem_banquete",
   "cat": "demonio",
   "frames": 16,
@@ -1325,6 +1409,48 @@
   "cols": 8,
   "rows": 4,
   "sheet": "demonio/dem_portao_inferno.png"
+ },
+ {
+  "name": "lorde_trono",
+  "cat": "demonio",
+  "frames": 28,
+  "fps": 12,
+  "loop": false,
+  "anchor": [
+   96,
+   168
+  ],
+  "layer": "frente",
+  "desc": "Trono da Legião: um trono de ossos e lâminas sobe do chão em brasa; correntes de provocação puxam os inimigos ao redor.",
+  "char": null,
+  "title": "Trono da Legião",
+  "resumo": "Um trono de ossos e lâminas sobe do chão em brasa; correntes de provocação puxam os inimigos ao redor.",
+  "frame_w": 192,
+  "frame_h": 208,
+  "cols": 8,
+  "rows": 4,
+  "sheet": "demonio/lorde_trono.png"
+ },
+ {
+  "name": "cacador_chuva_virotes",
+  "cat": "humano",
+  "frames": 30,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   128,
+   200
+  ],
+  "layer": "frente",
+  "desc": "Chuva de Virotes Benzidos: quarenta virotes caem em diagonal sobre a área, cravam no chão com respingos de água benta.",
+  "char": null,
+  "title": "Chuva de Virotes Benzidos",
+  "resumo": "Quarenta virotes caem em diagonal sobre a área, cravam no chão com respingos de água benta.",
+  "frame_w": 256,
+  "frame_h": 256,
+  "cols": 8,
+  "rows": 4,
+  "sheet": "humano/cacador_chuva_virotes.png"
  },
  {
   "name": "hum_agua_benta_polvora",
@@ -1514,6 +1640,48 @@
   "cols": 8,
   "rows": 3,
   "sheet": "humano/hum_ultimo_suspiro.png"
+ },
+ {
+  "name": "pistoleiro_forma_vingativa",
+  "cat": "humano",
+  "frames": 24,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   64,
+   140
+  ],
+  "layer": "frente",
+  "desc": "Forma Vingativa: explosão de pólvora e brasa sobe do chão, o sobretudo pega fogo e os olhos do Vingador acendem (início da transformação).",
+  "char": "humano",
+  "title": "Forma Vingativa",
+  "resumo": "Explosão de pólvora e brasa sobe do chão, o sobretudo pega fogo e os olhos do Vingador acendem (início da transformação).",
+  "frame_w": 128,
+  "frame_h": 160,
+  "cols": 8,
+  "rows": 3,
+  "sheet": "humano/pistoleiro_forma_vingativa.png"
+ },
+ {
+  "name": "pistoleiro_vingador_aura",
+  "cat": "humano",
+  "frames": 16,
+  "fps": 14,
+  "loop": true,
+  "anchor": [
+   40,
+   112
+  ],
+  "layer": "frente",
+  "desc": "Aura do Vingador: brasas no sobretudo e faíscas na espingarda enquanto a Forma Vingativa dura (repetir).",
+  "char": "humano",
+  "title": "Aura do Vingador",
+  "resumo": "Brasas no sobretudo e faíscas na espingarda enquanto a Forma Vingativa dura (repetir).",
+  "frame_w": 80,
+  "frame_h": 120,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "humano/pistoleiro_vingador_aura.png"
  },
  {
   "name": "bau_abertura",
@@ -1745,6 +1913,48 @@
   "cols": 8,
   "rows": 2,
   "sheet": "itens/lagrima_sanguinea_queda.png"
+ },
+ {
+  "name": "abominacao_forma_colossal",
+  "cat": "mutante",
+  "frames": 28,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   112,
+   200
+  ],
+  "layer": "frente",
+  "desc": "Forma Colossal: a carne explode em sangue e ácido, tentáculos rompem o chão e uma onda de choque marca a transformação.",
+  "char": "mutante",
+  "title": "Forma Colossal",
+  "resumo": "A carne explode em sangue e ácido, tentáculos rompem o chão e uma onda de choque marca a transformação.",
+  "frame_w": 224,
+  "frame_h": 240,
+  "cols": 8,
+  "rows": 4,
+  "sheet": "mutante/abominacao_forma_colossal.png"
+ },
+ {
+  "name": "gladiador_arena",
+  "cat": "mutante",
+  "frames": 30,
+  "fps": 12,
+  "loop": false,
+  "anchor": [
+   144,
+   136
+  ],
+  "layer": "frente",
+  "desc": "Ave, Arena!: grades de ferro sobem do chão em círculo, tochas de ácido acendem e uma onda de poeira marca a arena.",
+  "char": null,
+  "title": "Ave, Arena!",
+  "resumo": "Grades de ferro sobem do chão em círculo, tochas de ácido acendem e uma onda de poeira marca a arena.",
+  "frame_w": 288,
+  "frame_h": 208,
+  "cols": 7,
+  "rows": 5,
+  "sheet": "mutante/gladiador_arena.png"
  },
  {
   "name": "mut_carapaca",
@@ -2081,6 +2291,27 @@
   "cols": 7,
   "rows": 4,
   "sheet": "tecnomancer/herege_radiacao.png"
+ },
+ {
+  "name": "mechanicus_legiao",
+  "cat": "tecnomancer",
+  "frames": 32,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   128,
+   176
+  ],
+  "layer": "frente",
+  "desc": "Legião de Servos: engrenagem de runas gira no chão e quatro crânios-servos de latão sobem em espiral, ligados por arcos de sobrecarga.",
+  "char": null,
+  "title": "Legião de Servos",
+  "resumo": "Engrenagem de runas gira no chão e quatro crânios-servos de latão sobem em espiral, ligados por arcos de sobrecarga.",
+  "frame_w": 256,
+  "frame_h": 224,
+  "cols": 8,
+  "rows": 4,
+  "sheet": "tecnomancer/mechanicus_legiao.png"
  },
  {
   "name": "tec_arco_voltaico",

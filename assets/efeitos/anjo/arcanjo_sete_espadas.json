@@ -1,0 +1,21 @@
+{
+ "name": "arcanjo_sete_espadas",
+ "cat": "anjo",
+ "frames": 36,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  128,
+  168
+ ],
+ "layer": "frente",
+ "desc": "Sete Espadas do Juízo: sete montantes de fogo sagrado caem do céu em círculo e o último crava no centro.",
+ "char": null,
+ "title": "Sete Espadas do Juízo",
+ "resumo": "Sete montantes de fogo sagrado caem do céu em círculo e o último crava no centro.",
+ "frame_w": 256,
+ "frame_h": 240,
+ "cols": 8,
+ "rows": 5,
+ "sheet": "arcanjo_sete_espadas.png"
+}

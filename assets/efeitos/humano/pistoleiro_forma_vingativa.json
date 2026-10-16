@@ -1,0 +1,21 @@
+{
+ "name": "pistoleiro_forma_vingativa",
+ "cat": "humano",
+ "frames": 24,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  64,
+  140
+ ],
+ "layer": "frente",
+ "desc": "Forma Vingativa: explosão de pólvora e brasa sobe do chão, o sobretudo pega fogo e os olhos do Vingador acendem (início da transformação).",
+ "char": "humano",
+ "title": "Forma Vingativa",
+ "resumo": "Explosão de pólvora e brasa sobe do chão, o sobretudo pega fogo e os olhos do Vingador acendem (início da transformação).",
+ "frame_w": 128,
+ "frame_h": 160,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "pistoleiro_forma_vingativa.png"
+}

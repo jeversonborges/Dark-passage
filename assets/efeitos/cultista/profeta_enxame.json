@@ -1,0 +1,21 @@
+{
+ "name": "profeta_enxame",
+ "cat": "cultista",
+ "frames": 24,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  48,
+  96
+ ],
+ "layer": "frente",
+ "desc": "Enxame da Podridão: nuvem de moscas e mariposas podres girando em volta do alvo, pingando podridão verde (repetir enquanto durar).",
+ "char": null,
+ "title": "Enxame da Podridão",
+ "resumo": "Nuvem de moscas e mariposas podres girando em volta do alvo, pingando podridão verde (repetir enquanto durar).",
+ "frame_w": 96,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "profeta_enxame.png"
+}

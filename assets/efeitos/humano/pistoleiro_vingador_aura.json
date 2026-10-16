@@ -1,0 +1,21 @@
+{
+ "name": "pistoleiro_vingador_aura",
+ "cat": "humano",
+ "frames": 16,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  40,
+  112
+ ],
+ "layer": "frente",
+ "desc": "Aura do Vingador: brasas no sobretudo e faíscas na espingarda enquanto a Forma Vingativa dura (repetir).",
+ "char": "humano",
+ "title": "Aura do Vingador",
+ "resumo": "Brasas no sobretudo e faíscas na espingarda enquanto a Forma Vingativa dura (repetir).",
+ "frame_w": 80,
+ "frame_h": 120,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "pistoleiro_vingador_aura.png"
+}

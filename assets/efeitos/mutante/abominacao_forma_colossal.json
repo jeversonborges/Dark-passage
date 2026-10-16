@@ -1,0 +1,21 @@
+{
+ "name": "abominacao_forma_colossal",
+ "cat": "mutante",
+ "frames": 28,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  112,
+  200
+ ],
+ "layer": "frente",
+ "desc": "Forma Colossal: a carne explode em sangue e ácido, tentáculos rompem o chão e uma onda de choque marca a transformação.",
+ "char": "mutante",
+ "title": "Forma Colossal",
+ "resumo": "A carne explode em sangue e ácido, tentáculos rompem o chão e uma onda de choque marca a transformação.",
+ "frame_w": 224,
+ "frame_h": 240,
+ "cols": 8,
+ "rows": 4,
+ "sheet": "abominacao_forma_colossal.png"
+}

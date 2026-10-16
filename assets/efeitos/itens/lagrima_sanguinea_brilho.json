@@ -1,0 +1,21 @@
+{
+ "name": "lagrima_sanguinea_brilho",
+ "cat": "itens",
+ "frames": 16,
+ "fps": 10,
+ "loop": true,
+ "anchor": [
+  28,
+  60
+ ],
+ "layer": "frente",
+ "desc": "Lágrima Sanguínea no chão: luz no chão, halo e cintilação de joia em loop.",
+ "char": null,
+ "title": "Lágrima Sanguínea no chão",
+ "resumo": "Luz no chão, halo e cintilação de joia em loop.",
+ "frame_w": 56,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "lagrima_sanguinea_brilho.png"
+}

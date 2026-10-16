@@ -1,0 +1,21 @@
+{
+ "name": "gladiador_arena",
+ "cat": "mutante",
+ "frames": 30,
+ "fps": 12,
+ "loop": false,
+ "anchor": [
+  144,
+  136
+ ],
+ "layer": "frente",
+ "desc": "Ave, Arena!: grades de ferro sobem do chão em círculo, tochas de ácido acendem e uma onda de poeira marca a arena.",
+ "char": null,
+ "title": "Ave, Arena!",
+ "resumo": "Grades de ferro sobem do chão em círculo, tochas de ácido acendem e uma onda de poeira marca a arena.",
+ "frame_w": 288,
+ "frame_h": 208,
+ "cols": 7,
+ "rows": 5,
+ "sheet": "gladiador_arena.png"
+}

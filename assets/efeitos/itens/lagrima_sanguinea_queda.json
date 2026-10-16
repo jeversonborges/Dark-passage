@@ -1,0 +1,21 @@
+{
+ "name": "lagrima_sanguinea_queda",
+ "cat": "itens",
+ "frames": 14,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  40,
+  64
+ ],
+ "layer": "frente",
+ "desc": "Lágrima Sanguínea caindo: clarão, estrela de joia, onda no chão e fagulhas.",
+ "char": null,
+ "title": "Lágrima Sanguínea caindo",
+ "resumo": "Clarão, estrela de joia, onda no chão e fagulhas.",
+ "frame_w": 80,
+ "frame_h": 80,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "lagrima_sanguinea_queda.png"
+}
