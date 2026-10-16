@@ -1,0 +1,1879 @@
+{
+ "dialogos": [
+  {
+   "id": "dlg_sariel_porta",
+   "npc": "sariel_porta",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Mais um risco no batente. Seca, leal ao Coro até onde o Coro é leal ao fim.",
+     "opcoes": [
+      {
+       "texto": "Os Que Ainda Rezam?",
+       "ir": "j01_oferta",
+       "se": {
+        "missao_disponivel": "j01"
+       }
+      },
+      {
+       "texto": "Sobre os que ainda rezam.",
+       "ir": "j01_fim",
+       "se": {
+        "missao_pronta": "j01"
+       }
+      },
+      {
+       "texto": "Os Chacais de Josafá?",
+       "ir": "j03_oferta",
+       "se": {
+        "missao_disponivel": "j03"
+       }
+      },
+      {
+       "texto": "Sobre os chacais de josafá.",
+       "ir": "j03_fim",
+       "se": {
+        "missao_pronta": "j03"
+       }
+      },
+      {
+       "texto": "Os Que Levantaram Primeiro?",
+       "ir": "j04_oferta",
+       "se": {
+        "missao_disponivel": "j04"
+       }
+      },
+      {
+       "texto": "O Destino da Tábua?",
+       "ir": "j05_oferta",
+       "se": {
+        "missao_disponivel": "j05"
+       }
+      },
+      {
+       "texto": "Ronda da Muralha?",
+       "ir": "jr01_oferta",
+       "se": {
+        "missao_disponivel": "jr01"
+       }
+      },
+      {
+       "texto": "Sobre ronda da muralha.",
+       "ir": "jr01_fim",
+       "se": {
+        "missao_pronta": "jr01"
+       }
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "j01_oferta": {
+     "fala": "Escuta. Unha na pedra. São os Peregrinos do Getsêmani: vieram de todo canto para ver o fim e ficaram vendo. Seis deles abrem uma brecha no olival. Derrube os seis. Se voltar, eu escrevo o seu nome no batente.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "j01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "j01_fim": {
+     "fala": "Seis. Vi da muralha. Você bate como quem pede desculpa, mas bate. Tome a fita. Agora vá à Hulda, perto da Brasa. Quando a Brasa baixa, eu não durmo.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "j01"
+        }
+       ]
+      }
+     ]
+    },
+    "j03_oferta": {
+     "fala": "O vale de Josafá é onde o Senhor vai julgar as nações. Enquanto Ele não vem, os chacais julgam primeiro. Oito deles rondam a Porta do Esterco. Desça ao Cedrom.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "j03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "j03_fim": {
+     "fala": "O vale está mais quieto. Não confunda quieto com limpo. A Hulda quer falar com você, e o Escriba lá do bosque também anda perguntando por gente de pé.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "j03"
+        }
+       ]
+      }
+     ]
+    },
+    "j04_oferta": {
+     "fala": "Os Levantados das Oliveiras são os mais velhos de todos. Estão na fila há trinta e um anos. Abata seis, veja os peregrinos ajoelhados e procure o Escriba. Ele sabe coisas que eu não quero saber.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "j04"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "j05_oferta": {
+     "fala": "Você trouxe a Tábua. Eu não encosto nela. Leve à Hulda, perto da Brasa. Ela vai dizer o que o Coro quer. Eu vou dizer o que eu quero. Você decide.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "j05"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jr01_oferta": {
+     "fala": "Ronda de hoje. Dez Peregrinos, cinco abutres no olival. Amanhã de novo.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jr01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jr01_fim": {
+     "fala": "Muralha limpa. Toma um chá da Zilpa e volte amanhã.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jr01"
+        }
+       ]
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Guardava a Porta Dourada quando o primeiro toque soou em Jerusalém. A porta estava selada desde Ezequiel: ninguém entraria por ela até o fim. Sariel abriu. Desde então risca o batente a cada noite em que o fim não termina. Os riscos já dão a volta na porta.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_hulda_escada",
+   "npc": "hulda_escada",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "A Brasa baixa à noite. Como todo mundo. Erudita, irônica, desconfia de quem acredita fácil.",
+     "opcoes": [
+      {
+       "texto": "Azeite para a Brasa?",
+       "ir": "j02_oferta",
+       "se": {
+        "missao_disponivel": "j02"
+       }
+      },
+      {
+       "texto": "Sobre azeite para a brasa.",
+       "ir": "j02_fim",
+       "se": {
+        "missao_pronta": "j02"
+       }
+      },
+      {
+       "texto": "Sobre o destino da tábua.",
+       "ir": "j05_fim",
+       "se": {
+        "missao_pronta": "j05"
+       }
+      },
+      {
+       "texto": "Vozes na Estática?",
+       "ir": "jd01_oferta",
+       "se": {
+        "missao_disponivel": "jd01"
+       }
+      },
+      {
+       "texto": "Quero ver o que você tem.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_hulda"
+        }
+       ]
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "j02_oferta": {
+     "fala": "Cuidado com a Brasa, ela morde. Está baixa. Os abutres levam os odres de azeite dos peregrinos para os ninhos nas oliveiras. Cinco odres, e ela volta a subir.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "j02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "j02_fim": {
+     "fala": "Cheiro de oliva. Bom. A Brasa vai comer tudo e pedir mais, como todo fogo santo. Volte à Sariel: ela tem serviço de dente e unha.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "j02"
+        }
+       ]
+      }
+     ]
+    },
+    "j05_fim": {
+     "fala": "(Hulda segura a Tábua com um pano) Duzentos nomes jurando contra o fim. Queimar devolve um passo ao fim, a Sariel diz. Selar dá ao Coro uma corrente para puxar os Vigilantes de novo. Os dois são pecado. Escolha o seu.",
+     "opcoes": [
+      {
+       "texto": "Queimar a Tábua na Brasa do Altar (Sariel)",
+       "acoes": [
+        {
+         "concluir_missao": "j05",
+         "escolha": "destruir"
+        }
+       ]
+      },
+      {
+       "texto": "Selar a Tábua para o Coro de Sião (Hulda)",
+       "acoes": [
+        {
+         "concluir_missao": "j05",
+         "escolha": "estudar"
+        }
+       ]
+      },
+      {
+       "texto": "Preciso pensar."
+      }
+     ]
+    },
+    "jd01_oferta": {
+     "fala": "Tem uma irmã no posto de escuta do Hermon, a Jael. Ela diz que ouve os Vigilantes contando. O Coro diz que ela enlouqueceu. Limpe as Escadas de Siloé e suba até ela.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Lia os rolos do Coro na escada do Templo quando o Juízo começou. Foi quem manteve a Brasa do Altar acesa na primeira noite, com o óleo das lamparinas de toda a cidade. Sabe mais do que o Coro gostaria e menos do que ela mesma gostaria.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_zilpa_hissopo",
+   "npc": "zilpa_hissopo",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Come. Depois morre, se quiser. Mandona, carinhosa, faz todo mundo comer.",
+     "opcoes": [
+      {
+       "texto": "Hissopo de Cova?",
+       "ir": "js01_oferta",
+       "se": {
+        "missao_disponivel": "js01"
+       }
+      },
+      {
+       "texto": "Sobre hissopo de cova.",
+       "ir": "js01_fim",
+       "se": {
+        "missao_pronta": "js01"
+       }
+      },
+      {
+       "texto": "Chá para Joás?",
+       "ir": "js02_oferta",
+       "se": {
+        "missao_disponivel": "js02"
+       }
+      },
+      {
+       "texto": "Sobre chá para joás.",
+       "ir": "js02_fim",
+       "se": {
+        "missao_pronta": "js02"
+       }
+      },
+      {
+       "texto": "Tabuinhas de Argila?",
+       "ir": "jf01_oferta",
+       "se": {
+        "missao_disponivel": "jf01"
+       }
+      },
+      {
+       "texto": "Sobre tabuinhas de argila.",
+       "ir": "jf01_fim",
+       "se": {
+        "missao_pronta": "jf01"
+       }
+      },
+      {
+       "texto": "Quero ver o que você tem.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_zilpa"
+        }
+       ]
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "js01_oferta": {
+     "fala": "Purifica-me com hissopo, diz o salmo. Não diz que o hissopo bom nasce em cima de morto. Os Levantados trazem nas unhas. Quatro raízes, criança.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js01_fim": {
+     "fala": "Raiz boa. Branca. Cheira a chuva. Toma um chá. Não pergunta do que é.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js01"
+        }
+       ]
+      }
+     ]
+    },
+    "js02_oferta": {
+     "fala": "O meu menino está na necrópole. Levantou e não voltou. Esse chá ele tomava quando tinha febre. Derrama na pedra dele. O que vier... não deixa sofrer.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js02_fim": {
+     "fala": "(ela pega a medalha e aperta) Joás. Era ele? Não diz. Toma o véu. Era dele antes de ser meu.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js02"
+        }
+       ]
+      }
+     ]
+    },
+    "jf01_oferta": {
+     "fala": "Os Peregrinos acham tabuinhas de argila no Getsêmani. Três juntas dizem um nome. Traga. E não conte ao Escriba.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf01_fim": {
+     "fala": "HNWK. Nome sem vogal. Eu já vi essa letra. No livro do Escriba, na cabana dele. Ele escreve com a mesma mão.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jf01"
+        }
+       ]
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Cultista da Comunhão do Amargo, curandeira da cidade baixa. O filho, Joás, morreu na primeira semana e levantou com os outros na necrópole. Ela nunca foi ver.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_tubal_malho",
+   "npc": "tubal_malho",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Ferro lembra. Fala pouco e baixo, ri alto.",
+     "opcoes": [
+      {
+       "texto": "Correntes Viram Lâminas?",
+       "ir": "js03_oferta",
+       "se": {
+        "missao_disponivel": "js03"
+       }
+      },
+      {
+       "texto": "Sobre correntes viram lâminas.",
+       "ir": "js03_fim",
+       "se": {
+        "missao_pronta": "js03"
+       }
+      },
+      {
+       "texto": "Os Estandartes da Geena?",
+       "ir": "je01_oferta",
+       "se": {
+        "missao_disponivel": "je01"
+       }
+      },
+      {
+       "texto": "Sobre o trono vazio.",
+       "ir": "je04_fim",
+       "se": {
+        "missao_pronta": "je04"
+       }
+      },
+      {
+       "texto": "Rastro de Brasa?",
+       "ir": "je05_oferta",
+       "se": {
+        "missao_disponivel": "je05"
+       }
+      },
+      {
+       "texto": "Sobre rastro de brasa.",
+       "ir": "je05_fim",
+       "se": {
+        "missao_pronta": "je05"
+       }
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "js03_oferta": {
+     "fala": "Quero ferro velho. Velho mesmo, do fundo do monte. Os fornalheiros da Geena usam os elos como amuleto. Seis. Depois esquenta na fornalha grande de Tofete. Fogo de casa, entende?",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js03_fim": {
+     "fala": "(Tubal cheira o metal) Ferro de Vigilante. Ainda ouve. Toma o malho. E isto aqui, para quando a coisa piorar.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js03"
+        }
+       ]
+      }
+     ]
+    },
+    "je01_oferta": {
+     "fala": "Na Geena, três estandartes da Legião estão no chão. Ninguém levanta. Vai ver, e passa no Zaqueu. Limpe o Getsêmani no caminho, que os peregrinos atrapalham.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "je01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "je04_fim": {
+     "fala": "Meia coroa. Do Andras. O general que o bonde partiu. Se a coroa está aqui partida, ele também está em algum lugar partido. E vivo. Toma a divisa. Era dele.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "je04"
+        }
+       ]
+      }
+     ]
+    },
+    "je05_oferta": {
+     "fala": "Os porcos de Gadara não dormem. Tem rastro de brasa entre eles, de alguém que se arrasta. Siga e volte. E não conte a ninguém antes de mim.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "je05"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "je05_fim": {
+     "fala": "(Tubal limpa as mãos) Arrasto de general. Vivo, debaixo da terra do deserto, no fosso do Carniça. A Legião está brigando por um trono que ainda tem dono. O que eu faço com isso?",
+     "opcoes": [
+      {
+       "texto": "Contar à Legião que o general está vivo",
+       "acoes": [
+        {
+         "concluir_missao": "je05",
+         "escolha": "espalhar"
+        }
+       ]
+      },
+      {
+       "texto": "Guardar o segredo para os Arautos usarem depois",
+       "acoes": [
+        {
+         "concluir_missao": "je05",
+         "escolha": "guardar"
+        }
+       ]
+      },
+      {
+       "texto": "Preciso pensar."
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Forjava armas da Legião Blasfema nas fornalhas de Tofete até o general sumir. Subiu para Jerusalém com a bigorna nas costas e montou a forja ao lado dos anjos, que não gostam dele. Ele não gosta dos anjos. Os dois precisam de lâminas.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_bartimeu_brasas",
+   "npc": "bartimeu_brasas",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Frasco fresco! Eu sei porque está frio. Rápido, debochado, cobra caro de quem enxerga.",
+     "opcoes": [
+      {
+       "texto": "Os Tesouros do Bartimeu?",
+       "ir": "js04_oferta",
+       "se": {
+        "missao_disponivel": "js04"
+       }
+      },
+      {
+       "texto": "Sobre os tesouros do bartimeu.",
+       "ir": "js04_fim",
+       "se": {
+        "missao_pronta": "js04"
+       }
+      },
+      {
+       "texto": "Quero ver o que você tem.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_bartimeu"
+        }
+       ]
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "js04_oferta": {
+     "fala": "Eu sou cego, não sou bobo. Escondi minhas coisas em três lugares e agora não acho nenhum, que ironia. Toma o mapa. É em relevo. Fecha o olho que fica mais fácil.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js04"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js04_fim": {
+     "fala": "A minha flauta! Rachada, mas minha. O resto é seu. Bartimeu paga bem quando ninguém está olhando, e ninguém está.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js04"
+        }
+       ]
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Mendigava na Porta de Damasco antes do Juízo. Quando a cidade escureceu, foi o único que não se perdeu nas ruas. Hoje empurra o carrinho de fogueira em fogueira vendendo poção para quem fica no spot.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_bartimeu_carrinho",
+   "npc": "bartimeu_carrinho",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Frasco fresco! Pra quem fica no spot o dia inteiro, eu trago o carrinho até a fogueira. Eu sei o caminho pelo calor.",
+     "opcoes": [
+      {
+       "texto": "Mostra as poções.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_carrinho_bartimeu"
+        }
+       ]
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_zaqueu_cobrador",
+   "npc": "zaqueu_cobrador",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Todo mundo deve. Eu só anoto. Amável, ganancioso, honesto do jeito dele: cobra todo mundo pelo mesmo preço.",
+     "opcoes": [
+      {
+       "texto": "Sobre os estandartes da geena.",
+       "ir": "je01_fim",
+       "se": {
+        "missao_pronta": "je01"
+       }
+      },
+      {
+       "texto": "Insígnias da Cerca?",
+       "ir": "je02_oferta",
+       "se": {
+        "missao_disponivel": "je02"
+       }
+      },
+      {
+       "texto": "Sobre insígnias da cerca.",
+       "ir": "je02_fim",
+       "se": {
+        "missao_pronta": "je02"
+       }
+      },
+      {
+       "texto": "Veneno no Cálice?",
+       "ir": "je03_oferta",
+       "se": {
+        "missao_disponivel": "je03"
+       }
+      },
+      {
+       "texto": "Sobre veneno no cálice.",
+       "ir": "je03_fim",
+       "se": {
+        "missao_pronta": "je03"
+       }
+      },
+      {
+       "texto": "O Trono Vazio?",
+       "ir": "je04_oferta",
+       "se": {
+        "missao_disponivel": "je04"
+       }
+      },
+      {
+       "texto": "A Pedra que Sobe?",
+       "ir": "jf02_oferta",
+       "se": {
+        "missao_disponivel": "jf02"
+       }
+      },
+      {
+       "texto": "Sobre a pedra que sobe.",
+       "ir": "jf02_fim",
+       "se": {
+        "missao_pronta": "jf02"
+       }
+      },
+      {
+       "texto": "As Folhas do Livro?",
+       "ir": "jf03_oferta",
+       "se": {
+        "missao_disponivel": "jf03"
+       }
+      },
+      {
+       "texto": "Sobre as folhas do livro.",
+       "ir": "jf03_fim",
+       "se": {
+        "missao_pronta": "jf03"
+       }
+      },
+      {
+       "texto": "Quero ver o que você tem.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_zaqueu"
+        }
+       ]
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "je01_fim": {
+     "fala": "(Zaqueu, sem levantar do degrau) A Legião está sem general e o trono da Geena está vazio. Quem senta primeiro, manda. Quer saber quem está pagando para sentar?",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "je01"
+        }
+       ]
+      }
+     ]
+    },
+    "je02_oferta": {
+     "fala": "Tem sapador da Vigília represando o Jordão com ferramenta da Geena. Alguém da Legião está vendendo para o inimigo. Cinco insígnias e eu te digo quem.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "je02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "je02_fim": {
+     "fala": "Ferramenta da Geena, mão da Vigília, e um demônio no meio cobrando. Que bonito. Fica de olho nos Sineiros: eles carregam as cartas.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "je02"
+        }
+       ]
+      }
+     ]
+    },
+    "je03_oferta": {
+     "fala": "Os Sineiros dos Cedros Partidos carregam uma carta sobre um cálice. Traga. Depois a gente decide quem fica devendo a quem.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "je03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "je03_fim": {
+     "fala": "Veneno no cálice do Coro, na missa da sexta hora. Quem fica devendo? Os anjos, se você avisar. Os demônios, se você mostrar ao Tubal. Ou ninguém, se ninguém souber.",
+     "opcoes": [
+      {
+       "texto": "Avisar a Sariel do veneno (os anjos ficam devendo)",
+       "acoes": [
+        {
+         "concluir_missao": "je03",
+         "escolha": "anjos"
+        }
+       ]
+      },
+      {
+       "texto": "Mostrar a carta ao Tubal (os demônios ficam devendo)",
+       "acoes": [
+        {
+         "concluir_missao": "je03",
+         "escolha": "demonios"
+        }
+       ]
+      },
+      {
+       "texto": "Deixar o veneno chegar ao cálice e ver o que acontece",
+       "acoes": [
+        {
+         "concluir_missao": "je03",
+         "escolha": "silencio"
+        }
+       ]
+      },
+      {
+       "texto": "Preciso pensar."
+      }
+     ]
+    },
+    "je04_oferta": {
+     "fala": "O trono da Geena tem meia coroa presa nas correntes. Atravesse a Fenda, que está cheia de sapadores, e traga. Leve ao Tubal. Ele conhece ferro de general.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "je04"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf02_oferta": {
+     "fala": "Tem uma pedra no olival com pegadas de quem subiu ao céu. Uma é famosa. A outra ninguém comenta. Vá ver, mas limpe a necrópole antes, que os Levantados estão na fila.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf02_fim": {
+     "fala": "Duas pegadas. Uma subiu e não voltou. A outra subiu e voltou. Eu cobro de quem volta. Procure as folhas do livro dessa pessoa.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jf02"
+        }
+       ]
+      }
+     ]
+    },
+    "jf03_oferta": {
+     "fala": "Leia os rolos da escada e cace cinco folhas com os abutres. Quero ver a mesma letra em séculos diferentes.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf03_fim": {
+     "fala": "Mesma letra. Em pergaminho e em papel de jornal. Alguém escreve este livro há tempo demais. Fale com a Rispa. Ela conhece quem não morre.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jf03"
+        }
+       ]
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Cobrava impostos para quem estivesse mandando em Jerusalém. Quando o Juízo começou, continuou cobrando: dos anjos, dos demônios, da Vigília. Sabe quem deve o quê a quem, e isso vale mais que ouro.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_henoc_escriba",
+   "npc": "henoc_escriba",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Nome? Calmo, preciso, gentil de um jeito distante.",
+     "opcoes": [
+      {
+       "texto": "Sobre os que levantaram primeiro.",
+       "ir": "j04_fim",
+       "se": {
+        "missao_pronta": "j04"
+       }
+      },
+      {
+       "texto": "Túmulos Abertos?",
+       "ir": "js08_oferta",
+       "se": {
+        "missao_disponivel": "js08"
+       }
+      },
+      {
+       "texto": "Sobre túmulos abertos.",
+       "ir": "js08_fim",
+       "se": {
+        "missao_pronta": "js08"
+       }
+      },
+      {
+       "texto": "Velas para os Mortos?",
+       "ir": "jc01_oferta",
+       "se": {
+        "missao_disponivel": "jc01"
+       }
+      },
+      {
+       "texto": "Sobre velas para os mortos.",
+       "ir": "jc01_fim",
+       "se": {
+        "missao_pronta": "jc01"
+       }
+      },
+      {
+       "texto": "O Livro de Contas?",
+       "ir": "jc02_oferta",
+       "se": {
+        "missao_disponivel": "jc02"
+       }
+      },
+      {
+       "texto": "Sobre o livro de contas.",
+       "ir": "jc02_fim",
+       "se": {
+        "missao_pronta": "jc02"
+       }
+      },
+      {
+       "texto": "Os Portões do Hades?",
+       "ir": "jc03_oferta",
+       "se": {
+        "missao_disponivel": "jc03"
+       }
+      },
+      {
+       "texto": "Sobre o primeiro juramento.",
+       "ir": "jc06_fim",
+       "se": {
+        "missao_pronta": "jc06"
+       }
+      },
+      {
+       "texto": "Ele Andou com Deus?",
+       "ir": "jf05_oferta",
+       "se": {
+        "missao_disponivel": "jf05"
+       }
+      },
+      {
+       "texto": "Sobre ele andou com deus.",
+       "ir": "jf05_fim",
+       "se": {
+        "missao_pronta": "jf05"
+       }
+      },
+      {
+       "texto": "Sobre o nome verdadeiro.",
+       "ir": "jf06_fim",
+       "se": {
+        "missao_pronta": "jf06"
+       }
+      },
+      {
+       "texto": "O Livro dos Vencidos?",
+       "ir": "jg01_oferta",
+       "se": {
+        "missao_disponivel": "jg01"
+       }
+      },
+      {
+       "texto": "Sobre o livro dos vencidos.",
+       "ir": "jg01_fim",
+       "se": {
+        "missao_pronta": "jg01"
+       }
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "j04_fim": {
+     "fala": "(o Escriba não levanta os olhos do livro) Seis. Escrevi. Quantos nomes você sabe dos que derrubou? Nenhum. Tome esta vela. Com ela acesa, eles abaixam a cabeça. Aprenda os nomes, e eles vão parar de levantar.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "j04"
+        }
+       ]
+      }
+     ]
+    },
+    "js08_oferta": {
+     "fala": "Os túmulos dos profetas estão abertos de novo. Feche cinco. Quando um profeta fica à vista, os mortos esperam que ele fale. Não fala mais.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js08"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js08_fim": {
+     "fala": "Cinco. Bom. Os profetas dormem. Os vivos não, mas isso não é comigo.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js08"
+        }
+       ]
+      }
+     ]
+    },
+    "jc01_oferta": {
+     "fala": "Você vai descer ao fundo do Hermon. Todo mundo que fica aqui desce um dia. Lá embaixo vela comum apaga. Traga cinza de Tofete, a que os porcos de Gadara carregam no couro.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jc01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jc01_fim": {
+     "fala": "Seis. Faço as velas hoje. Agora escute: debaixo das Fontes do Jordão tem uma gruta que os antigos chamavam de Portões do Hades. A chave está com o capataz das fornalhas.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jc01"
+        }
+       ]
+      }
+     ]
+    },
+    "jc02_oferta": {
+     "fala": "A chave dos Portões do Hades está no cinto do Capataz de Tofete. E na mesa dele tem um livro de contas. Eu quero o livro. Você fica com a chave.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jc02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jc02_fim": {
+     "fala": "PARA O FUNDO DO MONTE, pago em correntes. A Legião vende ferro para alguém que está preso. Use a chave. Desça.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jc02"
+        }
+       ]
+      }
+     ]
+    },
+    "jc03_oferta": {
+     "fala": "A gruta fica nas Fontes do Jordão, atrás das estátuas sem cabeça. A chave entra no chifre. Desça, e acenda a minha vela quando a escada acabar.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jc03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jc06_fim": {
+     "fala": "(o Escriba olha a Tábua um tempo longo) Duzentos nomes. Eu conheço a letra de todos. Leve à Sariel. Ela vai querer queimar. Eu não vou dizer o que eu faria.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jc06"
+        }
+       ]
+      }
+     ]
+    },
+    "jf05_oferta": {
+     "fala": "Tem um túmulo vazio na necrópole. Ninguém nunca deitou nele. Acenda esta vela lá e depois fale com o Escriba. Ele vai saber que você sabe.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf05"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf05_fim": {
+     "fala": "(o Escriba larga a pena pela primeira vez) Eu escrevi o pedido dos duzentos ao Altíssimo, antes do dilúvio. Não foi atendido. Depois andei com Ele, e não fui mais. Quando o fim travou, me mandaram de volta para escrever a sentença deles. Ainda não terminei. O que você quer fazer com isso?",
+     "opcoes": [
+      {
+       "texto": "Guardar o segredo dele",
+       "acoes": [
+        {
+         "concluir_missao": "jf05",
+         "escolha": "guardar"
+        }
+       ]
+      },
+      {
+       "texto": "Perguntar o que ele vai escrever quando o fim terminar",
+       "acoes": [
+        {
+         "concluir_missao": "jf05",
+         "escolha": "perguntar"
+        }
+       ]
+      },
+      {
+       "texto": "Contar ao Coro quem ele é",
+       "acoes": [
+        {
+         "concluir_missao": "jf05",
+         "escolha": "contar"
+        }
+       ]
+      },
+      {
+       "texto": "Preciso pensar."
+      }
+     ]
+    },
+    "jf06_fim": {
+     "fala": "(ele segura o frasco) Henoc. É o meu nome. Eles lembram de mim, os duzentos. Fui o único que tentou ajudar. Toma o diadema. Usei quando subi. Agora fico.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jf06"
+        }
+       ]
+      }
+     ]
+    },
+    "jg01_oferta": {
+     "fala": "Este é o livro dos vencidos. Cada chefe que você derrubar entra nele. Encha a primeira página e volte. Eu escrevo devagar, mas escrevo tudo.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jg01"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jg01_fim": {
+     "fala": "Página cheia. O livro é grande. Continue.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jg01"
+        }
+       ]
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Ninguém sabe quando chegou. Mora na cabana do Bosque do Hissopo e anota o nome de cada morto que levanta no Monte das Oliveiras.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_rispa_vigilia",
+   "npc": "rispa_vigilia",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Xô. Xô. Teimosa, mansa, dura como pedra.",
+     "opcoes": [
+      {
+       "texto": "As Noivas Emparedadas?",
+       "ir": "js09_oferta",
+       "se": {
+        "missao_disponivel": "js09"
+       }
+      },
+      {
+       "texto": "Sobre as noivas emparedadas.",
+       "ir": "js09_fim",
+       "se": {
+        "missao_pronta": "js09"
+       }
+      },
+      {
+       "texto": "Silêncio no Salão das Noivas?",
+       "ir": "jc05_oferta",
+       "se": {
+        "missao_disponivel": "jc05"
+       }
+      },
+      {
+       "texto": "Sobre silêncio no salão das noivas.",
+       "ir": "jc05_fim",
+       "se": {
+        "missao_pronta": "jc05"
+       }
+      },
+      {
+       "texto": "O Primeiro Juramento?",
+       "ir": "jc06_oferta",
+       "se": {
+        "missao_disponivel": "jc06"
+       }
+      },
+      {
+       "texto": "A Última Linha?",
+       "ir": "jf04_oferta",
+       "se": {
+        "missao_disponivel": "jf04"
+       }
+      },
+      {
+       "texto": "Sobre a última linha.",
+       "ir": "jf04_fim",
+       "se": {
+        "missao_pronta": "jf04"
+       }
+      },
+      {
+       "texto": "O Nome Verdadeiro?",
+       "ir": "jf06_oferta",
+       "se": {
+        "missao_disponivel": "jf06"
+       }
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "js09_oferta": {
+     "fala": "Lá embaixo, onde a Naamá chorava, tem nichos com as outras noivas. Cada uma deixou escrito com quem casou. Leia cinco para mim. Eu guardo.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "js09"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "js09_fim": {
+     "fala": "Cinco nomes de anjo e cinco nomes de mulher. Ninguém mais lembra de nenhum. Eu lembro. Toma o pão.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "js09"
+        }
+       ]
+      }
+     ]
+    },
+    "jc05_oferta": {
+     "fala": "Eu conheço choro de mãe. O dela já virou outra coisa. Desça ao Salão das Noivas e cale a Naamá. O segundo selo está com ela.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jc05"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jc05_fim": {
+     "fala": "Calou? Que ela descanse. Ninguém descansou por mim, mas que ela descanse. Toma o véu. Você vai precisar de silêncio lá no fundo.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jc05"
+        }
+       ]
+      }
+     ]
+    },
+    "jc06_oferta": {
+     "fala": "Os dois selos abrem a porta do Altar. Semyaza está lá, jurando de novo com os duzentos. Enquanto ele jurar, o fim não anda. Derrube ele e leve a Tábua ao Escriba.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jc06"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf04_oferta": {
+     "fala": "Os Escribas Emparedados copiavam o que os Vigilantes ensinavam. Um deles guardou a última linha de um livro que não devia ter fim. Traga.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf04"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jf04_fim": {
+     "fala": "Andou com Deus e já não era. Depois voltou. Eu sei de quem é. Vá ao Escriba. Leve a vela dele.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jf04"
+        }
+       ]
+      }
+     ]
+    },
+    "jf06_oferta": {
+     "fala": "Os Ecos do Juramento repetem um nome no Altar. É o nome do Escriba. Traga, e devolva a ele.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jf06"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Como a Rispa das Escrituras, que guardou os corpos dos filhos dos abutres do começo da sega até a chuva, ela guarda os mortos da necrópole dos abutres do Hermon. Desde o primeiro dia. A chuva não veio.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_jael_escuta",
+   "npc": "jael_escuta",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Psiu. Eles estão contando. Ansiosa, brilhante, fala baixo como se alguém pudesse ouvir.",
+     "opcoes": [
+      {
+       "texto": "Sobre vozes na estática.",
+       "ir": "jd01_fim",
+       "se": {
+        "missao_pronta": "jd01"
+       }
+      },
+      {
+       "texto": "A Antena no Cedro?",
+       "ir": "jd02_oferta",
+       "se": {
+        "missao_disponivel": "jd02"
+       }
+      },
+      {
+       "texto": "Sobre a antena no cedro.",
+       "ir": "jd02_fim",
+       "se": {
+        "missao_pronta": "jd02"
+       }
+      },
+      {
+       "texto": "O Decreto da Sexta Hora?",
+       "ir": "jd03_oferta",
+       "se": {
+        "missao_disponivel": "jd03"
+       }
+      },
+      {
+       "texto": "Sobre o decreto da sexta hora.",
+       "ir": "jd03_fim",
+       "se": {
+        "missao_pronta": "jd03"
+       }
+      },
+      {
+       "texto": "O Que a Água Canta?",
+       "ir": "jd04_oferta",
+       "se": {
+        "missao_disponivel": "jd04"
+       }
+      },
+      {
+       "texto": "Sobre o que a água canta.",
+       "ir": "jd04_fim",
+       "se": {
+        "missao_pronta": "jd04"
+       }
+      },
+      {
+       "texto": "As Correntes Partidas?",
+       "ir": "jd05_oferta",
+       "se": {
+        "missao_disponivel": "jd05"
+       }
+      },
+      {
+       "texto": "Sobre as correntes partidas.",
+       "ir": "jd05_fim",
+       "se": {
+        "missao_pronta": "jd05"
+       }
+      },
+      {
+       "texto": "A Conta das Noites?",
+       "ir": "jd06_oferta",
+       "se": {
+        "missao_disponivel": "jd06"
+       }
+      },
+      {
+       "texto": "Sobre a conta das noites.",
+       "ir": "jd06_fim",
+       "se": {
+        "missao_pronta": "jd06"
+       }
+      },
+      {
+       "texto": "Quem é você?",
+       "ir": "historia"
+      },
+      {
+       "texto": "Até mais."
+      }
+     ]
+    },
+    "jd01_fim": {
+     "fala": "(Jael, sem tirar o fone) Duzentos. Eles contam até duzentos e começam de novo. Toda noite. Alguém ensinou a eles que o fim é uma conta. Fica. Preciso de mãos.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jd01"
+        }
+       ]
+      }
+     ]
+    },
+    "jd02_oferta": {
+     "fala": "Os chacais de Josafá levaram as minhas válvulas para o covil. Sem elas eu só escuto o Hermon. Com elas, escuto o que está debaixo dele.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd02"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jd02_fim": {
+     "fala": "Agora sim. Escuta. Não é só contagem. Tem uma ordem. Alguém mandou soltar eles. Alguém do Coro.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jd02"
+        }
+       ]
+      }
+     ]
+    },
+    "jd03_oferta": {
+     "fala": "Nos Cedros Partidos, os Levantados carregam papel no peito como quem carrega carta de amor. Quatro páginas de um decreto. Traga.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd03"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jd03_fim": {
+     "fala": "(ela lê e fica branca) É a minha letra. Eu copiei este decreto no primeiro dia. O Coro mandou soltar os Vigilantes para ganhar a guerra. E eles juraram de novo.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jd03"
+        }
+       ]
+      }
+     ]
+    },
+    "jd04_oferta": {
+     "fala": "Os sapadores secaram três fontes no canteiro deles. A água parada canta. Traga três frascos e o que os sapadores tiverem no bolso.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd04"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jd04_fim": {
+     "fala": "A mesma nota. Eles estão debaixo de tudo, até da água. Tome o fone. Quando ele estalar, um deles acordou perto de você.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jd04"
+        }
+       ]
+      }
+     ]
+    },
+    "jd05_oferta": {
+     "fala": "As correntes dos Vigilantes não quebraram. Foram abertas. Suba à Neve de Cinza e traga cinco elos. Se eu estiver certa, tem um selo dentro.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd05"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jd05_fim": {
+     "fala": "O selo do Coro. Por dentro. Não foi o Juízo que soltou eles. Fomos nós. Falta uma coisa: a laje onde eles juraram.",
+     "opcoes": [
+      {
+       "texto": "Feito.",
+       "acoes": [
+        {
+         "concluir_missao": "jd05"
+        }
+       ]
+      }
+     ]
+    },
+    "jd06_oferta": {
+     "fala": "Kokabiel ensinou os homens a ler as estrelas. Agora ele conta as noites até o fim, e o fim espera a conta acabar. Abra a laje. Pegue o astrolábio.",
+     "opcoes": [
+      {
+       "texto": "Deixa comigo.",
+       "acoes": [
+        {
+         "aceitar_missao": "jd06"
+        }
+       ]
+      },
+      {
+       "texto": "Agora não."
+      }
+     ]
+    },
+    "jd06_fim": {
+     "fala": "(Jael segura o astrolábio) Se eu apago a conta, ninguém sabe quantas noites faltam. Nem eles, nem nós. Se o Coro fica com ela, o Coro decide quando o mundo acaba. O que eu faço?",
+     "opcoes": [
+      {
+       "texto": "Apagar a conta das noites para sempre",
+       "acoes": [
+        {
+         "concluir_missao": "jd06",
+         "escolha": "desarmar"
+        }
+       ]
+      },
+      {
+       "texto": "Levar o astrolábio para o Coro de Sião",
+       "acoes": [
+        {
+         "concluir_missao": "jd06",
+         "escolha": "entregar"
+        }
+       ]
+      },
+      {
+       "texto": "Preciso pensar."
+      }
+     ]
+    },
+    "historia": {
+     "fala": "Copista do Coro de Sião, subiu ao posto de escuta abandonado do Hermon para provar que a estática era só estática. Não era. Ficou.",
+     "opcoes": [
+      {
+       "texto": "Voltar.",
+       "ir": "raiz"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}
