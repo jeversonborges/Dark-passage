@@ -288,3 +288,7 @@ RELIQUIAS_SANGRENTAS = [
 ARTE_EXISTENTES["armaduras_1"] = ["veu_carpideira", "halo_incandescente", "elmo_rafael", "batina_remendada_luvas", "couro_sobrevivente_luvas",
  "placas_sino_luvas", "coro_mudo_luvas", "dragonas_general", "couraca_acougueiro_oco_luvas", "juramento_quebrado_luvas"]
 GRADE_FOLHA["armaduras_1"] = [5, 2]
+ARTE_EXISTENTES["consumiveis_1"] = ["pao_duro", "agua_doce", "tonico_graxa", "hostia_negra", "vela_simao", "agua_benta_polvora", "caldo_cardo_comum",
+ "figo_anacleto", "pocao_vida_p", "pocao_recurso_p", "antidoto_querosene", "balas_chumbo", "virotes_prata", "cartuchos_sal",
+ "pocao_vida_m", "pocao_recurso_m", "agua_benta", "vela_retorno", "gazua"]
+AUTO_FOLHA = {"consumiveis_1": {"dilata": 0}}   # ajuste da silhueta quando as peças quase se encostam

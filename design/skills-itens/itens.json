@@ -6263,7 +6263,7 @@
    },
    "preco": 6,
    "pilha": 100,
-   "motivo": "pocao",
+   "motivo": "arte_pronta",
    "tint": "vermelho",
    "lore": "Ninguém pergunta de quem é.",
    "tags": [
@@ -6279,7 +6279,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pocao",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 8,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "pocao_vida_m",
@@ -6290,7 +6297,7 @@
    "preco": 18,
    "pilha": 100,
    "nivel": 8,
-   "motivo": "pocao_grande",
+   "motivo": "arte_pronta",
    "tint": "vermelho",
    "lore": "Coagulado no fundo. Agite antes de beber.",
    "tags": [
@@ -6306,7 +6313,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pocao_grande",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 14,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "pocao_recurso_p",
@@ -6316,7 +6330,7 @@
    },
    "preco": 8,
    "pilha": 100,
-   "motivo": "pocao",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "lore": "Gosto de moeda velha e trovoada. Devolve Graça, Fúria, Brasa, Fôlego ou Carga.",
    "tags": [
@@ -6332,7 +6346,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pocao",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 9,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "pocao_recurso_m",
@@ -6343,7 +6364,7 @@
    "preco": 22,
    "pilha": 100,
    "nivel": 8,
-   "motivo": "pocao_grande",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "lore": "O frasco zumbe baixinho quando ninguém está olhando.",
    "tags": [
@@ -6359,7 +6380,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pocao_grande",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 15,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "agua_benta",
@@ -6372,7 +6400,7 @@
    },
    "preco": 35,
    "pilha": 20,
-   "motivo": "agua_benta",
+   "motivo": "arte_pronta",
    "tint": "agua",
    "lore": "Benzida às pressas. Ainda vale.",
    "tags": [
@@ -6388,7 +6416,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "agua_benta",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 16,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "antidoto_querosene",
@@ -6402,7 +6437,7 @@
    },
    "preco": 30,
    "pilha": 20,
-   "motivo": "antidoto",
+   "motivo": "arte_pronta",
    "tint": "verde",
    "lore": "Arde na garganta. A praga arde mais.",
    "tags": [
@@ -6418,7 +6453,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "antidoto",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 10,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "vela_retorno",
@@ -6429,7 +6471,7 @@
    },
    "preco": 50,
    "pilha": 10,
-   "motivo": "vela",
+   "motivo": "arte_pronta",
    "tint": "cera",
    "lore": "Acenda e pense em casa. Se ainda tiver uma.",
    "tags": [
@@ -6445,7 +6487,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "vela",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 17,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "gazua",
@@ -6456,7 +6505,7 @@
    },
    "preco": 40,
    "pilha": 20,
-   "motivo": "gazua",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "lore": "Dois grampos de cabelo e um dedo de prática.",
    "tags": [
@@ -6472,7 +6521,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "gazua",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 18,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "balas_chumbo",
@@ -6486,7 +6542,7 @@
    "classes": [
     "humano"
    ],
-   "motivo": "balas",
+   "motivo": "arte_pronta",
    "tint": "chumbo",
    "lore": "Derretidas de canos de igreja.",
    "tags": [
@@ -6502,7 +6558,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "balas",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 11,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "virotes_prata",
@@ -6520,7 +6583,7 @@
    "classes": [
     "humano"
    ],
-   "motivo": "virotes",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "lore": "Pontas feitas de talheres de família.",
    "tags": [
@@ -6536,7 +6599,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "virotes",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 12,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "cartuchos_sal",
@@ -6550,7 +6620,7 @@
    "classes": [
     "humano"
    ],
-   "motivo": "cartuchos",
+   "motivo": "arte_pronta",
    "tint": "vermelho",
    "lore": "Sal, pólvora e uma reza curta.",
    "tags": [
@@ -6566,7 +6636,14 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "cartuchos",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 13,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "osso",
@@ -7379,7 +7456,7 @@
    "id": "pao_duro",
    "nome": "Pão Duro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pao",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "grade": [
@@ -7397,13 +7474,20 @@
     "40": "assets/icones/itens/40/pao_duro.png",
     "32": "assets/icones/itens/32/pao_duro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pao_duro.png"
+   "icone_mochila": "assets/icones/itens/mochila/pao_duro.png",
+   "motivo_antigo": "pao",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 0,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "agua_doce",
    "nome": "Cantil de Água Doce",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "cantil",
+   "motivo": "arte_pronta",
    "tint": "agua",
    "emissivo": null,
    "grade": [
@@ -7421,13 +7505,20 @@
     "40": "assets/icones/itens/40/agua_doce.png",
     "32": "assets/icones/itens/32/agua_doce.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/agua_doce.png"
+   "icone_mochila": "assets/icones/itens/mochila/agua_doce.png",
+   "motivo_antigo": "cantil",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 1,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "tonico_graxa",
    "nome": "Tônico do Doutor Graxa",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tonico",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "emissivo": null,
    "grade": [
@@ -7445,13 +7536,20 @@
     "40": "assets/icones/itens/40/tonico_graxa.png",
     "32": "assets/icones/itens/32/tonico_graxa.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/tonico_graxa.png"
+   "icone_mochila": "assets/icones/itens/mochila/tonico_graxa.png",
+   "motivo_antigo": "tonico",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 2,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "hostia_negra",
    "nome": "Hóstia Negra",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "hostia",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff3a2a",
    "grade": [
@@ -7469,13 +7567,20 @@
     "40": "assets/icones/itens/40/hostia_negra.png",
     "32": "assets/icones/itens/32/hostia_negra.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/hostia_negra.png"
+   "icone_mochila": "assets/icones/itens/mochila/hostia_negra.png",
+   "motivo_antigo": "hostia",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 3,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "vela_simao",
    "nome": "Vela de Sebo do Simão",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "vela",
+   "motivo": "arte_pronta",
    "tint": "cera",
    "emissivo": null,
    "grade": [
@@ -7493,13 +7598,20 @@
     "40": "assets/icones/itens/40/vela_simao.png",
     "32": "assets/icones/itens/32/vela_simao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/vela_simao.png"
+   "icone_mochila": "assets/icones/itens/mochila/vela_simao.png",
+   "motivo_antigo": "vela",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 4,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "agua_benta_polvora",
    "nome": "Água Benta com Pólvora",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bomba_benta",
+   "motivo": "arte_pronta",
    "tint": "agua",
    "emissivo": null,
    "grade": [
@@ -7517,13 +7629,20 @@
     "40": "assets/icones/itens/40/agua_benta_polvora.png",
     "32": "assets/icones/itens/32/agua_benta_polvora.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/agua_benta_polvora.png"
+   "icone_mochila": "assets/icones/itens/mochila/agua_benta_polvora.png",
+   "motivo_antigo": "bomba_benta",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 5,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "caldo_cardo_comum",
    "nome": "Sopa da Mãe Cardo",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tigela",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "grade": [
@@ -7541,13 +7660,20 @@
     "40": "assets/icones/itens/40/caldo_cardo_comum.png",
     "32": "assets/icones/itens/32/caldo_cardo_comum.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo_comum.png"
+   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo_comum.png",
+   "motivo_antigo": "tigela",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 6,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "figo_anacleto",
    "nome": "Figo Seco de Anacleto",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "figo",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "grade": [
@@ -7565,7 +7691,14 @@
     "40": "assets/icones/itens/40/figo_anacleto.png",
     "32": "assets/icones/itens/32/figo_anacleto.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/figo_anacleto.png"
+   "icone_mochila": "assets/icones/itens/mochila/figo_anacleto.png",
+   "motivo_antigo": "figo",
+   "arte": {
+    "folha": "assets/icones/fontes/consumiveis_1.png",
+    "indice": 7,
+    "auto": 19,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_obitos",

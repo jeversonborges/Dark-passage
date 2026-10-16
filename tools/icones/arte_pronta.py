@@ -32,12 +32,12 @@ def peca(folha, idx, grade=(COLS, ROWS), cortes_x=None):
     ys, xs = np.where(m)
     return c.crop((xs.min(), ys.min(), xs.max()+1, ys.max()+1))
 
-def _pecas_auto(im, n):
+def _pecas_auto(im, n, limiar=200, dilata=1):
     """Folha sem grade: acha as n maiores manchas (silhuetas) e ordena por linha, da esquerda para a direita."""
-    a = np.asarray(im)[..., 3] > 200
+    a = np.asarray(im)[..., 3] > limiar
     E = 4; h, w = a.shape[0] // E, a.shape[1] // E
     m = a[:h*E, :w*E].reshape(h, E, w, E).any((1, 3))
-    for _ in range(1):                                   # fecha frestas (correntes, fitas soltas)
+    for _ in range(dilata):                              # fecha frestas (correntes, fitas soltas)
         m = m | np.roll(m, 1, 0) | np.roll(m, -1, 0) | np.roll(m, 1, 1) | np.roll(m, -1, 1)
     lab = np.zeros(m.shape, int); comps = []
     for y0, x0 in zip(*np.nonzero(m)):
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     itens = [i for i in json.load(open(f"{PF}/design/skills-itens/itens.json"))["itens"] if i.get("motivo") == "arte_pronta" and (not so or i["id"] in so)]
     for it in itens:
         if it["arte"].get("auto"):
-            g = _pecas_auto(Image.open(f"{PF}/{it['arte']['folha']}").convert("RGBA"), it["arte"]["auto"])[it["arte"]["indice"]]
+            g = _pecas_auto(Image.open(f"{PF}/{it['arte']['folha']}").convert("RGBA"), it["arte"]["auto"], it["arte"].get("limiar", 200), it["arte"].get("dilata", 1))[it["arte"]["indice"]]
             ys, xs = np.where(np.asarray(g)[..., 3] > 120); g = g.crop((xs.min(), ys.min(), xs.max()+1, ys.max()+1))
         else: g = peca(it["arte"]["folha"], it["arte"]["indice"], it["arte"].get("grade", (COLS, ROWS)), it["arte"].get("cortes_x"))
         cor = COR_RAR.get(it.get("raridade"))

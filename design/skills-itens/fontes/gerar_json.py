@@ -174,6 +174,7 @@ for it in itens:
         it["arte"] = {"folha": f"assets/icones/fontes/{folha}.png", "indice": k}
         if folha in getattr(I, "GRADE_FOLHA", {}): it["arte"]["grade"] = I.GRADE_FOLHA[folha]
         else: it["arte"]["auto"] = len([1 for v in arte_de.values() if v[0] == folha])
+        it["arte"].update(getattr(I, "AUTO_FOLHA", {}).get(folha, {}))
         it.pop("substituido_por_arte_pronta", None)
 # Relíquias Sangrentas: armas lendárias com arte pintada, saem dos chefes (pools_lendarios)
 for (iid, nome, cls, tipo, maos, n, idx, tag, grade, at, bf, lore) in getattr(I, "RELIQUIAS_SANGRENTAS", []):
