@@ -266,3 +266,25 @@ ARTE_EXISTENTES = {
  "armas_4": ["espada_larga_sucata", "escopeta_cano_serrado", "escopeta_badalada", "escopeta_cano_duplo", "espada_larga_carrasco", "mosquete_pederneira", "montante_vigilia", "besta_repeticao"],
  "armas_5": ["cajado_antena_torto", "cajado_lampiao", "luva_voltaica", "pistola_raios", "cajado_valvulas"],
 }
+ARTE_EXISTENTES["acessorios_1"] = ["badalo_de_guerra", "lenco_cardo", "terco_lucio", "contador_isaura", "divisa_legiao", "faixa_vigilia", "fita_juizo", "selo_madre",
+ "faixas_betania", "estilhaco_lacre", "diapasao_reverso", "pena_zacarias", "etiqueta_branca", "estilhaco_absinto", "chave_segunda_estrela", "faixa_de_linho_rafael",
+ "pena_que_ficou"]
+GRADE_FOLHA = {"acessorios_1": [8, 3]}   # folhas com peças coladas: grade fixa em vez de silhueta
+
+# ---------- Relíquias Sangrentas (Jefin, 2026-10-16): 10 armas lendárias dos chefes, arte em reliquias_sangrentas.png (5x2) ----------
+# (id, nome, classes, tipo, mãos, nível, índice, tag lendaria, grade, atributos, bonus_fixo, lore)
+RELIQUIAS_SANGRENTAS = [
+ ("lamina_primeiro_martir", "Lâmina do Primeiro Mártir", ["anjo","demonio","humano"], "espada", 1, 9, 0, "lendario:celeste", [1,3], {"for":6,"vit":4}, {"roubo_de_vida":0.03,"hp":40}, "A espada de quem morreu primeiro na Grande Batalha. O sangue dele nunca secou na lâmina, e ela não deixa o seu secar também."),
+ ("unha_carpideira", "Unha da Carpideira", ["cultista"], "adaga", 1, 10, 1, "lendario:celeste", [1,2], {"esp":7,"agi":3}, {"dano_magico_extra":4,"critico":0.03}, "Irmã Celeste arranhava os caixões até a unha virar lâmina. Ainda chora quando corta."),
+ ("raio_anunciacao", "Raio da Anunciação", ["anjo"], "espada", 1, 12, 2, "lendario:zacarias", [1,3], {"for":5,"esp":6,"vit":3}, {"res":{"sagrado":0.15},"dano_plano":4}, "O anjo que anunciou o fim trazia esta espada. O anúncio terminou; a luz na lâmina, não."),
+ ("meia_lua_andras", "Meia-Lua de Andras", ["demonio"], "foice", 2, 8, 3, "lendario:general", [2,4], {"for":7,"agi":3}, {"critico":0.04,"roubo_de_vida":0.02}, "A foice com que Andras ceifava as próprias tropas quando recuavam. Ele perdeu as pernas; ela não perdeu o fio."),
+ ("lanca_centuriao_calado", "Lança do Centurião Calado", ["anjo"], "lanca", 2, 11, 4, "lendario:zacarias", [1,4], {"for":6,"vit":5}, {"hp":60,"velocidade_ataque":0.04}, "O centurião que guardava a Trombeta Calada nunca disse uma palavra. A lança falava por ele."),
+ ("espinha_coro_mudo", "Espinha do Coro Mudo", ["cultista"], "cajado", 2, 10, 5, "lendario:celeste", [1,4], {"esp":8,"vit":3}, {"dano_magico_extra":6,"hp":30}, "A coluna do regente do coro, com o crânio ainda aberto no último grito que ninguém ouviu."),
+ ("porta_ossario", "Porta do Ossário", ["anjo"], "escudo", 1, 9, 6, "lendario:general", [2,2], {"vit":7,"for":2}, {"reduz_dano":0.05,"hp":50}, "A porta que fechava o ossário da cripta. Do lado de dentro, alguém ainda bate."),
+ ("badalo_de_carne", "Badalo de Carne", ["mutante"], "machado", 2, 8, 7, "lendario:general", [2,3], {"for":8,"vit":4}, {"dano_plano":4,"hp":40}, "O badalo do sino do abatedouro, cravado de ganchos. Cada golpe toca uma missa que ninguém pediu."),
+ ("alabarda_juramento", "Alabarda do Juramento Quebrado", ["mutante","demonio"], "lanca", 2, 11, 8, "lendario:zacarias", [1,4], {"for":7,"vit":5}, {"critico":0.03,"reduz_dano":0.02}, "Jurada para defender São Lázaro, entregue aos Arautos no mesmo dia. O rubi no centro ainda lembra das duas promessas."),
+ ("machado_ultimo_bonde", "Machado do Último Bonde", ["mutante"], "machado", 2, 7, 9, "lendario:capataz", [2,3], {"for":7,"vit":3}, {"dano_plano":3,"velocidade_ataque":0.03}, "A placa do último bonde que saiu de São Lázaro antes do clarão. Ninguém sabe onde ele chegou; a placa voltou sozinha."),
+]
+ARTE_EXISTENTES["armaduras_1"] = ["veu_carpideira", "halo_incandescente", "elmo_rafael", "batina_remendada_luvas", "couro_sobrevivente_luvas",
+ "placas_sino_luvas", "coro_mudo_luvas", "dragonas_general", "couraca_acougueiro_oco_luvas", "juramento_quebrado_luvas"]
+GRADE_FOLHA["armaduras_1"] = [5, 2]

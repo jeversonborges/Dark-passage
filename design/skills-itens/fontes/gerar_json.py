@@ -171,8 +171,19 @@ for it in itens:
     if it["id"] in arte_de:
         folha, k = arte_de[it["id"]]
         it["motivo_antigo"] = it.get("motivo"); it["motivo"] = "arte_pronta"
-        it["arte"] = {"folha": f"assets/icones/fontes/{folha}.png", "indice": k, "auto": len([1 for v in arte_de.values() if v[0] == folha])}
+        it["arte"] = {"folha": f"assets/icones/fontes/{folha}.png", "indice": k}
+        if folha in getattr(I, "GRADE_FOLHA", {}): it["arte"]["grade"] = I.GRADE_FOLHA[folha]
+        else: it["arte"]["auto"] = len([1 for v in arte_de.values() if v[0] == folha])
         it.pop("substituido_por_arte_pronta", None)
+# Relíquias Sangrentas: armas lendárias com arte pintada, saem dos chefes (pools_lendarios)
+for (iid, nome, cls, tipo, maos, n, idx, tag, grade, at, bf, lore) in getattr(I, "RELIQUIAS_SANGRENTAS", []):
+    d = dict(id=iid, nome=nome, classes=cls, tipo=tipo, slot="segunda_mao" if tipo == "escudo" else "arma", maos=maos, nivel=n, raridade="lendario",
+             tags=[tag], grade=grade, atributos=at, bonus_fixo=bf, lore=lore, colecao="reliquias_sangrentas",
+             motivo="arte_pronta", arte={"folha": "assets/icones/fontes/reliquias_sangrentas.png", "indice": idx, "grade": [5,2]})
+    if tipo == "escudo": d.update(defesa=round(1.5*n*0.3*1.25+2), bloqueio=0.16)
+    else: d.update(dano=dano(n, 1.25), intervalo=INTERVALO.get(tipo, 1.0))
+    add("arma", d)
+    if iid not in I.POOLS_LENDARIOS.setdefault(tag, []): I.POOLS_LENDARIOS[tag].append(iid)
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}

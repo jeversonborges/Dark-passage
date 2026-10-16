@@ -355,21 +355,31 @@
  ],
  "pools_lendarios": {
   "lendario:capataz": [
-   "gancho_capataz"
+   "gancho_capataz",
+   "machado_ultimo_bonde"
   ],
   "lendario:cardo": [
    "lenco_cardo"
   ],
   "lendario:general": [
-   "estandarte_legiao"
+   "estandarte_legiao",
+   "meia_lua_andras",
+   "porta_ossario",
+   "badalo_de_carne"
   ],
   "lendario:celeste": [
    "bacula_femur",
-   "veu_carpideira"
+   "veu_carpideira",
+   "lamina_primeiro_martir",
+   "unha_carpideira",
+   "espinha_coro_mudo"
   ],
   "lendario:zacarias": [
    "halo_incandescente",
-   "decreto_vampirico"
+   "decreto_vampirico",
+   "raio_anunciacao",
+   "lanca_centuriao_calado",
+   "alabarda_juramento"
   ]
  },
  "cobertura_tags_drops": {
@@ -538,21 +548,31 @@
    "fragmento_alma"
   ],
   "lendario:capataz": [
-   "gancho_capataz"
+   "gancho_capataz",
+   "machado_ultimo_bonde"
   ],
   "lendario:cardo": [
    "lenco_cardo"
   ],
   "lendario:celeste": [
    "veu_carpideira",
-   "bacula_femur"
+   "bacula_femur",
+   "lamina_primeiro_martir",
+   "unha_carpideira",
+   "espinha_coro_mudo"
   ],
   "lendario:general": [
-   "estandarte_legiao"
+   "estandarte_legiao",
+   "meia_lua_andras",
+   "porta_ossario",
+   "badalo_de_carne"
   ],
   "lendario:zacarias": [
    "decreto_vampirico",
-   "halo_incandescente"
+   "halo_incandescente",
+   "raio_anunciacao",
+   "lanca_centuriao_calado",
+   "alabarda_juramento"
   ],
   "material:carne_estragada": [
    "carne_estragada"
@@ -1827,7 +1847,7 @@
     2,
     2
    ],
-   "motivo": "luvas_leve",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "Roupa de seminarista de uma ordem que não existe mais.",
@@ -1837,7 +1857,16 @@
     "40": "assets/icones/itens/40/batina_remendada_luvas.png",
     "32": "assets/icones/itens/32/batina_remendada_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+   "motivo_antigo": "luvas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "batina_remendada_calcas",
@@ -2003,7 +2032,7 @@
     2,
     2
    ],
-   "motivo": "luvas_medio",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "lore": "Tudo o que sobrou de um armazém saqueado três vezes.",
@@ -2013,7 +2042,16 @@
     "40": "assets/icones/itens/40/couro_sobrevivente_luvas.png",
     "32": "assets/icones/itens/32/couro_sobrevivente_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png",
+   "motivo_antigo": "luvas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "couro_sobrevivente_calcas",
@@ -2178,7 +2216,7 @@
     2,
     2
    ],
-   "motivo": "luvas_pesado",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Os ferreiros derreteram os sinos da cidade. Era isso ou continuar ouvindo eles tocarem sozinhos.",
@@ -2188,7 +2226,16 @@
     "40": "assets/icones/itens/40/placas_sino_luvas.png",
     "32": "assets/icones/itens/32/placas_sino_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placas_sino_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_luvas.png",
+   "motivo_antigo": "luvas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "placas_sino_calcas",
@@ -2351,7 +2398,7 @@
     2,
     2
    ],
-   "motivo": "luvas_leve",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#ff3a2a",
    "lore": "Os cantores do ossário costuraram a própria boca para não cantar o fim. Ele veio assim mesmo.",
@@ -2361,7 +2408,16 @@
     "40": "assets/icones/itens/40/coro_mudo_luvas.png",
     "32": "assets/icones/itens/32/coro_mudo_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png",
+   "motivo_antigo": "luvas_leve",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "coro_mudo_calcas",
@@ -2527,7 +2583,7 @@
     2,
     2
    ],
-   "motivo": "luvas_medio",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#9cff3a",
    "lore": "Tirada dos Açougueiros Ocos do porão. Por dentro não tinha ninguém, só o cheiro.",
@@ -2537,7 +2593,16 @@
     "40": "assets/icones/itens/40/couraca_acougueiro_oco_luvas.png",
     "32": "assets/icones/itens/32/couraca_acougueiro_oco_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png",
+   "motivo_antigo": "luvas_medio",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "couraca_acougueiro_oco_calcas",
@@ -2702,7 +2767,7 @@
     2,
     2
    ],
-   "motivo": "luvas_pesado",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#ff7a1a",
    "lore": "Feita para um paladino que jurou proteger a cidade e depois mudou de lado. A armadura não mudou junto.",
@@ -2712,7 +2777,16 @@
     "40": "assets/icones/itens/40/juramento_quebrado_luvas.png",
     "32": "assets/icones/itens/32/juramento_quebrado_luvas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas.png"
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas.png",
+   "motivo_antigo": "luvas_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "juramento_quebrado_calcas",
@@ -7657,7 +7731,7 @@
    "id": "faixa_vigilia",
    "nome": "Faixa da Vigília",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bracadeira",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "emissivo": "#ff9a3a",
    "grade": [
@@ -7683,13 +7757,22 @@
     "40": "assets/icones/itens/40/faixa_vigilia.png",
     "32": "assets/icones/itens/32/faixa_vigilia.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/faixa_vigilia.png"
+   "icone_mochila": "assets/icones/itens/mochila/faixa_vigilia.png",
+   "motivo_antigo": "bracadeira",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 5,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "fita_juizo",
    "nome": "Fita do Juízo",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "fita",
+   "motivo": "arte_pronta",
    "tint": "vermelho",
    "emissivo": "#ffe08a",
    "grade": [
@@ -7715,7 +7798,16 @@
     "40": "assets/icones/itens/40/fita_juizo.png",
     "32": "assets/icones/itens/32/fita_juizo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/fita_juizo.png"
+   "icone_mochila": "assets/icones/itens/mochila/fita_juizo.png",
+   "motivo_antigo": "fita",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 6,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "escopeta_badalada",
@@ -8016,7 +8108,7 @@
    "id": "badalo_de_guerra",
    "nome": "Badalo de Guerra",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "amuleto_sino",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "grade": [
@@ -8044,13 +8136,22 @@
     "40": "assets/icones/itens/40/badalo_de_guerra.png",
     "32": "assets/icones/itens/32/badalo_de_guerra.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/badalo_de_guerra.png"
+   "icone_mochila": "assets/icones/itens/mochila/badalo_de_guerra.png",
+   "motivo_antigo": "amuleto_sino",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 0,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "lenco_cardo",
    "nome": "Lenço Florido",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "lenco",
+   "motivo": "arte_pronta",
    "tint": "vermelho",
    "emissivo": null,
    "grade": [
@@ -8081,13 +8182,22 @@
     "40": "assets/icones/itens/40/lenco_cardo.png",
     "32": "assets/icones/itens/32/lenco_cardo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/lenco_cardo.png"
+   "icone_mochila": "assets/icones/itens/mochila/lenco_cardo.png",
+   "motivo_antigo": "lenco",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 1,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "terco_lucio",
    "nome": "Terço Partido de Lúcio",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "terco_partido",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": null,
    "grade": [
@@ -8115,13 +8225,22 @@
     "40": "assets/icones/itens/40/terco_lucio.png",
     "32": "assets/icones/itens/32/terco_lucio.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/terco_lucio.png"
+   "icone_mochila": "assets/icones/itens/mochila/terco_lucio.png",
+   "motivo_antigo": "terco_partido",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 2,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "selo_madre",
    "nome": "Selo da Madre",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "anel_selo",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": "#ffe08a",
    "grade": [
@@ -8149,13 +8268,22 @@
     "40": "assets/icones/itens/40/selo_madre.png",
     "32": "assets/icones/itens/32/selo_madre.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/selo_madre.png"
+   "icone_mochila": "assets/icones/itens/mochila/selo_madre.png",
+   "motivo_antigo": "anel_selo",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 7,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "dragonas_general",
    "nome": "Casaca do General Partido",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "casaca",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#ff7a1a",
    "grade": [
@@ -8185,13 +8313,22 @@
     "40": "assets/icones/itens/40/dragonas_general.png",
     "32": "assets/icones/itens/32/dragonas_general.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/dragonas_general.png"
+   "icone_mochila": "assets/icones/itens/mochila/dragonas_general.png",
+   "motivo_antigo": "casaca",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "veu_carpideira",
    "nome": "Véu da Carpideira",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "veu",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": "#bfe6ff",
    "grade": [
@@ -8223,13 +8360,22 @@
     "40": "assets/icones/itens/40/veu_carpideira.png",
     "32": "assets/icones/itens/32/veu_carpideira.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/veu_carpideira.png"
+   "icone_mochila": "assets/icones/itens/mochila/veu_carpideira.png",
+   "motivo_antigo": "veu",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "estilhaco_lacre",
    "nome": "Estilhaço do Lacre",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "estilhaco",
+   "motivo": "arte_pronta",
    "tint": "chumbo",
    "emissivo": "#ff9a3a",
    "grade": [
@@ -8257,13 +8403,22 @@
     "40": "assets/icones/itens/40/estilhaco_lacre.png",
     "32": "assets/icones/itens/32/estilhaco_lacre.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/estilhaco_lacre.png"
+   "icone_mochila": "assets/icones/itens/mochila/estilhaco_lacre.png",
+   "motivo_antigo": "estilhaco",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 9,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "diapasao_reverso",
    "nome": "Diapasão Reverso",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "diapasao",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": "#9fd8ff",
    "grade": [
@@ -8291,13 +8446,22 @@
     "40": "assets/icones/itens/40/diapasao_reverso.png",
     "32": "assets/icones/itens/32/diapasao_reverso.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/diapasao_reverso.png"
+   "icone_mochila": "assets/icones/itens/mochila/diapasao_reverso.png",
+   "motivo_antigo": "diapasao",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 10,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "pena_zacarias",
    "nome": "Pena de Zacarias",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pena",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": "#ffe08a",
    "grade": [
@@ -8325,13 +8489,22 @@
     "40": "assets/icones/itens/40/pena_zacarias.png",
     "32": "assets/icones/itens/32/pena_zacarias.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pena_zacarias.png"
+   "icone_mochila": "assets/icones/itens/mochila/pena_zacarias.png",
+   "motivo_antigo": "pena",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 11,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "etiqueta_branca",
    "nome": "Etiqueta de Penhor em Branco",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "etiqueta",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": "#ff7a1a",
    "grade": [
@@ -8359,7 +8532,16 @@
     "40": "assets/icones/itens/40/etiqueta_branca.png",
     "32": "assets/icones/itens/32/etiqueta_branca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/etiqueta_branca.png"
+   "icone_mochila": "assets/icones/itens/mochila/etiqueta_branca.png",
+   "motivo_antigo": "etiqueta",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 12,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "gancho_capataz",
@@ -8528,7 +8710,7 @@
    "id": "halo_incandescente",
    "nome": "Halo de Ferro Incandescente",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "halo",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": "#ff7a1a",
    "grade": [
@@ -8560,7 +8742,16 @@
     "40": "assets/icones/itens/40/halo_incandescente.png",
     "32": "assets/icones/itens/32/halo_incandescente.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/halo_incandescente.png"
+   "icone_mochila": "assets/icones/itens/mochila/halo_incandescente.png",
+   "motivo_antigo": "halo",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "valvula_radio",
@@ -8798,7 +8989,7 @@
    "id": "contador_isaura",
    "nome": "Contador de Amargo da Isaura",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "diapasao",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": "#9dff4a",
    "grade": [
@@ -8826,13 +9017,22 @@
     "40": "assets/icones/itens/40/contador_isaura.png",
     "32": "assets/icones/itens/32/contador_isaura.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/contador_isaura.png"
+   "icone_mochila": "assets/icones/itens/mochila/contador_isaura.png",
+   "motivo_antigo": "diapasao",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 3,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "estilhaco_absinto",
    "nome": "Estilhaço da Absinto-2",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "estilhaco",
+   "motivo": "arte_pronta",
    "tint": "praga",
    "emissivo": "#9dff4a",
    "grade": [
@@ -8860,13 +9060,22 @@
     "40": "assets/icones/itens/40/estilhaco_absinto.png",
     "32": "assets/icones/itens/32/estilhaco_absinto.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/estilhaco_absinto.png"
+   "icone_mochila": "assets/icones/itens/mochila/estilhaco_absinto.png",
+   "motivo_antigo": "estilhaco",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 13,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "chave_segunda_estrela",
    "nome": "Cópia da Chave da Segunda Estrela",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "chave_gancho",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": "#ffe08a",
    "grade": [
@@ -8895,13 +9104,22 @@
     "40": "assets/icones/itens/40/chave_segunda_estrela.png",
     "32": "assets/icones/itens/32/chave_segunda_estrela.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/chave_segunda_estrela.png"
+   "icone_mochila": "assets/icones/itens/mochila/chave_segunda_estrela.png",
+   "motivo_antigo": "chave_gancho",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 14,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "divisa_legiao",
    "nome": "Divisa Inteira da Legião",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "medalha",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": "#ff3a2a",
    "grade": [
@@ -8929,7 +9147,16 @@
     "40": "assets/icones/itens/40/divisa_legiao.png",
     "32": "assets/icones/itens/32/divisa_legiao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/divisa_legiao.png"
+   "icone_mochila": "assets/icones/itens/mochila/divisa_legiao.png",
+   "motivo_antigo": "medalha",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 4,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "placa_coveiro",
@@ -9031,7 +9258,7 @@
    "id": "faixas_betania",
    "nome": "Faixas de Betânia",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "fita",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -9059,7 +9286,16 @@
     "40": "assets/icones/itens/40/faixas_betania.png",
     "32": "assets/icones/itens/32/faixas_betania.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/faixas_betania.png"
+   "icone_mochila": "assets/icones/itens/mochila/faixas_betania.png",
+   "motivo_antigo": "fita",
+   "arte": {
+    "folha": "assets/icones/fontes/acessorios_1.png",
+    "indice": 8,
+    "grade": [
+     8,
+     3
+    ]
+   }
   },
   {
    "id": "eco_do_nome",
@@ -9089,7 +9325,7 @@
    "id": "elmo_rafael",
    "nome": "Elmo de Rafael",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "elmo_pesado",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "emissivo": "#fff2c0",
    "grade": [
@@ -9120,7 +9356,519 @@
     "40": "assets/icones/itens/40/elmo_rafael.png",
     "32": "assets/icones/itens/32/elmo_rafael.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png"
+   "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png",
+   "motivo_antigo": "elmo_pesado",
+   "arte": {
+    "folha": "assets/icones/fontes/armaduras_1.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   }
+  },
+  {
+   "id": "lamina_primeiro_martir",
+   "nome": "Lâmina do Primeiro Mártir",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 9,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:celeste"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "atributos": {
+    "for": 6,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "roubo_de_vida": 0.03,
+    "hp": 40
+   },
+   "lore": "A espada de quem morreu primeiro na Grande Batalha. O sangue dele nunca secou na lâmina, e ela não deixa o seu secar também.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    14,
+    26
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/lamina_primeiro_martir.png",
+    "40": "assets/icones/itens/40/lamina_primeiro_martir.png",
+    "32": "assets/icones/itens/32/lamina_primeiro_martir.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lamina_primeiro_martir.png"
+  },
+  {
+   "id": "unha_carpideira",
+   "nome": "Unha da Carpideira",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "adaga",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 10,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:celeste"
+   ],
+   "grade": [
+    1,
+    2
+   ],
+   "atributos": {
+    "esp": 7,
+    "agi": 3
+   },
+   "bonus_fixo": {
+    "dano_magico_extra": 4,
+    "critico": 0.03
+   },
+   "lore": "Irmã Celeste arranhava os caixões até a unha virar lâmina. Ainda chora quando corta.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    15,
+    28
+   ],
+   "intervalo": 1.0,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/unha_carpideira.png",
+    "40": "assets/icones/itens/40/unha_carpideira.png",
+    "32": "assets/icones/itens/32/unha_carpideira.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/unha_carpideira.png"
+  },
+  {
+   "id": "raio_anunciacao",
+   "nome": "Raio da Anunciação",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 12,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:zacarias"
+   ],
+   "grade": [
+    1,
+    3
+   ],
+   "atributos": {
+    "for": 5,
+    "esp": 6,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "res": {
+     "sagrado": 0.15
+    },
+    "dano_plano": 4
+   },
+   "lore": "O anjo que anunciou o fim trazia esta espada. O anúncio terminou; a luz na lâmina, não.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    17,
+    32
+   ],
+   "intervalo": 1.05,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/raio_anunciacao.png",
+    "40": "assets/icones/itens/40/raio_anunciacao.png",
+    "32": "assets/icones/itens/32/raio_anunciacao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/raio_anunciacao.png"
+  },
+  {
+   "id": "meia_lua_andras",
+   "nome": "Meia-Lua de Andras",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "foice",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 8,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:general"
+   ],
+   "grade": [
+    2,
+    4
+   ],
+   "atributos": {
+    "for": 7,
+    "agi": 3
+   },
+   "bonus_fixo": {
+    "critico": 0.04,
+    "roubo_de_vida": 0.02
+   },
+   "lore": "A foice com que Andras ceifava as próprias tropas quando recuavam. Ele perdeu as pernas; ela não perdeu o fio.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 0.95,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/meia_lua_andras.png",
+    "40": "assets/icones/itens/40/meia_lua_andras.png",
+    "32": "assets/icones/itens/32/meia_lua_andras.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/meia_lua_andras.png"
+  },
+  {
+   "id": "lanca_centuriao_calado",
+   "nome": "Lança do Centurião Calado",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "lanca",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:zacarias"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "atributos": {
+    "for": 6,
+    "vit": 5
+   },
+   "bonus_fixo": {
+    "hp": 60,
+    "velocidade_ataque": 0.04
+   },
+   "lore": "O centurião que guardava a Trombeta Calada nunca disse uma palavra. A lança falava por ele.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    16,
+    30
+   ],
+   "intervalo": 1.15,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/lanca_centuriao_calado.png",
+    "40": "assets/icones/itens/40/lanca_centuriao_calado.png",
+    "32": "assets/icones/itens/32/lanca_centuriao_calado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lanca_centuriao_calado.png"
+  },
+  {
+   "id": "espinha_coro_mudo",
+   "nome": "Espinha do Coro Mudo",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "cajado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 10,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:celeste"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "atributos": {
+    "esp": 8,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "dano_magico_extra": 6,
+    "hp": 30
+   },
+   "lore": "A coluna do regente do coro, com o crânio ainda aberto no último grito que ninguém ouviu.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    15,
+    28
+   ],
+   "intervalo": 1.1,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espinha_coro_mudo.png",
+    "40": "assets/icones/itens/40/espinha_coro_mudo.png",
+    "32": "assets/icones/itens/32/espinha_coro_mudo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espinha_coro_mudo.png"
+  },
+  {
+   "id": "porta_ossario",
+   "nome": "Porta do Ossário",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "escudo",
+   "slot": "segunda_mao",
+   "maos": 1,
+   "nivel": 9,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:general"
+   ],
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 7,
+    "for": 2
+   },
+   "bonus_fixo": {
+    "reduz_dano": 0.05,
+    "hp": 50
+   },
+   "lore": "A porta que fechava o ossário da cripta. Do lado de dentro, alguém ainda bate.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "defesa": 7,
+   "bloqueio": 0.16,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/porta_ossario.png",
+    "40": "assets/icones/itens/40/porta_ossario.png",
+    "32": "assets/icones/itens/32/porta_ossario.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/porta_ossario.png"
+  },
+  {
+   "id": "badalo_de_carne",
+   "nome": "Badalo de Carne",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "machado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 8,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:general"
+   ],
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "for": 8,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "dano_plano": 4,
+    "hp": 40
+   },
+   "lore": "O badalo do sino do abatedouro, cravado de ganchos. Cada golpe toca uma missa que ninguém pediu.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 1.2,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/badalo_de_carne.png",
+    "40": "assets/icones/itens/40/badalo_de_carne.png",
+    "32": "assets/icones/itens/32/badalo_de_carne.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/badalo_de_carne.png"
+  },
+  {
+   "id": "alabarda_juramento",
+   "nome": "Alabarda do Juramento Quebrado",
+   "classes": [
+    "mutante",
+    "demonio"
+   ],
+   "tipo": "lanca",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 11,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:zacarias"
+   ],
+   "grade": [
+    1,
+    4
+   ],
+   "atributos": {
+    "for": 7,
+    "vit": 5
+   },
+   "bonus_fixo": {
+    "critico": 0.03,
+    "reduz_dano": 0.02
+   },
+   "lore": "Jurada para defender São Lázaro, entregue aos Arautos no mesmo dia. O rubi no centro ainda lembra das duas promessas.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    16,
+    30
+   ],
+   "intervalo": 1.15,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/alabarda_juramento.png",
+    "40": "assets/icones/itens/40/alabarda_juramento.png",
+    "32": "assets/icones/itens/32/alabarda_juramento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/alabarda_juramento.png"
+  },
+  {
+   "id": "machado_ultimo_bonde",
+   "nome": "Machado do Último Bonde",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "machado",
+   "slot": "arma",
+   "maos": 2,
+   "nivel": 7,
+   "raridade": "lendario",
+   "tags": [
+    "lendario:capataz"
+   ],
+   "grade": [
+    2,
+    3
+   ],
+   "atributos": {
+    "for": 7,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "dano_plano": 3,
+    "velocidade_ataque": 0.03
+   },
+   "lore": "A placa do último bonde que saiu de São Lázaro antes do clarão. Ninguém sabe onde ele chegou; a placa voltou sozinha.",
+   "colecao": "reliquias_sangrentas",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/reliquias_sangrentas.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "dano": [
+    12,
+    22
+   ],
+   "intervalo": 1.2,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/machado_ultimo_bonde.png",
+    "40": "assets/icones/itens/40/machado_ultimo_bonde.png",
+    "32": "assets/icones/itens/32/machado_ultimo_bonde.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/machado_ultimo_bonde.png"
   }
  ]
 }
