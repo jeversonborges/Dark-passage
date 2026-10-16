@@ -292,3 +292,5 @@ ARTE_EXISTENTES["consumiveis_1"] = ["pao_duro", "agua_doce", "tonico_graxa", "ho
  "figo_anacleto", "pocao_vida_p", "pocao_recurso_p", "antidoto_querosene", "balas_chumbo", "virotes_prata", "cartuchos_sal",
  "pocao_vida_m", "pocao_recurso_m", "agua_benta", "vela_retorno", "gazua"]
 AUTO_FOLHA = {"consumiveis_1": {"dilata": 0}}   # ajuste da silhueta quando as peças quase se encostam
+ARTE_EXISTENTES["materiais_1"] = ["osso", "couro_podre", "sucata", "cinza_de_alma", "carne_estragada", "pedra_benta", "cera_de_vela", "pena_suja",
+ "coagulo_caos", "engrenagem_viva", "chave_bau_ferro", "bau_de_ferro", "bau_faminto", "relicario_da_trombeta"]   # o Caixote Podre não veio na folha

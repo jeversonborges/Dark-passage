@@ -6648,7 +6648,7 @@
   {
    "id": "osso",
    "nome": "Osso Rachado",
-   "motivo": "osso",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "lore": "Serve para cajado, para amuleto e para assustar criança.",
    "tags": [
@@ -6665,12 +6665,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "osso",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 0,
+    "auto": 14
+   }
   },
   {
    "id": "couro_podre",
    "nome": "Couro Podre",
-   "motivo": "couro",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "lore": "Ainda dá para costurar. Não dá para cheirar.",
    "tags": [
@@ -6687,12 +6693,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "couro",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 1,
+    "auto": 14
+   }
   },
   {
    "id": "sucata",
    "nome": "Sucata",
-   "motivo": "sucata",
+   "motivo": "arte_pronta",
    "tint": "ferrugem",
    "lore": "Porcas, molas e pedaços de cano. Para um Tecnomancer, é um tesouro.",
    "tags": [
@@ -6709,12 +6721,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "sucata",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 2,
+    "auto": 14
+   }
   },
   {
    "id": "cinza_de_alma",
    "nome": "Cinza de Alma",
-   "motivo": "cinza",
+   "motivo": "arte_pronta",
    "tint": "cinza",
    "lore": "O que sobra de um espectro. Morna e leve demais.",
    "tags": [
@@ -6731,12 +6749,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "cinza",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 3,
+    "auto": 14
+   }
   },
   {
    "id": "carne_estragada",
    "nome": "Carne Estragada",
-   "motivo": "carne",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "lore": "Do porão do matadouro. Os Carniçais pagam bem.",
    "tags": [
@@ -6753,12 +6777,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "carne",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 4,
+    "auto": 14
+   }
   },
   {
    "id": "pedra_benta",
    "nome": "Pedra Benta",
-   "motivo": "pedra_benta",
+   "motivo": "arte_pronta",
    "tint": "cinza",
    "lore": "Lasca de altar com uma cruz riscada. Refina armas sagradas.",
    "tags": [
@@ -6775,12 +6805,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pedra_benta",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 5,
+    "auto": 14
+   }
   },
   {
    "id": "cera_de_vela",
    "nome": "Cera de Vela",
-   "motivo": "cera",
+   "motivo": "arte_pronta",
    "tint": "cera",
    "lore": "Escorrida dos castiçais do ossário. Algumas gotas parecem lágrimas.",
    "tags": [
@@ -6797,12 +6833,18 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "cera",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 6,
+    "auto": 14
+   }
   },
   {
    "id": "pena_suja",
    "nome": "Pena Suja",
-   "motivo": "pena",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "lore": "Cinza de fuligem. Cai das asas de quem desceu sem ser chamado.",
    "tags": [
@@ -6819,7 +6861,13 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "pena",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 7,
+    "auto": 14
+   }
   },
   {
    "id": "lagrima_anjo",
@@ -6875,7 +6923,7 @@
    "id": "coagulo_caos",
    "nome": "Coágulo do Caos",
    "efeito": "combinações no Altar do Caos (versão futura)",
-   "motivo": "joia_caos",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#ff3a2a",
    "lore": "Sangue que nunca terminou de secar porque não lembra de quem era.",
@@ -6894,13 +6942,19 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "joia_caos",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 8,
+    "auto": 14
+   }
   },
   {
    "id": "engrenagem_viva",
    "nome": "Engrenagem Viva",
    "efeito": "adiciona +4 a uma opção do item (versão futura)",
-   "motivo": "joia_engrenagem",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": "#9cff3a",
    "lore": "Gira sozinha. Os Tecnomancers juram que não construíram.",
@@ -6919,7 +6973,13 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "joia_engrenagem",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 9,
+    "auto": 14
+   }
   },
   {
    "id": "chave_bau_ferro",
@@ -6929,7 +6989,7 @@
     1,
     2
    ],
-   "motivo": "chave",
+   "motivo": "arte_pronta",
    "tint": "ferrugem",
    "lore": "Abre um baú de ferro por aqui. Quase tudo por aqui está trancado.",
    "tags": [
@@ -6941,7 +7001,13 @@
     "40": "assets/icones/itens/40/chave_bau_ferro.png",
     "32": "assets/icones/itens/32/chave_bau_ferro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/chave_bau_ferro.png"
+   "icone_mochila": "assets/icones/itens/mochila/chave_bau_ferro.png",
+   "motivo_antigo": "chave",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 10,
+    "auto": 14
+   }
   },
   {
    "id": "caixote_podre",
@@ -6967,7 +7033,7 @@
    "id": "bau_de_ferro",
    "tipo": "bau",
    "nome": "Baú de Ferro",
-   "motivo": "bau_ferro",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "lore": "Trancado. Alguém achou que valia a pena trancar.",
    "tags": [],
@@ -6981,13 +7047,19 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "bau_ferro",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 11,
+    "auto": 14
+   }
   },
   {
    "id": "bau_faminto",
    "tipo": "bau",
    "nome": "Baú Faminto",
-   "motivo": "bau_faminto",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "lore": "Um em cada doze caixotes da cripta morde.",
    "tags": [],
@@ -7001,13 +7073,19 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "bau_faminto",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 12,
+    "auto": 14
+   }
   },
   {
    "id": "relicario_da_trombeta",
    "tipo": "bau",
    "nome": "Relicário da Trombeta",
-   "motivo": "relicario",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": "#ffe08a",
    "lore": "Acende vela por vela antes de abrir.",
@@ -7022,7 +7100,13 @@
    "grade": [
     1,
     1
-   ]
+   ],
+   "motivo_antigo": "relicario",
+   "arte": {
+    "folha": "assets/icones/fontes/materiais_1.png",
+    "indice": 13,
+    "auto": 14
+   }
   },
   {
    "id": "bobina_cobre",
