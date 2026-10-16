@@ -255,3 +255,14 @@ DECRETO_VAMPIRICO = dict(id="decreto_vampirico", nome="Decreto Vampírico", slot
   lore="Um decreto lacrado com sangue e pregado com um punhal. Quem assinou nunca morreu, e cobra a assinatura de quem lê.",
   arte={"folha":"assets/icones/fontes/decreto_vampirico.png","indice":0,"grade":[1,1]})
 CORTES_ESPADAS = [223, 407, 595, 817, 1005, 1211, 1396, 1634, 1884]   # as espadas têm larguras diferentes: fronteiras em px na folha
+
+# ---------- Arte pronta, lote 3 (Jefin, 2026-10-16): ícones pintados para os itens que já existiam ----------
+# Só troca o ícone; nome e status ficam como estão. Folhas armas_N.png na ordem do catálogo (entregas/arte_itens/catalogo).
+# "auto": a folha não segue grade fixa; arte_pronta.py acha as peças pela silhueta e lê da esquerda para a direita, por linha.
+ARTE_EXISTENTES = {
+ "armas_1": ["espada_vigilia_rachada", "adaga_ritual_cega", "espada_escudeiro", "adaga_chaga", "lanca_procissao", "cajado_vertebras", "espada_sineiro", "escudo_porta_capela"],
+ "armas_2": ["machado_placa_transito", "machado_bonde", "punhos_sucata", "cutelo_matadouro", "bacula_femur", "adaga_ossuario", "garras_ossario", "grimorio_acorrentado"],
+ "armas_3": ["foice_serrilhada", "besta_sucata", "foice_penhor", "espada_serrilhada", "gancho_capataz", "corrente_gancho", "estandarte_legiao", "foice_sepultura"],
+ "armas_4": ["espada_larga_sucata", "escopeta_cano_serrado", "escopeta_badalada", "escopeta_cano_duplo", "espada_larga_carrasco", "mosquete_pederneira", "montante_vigilia", "besta_repeticao"],
+ "armas_5": ["cajado_antena_torto", "cajado_lampiao", "luva_voltaica", "pistola_raios", "cajado_valvulas"],
+}

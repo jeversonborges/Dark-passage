@@ -598,7 +598,7 @@
     1,
     3
    ],
-   "motivo": "espada",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "emissivo": null,
    "lore": "Lâmina de um sentinela de igreja que morreu no posto. Ainda tem cera de vela no punho.",
@@ -615,7 +615,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
    "arma_de": "anjo:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "espada",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 0,
+    "auto": 8
+   }
   },
   {
    "id": "escudo_porta_capela",
@@ -635,7 +641,7 @@
     2,
     2
    ],
-   "motivo": "escudo",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "lore": "Meia porta de capela com uma cruz pregada. Pesa como um pecado.",
@@ -647,7 +653,13 @@
     "40": "assets/icones/itens/40/escudo_porta_capela.png",
     "32": "assets/icones/itens/32/escudo_porta_capela.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+   "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png",
+   "motivo_antigo": "escudo",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 7,
+    "auto": 8
+   }
   },
   {
    "id": "lanca_procissao",
@@ -667,7 +679,7 @@
     1,
     4
    ],
-   "motivo": "lanca",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": null,
    "lore": "Carregava um estandarte de santo. O santo caiu primeiro.",
@@ -682,7 +694,13 @@
     "40": "assets/icones/itens/40/lanca_procissao.png",
     "32": "assets/icones/itens/32/lanca_procissao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png"
+   "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png",
+   "motivo_antigo": "lanca",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 4,
+    "auto": 8
+   }
   },
   {
    "id": "espada_sineiro",
@@ -702,7 +720,7 @@
     1,
     3
    ],
-   "motivo": "espada",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "lore": "Fundida com o bronze de um sino rachado. Quando bate em armadura, ainda soa.",
@@ -717,7 +735,13 @@
     "40": "assets/icones/itens/40/espada_sineiro.png",
     "32": "assets/icones/itens/32/espada_sineiro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png"
+   "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png",
+   "motivo_antigo": "espada",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 6,
+    "auto": 8
+   }
   },
   {
    "id": "adaga_ritual_cega",
@@ -737,7 +761,7 @@
     1,
     2
    ],
-   "motivo": "adaga",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": null,
    "lore": "Não corta bem. Corta o suficiente.",
@@ -754,7 +778,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/adaga_ritual_cega.png",
    "arma_de": "cultista:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "adaga",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 1,
+    "auto": 8
+   }
   },
   {
    "id": "cajado_vertebras",
@@ -774,7 +804,7 @@
     1,
     4
    ],
-   "motivo": "cajado_osso",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": null,
    "lore": "Doze vértebras de doze voluntários. Diz a seita que eram voluntários.",
@@ -789,7 +819,13 @@
     "40": "assets/icones/itens/40/cajado_vertebras.png",
     "32": "assets/icones/itens/32/cajado_vertebras.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/cajado_vertebras.png"
+   "icone_mochila": "assets/icones/itens/mochila/cajado_vertebras.png",
+   "motivo_antigo": "cajado_osso",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 5,
+    "auto": 8
+   }
   },
   {
    "id": "grimorio_acorrentado",
@@ -809,7 +845,7 @@
     2,
     2
    ],
-   "motivo": "grimorio",
+   "motivo": "arte_pronta",
    "tint": "vinho",
    "emissivo": null,
    "lore": "A corrente não é para roubarem o livro. É para o livro não sair andando.",
@@ -820,7 +856,13 @@
     "40": "assets/icones/itens/40/grimorio_acorrentado.png",
     "32": "assets/icones/itens/32/grimorio_acorrentado.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/grimorio_acorrentado.png"
+   "icone_mochila": "assets/icones/itens/mochila/grimorio_acorrentado.png",
+   "motivo_antigo": "grimorio",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 7,
+    "auto": 8
+   }
   },
   {
    "id": "adaga_ossuario",
@@ -840,7 +882,7 @@
     1,
     2
    ],
-   "motivo": "adaga",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": null,
    "lore": "Afiada num degrau de crânios. Corta melhor no escuro.",
@@ -855,7 +897,13 @@
     "40": "assets/icones/itens/40/adaga_ossuario.png",
     "32": "assets/icones/itens/32/adaga_ossuario.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png"
+   "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png",
+   "motivo_antigo": "adaga",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 5,
+    "auto": 8
+   }
   },
   {
    "id": "machado_placa_transito",
@@ -875,7 +923,7 @@
     2,
     3
    ],
-   "motivo": "machado_placa",
+   "motivo": "arte_pronta",
    "tint": "placa",
    "emissivo": null,
    "lore": "PARE. Ninguém parou.",
@@ -892,7 +940,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/machado_placa_transito.png",
    "arma_de": "mutante:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "machado_placa",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 0,
+    "auto": 8
+   }
   },
   {
    "id": "punhos_sucata",
@@ -912,7 +966,7 @@
     2,
     2
    ],
-   "motivo": "punhos",
+   "motivo": "arte_pronta",
    "tint": "ferrugem",
    "emissivo": null,
    "lore": "Canos, porcas e arame farpado enrolados em fita isolante.",
@@ -927,7 +981,13 @@
     "40": "assets/icones/itens/40/punhos_sucata.png",
     "32": "assets/icones/itens/32/punhos_sucata.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/punhos_sucata.png"
+   "icone_mochila": "assets/icones/itens/mochila/punhos_sucata.png",
+   "motivo_antigo": "punhos",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 2,
+    "auto": 8
+   }
   },
   {
    "id": "cutelo_matadouro",
@@ -948,7 +1008,7 @@
     1,
     3
    ],
-   "motivo": "cutelo",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "emissivo": null,
    "lore": "Do matadouro municipal. Depois da praga, ninguém mais sabia o que era gado.",
@@ -963,7 +1023,13 @@
     "40": "assets/icones/itens/40/cutelo_matadouro.png",
     "32": "assets/icones/itens/32/cutelo_matadouro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/cutelo_matadouro.png"
+   "icone_mochila": "assets/icones/itens/mochila/cutelo_matadouro.png",
+   "motivo_antigo": "cutelo",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 3,
+    "auto": 8
+   }
   },
   {
    "id": "garras_ossario",
@@ -983,7 +1049,7 @@
     2,
     2
    ],
-   "motivo": "garras",
+   "motivo": "arte_pronta",
    "tint": "praga",
    "emissivo": null,
    "lore": "Ossos de dedo afiados e cravados nos nós da mão. Doem mais em quem usa. No começo.",
@@ -998,7 +1064,13 @@
     "40": "assets/icones/itens/40/garras_ossario.png",
     "32": "assets/icones/itens/32/garras_ossario.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/garras_ossario.png"
+   "icone_mochila": "assets/icones/itens/mochila/garras_ossario.png",
+   "motivo_antigo": "garras",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 6,
+    "auto": 8
+   }
   },
   {
    "id": "foice_serrilhada",
@@ -1018,7 +1090,7 @@
     2,
     4
    ],
-   "motivo": "foice",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "emissivo": null,
    "lore": "Era de colher trigo. Os dentes vieram depois, quando o trigo acabou.",
@@ -1035,7 +1107,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/foice_serrilhada.png",
    "arma_de": "demonio:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "foice",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 0,
+    "auto": 8
+   }
   },
   {
    "id": "espada_serrilhada",
@@ -1055,7 +1133,7 @@
     1,
     3
    ],
-   "motivo": "espada_serra",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": null,
    "lore": "Os dentes foram limados à mão, um por noite, durante um ano inteiro de cerco.",
@@ -1070,7 +1148,13 @@
     "40": "assets/icones/itens/40/espada_serrilhada.png",
     "32": "assets/icones/itens/32/espada_serrilhada.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png"
+   "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png",
+   "motivo_antigo": "espada_serra",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 3,
+    "auto": 8
+   }
   },
   {
    "id": "corrente_gancho",
@@ -1090,7 +1174,7 @@
     2,
     2
    ],
-   "motivo": "corrente",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": null,
    "lore": "Gancho de açougue numa corrente de portão. Puxa gente como quem puxa um balde.",
@@ -1105,7 +1189,13 @@
     "40": "assets/icones/itens/40/corrente_gancho.png",
     "32": "assets/icones/itens/32/corrente_gancho.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/corrente_gancho.png"
+   "icone_mochila": "assets/icones/itens/mochila/corrente_gancho.png",
+   "motivo_antigo": "corrente",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 5,
+    "auto": 8
+   }
   },
   {
    "id": "foice_sepultura",
@@ -1125,7 +1215,7 @@
     2,
     4
    ],
-   "motivo": "foice",
+   "motivo": "arte_pronta",
    "tint": "ferro_negro",
    "emissivo": null,
    "lore": "O coveiro usava para cortar raiz de cova. Hoje corta o que sai dela.",
@@ -1140,7 +1230,13 @@
     "40": "assets/icones/itens/40/foice_sepultura.png",
     "32": "assets/icones/itens/32/foice_sepultura.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/foice_sepultura.png"
+   "icone_mochila": "assets/icones/itens/mochila/foice_sepultura.png",
+   "motivo_antigo": "foice",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 7,
+    "auto": 8
+   }
   },
   {
    "id": "besta_sucata",
@@ -1160,7 +1256,7 @@
     3,
     2
    ],
-   "motivo": "besta",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "lore": "Mola de cama, arco de barril e muita paciência. Silenciosa, e no fim do mundo silêncio vale mais que bala.",
@@ -1175,7 +1271,13 @@
     "40": "assets/icones/itens/40/besta_sucata.png",
     "32": "assets/icones/itens/32/besta_sucata.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/besta_sucata.png"
+   "icone_mochila": "assets/icones/itens/mochila/besta_sucata.png",
+   "motivo_antigo": "besta",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 1,
+    "auto": 8
+   }
   },
   {
    "id": "espada_larga_sucata",
@@ -1195,7 +1297,7 @@
     1,
     3
    ],
-   "motivo": "espada_larga",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "emissivo": null,
    "lore": "Chapa de trilho batida até virar lâmina. Abre caminho quando a munição acaba. Ela sempre acaba.",
@@ -1212,7 +1314,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png",
    "arma_de": "humano:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "espada_larga",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 0,
+    "auto": 8
+   }
   },
   {
    "id": "escopeta_cano_serrado",
@@ -1232,7 +1340,7 @@
     1,
     3
    ],
-   "motivo": "escopeta",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "lore": "Calibre 12, cano serrado no torno da oficina. Cabe no coldre da coxa e faz o barulho de um sino caindo.",
@@ -1249,7 +1357,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_serrado.png",
    "arma_de": "humano:arma_secundaria",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "escopeta",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 1,
+    "auto": 8
+   }
   },
   {
    "id": "espada_larga_carrasco",
@@ -1269,7 +1383,7 @@
     1,
     3
    ],
-   "motivo": "espada_larga",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": null,
    "lore": "Ponta quadrada, sem fio na ponta: foi feita para cortar cabeça, não para furar. Hoje corta Não-Julgados.",
@@ -1284,7 +1398,13 @@
     "40": "assets/icones/itens/40/espada_larga_carrasco.png",
     "32": "assets/icones/itens/32/espada_larga_carrasco.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png"
+   "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png",
+   "motivo_antigo": "espada_larga",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 4,
+    "auto": 8
+   }
   },
   {
    "id": "montante_vigilia",
@@ -1304,7 +1424,7 @@
     1,
     4
    ],
-   "motivo": "espada_larga",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "emissivo": null,
    "lore": "Forjado pela Vigília com prata de castiçal. A lâmina é larga como uma porta de cripta.",
@@ -1319,7 +1439,13 @@
     "40": "assets/icones/itens/40/montante_vigilia.png",
     "32": "assets/icones/itens/32/montante_vigilia.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png"
+   "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png",
+   "motivo_antigo": "espada_larga",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 6,
+    "auto": 8
+   }
   },
   {
    "id": "escopeta_cano_duplo",
@@ -1339,7 +1465,7 @@
     1,
     4
    ],
-   "motivo": "escopeta",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "lore": "Cano serrado, coronha remendada com couro de bota.",
@@ -1354,7 +1480,13 @@
     "40": "assets/icones/itens/40/escopeta_cano_duplo.png",
     "32": "assets/icones/itens/32/escopeta_cano_duplo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_duplo.png"
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_duplo.png",
+   "motivo_antigo": "escopeta",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 3,
+    "auto": 8
+   }
   },
   {
    "id": "mosquete_pederneira",
@@ -1374,7 +1506,7 @@
     1,
     4
    ],
-   "motivo": "mosquete",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "lore": "Velho como a república. Ainda acerta um anjo a cem passos.",
@@ -1389,7 +1521,13 @@
     "40": "assets/icones/itens/40/mosquete_pederneira.png",
     "32": "assets/icones/itens/32/mosquete_pederneira.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/mosquete_pederneira.png"
+   "icone_mochila": "assets/icones/itens/mochila/mosquete_pederneira.png",
+   "motivo_antigo": "mosquete",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 5,
+    "auto": 8
+   }
   },
   {
    "id": "besta_repeticao",
@@ -1409,7 +1547,7 @@
     3,
     2
    ],
-   "motivo": "besta",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "lore": "Engenhoca da Vigília: um carregador de seis virotes e uma manivela que range.",
@@ -1424,7 +1562,13 @@
     "40": "assets/icones/itens/40/besta_repeticao.png",
     "32": "assets/icones/itens/32/besta_repeticao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/besta_repeticao.png"
+   "icone_mochila": "assets/icones/itens/mochila/besta_repeticao.png",
+   "motivo_antigo": "besta",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 7,
+    "auto": 8
+   }
   },
   {
    "id": "cajado_antena_torto",
@@ -1444,7 +1588,7 @@
     1,
     4
    ],
-   "motivo": "cajado_antena",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "lore": "Uma antena de rádio de guerra com uma válvula no topo. Pega estações que não deviam existir.",
@@ -1461,7 +1605,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/cajado_antena_torto.png",
    "arma_de": "tecnomancer:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "fonte_numeros": "design/combate/classes_base.json",
+   "motivo_antigo": "cajado_antena",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_5.png",
+    "indice": 0,
+    "auto": 5
+   }
   },
   {
    "id": "luva_voltaica",
@@ -1481,7 +1631,7 @@
     2,
     2
    ],
-   "motivo": "luva_voltaica",
+   "motivo": "arte_pronta",
    "tint": "cobre",
    "emissivo": null,
    "lore": "Dá choque em quem você toca. E um pouco em você.",
@@ -1496,7 +1646,13 @@
     "40": "assets/icones/itens/40/luva_voltaica.png",
     "32": "assets/icones/itens/32/luva_voltaica.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png"
+   "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png",
+   "motivo_antigo": "luva_voltaica",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_5.png",
+    "indice": 2,
+    "auto": 5
+   }
   },
   {
    "id": "pistola_raios",
@@ -1516,7 +1672,7 @@
     2,
     2
    ],
-   "motivo": "pistola_raio",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "lore": "Bobina de carro, lâmpada de farol e um sigilo de Salomão gravado na empunhadura.",
@@ -1531,7 +1687,13 @@
     "40": "assets/icones/itens/40/pistola_raios.png",
     "32": "assets/icones/itens/32/pistola_raios.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png"
+   "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png",
+   "motivo_antigo": "pistola_raio",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_5.png",
+    "indice": 3,
+    "auto": 5
+   }
   },
   {
    "id": "cajado_valvulas",
@@ -1551,7 +1713,7 @@
     1,
     4
    ],
-   "motivo": "cajado_antena",
+   "motivo": "arte_pronta",
    "tint": "cobre",
    "emissivo": null,
    "lore": "Três válvulas de rádio em fila. Quando todas acendem, o cabelo de todo mundo em volta levanta.",
@@ -1566,7 +1728,13 @@
     "40": "assets/icones/itens/40/cajado_valvulas.png",
     "32": "assets/icones/itens/32/cajado_valvulas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png"
+   "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png",
+   "motivo_antigo": "cajado_antena",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_5.png",
+    "indice": 4,
+    "auto": 5
+   }
   },
   {
    "id": "batina_remendada_cabeca",
@@ -7553,7 +7721,7 @@
    "id": "escopeta_badalada",
    "nome": "Escopeta Badalada",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "escopeta",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "grade": [
@@ -7590,13 +7758,19 @@
     "40": "assets/icones/itens/40/escopeta_badalada.png",
     "32": "assets/icones/itens/32/escopeta_badalada.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/escopeta_badalada.png"
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_badalada.png",
+   "motivo_antigo": "escopeta",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_4.png",
+    "indice": 2,
+    "auto": 8
+   }
   },
   {
    "id": "machado_bonde",
    "nome": "Machado de Placa de Bonde",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "machado_bonde",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "emissivo": null,
    "grade": [
@@ -7633,13 +7807,19 @@
     "40": "assets/icones/itens/40/machado_bonde.png",
     "32": "assets/icones/itens/32/machado_bonde.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/machado_bonde.png"
+   "icone_mochila": "assets/icones/itens/mochila/machado_bonde.png",
+   "motivo_antigo": "machado_bonde",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 1,
+    "auto": 8
+   }
   },
   {
    "id": "cajado_lampiao",
    "nome": "Cajado-Lampião",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "cajado_lampiao",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": "#ffe0a0",
    "grade": [
@@ -7676,13 +7856,19 @@
     "40": "assets/icones/itens/40/cajado_lampiao.png",
     "32": "assets/icones/itens/32/cajado_lampiao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png"
+   "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png",
+   "motivo_antigo": "cajado_lampiao",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_5.png",
+    "indice": 1,
+    "auto": 5
+   }
   },
   {
    "id": "espada_escudeiro",
    "nome": "Espada do Escudeiro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "espada",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "emissivo": null,
    "grade": [
@@ -7720,13 +7906,19 @@
     "40": "assets/icones/itens/40/espada_escudeiro.png",
     "32": "assets/icones/itens/32/espada_escudeiro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png"
+   "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png",
+   "motivo_antigo": "espada",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 2,
+    "auto": 8
+   }
   },
   {
    "id": "foice_penhor",
    "nome": "Foice de Penhor",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "foice_penhor",
+   "motivo": "arte_pronta",
    "tint": "aco",
    "emissivo": null,
    "grade": [
@@ -7763,13 +7955,19 @@
     "40": "assets/icones/itens/40/foice_penhor.png",
     "32": "assets/icones/itens/32/foice_penhor.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/foice_penhor.png"
+   "icone_mochila": "assets/icones/itens/mochila/foice_penhor.png",
+   "motivo_antigo": "foice_penhor",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 2,
+    "auto": 8
+   }
   },
   {
    "id": "adaga_chaga",
    "nome": "Adaga de Chaga",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "adaga_curva",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": null,
    "grade": [
@@ -7806,7 +8004,13 @@
     "40": "assets/icones/itens/40/adaga_chaga.png",
     "32": "assets/icones/itens/32/adaga_chaga.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png"
+   "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png",
+   "motivo_antigo": "adaga_curva",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_1.png",
+    "indice": 3,
+    "auto": 8
+   }
   },
   {
    "id": "badalo_de_guerra",
@@ -8161,7 +8365,7 @@
    "id": "gancho_capataz",
    "nome": "Gancho do Capataz",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "gancho",
+   "motivo": "arte_pronta",
    "tint": "ferrugem",
    "emissivo": null,
    "grade": [
@@ -8203,13 +8407,19 @@
     "40": "assets/icones/itens/40/gancho_capataz.png",
     "32": "assets/icones/itens/32/gancho_capataz.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/gancho_capataz.png"
+   "icone_mochila": "assets/icones/itens/mochila/gancho_capataz.png",
+   "motivo_antigo": "gancho",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 4,
+    "auto": 8
+   }
   },
   {
    "id": "estandarte_legiao",
    "nome": "Estandarte da Legião Blasfema",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "estandarte",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#ff7a1a",
    "grade": [
@@ -8252,13 +8462,19 @@
     "40": "assets/icones/itens/40/estandarte_legiao.png",
     "32": "assets/icones/itens/32/estandarte_legiao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png"
+   "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png",
+   "motivo_antigo": "estandarte",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_3.png",
+    "indice": 6,
+    "auto": 8
+   }
   },
   {
    "id": "bacula_femur",
    "nome": "Báculo de Fêmur",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "cajado_femur",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": "#bfe6ff",
    "grade": [
@@ -8300,7 +8516,13 @@
     "40": "assets/icones/itens/40/bacula_femur.png",
     "32": "assets/icones/itens/32/bacula_femur.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png"
+   "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png",
+   "motivo_antigo": "cajado_femur",
+   "arte": {
+    "folha": "assets/icones/fontes/armas_2.png",
+    "indice": 4,
+    "auto": 8
+   }
   },
   {
    "id": "halo_incandescente",

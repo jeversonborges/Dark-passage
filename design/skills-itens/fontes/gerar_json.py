@@ -165,6 +165,14 @@ for m in mis:
         d["tipo_missao"] = m["tipo"]
         add({"missao":"missao","consumivel":"consumivel","leitura":"leitura"}[m["tipo"]], d)
 
+# lote 3: ícone pintado para itens que já existiam (só o ícone muda)
+arte_de = {iid: (folha, k) for folha, ids_ in getattr(I, "ARTE_EXISTENTES", {}).items() for k, iid in enumerate(ids_)}
+for it in itens:
+    if it["id"] in arte_de:
+        folha, k = arte_de[it["id"]]
+        it["motivo_antigo"] = it.get("motivo"); it["motivo"] = "arte_pronta"
+        it["arte"] = {"folha": f"assets/icones/fontes/{folha}.png", "indice": k, "auto": len([1 for v in arte_de.values() if v[0] == folha])}
+        it.pop("substituido_por_arte_pronta", None)
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}
