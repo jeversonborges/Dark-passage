@@ -49,10 +49,10 @@ def blade_mesh(name, m, pts, widths, normal, thick=.01):
 
 def cowl(name, m, seed=6, sc=1.0):
     """Capuz arredondado que cobre o topo da cabeça e cai para trás (sem bico para cima)."""
-    rings = [(1.47,.17,.15,.02), (1.55,.13,.125,.01), (1.63,.107,.112,.0), (1.7,.1,.108,-.005), (1.76,.094,.104,-.008),
-             (1.8,.078,.092,-.008), (1.83,.05,.068,-.002), (1.845,.012,.02,.01)]
+    rings = [(1.46,.19,.17,.03), (1.54,.16,.15,.02), (1.62,.14,.14,.0), (1.7,.135,.14,-.012), (1.77,.128,.136,-.014),
+             (1.82,.114,.124,-.006), (1.855,.088,.1,.015), (1.875,.054,.07,.04), (1.884,.02,.03,.065), (1.886,.004,.006,.075)]
     rings = [(z, rx*sc, ry*sc, yo) for z, rx, ry, yo in rings]
-    return skirt(name, m, rings, open_front=.85, seed=seed, folds=5, famp=.025, thick=.012)
+    return skirt(name, m, rings, open_front=.62, seed=seed, folds=7, famp=.06, thick=.014)
 
 def tabard(name, m, x, y, z0, z1, w, seed=3, back=False):
     """Faixa de pano pendurada (tabardo/estola) com barra rasgada."""
@@ -436,16 +436,16 @@ def ceifador():
         parts.append(rigid(wb, arm, f"wing.{n}"))
     # foice longa de ferro negro com o fio em luz morta, cabo enrolado em trapos
     fr, bd, g = weapon_frame(); o, ax, up, sd = fr; perp = bd.cross(sd).normalized()
-    w = [along("primitive_cylinder_add", black, g - bd*.55, g + bd*.95, .017, vertices=8),
-         along("primitive_cone_add", black, g - bd*.55, g - bd*.68, 1, radius1=.02, radius2=0, vertices=5)]
-    for k in range(5): w.append(along("primitive_cylinder_add", rag, g + bd*(-.4 + .25*k), g + bd*(-.34 + .25*k), .022, vertices=8))
-    top = g + bd*.95; w.append(plate(black, top, (.03,.03,.04)))
-    pts = [top + (-perp*math.sin(a)*.66 + bd*(math.cos(a) - 1)*.36 + bd*.02) for a in [k*.14 for k in range(14)]]
+    w = [along("primitive_cylinder_add", black, g + bd*.45, g - bd*1.05, .017, vertices=8),
+         along("primitive_cone_add", black, g + bd*.45, g + bd*.58, 1, radius1=.02, radius2=0, vertices=5)]
+    for k in range(5): w.append(along("primitive_cylinder_add", rag, g - bd*(-.3 + .25*k), g - bd*(-.24 + .25*k), .022, vertices=8))
+    ub = -bd; top = g + ub*1.05; w.append(plate(black, top, (.03,.03,.04)))
+    pts = [top + (-perp*math.sin(a)*.66 + ub*(math.cos(a) - 1)*.36 + ub*.02) for a in [k*.14 for k in range(14)]]
     wid = [.035 + .065*math.sin(math.pi*k/13) if k < 13 else 0 for k in range(14)]
-    w.append(blade_mesh("foice", black, pts, wid, sd, .012))
+    w.append(blade_mesh("foice", black, pts, wid, -sd, .012))
     edge = []
     for i, p_ in enumerate(pts):
-        d_ = (pts[min(i+1, 13)] - pts[max(i-1, 0)]).normalized(); edge.append(p_ - d_.cross(sd).normalized()*wid[i])
+        d_ = (pts[min(i+1, 13)] - pts[max(i-1, 0)]).normalized(); edge.append(p_ - d_.cross(-sd).normalized()*wid[i])
     w += [along("primitive_cube_add", light, edge[k], edge[k+1], .004) for k in range(1, 13)]
     w.append(smoke_strip("foice_fumaca", shade2, [top + Vector((0, .0, -.04*i)) + sd*.01*i for i in range(6)], .03, .005, perp, seed=2))
     parts.append(rigid(w, arm, "hand.R"))
@@ -576,10 +576,10 @@ def profeta_do_amargo():
     hd.append(along("primitive_cylinder_add", lead, (0,-.11,1.6), (0,-.17,1.55), .022, vertices=8))
     hd.append(prim("primitive_cylinder_add", metal, (0,-.175,1.545), (.032,.032,.02), (55,0,0), vertices=10))
     for k in range(3):
-        hd.append(prim("primitive_torus_add", rust, (0,-.005,1.745 + .008*k), (1,1,1), (10 + 3*(k - 1), 2*k, 0), major_radius=.118 - .004*k, minor_radius=.005, major_segments=24, minor_segments=4))
+        hd.append(prim("primitive_torus_add", rust, (0,-.012,1.76 + .008*k), (1,1,1), (10 + 3*(k - 1), 2*k, 0), major_radius=.145 - .004*k, minor_radius=.005, major_segments=24, minor_segments=4))
     for k in range(14):
         a = 2*math.pi*k/14; d = Vector((math.cos(a), math.sin(a), 0))
-        b = Vector((0,-.005,1.75 + .025*max(0, d.y))) + d*.118
+        b = Vector((0,-.012,1.765 + .025*max(0, d.y))) + d*.145
         hd.append(along("primitive_cone_add", rust, b, b + d*.04 + Vector((0,0,.03 if k % 2 else -.01)), 1, radius1=.006, radius2=0, vertices=4))
     parts.append(rigid(hd, arm, "head"))
     # turíbulo de Amargo pendurado da mão esquerda: esfera de chumbo furada com brilho verde
