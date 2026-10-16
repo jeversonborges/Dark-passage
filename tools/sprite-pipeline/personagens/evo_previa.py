@@ -25,7 +25,7 @@ for kind in kinds:
         if o: o.hide_render = True
     pose = os.environ.get("POSE", "idle"); arm.animation_data.action = acts[pose]
     sc.frame_set(int(os.environ.get("FRAME", 1)))
-    T = Vector((0, 0, 1.05))
+    VW = float(os.environ.get("VIEW", 1)); T = Vector((0, 0, 1.05*VW))
     cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam)
     cam.data.type = 'ORTHO'; sc.camera = cam
     def sun(name, rgb, energy, rot):
@@ -41,7 +41,7 @@ for kind in kinds:
     e = math.radians(30)
     for tag, k, size, res in (("close_S", 0, 3.0, 900), ("close_SE", 1, 3.0, 900), ("jogo", 1, 3.0, 384)):
         a = math.radians(45)
-        cam.data.ortho_scale = size
+        cam.data.ortho_scale = size*VW
         cam.location = T + Vector((40*math.cos(e)*math.sin(a), -40*math.cos(e)*math.cos(a), 40*math.sin(e)))
         cam.rotation_euler = (T - cam.location).to_track_quat('-Z','Y').to_euler()
         arm.rotation_euler = (0, 0, math.radians((k+1)*45))

@@ -16,6 +16,7 @@
     50,
     55,
     60,
+    65,
     70
   ],
   "evolucoes": {
@@ -79,6 +80,21 @@
           },
           "reducao_dano": 0.25,
           "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "sete_espadas_do_juizo",
+          "nome": "Sete Espadas do Juízo",
+          "custo": 70,
+          "recarga": 50.0,
+          "alcance": 10,
+          "area_raio": 6,
+          "mult": 4.0,
+          "golpes": 7,
+          "cura_aliados_por_golpe": 0.06,
+          "sensacao": "area",
+          "vfx": "arcanjo_sete_espadas",
+          "descricao": "Sete montantes de fogo sagrado caem do céu em círculo, um por vez, e a última cai no centro. Cada uma fere os inimigos e cura 6% do HP dos aliados por perto."
         },
         {
           "id": "queda_do_arcanjo",
@@ -155,6 +171,21 @@
           "sensacao": "buff"
         },
         {
+          "nivel": 65,
+          "id": "coro_dos_seis_ais",
+          "nome": "Coro dos Seis Ais",
+          "custo": 90,
+          "recarga": 120.0,
+          "area_raio": 10,
+          "ressuscita_todos": true,
+          "hp_ao_voltar": 0.6,
+          "invulneravel": 4.0,
+          "cura_total": true,
+          "sensacao": "buff",
+          "vfx": "serafim_coro",
+          "descricao": "As seis asas se abrem e um coro ensurdecedor ressuscita todos os aliados mortos por perto com 60% de HP, cura todos ao máximo e deixa o grupo invulnerável por 4 s."
+        },
+        {
           "id": "levanta_te",
           "nome": "Levanta-te",
           "nivel": 70,
@@ -225,6 +256,22 @@
             "medo_fracos": 2.0
           },
           "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "trono_da_legiao",
+          "nome": "Trono da Legião",
+          "custo": 60,
+          "recarga": 60.0,
+          "duracao": 8,
+          "area_raio": 8,
+          "provoca_todos": true,
+          "reflete_dano": 0.5,
+          "imovel": true,
+          "reducao_dano": 0.6,
+          "sensacao": "buff",
+          "vfx": "lorde_trono",
+          "descricao": "Ele crava o espadão e se senta num trono de ossos da Legião Blasfema. Durante 8 s puxa a raiva de todos num raio de 8 m, não se move, toma 60% menos dano e devolve metade do que recebe."
         },
         {
           "id": "espadao_do_general",
@@ -393,6 +440,25 @@
           "sensacao": "area"
         },
         {
+          "nivel": 65,
+          "id": "chuva_de_estrelas_rubras",
+          "nome": "Chuva de Estrelas Rubras",
+          "custo": 85,
+          "recarga": 45.0,
+          "alcance": 12,
+          "area_raio": 7,
+          "meteoros": 14,
+          "mult": 3.2,
+          "preparo": 1.2,
+          "queima": {
+            "dano_por_s_mult": 0.3,
+            "duracao": 4
+          },
+          "sensacao": "area",
+          "vfx": "arquimago_meteoros",
+          "descricao": "Rasga o céu e despeja 14 estrelas de sangue numa área de 7 m. Cada uma explode e deixa o chão queimando por 4 s."
+        },
+        {
           "id": "setimo_versiculo",
           "nome": "Sétimo Versículo",
           "nivel": 70,
@@ -466,6 +532,22 @@
           "sensacao": "debuff"
         },
         {
+          "nivel": 65,
+          "id": "enxame_da_podridao",
+          "nome": "Enxame da Podridão",
+          "custo": 55,
+          "recarga": 35.0,
+          "alcance": 10,
+          "duracao": 12,
+          "mult_por_s": 0.6,
+          "acumula_ate": 10,
+          "pula_ao_morrer": true,
+          "lentidao": 0.3,
+          "sensacao": "debuff",
+          "vfx": "profeta_enxame",
+          "descricao": "Um enxame de moscas e mariposas podres persegue o alvo por 12 s, acumulando podridão (até 10 vezes). Se o alvo morre, o enxame pula para o inimigo mais perto com tudo o que acumulou."
+        },
+        {
           "id": "absinto_caiu",
           "nome": "A Estrela Caiu",
           "nivel": 70,
@@ -485,7 +567,7 @@
     "pistoleiro": {
       "classe_base": "humano",
       "nome": "Pistoleiro",
-      "papel": "dano físico à distância e rajada",
+      "papel": "atirador: espingarda de dois canos e revólveres",
       "sprite": "pistoleiro",
       "bonus": {
         "FOR": 0,
@@ -540,6 +622,23 @@
           "sensacao": "golpe_pesado"
         },
         {
+          "nivel": 65,
+          "id": "forma_vingativa",
+          "nome": "Forma Vingativa",
+          "custo": 60,
+          "recarga": 60.0,
+          "duracao": 15,
+          "transformacao": true,
+          "buff": {
+            "velocidade_ataque": 2.3,
+            "critico": 0.3,
+            "tiros_atravessam": true
+          },
+          "sensacao": "buff",
+          "vfx": "pistoleiro_forma_vingativa",
+          "descricao": "O atirador vira o Vingador: olhos em brasa, sobretudo em chamas e a espingarda incandescente. Por 15 s a velocidade de ataque vai para 2,3 ataques por segundo, ganha +30% de chance de crítico e os tiros atravessam inimigos."
+        },
+        {
           "id": "meio_dia",
           "nome": "Meio-Dia",
           "nivel": 70,
@@ -553,12 +652,13 @@
           "recarga_tiros_mult": 0.5,
           "sensacao": "buff"
         }
-      ]
+      ],
+      "arma_principal": "espingarda"
     },
     "cacador_de_anjos": {
       "classe_base": "humano",
       "nome": "Caçador de Anjos",
-      "papel": "caçador híbrido: puxa, prende e executa",
+      "papel": "atirador de besta e arpão: derruba, prende e executa alados",
       "sprite": "cacador_de_anjos",
       "bonus": {
         "FOR": 8,
@@ -604,13 +704,13 @@
           "sensacao": "debuff"
         },
         {
-          "id": "corte_da_asa",
-          "nome": "Corte da Asa",
+          "id": "virote_da_asa",
+          "nome": "Virote da Asa",
           "nivel": 60,
           "custo": 24,
           "recarga": 9.0,
           "mult": 3.4,
-          "alcance": 1.8,
+          "alcance": 12,
           "efeito": {
             "lentidao": 3.0
           },
@@ -618,6 +718,22 @@
             "tag:alado": 1.5
           },
           "sensacao": "golpe_pesado"
+        },
+        {
+          "nivel": 65,
+          "id": "chuva_de_virotes_benzidos",
+          "nome": "Chuva de Virotes Benzidos",
+          "custo": 65,
+          "recarga": 40.0,
+          "alcance": 14,
+          "area_raio": 6,
+          "virotes": 40,
+          "mult": 1.4,
+          "derruba_voadores": 3.0,
+          "dano_vs_alados_mult": 2.0,
+          "sensacao": "area",
+          "vfx": "cacador_chuva_virotes",
+          "descricao": "Atira uma salva de 40 virotes benzidos para o alto, que chovem numa área de 6 m. Quem voa cai no chão e fica preso por 3 s, e anjos e demônios tomam o dobro de dano."
         },
         {
           "id": "noite_da_cacada",
@@ -633,7 +749,8 @@
           "revela_invisiveis": true,
           "sensacao": "buff"
         }
-      ]
+      ],
+      "arma_principal": "besta"
     },
     "gladiador": {
       "classe_base": "mutante",
@@ -692,6 +809,21 @@
             "provocar": 4.0
           },
           "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "ave_arena",
+          "nome": "Ave, Arena!",
+          "custo": 60,
+          "recarga": 60.0,
+          "area_raio": 7,
+          "duracao": 10,
+          "ninguem_sai": true,
+          "dano_por_inimigo": 0.12,
+          "cura_por_abate": 0.15,
+          "sensacao": "buff",
+          "vfx": "gladiador_arena",
+          "descricao": "Grades de ferro sobem do chão e formam uma arena de 7 m por 10 s; ninguém entra nem sai. Ele ganha +12% de dano para cada inimigo preso e cura 15% do HP a cada abate, enquanto a plateia de mortos ruge."
         },
         {
           "id": "campeao",
@@ -773,6 +905,27 @@
           "sensacao": "golpe_pesado"
         },
         {
+          "nivel": 65,
+          "id": "forma_colossal",
+          "nome": "Forma Colossal",
+          "custo": 80,
+          "recarga": 90.0,
+          "duracao": 20,
+          "transformacao": true,
+          "escala": 1.8,
+          "buff": {
+            "hp_mult": 3.0,
+            "dano_mult": 3.5,
+            "velocidade_ataque": 0.45,
+            "area_ataque_basico": 2.5,
+            "velocidade_mult": 0.8,
+            "imune_controle": true
+          },
+          "sensacao": "golpe_pesado",
+          "vfx": "abominacao_forma_colossal",
+          "descricao": "A carne se rompe e ele vira um monstro gigante de tentáculos por 20 s: HP triplicado e dano 3,5x, com cada golpe acertando tudo em 2,5 m. Em troca bate devagar (0,45 ataque por segundo), anda mais lento e não pode ser controlado."
+        },
+        {
           "id": "frenesi_da_carne",
           "nome": "Frenesi da Carne",
           "nivel": 70,
@@ -843,6 +996,26 @@
           "invocacao": "torreta_relicario",
           "cura_area_por_s_mult": 0.4,
           "sensacao": "invocacao"
+        },
+        {
+          "nivel": 65,
+          "id": "legiao_de_servos",
+          "nome": "Legião de Servos",
+          "custo": 70,
+          "recarga": 60.0,
+          "duracao": 20,
+          "invoca": {
+            "cranio_servo": 4,
+            "torreta_relicario": 2
+          },
+          "sobrecarga": {
+            "cadencia_mult": 2.0,
+            "duracao": 8
+          },
+          "cura_por_s_aliados": 0.02,
+          "sensacao": "buff",
+          "vfx": "mechanicus_legiao",
+          "descricao": "Abre a mochila e solta 4 crânios-servos voadores, que atiram e consertam, e 2 torretas-relicário. Todas as invocações entram em sobrecarga, com cadência dobrada por 8 s, e os aliados por perto se reparam 2% por segundo."
         },
         {
           "id": "engrenagem_sagrada",
@@ -918,22 +1091,9 @@
           "sensacao": "buff"
         },
         {
-          "id": "dobre_de_finados",
-          "nome": "Dobre de Finados",
-          "nivel": 70,
-          "custo": 65,
-          "recarga": 45.0,
-          "canalizacao": 3.0,
-          "golpes": 6,
-          "mult": 2.5,
-          "alcance": 12,
-          "area_raio": 3.0,
-          "sensacao": "area"
-        },
-        {
           "id": "bomba_atomica",
           "nome": "Bomba Atômica",
-          "nivel": 75,
+          "nivel": 65,
           "custo": 80,
           "recarga": 60.0,
           "alvo": "chao",
@@ -965,6 +1125,19 @@
           "vfx_projetil": "herege_bomba_arremesso",
           "vfx_chao": "herege_radiacao",
           "descricao": "Arremessa uma ogiva herege no chão. Quem está no centro (até 1,2 m) toma 900% de dano; o dano cai até 150% na borda (5,5 m). A área fica radioativa por 8 s: quem estiver perto toma 35%/s e recebe 30% menos cura."
+        },
+        {
+          "id": "dobre_de_finados",
+          "nome": "Dobre de Finados",
+          "nivel": 70,
+          "custo": 65,
+          "recarga": 45.0,
+          "canalizacao": 3.0,
+          "golpes": 6,
+          "mult": 2.5,
+          "alcance": 12,
+          "area_raio": 3.0,
+          "sensacao": "area"
         }
       ]
     }

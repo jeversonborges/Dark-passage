@@ -713,9 +713,50 @@ def _revolver(n, iron, wood, brass, holy, long_=.4):
     gp.append(prim("primitive_torus_add", brass, g - up*.0 - ax*.03, (1,1,1), major_radius=.02, minor_radius=.004))
     return gp, g + up*.045 + ax*long_, ax
 
+def _espingarda(n, iron, wood, brass, holy, dark, long_=.62):
+    """Espingarda de dois canos inteira (não serrada): canos longos, telha de madeira, báscula gravada e coronha cheia."""
+    fr = bone_frame(f"hand.{n}", up=Vector((0, -1, 0))); o, ax, up, sd = fr; g = L(fr, .04); gun = []
+    for s_ in (1, -1):
+        gun.append(along("primitive_cylinder_add", iron, g + up*.045 + sd*.018*s_ - ax*.02, g + up*.045 + sd*.018*s_ + ax*long_, .018, vertices=10))
+        gun.append(along("primitive_cylinder_add", dark, g + up*.045 + sd*.018*s_ + ax*(long_ - .005), g + up*.045 + sd*.018*s_ + ax*(long_ + .003), .011, vertices=8))
+    gun.append(along("primitive_cube_add", iron, g + up*.068 - ax*.02, g + up*.068 + ax*long_, .005))
+    gun.append(along("primitive_cube_add", wood, g + up*.02 + ax*.12, g + up*.02 + ax*.42, .024))
+    for t in (.15, .3, .45, .58):
+        gun.append(prim("primitive_torus_add", brass, g + up*.045 + ax*t, (1,1,1), major_radius=.042, minor_radius=.004))
+    gun.append(along("primitive_cube_add", brass, g + up*.04 - ax*.11, g + up*.04 - ax*.02, .036))
+    for s_ in (1, -1):
+        gun.append(along("primitive_cone_add", iron, g + up*.07 - ax*.09 + sd*.012*s_, g + up*.095 - ax*.12 + sd*.012*s_, 1, radius1=.009, radius2=0, vertices=4))
+    gun.append(along("primitive_cube_add", wood, g - ax*.1 + up*.02, g - ax*.4 - up*.07, .032))
+    gun.append(along("primitive_cube_add", dark, g - ax*.39 - up*.06, g - ax*.42 - up*.075, .036))
+    for k in range(4):
+        gun.append(along("primitive_cylinder_add", holy, g - ax*(.18 + .045*k) + sd*.034, g - ax*(.18 + .045*k) + sd*.044, .01, vertices=6))
+    return gun, g + up*.045 + ax*long_, ax
+
+def _besta_arpao(n, iron, wood, brass, holy, dark):
+    """Besta pesada de caçar anjo: arco de molas de bonde, cordame de aço, manivela e um virote-arpão farpado carregado."""
+    fr = bone_frame(f"hand.{n}", up=Vector((0, -1, 0))); o, ax, up, sd = fr; g = L(fr, .04); w = []
+    w.append(along("primitive_cube_add", wood, g - ax*.32 + up*.0, g + ax*.5 + up*.04, .03))
+    w.append(along("primitive_cube_add", iron, g + ax*.05 + up*.06, g + ax*.52 + up*.06, .012))
+    w.append(along("primitive_cube_add", wood, g - ax*.32, g - ax*.45 - up*.06, .036))
+    fp = g + ax*.48 + up*.05
+    for s_ in (1, -1):
+        mid = fp + sd*.2*s_ - ax*.02; tip = fp + sd*.38*s_ - ax*.12
+        w.append(along("primitive_cube_add", iron, fp, mid, .018)); w.append(along("primitive_cube_add", iron, mid, tip, .013))
+        for t in (.3, .6): w.append(prim("primitive_torus_add", brass, fp.lerp(mid, t), (1,1,1), major_radius=.022, minor_radius=.004))
+        w.append(along("primitive_cylinder_add", iron, tip, g + up*.065 - ax*.02, .0025, vertices=4))
+    w.append(along("primitive_cylinder_add", brass, g - ax*.12 + up*.0 - sd*.04, g - ax*.12 - sd*.1, .012, vertices=8))
+    w.append(prim("primitive_uv_sphere_add", brass, g - ax*.12 - sd*.11, (.018,.018,.018)))
+    a0 = g + up*.075 - ax*.02; a1 = g + up*.075 + ax*.62
+    w.append(along("primitive_cylinder_add", iron, a0, a1, .009, vertices=6))
+    w.append(along("primitive_cone_add", iron, a1, a1 + ax*.12, 1, radius1=.03, radius2=0, vertices=4))
+    for s_ in (1, -1):
+        w.append(along("primitive_cone_add", iron, a1 + ax*.03, a1 - ax*.07 + sd*.045*s_, 1, radius1=.012, radius2=0, vertices=4))
+    for k in range(2): w.append(along("primitive_cube_add", holy, a1 + ax*(.02 + .04*k) + up*.004, a1 + ax*(.035 + .04*k) + up*.004, .014))
+    return w, a1 + ax*.12, ax
+
 def pistoleiro():
-    """A mão mais rápida da Vigília: guarda-pó longo até a bota com capa curta nos ombros, dois revólveres de cano longo
-    com balas bentas, cartucheiras cruzadas, rifle de alavanca nas costas e chapéu de aba larga com cordão de dentes de anjo."""
+    """A mão mais rápida da Vigília: guarda-pó longo até a bota com capa curta nos ombros, espingarda de dois canos
+    com cartuchos bentos, revólver de apoio, cartucheiras cruzadas, rifle de alavanca nas costas e chapéu de aba larga com cordão de dentes de anjo."""
     mat("guarda_po", (.07,.055,.045), 0, .7, dirt=.5, grime=.9)
     arm, info = classes.humano()
     drop_named("humano_hand.R", "humano_hand.L", "humano_chest", "poncho", "clarao", "rastro", "corte_dash")
@@ -762,14 +803,13 @@ def pistoleiro():
     hd.append(prim("primitive_torus_add", dark, (0,0,1.84), (1,1,1), major_radius=.113, minor_radius=.006))
     hd.append(skirt("lenco_rosto", mat("lona_azul_noite", (.035,.055,.085)), [(1.66,.083,.093,-.01), (1.6,.09,.1,-.01), (1.54,.1,.1,-.02)], open_front=0, thick=.006))
     parts.append(rigid(hd, arm, "head"))
-    for n in "LR":
-        gp, muzzle, ax = _revolver(n, iron, wood, brass, holy)
-        parts.append(rigid(gp, arm, f"hand.{n}"))
+    gp, muzzle, ax = _espingarda("R", iron, wood, brass, holy, dark)
+    parts.append(rigid(gp, arm, "hand.R"))
+    gp, _m, _a = _revolver("L", iron, wood, brass, holy, long_=.3)
+    parts.append(rigid(gp, arm, "hand.L"))
     flash = mat("clarao", (1,.8,.4), emit=(1,.7,.3), strength=25)
-    gp, muzzle, ax = _revolver("L", iron, wood, brass, holy)
-    for o_ in gp: bpy.data.objects.remove(o_, do_unlink=True)
-    flo = rigid([along("primitive_cone_add", flash, muzzle, muzzle + ax*.3, 1, radius1=.09, radius2=0, vertices=8),
-                 prim("primitive_uv_sphere_add", flash, muzzle + ax*.03, (.07,.07,.07))], arm, "hand.L"); flo.name = "clarao"
+    flo = rigid([along("primitive_cone_add", flash, muzzle, muzzle + ax*.4, 1, radius1=.13, radius2=0, vertices=8),
+                 prim("primitive_uv_sphere_add", flash, muzzle + ax*.04, (.1,.1,.1))], arm, "hand.R"); flo.name = "clarao"
     grow(arm, 1.03)
     info = {"rim": (.6, .75, 1), "anim": "gun", "flash": flo, "base": "humano"}
     return arm, info
@@ -834,21 +874,12 @@ def cacador_de_anjos():
         a = math.radians(70 + k*22); b = Vector((.085*math.cos(a), .085*math.sin(a) + .01, 1.72))
         hd.append(along("primitive_cone_add", hairm, b, b + Vector((math.cos(a)*.03, math.sin(a)*.04 + .02, -.18)), 1, radius1=.025, radius2=0, vertices=5))
     parts.append(rigid(hd, arm, "head"))
-    # arpão de corrente: haste de ferro, ponta farpada com runas de água benta, corrente enrolada no braço
-    fr, bd, g = weapon_frame(); o, ax, up, sd = fr; perp = bd.cross(sd).normalized()
-    top = g + bd*1.05
-    w = [along("primitive_cylinder_add", wood, g - bd*.45, g + bd*.45, .019, vertices=8),
-         along("primitive_cylinder_add", iron, g + bd*.45, top, .016, vertices=8),
-         along("primitive_cone_add", iron, top, top + bd*.24, 1, radius1=.045, radius2=0, vertices=4)]
-    for s_ in (1, -1):
-        w.append(along("primitive_cone_add", iron, top + bd*.06, top - bd*.1 + sd*.07*s_, 1, radius1=.018, radius2=0, vertices=4))
-        w.append(along("primitive_cone_add", iron, top + bd*.0, top - bd*.12 + perp*.06*s_, 1, radius1=.014, radius2=0, vertices=4))
-    for k in range(3): w.append(along("primitive_cube_add", holy, top + bd*(.03 + .05*k) + sd*.002, top + bd*(.05 + .05*k) + sd*.002, .02))
-    for k in range(3): w.append(prim("primitive_torus_add", brass, g + bd*(-.3 + .3*k), (1,1,1), major_radius=.024, minor_radius=.005))
-    w += chain_links(iron, top - bd*.05, g + bd*.05 + sd*.05, 14, sag=.12)
+    # besta pesada com virote-arpão; a corrente sai do virote e enrola no braço
+    w, tip, ax = _besta_arpao("R", iron, wood, brass, holy, dark)
+    w += chain_links(iron, tip - ax*.6, tip - ax*.75 + Vector((0,0,-.25)), 12, sag=.1)
     parts.append(rigid(w, arm, "hand.R"))
     grow(arm, 1.04)
-    info.update({"rim": (.55, .7, 1), "base": "humano"})
+    info.update({"rim": (.55, .7, 1), "base": "humano", "anim": "gun"})
     info["fx"] = []
     return arm, info
 
@@ -1017,6 +1048,65 @@ def abominacao():
         parts.append(rigid(tb, arm, "upper_arm.L"))
     grow(arm, 1.16)
     info.update({"base": "mutante"}); return arm, info
+
+def _tentaculo(m, tip_m, sucker_m, base_, dirv, side, ln, r0, seed, curl=1.0, seg=14):
+    """Tentáculo de carne: cilindros encadeados que afinam, ventosas por baixo e ponta de ácido enrolando."""
+    rnd = random.Random(seed); pts = []
+    for j in range(seg + 1):
+        t = j/seg
+        c = base_ + dirv*ln*t + side*(.35*t*ln + .1*math.sin(t*math.pi*2.4 + seed)*ln) + Vector((0, 0, -.18*t*t*ln))
+        if t > .7: c += Vector((.08*math.sin(seed + t*10), .08*math.cos(seed + t*10), .06*(t - .7)*3))*curl*ln
+        pts.append(c)
+    tb = []
+    for j in range(seg):
+        r = r0*(1 - j/seg)**.8 + .008
+        tb.append(along("primitive_cylinder_add", m, pts[j], pts[j+1], r, vertices=12))
+        tb.append(prim("primitive_uv_sphere_add", m, pts[j+1], (r,)*3, segments=12, ring_count=6))
+        if 1 < j < seg - 1:
+            dn = (pts[j+1] - pts[j]).cross(Vector((0, 1, 0))).normalized()
+            if dn.z > 0: dn = -dn
+            tb.append(prim("primitive_uv_sphere_add", sucker_m, pts[j] + dn*r*.9, (r*.35, r*.35, r*.2), segments=8, ring_count=4))
+    tb.append(along("primitive_cone_add", tip_m, pts[-1], pts[-1] + (pts[-1] - pts[-2]).normalized()*.09, 1, radius1=.02, radius2=0, vertices=6))
+    return tb
+
+def abominacao_colossal():
+    """Forma Colossal (skill de nível 65): a carne se rompe e a Abominação vira um monstro de tentáculos quase duas vezes
+    maior; uma coroa de tentáculos gigantes brota das costas e o peito se abre numa boca com dentes de osso."""
+    arm, info = abominacao()
+    tent = mat("tentaculo", (.13,.05,.08)); acid = mat("verde_acido", (.3,1,.1)); bone = mat("osso_quitina", (.46,.41,.32))
+    flesh = mat("carne_mutada", (.22,.075,.06)); bruise = mat("pele_roxa", (.1,.06,.07))
+    s0 = 1/1.16   # o builder base já cresceu; trabalhamos no espaço já escalado
+    parts = []
+    # coroa de tentáculos gigantes nas costas
+    ch = []
+    specs = [(-.18, 1.45, (-.9, .5, .6), 1.5, .11), (.18, 1.45, (.9, .5, .6), 1.5, .11), (-.12, 1.25, (-.8, .7, -.1), 1.3, .1),
+             (.12, 1.25, (.8, .7, -.1), 1.3, .1), (0, 1.55, (0, .5, 1.0), 1.2, .095), (-.05, 1.05, (-.4, .9, -.5), 1.1, .085),
+             (.06, 1.05, (.4, .9, -.5), 1.1, .085)]
+    for i, (x, z, d, ln, r0) in enumerate(specs):
+        b = Vector((x, .25, z))*1.16; dv = Vector(d).normalized()
+        sd_ = dv.cross(Vector((0, 0, 1))); sd_ = sd_.normalized() if sd_.length > .01 else Vector((1, 0, 0))
+        ch.append(prim("primitive_uv_sphere_add", flesh, b, (r0*1.6,)*3, segments=12, ring_count=8))
+        ch += _tentaculo(tent, acid, bone, b, dv, sd_*(1 if i % 2 else -1), ln, r0, 40 + i)
+    # boca no peito: lábios de carne, anel de dentes de osso e fundo de ácido
+    mc = Vector((0, -.2, 1.3))*1.16
+    ch.append(prim("primitive_uv_sphere_add", acid, mc + Vector((0, .05, 0)), (.07, .03, .2)))
+    for s_ in (1, -1):   # boca vertical: dois lábios de carne e fileiras de dentes de osso
+        ch.append(prim("primitive_uv_sphere_add", flesh, mc + Vector((.09*s_, 0, 0)), (.07, .06, .24), segments=14, ring_count=10))
+        for k in range(9):
+            z = -.19 + .0475*k
+            ch.append(along("primitive_cone_add", bone, mc + Vector((.06*s_, -.04, z)), mc + Vector((.0, -.05, z - .01)), 1, radius1=.017, radius2=0, vertices=4))
+    for k in range(8):
+        ch.append(prim("primitive_uv_sphere_add", bruise if k % 2 else acid, (random.uniform(-.25, .25), -.22, random.uniform(1.0, 1.7)), (.035,)*3, segments=8, ring_count=5))
+    parts.append(rigid(ch, arm, "chest"))
+    # saia de tentáculos grossos que desce do quadril até o chão e esconde as pernas
+    hp = [prim("primitive_uv_sphere_add", flesh, Vector((0, .02, .95))*1.16, (.34, .3, .26), segments=16, ring_count=10)]
+    for k in range(9):
+        a = 2*math.pi*k/9 + .2; d = Vector((math.cos(a)*.55, math.sin(a)*.55, -1)).normalized()
+        b = Vector((math.cos(a)*.22, math.sin(a)*.2 + .02, .9))*1.16
+        hp += _tentaculo(tent, acid, bone, b, d, Vector((-math.sin(a), math.cos(a), 0)), 1.2, .1, 60 + k, curl=.4, seg=10)
+    parts.append(rigid(hp, arm, "hips"))
+    grow(arm, 1.55)
+    info.update({"base": "abominacao", "transformacao": "forma_colossal"}); return arm, info
 
 # ====================================================================== TECNOMANCER → MECHANICUS
 def _servo_arm(m_a, m_b, m_c, base_, pts, tool):
