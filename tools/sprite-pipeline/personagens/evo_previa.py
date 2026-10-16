@@ -20,6 +20,7 @@ for kind in kinds:
     elif style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
     elif style == "gun": acts, _ = anims.humano_anims(arm, info.get("flash"))
     elif style == "dual": acts, _ = anims.humano_dual_anims(arm)
+    elif style == "besta": acts, _ = anims.humano_besta_anims(arm)
     else: acts, _ = anims.caster_anims(arm, info.get("extra"), info.get("hold_extra"))
     for o in [info.get("flash")] + [f[0] for f in info.get("fx", [])]:
         if o: o.hide_render = True

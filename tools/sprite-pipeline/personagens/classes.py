@@ -301,12 +301,15 @@ def humano():
         st = skirt("poncho_faixa", stripe, [(z0, r0, r0*.72, .016), (z1, r1, r1*.72, .017)], open_front=0, folds=7, famp=.07, seed=9, thick=.006)
         bind(st, arm, ["chest","spine","upper_arm.L","upper_arm.R"], power=3); parts.append(st)
     ch = []
-    # bainha da espada nas costas e cobertor enrolado
-    ch.append(along("primitive_cube_add", leather2, (.2,.33,1.55), (-.2,.31,.95), .035))
-    ch.append(along("primitive_cone_add", brass, (-.2,.31,.95), (-.23,.305,.9), 1, radius1=.035, radius2=.01, vertices=6))
-    for t in (.2, .5):
-        p_ = Vector((.2,.33,1.55)).lerp(Vector((-.2,.31,.95)), t)
-        ch.append(prim("primitive_torus_add", brass, p_, (1,1,1), major_radius=.04, minor_radius=.006))
+    # aljava de virotes nas costas (no lugar da antiga bainha) e cobertor enrolado
+    q0, q1 = Vector((-.16,.3,1.0)), Vector((.12,.33,1.5))
+    ch.append(along("primitive_cylinder_add", leather2, q0, q1, .06, vertices=10))
+    for t in (.15, .85): ch.append(prim("primitive_torus_add", brass, q0.lerp(q1, t), (1,1,1), major_radius=.062, minor_radius=.006))
+    qd = (q1 - q0).normalized()
+    for k in range(7):
+        off = Vector(((k % 3 - 1)*.025, ((k // 3) - 1)*.02, 0))
+        ch.append(along("primitive_cylinder_add", wood, q1 + off - qd*.05, q1 + off + qd*.12, .006, vertices=5))
+        ch.append(along("primitive_cone_add", leather, q1 + off + qd*.07, q1 + off + qd*.13, 1, radius1=.016, radius2=0, vertices=3))
     parts.append(rigid(ch, arm, "chest"))
     # cinturão com cartucheira, coldre vazio e frascos de água benta
     bl = [prim("primitive_torus_add", dark, (0,0,.97), (1,.82,1.9), (0,6,0), major_radius=.19, minor_radius=.022),
@@ -357,42 +360,26 @@ def humano():
         hd.append(along("primitive_cylinder_add", lens, (.04*s,-.114,1.825), (.04*s,-.119,1.827), .02, vertices=12))
     hd.append(along("primitive_cube_add", dark, (-.012,-.108,1.825), (.012,-.108,1.825), .006))
     parts.append(rigid(hd, arm, "head"))
-    # espada larga de lâmina pesada: ferro gasto, fio afiado claro, guarda de latão e cabo longo de couro
-    edge_m = mat("fio_afiado", (.7,.71,.73), 1, .18, dirt=.8, grime=.05)
-    blade_m = mat("lamina_larga", (.32,.31,.3), 1, .32, dirt=.6, grime=.1)
-    fr = bone_frame("hand.R"); o, ax, up, sd = fr
-    bd = (ax*.45 + up*.9).normalized(); g = L(fr, .045); perp = bd.cross(sd).normalized()
-    sw = [along("primitive_cylinder_add", dark, g - bd*.17, g + bd*.08, .019, vertices=8)]
-    for k in range(5): sw.append(prim("primitive_torus_add", leather2, g + bd*(-.15 + .055*k), (1,1,1), major_radius=.02, minor_radius=.005))
-    sw[-5:] = [t for t in sw[-5:]]
-    for t in sw[-5:]: t.rotation_euler = bd.to_track_quat('Z','Y').to_euler()
-    sw.append(prim("primitive_uv_sphere_add", brass, g - bd*.2, (.03,.03,.03), segments=10, ring_count=6))
-    gd = g + bd*.09
-    sw.append(along("primitive_cube_add", brass, gd + perp*.17, gd - perp*.17, .022))
+    # besta pesada (arma principal, sem espada desde 2026-10-16): coronha de madeira, arco de molas de bonde,
+    # cordame de aço, manivela de latão e virote com ponta de água benta
+    fr = bone_frame("hand.R", up=Vector((0, -1, 0))); o, ax, up, sd = fr; g = L(fr, .04); bw = []
+    bw.append(along("primitive_cube_add", wood, g - ax*.3, g + ax*.46 + up*.035, .028))
+    bw.append(along("primitive_cube_add", iron, g + ax*.05 + up*.055, g + ax*.48 + up*.055, .011))
+    bw.append(along("primitive_cube_add", wood, g - ax*.3, g - ax*.42 - up*.06, .034))
+    fp = g + ax*.44 + up*.045
     for s_ in (1, -1):
-        sw.append(along("primitive_cone_add", brass, gd + perp*.17*s_, gd + perp*.2*s_ + bd*.06, 1, radius1=.022, radius2=.008, vertices=6))
-    sw.append(along("primitive_cube_add", leather2, gd + bd*.02, gd + bd*.1, .05))   # ricasso enrolado
-    rnd = random.Random(13); bm = bmesh.new(); prev = None; pts = []
-    N = 12
-    for k in range(N+1):
-        t = k/N; c = g + bd*(.15 + .85*t)
-        wd = .075*(1 - .25*t) if k < N else 0
-        nick = rnd.uniform(0, .012) if 2 < k < N-1 else 0       # dentes de uso no fio
-        pair = (bm.verts.new(c + perp*(wd - nick)), bm.verts.new(c - perp*wd))
-        if prev: bm.faces.new((prev[0], prev[1], pair[1], pair[0]))
-        prev = pair; pts.append((c, wd))
-    bo = obj_from_bm("espada_larga", bm, blade_m); bo.modifiers.new("s", 'SOLIDIFY').thickness = .014
-    dg = bpy.context.evaluated_depsgraph_get(); me = bpy.data.meshes.new_from_object(bo.evaluated_get(dg))
-    old = bo.data; bo.modifiers.clear(); bo.data = me; bpy.data.meshes.remove(old)
-    for pg in me.polygons: pg.use_smooth = False
-    sw.append(bo)
-    for k in range(N):  # fio claro dos dois lados e sulco central escuro
-        (a_, wa), (b_, wb) = pts[k], pts[k+1]
-        for s_ in (1, -1):
-            sw.append(along("primitive_cube_add", edge_m, a_ + perp*wa*s_*.92, b_ + perp*max(wb, .004)*s_*.92, .006))
-        if k < N-3: sw.append(along("primitive_cube_add", dark, a_, b_, .006))
-    for k in range(3): sw.append(prim("primitive_uv_sphere_add", brass, g + bd*(.2 + .05*k), (.011,.011,.011), segments=6, ring_count=4))
-    parts.append(rigid(sw, arm, "hand.R"))
+        mid = fp + sd*.17*s_ - ax*.02; tip = fp + sd*.32*s_ - ax*.1
+        bw.append(along("primitive_cube_add", iron, fp, mid, .016)); bw.append(along("primitive_cube_add", iron, mid, tip, .012))
+        bw.append(prim("primitive_torus_add", brass, fp.lerp(mid, .5), (1,1,1), major_radius=.02, minor_radius=.004))
+        bw.append(along("primitive_cylinder_add", iron, tip, g + up*.06 - ax*.02, .0025, vertices=4))
+    bw.append(along("primitive_cylinder_add", brass, g - ax*.12 - sd*.03, g - ax*.12 - sd*.09, .011, vertices=8))
+    bw.append(prim("primitive_uv_sphere_add", brass, g - ax*.12 - sd*.1, (.016,.016,.016)))
+    a0 = g + up*.07 - ax*.02; a1 = g + up*.07 + ax*.5
+    bw.append(along("primitive_cylinder_add", wood, a0, a1, .007, vertices=6))
+    bw.append(along("primitive_cone_add", iron, a1, a1 + ax*.07, 1, radius1=.016, radius2=0, vertices=4))
+    bw.append(along("primitive_cube_add", holy, a1 + ax*.005 + up*.003, a1 + ax*.025 + up*.003, .012))
+    for s_ in (1, -1): bw.append(along("primitive_cube_add", leather, a0 + ax*.02 + sd*.008*s_, a0 + ax*.08 + sd*.012*s_, .006))
+    parts.append(rigid(bw, arm, "hand.R"))
     # escopeta calibre 12 de cano serrado na mão esquerda (segundo ataque: tiro)
     flash = mat("clarao", (1,.8,.4), emit=(1,.7,.3), strength=25)
     fr = bone_frame("hand.L", up=Vector((0, -1, 0))); o, ax, up, sd = fr
@@ -438,5 +425,5 @@ def humano():
         for i_ in range(len(pts_)-1):
             sl.append(along("primitive_cylinder_add", trail_m, pts_[i_], pts_[i_+1], .006 + .016*i_/len(pts_), vertices=4))
     slo = rigid(sl, arm, "hips"); slo.name = "corte_dash"
-    return arm, {"rim": (1, .62, .35), "anim": "dual", "flash": flo,
-                 "fx": [(tro, "spin", [0,1,1,1,1,1,1,1]), (dso, "dash", [0,0,1,1,1,1,1,0,0,0,0,0]), (slo, "dash", [0,0,0,0,0,0,1,1,1,0,0,0])]}
+    return arm, {"rim": (1, .62, .35), "anim": "besta", "flash": flo,
+                 "fx": [(tro, "spin", [0,1,1,1,1,1,1,1]), (dso, "dash", [0,0,1,1,1,1,1,0,0,0,0,0]), (slo, "dash", [0]*12)]}

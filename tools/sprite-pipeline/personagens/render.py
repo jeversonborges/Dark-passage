@@ -15,6 +15,8 @@ import classes3; classes.mutante = classes3.mutante
 import turret; classes.torreta = turret.torreta
 import npcs
 for _n in ("zulmira", "bento", "celina", "damiao", "lindalva", "ferrolho", "pedro"): setattr(classes, "npc_" + _n, getattr(npcs, _n))
+import npcs_atlantida  # NPCs da Atlântida (Iolanda, Nestor, Evêmon, Thotme, Sinésia, Belzarim)
+for _n in npcs_atlantida.NPCS: setattr(classes, "npc_" + _n, getattr(npcs_atlantida, _n))
 import gustavo; classes.gustavo_primarca = gustavo.gustavo_primarca  # NPC: Gustavo, o Primarca
 import evolucoes  # evoluções de classe do nível 50 (e a Forma Colossal da Abominação)
 for _k in ("arcanjo", "serafim", "lorde_das_trevas", "ceifador", "arquimago", "profeta_do_amargo", "pistoleiro", "cacador_de_anjos",
@@ -30,12 +32,13 @@ DIRS = ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]  # direção para onde o per
 arm, info = getattr(classes, kind)()
 style = info.get("anim", "melee"); flash = info.get("flash"); flash_frames = None
 if kind == "torreta": acts = turret.torreta_anims(arm)
-elif kind.startswith("npc_"): acts = npcs.npc_anims(arm)
+elif kind.startswith("npc_"): acts = info.get("anims_fn", npcs.npc_anims)(arm)
 elif style == "primarca": acts = gustavo.primarca_anims(arm)
 elif kind in ("anjo", "demonio") or info.get("base") in ("anjo", "demonio"): acts = anims.flyer_anims(arm, info.get("extra"))
 elif style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
 elif style == "gun": acts, flash_frames = anims.humano_anims(arm, flash)
 elif style == "dual": acts, flash_frames = anims.humano_dual_anims(arm)
+elif style == "besta": acts, flash_frames = anims.humano_besta_anims(arm)
 else: acts, flash_frames = anims.caster_anims(arm, info.get("extra"), info.get("hold_extra"))
 if flash and not flash_frames: flash_frames = [0]*8
 if flash and not isinstance(flash_frames, dict): flash_frames = {"attack": flash_frames}
