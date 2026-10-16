@@ -7959,7 +7959,7 @@
    "id": "leitura_obitos",
    "nome": "Livro de Óbitos (últimas páginas)",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "livro",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "grade": [
@@ -7973,13 +7973,20 @@
     "40": "assets/icones/itens/40/leitura_obitos.png",
     "32": "assets/icones/itens/32/leitura_obitos.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_obitos.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_obitos.png",
+   "motivo_antigo": "livro",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 0,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_carta_lucio",
    "nome": "Carta para Rosa",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "carta",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -7993,13 +8000,20 @@
     "40": "assets/icones/itens/40/leitura_carta_lucio.png",
     "32": "assets/icones/itens/32/leitura_carta_lucio.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_lucio.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_lucio.png",
+   "motivo_antigo": "carta",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 1,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_mapa_tobias",
    "nome": "Mapa Rasgado do Tobias",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "mapa",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -8013,13 +8027,20 @@
     "40": "assets/icones/itens/40/leitura_mapa_tobias.png",
     "32": "assets/icones/itens/32/leitura_mapa_tobias.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_mapa_tobias.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_mapa_tobias.png",
+   "motivo_antigo": "mapa",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 2,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_anselmo",
    "nome": "Caderno do Padre Anselmo",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "livro",
+   "motivo": "arte_pronta",
    "tint": "azul",
    "emissivo": null,
    "grade": [
@@ -8033,13 +8054,20 @@
     "40": "assets/icones/itens/40/leitura_anselmo.png",
     "32": "assets/icones/itens/32/leitura_anselmo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_anselmo.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_anselmo.png",
+   "motivo_antigo": "livro",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 3,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_tabela_carnica",
    "nome": "Tabela de Preços do Abatedouro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "papel",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -8053,13 +8081,20 @@
     "40": "assets/icones/itens/40/leitura_tabela_carnica.png",
     "32": "assets/icones/itens/32/leitura_tabela_carnica.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_tabela_carnica.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_tabela_carnica.png",
+   "motivo_antigo": "papel",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 4,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_hino_carpideiras",
    "nome": "Hino das Carpideiras",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pergaminho",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -8073,13 +8108,20 @@
     "40": "assets/icones/itens/40/leitura_hino_carpideiras.png",
     "32": "assets/icones/itens/32/leitura_hino_carpideiras.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_hino_carpideiras.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_hino_carpideiras.png",
+   "motivo_antigo": "pergaminho",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 5,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_confissao_anacleto",
    "nome": "Confissão na Parede",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tabua",
+   "motivo": "arte_pronta",
    "tint": "cinza",
    "emissivo": null,
    "grade": [
@@ -8093,13 +8135,20 @@
     "40": "assets/icones/itens/40/leitura_confissao_anacleto.png",
     "32": "assets/icones/itens/32/leitura_confissao_anacleto.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_confissao_anacleto.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_confissao_anacleto.png",
+   "motivo_antigo": "tabua",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 6,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_ordem_zacarias",
    "nome": "Ordem Selada da Quinta Trombeta",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pergaminho",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": "#ffe08a",
    "grade": [
@@ -8113,7 +8162,14 @@
     "40": "assets/icones/itens/40/leitura_ordem_zacarias.png",
     "32": "assets/icones/itens/32/leitura_ordem_zacarias.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_zacarias.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_zacarias.png",
+   "motivo_antigo": "pergaminho",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 7,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "faixa_vigilia",
@@ -9409,7 +9465,7 @@
    "id": "leitura_ordem_lancamento",
    "nome": "Ordem de Lançamento (cópia de carbono)",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pergaminho",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -9423,13 +9479,20 @@
     "40": "assets/icones/itens/40/leitura_ordem_lancamento.png",
     "32": "assets/icones/itens/32/leitura_ordem_lancamento.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_lancamento.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_ordem_lancamento.png",
+   "motivo_antigo": "pergaminho",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 8,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "leitura_carta_apostata",
    "nome": "Carta dos Apóstatas",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "carta",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -9443,7 +9506,14 @@
     "40": "assets/icones/itens/40/leitura_carta_apostata.png",
     "32": "assets/icones/itens/32/leitura_carta_apostata.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_apostata.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_apostata.png",
+   "motivo_antigo": "carta",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 9,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "contador_isaura",
@@ -9721,7 +9791,7 @@
    "id": "leitura_livro_tombo",
    "nome": "Livro do Tombo (folha primeira)",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "livro",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "grade": [
@@ -9739,7 +9809,14 @@
     "40": "assets/icones/itens/40/leitura_livro_tombo.png",
     "32": "assets/icones/itens/32/leitura_livro_tombo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/leitura_livro_tombo.png"
+   "icone_mochila": "assets/icones/itens/mochila/leitura_livro_tombo.png",
+   "motivo_antigo": "livro",
+   "arte": {
+    "folha": "assets/icones/fontes/leituras_1.png",
+    "indice": 10,
+    "auto": 11,
+    "dilata": 0
+   }
   },
   {
    "id": "faixas_betania",

@@ -299,3 +299,6 @@ ARTE_EXISTENTES["missao_1"] = ["bobina_cobre", "pena_querubim", "dente_vala", "r
  "relicario_vazio", "pa_simao", "caixinha_musica", "valvula_radio", "pagina_ordem", "amostra_amarga", "fragmento_clarao", "chave_lancamento",
  "insignia_arrancada", "carta_apostata", "meia_dragona", "placa_coveiro", "folha_tombo", "ultimo_tijolo", "eco_do_nome", "livro_dos_vencidos"]
 GRADE_FOLHA["missao_1"] = [8, 4]
+ARTE_EXISTENTES["leituras_1"] = ["leitura_obitos", "leitura_carta_lucio", "leitura_mapa_tobias", "leitura_anselmo", "leitura_tabela_carnica",
+ "leitura_hino_carpideiras", "leitura_confissao_anacleto", "leitura_ordem_zacarias", "leitura_ordem_lancamento", "leitura_carta_apostata", "leitura_livro_tombo"]
+AUTO_FOLHA["leituras_1"] = {"dilata": 0}
