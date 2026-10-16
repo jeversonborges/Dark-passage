@@ -47,6 +47,13 @@ def blade_mesh(name, m, pts, widths, normal, thick=.01):
         prev = pair
     o = obj_from_bm(name, bm, m); o.modifiers.new("s", 'SOLIDIFY').thickness = thick; _apply_mods(o); return o
 
+def cowl(name, m, seed=6, sc=1.0):
+    """Capuz arredondado que cobre o topo da cabeça e cai para trás (sem bico para cima)."""
+    rings = [(1.47,.17,.15,.02), (1.55,.13,.125,.01), (1.63,.107,.112,.0), (1.7,.1,.108,-.005), (1.76,.094,.104,-.008),
+             (1.8,.078,.092,-.008), (1.83,.05,.068,-.002), (1.845,.012,.02,.01)]
+    rings = [(z, rx*sc, ry*sc, yo) for z, rx, ry, yo in rings]
+    return skirt(name, m, rings, open_front=.85, seed=seed, folds=5, famp=.025, thick=.012)
+
 def tabard(name, m, x, y, z0, z1, w, seed=3, back=False):
     """Faixa de pano pendurada (tabardo/estola) com barra rasgada."""
     rnd = random.Random(seed); bm = bmesh.new(); rows = []
@@ -374,7 +381,7 @@ def ceifador():
                        [along("primitive_cone_add", black, o + ax*(.06 + .05*k) + Vector((0,.05,0)), o + ax*(.11 + .05*k) + Vector((0,.15,.03)), 1, radius1=.012, radius2=0, vertices=4) for k in range(3)], arm, "forearm.L"))
     # capuz fundo com máscara de crânio cornudo e olhos de brasa
     hd = [head_base(bone, (.072,.082,.1)),
-          skirt("capuz_ceifa", shroud, [(1.5,.14,.13,.0), (1.62,.13,.13,.0), (1.76,.13,.13,.01), (1.88,.1,.11,.03), (1.96,.04,.05,.07)], open_front=.62, thick=.012, folds=6, famp=.04),
+          cowl("capuz_ceifa", shroud, seed=41, sc=1.05),
           prim("primitive_uv_sphere_add", bone, (0,-.07,1.61), (.05,.04,.035))]
     for s in (1, -1):
         hd.append(prim("primitive_uv_sphere_add", leather, (.03*s,-.088,1.69), (.022,.012,.016)))
@@ -533,16 +540,16 @@ def profeta_do_amargo():
     parts.append(rigid(bk, arm, "chest"))
     # cabeça: capuz de aniagem, máscara de chumbo com visor de vidro rachado, coroa de arame farpado, olhos verdes
     hd = [head_base(skin, (.07,.08,.095), z=1.68),
-          skirt("capuz_profeta", blk, [(1.56,.12,.12,0), (1.7,.14,.14,.01), (1.82,.13,.13,.025), (1.9,.08,.09,.045), (1.94,.03,.03,.06)], open_front=.65, seed=6, folds=6, famp=.04, thick=.014),
+          cowl("capuz_profeta", blk, seed=6),
           plate(lead, (0,-.095,1.66), (.06,.02,.075)), prim("primitive_uv_sphere_add", glass, (0,-.12,1.69), (.055,.015,.06))]
     for s in (1, -1): hd.append(prim("primitive_uv_sphere_add", gem, (.024*s,-.126,1.7), (.011,.005,.008)))
     hd.append(along("primitive_cylinder_add", lead, (0,-.11,1.6), (0,-.17,1.55), .022, vertices=8))
     hd.append(prim("primitive_cylinder_add", metal, (0,-.175,1.545), (.032,.032,.02), (55,0,0), vertices=10))
     for k in range(3):
-        hd.append(prim("primitive_torus_add", rust, (0,0,1.87 + .012*k), (1,1,1), (4*(k - 1), 3*k, 0), major_radius=.12 - .006*k, minor_radius=.005, major_segments=24, minor_segments=4))
+        hd.append(prim("primitive_torus_add", rust, (0,-.005,1.745 + .008*k), (1,1,1), (10 + 3*(k - 1), 2*k, 0), major_radius=.118 - .004*k, minor_radius=.005, major_segments=24, minor_segments=4))
     for k in range(14):
         a = 2*math.pi*k/14; d = Vector((math.cos(a), math.sin(a), 0))
-        b = Vector((0,0,1.875)) + d*.118
+        b = Vector((0,-.005,1.75 + .025*max(0, d.y))) + d*.118
         hd.append(along("primitive_cone_add", rust, b, b + d*.04 + Vector((0,0,.03 if k % 2 else -.01)), 1, radius1=.006, radius2=0, vertices=4))
     parts.append(rigid(hd, arm, "head"))
     # turíbulo de Amargo pendurado da mão esquerda: esfera de chumbo furada com brilho verde
@@ -920,7 +927,7 @@ def mechanicus():
                        [prim("primitive_cylinder_add", rune, gc + Vector((0,-.008,0)), (.018,.018,.004), (90,0,0), vertices=10)], arm, "hips"))
     # cabeça: capuz de lona, máscara de latão com três lentes laranja, tubos até a caldeira
     hd = [head_base(skin),
-          skirt("capuz_mech", canvas, [(1.52,.13,.13,0), (1.64,.125,.13,0), (1.78,.12,.125,.01), (1.88,.09,.1,.03), (1.93,.03,.04,.05)], open_front=.62, thick=.012, folds=6, famp=.04),
+          cowl("capuz_mech", canvas, seed=11),
           plate(brass, (0,-.09,1.66), (.06,.03,.075))]
     for x, z, r in ((-.03,1.69,.018), (.03,1.69,.018), (0,1.635,.013)):
         hd.append(along("primitive_cylinder_add", iron, (x,-.115,z), (x,-.14,z), r + .006, vertices=12))
