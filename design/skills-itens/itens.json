@@ -7112,7 +7112,7 @@
    "id": "bobina_cobre",
    "nome": "Bobina de Cobre",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bobina",
+   "motivo": "arte_pronta",
    "tint": "cobre",
    "emissivo": null,
    "grade": [
@@ -7130,13 +7130,22 @@
     "40": "assets/icones/itens/40/bobina_cobre.png",
     "32": "assets/icones/itens/32/bobina_cobre.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/bobina_cobre.png"
+   "icone_mochila": "assets/icones/itens/mochila/bobina_cobre.png",
+   "motivo_antigo": "bobina",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 0,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "pena_querubim",
    "nome": "Pena de Querubim",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pena",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "emissivo": null,
    "grade": [
@@ -7154,13 +7163,22 @@
     "40": "assets/icones/itens/40/pena_querubim.png",
     "32": "assets/icones/itens/32/pena_querubim.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pena_querubim.png"
+   "icone_mochila": "assets/icones/itens/mochila/pena_querubim.png",
+   "motivo_antigo": "pena",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 1,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "dente_vala",
    "nome": "Dente de Vala",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "dente",
+   "motivo": "arte_pronta",
    "tint": "osso",
    "emissivo": null,
    "grade": [
@@ -7178,13 +7196,22 @@
     "40": "assets/icones/itens/40/dente_vala.png",
     "32": "assets/icones/itens/32/dente_vala.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/dente_vala.png"
+   "icone_mochila": "assets/icones/itens/mochila/dente_vala.png",
+   "motivo_antigo": "dente",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 2,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "raiz_cova",
    "nome": "Raiz-de-Cova",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "raiz",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -7198,13 +7225,22 @@
     "40": "assets/icones/itens/40/raiz_cova.png",
     "32": "assets/icones/itens/32/raiz_cova.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/raiz_cova.png"
+   "icone_mochila": "assets/icones/itens/mochila/raiz_cova.png",
+   "motivo_antigo": "raiz",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 3,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "caldo_cardo",
    "nome": "Caldo de Cardo",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tigela",
+   "motivo": "arte_pronta",
    "tint": "madeira",
    "emissivo": null,
    "grade": [
@@ -7218,13 +7254,22 @@
     "40": "assets/icones/itens/40/caldo_cardo.png",
     "32": "assets/icones/itens/32/caldo_cardo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo.png"
+   "icone_mochila": "assets/icones/itens/mochila/caldo_cardo.png",
+   "motivo_antigo": "tigela",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 4,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "medalhinha_cardo",
    "nome": "Medalhinha de Joaquim",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "medalha",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "grade": [
@@ -7242,13 +7287,22 @@
     "40": "assets/icones/itens/40/medalhinha_cardo.png",
     "32": "assets/icones/itens/32/medalhinha_cardo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/medalhinha_cardo.png"
+   "icone_mochila": "assets/icones/itens/mochila/medalhinha_cardo.png",
+   "motivo_antigo": "medalha",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 5,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "sebo_rancoso",
    "nome": "Sebo Rançoso",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "sebo",
+   "motivo": "arte_pronta",
    "tint": "cera",
    "emissivo": null,
    "grade": [
@@ -7262,13 +7316,22 @@
     "40": "assets/icones/itens/40/sebo_rancoso.png",
     "32": "assets/icones/itens/32/sebo_rancoso.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/sebo_rancoso.png"
+   "icone_mochila": "assets/icones/itens/mochila/sebo_rancoso.png",
+   "motivo_antigo": "sebo",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 6,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "ferro_velho",
    "nome": "Ferro Velho",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "sucata",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": null,
    "grade": [
@@ -7282,13 +7345,22 @@
     "40": "assets/icones/itens/40/ferro_velho.png",
     "32": "assets/icones/itens/32/ferro_velho.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/ferro_velho.png"
+   "icone_mochila": "assets/icones/itens/mochila/ferro_velho.png",
+   "motivo_antigo": "sucata",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 7,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "badalo_rachado",
    "nome": "Badalo Rachado",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "badalo",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": null,
    "grade": [
@@ -7302,13 +7374,22 @@
     "40": "assets/icones/itens/40/badalo_rachado.png",
     "32": "assets/icones/itens/32/badalo_rachado.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/badalo_rachado.png"
+   "icone_mochila": "assets/icones/itens/mochila/badalo_rachado.png",
+   "motivo_antigo": "badalo",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 8,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "livro_obitos",
    "nome": "Livro de Óbitos de São Lázaro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "livro",
+   "motivo": "arte_pronta",
    "tint": "couro",
    "emissivo": null,
    "grade": [
@@ -7326,13 +7407,22 @@
     "40": "assets/icones/itens/40/livro_obitos.png",
     "32": "assets/icones/itens/32/livro_obitos.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/livro_obitos.png"
+   "icone_mochila": "assets/icones/itens/mochila/livro_obitos.png",
+   "motivo_antigo": "livro",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 9,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "chave_gancho",
    "nome": "Chave de Gancho",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "chave_gancho",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": null,
    "grade": [
@@ -7350,13 +7440,22 @@
     "40": "assets/icones/itens/40/chave_gancho.png",
     "32": "assets/icones/itens/32/chave_gancho.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/chave_gancho.png"
+   "icone_mochila": "assets/icones/itens/mochila/chave_gancho.png",
+   "motivo_antigo": "chave_gancho",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 10,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "lacre_carne",
    "nome": "Lacre de Carne",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "lacre",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": "#ff3a2a",
    "grade": [
@@ -7374,13 +7473,22 @@
     "40": "assets/icones/itens/40/lacre_carne.png",
     "32": "assets/icones/itens/32/lacre_carne.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/lacre_carne.png"
+   "icone_mochila": "assets/icones/itens/mochila/lacre_carne.png",
+   "motivo_antigo": "lacre",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 11,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "lacre_lagrimas",
    "nome": "Lacre de Lágrimas",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "lacre",
+   "motivo": "arte_pronta",
    "tint": "cera",
    "emissivo": "#bfe6ff",
    "grade": [
@@ -7398,13 +7506,22 @@
     "40": "assets/icones/itens/40/lacre_lagrimas.png",
     "32": "assets/icones/itens/32/lacre_lagrimas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/lacre_lagrimas.png"
+   "icone_mochila": "assets/icones/itens/mochila/lacre_lagrimas.png",
+   "motivo_antigo": "lacre",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 12,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "bocal_trombeta",
    "nome": "Bocal da Quinta Trombeta",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bocal",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": "#ffe08a",
    "grade": [
@@ -7422,13 +7539,22 @@
     "40": "assets/icones/itens/40/bocal_trombeta.png",
     "32": "assets/icones/itens/32/bocal_trombeta.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/bocal_trombeta.png"
+   "icone_mochila": "assets/icones/itens/mochila/bocal_trombeta.png",
+   "motivo_antigo": "bocal",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 13,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "carta_lucio",
    "nome": "Carta para Rosa",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "carta",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -7442,13 +7568,22 @@
     "40": "assets/icones/itens/40/carta_lucio.png",
     "32": "assets/icones/itens/32/carta_lucio.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/carta_lucio.png"
+   "icone_mochila": "assets/icones/itens/mochila/carta_lucio.png",
+   "motivo_antigo": "carta",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 14,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "mapa_rasgado",
    "nome": "Mapa Rasgado do Tobias",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "mapa",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -7462,13 +7597,22 @@
     "40": "assets/icones/itens/40/mapa_rasgado.png",
     "32": "assets/icones/itens/32/mapa_rasgado.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/mapa_rasgado.png"
+   "icone_mochila": "assets/icones/itens/mochila/mapa_rasgado.png",
+   "motivo_antigo": "mapa",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 15,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "relicario_vazio",
    "nome": "Relicário Vazio",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "relicario_peq",
+   "motivo": "arte_pronta",
    "tint": "prata",
    "emissivo": null,
    "grade": [
@@ -7486,13 +7630,22 @@
     "40": "assets/icones/itens/40/relicario_vazio.png",
     "32": "assets/icones/itens/32/relicario_vazio.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/relicario_vazio.png"
+   "icone_mochila": "assets/icones/itens/mochila/relicario_vazio.png",
+   "motivo_antigo": "relicario_peq",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 16,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "pa_simao",
    "nome": "Pá do Coveiro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pa",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": null,
    "grade": [
@@ -7510,13 +7663,22 @@
     "40": "assets/icones/itens/40/pa_simao.png",
     "32": "assets/icones/itens/32/pa_simao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pa_simao.png"
+   "icone_mochila": "assets/icones/itens/mochila/pa_simao.png",
+   "motivo_antigo": "pa",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 17,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "caixinha_musica",
    "nome": "Caixinha de Música Amassada",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "caixinha",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": null,
    "grade": [
@@ -7534,7 +7696,16 @@
     "40": "assets/icones/itens/40/caixinha_musica.png",
     "32": "assets/icones/itens/32/caixinha_musica.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/caixinha_musica.png"
+   "icone_mochila": "assets/icones/itens/mochila/caixinha_musica.png",
+   "motivo_antigo": "caixinha",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 18,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "pao_duro",
@@ -8974,7 +9145,7 @@
    "id": "valvula_radio",
    "nome": "Válvula de Rádio",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bobina",
+   "motivo": "arte_pronta",
    "tint": "lata",
    "emissivo": "#ffc070",
    "grade": [
@@ -8992,13 +9163,22 @@
     "40": "assets/icones/itens/40/valvula_radio.png",
     "32": "assets/icones/itens/32/valvula_radio.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/valvula_radio.png"
+   "icone_mochila": "assets/icones/itens/mochila/valvula_radio.png",
+   "motivo_antigo": "bobina",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 19,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "pagina_ordem",
    "nome": "Página da Ordem de Lançamento",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pergaminho",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -9016,13 +9196,22 @@
     "40": "assets/icones/itens/40/pagina_ordem.png",
     "32": "assets/icones/itens/32/pagina_ordem.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/pagina_ordem.png"
+   "icone_mochila": "assets/icones/itens/mochila/pagina_ordem.png",
+   "motivo_antigo": "pergaminho",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 20,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "amostra_amarga",
    "nome": "Amostra de Água Amarga",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tonico",
+   "motivo": "arte_pronta",
    "tint": "praga",
    "emissivo": "#9dff4a",
    "grade": [
@@ -9040,13 +9229,22 @@
     "40": "assets/icones/itens/40/amostra_amarga.png",
     "32": "assets/icones/itens/32/amostra_amarga.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/amostra_amarga.png"
+   "icone_mochila": "assets/icones/itens/mochila/amostra_amarga.png",
+   "motivo_antigo": "tonico",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 21,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "fragmento_clarao",
    "nome": "Fragmento de Clarão",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "estilhaco",
+   "motivo": "arte_pronta",
    "tint": "cinza",
    "emissivo": "#fff2c0",
    "grade": [
@@ -9064,13 +9262,22 @@
     "40": "assets/icones/itens/40/fragmento_clarao.png",
     "32": "assets/icones/itens/32/fragmento_clarao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/fragmento_clarao.png"
+   "icone_mochila": "assets/icones/itens/mochila/fragmento_clarao.png",
+   "motivo_antigo": "estilhaco",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 22,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "chave_lancamento",
    "nome": "Chave de Lançamento da Absinto-2",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "chave_gancho",
+   "motivo": "arte_pronta",
    "tint": "latao",
    "emissivo": "#ffe08a",
    "grade": [
@@ -9088,13 +9295,22 @@
     "40": "assets/icones/itens/40/chave_lancamento.png",
     "32": "assets/icones/itens/32/chave_lancamento.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/chave_lancamento.png"
+   "icone_mochila": "assets/icones/itens/mochila/chave_lancamento.png",
+   "motivo_antigo": "chave_gancho",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 23,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "insignia_arrancada",
    "nome": "Insígnia Arrancada",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "medalha",
+   "motivo": "arte_pronta",
    "tint": "sangue",
    "emissivo": null,
    "grade": [
@@ -9112,13 +9328,22 @@
     "40": "assets/icones/itens/40/insignia_arrancada.png",
     "32": "assets/icones/itens/32/insignia_arrancada.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/insignia_arrancada.png"
+   "icone_mochila": "assets/icones/itens/mochila/insignia_arrancada.png",
+   "motivo_antigo": "medalha",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 24,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "carta_apostata",
    "nome": "Carta dos Apóstatas",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "carta",
+   "motivo": "arte_pronta",
    "tint": "pano",
    "emissivo": null,
    "grade": [
@@ -9136,13 +9361,22 @@
     "40": "assets/icones/itens/40/carta_apostata.png",
     "32": "assets/icones/itens/32/carta_apostata.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/carta_apostata.png"
+   "icone_mochila": "assets/icones/itens/mochila/carta_apostata.png",
+   "motivo_antigo": "carta",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 25,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "meia_dragona",
    "nome": "Meia Dragona do General",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "bracadeira",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": null,
    "grade": [
@@ -9160,7 +9394,16 @@
     "40": "assets/icones/itens/40/meia_dragona.png",
     "32": "assets/icones/itens/32/meia_dragona.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/meia_dragona.png"
+   "icone_mochila": "assets/icones/itens/mochila/meia_dragona.png",
+   "motivo_antigo": "bracadeira",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 26,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "leitura_ordem_lancamento",
@@ -9379,7 +9622,7 @@
    "id": "placa_coveiro",
    "nome": "Placa de Cova de Ferro",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "etiqueta",
+   "motivo": "arte_pronta",
    "tint": "ferro",
    "emissivo": null,
    "grade": [
@@ -9397,13 +9640,22 @@
     "40": "assets/icones/itens/40/placa_coveiro.png",
     "32": "assets/icones/itens/32/placa_coveiro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placa_coveiro.png"
+   "icone_mochila": "assets/icones/itens/mochila/placa_coveiro.png",
+   "motivo_antigo": "etiqueta",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 27,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "folha_tombo",
    "nome": "Folha do Livro do Tombo",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "pergaminho",
+   "motivo": "arte_pronta",
    "tint": "ouro",
    "emissivo": null,
    "grade": [
@@ -9421,13 +9673,22 @@
     "40": "assets/icones/itens/40/folha_tombo.png",
     "32": "assets/icones/itens/32/folha_tombo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/folha_tombo.png"
+   "icone_mochila": "assets/icones/itens/mochila/folha_tombo.png",
+   "motivo_antigo": "pergaminho",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 28,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "ultimo_tijolo",
    "nome": "Último Tijolo de Anacleto",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "tabua",
+   "motivo": "arte_pronta",
    "tint": "cinza",
    "emissivo": null,
    "grade": [
@@ -9445,7 +9706,16 @@
     "40": "assets/icones/itens/40/ultimo_tijolo.png",
     "32": "assets/icones/itens/32/ultimo_tijolo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/ultimo_tijolo.png"
+   "icone_mochila": "assets/icones/itens/mochila/ultimo_tijolo.png",
+   "motivo_antigo": "tabua",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 29,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "leitura_livro_tombo",
@@ -9518,7 +9788,7 @@
    "id": "eco_do_nome",
    "nome": "Eco de um Nome",
    "fonte": "design/missoes/dados/itens.json",
-   "motivo": "estilhaco",
+   "motivo": "arte_pronta",
    "tint": "bronze",
    "emissivo": "#fff2c0",
    "grade": [
@@ -9536,7 +9806,16 @@
     "40": "assets/icones/itens/40/eco_do_nome.png",
     "32": "assets/icones/itens/32/eco_do_nome.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/eco_do_nome.png"
+   "icone_mochila": "assets/icones/itens/mochila/eco_do_nome.png",
+   "motivo_antigo": "estilhaco",
+   "arte": {
+    "folha": "assets/icones/fontes/missao_1.png",
+    "indice": 30,
+    "grade": [
+     8,
+     4
+    ]
+   }
   },
   {
    "id": "elmo_rafael",

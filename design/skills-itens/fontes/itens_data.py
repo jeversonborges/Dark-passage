@@ -294,3 +294,8 @@ ARTE_EXISTENTES["consumiveis_1"] = ["pao_duro", "agua_doce", "tonico_graxa", "ho
 AUTO_FOLHA = {"consumiveis_1": {"dilata": 0}}   # ajuste da silhueta quando as peças quase se encostam
 ARTE_EXISTENTES["materiais_1"] = ["osso", "couro_podre", "sucata", "cinza_de_alma", "carne_estragada", "pedra_benta", "cera_de_vela", "pena_suja",
  "coagulo_caos", "engrenagem_viva", "chave_bau_ferro", "bau_de_ferro", "bau_faminto", "relicario_da_trombeta"]   # o Caixote Podre não veio na folha
+ARTE_EXISTENTES["missao_1"] = ["bobina_cobre", "pena_querubim", "dente_vala", "raiz_cova", "caldo_cardo", "medalhinha_cardo", "sebo_rancoso", "ferro_velho",
+ "badalo_rachado", "livro_obitos", "chave_gancho", "lacre_carne", "lacre_lagrimas", "bocal_trombeta", "carta_lucio", "mapa_rasgado",
+ "relicario_vazio", "pa_simao", "caixinha_musica", "valvula_radio", "pagina_ordem", "amostra_amarga", "fragmento_clarao", "chave_lancamento",
+ "insignia_arrancada", "carta_apostata", "meia_dragona", "placa_coveiro", "folha_tombo", "ultimo_tijolo", "eco_do_nome", "livro_dos_vencidos"]
+GRADE_FOLHA["missao_1"] = [8, 4]
