@@ -654,11 +654,11 @@ def _reg(nome, fn, cat="vegetacao", fp=(1, 1), samples=48):
     wrap.__doc__ = fn.__doc__ or ""
 
 for _n, _fn, _fp in [
-    ("arvore_eden", arvore_eden(11, 8.0, .42), (2, 2)), ("arvore_eden_2", arvore_eden(23, 9.0, .5, True, 0), (2, 2)),
-    ("arvore_eden_3", arvore_eden(37, 7.0, .38, False, 0), (2, 2)),
-    ("figueira", figueira(41), (3, 3)), ("figueira_2", figueira(43, 3.8), (3, 3)),
-    ("arvore_frutos", arvore_frutos(51), (2, 2)), ("arvore_frutos_2", arvore_frutos(53, 4.4), (2, 2)),
-    ("salgueiro", salgueiro(61), (2, 2)), ("salgueiro_2", salgueiro(67, 5.2), (2, 2)),
+    ("arvore_eden", arvore_eden(11, 5.2, .34), (2, 2)), ("arvore_eden_2", arvore_eden(23, 5.8, .38, True, 0), (2, 2)),
+    ("arvore_eden_3", arvore_eden(37, 4.6, .32, False, 0), (2, 2)),
+    ("figueira", figueira(41, 3.2), (3, 3)), ("figueira_2", figueira(43, 2.8), (3, 3)),
+    ("arvore_frutos", arvore_frutos(51, 4.2), (2, 2)), ("arvore_frutos_2", arvore_frutos(53, 3.8), (2, 2)),
+    ("salgueiro", salgueiro(61, 4.8), (2, 2)), ("salgueiro_2", salgueiro(67, 4.2), (2, 2)),
     ("samambaia", samambaia(71), (1, 1)), ("samambaia_2", samambaia(72, 9, 1.2), (1, 1)), ("samambaia_3", samambaia(73, 6, .8), (1, 1)),
     ("moita_florida", moita_florida(81, "branca"), (1, 1)), ("moita_florida_2", moita_florida(83, "ouro"), (1, 1)), ("moita_florida_3", moita_florida(85, "rosa"), (1, 1)),
     ("tapete_flores", tapete_flores(91, "branca"), (1, 1)), ("tapete_flores_2", tapete_flores(93, "ouro"), (1, 1)), ("tapete_flores_3", tapete_flores(95, "rosa"), (1, 1)),

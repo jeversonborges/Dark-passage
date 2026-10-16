@@ -1,0 +1,16 @@
+{
+ "w": 358,
+ "h": 210,
+ "anchor": [
+  111,
+  149
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "pedra_coberta_2"
+}

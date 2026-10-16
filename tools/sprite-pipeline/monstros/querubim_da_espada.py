@@ -51,10 +51,10 @@ def build():
     queim = stained("qe_pena_suja", (.07, .065, .06), stain=(.16, .07, .03), amount=.3, scale=9, rough=.9, grime=0)
     corda = mat("qe_corda", (.25, .2, .13), 0, .9, dirt=.5, grime=.3)
     oco = mat("qe_oco", (.012, .01, .01), 0, .9)
-    lamina = mat("qe_lamina", (.5, .36, .16), .9, .3, emit=(1, .45, .1), strength=1.2, dirt=.2, grime=.2)
-    fogo = glow("qe_fogo", (1, .5, .12), 9)
-    fogo2 = glow("qe_fogo_claro", (1, .8, .35), 14)
-    olho = glow("qe_olho", (1, .55, .15), 14)
+    lamina = mat("qe_lamina", (.45, .3, .12), .9, .3, emit=(1, .35, .06), strength=.35, dirt=.2, grime=.2)
+    fogo = glow("qe_fogo", (1, .38, .06), 3.2)
+    fogo2 = glow("qe_fogo_claro", (1, .7, .25), 5)
+    olho = glow("qe_olho", (1, .5, .12), 8)
 
     R = Rig("querubim_espada", B, ground=.03); P = R.P
     R.gexclude = {"flame"}
@@ -177,8 +177,7 @@ def build():
         L = rnd.uniform(.08, .16) + .04*math.sin(k)
         fl.append(along("primitive_cone_add", fogo, base, base + side*1.4 + u*L + ax*rnd.uniform(-.02, .02), .022, vertices=5, radius1=1, radius2=0))
         if k % 3 == 0: fl.append(along("primitive_cone_add", fogo2, base, base + side*.9 + u*L*.6, .012, vertices=4, radius1=1, radius2=0))
-    fl.append(prim("primitive_uv_sphere_add", fogo2, hc + u*1.42, (.03, .03, .05), segments=8, ring_count=6))
-    fl.append(along("primitive_cone_add", fogo, hc + u*1.4, hc + u*1.62, .03, vertices=5, radius1=1, radius2=0))
+    fl.append(along("primitive_cone_add", fogo, hc + u*1.3, hc + u*1.58, .035, vertices=5, radius1=1, radius2=0))
     R.rigid(fl, "flame")
 
     # ------------------------------------------------ asas grandes de penas (costas) e asinhas cruzadas no peito
@@ -214,16 +213,16 @@ def build():
 BASE = merge(wings(14, 6, -4, 6, 4, 4), {"spine": {"x": 4}, "chest": {"x": 2}, "neck": {"x": -2}, "head": {"x": -4},
              "thigh.L": {"x": -8, "y": -5}, "thigh.R": {"x": 6, "y": 5}, "shin.L": {"bend": 10}, "shin.R": {"bend": 8},
              "upper_arm.L": {"y": 28, "x": 10}, "forearm.L": {"bend": -30},
-             "upper_arm.R": {"y": -22, "x": -20}, "forearm.R": {"bend": -30}, "hand.R": {"x": 60}})
+             "upper_arm.R": {"y": -18, "x": -8}, "forearm.R": {"bend": -20}, "hand.R": {"x": 25}})
 def M(*p): return merge(BASE, *p)
-def fl(k): return {"flame": {"scale": k}}
+def fl(k): return {"scale": {"flame": k}}
 
 def anims(R):
     idle = []
     for i in range(6):
         t = i/6*2*math.pi; b, c = math.sin(t), math.cos(t)
         idle.append(M(wings(14 + 5*c, 6 + 3*c, -4 + 2*b, 6, 4, 4), {"chest": {"x": 2 + 1.5*b}, "head": {"z": 6*c, "x": -4 - 2*b},
-                      "hand.R": {"x": 60 + 4*c}}, fl(1 + .12*b)))
+                      "hand.R": {"x": 25 + 4*c}}, fl(1 + .12*b)))
     walk = []
     for i in range(8):
         t = i/8*2*math.pi; s, c = math.sin(t), math.cos(t); th = 24*s

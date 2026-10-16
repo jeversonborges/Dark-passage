@@ -1,0 +1,16 @@
+{
+ "w": 286,
+ "h": 174,
+ "anchor": [
+  123,
+  119
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "",
+ "kind": "tronco_caido_eden_2"
+}

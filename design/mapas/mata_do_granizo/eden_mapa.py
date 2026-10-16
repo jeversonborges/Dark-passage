@@ -168,7 +168,7 @@ def mata():
                   if 0 <= x + dx < W and 0 <= y + dy < H and zona_de[y + dy][x + dx] is not None]
             z = zv[0] if zv else 3
             # câmera: subir na tela = (x-1, y+1). Copa alta só onde não há chão aberto "abaixo" na tela (na frente)
-            frente = any(0 <= x + k + d < W and 0 <= y - k < H and not a.blk[y - k][x + k + d] for k in range(1, 9) for d in (-1, 0, 1))
+            frente = any(0 <= x + k + d < W and 0 <= y - k < H and not a.blk[y - k][x + k + d] for k in range(1, 12) for d in (-1, 0, 1))
             if z in QUEIMADAS: kinds = baixa_morta if frente else alta_morta
             elif z in LUMES: kinds = baixa_lume if frente else alta_lume
             else: kinds = baixa_viva if frente else alta_viva

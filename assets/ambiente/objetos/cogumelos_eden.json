@@ -1,0 +1,16 @@
+{
+ "w": 204,
+ "h": 128,
+ "anchor": [
+  60,
+  94
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "cogumelos_eden"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 728,
+ "h": 436,
+ "anchor": [
+  179,
+  352
+ ],
+ "bioma": "novo_eden",
+ "marco": "portao_oriente",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  1
+ ],
+ "descricao": "",
+ "kind": "arco_eden"
+}

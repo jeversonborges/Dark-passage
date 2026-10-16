@@ -1,0 +1,16 @@
+{
+ "w": 210,
+ "h": 120,
+ "anchor": [
+  40,
+  99
+ ],
+ "bioma": "novo_eden",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "colmeia"
+}
