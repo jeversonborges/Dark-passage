@@ -1,0 +1,219 @@
+{
+ "npcs": [
+  {
+   "id": "sariel_porta",
+   "nome": "Sariel",
+   "titulo": "Guardiã da Porta Dourada",
+   "faccao": "arautos",
+   "classe_visual": "anjo",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "porta_dourada"
+   },
+   "servicos": [],
+   "dialogo": "dlg_sariel_porta",
+   "aparencia": "Anjo alta e magra, sobretudo de couro preto com fivelas de ouro velho, uma asa inteira e a outra substituída por uma armação de latão e lona. Máscara de gás pendurada no pescoço. Uma brasa pequena acesa no olho esquerdo, o único ponto que brilha.",
+   "personalidade": "Seca, leal ao Coro até onde o Coro é leal ao fim. Conta tudo: dentes, riscos, mortos. Não gosta de rezar em voz alta.",
+   "historia": "Guardava a Porta Dourada quando o primeiro toque soou em Jerusalém. A porta estava selada desde Ezequiel: ninguém entraria por ela até o fim. Sariel abriu. Desde então risca o batente a cada noite em que o fim não termina. Os riscos já dão a volta na porta.",
+   "falas_ambiente": [
+    "Mais um risco no batente.",
+    "A porta está aberta. O fim é que não entra.",
+    "Conte seus mortos. Ninguém vai contar por você."
+   ]
+  },
+  {
+   "id": "hulda_escada",
+   "nome": "Hulda",
+   "titulo": "Profetisa da Escada",
+   "faccao": "arautos",
+   "classe_visual": "cultista",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "brasa_do_altar"
+   },
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_hulda",
+   "dialogo": "dlg_hulda_escada",
+   "aparencia": "Mulher de uns sessenta anos, batina vermelha desbotada, mãos enfaixadas de tanto mexer na Brasa, óculos de lente rachada. Carrega rolos amarrados nas costas.",
+   "personalidade": "Erudita, irônica, desconfia de quem acredita fácil. Fala citando e corrige a citação.",
+   "historia": "Lia os rolos do Coro na escada do Templo quando o Juízo começou. Foi quem manteve a Brasa do Altar acesa na primeira noite, com o óleo das lamparinas de toda a cidade. Sabe mais do que o Coro gostaria e menos do que ela mesma gostaria.",
+   "falas_ambiente": [
+    "A Brasa baixa à noite. Como todo mundo.",
+    "Isso não está escrito. Ainda."
+   ]
+  },
+  {
+   "id": "zilpa_hissopo",
+   "nome": "Zilpa",
+   "titulo": "a Hissopeira",
+   "faccao": "arautos",
+   "classe_visual": "cultista",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "caldeirao_zilpa"
+   },
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_zilpa",
+   "dialogo": "dlg_zilpa_hissopo",
+   "aparencia": "Velha baixa e forte, xale de luto bordado com ramos de hissopo, braços cobertos de cicatrizes de queimadura. Mexe o caldeirão com um osso comprido.",
+   "personalidade": "Mandona, carinhosa, faz todo mundo comer. Nunca fala do filho, e fala dele o tempo todo.",
+   "historia": "Cultista da Comunhão do Amargo, curandeira da cidade baixa. O filho, Joás, morreu na primeira semana e levantou com os outros na necrópole. Ela nunca foi ver.",
+   "falas_ambiente": [
+    "Come. Depois morre, se quiser.",
+    "Hissopo bom nasce em cima de morto."
+   ]
+  },
+  {
+   "id": "tubal_malho",
+   "nome": "Tubal",
+   "titulo": "o Malho, Ferreiro da Legião",
+   "faccao": "arautos",
+   "classe_visual": "demonio",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "forja_tubal"
+   },
+   "servicos": [
+    "ferreiro"
+   ],
+   "dialogo": "dlg_tubal_malho",
+   "aparencia": "Demônio enorme de pele cor de carne queimada, avental de couro cheio de furos de faísca, chifres serrados para caber na tenda. Um elo de corrente pendurado na orelha.",
+   "personalidade": "Fala pouco e baixo, ri alto. Respeita ferro e quem sabe bater nele.",
+   "historia": "Forjava armas da Legião Blasfema nas fornalhas de Tofete até o general sumir. Subiu para Jerusalém com a bigorna nas costas e montou a forja ao lado dos anjos, que não gostam dele. Ele não gosta dos anjos. Os dois precisam de lâminas.",
+   "falas_ambiente": [
+    "Ferro lembra.",
+    "Não toque na bigorna. Ela morde."
+   ]
+  },
+  {
+   "id": "bartimeu_brasas",
+   "nome": "Bartimeu",
+   "titulo": "o Cego das Brasas",
+   "faccao": "arautos",
+   "classe_visual": "humano",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "carrinho_bartimeu"
+   },
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_bartimeu",
+   "dialogo": "dlg_bartimeu_brasas",
+   "aparencia": "Rapaz magro de uns dezesseis anos, olhos brancos, faixa vermelha na testa, carrinho de mão cheio de frascos que ele reconhece pelo som.",
+   "personalidade": "Rápido, debochado, cobra caro de quem enxerga. Diz que vê melhor no escuro, e no fim do mundo é sempre escuro.",
+   "historia": "Mendigava na Porta de Damasco antes do Juízo. Quando a cidade escureceu, foi o único que não se perdeu nas ruas. Hoje empurra o carrinho de fogueira em fogueira vendendo poção para quem fica no spot.",
+   "falas_ambiente": [
+    "Frasco fresco! Eu sei porque está frio.",
+    "Paga primeiro. Eu conto as moedas pelo barulho."
+   ]
+  },
+  {
+   "id": "bartimeu_carrinho",
+   "nome": "Bartimeu",
+   "titulo": "Carrinho de Poções",
+   "faccao": "neutro",
+   "classe_visual": "humano",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "descanso"
+   },
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_carrinho_bartimeu",
+   "dialogo": "dlg_bartimeu_carrinho",
+   "aparencia": "O mesmo Bartimeu, de faixa vermelha, empurrando o carrinho até a fogueira.",
+   "personalidade": "Igual na fogueira e na cidade.",
+   "historia": "Leva poção às fogueiras dos spots.",
+   "falas_ambiente": []
+  },
+  {
+   "id": "zaqueu_cobrador",
+   "nome": "Zaqueu",
+   "titulo": "o Cobrador",
+   "faccao": "neutro",
+   "classe_visual": "cultista",
+   "local": {
+    "subzona": "jerusalem",
+    "ponto": "porta_do_esterco"
+   },
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_zaqueu",
+   "dialogo": "dlg_zaqueu_cobrador",
+   "aparencia": "Homem baixinho, casaca de cobrador de impostos com botões de ossos, livro de dívidas preso por corrente ao cinto. Senta sempre em lugar alto.",
+   "personalidade": "Amável, ganancioso, honesto do jeito dele: cobra todo mundo pelo mesmo preço.",
+   "historia": "Cobrava impostos para quem estivesse mandando em Jerusalém. Quando o Juízo começou, continuou cobrando: dos anjos, dos demônios, da Vigília. Sabe quem deve o quê a quem, e isso vale mais que ouro.",
+   "falas_ambiente": [
+    "Todo mundo deve. Eu só anoto.",
+    "Desce daí? Eu? Nunca."
+   ]
+  },
+  {
+   "id": "henoc_escriba",
+   "nome": "O Escriba",
+   "titulo": "Escriba do Bosque",
+   "faccao": "neutro",
+   "classe_visual": "humano",
+   "local": {
+    "subzona": "bosque_hissopo",
+    "ponto": "cabana_do_escriba"
+   },
+   "servicos": [],
+   "dialogo": "dlg_henoc_escriba",
+   "aparencia": "Homem muito velho sem idade certa, batina cinza de lã grossa, dedos pretos de tinta, um diadema de bronze guardado numa caixa ao lado. Escreve o tempo todo.",
+   "personalidade": "Calmo, preciso, gentil de um jeito distante. Responde pergunta com outra pergunta. Nunca diz o próprio nome.",
+   "historia": "Ninguém sabe quando chegou. Mora na cabana do Bosque do Hissopo e anota o nome de cada morto que levanta no Monte das Oliveiras. (Segredo da linha \"O Escriba Que Não Morreu\": é Henoc, que andou com Deus e já não era; escreveu o pedido dos duzentos Vigilantes antes do dilúvio e foi mandado de volta quando o fim travou, para escrever a sentença deles.)",
+   "falas_ambiente": [
+    "Nome?",
+    "Escrevo devagar. Mas escrevo tudo."
+   ]
+  },
+  {
+   "id": "rispa_vigilia",
+   "nome": "Rispa",
+   "titulo": "a Que Vigia",
+   "faccao": "neutro",
+   "classe_visual": "humano",
+   "local": {
+    "subzona": "necropole_oliveiras",
+    "ponto": "fogueira_rispa"
+   },
+   "servicos": [],
+   "dialogo": "dlg_rispa_vigilia",
+   "aparencia": "Mulher de meia-idade, saco de pano como manto, cabelo raspado, um cajado com trapos pendurados para espantar abutres. Senta numa rocha ao lado de uma fogueira que nunca apaga.",
+   "personalidade": "Teimosa, mansa, dura como pedra. Guarda tudo o que os outros esquecem.",
+   "historia": "Como a Rispa das Escrituras, que guardou os corpos dos filhos dos abutres do começo da sega até a chuva, ela guarda os mortos da necrópole dos abutres do Hermon. Desde o primeiro dia. A chuva não veio.",
+   "falas_ambiente": [
+    "Xô. Xô.",
+    "Até a chuva. Eu fico."
+   ]
+  },
+  {
+   "id": "jael_escuta",
+   "nome": "Jael",
+   "titulo": "a Escuta",
+   "faccao": "neutro",
+   "classe_visual": "cultista",
+   "local": {
+    "subzona": "encosta_cedros",
+    "ponto": "posto_de_escuta"
+   },
+   "servicos": [],
+   "dialogo": "dlg_jael_escuta",
+   "aparencia": "Mulher jovem de batina do Coro rasgada nas mangas, fone de latão sempre num ouvido, cabos enrolados nos braços como terço.",
+   "personalidade": "Ansiosa, brilhante, fala baixo como se alguém pudesse ouvir. Alguém pode.",
+   "historia": "Copista do Coro de Sião, subiu ao posto de escuta abandonado do Hermon para provar que a estática era só estática. Não era. Ficou.",
+   "falas_ambiente": [
+    "Psiu. Eles estão contando.",
+    "Cento e noventa e oito... cento e noventa e nove..."
+   ]
+  }
+ ]
+}
