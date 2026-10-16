@@ -142,7 +142,7 @@ def hawara_1():
     a.luzes.append([cx, cy, *OURO, 7])
     a.prop("trono_de_sobek", cx - 8.5, cy + 6.0, bloqueia=1.0)
     porta = porta_da_arena(a, cx, cy, r)
-    a.objetos.append({"kind": "bau", "pos": [60.5, 6.0], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "petsuchos", "id_mapa": "bau_petsuchos"})
+    a.objetos.append({"kind": "bau", "pos": [60.5, 6.0], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "petsuchos", "id_mapa": "bau_petsuchos", "loot_de_grupo": True})
     a.portal(62.5, 6.0, "hawara_2", [10.5, 38.5], "Descer aos Doze Pátios", requer_flag="venceu_petsuchos",
              texto_trancado="A água tapa a escada. Alguma coisa grande dorme embaixo dela.")
     a.prop("lamparina_parede", 57.0, 7.5, luz=OLEO + [5])
@@ -210,7 +210,7 @@ def hawara_2():
     for p in anel(cx, cy, 7.0, 4, math.pi/4): a.luzes.append(p + OLEO + [5])
     a.luzes.append([cx, cy, *TURQ, 5])
     porta = porta_da_arena(a, cx, cy, r)
-    a.objetos.append({"kind": "bau", "pos": [87.5, 51.0], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "esfinge_de_hawara", "id_mapa": "bau_esfinge"})
+    a.objetos.append({"kind": "bau", "pos": [87.5, 51.0], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "esfinge_de_hawara", "id_mapa": "bau_esfinge", "loot_de_grupo": True})
     a.portal(89.5, 51.0, "hawara_3", [10.5, 40.5], "Descer à Câmara de Amenemés", requer_flag="venceu_esfinge_de_hawara",
              texto_trancado="Na porta há seis glifos e nenhum é o certo, ainda.")
     a.prop("lamparina_parede", 84.0, 52.5, luz=OLEO + [5])
@@ -271,7 +271,7 @@ def hawara_3():
     for p in ninhos: a.prop("ninho_serket", p[0], p[1], bloqueia=.6)
     for p in anel(cx, cy, 8.8, 6, 0.2): a.luzes.append(p + OLEO + [4])
     porta = porta_da_arena(a, cx, cy, r)
-    a.objetos.append({"kind": "bau", "pos": [75.5, 18.5], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "serket", "id_mapa": "bau_serket"})
+    a.objetos.append({"kind": "bau", "pos": [75.5, 18.5], "bau": "bau_de_ferro", "visual": "bau_chefe", "requer_chefe": "serket", "id_mapa": "bau_serket", "loot_de_grupo": True})
     a.objetos.append({"kind": "interativo", "obj": "sarcofago_de_amenemes", "pos": [cx - 4.5, cy + 4.0], "i": 0, "requer_chefe": "serket"})
     a.portal(76.5, 12.5, "egito", chegada_egito(60.5, 32.5), "Voltar ao Faium", visual="escada_subida", requer_flag="venceu_serket",
              texto_trancado="A passagem do faraó só abre quando a guardiã deixa.")

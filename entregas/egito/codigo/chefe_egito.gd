@@ -185,6 +185,66 @@ func encerrar() -> void:
 	for a in areas.duplicate(): _remover_area(a)
 	for e: Ent in sim.jogadores():
 		for b in ["brasa", "veneno_serket"]: _tirar_buff(e, b)
+	# trava: quem estava na luta só mata este chefe de novo depois do reset (dungeon: diário; raid: semanal)
+	var ate := proximo_reset(str(d.get("trava", "diaria")))
+	for e: Ent in sim.jogadores():
+		if e.pos.distance_to(ctl.centro) < ctl.raio_arena + 6.0 and not travado(e):
+			e.flags["trava_" + boss.kind] = ate
+			sim.emitir_a(e, "aviso", {"texto": "%s derrotado. Você pode enfrentá-lo de novo %s." % [boss.nome, texto_reset(str(d.get("trava", "diaria")))]})
+
+
+# ======================================================================= trava diária / semanal (pedido do Jefin, 16/10)
+## Reset às 6h de Brasília (09:00 UTC); o semanal na quarta-feira.
+const RESET_HORA_UTC := 9
+const RESET_DIA_SEMANA := 3   # 0 = domingo
+
+static func proximo_reset(periodo: String) -> int:
+	var agora := int(Time.get_unix_time_from_system())
+	var dia := agora - agora % 86400 + RESET_HORA_UTC * 3600
+	if dia <= agora: dia += 86400
+	if periodo == "semanal":
+		while int(Time.get_datetime_dict_from_unix_time(dia)["weekday"]) != RESET_DIA_SEMANA: dia += 86400
+	return dia
+
+static func texto_reset(periodo: String) -> String:
+	return "na quarta-feira, às 6h" if periodo == "semanal" else "amanhã, às 6h"
+
+func travado(e: Ent) -> bool:
+	return float(e.flags.get("trava_" + boss.kind, 0)) > Time.get_unix_time_from_system()
+
+## Chamado a cada passo do ChefeCtl, em qualquer estado. Quem já matou o chefe neste período não entra na arena
+## enquanto há luta ou gente sem trava no mapa; se só há gente travada, o chefe dorme e eles atravessam a arena.
+var _aviso_t := {}
+func vigiar(dt: float) -> void:
+	if ctl.estado == "morto": return
+	var livres := sim.jogadores().any(func(e: Ent): return e.vivo and not travado(e))
+	var dentro: Array = sim.jogadores().filter(func(e: Ent): return e.vivo and travado(e) and e.pos.distance_to(ctl.centro) < ctl.raio_arena + 0.5)
+	if ctl.estado == "dormindo":
+		boss.alvejavel = livres or dentro.is_empty()
+		if not livres: return
+	for e: Ent in dentro:
+		var dir := (e.pos - ctl.centro).normalized()
+		if dir == Vector2.ZERO: dir = Vector2.DOWN
+		e.pos = sim.celula_livre_perto(ctl.centro + dir * (ctl.raio_arena + 1.5))
+		sim.emitir("teleporte", {"id": e.id, "pos": e.pos})
+		var tt: float = _aviso_t.get(e.id, 0.0)
+		if Time.get_ticks_msec() / 1000.0 - tt > 3.0:
+			_aviso_t[e.id] = Time.get_ticks_msec() / 1000.0
+			sim.emitir_a(e, "aviso", {"texto": "Você já derrotou %s. Volta %s." % [boss.nome, texto_reset(str(d.get("trava", "diaria")))]})
+
+## Baú do chefe (loot_de_grupo): cada um que estava na luta abre uma vez por trava.
+static func pode_abrir_bau(sim: WorldSim, e: Ent, b: Ent) -> bool:
+	var k: String = str(b.aux.get("requer_chefe", ""))
+	var ate := float(e.flags.get("trava_" + k, 0))
+	if ate <= Time.get_unix_time_from_system():
+		sim.emitir_a(e, "aviso", {"texto": "Só quem lutou contra este chefe abre o baú."}); return false
+	if float(e.flags.get("bau_" + k, 0)) == ate:
+		sim.emitir_a(e, "aviso", {"texto": "Você já pegou a sua parte."}); return false
+	return true
+
+static func marcar_bau(e: Ent, b: Ent) -> void:
+	var k: String = str(b.aux.get("requer_chefe", ""))
+	e.flags["bau_" + k] = e.flags.get("trava_" + k, 0)
 
 
 func nova_fase(n: int) -> void:

@@ -428,28 +428,43 @@ CHEFES = {
         "drop": "chefe_coracao_6", "morte": "Eu disse não... e não... e... (o coração cai no chão do salão, inteiro, batendo)"},
 }
 
+for _c in CHEFES.values():   # Jefin 16/10: cada chefe de dungeon 1x por dia, de raid 1x por semana (ChefeEgito.vigiar)
+    _c["trava"] = "semanal" if "raid" in _c else "diaria"
+
 # ===================================================================================== drops
+# Jefin 16/10: chance menor e variedade maior. Mob: ~1 item a cada 12 abates (antes 1 a cada 5). Chefe: 2 rolagens
+# (antes 3 a 6), com a lista exclusiva do chefe (lendario:<chefe>, 4 ou 5 relíquias) e o conjunto da masmorra
+# (lendario:regalia_*) em peso baixo; o resto é faixa 3 comum, joias, materiais e consumíveis.
+from itens_egito import POR_CHEFE  # noqa: E402
+
+def _mob(chance, material, mat_peso=26):
+    return {"item_chance": chance, "rolagens": [{"tag": "equip:faixa3", "peso": 52}, {"tag": material, "peso": mat_peso}, {"tag": "joia:refino", "peso": 8},
+                                                 {"tag": "consumivel:pocao_vida_m", "peso": 10}, {"tag": "consumivel:pocao_recurso_p", "peso": 6}]}
+
 DROPS = {
-    "egito_animal": {"item_chance": 0.2, "rolagens": [{"tag": "equip:faixa3", "peso": 55}, {"tag": "material:couro_do_nilo", "peso": 30}, {"tag": "joia:refino", "peso": 15}]},
-    "egito_inseto": {"item_chance": 0.2, "rolagens": [{"tag": "equip:faixa3", "peso": 50}, {"tag": "material:casca_de_escaravelho", "peso": 35}, {"tag": "joia:refino", "peso": 15}]},
-    "egito_mumia": {"item_chance": 0.22, "rolagens": [{"tag": "equip:faixa3", "peso": 55}, {"tag": "material:linho_de_mumia", "peso": 30}, {"tag": "joia:refino", "peso": 15}]},
-    "egito_guardiao": {"item_chance": 0.24, "rolagens": [{"tag": "equip:faixa3", "peso": 62}, {"tag": "material:bronze_antigo", "peso": 22}, {"tag": "joia:refino", "peso": 16}]},
-    "egito_construto": {"item_chance": 0.24, "rolagens": [{"tag": "equip:faixa3", "peso": 60}, {"tag": "material:po_de_calcario", "peso": 24}, {"tag": "joia:refino", "peso": 16}]},
-    "egito_elite": {"rolagens_garantidas": 3, "raridade_minima": "magico", "ouro_mult": 8, "rolagens": [{"tag": "equip:faixa3", "peso": 70}, {"tag": "joia:refino", "peso": 20}, {"tag": "chave:bau_de_ferro", "peso": 10}]},
-    "hawara": {"item_chance": 0.26, "rolagens": [{"tag": "equip:faixa3", "peso": 74}, {"tag": "joia:refino", "peso": 18}, {"tag": "material:ouro_de_sobek", "peso": 8}]},
-    "raid_coracao": {"item_chance": 0.32, "rolagens": [{"tag": "equip:faixa3", "peso": 70}, {"tag": "joia:refino", "peso": 22}, {"tag": "material:fragmento_do_duat", "peso": 8}]},
-    "chefe_hawara_1": {"rolagens_garantidas": 3, "raridade_minima": "raro", "ouro_mult": 30, "garantido": ["missao:brinco_de_petsuchos"],
-                       "rolagens": [{"tag": "equip:faixa3", "peso": 72}, {"tag": "joia:refino", "peso": 18}, {"tag": "conjunto:hawara", "peso": 10}]},
-    "chefe_hawara_2": {"rolagens_garantidas": 3, "raridade_minima": "raro", "ouro_mult": 34, "garantido": ["missao:glifo_da_resposta"],
-                       "rolagens": [{"tag": "equip:faixa3", "peso": 70}, {"tag": "joia:refino", "peso": 18}, {"tag": "conjunto:hawara", "peso": 12}]},
-    "chefe_hawara_3": {"rolagens_garantidas": 4, "raridade_minima": "raro", "ouro_mult": 40, "garantido": ["missao:ferrao_de_serket"],
-                       "rolagens": [{"tag": "equip:faixa3", "peso": 64}, {"tag": "joia:refino", "peso": 18}, {"tag": "conjunto:hawara", "peso": 14}, {"tag": "lendario:serket", "peso": 4}]},
+    "egito_animal": _mob(0.08, "material:couro_do_nilo"),
+    "egito_inseto": _mob(0.08, "material:casca_de_escaravelho"),
+    "egito_mumia": _mob(0.085, "material:linho_de_mumia"),
+    "egito_guardiao": _mob(0.09, "material:bronze_antigo"),
+    "egito_construto": _mob(0.09, "material:po_de_calcario"),
+    "egito_elite": {"rolagens_garantidas": 1, "raridade_minima": "magico", "ouro_mult": 8,
+                    "rolagens": [{"tag": "equip:faixa3", "peso": 60}, {"tag": "joia:refino", "peso": 15}, {"tag": "chave:bau_de_ferro", "peso": 10},
+                                 {"tag": "material:bronze_antigo", "peso": 15}]},
+    "hawara": _mob(0.10, "material:ouro_de_sobek", 18),
+    "raid_coracao": _mob(0.12, "material:fragmento_do_duat", 18),
 }
-for i in range(1, 7):
-    DROPS[f"chefe_coracao_{i}"] = {"rolagens_garantidas": 4 if i < 6 else 6, "raridade_minima": "raro", "ouro_mult": 40 + 10*i,
-                                   "rolagens": [{"tag": "equip:faixa3", "peso": 58}, {"tag": "joia:refino", "peso": 18}, {"tag": "conjunto:regalia_do_farao", "peso": 18},
-                                                {"tag": f"lendario:coracao_{i}", "peso": 6}],
-                                   "loot_de_grupo": True, "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"}
+for i, c in enumerate(["petsuchos", "esfinge_de_hawara", "serket"]):
+    DROPS[f"chefe_hawara_{i + 1}"] = {"rolagens_garantidas": 2, "raridade_minima": "magico", "ouro_mult": 30 + 5 * i,
+        "garantido": [["missao:brinco_de_petsuchos"], ["missao:glifo_da_resposta"], ["missao:ferrao_de_serket"]][i],
+        "rolagens": [{"tag": "equip:faixa3", "peso": 62}, {"tag": "joia:refino", "peso": 14}, {"tag": "material:ouro_de_sobek", "peso": 12},
+                     {"tag": f"lendario:{c}", "peso": 7}, {"tag": "lendario:regalia_de_sobek", "peso": 5}],
+        "_doc": f"chance de relíquia por morte ~13%; {len(POR_CHEFE[c])} relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"}
+for i, c in enumerate(["sekhmet", "janes", "imseti", "apofis", "anubis_pesador", "farao_sem_nome"], 1):
+    DROPS[f"chefe_coracao_{i}"] = {"rolagens_garantidas": 2 if i < 6 else 3, "raridade_minima": "raro", "ouro_mult": 40 + 10 * i,
+        "rolagens": [{"tag": "equip:faixa3", "peso": 60}, {"tag": "joia:refino", "peso": 14}, {"tag": "material:fragmento_do_duat", "peso": 12},
+                     {"tag": f"lendario:{c}", "peso": 7}, {"tag": "lendario:regalia_do_farao", "peso": 7}],
+        "loot_de_grupo": True,
+        "_doc": f"loot pessoal (cada um rola o seu); {len(POR_CHEFE[c])} relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"}
 DROPS["chefe_coracao_6"]["garantido"] = ["missao:coracao_do_farao"]
 
 SPRITES = {  # quando a arte própria ainda não estiver em assets/monstros/<id>/ (formato sprites_substitutos.json)
@@ -474,7 +489,7 @@ LIGACAO = {"_doc": "Como chegar: Linha 7 do bonde-veleiro (estação em cada cid
 
 DUNGEONS = {
     "labirinto_de_hawara": {"nome": "O Labirinto de Hawara", "nivel": [50, 54], "grupo": [1, 5], "andares": ["hawara_1", "hawara_2", "hawara_3"],
-                            "chefes": ["petsuchos", "esfinge_de_hawara", "serket"], "trava": "diaria_por_bau", "entrada": "egito (60.5, 31.0)"},
+                            "chefes": ["petsuchos", "esfinge_de_hawara", "serket"], "trava": "diaria_por_chefe", "entrada": "egito (60.5, 31.0)"},
     "coracao_endurecido": {"nome": "O Coração Endurecido", "tipo": "raid", "nivel": 60, "grupo": [5, 10], "andares": [f"coracao_{i}" for i in range(1, 7)],
                            "chefes": ["sekhmet", "janes", "imseti", "apofis", "anubis_pesador", "farao_sem_nome"], "trava": "semanal_por_chefe",
                            "sintonia": "flag sintonia_coracao (missão n03)", "entrada": "egito (12.5, 192.0)"},

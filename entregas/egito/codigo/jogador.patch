@@ -1,0 +1,20 @@
+--- a/game/scripts/sim/jogador.gd
++++ b/game/scripts/sim/jogador.gd
+@@ -844,6 +844,7 @@
+ 	if b.aux.has("visivel_se") and not Missoes.cond(e, b.aux["visivel_se"], ""): return
+ 	if b.aux.get("requer_chefe", "") != "" and (sim.chefe == null or sim.chefe.estado != "morto"):
+ 		sim.emitir_a(e, "aviso", {"texto": "Trancado por algo maior que uma fechadura."}); return
++	if b.aux.get("loot_de_grupo", false) and not ChefeEgito.pode_abrir_bau(sim, e, b): return
+ 	var trancado: bool = t == "bau_de_ferro" or b.aux.get("trancado", false)
+ 	var usou_gazua := false
+ 	if trancado:
+@@ -872,7 +873,8 @@
+ 			sim.criar_area({"pos": b.pos, "raio": 1.5, "dur": 4.0, "tick": 0.5, "tipo": "veneno",
+ 				"op": {"dano_frac": 0.03, "elemento": "veneno"}})
+ 			sim.emitir_a(e, "aviso", {"texto": "Uma nuvem verde sobe do caixote!"})
+-		b.aux["aberto"] = true
++		b.aux["aberto"] = not b.aux.get("loot_de_grupo", false)   # baú de chefe do Egito: cada um abre a sua parte
++		if b.aux.get("loot_de_grupo", false): ChefeEgito.marcar_bau(e, b)
+ 		sim.emitir("bau", {"id": b.id, "aberto": true, "tipo": t})
+ 		Loot.abrir_bau(sim, b, e)
+ 		if b.aux.has("hist"): Missoes.evento(sim, e, "interagir", b.aux["hist"])

@@ -1,0 +1,182 @@
+{
+ "_doc": "Para design/skills-itens/fontes/itens_data.py: POOLS_LENDARIOS recebe 'pools' (cada chefe do Egito tem a sua lista; as peças dos conjuntos também caem por lendario:regalia_*), MATERIAIS recebe 'materiais', CONJUNTOS recebe 'conjuntos'. Os itens em si estão em itens_acrescimo.json (thread Missões).",
+ "pools": {
+  "lendario:petsuchos": [
+   "argola_do_deus_crocodilo",
+   "escama_dourada_de_sobek",
+   "arpao_do_juncal",
+   "cajado_da_cheia"
+  ],
+  "lendario:esfinge_de_hawara": [
+   "diadema_do_enigma",
+   "garras_da_esfinge",
+   "selo_dos_doze_patios",
+   "lamina_da_pergunta"
+  ],
+  "lendario:serket": [
+   "ferrao_de_bronze",
+   "cetro_que_abre_a_garganta",
+   "couraca_de_quitina",
+   "ankh_de_serket"
+  ],
+  "lendario:sekhmet": [
+   "juba_da_leoa",
+   "presas_do_massacre",
+   "taca_de_cerveja_ocre",
+   "disco_do_sol_terco",
+   "sandalias_de_mut"
+  ],
+  "lendario:janes": [
+   "bastao_que_virou_serpente",
+   "anel_de_jambres",
+   "manto_dos_magos_de_farao",
+   "luvas_da_imitacao",
+   "cimitarra_de_janes"
+  ],
+  "lendario:imseti": [
+   "tampa_de_hapi",
+   "arco_de_qebehsenuef",
+   "escudo_de_duamutef",
+   "vaso_de_imseti",
+   "cetro_dos_quatro"
+  ],
+  "lendario:apofis": [
+   "escama_do_caos",
+   "olho_que_apaga",
+   "remo_da_barca_de_ra",
+   "brasa_da_proa",
+   "botas_da_setima_hora"
+  ],
+  "lendario:anubis_pesador": [
+   "mascara_do_chacal",
+   "pena_de_maat_viva",
+   "prato_do_coracao",
+   "faixas_do_embalsamador",
+   "garra_de_ammit"
+  ],
+  "lendario:farao_sem_nome": [
+   "cajado_das_dez_pragas",
+   "khopesh_do_coracao_duro",
+   "cartucho_sem_nome",
+   "nemes_do_farao",
+   "anel_do_primogenito"
+  ],
+  "lendario:regalia_de_sobek": [
+   "coroa_de_sobek",
+   "peitoral_de_sobek",
+   "saiote_de_sobek",
+   "sandalias_de_sobek",
+   "braceletes_de_sobek"
+  ],
+  "lendario:regalia_do_farao": [
+   "pschent_do_farao",
+   "peitoral_de_ouro",
+   "shendyt_real",
+   "sandalias_de_papiro_real",
+   "braceletes_do_ureu",
+   "colar_usekh",
+   "anel_de_sinete_real",
+   "cetro_heka"
+  ]
+ },
+ "materiais": [
+  {
+   "id": "couro_do_nilo",
+   "tag": "material:couro_do_nilo",
+   "nome": "Couro do Nilo",
+   "motivo": "couro",
+   "tint": "couro",
+   "lore": "Couro de crocodilo curtido na lama preta. Não rasga e não esquece o cheiro do rio."
+  },
+  {
+   "id": "casca_de_escaravelho",
+   "tag": "material:casca_de_escaravelho",
+   "nome": "Casca de Escaravelho",
+   "motivo": "sucata",
+   "tint": "latao",
+   "lore": "Furta-cor como óleo na água. Os ourives de Mênfis pagam por peso."
+  },
+  {
+   "id": "linho_de_mumia",
+   "tag": "material:linho_de_mumia",
+   "nome": "Linho de Múmia",
+   "motivo": "pano",
+   "tint": "pano",
+   "lore": "Faixas de três mil anos, ainda com resina. Os curandeiros juram que fecham ferida."
+  },
+  {
+   "id": "bronze_antigo",
+   "tag": "material:bronze_antigo",
+   "nome": "Bronze Antigo",
+   "motivo": "sucata",
+   "tint": "latao",
+   "lore": "Pedaços de estátua sem rosto. Besankh derrete; os com rosto, não."
+  },
+  {
+   "id": "po_de_calcario",
+   "tag": "material:po_de_calcario",
+   "nome": "Pó de Calcário de Tura",
+   "motivo": "cinza",
+   "tint": "osso",
+   "lore": "O revestimento branco das pirâmides, moído. Brilhava ao sol quando havia sol."
+  },
+  {
+   "id": "ouro_de_sobek",
+   "tag": "material:ouro_de_sobek",
+   "nome": "Ouro de Sobek",
+   "motivo": "joia",
+   "tint": "ouro",
+   "lore": "Lascas dos brincos e pulseiras dos crocodilos sagrados. Ouro de deus, molhado."
+  },
+  {
+   "id": "fragmento_do_duat",
+   "tag": "material:fragmento_do_duat",
+   "nome": "Fragmento do Duat",
+   "motivo": "cinza",
+   "tint": "alma",
+   "lore": "Um pedaço de noite do mundo dos mortos. Pesa nada e esfria a mão."
+  }
+ ],
+ "conjuntos": [
+  {
+   "id": "regalia_de_sobek",
+   "nome": "Regalia de Sobek",
+   "nivel": 52,
+   "pecas_ids": [
+    "coroa_de_sobek",
+    "peitoral_de_sobek",
+    "saiote_de_sobek",
+    "sandalias_de_sobek",
+    "braceletes_de_sobek"
+   ],
+   "bonus": {
+    "2": "+8% de vida máxima",
+    "3": "+10% de dano contra animais e sagrados",
+    "5": "Golpes têm 10% de chance de prender o alvo como um crocodilo (1 s)"
+   },
+   "lore": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado."
+  },
+  {
+   "id": "regalia_do_farao",
+   "nome": "Regalia do Faraó Sem Nome",
+   "nivel": 62,
+   "pecas_ids": [
+    "pschent_do_farao",
+    "peitoral_de_ouro",
+    "shendyt_real",
+    "sandalias_de_papiro_real",
+    "braceletes_do_ureu",
+    "colar_usekh",
+    "anel_de_sinete_real",
+    "cetro_heka"
+   ],
+   "bonus": {
+    "2": "+10% de defesa",
+    "4": "+8% de dano",
+    "6": "Dez Nãos: a cada 10 s, o próximo golpe recebido é reduzido em 50%",
+    "8": "Coração Endurecido: imune a controle por 3 s a cada 30 s"
+   },
+   "lore": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei."
+  }
+ ]
+}

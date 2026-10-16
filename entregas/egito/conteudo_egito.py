@@ -12,6 +12,7 @@ RAIZ = os.path.abspath(os.path.join(AQUI, "..", ".."))
 SAIDA = os.path.join(AQUI, "conteudo")
 sys.path.insert(0, os.path.join(RAIZ, "design", "mapas", "egito"))
 from dados_egito import MOBS, MOBS_DUNGEON, CHEFES  # noqa: E402
+import itens_egito as IE  # noqa: E402
 
 
 def xp(n):   # ~10% de um nível (curva do jogo: 105n² + 525n)
@@ -145,6 +146,8 @@ ITENS = [
     equip("khopesh_de_ramesses", "Khopesh de Ramessés", "arma", 64, {"for": 30, "agi": 14}, "Corte em Gancho: o 3º golpe seguido em um alvo puxa-o 1 m para perto e causa +30% de dano.", "Espada-foice de bronze com o cartucho de Ramessés II, achada no colosso tombado da praça. A lâmina é curva como o rio.", dano=[118, 196]),
     equip("cetro_was_do_pesador", "Cetro Was do Pesador", "arma", 66, {"esp": 34, "vit": 14}, "Domínio: +10% de dano mágico; inimigos abaixo de 30% de vida recebem +12% de dano.", "O cetro de cabeça de chacal e ponta bifurcada que Anúbis segurava no Salão das Duas Verdades. Quem segura sente o peso de quem está na frente.", dano=[104, 182]),
 ]
+
+ITENS += IE.todas_reliquias() + IE.itens_conjuntos()   # saque exclusivo dos chefes (lendario:<chefe>) e os dois conjuntos
 
 # ============================================================================ objetos e baús (ids iguais aos que o gerar.py põe no mapa)
 OBJETOS = [
@@ -493,6 +496,9 @@ def main():
     W("missoes_acrescimo.json", {"_doc": "Acrescentar a design/missoes/dados/missoes.json (Egito, nível 50 a 70).", "missoes": ms})
     W("npcs_acrescimo.json", {"npcs": npcs}); W("dialogos_acrescimo.json", {"dialogos": dl})
     W("itens_acrescimo.json", {"_doc": "Consumíveis, itens de missão, leituras e recompensas únicas do Egito.", "itens": ITENS})
+    W("skills_itens_acrescimo.json", {"_doc": "Para design/skills-itens/fontes/itens_data.py: POOLS_LENDARIOS recebe 'pools' (cada chefe do Egito tem a sua lista; as peças dos conjuntos também caem por lendario:regalia_*), MATERIAIS recebe 'materiais', CONJUNTOS recebe 'conjuntos'. Os itens em si estão em itens_acrescimo.json (thread Missões).",
+                                      "pools": IE.pools(), "materiais": IE.MATERIAIS,
+                                      "conjuntos": [{"id": c["id"], "nome": c["nome"], "nivel": c["nivel"], "pecas_ids": [i for i, *_ in c["pecas"]], "bonus": c["bonus"], "lore": c["lore"]} for c in IE.CONJUNTOS]})
     W("monstros_acrescimo.json", {"monstros": mons}); W("objetos_acrescimo.json", {"objetos": OBJETOS, "baus": BAUS}); W("lojas_acrescimo.json", {"lojas": LOJAS})
     W("locais_acrescimo.json", {"areas": [area], "dungeons": dungs, "spots_pedidos": spots_ped})
     # ---- confere com o validar.py da thread de Missões numa cópia temporária

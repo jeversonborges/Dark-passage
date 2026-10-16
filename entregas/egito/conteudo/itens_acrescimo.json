@@ -314,6 +314,1059 @@
     104,
     182
    ]
+  },
+  {
+   "id": "argola_do_deus_crocodilo",
+   "nome": "Argola do Deus Crocodilo",
+   "tipo": "equipamento",
+   "slot": "anel",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 51,
+   "origem": "drop:petsuchos",
+   "atributos": {
+    "vit": 21,
+    "for": 13,
+    "hp": 255
+   },
+   "efeito": "Golpes recebidos acima de 10% da vida devolvem 20% do dano como sangramento.",
+   "descricao": "A outra argola de Petsuchos. Grande demais para um dedo, você usa no polegar."
+  },
+  {
+   "id": "escama_dourada_de_sobek",
+   "nome": "Escama Dourada de Sobek",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 51,
+   "origem": "drop:petsuchos",
+   "atributos": {
+    "vit": 21,
+    "for": 13,
+    "defesa": 51
+   },
+   "efeito": "Dentro da água: -15% de dano recebido e +10% de velocidade.",
+   "descricao": "Couraça feita das escamas que os sacerdotes douravam. Ainda brilha embaixo da lama."
+  },
+  {
+   "id": "arpao_do_juncal",
+   "nome": "Arpão do Juncal",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 51,
+   "origem": "drop:petsuchos",
+   "atributos": {
+    "dano": [
+     89,
+     147
+    ],
+    "agi": 21,
+    "for": 13
+   },
+   "efeito": "O primeiro golpe em um alvo o puxa 1,5 m e deixa lento por 2 s.",
+   "descricao": "Arpão de bronze dos caçadores de hipopótamo, com corda de papiro trançado."
+  },
+  {
+   "id": "cajado_da_cheia",
+   "nome": "Cajado da Cheia",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 51,
+   "origem": "drop:petsuchos",
+   "atributos": {
+    "dano": [
+     89,
+     147
+    ],
+    "esp": 21,
+    "vit": 13
+   },
+   "efeito": "Skills de área deixam uma poça por 3 s que causa 20% do dano por segundo.",
+   "descricao": "Vara de nilômetro com as marcas das cheias, encharcada até o topo."
+  },
+  {
+   "id": "diadema_do_enigma",
+   "nome": "Diadema do Enigma",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 53,
+   "origem": "drop:esfinge_de_hawara",
+   "atributos": {
+    "esp": 22,
+    "agi": 13,
+    "defesa": 37
+   },
+   "efeito": "A cada 20 s, a próxima skill não gasta recurso.",
+   "descricao": "Uma tiara de pedra com três glifos que mudam de lugar quando você pisca."
+  },
+  {
+   "id": "garras_da_esfinge",
+   "nome": "Garras da Esfinge",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 53,
+   "origem": "drop:esfinge_de_hawara",
+   "atributos": {
+    "for": 22,
+    "agi": 13,
+    "defesa": 29
+   },
+   "efeito": "Críticos derrubam o alvo por 0,5 s (recarga 8 s por alvo).",
+   "descricao": "Luvas de couro de leão com garras de calcário costuradas nos dedos."
+  },
+  {
+   "id": "selo_dos_doze_patios",
+   "nome": "Selo dos Doze Pátios",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 53,
+   "origem": "drop:esfinge_de_hawara",
+   "atributos": {
+    "esp": 22,
+    "vit": 13,
+    "hp": 265
+   },
+   "efeito": "+12% de dano contra construtos e guardiões de pedra.",
+   "descricao": "Doze pátios gravados num disco de faiança. No meio, um buraco do tamanho de uma resposta."
+  },
+  {
+   "id": "lamina_da_pergunta",
+   "nome": "Lâmina da Pergunta",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 53,
+   "origem": "drop:esfinge_de_hawara",
+   "atributos": {
+    "dano": [
+     93,
+     153
+    ],
+    "agi": 22,
+    "for": 13
+   },
+   "efeito": "Golpes em alvos com mais de 80% de vida causam +25% de dano.",
+   "descricao": "Espada curta de pedra polida; a lâmina tem o perfil de um ponto de interrogação."
+  },
+  {
+   "id": "ferrao_de_bronze",
+   "nome": "Ferrão de Bronze",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 54,
+   "origem": "drop:serket",
+   "atributos": {
+    "dano": [
+     94,
+     155
+    ],
+    "agi": 23,
+    "for": 14
+   },
+   "efeito": "Golpes aplicam 1 pilha de veneno (até 5); com 5, o alvo recebe +10% de dano.",
+   "descricao": "Adaga curva feita do ferrão de uma filha de Serket, encaixado num cabo de ébano."
+  },
+  {
+   "id": "cetro_que_abre_a_garganta",
+   "nome": "Cetro que Abre a Garganta",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 54,
+   "origem": "drop:serket",
+   "atributos": {
+    "dano": [
+     94,
+     155
+    ],
+    "esp": 23,
+    "vit": 14
+   },
+   "efeito": "Curas também removem um veneno ou sangramento do alvo.",
+   "descricao": "O cetro dos médicos de Serket: um escorpião de ouro com a cauda virada para cima."
+  },
+  {
+   "id": "couraca_de_quitina",
+   "nome": "Couraça de Quitina",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 54,
+   "origem": "drop:serket",
+   "atributos": {
+    "vit": 23,
+    "agi": 14,
+    "defesa": 54
+   },
+   "efeito": "+30% de resistência a veneno; quem te ataca corpo a corpo leva 2% do dano em veneno.",
+   "descricao": "Placas de casca de escorpião gigante amarradas com tendão sobre linho grosso."
+  },
+  {
+   "id": "ankh_de_serket",
+   "nome": "Ankh de Serket",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 54,
+   "origem": "drop:serket",
+   "atributos": {
+    "esp": 23,
+    "vit": 14,
+    "hp": 270
+   },
+   "efeito": "Abaixo de 25% de vida, cura 15% da vida máxima (recarga 90 s).",
+   "descricao": "Um ankh pequeno de turquesa, que acende quando você para de respirar."
+  },
+  {
+   "id": "juba_da_leoa",
+   "nome": "Juba da Leoa",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 60,
+   "origem": "drop:sekhmet",
+   "atributos": {
+    "for": 25,
+    "vit": 15,
+    "defesa": 42
+   },
+   "efeito": "Cada golpe recebido dá 1% de dano (até 15%) por 6 s.",
+   "descricao": "Capacete de bronze com a juba de uma leoa de Sekhmet, ainda cheirando a sangue e cerveja."
+  },
+  {
+   "id": "presas_do_massacre",
+   "nome": "Presas do Massacre",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 60,
+   "origem": "drop:sekhmet",
+   "atributos": {
+    "dano": [
+     105,
+     173
+    ],
+    "for": 25,
+    "agi": 15
+   },
+   "efeito": "Abaixo de 50% de vida: +12% de velocidade de ataque.",
+   "descricao": "Duas presas de leoa fundidas num punho de bronze. Pesam como raiva."
+  },
+  {
+   "id": "taca_de_cerveja_ocre",
+   "nome": "Taça de Cerveja Ocre",
+   "tipo": "equipamento",
+   "slot": "segunda_mao",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 60,
+   "origem": "drop:sekhmet",
+   "atributos": {
+    "esp": 25,
+    "vit": 15,
+    "defesa": 54
+   },
+   "efeito": "Poções curam 20% a mais e dão 4 s de imunidade a lentidão.",
+   "descricao": "Uma das sete mil jarras, reduzida a uma taça. O fundo nunca seca."
+  },
+  {
+   "id": "disco_do_sol_terco",
+   "nome": "Disco do Sol Terço",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 60,
+   "origem": "drop:sekhmet",
+   "atributos": {
+    "esp": 25,
+    "for": 15,
+    "hp": 300
+   },
+   "efeito": "Dano de fogo e sagrado +10%.",
+   "descricao": "O disco que Sekhmet levava na cabeça, rachado em três como o sol de agora."
+  },
+  {
+   "id": "sandalias_de_mut",
+   "nome": "Sandálias de Mut",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 60,
+   "origem": "drop:sekhmet",
+   "atributos": {
+    "agi": 25,
+    "vit": 15,
+    "defesa": 33
+   },
+   "efeito": "+10% de velocidade por 3 s depois de matar um inimigo.",
+   "descricao": "Sandálias de couro tingido de ocre do templo de Mut, onde as estátuas de Sekhmet eram setecentas e trinta."
+  },
+  {
+   "id": "bastao_que_virou_serpente",
+   "nome": "Bastão que Virou Serpente",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 61,
+   "origem": "drop:janes",
+   "atributos": {
+    "dano": [
+     107,
+     177
+    ],
+    "esp": 26,
+    "agi": 15
+   },
+   "efeito": "15% de chance de a skill invocar uma serpente por 6 s que copia 30% do seu dano.",
+   "descricao": "O bastão de Janes. Às vezes ele se mexe sozinho na sua mão. Às vezes morde."
+  },
+  {
+   "id": "anel_de_jambres",
+   "nome": "Anel de Jambres",
+   "tipo": "equipamento",
+   "slot": "anel",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 61,
+   "origem": "drop:janes",
+   "atributos": {
+    "esp": 26,
+    "vit": 15,
+    "hp": 305
+   },
+   "efeito": "Quando um aliado do grupo morre perto, você recebe +20% de dano por 8 s.",
+   "descricao": "Um anel de cobre com dois nomes gravados. Um deles foi riscado e regravado."
+  },
+  {
+   "id": "manto_dos_magos_de_farao",
+   "nome": "Manto dos Magos de Faraó",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 61,
+   "origem": "drop:janes",
+   "atributos": {
+    "esp": 26,
+    "agi": 15,
+    "defesa": 61
+   },
+   "efeito": "Ao receber um feitiço, 10% de chance de refletir metade do dano.",
+   "descricao": "Linho bordado com fios de ouro e serpentes; cheira a incenso e a derrota."
+  },
+  {
+   "id": "luvas_da_imitacao",
+   "nome": "Luvas da Imitação",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 61,
+   "origem": "drop:janes",
+   "atributos": {
+    "agi": 26,
+    "esp": 15,
+    "defesa": 34
+   },
+   "efeito": "A skill usada logo depois de uma esquiva custa metade.",
+   "descricao": "Luvas finas de mago, feitas para copiar gestos alheios."
+  },
+  {
+   "id": "cimitarra_de_janes",
+   "nome": "Cimitarra de Janes",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 61,
+   "origem": "drop:janes",
+   "atributos": {
+    "dano": [
+     107,
+     177
+    ],
+    "for": 26,
+    "agi": 15
+   },
+   "efeito": "Golpes contra conjuradores interrompem e silenciam 1 s (recarga 10 s).",
+   "descricao": "A espada que o mago carregava escondida debaixo do manto, para quando os encantamentos falhassem."
+  },
+  {
+   "id": "tampa_de_hapi",
+   "nome": "Tampa de Hapi",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:imseti",
+   "atributos": {
+    "vit": 26,
+    "esp": 16,
+    "defesa": 43
+   },
+   "efeito": "+15% de vida máxima.",
+   "descricao": "A tampa do vaso dos pulmões, com cabeça de babuíno. Respira-se melhor com ela."
+  },
+  {
+   "id": "arco_de_qebehsenuef",
+   "nome": "Arco de Qebehsenuef",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 62,
+   "origem": "drop:imseti",
+   "atributos": {
+    "dano": [
+     108,
+     178
+    ],
+    "agi": 26,
+    "for": 16
+   },
+   "efeito": "Ataques a mais de 6 m causam +15% de dano.",
+   "descricao": "Arco de chifre com a cabeça de falcão do guardião dos intestinos esculpida no punho."
+  },
+  {
+   "id": "escudo_de_duamutef",
+   "nome": "Escudo de Duamutef",
+   "tipo": "equipamento",
+   "slot": "segunda_mao",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:imseti",
+   "atributos": {
+    "vit": 26,
+    "for": 16,
+    "defesa": 56
+   },
+   "efeito": "Cura 1% da vida máxima por segundo enquanto você não se mexe.",
+   "descricao": "Escudo de couro de chacal esticado num aro de bronze, com o rosto do guardião do estômago."
+  },
+  {
+   "id": "vaso_de_imseti",
+   "nome": "Vaso de Imseti",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:imseti",
+   "atributos": {
+    "esp": 26,
+    "vit": 16,
+    "hp": 310
+   },
+   "efeito": "-12% de dano recebido enquanto houver um aliado a menos de 5 m.",
+   "descricao": "O vaso do fígado em miniatura, com rosto de homem. Imseti, o único dos quatro com cara de gente."
+  },
+  {
+   "id": "cetro_dos_quatro",
+   "nome": "Cetro dos Quatro Filhos",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 62,
+   "origem": "drop:imseti",
+   "atributos": {
+    "dano": [
+     108,
+     178
+    ],
+    "esp": 26,
+    "vit": 16
+   },
+   "efeito": "Cada aliado do grupo a menos de 8 m dá +3% de dano mágico (até 12%).",
+   "descricao": "Cetro com quatro cabeças nos quatro lados: homem, babuíno, chacal e falcão."
+  },
+  {
+   "id": "escama_do_caos",
+   "nome": "Escama do Caos",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 63,
+   "origem": "drop:apofis",
+   "atributos": {
+    "vit": 26,
+    "esp": 16,
+    "defesa": 63
+   },
+   "efeito": "-20% de dano sombrio; no escuro, +8% de esquiva.",
+   "descricao": "Uma escama de Apófis do tamanho de um escudo, que engole a luz da tocha."
+  },
+  {
+   "id": "olho_que_apaga",
+   "nome": "Olho que Apaga",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 63,
+   "origem": "drop:apofis",
+   "atributos": {
+    "esp": 26,
+    "agi": 16,
+    "hp": 315
+   },
+   "efeito": "Críticos cegam o alvo por 1,5 s (recarga 12 s).",
+   "descricao": "Um olho de serpente petrificado. Quem olha nele esquece por um instante para onde ia."
+  },
+  {
+   "id": "remo_da_barca_de_ra",
+   "nome": "Remo da Barca de Rá",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 63,
+   "origem": "drop:apofis",
+   "atributos": {
+    "dano": [
+     110,
+     182
+    ],
+    "for": 26,
+    "vit": 16
+   },
+   "efeito": "Golpes em área empurram os inimigos 1 m e dão 5% de defesa por inimigo atingido.",
+   "descricao": "Um remo de cedro dourado da barca do sol. Serve de arma e de juramento."
+  },
+  {
+   "id": "brasa_da_proa",
+   "nome": "Brasa da Proa",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 63,
+   "origem": "drop:apofis",
+   "atributos": {
+    "dano": [
+     110,
+     182
+    ],
+    "esp": 26,
+    "for": 16
+   },
+   "efeito": "Skills de fogo deixam o alvo em brasa: +10% de dano de fogo recebido por 4 s.",
+   "descricao": "Uma brasa da lanterna de Rá presa num cajado de ferro. Nunca apaga."
+  },
+  {
+   "id": "botas_da_setima_hora",
+   "nome": "Botas da Sétima Hora",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 63,
+   "origem": "drop:apofis",
+   "atributos": {
+    "agi": 26,
+    "esp": 16,
+    "defesa": 35
+   },
+   "efeito": "Ao virar de costas para um inimigo, ganha 1 s de imunidade a atordoamento (recarga 15 s).",
+   "descricao": "Botas de couro escuro de quem atravessou a sétima hora da noite e voltou."
+  },
+  {
+   "id": "mascara_do_chacal",
+   "nome": "Máscara do Chacal",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 64,
+   "origem": "drop:anubis_pesador",
+   "atributos": {
+    "esp": 27,
+    "for": 16,
+    "defesa": 45
+   },
+   "efeito": "Inimigos abaixo de 20% de vida aparecem marcados e recebem +8% de dano.",
+   "descricao": "A máscara negra que os embalsamadores usavam, com orelhas de chacal e olhos de ouro."
+  },
+  {
+   "id": "pena_de_maat_viva",
+   "nome": "Pena de Maat Viva",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 64,
+   "origem": "drop:anubis_pesador",
+   "atributos": {
+    "esp": 27,
+    "vit": 16,
+    "hp": 320
+   },
+   "efeito": "Curas em quem tem menos vida que você curam 15% a mais.",
+   "descricao": "Uma pena que pesa exatamente o certo. Ela se inclina para quem precisa."
+  },
+  {
+   "id": "prato_do_coracao",
+   "nome": "Prato do Coração",
+   "tipo": "equipamento",
+   "slot": "segunda_mao",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 64,
+   "origem": "drop:anubis_pesador",
+   "atributos": {
+    "vit": 27,
+    "for": 16,
+    "defesa": 58
+   },
+   "efeito": "Bloqueia 10% de todo dano; se você estiver com mais vida que o atacante, 20%.",
+   "descricao": "Um dos pratos da balança do Salão das Duas Verdades, transformado em escudo."
+  },
+  {
+   "id": "faixas_do_embalsamador",
+   "nome": "Faixas do Embalsamador",
+   "tipo": "equipamento",
+   "slot": "calcas",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 64,
+   "origem": "drop:anubis_pesador",
+   "atributos": {
+    "vit": 27,
+    "agi": 16,
+    "defesa": 51
+   },
+   "efeito": "Ao cair abaixo de 15% de vida, fica imune a dano por 1,5 s (recarga 120 s).",
+   "descricao": "Linho de múmia embebido em resina, enrolado com as orações certas."
+  },
+  {
+   "id": "garra_de_ammit",
+   "nome": "Garra de Ammit",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 64,
+   "origem": "drop:anubis_pesador",
+   "atributos": {
+    "dano": [
+     112,
+     185
+    ],
+    "for": 27,
+    "agi": 16
+   },
+   "efeito": "Matar um inimigo cura 4% da vida máxima.",
+   "descricao": "Uma garra de leão com escamas de crocodilo, arrancada da Devoradora quando ela pulou cedo demais."
+  },
+  {
+   "id": "cajado_das_dez_pragas",
+   "nome": "Cajado das Dez Pragas",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "cultista",
+    "anjo",
+    "tecnomancer"
+   ],
+   "nivel": 65,
+   "origem": "drop:farao_sem_nome",
+   "atributos": {
+    "dano": [
+     114,
+     188
+    ],
+    "esp": 27,
+    "vit": 16
+   },
+   "efeito": "A cada 10 skills usadas, a próxima solta uma praga aleatória no alvo (sangue, piolhos, peste ou trevas).",
+   "descricao": "O cajado do Faraó, com dez anéis de bronze. Cada um tem o nome de uma praga."
+  },
+  {
+   "id": "khopesh_do_coracao_duro",
+   "nome": "Khopesh do Coração Duro",
+   "tipo": "equipamento",
+   "slot": "arma",
+   "raridade": "unico",
+   "classe": [
+    "humano",
+    "demonio",
+    "mutante"
+   ],
+   "nivel": 65,
+   "origem": "drop:farao_sem_nome",
+   "atributos": {
+    "dano": [
+     114,
+     188
+    ],
+    "for": 27,
+    "vit": 16
+   },
+   "efeito": "Imune a medo e provocação; +1% de dano por 1% de vida que falta ao alvo acima de 50%.",
+   "descricao": "A espada-foice do Faraó. Não tem nome gravado. Tem dez entalhes."
+  },
+  {
+   "id": "cartucho_sem_nome",
+   "nome": "Cartucho Sem Nome",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 65,
+   "origem": "drop:farao_sem_nome",
+   "atributos": {
+    "esp": 27,
+    "for": 16,
+    "hp": 325
+   },
+   "efeito": "+10% de dano; o seu nome some da lista de alvos dos chefes por 3 s ao usar uma poção (recarga 60 s).",
+   "descricao": "Um cartucho real de ouro, raspado até ficar liso. Quem usa também fica um pouco esquecido."
+  },
+  {
+   "id": "nemes_do_farao",
+   "nome": "Nemes do Faraó",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 65,
+   "origem": "drop:farao_sem_nome",
+   "atributos": {
+    "vit": 27,
+    "esp": 16,
+    "defesa": 46
+   },
+   "efeito": "+20% de resistência a todos os efeitos de controle.",
+   "descricao": "O lenço listrado de azul e ouro dos reis, esfarrapado na ponta, com a serpente da coroa arrancada."
+  },
+  {
+   "id": "anel_do_primogenito",
+   "nome": "Anel do Primogênito",
+   "tipo": "equipamento",
+   "slot": "anel",
+   "raridade": "unico",
+   "classe": null,
+   "nivel": 65,
+   "origem": "drop:farao_sem_nome",
+   "atributos": {
+    "for": 27,
+    "agi": 16,
+    "hp": 325
+   },
+   "efeito": "Ao sobreviver a um golpe que seria mortal, fica com 1 de vida e invisível por 2 s (recarga 300 s).",
+   "descricao": "O anel de um príncipe que morreu na décima praga. Ainda está quente."
+  },
+  {
+   "id": "coroa_de_sobek",
+   "nome": "Coroa de Sobek",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 52,
+   "origem": "drop:petsuchos,esfinge_de_hawara,serket",
+   "atributos": {
+    "vit": 20,
+    "for": 12,
+    "defesa": 33
+   },
+   "efeito": "Peça do conjunto Regalia de Sobek.",
+   "descricao": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado.",
+   "conjunto": "regalia_de_sobek"
+  },
+  {
+   "id": "peitoral_de_sobek",
+   "nome": "Peitoral de Sobek",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 52,
+   "origem": "drop:petsuchos,esfinge_de_hawara,serket",
+   "atributos": {
+    "vit": 20,
+    "for": 12,
+    "defesa": 47
+   },
+   "efeito": "Peça do conjunto Regalia de Sobek.",
+   "descricao": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado.",
+   "conjunto": "regalia_de_sobek"
+  },
+  {
+   "id": "saiote_de_sobek",
+   "nome": "Saiote de Sobek",
+   "tipo": "equipamento",
+   "slot": "calcas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 52,
+   "origem": "drop:petsuchos,esfinge_de_hawara,serket",
+   "atributos": {
+    "vit": 20,
+    "agi": 12,
+    "defesa": 37
+   },
+   "efeito": "Peça do conjunto Regalia de Sobek.",
+   "descricao": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado.",
+   "conjunto": "regalia_de_sobek"
+  },
+  {
+   "id": "sandalias_de_sobek",
+   "nome": "Sandálias de Sobek",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 52,
+   "origem": "drop:petsuchos,esfinge_de_hawara,serket",
+   "atributos": {
+    "agi": 20,
+    "vit": 12,
+    "defesa": 26
+   },
+   "efeito": "Peça do conjunto Regalia de Sobek.",
+   "descricao": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado.",
+   "conjunto": "regalia_de_sobek"
+  },
+  {
+   "id": "braceletes_de_sobek",
+   "nome": "Braceletes de Sobek",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 52,
+   "origem": "drop:petsuchos,esfinge_de_hawara,serket",
+   "atributos": {
+    "for": 20,
+    "agi": 12,
+    "defesa": 26
+   },
+   "efeito": "Peça do conjunto Regalia de Sobek.",
+   "descricao": "O que os sacerdotes de Crocodilópolis vestiam para alimentar o deus: ouro, couro de crocodilo e linho encharcado.",
+   "conjunto": "regalia_de_sobek"
+  },
+  {
+   "id": "pschent_do_farao",
+   "nome": "Pschent do Faraó",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "vit": 23,
+    "esp": 14,
+    "defesa": 39
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "peitoral_de_ouro",
+   "nome": "Peitoral de Ouro e Lápis",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "vit": 23,
+    "for": 14,
+    "defesa": 56
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "shendyt_real",
+   "nome": "Shendyt Real",
+   "tipo": "equipamento",
+   "slot": "calcas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "vit": 23,
+    "agi": 14,
+    "defesa": 45
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "sandalias_de_papiro_real",
+   "nome": "Sandálias de Papiro Real",
+   "tipo": "equipamento",
+   "slot": "botas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "agi": 23,
+    "vit": 14,
+    "defesa": 31
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "braceletes_do_ureu",
+   "nome": "Braceletes do Ureu",
+   "tipo": "equipamento",
+   "slot": "luvas",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "for": 23,
+    "esp": 14,
+    "defesa": 31
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "colar_usekh",
+   "nome": "Colar Usekh",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "esp": 23,
+    "vit": 14,
+    "hp": 279
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "anel_de_sinete_real",
+   "nome": "Anel de Sinete Real",
+   "tipo": "equipamento",
+   "slot": "anel",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "for": 23,
+    "esp": 14,
+    "hp": 279
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
+  },
+  {
+   "id": "cetro_heka",
+   "nome": "Cetro Heka",
+   "tipo": "equipamento",
+   "slot": "segunda_mao",
+   "raridade": "raro",
+   "classe": null,
+   "nivel": 62,
+   "origem": "drop:sekhmet,janes,imseti,apofis,anubis_pesador,farao_sem_nome",
+   "atributos": {
+    "esp": 23,
+    "for": 14,
+    "defesa": 50
+   },
+   "efeito": "Peça do conjunto Regalia do Faraó Sem Nome.",
+   "descricao": "As insígnias de um rei cujo nome foi raspado de toda parte. As peças não lembram de quem eram; lembram que eram de um rei.",
+   "conjunto": "regalia_do_farao"
   }
  ]
 }

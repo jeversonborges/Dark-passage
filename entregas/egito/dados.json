@@ -2498,7 +2498,8 @@
     "cura_por_oferenda": 0.06
    },
    "drop": "chefe_hawara_1",
-   "morte": "(Petsuchos afunda devagar; o ouro dos brincos fica boiando)"
+   "morte": "(Petsuchos afunda devagar; o ouro dos brincos fica boiando)",
+   "trava": "diaria"
   },
   "esfinge_de_hawara": {
    "nome": "A Esfinge de Hawara",
@@ -2632,7 +2633,8 @@
     "pedestais": "arena.pedestais"
    },
    "drop": "chefe_hawara_2",
-   "morte": "A RESPOSTA... ERA VOCÊ."
+   "morte": "A RESPOSTA... ERA VOCÊ.",
+   "trava": "diaria"
   },
   "serket": {
    "nome": "Serket, a Que Faz a Garganta Respirar",
@@ -2790,7 +2792,8 @@
     "ninho_hp": 800
    },
    "drop": "chefe_hawara_3",
-   "morte": "Respire... agora... sozinho."
+   "morte": "Respire... agora... sozinho.",
+   "trava": "diaria"
   },
   "sekhmet": {
    "nome": "Sekhmet, a Leoa Que Bebeu o Sangue",
@@ -2948,7 +2951,8 @@
     "jarra_renasce_s": 45
    },
    "drop": "chefe_coracao_1",
-   "morte": "Era... cerveja. Sempre foi cerveja."
+   "morte": "Era... cerveja. Sempre foi cerveja.",
+   "trava": "semanal"
   },
   "janes": {
    "nome": "Janes e Jambres, os Magos de Faraó",
@@ -3079,7 +3083,8 @@
     }
    },
    "drop": "chefe_coracao_2",
-   "morte": "Juntos... como fomos enterrados."
+   "morte": "Juntos... como fomos enterrados.",
+   "trava": "semanal"
   },
   "imseti": {
    "nome": "Os Quatro Filhos de Hórus",
@@ -3190,7 +3195,8 @@
     "pedestais": "arena.pedestais"
    },
    "drop": "chefe_coracao_3",
-   "morte": "IMSETI: O rei... está inteiro sem nós?"
+   "morte": "IMSETI: O rei... está inteiro sem nós?",
+   "trava": "semanal"
   },
   "apofis": {
    "nome": "Apófis, a Serpente Sem Fim",
@@ -3356,7 +3362,8 @@
     }
    },
    "drop": "chefe_coracao_4",
-   "morte": "(a serpente afunda no rio escuro; a barca segue para a oitava hora)"
+   "morte": "(a serpente afunda no rio escuro; a barca segue para a oitava hora)",
+   "trava": "semanal"
   },
   "anubis_pesador": {
    "nome": "Anúbis, o Pesador",
@@ -3484,7 +3491,8 @@
     }
    },
    "drop": "chefe_coracao_5",
-   "morte": "A pena... pesou mais. Finalmente... alguma coisa pesou."
+   "morte": "A pena... pesou mais. Finalmente... alguma coisa pesou.",
+   "trava": "semanal"
   },
   "farao_sem_nome": {
    "nome": "O Faraó Sem Nome",
@@ -3747,151 +3755,212 @@
     "coracao": "coracao_do_farao"
    },
    "drop": "chefe_coracao_6",
-   "morte": "Eu disse não... e não... e... (o coração cai no chão do salão, inteiro, batendo)"
+   "morte": "Eu disse não... e não... e... (o coração cai no chão do salão, inteiro, batendo)",
+   "trava": "semanal"
   }
  },
  "drops": {
   "egito_animal": {
-   "item_chance": 0.2,
+   "item_chance": 0.08,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 55
+     "peso": 52
     },
     {
      "tag": "material:couro_do_nilo",
-     "peso": 30
+     "peso": 26
     },
     {
      "tag": "joia:refino",
-     "peso": 15
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "egito_inseto": {
-   "item_chance": 0.2,
+   "item_chance": 0.08,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 50
+     "peso": 52
     },
     {
      "tag": "material:casca_de_escaravelho",
-     "peso": 35
+     "peso": 26
     },
     {
      "tag": "joia:refino",
-     "peso": 15
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "egito_mumia": {
-   "item_chance": 0.22,
+   "item_chance": 0.085,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 55
+     "peso": 52
     },
     {
      "tag": "material:linho_de_mumia",
-     "peso": 30
+     "peso": 26
     },
     {
      "tag": "joia:refino",
-     "peso": 15
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "egito_guardiao": {
-   "item_chance": 0.24,
+   "item_chance": 0.09,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 62
+     "peso": 52
     },
     {
      "tag": "material:bronze_antigo",
-     "peso": 22
+     "peso": 26
     },
     {
      "tag": "joia:refino",
-     "peso": 16
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "egito_construto": {
-   "item_chance": 0.24,
+   "item_chance": 0.09,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:po_de_calcario",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_elite": {
+   "rolagens_garantidas": 1,
+   "raridade_minima": "magico",
+   "ouro_mult": 8,
    "rolagens": [
     {
      "tag": "equip:faixa3",
      "peso": 60
     },
     {
-     "tag": "material:po_de_calcario",
-     "peso": 24
-    },
-    {
      "tag": "joia:refino",
-     "peso": 16
-    }
-   ]
-  },
-  "egito_elite": {
-   "rolagens_garantidas": 3,
-   "raridade_minima": "magico",
-   "ouro_mult": 8,
-   "rolagens": [
-    {
-     "tag": "equip:faixa3",
-     "peso": 70
-    },
-    {
-     "tag": "joia:refino",
-     "peso": 20
+     "peso": 15
     },
     {
      "tag": "chave:bau_de_ferro",
      "peso": 10
+    },
+    {
+     "tag": "material:bronze_antigo",
+     "peso": 15
     }
    ]
   },
   "hawara": {
-   "item_chance": 0.26,
+   "item_chance": 0.1,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 74
-    },
-    {
-     "tag": "joia:refino",
-     "peso": 18
+     "peso": 52
     },
     {
      "tag": "material:ouro_de_sobek",
+     "peso": 18
+    },
+    {
+     "tag": "joia:refino",
      "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "raid_coracao": {
-   "item_chance": 0.32,
+   "item_chance": 0.12,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 70
-    },
-    {
-     "tag": "joia:refino",
-     "peso": 22
+     "peso": 52
     },
     {
      "tag": "material:fragmento_do_duat",
+     "peso": 18
+    },
+    {
+     "tag": "joia:refino",
      "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
     }
    ]
   },
   "chefe_hawara_1": {
-   "rolagens_garantidas": 3,
-   "raridade_minima": "raro",
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
    "ouro_mult": 30,
    "garantido": [
     "missao:brinco_de_petsuchos"
@@ -3899,43 +3968,61 @@
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 72
+     "peso": 62
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:hawara",
-     "peso": 10
+     "tag": "material:ouro_de_sobek",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:petsuchos",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
     }
-   ]
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
   },
   "chefe_hawara_2": {
-   "rolagens_garantidas": 3,
-   "raridade_minima": "raro",
-   "ouro_mult": 34,
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 35,
    "garantido": [
     "missao:glifo_da_resposta"
    ],
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 70
+     "peso": 62
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:hawara",
+     "tag": "material:ouro_de_sobek",
      "peso": 12
+    },
+    {
+     "tag": "lendario:esfinge_de_hawara",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
     }
-   ]
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
   },
   "chefe_hawara_3": {
-   "rolagens_garantidas": 4,
-   "raridade_minima": "raro",
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
    "ouro_mult": 40,
    "garantido": [
     "missao:ferrao_de_serket"
@@ -3943,171 +4030,200 @@
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 64
+     "peso": 62
     },
     {
      "tag": "joia:refino",
-     "peso": 18
-    },
-    {
-     "tag": "conjunto:hawara",
      "peso": 14
     },
     {
+     "tag": "material:ouro_de_sobek",
+     "peso": 12
+    },
+    {
      "tag": "lendario:serket",
-     "peso": 4
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
     }
-   ]
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
   },
   "chefe_coracao_1": {
-   "rolagens_garantidas": 4,
+   "rolagens_garantidas": 2,
    "raridade_minima": "raro",
    "ouro_mult": 50,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_1",
-     "peso": 6
+     "tag": "lendario:sekhmet",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
   },
   "chefe_coracao_2": {
-   "rolagens_garantidas": 4,
+   "rolagens_garantidas": 2,
    "raridade_minima": "raro",
    "ouro_mult": 60,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_2",
-     "peso": 6
+     "tag": "lendario:janes",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
   },
   "chefe_coracao_3": {
-   "rolagens_garantidas": 4,
+   "rolagens_garantidas": 2,
    "raridade_minima": "raro",
    "ouro_mult": 70,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_3",
-     "peso": 6
+     "tag": "lendario:imseti",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
   },
   "chefe_coracao_4": {
-   "rolagens_garantidas": 4,
+   "rolagens_garantidas": 2,
    "raridade_minima": "raro",
    "ouro_mult": 80,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_4",
-     "peso": 6
+     "tag": "lendario:apofis",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
   },
   "chefe_coracao_5": {
-   "rolagens_garantidas": 4,
+   "rolagens_garantidas": 2,
    "raridade_minima": "raro",
    "ouro_mult": 90,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_5",
-     "peso": 6
+     "tag": "lendario:anubis_pesador",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
   },
   "chefe_coracao_6": {
-   "rolagens_garantidas": 6,
+   "rolagens_garantidas": 3,
    "raridade_minima": "raro",
    "ouro_mult": 100,
    "rolagens": [
     {
      "tag": "equip:faixa3",
-     "peso": 58
+     "peso": 60
     },
     {
      "tag": "joia:refino",
-     "peso": 18
+     "peso": 14
     },
     {
-     "tag": "conjunto:regalia_do_farao",
-     "peso": 18
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
     },
     {
-     "tag": "lendario:coracao_6",
-     "peso": 6
+     "tag": "lendario:farao_sem_nome",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal: cada jogador do grupo rola o seu; trava semanal por chefe",
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
    "garantido": [
     "missao:coracao_do_farao"
    ]
@@ -4258,7 +4374,7 @@
     "esfinge_de_hawara",
     "serket"
    ],
-   "trava": "diaria_por_bau",
+   "trava": "diaria_por_chefe",
    "entrada": "egito (60.5, 31.0)"
   },
   "coracao_endurecido": {
