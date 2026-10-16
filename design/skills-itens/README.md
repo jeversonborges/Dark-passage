@@ -48,3 +48,15 @@ O Jefin mandou a arte pintada de 16 anéis (8 simples, 8 com gema) e 8 túnicas:
     Os mais bonitos caem menos. Itens sem o campo valem 1,0.
   - `colecao` (`aneis_simples`, `aneis_gemas`, `tunicas`) e `arte` (folha e índice): só para ferramentas.
 - Ícones: `cd tools/icones && PYTHONPATH=. python3 arte_pronta.py` (só pillow e numpy). O `gerar_itens.py` pula esses itens.
+
+## Lote 2 da arte pronta (2026-10-16)
+Folhas novas em `assets/icones/fontes/`: `capuzes.png`, `calcas.png`, `botas.png` (5x2, mesmas 10 cores), `colares.png` (5x2),
+`espadas.png` (10x1, fronteiras em `CORTES_ESPADAS`) e `decreto_vampirico.png`. Dados no fim de `fontes/itens_data.py`.
+
+- **10 conjuntos de pano** (`CONJUNTOS_PANO`): capuz, calças e botas de cada cor; 8 casam com as túnicas (conjunto de 4 peças),
+  e 2 são só de 3 peças (Peles do Inverno de Cinza, Coroa do Regente Anil). Bônus de conjunto em `conjuntos[].bonus_conjunto_fixo`
+  (mesmas chaves de `bonus_fixo`, por número de peças).
+- **10 colares** (amuleto, nível 1 a 17) e **10 espadas** (Anjo, Demônio e Humano, nível 2 a 18). Quanto mais bonito, mais forte e mais raro.
+- **Decreto Vampírico**: grimório lendário do Cultista (2ª mão), sai do Zacarias (`lendario:zacarias`).
+- As bases antigas desenhadas por código de cabeça, peito, calças, botas, anel e amuleto ganharam `peso_drop: 0` (não caem mais;
+  continuam na loja e em inventários antigos).

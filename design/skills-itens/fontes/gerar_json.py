@@ -91,6 +91,38 @@ for i, (iid, nome, n, idx, df, at, bf, lore) in enumerate(I.TUNICAS):
     add("armadura", dict(id=iid, nome=nome, slot="peito", peso="tecido", classes=None, nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"],
         defesa=df, grade=[2,3], atributos=at, bonus_fixo=bf, peso_drop=peso_drop(i, len(I.TUNICAS)), lore=lore,
         motivo="arte_pronta", arte={"folha": "assets/icones/fontes/tunicas.png", "indice": idx}, colecao="tunicas"))
+# lote 2 da arte pronta: conjuntos de pano (capuz, calças, botas), colares, espadas e o Decreto Vampírico
+conj_tunica = {c[4]: c[0] for c in I.CONJUNTOS_PANO if c[4]}
+for it in itens:
+    if it["id"] in conj_tunica: it["conjunto"] = conj_tunica[it["id"]]
+NOME_SLOT = {"cabeca":"capuz","calcas":"calças","botas":"botas"}
+GRADE_PANO = {"cabeca":[2,2],"calcas":[2,2],"botas":[2,2]}
+FOLHA_PANO = {"cabeca":"capuzes","calcas":"calcas","botas":"botas"}
+for i, (cid, cnome, n, idx, tun, (df, at, hp), nomes, bonus, lore) in enumerate(I.CONJUNTOS_PANO):
+    pecas = ([tun] if tun else [])
+    for slot, nome in zip(("cabeca","calcas","botas"), nomes):
+        fd, fa, fh = I.FRACAO_PANO[slot]
+        a = {k: max(1, round(v*fa)) for k, v in at.items()}
+        bf = {"hp": round(hp*fh)} if hp else {}
+        iid = f"{cid}_{slot}"; pecas.append(iid)
+        add("armadura", dict(id=iid, nome=nome, slot=slot, conjunto=cid, peso="tecido", classes=None, nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"],
+            defesa=max(1, round(df*fd)), grade=GRADE_PANO[slot], atributos=a, bonus_fixo=bf, peso_drop=round(1.0 - 0.75*i/9, 2), lore=lore,
+            motivo="arte_pronta", arte={"folha": f"assets/icones/fontes/{FOLHA_PANO[slot]}.png", "indice": idx, "grade": [5,2]}, colecao=FOLHA_PANO[slot]))
+    I.CONJUNTOS.append({"id": cid, "nome": cnome, "peso": "tecido", "nivel": n, "pecas_ids": pecas, "bonus_conjunto_fixo": bonus, "lore": lore})
+for i, (iid, nome, n, idx, at, bf, lore) in enumerate(I.COLARES):
+    add("acessorio", dict(id=iid, nome=nome, slot="amuleto", nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"], grade=[1,1], atributos=at, bonus_fixo=bf,
+        peso_drop=round(1.0 - 0.8*i/9, 2), lore=lore, motivo="arte_pronta", arte={"folha": "assets/icones/fontes/colares.png", "indice": idx, "grade": [5,2]}, colecao="colares"))
+for i, (iid, nome, n, idx, mult, bf, lore) in enumerate(I.ESPADAS):
+    add("arma", dict(id=iid, nome=nome, classes=I.CLASSES_ESPADA, tipo="espada", slot="arma", maos=1, nivel=n, raridade="rolada", tags=[f"equip:{faixa(n)}"],
+        dano=dano(n, mult), intervalo=1.05, grade=[2,4] if i == 9 else [1,3], bonus_fixo=bf, peso_drop=round(1.0 - 0.8*i/9, 2), lore=lore,
+        motivo="arte_pronta", arte={"folha": "assets/icones/fontes/espadas.png", "indice": idx, "grade": [10,1], "cortes_x": I.CORTES_ESPADAS}, colecao="espadas"))
+d = dict(I.DECRETO_VAMPIRICO); d.update(dano_magico_extra=round(0.4*(5+1.2*d["nivel"])*1.25), tags=["lendario:zacarias"], motivo="arte_pronta", colecao="lendarios")
+add("arma", d)
+I.POOLS_LENDARIOS["lendario:zacarias"].append("decreto_vampirico")
+# as bases antigas desenhadas por código saem do drop nos slots que já têm arte pintada (continuam na loja e nos inventários)
+for it in itens:
+    if it.get("raridade") == "rolada" and it.get("motivo") != "arte_pronta" and it.get("slot") in ("cabeca","peito","calcas","botas","anel","amuleto"):
+        it["peso_drop"] = 0.0; it["substituido_por_arte_pronta"] = True
 for a in I.CONSUMIVEIS: add("consumivel", dict(a, tags=[a.pop("tag")] if "tag" in a else []))
 for a in I.MATERIAIS: add("material", dict(a, tags=[a.pop("tag")], pilha=99))
 for a in I.JOIAS: add("joia", dict(a, tags=[a.pop("tag")], raridade="excelente", pilha=20))
@@ -143,6 +175,6 @@ json.dump({"versao":"0.2","aviso":AVISO,
   "formulas_usadas":{"dano_arma":"média 5 + 1,2 × nível (classes_base.json), mín/máx ±30%; itens com nome: ×1,1 raro, ×1,25 Relíquia",
                      "defesa_conjunto":"1,5 × nível no conjunto inteiro; cabeça 16%, peito 34%, luvas 12%, calças 22%, botas 16%; leve ×0,8, pesado ×1,25"},
   "grade_mochila":"células de 30 px (UI); grade = [largura, altura]",
-  "conjuntos":[{k:v for k,v in c.items() if k != "pecas"} | {"pecas":[f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS],
+  "conjuntos":[{k:v for k,v in c.items() if k not in ("pecas","pecas_ids")} | {"pecas": c.get("pecas_ids") or [f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS],
   "pools_lendarios":I.POOLS_LENDARIOS, "cobertura_tags_drops":cobertura, "itens":itens}, open(f"{OUT}/itens.json","w"), ensure_ascii=False, indent=1)
 print(len(skills), "skills;", len(itens), "itens"); print({t: len(v) for t, v in cobertura.items()})

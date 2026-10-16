@@ -128,6 +128,229 @@
     "juramento_quebrado_calcas",
     "juramento_quebrado_botas"
    ]
+  },
+  {
+   "id": "peregrino",
+   "nome": "Trapos do Peregrino",
+   "peso": "tecido",
+   "nivel": 1,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "hp": 10
+    },
+    "4": {
+     "hp": 25,
+     "defesa": 1
+    }
+   },
+   "lore": "Tudo o que um peregrino tinha quando chegou a São Lázaro, e quase tudo o que tinha quando foi embora.",
+   "pecas": [
+    "tunica_saco_peregrino",
+    "peregrino_cabeca",
+    "peregrino_calcas",
+    "peregrino_botas"
+   ]
+  },
+  {
+   "id": "batedor_vela",
+   "nome": "Lonas do Batedor da Vela",
+   "peso": "tecido",
+   "nivel": 3,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "agi": 2
+    },
+    "4": {
+     "agi": 3,
+     "critico": 0.01
+    }
+   },
+   "lore": "Lona de vela de bonde. Os batedores andam na frente da caravana, onde a areia ainda não decidiu se vai engolir o trilho.",
+   "pecas": [
+    "gibao_batedor_vela",
+    "batedor_vela_cabeca",
+    "batedor_vela_calcas",
+    "batedor_vela_botas"
+   ]
+  },
+  {
+   "id": "bondeiro",
+   "nome": "Fivelas do Bondeiro",
+   "peso": "tecido",
+   "nivel": 5,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "for": 2
+    },
+    "4": {
+     "for": 3,
+     "dano_plano": 2
+    }
+   },
+   "lore": "Cada fivela segura alguma coisa: o mastro, a carga, o colega que caiu.",
+   "pecas": [
+    "gibao_fivelas_bondeiro",
+    "bondeiro_cabeca",
+    "bondeiro_calcas",
+    "bondeiro_botas"
+   ]
+  },
+  {
+   "id": "margem_amarga",
+   "nome": "Folhas da Margem Amarga",
+   "peso": "tecido",
+   "nivel": 7,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "res": {
+      "veneno": 0.05
+     }
+    },
+    "4": {
+     "res": {
+      "veneno": 0.1
+     },
+     "hp": 40
+    }
+   },
+   "lore": "Tingido nas margens do Rio Amargo, onde as folhas crescem tortas e não morrem.",
+   "pecas": [
+    "tunica_margem_amarga",
+    "margem_amarga_cabeca",
+    "margem_amarga_calcas",
+    "margem_amarga_botas"
+   ]
+  },
+  {
+   "id": "inverno_cinza",
+   "nome": "Peles do Inverno de Cinza",
+   "peso": "tecido",
+   "nivel": 8,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "vit": 3
+    },
+    "3": {
+     "vit": 4,
+     "reduz_dano": 0.02
+    }
+   },
+   "lore": "Depois do clarão veio o inverno de cinza. Quem sobreviveu aprendeu a costurar pele de qualquer coisa que tivesse pelo.",
+   "pecas": [
+    "inverno_cinza_cabeca",
+    "inverno_cinza_calcas",
+    "inverno_cinza_botas"
+   ]
+  },
+  {
+   "id": "vigia_anil",
+   "nome": "Anil do Vigia",
+   "peso": "tecido",
+   "nivel": 9,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "esp": 2
+    },
+    "4": {
+     "esp": 4,
+     "defesa": 2
+    }
+   },
+   "lore": "Anil e prata das torres de vigia. Os vigias bordavam a lua para lembrar que a noite ainda tem fim.",
+   "pecas": [
+    "tunica_vigia_anil",
+    "vigia_anil_cabeca",
+    "vigia_anil_calcas",
+    "vigia_anil_botas"
+   ]
+  },
+  {
+   "id": "penitente_carmim",
+   "nome": "Carmim do Penitente",
+   "peso": "tecido",
+   "nivel": 11,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "roubo_de_vida": 0.01
+    },
+    "4": {
+     "roubo_de_vida": 0.02,
+     "for": 4
+    }
+   },
+   "lore": "Vermelho de flagelante. A roda bordada é a roda do suplício, e quem veste lembra dela a cada passo.",
+   "pecas": [
+    "habito_penitente_carmim",
+    "penitente_carmim_cabeca",
+    "penitente_carmim_calcas",
+    "penitente_carmim_botas"
+   ]
+  },
+  {
+   "id": "setimo_selo",
+   "nome": "Violeta do Sétimo Selo",
+   "peso": "tecido",
+   "nivel": 13,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "dano_magico_extra": 2
+    },
+    "4": {
+     "dano_magico_extra": 4,
+     "esp": 5
+    }
+   },
+   "lore": "A lua crescente e a ametista são o sétimo selo. Quando ele abrir, haverá silêncio no céu por meia hora.",
+   "pecas": [
+    "sobreveste_setimo_selo",
+    "setimo_selo_cabeca",
+    "setimo_selo_calcas",
+    "setimo_selo_botas"
+   ]
+  },
+  {
+   "id": "juizo_dourado",
+   "nome": "Alva do Juízo Dourado",
+   "peso": "tecido",
+   "nivel": 15,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "hp": 40
+    },
+    "4": {
+     "hp": 80,
+     "reduz_dano": 0.03
+    }
+   },
+   "lore": "Branco de altar e ouro de custódia. Feito para o dia do Juízo, que começou e não terminou.",
+   "pecas": [
+    "alva_juizo_dourado",
+    "juizo_dourado_cabeca",
+    "juizo_dourado_calcas",
+    "juizo_dourado_botas"
+   ]
+  },
+  {
+   "id": "regente_anil",
+   "nome": "Coroa do Regente Anil",
+   "peso": "tecido",
+   "nivel": 17,
+   "bonus_conjunto_fixo": {
+    "2": {
+     "esp": 4
+    },
+    "3": {
+     "esp": 6,
+     "critico": 0.02,
+     "hp": 60
+    }
+   },
+   "lore": "Um vigia que sobreviveu tanto tempo na torre que a cidade enterrada passou a chamá-lo de rei. Ele nunca aceitou a coroa; costurou-a no capuz.",
+   "pecas": [
+    "regente_anil_cabeca",
+    "regente_anil_calcas",
+    "regente_anil_botas"
+   ]
   }
  ],
  "pools_lendarios": {
@@ -145,7 +368,8 @@
    "veu_carpideira"
   ],
   "lendario:zacarias": [
-   "halo_incandescente"
+   "halo_incandescente",
+   "decreto_vampirico"
   ]
  },
  "cobertura_tags_drops": {
@@ -210,7 +434,22 @@
    "anel_coroa_espinhos",
    "tunica_saco_peregrino",
    "gibao_batedor_vela",
-   "gibao_fivelas_bondeiro"
+   "gibao_fivelas_bondeiro",
+   "peregrino_cabeca",
+   "peregrino_calcas",
+   "peregrino_botas",
+   "batedor_vela_cabeca",
+   "batedor_vela_calcas",
+   "batedor_vela_botas",
+   "bondeiro_cabeca",
+   "bondeiro_calcas",
+   "bondeiro_botas",
+   "medalha_peregrino",
+   "colar_presas_vala",
+   "gota_carmim_martirio",
+   "espada_ferro_sangrento",
+   "espada_geada_atomica",
+   "espada_vazio_violeta"
   ],
   "equip:faixa2": [
    "espada_sineiro",
@@ -257,7 +496,42 @@
    "tunica_vigia_anil",
    "habito_penitente_carmim",
    "sobreveste_setimo_selo",
-   "alva_juizo_dourado"
+   "alva_juizo_dourado",
+   "margem_amarga_cabeca",
+   "margem_amarga_calcas",
+   "margem_amarga_botas",
+   "inverno_cinza_cabeca",
+   "inverno_cinza_calcas",
+   "inverno_cinza_botas",
+   "vigia_anil_cabeca",
+   "vigia_anil_calcas",
+   "vigia_anil_botas",
+   "penitente_carmim_cabeca",
+   "penitente_carmim_calcas",
+   "penitente_carmim_botas",
+   "setimo_selo_cabeca",
+   "setimo_selo_calcas",
+   "setimo_selo_botas",
+   "juizo_dourado_cabeca",
+   "juizo_dourado_calcas",
+   "juizo_dourado_botas",
+   "regente_anil_cabeca",
+   "regente_anil_calcas",
+   "regente_anil_botas",
+   "colar_raiz_amarga",
+   "pingente_lua_anil",
+   "sol_ambar",
+   "estrela_espinhos_violeta",
+   "cranio_duque_chifrudo",
+   "asas_querubim_caido",
+   "relicario_santo_acorrentado",
+   "espada_custodia_solar",
+   "espada_fornalha",
+   "espada_amargo",
+   "espada_bobina_viva",
+   "espada_firmamento_partido",
+   "espada_eclipse_rubro",
+   "espada_juizo_acorrentado"
   ],
   "joia:refino": [
    "lagrima_anjo",
@@ -277,6 +551,7 @@
    "estandarte_legiao"
   ],
   "lendario:zacarias": [
+   "decreto_vampirico",
    "halo_incandescente"
   ],
   "material:carne_estragada": [
@@ -1324,7 +1599,9 @@
     "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
     "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "batina_remendada_peito",
@@ -1357,7 +1634,9 @@
     "40": "assets/icones/itens/40/batina_remendada_peito.png",
     "32": "assets/icones/itens/32/batina_remendada_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "batina_remendada_luvas",
@@ -1423,7 +1702,9 @@
     "40": "assets/icones/itens/40/batina_remendada_calcas.png",
     "32": "assets/icones/itens/32/batina_remendada_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "batina_remendada_botas",
@@ -1456,7 +1737,9 @@
     "40": "assets/icones/itens/40/batina_remendada_botas.png",
     "32": "assets/icones/itens/32/batina_remendada_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couro_sobrevivente_cabeca",
@@ -1490,7 +1773,9 @@
     "40": "assets/icones/itens/40/couro_sobrevivente_cabeca.png",
     "32": "assets/icones/itens/32/couro_sobrevivente_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couro_sobrevivente_peito",
@@ -1524,7 +1809,9 @@
     "40": "assets/icones/itens/40/couro_sobrevivente_peito.png",
     "32": "assets/icones/itens/32/couro_sobrevivente_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couro_sobrevivente_luvas",
@@ -1592,7 +1879,9 @@
     "40": "assets/icones/itens/40/couro_sobrevivente_calcas.png",
     "32": "assets/icones/itens/32/couro_sobrevivente_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couro_sobrevivente_botas",
@@ -1626,7 +1915,9 @@
     "40": "assets/icones/itens/40/couro_sobrevivente_botas.png",
     "32": "assets/icones/itens/32/couro_sobrevivente_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "placas_sino_cabeca",
@@ -1659,7 +1950,9 @@
     "40": "assets/icones/itens/40/placas_sino_cabeca.png",
     "32": "assets/icones/itens/32/placas_sino_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "placas_sino_peito",
@@ -1692,7 +1985,9 @@
     "40": "assets/icones/itens/40/placas_sino_peito.png",
     "32": "assets/icones/itens/32/placas_sino_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "placas_sino_luvas",
@@ -1758,7 +2053,9 @@
     "40": "assets/icones/itens/40/placas_sino_calcas.png",
     "32": "assets/icones/itens/32/placas_sino_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "placas_sino_botas",
@@ -1791,7 +2088,9 @@
     "40": "assets/icones/itens/40/placas_sino_botas.png",
     "32": "assets/icones/itens/32/placas_sino_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "coro_mudo_cabeca",
@@ -1824,7 +2123,9 @@
     "40": "assets/icones/itens/40/coro_mudo_cabeca.png",
     "32": "assets/icones/itens/32/coro_mudo_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "coro_mudo_peito",
@@ -1857,7 +2158,9 @@
     "40": "assets/icones/itens/40/coro_mudo_peito.png",
     "32": "assets/icones/itens/32/coro_mudo_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "coro_mudo_luvas",
@@ -1923,7 +2226,9 @@
     "40": "assets/icones/itens/40/coro_mudo_calcas.png",
     "32": "assets/icones/itens/32/coro_mudo_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "coro_mudo_botas",
@@ -1956,7 +2261,9 @@
     "40": "assets/icones/itens/40/coro_mudo_botas.png",
     "32": "assets/icones/itens/32/coro_mudo_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couraca_acougueiro_oco_cabeca",
@@ -1990,7 +2297,9 @@
     "40": "assets/icones/itens/40/couraca_acougueiro_oco_cabeca.png",
     "32": "assets/icones/itens/32/couraca_acougueiro_oco_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couraca_acougueiro_oco_peito",
@@ -2024,7 +2333,9 @@
     "40": "assets/icones/itens/40/couraca_acougueiro_oco_peito.png",
     "32": "assets/icones/itens/32/couraca_acougueiro_oco_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couraca_acougueiro_oco_luvas",
@@ -2092,7 +2403,9 @@
     "40": "assets/icones/itens/40/couraca_acougueiro_oco_calcas.png",
     "32": "assets/icones/itens/32/couraca_acougueiro_oco_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "couraca_acougueiro_oco_botas",
@@ -2126,7 +2439,9 @@
     "40": "assets/icones/itens/40/couraca_acougueiro_oco_botas.png",
     "32": "assets/icones/itens/32/couraca_acougueiro_oco_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "juramento_quebrado_cabeca",
@@ -2159,7 +2474,9 @@
     "40": "assets/icones/itens/40/juramento_quebrado_cabeca.png",
     "32": "assets/icones/itens/32/juramento_quebrado_cabeca.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png"
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "juramento_quebrado_peito",
@@ -2192,7 +2509,9 @@
     "40": "assets/icones/itens/40/juramento_quebrado_peito.png",
     "32": "assets/icones/itens/32/juramento_quebrado_peito.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png"
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "juramento_quebrado_luvas",
@@ -2258,7 +2577,9 @@
     "40": "assets/icones/itens/40/juramento_quebrado_calcas.png",
     "32": "assets/icones/itens/32/juramento_quebrado_calcas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png"
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "juramento_quebrado_botas",
@@ -2291,7 +2612,9 @@
     "40": "assets/icones/itens/40/juramento_quebrado_botas.png",
     "32": "assets/icones/itens/32/juramento_quebrado_botas.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png"
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "anel_prego_caixao",
@@ -2318,7 +2641,9 @@
     "40": "assets/icones/itens/40/anel_prego_caixao.png",
     "32": "assets/icones/itens/32/anel_prego_caixao.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png"
+   "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "colar_dentes",
@@ -2345,7 +2670,9 @@
     "40": "assets/icones/itens/40/colar_dentes.png",
     "32": "assets/icones/itens/32/colar_dentes.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png"
+   "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "anel_ferro_cripta",
@@ -2372,7 +2699,9 @@
     "40": "assets/icones/itens/40/anel_ferro_cripta.png",
     "32": "assets/icones/itens/32/anel_ferro_cripta.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/anel_ferro_cripta.png"
+   "icone_mochila": "assets/icones/itens/mochila/anel_ferro_cripta.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "rosario_ossos",
@@ -2399,7 +2728,9 @@
     "40": "assets/icones/itens/40/rosario_ossos.png",
     "32": "assets/icones/itens/32/rosario_ossos.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png"
+   "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png",
+   "peso_drop": 0.0,
+   "substituido_por_arte_pronta": true
   },
   {
    "id": "aro_ferro_velho",
@@ -3025,7 +3356,8 @@
     "40": "assets/icones/itens/40/tunica_saco_peregrino.png",
     "32": "assets/icones/itens/32/tunica_saco_peregrino.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/tunica_saco_peregrino.png"
+   "icone_mochila": "assets/icones/itens/mochila/tunica_saco_peregrino.png",
+   "conjunto": "peregrino"
   },
   {
    "id": "gibao_batedor_vela",
@@ -3062,7 +3394,8 @@
     "40": "assets/icones/itens/40/gibao_batedor_vela.png",
     "32": "assets/icones/itens/32/gibao_batedor_vela.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/gibao_batedor_vela.png"
+   "icone_mochila": "assets/icones/itens/mochila/gibao_batedor_vela.png",
+   "conjunto": "batedor_vela"
   },
   {
    "id": "gibao_fivelas_bondeiro",
@@ -3101,7 +3434,8 @@
     "40": "assets/icones/itens/40/gibao_fivelas_bondeiro.png",
     "32": "assets/icones/itens/32/gibao_fivelas_bondeiro.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/gibao_fivelas_bondeiro.png"
+   "icone_mochila": "assets/icones/itens/mochila/gibao_fivelas_bondeiro.png",
+   "conjunto": "bondeiro"
   },
   {
    "id": "tunica_margem_amarga",
@@ -3143,7 +3477,8 @@
     "40": "assets/icones/itens/40/tunica_margem_amarga.png",
     "32": "assets/icones/itens/32/tunica_margem_amarga.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/tunica_margem_amarga.png"
+   "icone_mochila": "assets/icones/itens/mochila/tunica_margem_amarga.png",
+   "conjunto": "margem_amarga"
   },
   {
    "id": "tunica_vigia_anil",
@@ -3183,7 +3518,8 @@
     "40": "assets/icones/itens/40/tunica_vigia_anil.png",
     "32": "assets/icones/itens/32/tunica_vigia_anil.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/tunica_vigia_anil.png"
+   "icone_mochila": "assets/icones/itens/mochila/tunica_vigia_anil.png",
+   "conjunto": "vigia_anil"
   },
   {
    "id": "habito_penitente_carmim",
@@ -3223,7 +3559,8 @@
     "40": "assets/icones/itens/40/habito_penitente_carmim.png",
     "32": "assets/icones/itens/32/habito_penitente_carmim.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/habito_penitente_carmim.png"
+   "icone_mochila": "assets/icones/itens/mochila/habito_penitente_carmim.png",
+   "conjunto": "penitente_carmim"
   },
   {
    "id": "sobreveste_setimo_selo",
@@ -3263,7 +3600,8 @@
     "40": "assets/icones/itens/40/sobreveste_setimo_selo.png",
     "32": "assets/icones/itens/32/sobreveste_setimo_selo.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/sobreveste_setimo_selo.png"
+   "icone_mochila": "assets/icones/itens/mochila/sobreveste_setimo_selo.png",
+   "conjunto": "setimo_selo"
   },
   {
    "id": "alva_juizo_dourado",
@@ -3305,7 +3643,2375 @@
     "40": "assets/icones/itens/40/alva_juizo_dourado.png",
     "32": "assets/icones/itens/32/alva_juizo_dourado.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/alva_juizo_dourado.png"
+   "icone_mochila": "assets/icones/itens/mochila/alva_juizo_dourado.png",
+   "conjunto": "juizo_dourado"
+  },
+  {
+   "id": "peregrino_cabeca",
+   "nome": "Capuz de Saco do Peregrino",
+   "slot": "cabeca",
+   "conjunto": "peregrino",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Tudo o que um peregrino tinha quando chegou a São Lázaro, e quase tudo o que tinha quando foi embora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/peregrino_cabeca.png",
+    "40": "assets/icones/itens/40/peregrino_cabeca.png",
+    "32": "assets/icones/itens/32/peregrino_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/peregrino_cabeca.png"
+  },
+  {
+   "id": "peregrino_calcas",
+   "nome": "Calças Remendadas do Peregrino",
+   "slot": "calcas",
+   "conjunto": "peregrino",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Tudo o que um peregrino tinha quando chegou a São Lázaro, e quase tudo o que tinha quando foi embora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/peregrino_calcas.png",
+    "40": "assets/icones/itens/40/peregrino_calcas.png",
+    "32": "assets/icones/itens/32/peregrino_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/peregrino_calcas.png"
+  },
+  {
+   "id": "peregrino_botas",
+   "nome": "Botas de Trapo do Peregrino",
+   "slot": "botas",
+   "conjunto": "peregrino",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Tudo o que um peregrino tinha quando chegou a São Lázaro, e quase tudo o que tinha quando foi embora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/peregrino_botas.png",
+    "40": "assets/icones/itens/40/peregrino_botas.png",
+    "32": "assets/icones/itens/32/peregrino_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/peregrino_botas.png"
+  },
+  {
+   "id": "batedor_vela_cabeca",
+   "nome": "Capuz do Batedor da Vela",
+   "slot": "cabeca",
+   "conjunto": "batedor_vela",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "agi": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.92,
+   "lore": "Lona de vela de bonde. Os batedores andam na frente da caravana, onde a areia ainda não decidiu se vai engolir o trilho.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batedor_vela_cabeca.png",
+    "40": "assets/icones/itens/40/batedor_vela_cabeca.png",
+    "32": "assets/icones/itens/32/batedor_vela_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batedor_vela_cabeca.png"
+  },
+  {
+   "id": "batedor_vela_calcas",
+   "nome": "Calças do Batedor da Vela",
+   "slot": "calcas",
+   "conjunto": "batedor_vela",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "agi": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.92,
+   "lore": "Lona de vela de bonde. Os batedores andam na frente da caravana, onde a areia ainda não decidiu se vai engolir o trilho.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batedor_vela_calcas.png",
+    "40": "assets/icones/itens/40/batedor_vela_calcas.png",
+    "32": "assets/icones/itens/32/batedor_vela_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batedor_vela_calcas.png"
+  },
+  {
+   "id": "batedor_vela_botas",
+   "nome": "Botas do Batedor da Vela",
+   "slot": "botas",
+   "conjunto": "batedor_vela",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "agi": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {},
+   "peso_drop": 0.92,
+   "lore": "Lona de vela de bonde. Os batedores andam na frente da caravana, onde a areia ainda não decidiu se vai engolir o trilho.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/batedor_vela_botas.png",
+    "40": "assets/icones/itens/40/batedor_vela_botas.png",
+    "32": "assets/icones/itens/32/batedor_vela_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/batedor_vela_botas.png"
+  },
+  {
+   "id": "bondeiro_cabeca",
+   "nome": "Capuz de Fivelas do Bondeiro",
+   "slot": "cabeca",
+   "conjunto": "bondeiro",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {
+    "hp": 4
+   },
+   "peso_drop": 0.83,
+   "lore": "Cada fivela segura alguma coisa: o mastro, a carga, o colega que caiu.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/bondeiro_cabeca.png",
+    "40": "assets/icones/itens/40/bondeiro_cabeca.png",
+    "32": "assets/icones/itens/32/bondeiro_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bondeiro_cabeca.png"
+  },
+  {
+   "id": "bondeiro_calcas",
+   "nome": "Calças de Fivelas do Bondeiro",
+   "slot": "calcas",
+   "conjunto": "bondeiro",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {
+    "hp": 5
+   },
+   "peso_drop": 0.83,
+   "lore": "Cada fivela segura alguma coisa: o mastro, a carga, o colega que caiu.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/bondeiro_calcas.png",
+    "40": "assets/icones/itens/40/bondeiro_calcas.png",
+    "32": "assets/icones/itens/32/bondeiro_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bondeiro_calcas.png"
+  },
+  {
+   "id": "bondeiro_botas",
+   "nome": "Botas de Fivelas do Bondeiro",
+   "slot": "botas",
+   "conjunto": "bondeiro",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "defesa": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {
+    "hp": 4
+   },
+   "peso_drop": 0.83,
+   "lore": "Cada fivela segura alguma coisa: o mastro, a carga, o colega que caiu.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/bondeiro_botas.png",
+    "40": "assets/icones/itens/40/bondeiro_botas.png",
+    "32": "assets/icones/itens/32/bondeiro_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bondeiro_botas.png"
+  },
+  {
+   "id": "margem_amarga_cabeca",
+   "nome": "Capuz da Margem Amarga",
+   "slot": "cabeca",
+   "conjunto": "margem_amarga",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 2,
+    "agi": 1
+   },
+   "bonus_fixo": {
+    "hp": 8
+   },
+   "peso_drop": 0.75,
+   "lore": "Tingido nas margens do Rio Amargo, onde as folhas crescem tortas e não morrem.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/margem_amarga_cabeca.png",
+    "40": "assets/icones/itens/40/margem_amarga_cabeca.png",
+    "32": "assets/icones/itens/32/margem_amarga_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/margem_amarga_cabeca.png"
+  },
+  {
+   "id": "margem_amarga_calcas",
+   "nome": "Calças da Margem Amarga",
+   "slot": "calcas",
+   "conjunto": "margem_amarga",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 2,
+    "agi": 1
+   },
+   "bonus_fixo": {
+    "hp": 10
+   },
+   "peso_drop": 0.75,
+   "lore": "Tingido nas margens do Rio Amargo, onde as folhas crescem tortas e não morrem.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/margem_amarga_calcas.png",
+    "40": "assets/icones/itens/40/margem_amarga_calcas.png",
+    "32": "assets/icones/itens/32/margem_amarga_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/margem_amarga_calcas.png"
+  },
+  {
+   "id": "margem_amarga_botas",
+   "nome": "Botas da Margem Amarga",
+   "slot": "botas",
+   "conjunto": "margem_amarga",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 1,
+    "agi": 1
+   },
+   "bonus_fixo": {
+    "hp": 7
+   },
+   "peso_drop": 0.75,
+   "lore": "Tingido nas margens do Rio Amargo, onde as folhas crescem tortas e não morrem.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/margem_amarga_botas.png",
+    "40": "assets/icones/itens/40/margem_amarga_botas.png",
+    "32": "assets/icones/itens/32/margem_amarga_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/margem_amarga_botas.png"
+  },
+  {
+   "id": "inverno_cinza_cabeca",
+   "nome": "Capuz de Pele do Inverno de Cinza",
+   "slot": "cabeca",
+   "conjunto": "inverno_cinza",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 2,
+    "for": 1
+   },
+   "bonus_fixo": {
+    "hp": 12
+   },
+   "peso_drop": 0.67,
+   "lore": "Depois do clarão veio o inverno de cinza. Quem sobreviveu aprendeu a costurar pele de qualquer coisa que tivesse pelo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/inverno_cinza_cabeca.png",
+    "40": "assets/icones/itens/40/inverno_cinza_cabeca.png",
+    "32": "assets/icones/itens/32/inverno_cinza_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/inverno_cinza_cabeca.png"
+  },
+  {
+   "id": "inverno_cinza_calcas",
+   "nome": "Calças de Pele do Inverno de Cinza",
+   "slot": "calcas",
+   "conjunto": "inverno_cinza",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 2,
+    "for": 1
+   },
+   "bonus_fixo": {
+    "hp": 15
+   },
+   "peso_drop": 0.67,
+   "lore": "Depois do clarão veio o inverno de cinza. Quem sobreviveu aprendeu a costurar pele de qualquer coisa que tivesse pelo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/inverno_cinza_calcas.png",
+    "40": "assets/icones/itens/40/inverno_cinza_calcas.png",
+    "32": "assets/icones/itens/32/inverno_cinza_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/inverno_cinza_calcas.png"
+  },
+  {
+   "id": "inverno_cinza_botas",
+   "nome": "Botas de Pele do Inverno de Cinza",
+   "slot": "botas",
+   "conjunto": "inverno_cinza",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "vit": 2,
+    "for": 1
+   },
+   "bonus_fixo": {
+    "hp": 10
+   },
+   "peso_drop": 0.67,
+   "lore": "Depois do clarão veio o inverno de cinza. Quem sobreviveu aprendeu a costurar pele de qualquer coisa que tivesse pelo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/inverno_cinza_botas.png",
+    "40": "assets/icones/itens/40/inverno_cinza_botas.png",
+    "32": "assets/icones/itens/32/inverno_cinza_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/inverno_cinza_botas.png"
+  },
+  {
+   "id": "vigia_anil_cabeca",
+   "nome": "Capuz do Vigia Anil",
+   "slot": "cabeca",
+   "conjunto": "vigia_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 12
+   },
+   "peso_drop": 0.58,
+   "lore": "Anil e prata das torres de vigia. Os vigias bordavam a lua para lembrar que a noite ainda tem fim.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/vigia_anil_cabeca.png",
+    "40": "assets/icones/itens/40/vigia_anil_cabeca.png",
+    "32": "assets/icones/itens/32/vigia_anil_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vigia_anil_cabeca.png"
+  },
+  {
+   "id": "vigia_anil_calcas",
+   "nome": "Calças do Vigia Anil",
+   "slot": "calcas",
+   "conjunto": "vigia_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 15
+   },
+   "peso_drop": 0.58,
+   "lore": "Anil e prata das torres de vigia. Os vigias bordavam a lua para lembrar que a noite ainda tem fim.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/vigia_anil_calcas.png",
+    "40": "assets/icones/itens/40/vigia_anil_calcas.png",
+    "32": "assets/icones/itens/32/vigia_anil_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vigia_anil_calcas.png"
+  },
+  {
+   "id": "vigia_anil_botas",
+   "nome": "Botas do Vigia Anil",
+   "slot": "botas",
+   "conjunto": "vigia_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 2,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 1,
+    "vit": 1
+   },
+   "bonus_fixo": {
+    "hp": 10
+   },
+   "peso_drop": 0.58,
+   "lore": "Anil e prata das torres de vigia. Os vigias bordavam a lua para lembrar que a noite ainda tem fim.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/vigia_anil_botas.png",
+    "40": "assets/icones/itens/40/vigia_anil_botas.png",
+    "32": "assets/icones/itens/32/vigia_anil_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vigia_anil_botas.png"
+  },
+  {
+   "id": "penitente_carmim_cabeca",
+   "nome": "Capuz do Penitente Carmim",
+   "slot": "cabeca",
+   "conjunto": "penitente_carmim",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 16
+   },
+   "peso_drop": 0.5,
+   "lore": "Vermelho de flagelante. A roda bordada é a roda do suplício, e quem veste lembra dela a cada passo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/penitente_carmim_cabeca.png",
+    "40": "assets/icones/itens/40/penitente_carmim_cabeca.png",
+    "32": "assets/icones/itens/32/penitente_carmim_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/penitente_carmim_cabeca.png"
+  },
+  {
+   "id": "penitente_carmim_calcas",
+   "nome": "Calças do Penitente Carmim",
+   "slot": "calcas",
+   "conjunto": "penitente_carmim",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 20
+   },
+   "peso_drop": 0.5,
+   "lore": "Vermelho de flagelante. A roda bordada é a roda do suplício, e quem veste lembra dela a cada passo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/penitente_carmim_calcas.png",
+    "40": "assets/icones/itens/40/penitente_carmim_calcas.png",
+    "32": "assets/icones/itens/32/penitente_carmim_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/penitente_carmim_calcas.png"
+  },
+  {
+   "id": "penitente_carmim_botas",
+   "nome": "Botas do Penitente Carmim",
+   "slot": "botas",
+   "conjunto": "penitente_carmim",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 1,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 14
+   },
+   "peso_drop": 0.5,
+   "lore": "Vermelho de flagelante. A roda bordada é a roda do suplício, e quem veste lembra dela a cada passo.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/penitente_carmim_botas.png",
+    "40": "assets/icones/itens/40/penitente_carmim_botas.png",
+    "32": "assets/icones/itens/32/penitente_carmim_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/penitente_carmim_botas.png"
+  },
+  {
+   "id": "setimo_selo_cabeca",
+   "nome": "Capuz do Sétimo Selo",
+   "slot": "cabeca",
+   "conjunto": "setimo_selo",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 20
+   },
+   "peso_drop": 0.42,
+   "lore": "A lua crescente e a ametista são o sétimo selo. Quando ele abrir, haverá silêncio no céu por meia hora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/setimo_selo_cabeca.png",
+    "40": "assets/icones/itens/40/setimo_selo_cabeca.png",
+    "32": "assets/icones/itens/32/setimo_selo_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/setimo_selo_cabeca.png"
+  },
+  {
+   "id": "setimo_selo_calcas",
+   "nome": "Calças do Sétimo Selo",
+   "slot": "calcas",
+   "conjunto": "setimo_selo",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 5,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 3,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 25
+   },
+   "peso_drop": 0.42,
+   "lore": "A lua crescente e a ametista são o sétimo selo. Quando ele abrir, haverá silêncio no céu por meia hora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/setimo_selo_calcas.png",
+    "40": "assets/icones/itens/40/setimo_selo_calcas.png",
+    "32": "assets/icones/itens/32/setimo_selo_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/setimo_selo_calcas.png"
+  },
+  {
+   "id": "setimo_selo_botas",
+   "nome": "Botas do Sétimo Selo",
+   "slot": "botas",
+   "conjunto": "setimo_selo",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 3,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 18
+   },
+   "peso_drop": 0.42,
+   "lore": "A lua crescente e a ametista são o sétimo selo. Quando ele abrir, haverá silêncio no céu por meia hora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/setimo_selo_botas.png",
+    "40": "assets/icones/itens/40/setimo_selo_botas.png",
+    "32": "assets/icones/itens/32/setimo_selo_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/setimo_selo_botas.png"
+  },
+  {
+   "id": "juizo_dourado_cabeca",
+   "nome": "Capuz do Juízo Dourado",
+   "slot": "cabeca",
+   "conjunto": "juizo_dourado",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 2,
+    "agi": 2,
+    "vit": 2,
+    "esp": 2
+   },
+   "bonus_fixo": {
+    "hp": 28
+   },
+   "peso_drop": 0.33,
+   "lore": "Branco de altar e ouro de custódia. Feito para o dia do Juízo, que começou e não terminou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juizo_dourado_cabeca.png",
+    "40": "assets/icones/itens/40/juizo_dourado_cabeca.png",
+    "32": "assets/icones/itens/32/juizo_dourado_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juizo_dourado_cabeca.png"
+  },
+  {
+   "id": "juizo_dourado_calcas",
+   "nome": "Calças do Juízo Dourado",
+   "slot": "calcas",
+   "conjunto": "juizo_dourado",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 6,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 2,
+    "agi": 2,
+    "vit": 2,
+    "esp": 2
+   },
+   "bonus_fixo": {
+    "hp": 35
+   },
+   "peso_drop": 0.33,
+   "lore": "Branco de altar e ouro de custódia. Feito para o dia do Juízo, que começou e não terminou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juizo_dourado_calcas.png",
+    "40": "assets/icones/itens/40/juizo_dourado_calcas.png",
+    "32": "assets/icones/itens/32/juizo_dourado_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juizo_dourado_calcas.png"
+  },
+  {
+   "id": "juizo_dourado_botas",
+   "nome": "Botas do Juízo Dourado",
+   "slot": "botas",
+   "conjunto": "juizo_dourado",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "for": 1,
+    "agi": 1,
+    "vit": 2,
+    "esp": 2
+   },
+   "bonus_fixo": {
+    "hp": 24
+   },
+   "peso_drop": 0.33,
+   "lore": "Branco de altar e ouro de custódia. Feito para o dia do Juízo, que começou e não terminou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/juizo_dourado_botas.png",
+    "40": "assets/icones/itens/40/juizo_dourado_botas.png",
+    "32": "assets/icones/itens/32/juizo_dourado_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juizo_dourado_botas.png"
+  },
+  {
+   "id": "regente_anil_cabeca",
+   "nome": "Capuz Coroado do Regente Anil",
+   "slot": "cabeca",
+   "conjunto": "regente_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 17,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 5,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2,
+    "agi": 2
+   },
+   "bonus_fixo": {
+    "hp": 32
+   },
+   "peso_drop": 0.25,
+   "lore": "Um vigia que sobreviveu tanto tempo na torre que a cidade enterrada passou a chamá-lo de rei. Ele nunca aceitou a coroa; costurou-a no capuz.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/capuzes.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "capuzes",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/regente_anil_cabeca.png",
+    "40": "assets/icones/itens/40/regente_anil_cabeca.png",
+    "32": "assets/icones/itens/32/regente_anil_cabeca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/regente_anil_cabeca.png"
+  },
+  {
+   "id": "regente_anil_calcas",
+   "nome": "Calças do Regente Anil",
+   "slot": "calcas",
+   "conjunto": "regente_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 17,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 6,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 3,
+    "vit": 3,
+    "agi": 2
+   },
+   "bonus_fixo": {
+    "hp": 40
+   },
+   "peso_drop": 0.25,
+   "lore": "Um vigia que sobreviveu tanto tempo na torre que a cidade enterrada passou a chamá-lo de rei. Ele nunca aceitou a coroa; costurou-a no capuz.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/calcas.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "calcas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/regente_anil_calcas.png",
+    "40": "assets/icones/itens/40/regente_anil_calcas.png",
+    "32": "assets/icones/itens/32/regente_anil_calcas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/regente_anil_calcas.png"
+  },
+  {
+   "id": "regente_anil_botas",
+   "nome": "Botas do Regente Anil",
+   "slot": "botas",
+   "conjunto": "regente_anil",
+   "peso": "tecido",
+   "classes": null,
+   "nivel": 17,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "defesa": 4,
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 2,
+    "vit": 2,
+    "agi": 1
+   },
+   "bonus_fixo": {
+    "hp": 28
+   },
+   "peso_drop": 0.25,
+   "lore": "Um vigia que sobreviveu tanto tempo na torre que a cidade enterrada passou a chamá-lo de rei. Ele nunca aceitou a coroa; costurou-a no capuz.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/botas.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "botas",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/regente_anil_botas.png",
+    "40": "assets/icones/itens/40/regente_anil_botas.png",
+    "32": "assets/icones/itens/32/regente_anil_botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/regente_anil_botas.png"
+  },
+  {
+   "id": "medalha_peregrino",
+   "nome": "Medalha do Peregrino",
+   "slot": "amuleto",
+   "nivel": 1,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 2
+   },
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Couro trançado e uma medalha de cruz gasta de tanto ser apertada na mão.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 0,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/medalha_peregrino.png",
+    "40": "assets/icones/itens/40/medalha_peregrino.png",
+    "32": "assets/icones/itens/32/medalha_peregrino.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/medalha_peregrino.png"
+  },
+  {
+   "id": "colar_presas_vala",
+   "nome": "Colar de Presas da Vala",
+   "slot": "amuleto",
+   "nivel": 3,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 3
+   },
+   "bonus_fixo": {
+    "dano_plano": 1
+   },
+   "peso_drop": 0.91,
+   "lore": "Presas dos cães da Vala. Cada uma foi tirada de um que não vai voltar.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 1,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/colar_presas_vala.png",
+    "40": "assets/icones/itens/40/colar_presas_vala.png",
+    "32": "assets/icones/itens/32/colar_presas_vala.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/colar_presas_vala.png"
+  },
+  {
+   "id": "gota_carmim_martirio",
+   "nome": "Gota Carmim do Martírio",
+   "slot": "amuleto",
+   "nivel": 5,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 3,
+    "vit": 2
+   },
+   "bonus_fixo": {
+    "hp": 15
+   },
+   "peso_drop": 0.82,
+   "lore": "Um rubi em forma de gota, preso em espinhos. Diz a Madre que é sangue de mártir que endureceu.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 2,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/gota_carmim_martirio.png",
+    "40": "assets/icones/itens/40/gota_carmim_martirio.png",
+    "32": "assets/icones/itens/32/gota_carmim_martirio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gota_carmim_martirio.png"
+  },
+  {
+   "id": "colar_raiz_amarga",
+   "nome": "Colar da Raiz Amarga",
+   "slot": "amuleto",
+   "nivel": 7,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "vit": 4,
+    "agi": 2
+   },
+   "bonus_fixo": {
+    "hp": 20,
+    "res": {
+     "veneno": 0.08
+    }
+   },
+   "peso_drop": 0.73,
+   "lore": "Raiz das margens do Rio Amargo, trançada em volta de uma esmeralda. Ainda brota folha nova toda semana.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/colar_raiz_amarga.png",
+    "40": "assets/icones/itens/40/colar_raiz_amarga.png",
+    "32": "assets/icones/itens/32/colar_raiz_amarga.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/colar_raiz_amarga.png"
+  },
+  {
+   "id": "pingente_lua_anil",
+   "nome": "Pingente da Lua Anil",
+   "slot": "amuleto",
+   "nivel": 9,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 5,
+    "agi": 3
+   },
+   "bonus_fixo": {
+    "hp": 25,
+    "critico": 0.01
+   },
+   "peso_drop": 0.64,
+   "lore": "Safiras e uma lua crescente de prata. Os vigias diziam que a lua era o único farol que a bomba não apagou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/pingente_lua_anil.png",
+    "40": "assets/icones/itens/40/pingente_lua_anil.png",
+    "32": "assets/icones/itens/32/pingente_lua_anil.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pingente_lua_anil.png"
+  },
+  {
+   "id": "sol_ambar",
+   "nome": "Sol de Âmbar",
+   "slot": "amuleto",
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 4,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 35,
+    "res": {
+     "sagrado": 0.08
+    }
+   },
+   "peso_drop": 0.56,
+   "lore": "Um sol de bronze com âmbar no centro. Esquenta a pele como o sol de antes, o que não queimava.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 3,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/sol_ambar.png",
+    "40": "assets/icones/itens/40/sol_ambar.png",
+    "32": "assets/icones/itens/32/sol_ambar.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sol_ambar.png"
+  },
+  {
+   "id": "estrela_espinhos_violeta",
+   "nome": "Estrela de Espinhos Violeta",
+   "slot": "amuleto",
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 6,
+    "vit": 3
+   },
+   "bonus_fixo": {
+    "hp": 35,
+    "dano_magico_extra": 3
+   },
+   "peso_drop": 0.47,
+   "lore": "Ametista cravada numa estrela de espinhos. Os cultistas dizem que ela escuta as orações e responde com dor.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 4,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/estrela_espinhos_violeta.png",
+    "40": "assets/icones/itens/40/estrela_espinhos_violeta.png",
+    "32": "assets/icones/itens/32/estrela_espinhos_violeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estrela_espinhos_violeta.png"
+  },
+  {
+   "id": "cranio_duque_chifrudo",
+   "nome": "Crânio do Duque Chifrudo",
+   "slot": "amuleto",
+   "nivel": 13,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 7,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 45,
+    "roubo_de_vida": 0.02
+   },
+   "peso_drop": 0.38,
+   "lore": "O crânio de um duque da Legião Blasfema, ainda de olhos acesos. Ele não gosta de quem o carrega, e se vinga em quem bate em você.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 5,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/cranio_duque_chifrudo.png",
+    "40": "assets/icones/itens/40/cranio_duque_chifrudo.png",
+    "32": "assets/icones/itens/32/cranio_duque_chifrudo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cranio_duque_chifrudo.png"
+  },
+  {
+   "id": "asas_querubim_caido",
+   "nome": "Asas do Querubim Caído",
+   "slot": "amuleto",
+   "nivel": 15,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "esp": 6,
+    "agi": 4,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 60,
+    "reduz_dano": 0.02
+   },
+   "peso_drop": 0.29,
+   "lore": "As asas de um querubim que caiu no deserto, presas a uma custódia de ouro. As penas ainda tentam bater.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 8,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/asas_querubim_caido.png",
+    "40": "assets/icones/itens/40/asas_querubim_caido.png",
+    "32": "assets/icones/itens/32/asas_querubim_caido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asas_querubim_caido.png"
+  },
+  {
+   "id": "relicario_santo_acorrentado",
+   "nome": "Relicário do Santo Acorrentado",
+   "slot": "amuleto",
+   "nivel": 17,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "grade": [
+    1,
+    1
+   ],
+   "atributos": {
+    "for": 5,
+    "agi": 5,
+    "vit": 5,
+    "esp": 5
+   },
+   "bonus_fixo": {
+    "hp": 80,
+    "reduz_dano": 0.03,
+    "critico": 0.02
+   },
+   "peso_drop": 0.2,
+   "lore": "Um santo que se levantou para o Juízo e foi acorrentado de volta ao relicário. A auréola ainda queima.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/colares.png",
+    "indice": 9,
+    "grade": [
+     5,
+     2
+    ]
+   },
+   "colecao": "colares",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/relicario_santo_acorrentado.png",
+    "40": "assets/icones/itens/40/relicario_santo_acorrentado.png",
+    "32": "assets/icones/itens/32/relicario_santo_acorrentado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/relicario_santo_acorrentado.png"
+  },
+  {
+   "id": "espada_ferro_sangrento",
+   "nome": "Espada de Ferro Sangrento",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 2,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "dano": [
+    5,
+    10
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {},
+   "peso_drop": 1.0,
+   "lore": "Ferro de trilho que nunca parou de sangrar ferrugem vermelha.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 0,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_ferro_sangrento.png",
+    "40": "assets/icones/itens/40/espada_ferro_sangrento.png",
+    "32": "assets/icones/itens/32/espada_ferro_sangrento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_ferro_sangrento.png"
+  },
+  {
+   "id": "espada_geada_atomica",
+   "nome": "Espada da Geada Atômica",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 4,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "dano": [
+    7,
+    13
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "res": {
+     "fogo": 0.05
+    }
+   },
+   "peso_drop": 0.91,
+   "lore": "Forjada no inverno que veio depois do clarão. A lâmina ainda guarda o frio daquela noite.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 1,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_geada_atomica.png",
+    "40": "assets/icones/itens/40/espada_geada_atomica.png",
+    "32": "assets/icones/itens/32/espada_geada_atomica.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_geada_atomica.png"
+  },
+  {
+   "id": "espada_vazio_violeta",
+   "nome": "Espada do Vazio Violeta",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 6,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa1"
+   ],
+   "dano": [
+    9,
+    17
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "dano_magico_extra": 2
+   },
+   "peso_drop": 0.82,
+   "lore": "O olho violeta no punho não reflete nada. Os cultistas pagam caro para olhar dentro dele.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 2,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_vazio_violeta.png",
+    "40": "assets/icones/itens/40/espada_vazio_violeta.png",
+    "32": "assets/icones/itens/32/espada_vazio_violeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_vazio_violeta.png"
+  },
+  {
+   "id": "espada_custodia_solar",
+   "nome": "Espada da Custódia Solar",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 8,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    11,
+    21
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "res": {
+     "sagrado": 0.08
+    }
+   },
+   "peso_drop": 0.73,
+   "lore": "O punho é uma custódia de altar, com a hóstia trocada por um sol que não se apaga.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 3,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_custodia_solar.png",
+    "40": "assets/icones/itens/40/espada_custodia_solar.png",
+    "32": "assets/icones/itens/32/espada_custodia_solar.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_custodia_solar.png"
+  },
+  {
+   "id": "espada_fornalha",
+   "nome": "Espada da Fornalha",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 10,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    13,
+    25
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "dano_plano": 2
+   },
+   "peso_drop": 0.64,
+   "lore": "Tirada da fornalha da Legião Blasfema ainda em brasa. Nunca esfriou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 4,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_fornalha.png",
+    "40": "assets/icones/itens/40/espada_fornalha.png",
+    "32": "assets/icones/itens/32/espada_fornalha.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_fornalha.png"
+  },
+  {
+   "id": "espada_amargo",
+   "nome": "Espada do Amargo",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 11,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    15,
+    27
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "res": {
+     "veneno": 0.1
+    }
+   },
+   "peso_drop": 0.56,
+   "lore": "Temperada nas águas do Rio Amargo. O verde corre por dentro da lâmina como veia.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 5,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_amargo.png",
+    "40": "assets/icones/itens/40/espada_amargo.png",
+    "32": "assets/icones/itens/32/espada_amargo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_amargo.png"
+  },
+  {
+   "id": "espada_bobina_viva",
+   "nome": "Espada da Bobina Viva",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 12,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    16,
+    29
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "velocidade_ataque": 0.04
+   },
+   "peso_drop": 0.47,
+   "lore": "Um Tecnomancer enrolou uma bobina na lâmina por aposta. A bobina ganhou.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 6,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_bobina_viva.png",
+    "40": "assets/icones/itens/40/espada_bobina_viva.png",
+    "32": "assets/icones/itens/32/espada_bobina_viva.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_bobina_viva.png"
+  },
+  {
+   "id": "espada_firmamento_partido",
+   "nome": "Espada do Firmamento Partido",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 14,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    18,
+    34
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "critico": 0.02
+   },
+   "peso_drop": 0.38,
+   "lore": "Feita do pedaço de céu que rachou quando a terceira trombeta tocou. Dentro dela ainda tem estrelas.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 7,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_firmamento_partido.png",
+    "40": "assets/icones/itens/40/espada_firmamento_partido.png",
+    "32": "assets/icones/itens/32/espada_firmamento_partido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_firmamento_partido.png"
+  },
+  {
+   "id": "espada_eclipse_rubro",
+   "nome": "Espada do Eclipse Rubro",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 16,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    21,
+    38
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    1,
+    3
+   ],
+   "bonus_fixo": {
+    "roubo_de_vida": 0.02
+   },
+   "peso_drop": 0.29,
+   "lore": "O sol negro no punho é o eclipse que anunciou a guerra. A lâmina bebe até a luz.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 8,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_eclipse_rubro.png",
+    "40": "assets/icones/itens/40/espada_eclipse_rubro.png",
+    "32": "assets/icones/itens/32/espada_eclipse_rubro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_eclipse_rubro.png"
+  },
+  {
+   "id": "espada_juizo_acorrentado",
+   "nome": "Espada do Juízo Acorrentado",
+   "classes": [
+    "anjo",
+    "demonio",
+    "humano"
+   ],
+   "tipo": "espada",
+   "slot": "arma",
+   "maos": 1,
+   "nivel": 18,
+   "raridade": "rolada",
+   "tags": [
+    "equip:faixa2"
+   ],
+   "dano": [
+    23,
+    44
+   ],
+   "intervalo": 1.05,
+   "grade": [
+    2,
+    4
+   ],
+   "bonus_fixo": {
+    "critico": 0.03,
+    "dano_plano": 3
+   },
+   "peso_drop": 0.2,
+   "lore": "A espada que deveria encerrar o Juízo. Acorrentaram-na porque ninguém teve coragem de usá-la. Até agora.",
+   "motivo": "arte_pronta",
+   "arte": {
+    "folha": "assets/icones/fontes/espadas.png",
+    "indice": 9,
+    "grade": [
+     10,
+     1
+    ],
+    "cortes_x": [
+     223,
+     407,
+     595,
+     817,
+     1005,
+     1211,
+     1396,
+     1634,
+     1884
+    ]
+   },
+   "colecao": "espadas",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_juizo_acorrentado.png",
+    "40": "assets/icones/itens/40/espada_juizo_acorrentado.png",
+    "32": "assets/icones/itens/32/espada_juizo_acorrentado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_juizo_acorrentado.png"
+  },
+  {
+   "id": "decreto_vampirico",
+   "nome": "Decreto Vampírico",
+   "slot": "segunda_mao",
+   "tipo": "grimorio",
+   "classes": [
+    "cultista"
+   ],
+   "nivel": 12,
+   "raridade": "lendario",
+   "grade": [
+    2,
+    2
+   ],
+   "atributos": {
+    "esp": 8,
+    "vit": 4
+   },
+   "bonus_fixo": {
+    "hp": 60,
+    "roubo_de_vida": 0.05,
+    "dano_magico_extra": 6
+   },
+   "efeito": "Skills que custam HP devolvem 25% do custo quando acertam.",
+   "lore": "Um decreto lacrado com sangue e pregado com um punhal. Quem assinou nunca morreu, e cobra a assinatura de quem lê.",
+   "arte": {
+    "folha": "assets/icones/fontes/decreto_vampirico.png",
+    "indice": 0,
+    "grade": [
+     1,
+     1
+    ]
+   },
+   "dano_magico_extra": 10,
+   "tags": [
+    "lendario:zacarias"
+   ],
+   "motivo": "arte_pronta",
+   "colecao": "lendarios",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/decreto_vampirico.png",
+    "40": "assets/icones/itens/40/decreto_vampirico.png",
+    "32": "assets/icones/itens/32/decreto_vampirico.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/decreto_vampirico.png"
   },
   {
    "id": "pocao_vida_p",

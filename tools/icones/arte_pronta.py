@@ -12,13 +12,23 @@ PF = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".
 COLS, ROWS = 4, 2
 COR_RAR = {"magico":"#6f9fc9","raro":"#c99a3e","excelente":"#9cff3a","lendario":"#c8302a"}
 
-def peca(folha, idx):
+def _cortes(occ, n):
+    """Fronteiras entre peças: perto de cada divisão igual, a coluna (ou linha) com menos tinta."""
+    L = len(occ); c = [0]
+    for k in range(1, n):
+        x0 = round(k * L / n); r = round(0.3 * L / n)
+        c.append(x0 - r + int(np.argmin(occ[x0 - r:x0 + r])))
+    return c + [L]
+
+def peca(folha, idx, grade=(COLS, ROWS), cortes_x=None):
     im = Image.open(f"{PF}/{folha}").convert("RGBA")
-    cw, ch = im.width / COLS, im.height / ROWS
-    x, y = idx % COLS, idx // COLS
-    c = im.crop((round(x*cw), round(y*ch), round((x+1)*cw), round((y+1)*ch)))
+    cols, rows = grade
+    a = np.asarray(im)[..., 3] > 200
+    cx, cy = ([0] + list(cortes_x) + [im.width]) if cortes_x else _cortes(a.sum(0), cols), _cortes(a.sum(1), rows)
+    x, y = idx % cols, idx // cols
+    c = im.crop((cx[x], cy[y], cx[x+1], cy[y+1]))
     a = np.asarray(c)[..., 3]
-    m = a > 24                                           # ignora respingos soltos do recorte
+    m = a > 120                                          # ignora brilho solto e respingos do recorte
     ys, xs = np.where(m)
     return c.crop((xs.min(), ys.min(), xs.max()+1, ys.max()+1))
 
@@ -34,7 +44,7 @@ if __name__ == "__main__":
     so = set(sys.argv[1:])
     itens = [i for i in json.load(open(f"{PF}/design/skills-itens/itens.json"))["itens"] if i.get("motivo") == "arte_pronta" and (not so or i["id"] in so)]
     for it in itens:
-        g = peca(it["arte"]["folha"], it["arte"]["indice"])
+        g = peca(it["arte"]["folha"], it["arte"]["indice"], it["arte"].get("grade", (COLS, ROWS)), it["arte"].get("cortes_x"))
         cor = COR_RAR.get(it.get("raridade"))
         for tam in (64, 40, 32):
             out = caber(g, tam, tam, max(1, tam // 16), 48 if tam == 64 else 36)
