@@ -120,3 +120,6 @@ Detalhes em `eden.md`. Para o jogo:
    do mapa, padrão igual ao Rio Amargo (nada muda no deserto). Sem o patch o mapa funciona, mas a água dos quatro rios
    sai verde-amarga.
 5. Nada muda na sim: spots, grupos, `temperamento`, `ancora` e `raio_territorio` seguem o formato de hoje.
+6. A Torre no mapa agora é o prop `torre_radio` (thread da Torre de rádio, já em `assets/ambiente`), centro (11.5, 9.0),
+   porta do portal em (16.1, 9.0) e chegada ao sair em (17.3, 10.0) (`PORTA_TORRE`/`CHEGADA_TORRE` em `gerar.py`; os
+   `torre_*.json` desta pasta foram regerados com a nova chegada).

@@ -344,10 +344,9 @@ def mata():
     a.prop("tenda_demonio", cxl - 5.0, cyl_ - 4.0, bloqueia=1.4); a.prop("estandarte_rasgado", cxl + 5.0, cyl_ - 3.5, bloqueia=.3)
     a.prop("tonel_fogo", cxl - 5.5, cyl_ + 4.0, bloqueia=.4, luz=FOGO + [5])
     # ---- A Torre (marco e entrada da dungeon, trancada)
-    a.prop("torre_vigia", 11.5, 9.0, bloqueia=2.6, luz=FOGO + [9], marco="a_torre")
-    a.prop("portao_ferro", PORTA_TORRE[0] - 1.0, PORTA_TORRE[1] - 1.5, bloqueia=.4)
-    a.prop("braseiro_ferro", PORTA_TORRE[0] + 2.0, PORTA_TORRE[1] - 2.0, bloqueia=.4, luz=FOGO + [6])
-    a.prop("estandarte_rasgado", PORTA_TORRE[0] - 3.0, PORTA_TORRE[1] + 1.0, bloqueia=.3)
+    # torre_radio (thread "Raid da Torre de rádio"): base 9x9, porta no portão da face +X, raio bloqueado 3.6
+    a.prop("torre_radio", 11.5, 9.0, bloqueia=3.6, luz=FOGO + [9], marco="a_torre")
+    a.prop("braseiro_ferro", PORTA_TORRE[0] + 1.0, PORTA_TORRE[1] - 2.2, bloqueia=.4, luz=FOGO + [6])
     a.portal(PORTA_TORRE[0], PORTA_TORRE[1], "torre_1", [11.5, 25.5], "A Torre · elevador de carga", visual="portal_dungeon",
              requer_flag="torre_aberta", texto_trancado="A porta da Torre está acorrentada por dentro. Ainda não.")
 
