@@ -24,6 +24,10 @@ try:
     import efeitos_area  # noqa
 except ImportError:
     pass
+try:
+    import efeitos_evolucoes  # noqa
+except ImportError:
+    pass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.abspath(os.path.join(HERE, '..', '..', 'assets', 'efeitos'))

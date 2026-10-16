@@ -1,106 +1,936 @@
 {
- "_doc": "Evoluções de classe no nível 50 (estilo Ragnarok), rascunho v0.1 de 2026-10-16. Duas por classe; a escolha é feita numa missão de evolução no nível 50 e é definitiva. A evolução mantém todas as skills da classe base e soma 4 skills novas (níveis 50, 55, 60 e 70) e 1 passiva. Números no mesmo formato de design/combate/classes_base.json; conferir com simular.py antes de integrar. Sprites: tools/sprite-pipeline/personagens/evolucoes.py (render.py aceita o id como tipo).",
- "versao": "0.1",
- "nivel_evolucao": 50,
- "missao": {"id_padrao": "evolucao_<classe>", "_doc": "Missão de escolha no nível 50: a facção dá dois mestres, cada um com uma prova curta (1 mapa + 1 chefe). Concluir a prova aplica a evolução."},
- "bonus_ao_evoluir": {"pontos_atributo_extra": 10, "hp_mult": 1.15, "recurso_max_mult": 1.2, "_doc": "Bônus base de toda evolução, somado ao bônus próprio de cada caminho."},
- "desbloqueio_habilidades_niveis": [50, 55, 60, 70],
- "evolucoes": {
-  "arcanjo": {"classe_base": "anjo", "nome": "Arcanjo", "papel": "linha de frente que cura em aura", "sprite": "arcanjo",
-   "bonus": {"FOR": 6, "VIT": 6, "ESP": 0, "AGI": 0, "defesa_mult": 1.2, "hp_mult": 1.1},
-   "passiva": {"id": "hoste_em_marcha", "nome": "Hoste em Marcha", "efeito": "aliados a 6 m recebem +8% de defesa e curam 1% do HP por segundo em combate"},
-   "habilidades": [
-    {"id": "montante_do_sol", "nome": "Montante do Sol", "nivel": 50, "custo": 22, "recarga": 6.0, "mult": 3.2, "elemento": "sagrado", "forma": "cone", "cone_graus": 120, "raio": 3.0, "postura": 45, "cura_aliados_mult": 0.6, "sensacao": "golpe_pesado"},
-    {"id": "estandarte_da_hoste", "nome": "Estandarte da Hoste", "nivel": 55, "custo": 35, "recarga": 30.0, "duracao": 12, "area_raio": 6, "buff": {"dano_mult": 1.15, "defesa_mult": 1.15}, "sensacao": "buff"},
-    {"id": "provocacao_celeste", "nome": "Provocação Celeste", "nivel": 60, "custo": 15, "recarga": 12.0, "area_raio": 5, "efeito": {"provocar": 4.0}, "reducao_dano": 0.25, "sensacao": "debuff"},
-    {"id": "queda_do_arcanjo", "nome": "Queda do Arcanjo", "nivel": 70, "custo": 45, "recarga": 25.0, "deslocamento": 7, "mult": 4.5, "area_raio": 3.5, "elemento": "sagrado", "efeito": {"atordoar": 1.5}, "sensacao": "area"}]},
-  "serafim": {"classe_base": "anjo", "nome": "Serafim", "papel": "suporte puro: cura, escudo e ressurreição", "sprite": "serafim",
-   "bonus": {"FOR": 0, "VIT": 4, "ESP": 10, "AGI": 0, "cura_mult": 1.3, "recurso_regen_mult": 1.25},
-   "passiva": {"id": "seis_asas", "nome": "Seis Asas", "efeito": "curas acima do HP máximo viram escudo de luz (até 20% do HP do alvo, 6 s)"},
-   "habilidades": [
-    {"id": "fogo_que_nao_consome", "nome": "Fogo Que Não Consome", "nivel": 50, "custo": 30, "recarga": 8.0, "cura_mult": 3.5, "area_raio": 5, "conjuracao": 0.6, "sensacao": "cura"},
-    {"id": "rodas_de_olhos", "nome": "Rodas de Olhos", "nivel": 55, "custo": 25, "recarga": 18.0, "duracao": 8, "area_raio": 5, "efeito": {"revelar": 8.0, "cegueira_inimigos": 2.0}, "mult": 1.2, "elemento": "sagrado", "sensacao": "area"},
-    {"id": "escudo_do_trono", "nome": "Escudo do Trono", "nivel": 60, "custo": 28, "recarga": 20.0, "alcance": 8, "escudo_mult": 4.0, "duracao": 6, "sensacao": "buff"},
-    {"id": "levanta_te", "nome": "Levanta-te", "nivel": 70, "custo": 60, "recarga": 120.0, "alcance": 6, "conjuracao": 2.0, "ressuscitar_hp": 0.4, "sensacao": "cura"}]},
-  "lorde_das_trevas": {"classe_base": "demonio", "nome": "Lorde das Trevas", "papel": "tanque de escudo e espadão", "sprite": "lorde_das_trevas",
-   "bonus": {"FOR": 4, "VIT": 10, "ESP": 0, "AGI": 0, "defesa_mult": 1.3, "hp_mult": 1.2, "bloqueio": 0.15},
-   "passiva": {"id": "trono_vazio", "nome": "O Trono Vazio", "efeito": "cada inimigo a 4 m dá +3% de redução de dano (até 15%); bloqueios devolvem 20% do dano em brasa"},
-   "habilidades": [
-    {"id": "golpe_de_escudo", "nome": "Golpe do Escudo-Torre", "nivel": 50, "custo": 18, "recarga": 7.0, "mult": 2.4, "alcance": 1.6, "efeito": {"atordoar": 1.2, "provocar": 3.0}, "postura": 60, "sensacao": "golpe_pesado"},
-    {"id": "muralha_negra", "nome": "Muralha Negra", "nivel": 55, "custo": 30, "recarga": 24.0, "duracao": 6, "reducao_dano": 0.45, "reflete": 0.2, "sensacao": "buff"},
-    {"id": "grito_da_legiao", "nome": "Grito da Legião Blasfema", "nivel": 60, "custo": 25, "recarga": 15.0, "area_raio": 6, "efeito": {"provocar": 5.0, "medo_fracos": 2.0}, "sensacao": "debuff"},
-    {"id": "espadao_do_general", "nome": "Espadão do General", "nivel": 70, "custo": 40, "recarga": 18.0, "mult": 4.0, "forma": "cone", "cone_graus": 160, "raio": 3.5, "elemento": "fogo", "chao_em_chamas_s": 4.0, "postura": 70, "sensacao": "area"}]},
-  "ceifador": {"classe_base": "demonio", "nome": "Ceifador", "papel": "assassino de alvo único", "sprite": "ceifador",
-   "bonus": {"FOR": 6, "VIT": 0, "ESP": 0, "AGI": 10, "critico": 0.1, "dano_critico_mult": 1.25, "velocidade_ataque_mult": 1.1},
-   "passiva": {"id": "colheita", "nome": "Colheita", "efeito": "abaixo de 30% de HP o alvo recebe +25% de dano do Ceifador; matar renova Passo Sombrio"},
-   "habilidades": [
-    {"id": "ceifa_da_alma", "nome": "Ceifa da Alma", "nivel": 50, "custo": 20, "recarga": 5.0, "mult": 3.6, "alcance": 2.2, "elemento": "trevas", "sangramento": {"duracao": 4, "dano_por_s_mult": 0.25}, "sensacao": "golpe_pesado"},
-    {"id": "manto_de_sombra", "nome": "Manto de Sombra", "nivel": 55, "custo": 25, "recarga": 20.0, "duracao": 5, "efeito": {"invisivel": 5.0}, "primeiro_golpe_mult": 2.0, "sensacao": "mobilidade"},
-    {"id": "marca_do_ceifador", "nome": "Marca do Ceifador", "nivel": 60, "custo": 15, "recarga": 14.0, "alcance": 8, "efeito": {"marcado": 8.0}, "dano_recebido_extra": 0.2, "sensacao": "debuff"},
-    {"id": "julgamento_antecipado", "nome": "Julgamento Antecipado", "nivel": 70, "custo": 45, "recarga": 30.0, "mult": 6.0, "alcance": 6, "teleporte_atras": true, "execucao_abaixo_hp": 0.15, "sensacao": "golpe_pesado"}]},
-  "arquimago": {"classe_base": "cultista", "nome": "Arquimago", "papel": "dano mágico em área (canhão de vidro)", "sprite": "arquimago",
-   "bonus": {"FOR": 0, "VIT": 2, "ESP": 12, "AGI": 2, "dano_magico_mult": 1.25, "conjuracao_mult": 0.85},
-   "passiva": {"id": "tres_aureolas", "nome": "Três Auréolas", "efeito": "a cada 3 magias a próxima não gasta HP e tem +40% de dano"},
-   "habilidades": [
-    {"id": "orbe_coracao", "nome": "Coração Preso", "nivel": 50, "custo": 28, "recarga": 4.0, "mult": 3.0, "alcance": 9, "area_raio": 2.0, "elemento": "sangue", "conjuracao": 0.5, "sensacao": "area"},
-    {"id": "grimorio_aberto", "nome": "Grimório Aberto", "nivel": 55, "custo": 30, "recarga": 22.0, "duracao": 10, "buff": {"dano_magico_mult": 1.2, "recarga_mult": 0.8}, "sensacao": "buff"},
-    {"id": "orbitas_de_sangue", "nome": "Órbitas de Sangue", "nivel": 60, "custo": 24, "recarga": 12.0, "duracao": 6, "area_raio": 2.5, "mult_por_s": 0.9, "elemento": "sangue", "sensacao": "area"},
-    {"id": "setimo_versiculo", "nome": "Sétimo Versículo", "nivel": 70, "custo": 70, "recarga": 35.0, "canalizacao": 2.0, "mult": 7.0, "alcance": 10, "area_raio": 4.5, "elemento": "sangue", "sensacao": "area"}]},
-  "profeta_do_amargo": {"classe_base": "cultista", "nome": "Profeta do Amargo", "papel": "dano contínuo de radiação e controle", "sprite": "profeta_do_amargo",
-   "bonus": {"FOR": 0, "VIT": 6, "ESP": 8, "AGI": 2, "dano_continuo_mult": 1.35, "resistencia_amargo": 0.5},
-   "passiva": {"id": "agua_amarga", "nome": "Bebeu do Rio", "efeito": "inimigos com Amargo curam 30% menos; cada acúmulo de Amargo dá ao Profeta 0,5% de HP por segundo"},
-   "habilidades": [
-    {"id": "turibulo_do_amargo", "nome": "Turíbulo do Amargo", "nivel": 50, "custo": 20, "recarga": 6.0, "area_raio": 3.5, "duracao": 6, "acumulos_amargo": 2, "mult_por_s": 0.6, "elemento": "radiacao", "sensacao": "area"},
-    {"id": "estilhaco_da_estrela", "nome": "Estilhaço da Estrela", "nivel": 55, "custo": 26, "recarga": 8.0, "mult": 2.8, "alcance": 9, "elemento": "radiacao", "atravessa": true, "acumulos_amargo": 1, "sensacao": "golpe_pesado"},
-    {"id": "sermao_do_fim", "nome": "Sermão do Fim", "nivel": 60, "custo": 30, "recarga": 20.0, "area_raio": 5, "efeito": {"medo": 2.5, "lentidao": 4.0}, "sensacao": "debuff"},
-    {"id": "absinto_caiu", "nome": "A Estrela Caiu", "nivel": 70, "custo": 60, "recarga": 40.0, "alcance": 10, "preparo": 1.5, "mult": 5.0, "area_raio": 5.0, "chao_amargo_s": 8.0, "acumulos_amargo": 3, "elemento": "radiacao", "sensacao": "area"}]},
-  "pistoleiro": {"classe_base": "humano", "nome": "Pistoleiro", "papel": "dano físico à distância e rajada", "sprite": "pistoleiro",
-   "bonus": {"FOR": 0, "VIT": 2, "ESP": 0, "AGI": 12, "alcance_mult": 1.2, "velocidade_ataque_mult": 1.2, "critico": 0.08},
-   "passiva": {"id": "balas_bentas", "nome": "Balas Bentas", "efeito": "tiros ignoram 15% da defesa e dão +30% de dano em alados (anjos, demônios voadores)"},
-   "habilidades": [
-    {"id": "dois_canos", "nome": "Dois Canos", "nivel": 50, "custo": 12, "recarga": 3.0, "golpes": 6, "mult": 0.75, "alcance": 9, "elemento": "fisico", "sensacao": "rajada"},
-    {"id": "abanar_o_cao", "nome": "Abanar o Cão", "nivel": 55, "custo": 22, "recarga": 10.0, "forma": "cone", "cone_graus": 70, "raio": 7, "golpes": 6, "mult": 0.9, "sensacao": "area"},
-    {"id": "rifle_de_alavanca", "nome": "Rifle de Alavanca", "nivel": 60, "custo": 25, "recarga": 12.0, "preparo": 1.0, "mult": 4.5, "alcance": 14, "atravessa": true, "sensacao": "golpe_pesado"},
-    {"id": "meio_dia", "nome": "Meio-Dia", "nivel": 70, "custo": 45, "recarga": 35.0, "duracao": 6, "buff": {"velocidade_ataque_mult": 1.6, "critico": 0.25}, "recarga_tiros_mult": 0.5, "sensacao": "buff"}]},
-  "cacador_de_anjos": {"classe_base": "humano", "nome": "Caçador de Anjos", "papel": "caçador híbrido: puxa, prende e executa", "sprite": "cacador_de_anjos",
-   "bonus": {"FOR": 8, "VIT": 4, "ESP": 0, "AGI": 4, "dano_vs_alados_mult": 1.3, "defesa_mult": 1.1},
-   "passiva": {"id": "trofeu", "nome": "Troféu", "efeito": "cada alvo morto marcado dá +2% de dano por 30 s (até 10 acúmulos)"},
-   "habilidades": [
-    {"id": "arpao_de_corrente", "nome": "Arpão de Corrente", "nivel": 50, "custo": 18, "recarga": 8.0, "mult": 2.2, "alcance": 8, "puxar": true, "efeito": {"preso": 1.5, "derrubar_voo": 4.0}, "sensacao": "golpe_pesado"},
-    {"id": "rede_de_prata", "nome": "Rede de Prata", "nivel": 55, "custo": 22, "recarga": 16.0, "alcance": 7, "area_raio": 2.5, "efeito": {"enraizar": 3.0, "silencio": 2.0}, "sensacao": "debuff"},
-    {"id": "corte_da_asa", "nome": "Corte da Asa", "nivel": 60, "custo": 24, "recarga": 9.0, "mult": 3.4, "alcance": 1.8, "efeito": {"lentidao": 3.0}, "bonus_vs": {"tag:alado": 1.5}, "sensacao": "golpe_pesado"},
-    {"id": "noite_da_cacada", "nome": "Noite da Caçada", "nivel": 70, "custo": 50, "recarga": 40.0, "duracao": 10, "buff": {"dano_mult": 1.3, "velocidade_mult": 1.2}, "revela_invisiveis": true, "sensacao": "buff"}]},
-  "gladiador": {"classe_base": "mutante", "nome": "Gladiador", "papel": "tanque de escudo e controle", "sprite": "gladiador",
-   "bonus": {"FOR": 4, "VIT": 10, "ESP": 0, "AGI": 2, "defesa_mult": 1.35, "bloqueio": 0.2, "hp_mult": 1.15},
-   "passiva": {"id": "a_plateia", "nome": "A Plateia", "efeito": "cada bloqueio dá 5 de Fúria; com Fúria cheia o próximo golpe atordoa"},
-   "habilidades": [
-    {"id": "muro_de_vela", "nome": "Muro de Vela", "nivel": 50, "custo": 15, "recarga": 18.0, "duracao": 5, "bloqueio_frontal": 0.7, "provocar_area_raio": 5, "sensacao": "buff"},
-    {"id": "machado_do_carrasco", "nome": "Machado do Carrasco", "nivel": 55, "custo": 25, "recarga": 8.0, "mult": 3.6, "alcance": 1.8, "postura": 70, "efeito": {"atordoar": 1.0}, "sensacao": "golpe_pesado"},
-    {"id": "corrente_da_arena", "nome": "Corrente da Arena", "nivel": 60, "custo": 20, "recarga": 12.0, "alcance": 6, "puxar": true, "efeito": {"provocar": 4.0}, "sensacao": "debuff"},
-    {"id": "campeao", "nome": "Campeão", "nivel": 70, "custo": 40, "recarga": 45.0, "duracao": 10, "reducao_dano": 0.35, "regen_hp_por_s": 0.02, "imune_controle": true, "sensacao": "buff"}]},
-  "abominacao": {"classe_base": "mutante", "nome": "Abominação", "papel": "berserker de dano em área", "sprite": "abominacao",
-   "bonus": {"FOR": 12, "VIT": 4, "ESP": 0, "AGI": 0, "dano_mult": 1.2, "roubo_vida": 0.05, "hp_mult": 1.1},
-   "passiva": {"id": "o_amargo_venceu", "nome": "O Amargo Venceu", "efeito": "abaixo de 50% de HP ganha +20% de dano e 5% de roubo de vida extra"},
-   "habilidades": [
-    {"id": "lamina_de_osso", "nome": "Lâmina de Osso", "nivel": 50, "custo": 15, "recarga": 4.0, "mult": 3.0, "forma": "cone", "cone_graus": 140, "raio": 2.5, "sangramento": {"duracao": 4, "dano_por_s_mult": 0.2}, "sensacao": "golpe_pesado"},
-    {"id": "sacos_de_acido", "nome": "Sacos de Ácido", "nivel": 55, "custo": 20, "recarga": 14.0, "area_raio": 4, "mult": 2.0, "elemento": "acido", "efeito": {"corroer_defesa": 0.2}, "duracao": 6, "sensacao": "area"},
-    {"id": "segundo_braco", "nome": "O Segundo Braço", "nivel": 60, "custo": 22, "recarga": 10.0, "alcance": 4, "puxar": true, "mult": 2.2, "efeito": {"preso": 1.0}, "sensacao": "golpe_pesado"},
-    {"id": "frenesi_da_carne", "nome": "Frenesi da Carne", "nivel": 70, "custo": 50, "recarga": 45.0, "duracao": 10, "escala": 1.25, "buff": {"dano_mult": 1.4, "velocidade_ataque_mult": 1.3}, "custo_hp_por_s": 0.01, "sensacao": "buff"}]},
-  "mechanicus": {"classe_base": "tecnomancer", "nome": "Mechanicus", "papel": "suporte de reparo e invocações", "sprite": "mechanicus",
-   "bonus": {"FOR": 0, "VIT": 4, "ESP": 10, "AGI": 2, "invocacoes_mult": 1.3, "cura_mult": 1.2},
-   "passiva": {"id": "liturgia_da_maquina", "nome": "Liturgia da Máquina", "efeito": "+1 torreta ativa; torretas e aliados perto do Mechanicus recebem 2% de reparo por segundo"},
-   "habilidades": [
-    {"id": "bracos_servos", "nome": "Braços Servos", "nivel": 50, "custo": 25, "recarga": 10.0, "cura_mult": 2.5, "alcance": 5, "reparo_invocacoes_mult": 4.0, "sensacao": "cura"},
-    {"id": "orgao_de_vapor", "nome": "Órgão de Vapor", "nivel": 55, "custo": 30, "recarga": 22.0, "area_raio": 6, "duracao": 8, "buff": {"velocidade_ataque_mult": 1.2, "recurso_regen_mult": 1.5}, "sensacao": "buff"},
-    {"id": "torreta_relicario", "nome": "Torreta-Relicário", "nivel": 60, "custo": 40, "recarga": 30.0, "duracao": 25, "invocacao": "torreta_relicario", "cura_area_por_s_mult": 0.4, "sensacao": "invocacao"},
-    {"id": "engrenagem_sagrada", "nome": "Engrenagem Sagrada", "nivel": 70, "custo": 55, "recarga": 60.0, "area_raio": 7, "duracao": 6, "escudo_mult": 3.0, "imune_controle": true, "sensacao": "buff"}]},
-  "engenheiro_herege": {"classe_base": "tecnomancer", "nome": "Engenheiro Herege", "papel": "artilharia e dano em área", "sprite": "engenheiro_herege",
-   "bonus": {"FOR": 4, "VIT": 4, "ESP": 8, "AGI": 0, "dano_mult": 1.2, "alcance_mult": 1.15, "defesa_mult": 1.1},
-   "passiva": {"id": "sino_derretido", "nome": "Sino Derretido", "efeito": "dano em área atordoa por 0,3 s inimigos sagrados (anjos, Não-Julgados) e dá +20% de dano neles"},
-   "habilidades": [
-    {"id": "canhao_sino", "nome": "Canhão-Sino", "nivel": 50, "custo": 25, "recarga": 6.0, "preparo": 0.6, "mult": 3.4, "alcance": 11, "area_raio": 2.5, "postura": 50, "sensacao": "area"},
-    {"id": "martelo_de_bobina", "nome": "Martelo de Bobina", "nivel": 55, "custo": 18, "recarga": 7.0, "mult": 2.6, "alcance": 1.8, "corrente_saltos": 3, "elemento": "eletrico", "sensacao": "golpe_pesado"},
-    {"id": "exoesqueleto", "nome": "Exoesqueleto", "nivel": 60, "custo": 30, "recarga": 30.0, "duracao": 10, "buff": {"defesa_mult": 1.3, "velocidade_mult": 1.15}, "imune_empurrao": true, "sensacao": "buff"},
-    {"id": "dobre_de_finados", "nome": "Dobre de Finados", "nivel": 70, "custo": 65, "recarga": 45.0, "canalizacao": 3.0, "golpes": 6, "mult": 2.5, "alcance": 12, "area_raio": 3.0, "sensacao": "area"}]}
- }
+  "_doc": "Evoluções de classe no nível 50 (estilo Ragnarok), rascunho v0.1 de 2026-10-16. Duas por classe; a escolha é feita numa missão de evolução no nível 50 e é definitiva. A evolução mantém todas as skills da classe base e soma 4 skills novas (níveis 50, 55, 60 e 70) e 1 passiva. Números no mesmo formato de design/combate/classes_base.json; conferir com simular.py antes de integrar. Sprites: tools/sprite-pipeline/personagens/evolucoes.py (render.py aceita o id como tipo).",
+  "versao": "0.1",
+  "nivel_evolucao": 50,
+  "missao": {
+    "id_padrao": "evolucao_<classe>",
+    "_doc": "Missão de escolha no nível 50: a facção dá dois mestres, cada um com uma prova curta (1 mapa + 1 chefe). Concluir a prova aplica a evolução."
+  },
+  "bonus_ao_evoluir": {
+    "pontos_atributo_extra": 10,
+    "hp_mult": 1.15,
+    "recurso_max_mult": 1.2,
+    "_doc": "Bônus base de toda evolução, somado ao bônus próprio de cada caminho."
+  },
+  "desbloqueio_habilidades_niveis": [
+    50,
+    55,
+    60,
+    70
+  ],
+  "evolucoes": {
+    "arcanjo": {
+      "classe_base": "anjo",
+      "nome": "Arcanjo",
+      "papel": "linha de frente que cura em aura",
+      "sprite": "arcanjo",
+      "bonus": {
+        "FOR": 6,
+        "VIT": 6,
+        "ESP": 0,
+        "AGI": 0,
+        "defesa_mult": 1.2,
+        "hp_mult": 1.1
+      },
+      "passiva": {
+        "id": "hoste_em_marcha",
+        "nome": "Hoste em Marcha",
+        "efeito": "aliados a 6 m recebem +8% de defesa e curam 1% do HP por segundo em combate"
+      },
+      "habilidades": [
+        {
+          "id": "montante_do_sol",
+          "nome": "Montante do Sol",
+          "nivel": 50,
+          "custo": 22,
+          "recarga": 6.0,
+          "mult": 3.2,
+          "elemento": "sagrado",
+          "forma": "cone",
+          "cone_graus": 120,
+          "raio": 3.0,
+          "postura": 45,
+          "cura_aliados_mult": 0.6,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "estandarte_da_hoste",
+          "nome": "Estandarte da Hoste",
+          "nivel": 55,
+          "custo": 35,
+          "recarga": 30.0,
+          "duracao": 12,
+          "area_raio": 6,
+          "buff": {
+            "dano_mult": 1.15,
+            "defesa_mult": 1.15
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "provocacao_celeste",
+          "nome": "Provocação Celeste",
+          "nivel": 60,
+          "custo": 15,
+          "recarga": 12.0,
+          "area_raio": 5,
+          "efeito": {
+            "provocar": 4.0
+          },
+          "reducao_dano": 0.25,
+          "sensacao": "debuff"
+        },
+        {
+          "id": "queda_do_arcanjo",
+          "nome": "Queda do Arcanjo",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 25.0,
+          "deslocamento": 7,
+          "mult": 4.5,
+          "area_raio": 3.5,
+          "elemento": "sagrado",
+          "efeito": {
+            "atordoar": 1.5
+          },
+          "sensacao": "area"
+        }
+      ]
+    },
+    "serafim": {
+      "classe_base": "anjo",
+      "nome": "Serafim",
+      "papel": "suporte puro: cura, escudo e ressurreição",
+      "sprite": "serafim",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 4,
+        "ESP": 10,
+        "AGI": 0,
+        "cura_mult": 1.3,
+        "recurso_regen_mult": 1.25
+      },
+      "passiva": {
+        "id": "seis_asas",
+        "nome": "Seis Asas",
+        "efeito": "curas acima do HP máximo viram escudo de luz (até 20% do HP do alvo, 6 s)"
+      },
+      "habilidades": [
+        {
+          "id": "fogo_que_nao_consome",
+          "nome": "Fogo Que Não Consome",
+          "nivel": 50,
+          "custo": 30,
+          "recarga": 8.0,
+          "cura_mult": 3.5,
+          "area_raio": 5,
+          "conjuracao": 0.6,
+          "sensacao": "cura"
+        },
+        {
+          "id": "rodas_de_olhos",
+          "nome": "Rodas de Olhos",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 18.0,
+          "duracao": 8,
+          "area_raio": 5,
+          "efeito": {
+            "revelar": 8.0,
+            "cegueira_inimigos": 2.0
+          },
+          "mult": 1.2,
+          "elemento": "sagrado",
+          "sensacao": "area"
+        },
+        {
+          "id": "escudo_do_trono",
+          "nome": "Escudo do Trono",
+          "nivel": 60,
+          "custo": 28,
+          "recarga": 20.0,
+          "alcance": 8,
+          "escudo_mult": 4.0,
+          "duracao": 6,
+          "sensacao": "buff"
+        },
+        {
+          "id": "levanta_te",
+          "nome": "Levanta-te",
+          "nivel": 70,
+          "custo": 60,
+          "recarga": 120.0,
+          "alcance": 6,
+          "conjuracao": 2.0,
+          "ressuscitar_hp": 0.4,
+          "sensacao": "cura"
+        }
+      ]
+    },
+    "lorde_das_trevas": {
+      "classe_base": "demonio",
+      "nome": "Lorde das Trevas",
+      "papel": "tanque de escudo e espadão",
+      "sprite": "lorde_das_trevas",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 10,
+        "ESP": 0,
+        "AGI": 0,
+        "defesa_mult": 1.3,
+        "hp_mult": 1.2,
+        "bloqueio": 0.15
+      },
+      "passiva": {
+        "id": "trono_vazio",
+        "nome": "O Trono Vazio",
+        "efeito": "cada inimigo a 4 m dá +3% de redução de dano (até 15%); bloqueios devolvem 20% do dano em brasa"
+      },
+      "habilidades": [
+        {
+          "id": "golpe_de_escudo",
+          "nome": "Golpe do Escudo-Torre",
+          "nivel": 50,
+          "custo": 18,
+          "recarga": 7.0,
+          "mult": 2.4,
+          "alcance": 1.6,
+          "efeito": {
+            "atordoar": 1.2,
+            "provocar": 3.0
+          },
+          "postura": 60,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "muralha_negra",
+          "nome": "Muralha Negra",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 24.0,
+          "duracao": 6,
+          "reducao_dano": 0.45,
+          "reflete": 0.2,
+          "sensacao": "buff"
+        },
+        {
+          "id": "grito_da_legiao",
+          "nome": "Grito da Legião Blasfema",
+          "nivel": 60,
+          "custo": 25,
+          "recarga": 15.0,
+          "area_raio": 6,
+          "efeito": {
+            "provocar": 5.0,
+            "medo_fracos": 2.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "id": "espadao_do_general",
+          "nome": "Espadão do General",
+          "nivel": 70,
+          "custo": 40,
+          "recarga": 18.0,
+          "mult": 4.0,
+          "forma": "cone",
+          "cone_graus": 160,
+          "raio": 3.5,
+          "elemento": "fogo",
+          "chao_em_chamas_s": 4.0,
+          "postura": 70,
+          "sensacao": "area"
+        }
+      ]
+    },
+    "ceifador": {
+      "classe_base": "demonio",
+      "nome": "Ceifador",
+      "papel": "assassino de alvo único",
+      "sprite": "ceifador",
+      "bonus": {
+        "FOR": 6,
+        "VIT": 0,
+        "ESP": 0,
+        "AGI": 10,
+        "critico": 0.1,
+        "dano_critico_mult": 1.25,
+        "velocidade_ataque_mult": 1.1
+      },
+      "passiva": {
+        "id": "colheita",
+        "nome": "Colheita",
+        "efeito": "abaixo de 30% de HP o alvo recebe +25% de dano do Ceifador; matar renova Passo Sombrio"
+      },
+      "habilidades": [
+        {
+          "id": "ceifa_da_alma",
+          "nome": "Ceifa da Alma",
+          "nivel": 50,
+          "custo": 20,
+          "recarga": 5.0,
+          "mult": 3.6,
+          "alcance": 2.2,
+          "elemento": "trevas",
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.25
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "manto_de_sombra",
+          "nome": "Manto de Sombra",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 20.0,
+          "duracao": 5,
+          "efeito": {
+            "invisivel": 5.0
+          },
+          "primeiro_golpe_mult": 2.0,
+          "sensacao": "mobilidade"
+        },
+        {
+          "id": "marca_do_ceifador",
+          "nome": "Marca do Ceifador",
+          "nivel": 60,
+          "custo": 15,
+          "recarga": 14.0,
+          "alcance": 8,
+          "efeito": {
+            "marcado": 8.0
+          },
+          "dano_recebido_extra": 0.2,
+          "sensacao": "debuff"
+        },
+        {
+          "id": "espiritos_malignos",
+          "nome": "Espíritos Malignos",
+          "nivel": 65,
+          "custo": 35,
+          "recarga": 8.0,
+          "elemento": "trevas",
+          "alvo": "area_ao_redor",
+          "raio": 4.5,
+          "espiritos": 16,
+          "mult": 1.1,
+          "acertos_max_por_alvo": 2,
+          "sensacao": "area",
+          "vfx": "ceifador_espiritos_malignos",
+          "vfx_impacto": "ceifador_espirito_impacto",
+          "descricao": "Como a Evil Spirit do MU: 16 espíritos negros saem do Ceifador em espiral e voam para todos os lados, ferindo cada inimigo que atravessam (até 2 acertos por alvo)."
+        },
+        {
+          "id": "julgamento_antecipado",
+          "nome": "Julgamento Antecipado",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 30.0,
+          "mult": 6.0,
+          "alcance": 6,
+          "teleporte_atras": true,
+          "execucao_abaixo_hp": 0.15,
+          "sensacao": "golpe_pesado"
+        }
+      ]
+    },
+    "arquimago": {
+      "classe_base": "cultista",
+      "nome": "Arquimago",
+      "papel": "dano mágico em área (canhão de vidro)",
+      "sprite": "arquimago",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 2,
+        "ESP": 12,
+        "AGI": 2,
+        "dano_magico_mult": 1.25,
+        "conjuracao_mult": 0.85
+      },
+      "passiva": {
+        "id": "tres_aureolas",
+        "nome": "Três Auréolas",
+        "efeito": "a cada 3 magias a próxima não gasta HP e tem +40% de dano"
+      },
+      "habilidades": [
+        {
+          "id": "orbe_coracao",
+          "nome": "Coração Preso",
+          "nivel": 50,
+          "custo": 28,
+          "recarga": 4.0,
+          "mult": 3.0,
+          "alcance": 9,
+          "area_raio": 2.0,
+          "elemento": "sangue",
+          "conjuracao": 0.5,
+          "sensacao": "area"
+        },
+        {
+          "id": "grimorio_aberto",
+          "nome": "Grimório Aberto",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 22.0,
+          "duracao": 10,
+          "buff": {
+            "dano_magico_mult": 1.2,
+            "recarga_mult": 0.8
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "orbitas_de_sangue",
+          "nome": "Órbitas de Sangue",
+          "nivel": 60,
+          "custo": 24,
+          "recarga": 12.0,
+          "duracao": 6,
+          "area_raio": 2.5,
+          "mult_por_s": 0.9,
+          "elemento": "sangue",
+          "sensacao": "area"
+        },
+        {
+          "id": "setimo_versiculo",
+          "nome": "Sétimo Versículo",
+          "nivel": 70,
+          "custo": 70,
+          "recarga": 35.0,
+          "canalizacao": 2.0,
+          "mult": 7.0,
+          "alcance": 10,
+          "area_raio": 4.5,
+          "elemento": "sangue",
+          "sensacao": "area"
+        }
+      ]
+    },
+    "profeta_do_amargo": {
+      "classe_base": "cultista",
+      "nome": "Profeta do Amargo",
+      "papel": "dano contínuo de radiação e controle",
+      "sprite": "profeta_do_amargo",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 6,
+        "ESP": 8,
+        "AGI": 2,
+        "dano_continuo_mult": 1.35,
+        "resistencia_amargo": 0.5
+      },
+      "passiva": {
+        "id": "agua_amarga",
+        "nome": "Bebeu do Rio",
+        "efeito": "inimigos com Amargo curam 30% menos; cada acúmulo de Amargo dá ao Profeta 0,5% de HP por segundo"
+      },
+      "habilidades": [
+        {
+          "id": "turibulo_do_amargo",
+          "nome": "Turíbulo do Amargo",
+          "nivel": 50,
+          "custo": 20,
+          "recarga": 6.0,
+          "area_raio": 3.5,
+          "duracao": 6,
+          "acumulos_amargo": 2,
+          "mult_por_s": 0.6,
+          "elemento": "radiacao",
+          "sensacao": "area"
+        },
+        {
+          "id": "estilhaco_da_estrela",
+          "nome": "Estilhaço da Estrela",
+          "nivel": 55,
+          "custo": 26,
+          "recarga": 8.0,
+          "mult": 2.8,
+          "alcance": 9,
+          "elemento": "radiacao",
+          "atravessa": true,
+          "acumulos_amargo": 1,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "sermao_do_fim",
+          "nome": "Sermão do Fim",
+          "nivel": 60,
+          "custo": 30,
+          "recarga": 20.0,
+          "area_raio": 5,
+          "efeito": {
+            "medo": 2.5,
+            "lentidao": 4.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "id": "absinto_caiu",
+          "nome": "A Estrela Caiu",
+          "nivel": 70,
+          "custo": 60,
+          "recarga": 40.0,
+          "alcance": 10,
+          "preparo": 1.5,
+          "mult": 5.0,
+          "area_raio": 5.0,
+          "chao_amargo_s": 8.0,
+          "acumulos_amargo": 3,
+          "elemento": "radiacao",
+          "sensacao": "area"
+        }
+      ]
+    },
+    "pistoleiro": {
+      "classe_base": "humano",
+      "nome": "Pistoleiro",
+      "papel": "dano físico à distância e rajada",
+      "sprite": "pistoleiro",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 2,
+        "ESP": 0,
+        "AGI": 12,
+        "alcance_mult": 1.2,
+        "velocidade_ataque_mult": 1.2,
+        "critico": 0.08
+      },
+      "passiva": {
+        "id": "balas_bentas",
+        "nome": "Balas Bentas",
+        "efeito": "tiros ignoram 15% da defesa e dão +30% de dano em alados (anjos, demônios voadores)"
+      },
+      "habilidades": [
+        {
+          "id": "dois_canos",
+          "nome": "Dois Canos",
+          "nivel": 50,
+          "custo": 12,
+          "recarga": 3.0,
+          "golpes": 6,
+          "mult": 0.75,
+          "alcance": 9,
+          "elemento": "fisico",
+          "sensacao": "rajada"
+        },
+        {
+          "id": "abanar_o_cao",
+          "nome": "Abanar o Cão",
+          "nivel": 55,
+          "custo": 22,
+          "recarga": 10.0,
+          "forma": "cone",
+          "cone_graus": 70,
+          "raio": 7,
+          "golpes": 6,
+          "mult": 0.9,
+          "sensacao": "area"
+        },
+        {
+          "id": "rifle_de_alavanca",
+          "nome": "Rifle de Alavanca",
+          "nivel": 60,
+          "custo": 25,
+          "recarga": 12.0,
+          "preparo": 1.0,
+          "mult": 4.5,
+          "alcance": 14,
+          "atravessa": true,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "meio_dia",
+          "nome": "Meio-Dia",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 35.0,
+          "duracao": 6,
+          "buff": {
+            "velocidade_ataque_mult": 1.6,
+            "critico": 0.25
+          },
+          "recarga_tiros_mult": 0.5,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "cacador_de_anjos": {
+      "classe_base": "humano",
+      "nome": "Caçador de Anjos",
+      "papel": "caçador híbrido: puxa, prende e executa",
+      "sprite": "cacador_de_anjos",
+      "bonus": {
+        "FOR": 8,
+        "VIT": 4,
+        "ESP": 0,
+        "AGI": 4,
+        "dano_vs_alados_mult": 1.3,
+        "defesa_mult": 1.1
+      },
+      "passiva": {
+        "id": "trofeu",
+        "nome": "Troféu",
+        "efeito": "cada alvo morto marcado dá +2% de dano por 30 s (até 10 acúmulos)"
+      },
+      "habilidades": [
+        {
+          "id": "arpao_de_corrente",
+          "nome": "Arpão de Corrente",
+          "nivel": 50,
+          "custo": 18,
+          "recarga": 8.0,
+          "mult": 2.2,
+          "alcance": 8,
+          "puxar": true,
+          "efeito": {
+            "preso": 1.5,
+            "derrubar_voo": 4.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "rede_de_prata",
+          "nome": "Rede de Prata",
+          "nivel": 55,
+          "custo": 22,
+          "recarga": 16.0,
+          "alcance": 7,
+          "area_raio": 2.5,
+          "efeito": {
+            "enraizar": 3.0,
+            "silencio": 2.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "id": "corte_da_asa",
+          "nome": "Corte da Asa",
+          "nivel": 60,
+          "custo": 24,
+          "recarga": 9.0,
+          "mult": 3.4,
+          "alcance": 1.8,
+          "efeito": {
+            "lentidao": 3.0
+          },
+          "bonus_vs": {
+            "tag:alado": 1.5
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "noite_da_cacada",
+          "nome": "Noite da Caçada",
+          "nivel": 70,
+          "custo": 50,
+          "recarga": 40.0,
+          "duracao": 10,
+          "buff": {
+            "dano_mult": 1.3,
+            "velocidade_mult": 1.2
+          },
+          "revela_invisiveis": true,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "gladiador": {
+      "classe_base": "mutante",
+      "nome": "Gladiador",
+      "papel": "tanque de escudo e controle",
+      "sprite": "gladiador",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 10,
+        "ESP": 0,
+        "AGI": 2,
+        "defesa_mult": 1.35,
+        "bloqueio": 0.2,
+        "hp_mult": 1.15
+      },
+      "passiva": {
+        "id": "a_plateia",
+        "nome": "A Plateia",
+        "efeito": "cada bloqueio dá 5 de Fúria; com Fúria cheia o próximo golpe atordoa"
+      },
+      "habilidades": [
+        {
+          "id": "muro_de_vela",
+          "nome": "Muro de Vela",
+          "nivel": 50,
+          "custo": 15,
+          "recarga": 18.0,
+          "duracao": 5,
+          "bloqueio_frontal": 0.7,
+          "provocar_area_raio": 5,
+          "sensacao": "buff"
+        },
+        {
+          "id": "machado_do_carrasco",
+          "nome": "Machado do Carrasco",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 8.0,
+          "mult": 3.6,
+          "alcance": 1.8,
+          "postura": 70,
+          "efeito": {
+            "atordoar": 1.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "corrente_da_arena",
+          "nome": "Corrente da Arena",
+          "nivel": 60,
+          "custo": 20,
+          "recarga": 12.0,
+          "alcance": 6,
+          "puxar": true,
+          "efeito": {
+            "provocar": 4.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "id": "campeao",
+          "nome": "Campeão",
+          "nivel": 70,
+          "custo": 40,
+          "recarga": 45.0,
+          "duracao": 10,
+          "reducao_dano": 0.35,
+          "regen_hp_por_s": 0.02,
+          "imune_controle": true,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "abominacao": {
+      "classe_base": "mutante",
+      "nome": "Abominação",
+      "papel": "berserker de dano em área",
+      "sprite": "abominacao",
+      "bonus": {
+        "FOR": 12,
+        "VIT": 4,
+        "ESP": 0,
+        "AGI": 0,
+        "dano_mult": 1.2,
+        "roubo_vida": 0.05,
+        "hp_mult": 1.1
+      },
+      "passiva": {
+        "id": "o_amargo_venceu",
+        "nome": "O Amargo Venceu",
+        "efeito": "abaixo de 50% de HP ganha +20% de dano e 5% de roubo de vida extra"
+      },
+      "habilidades": [
+        {
+          "id": "lamina_de_osso",
+          "nome": "Lâmina de Osso",
+          "nivel": 50,
+          "custo": 15,
+          "recarga": 4.0,
+          "mult": 3.0,
+          "forma": "cone",
+          "cone_graus": 140,
+          "raio": 2.5,
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.2
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "sacos_de_acido",
+          "nome": "Sacos de Ácido",
+          "nivel": 55,
+          "custo": 20,
+          "recarga": 14.0,
+          "area_raio": 4,
+          "mult": 2.0,
+          "elemento": "acido",
+          "efeito": {
+            "corroer_defesa": 0.2
+          },
+          "duracao": 6,
+          "sensacao": "area"
+        },
+        {
+          "id": "segundo_braco",
+          "nome": "O Segundo Braço",
+          "nivel": 60,
+          "custo": 22,
+          "recarga": 10.0,
+          "alcance": 4,
+          "puxar": true,
+          "mult": 2.2,
+          "efeito": {
+            "preso": 1.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "frenesi_da_carne",
+          "nome": "Frenesi da Carne",
+          "nivel": 70,
+          "custo": 50,
+          "recarga": 45.0,
+          "duracao": 10,
+          "escala": 1.25,
+          "buff": {
+            "dano_mult": 1.4,
+            "velocidade_ataque_mult": 1.3
+          },
+          "custo_hp_por_s": 0.01,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "mechanicus": {
+      "classe_base": "tecnomancer",
+      "nome": "Mechanicus",
+      "papel": "suporte de reparo e invocações",
+      "sprite": "mechanicus",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 4,
+        "ESP": 10,
+        "AGI": 2,
+        "invocacoes_mult": 1.3,
+        "cura_mult": 1.2
+      },
+      "passiva": {
+        "id": "liturgia_da_maquina",
+        "nome": "Liturgia da Máquina",
+        "efeito": "+1 torreta ativa; torretas e aliados perto do Mechanicus recebem 2% de reparo por segundo"
+      },
+      "habilidades": [
+        {
+          "id": "bracos_servos",
+          "nome": "Braços Servos",
+          "nivel": 50,
+          "custo": 25,
+          "recarga": 10.0,
+          "cura_mult": 2.5,
+          "alcance": 5,
+          "reparo_invocacoes_mult": 4.0,
+          "sensacao": "cura"
+        },
+        {
+          "id": "orgao_de_vapor",
+          "nome": "Órgão de Vapor",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 22.0,
+          "area_raio": 6,
+          "duracao": 8,
+          "buff": {
+            "velocidade_ataque_mult": 1.2,
+            "recurso_regen_mult": 1.5
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "torreta_relicario",
+          "nome": "Torreta-Relicário",
+          "nivel": 60,
+          "custo": 40,
+          "recarga": 30.0,
+          "duracao": 25,
+          "invocacao": "torreta_relicario",
+          "cura_area_por_s_mult": 0.4,
+          "sensacao": "invocacao"
+        },
+        {
+          "id": "engrenagem_sagrada",
+          "nome": "Engrenagem Sagrada",
+          "nivel": 70,
+          "custo": 55,
+          "recarga": 60.0,
+          "area_raio": 7,
+          "duracao": 6,
+          "escudo_mult": 3.0,
+          "imune_controle": true,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "engenheiro_herege": {
+      "classe_base": "tecnomancer",
+      "nome": "Engenheiro Herege",
+      "papel": "artilharia e dano em área",
+      "sprite": "engenheiro_herege",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 4,
+        "ESP": 8,
+        "AGI": 0,
+        "dano_mult": 1.2,
+        "alcance_mult": 1.15,
+        "defesa_mult": 1.1
+      },
+      "passiva": {
+        "id": "sino_derretido",
+        "nome": "Sino Derretido",
+        "efeito": "dano em área atordoa por 0,3 s inimigos sagrados (anjos, Não-Julgados) e dá +20% de dano neles"
+      },
+      "habilidades": [
+        {
+          "id": "canhao_sino",
+          "nome": "Canhão-Sino",
+          "nivel": 50,
+          "custo": 25,
+          "recarga": 6.0,
+          "preparo": 0.6,
+          "mult": 3.4,
+          "alcance": 11,
+          "area_raio": 2.5,
+          "postura": 50,
+          "sensacao": "area"
+        },
+        {
+          "id": "martelo_de_bobina",
+          "nome": "Martelo de Bobina",
+          "nivel": 55,
+          "custo": 18,
+          "recarga": 7.0,
+          "mult": 2.6,
+          "alcance": 1.8,
+          "corrente_saltos": 3,
+          "elemento": "eletrico",
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "exoesqueleto",
+          "nome": "Exoesqueleto",
+          "nivel": 60,
+          "custo": 30,
+          "recarga": 30.0,
+          "duracao": 10,
+          "buff": {
+            "defesa_mult": 1.3,
+            "velocidade_mult": 1.15
+          },
+          "imune_empurrao": true,
+          "sensacao": "buff"
+        },
+        {
+          "id": "dobre_de_finados",
+          "nome": "Dobre de Finados",
+          "nivel": 70,
+          "custo": 65,
+          "recarga": 45.0,
+          "canalizacao": 3.0,
+          "golpes": 6,
+          "mult": 2.5,
+          "alcance": 12,
+          "area_raio": 3.0,
+          "sensacao": "area"
+        }
+      ]
+    }
+  }
 }

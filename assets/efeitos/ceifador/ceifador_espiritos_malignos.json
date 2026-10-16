@@ -1,0 +1,21 @@
+{
+ "name": "ceifador_espiritos_malignos",
+ "cat": "ceifador",
+ "frames": 26,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  160,
+  112
+ ],
+ "layer": "frente",
+ "desc": "Espíritos Malignos: espíritos negros saem do Ceifador em espiral e voam para todos os lados, atravessando os inimigos.",
+ "char": null,
+ "title": "Espíritos Malignos",
+ "resumo": "Espíritos negros saem do Ceifador em espiral e voam para todos os lados, atravessando os inimigos.",
+ "frame_w": 320,
+ "frame_h": 208,
+ "cols": 6,
+ "rows": 5,
+ "sheet": "ceifador_espiritos_malignos.png"
+}

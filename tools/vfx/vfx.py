@@ -31,8 +31,12 @@ RAMPS = {
     'eco':      ('glow', ['#141c22', '#26343e', '#46606e', '#7896a6', '#b8d0dc']),   # rastro de silhueta (aco frio)
     'aviso':    ('glow', ['#32060a', '#6e1016', '#b81c26', '#ff4646', '#ffc4b4']),   # telegrafia de chefe (sem textura)
     'abismo':   ('glow', ['#22081a', '#4a0e2a', '#86183a', '#d03048', '#ff9a78']),
+    'angelica': ('glow', ['#0a1c2e', '#164a72', '#3a92cc', '#8fdcff', '#d8f6ff', '#ffffff']),   # Lágrima Angélica (joia de refino)
+    'sanguinea': ('glow', ['#22020a', '#5a0618', '#a8122c', '#ff2a44', '#ffb4bc', '#fff0f0']),  # Lágrima Sanguínea
     'alma':     ('glow', ['#1c2626', '#3a5450', '#76a094', '#c4e2d4', '#f4fff6']),
     'faisca':   ('glow', ['#4a3a2c', '#a07a4a', '#ffd890', '#ffffff']),
+    'danacao':  ('glow', ['#1e0a26', '#461440', '#8a1c48', '#d8442c', '#ff9c5a', '#ffe4c4']),   # fogo infernal etereo (violeta -> brasa)
+    'espectro': ('glow', ['#0c0818', '#20183e', '#44367e', '#8070d4', '#c8beff', '#f2eeff']),   # Ceifador (violeta frio)
     'runa':     ('glow', ['#3a1a06', '#7a3a0e', '#d06a1a', '#ff9a3a', '#ffe0a0']),
     # materia
     'sangue':   ('solid', ['#240404', '#460a08', '#6e140f', '#9a2018'], [1, 1, 1, 1], True),
@@ -49,7 +53,7 @@ RAMPS = {
 }
 # rampas que recebem textura de ruido (chama, fumaca, gosma): tira o aspecto de degrade liso
 TEXTURE = {'fogo': .45, 'brasa': .4, 'rubro': .3, 'acido': .3, 'abismo': .35, 'fumaca': .55,
-           'poeira': .5, 'sombra': .45, 'sangue': .25, 'praga': .3, 'eletrico': .15, 'sagrado': .12, 'alma': .3}
+           'poeira': .5, 'sombra': .45, 'sangue': .25, 'praga': .3, 'eletrico': .15, 'sagrado': .12, 'alma': .3, 'danacao': .5, 'espectro': .35}
 GLOW_ALPHA = [.42, .66, .86, 1, 1, 1]
 OUTLINE = rgb('#0a0808')
 

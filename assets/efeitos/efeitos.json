@@ -550,6 +550,48 @@
   "sheet": "auras/aura_tecnomancer.png"
  },
  {
+  "name": "ceifador_espirito_impacto",
+  "cat": "ceifador",
+  "frames": 10,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   32,
+   56
+  ],
+  "layer": "frente",
+  "desc": "Impacto de espírito: o espírito atravessa o alvo e arranca um fiapo de alma.",
+  "char": null,
+  "title": "Impacto de espírito",
+  "resumo": "O espírito atravessa o alvo e arranca um fiapo de alma.",
+  "frame_w": 64,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "ceifador/ceifador_espirito_impacto.png"
+ },
+ {
+  "name": "ceifador_espiritos_malignos",
+  "cat": "ceifador",
+  "frames": 26,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   160,
+   112
+  ],
+  "layer": "frente",
+  "desc": "Espíritos Malignos: espíritos negros saem do Ceifador em espiral e voam para todos os lados, atravessando os inimigos.",
+  "char": null,
+  "title": "Espíritos Malignos",
+  "resumo": "Espíritos negros saem do Ceifador em espiral e voam para todos os lados, atravessando os inimigos.",
+  "frame_w": 320,
+  "frame_h": 208,
+  "cols": 6,
+  "rows": 5,
+  "sheet": "ceifador/ceifador_espiritos_malignos.png"
+ },
+ {
   "name": "chefe_aviso_area",
   "cat": "chefes",
   "frames": 24,
@@ -1619,6 +1661,90 @@
   "cols": 8,
   "rows": 2,
   "sheet": "itens/item_feixe_raro.png"
+ },
+ {
+  "name": "lagrima_angelica_brilho",
+  "cat": "itens",
+  "frames": 16,
+  "fps": 10,
+  "loop": true,
+  "anchor": [
+   28,
+   60
+  ],
+  "layer": "frente",
+  "desc": "Lágrima Angélica no chão: luz no chão, halo e cintilação de joia em loop.",
+  "char": null,
+  "title": "Lágrima Angélica no chão",
+  "resumo": "Luz no chão, halo e cintilação de joia em loop.",
+  "frame_w": 56,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/lagrima_angelica_brilho.png"
+ },
+ {
+  "name": "lagrima_angelica_queda",
+  "cat": "itens",
+  "frames": 14,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   40,
+   64
+  ],
+  "layer": "frente",
+  "desc": "Lágrima Angélica caindo: clarão, estrela de joia, onda no chão e fagulhas.",
+  "char": null,
+  "title": "Lágrima Angélica caindo",
+  "resumo": "Clarão, estrela de joia, onda no chão e fagulhas.",
+  "frame_w": 80,
+  "frame_h": 80,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/lagrima_angelica_queda.png"
+ },
+ {
+  "name": "lagrima_sanguinea_brilho",
+  "cat": "itens",
+  "frames": 16,
+  "fps": 10,
+  "loop": true,
+  "anchor": [
+   28,
+   60
+  ],
+  "layer": "frente",
+  "desc": "Lágrima Sanguínea no chão: luz no chão, halo e cintilação de joia em loop.",
+  "char": null,
+  "title": "Lágrima Sanguínea no chão",
+  "resumo": "Luz no chão, halo e cintilação de joia em loop.",
+  "frame_w": 56,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/lagrima_sanguinea_brilho.png"
+ },
+ {
+  "name": "lagrima_sanguinea_queda",
+  "cat": "itens",
+  "frames": 14,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   40,
+   64
+  ],
+  "layer": "frente",
+  "desc": "Lágrima Sanguínea caindo: clarão, estrela de joia, onda no chão e fagulhas.",
+  "char": null,
+  "title": "Lágrima Sanguínea caindo",
+  "resumo": "Clarão, estrela de joia, onda no chão e fagulhas.",
+  "frame_w": 80,
+  "frame_h": 80,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/lagrima_sanguinea_queda.png"
  },
  {
   "name": "mut_carapaca",

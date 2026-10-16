@@ -1,0 +1,21 @@
+{
+ "name": "ceifador_espirito_impacto",
+ "cat": "ceifador",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  32,
+  56
+ ],
+ "layer": "frente",
+ "desc": "Impacto de espírito: o espírito atravessa o alvo e arranca um fiapo de alma.",
+ "char": null,
+ "title": "Impacto de espírito",
+ "resumo": "O espírito atravessa o alvo e arranca um fiapo de alma.",
+ "frame_w": 64,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "ceifador_espirito_impacto.png"
+}
