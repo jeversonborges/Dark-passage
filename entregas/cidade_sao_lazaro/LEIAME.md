@@ -11,7 +11,7 @@ Pedido do Jefin (15/10/2026): a área inicial passa a ser da Vigília. Ela vira 
 | `area_inicial.json` | O mapa novo, no **mesmo formato** de `design/mapas/area_inicial.json` (name, size, spawn, safe_zone, props, blocked, spawns, terreno, zonas, spots, descanso, npcs, baús, objetos, luzes...). |
 | `spots.json` | Os 13 spots de farm e as 7 fogueiras (mesmo formato do `design/mapas/spots.json`). |
 | `missoes/missoes_cidade.py` | Acrescenta as 5 missões novas, os diálogos, as subzonas novas, o objeto da matriz e os 3 spots novos aos dados de `design/missoes/`. Rode com `--teste` para validar numa cópia (o resultado dá OK no `validar.py`). |
-| `imagens/` | Prévias montadas com a arte real do kit: `visao_geral.jpg`, `cidade.jpg`, `cemiterio.jpg`, `abatedouro_rio.jpg`, `campos_marco.jpg`, `patio_bondes.jpg`. Também tem `planta_tecnica.png`, a vista de cima com spots, NPCs e bloqueios (é só para conferência). |
+| `imagens/` | Prévias montadas com a arte real do kit: `visao_geral.jpg`, `igreja.jpg`, `cidade.jpg`, `cemiterio.jpg`, `abatedouro_rio.jpg`, `campos_marco.jpg`, `patio_bondes.jpg`. Também tem `planta_tecnica.png`, a vista de cima com spots, NPCs e bloqueios (é só para conferência). |
 
 As fontes ficam em `design/mapas/sao_lazaro/fontes/`:
 - `layout.py` gera o mapa;
@@ -24,7 +24,7 @@ Para regerar: `cd design/mapas/sao_lazaro/fontes && python3 layout.py && python3
 ## Números
 
 - **Tamanho:** a área jogável tem 160x160 (antes eram 120x120). Com a moldura de 20 tiles, são 200x200.
-- **Props:** 2.588 na área jogável (antes, 1.316 no mapa todo).
+- **Props:** 2.738 na área jogável (antes, 1.316 no mapa todo).
   - Cada objeto espalhado respeita o footprint real do kit no chão.
   - Também respeita a silhueta na tela: uma máscara de alpha de cada PNG impede que um objeto cubra mais de 10% de outro. Isso é o "nada empilhado".
 - **Mobs:** 209 no total, 156 deles dentro dos 13 spots. São 133 neutros, 62 territoriais e 14 agressivos (só o Abatedouro, como manda a lore).
@@ -34,7 +34,10 @@ Para regerar: `cd design/mapas/sao_lazaro/fontes && python3 layout.py && python3
 
 Mantive o id `acampamento_vela` para os diálogos, missões e pontos continuarem valendo. O nome mudou para "Cidade de São Lázaro".
 
-- **Igreja Matriz** (`capela_enterrada`, ponto `matriz_sao_lazaro`): é a mesma arte da capela. A porta é o ponto `porta_matriz` e tem o objeto `matriz_sao_lazaro` (missão vc03).
+- **Igreja Matriz** (`capela_sao_lazaro`, ponto `matriz_sao_lazaro`): é a nave gótica inteira, com os vitrais vermelhos, a mesma arte que já está no jogo em `game/assets/ext/ambiente/objetos` (pedido do Jefin de 16/10: "deixa ela em evidência" e "dá um jardim para ela"). A porta é o ponto `porta_matriz` e tem o objeto `matriz_sao_lazaro` (missão vc03).
+  - **Adro aberto:** laje em volta da nave. Na frente dela na tela (a área `VISTA` do `layout.py`) só entram coisas baixas, e o anel de lampiões da praça abre para essa vista. O mercado foi para o leste e o poço foi para o outro lado da praça.
+  - **Jardim de São Lázaro:** 5 canteiros de terra com grade de ferro batido, flores baixas e plantas do Amargo na frente e do lado dos vitrais. Atrás e do lado da torre ficam a alameda de ciprestes, a oliveira e a treliça. Bancos e o poço que rega o jardim (`poco_jardim`) completam o adro.
+  - **Luz de destaque:** dois `braseiro_holofote` fora da vista, apontados para a fachada, mais a luz vermelha dos vitrais e braseiros e velas no portal.
 - **Praça da Vela:**
   - a Vela (`a_vela`), com a Zulmira e o Pirralho;
   - a Arca do Gustavo;

@@ -59,7 +59,11 @@ def ellip(c, rx, ry, jitter=0.0): return ((XX - c[0]) / rx) ** 2 + ((YY - c[1]) 
 # ------------------------------------------------------------------ arte do kit: footprint e silhueta na tela
 KFP, BOX, MASK = {}, {}, {}
 DS = 8                                       # resolução da máscara de silhueta (px de tela por célula)
-for f in glob.glob(f"{OBJ}/*.json"):
+# o kit do Cenário primeiro; o que só existe no jogo (ex.: capela_sao_lazaro, do kit antigo) vem de game/assets/ext
+OBJ_JOGO = f"{PF}/game/assets/ext/ambiente/objetos"
+_kit = {os.path.basename(f)[:-5]: f for f in glob.glob(f"{OBJ_JOGO}/*.json")}
+_kit.update({os.path.basename(f)[:-5]: f for f in glob.glob(f"{OBJ}/*.json")})
+for f in _kit.values():
     m = json.load(open(f)); k = m.get("kind") or os.path.basename(f)[:-5]
     fp = m.get("footprint_tiles", [1, 1])
     KFP[k] = (max(1, round(fp[0] * .7071)), max(1, round(fp[1] * .7071)))
@@ -196,7 +200,16 @@ trilhas_json.append({"id": "linha_7", "nome": "Trilhos da Linha 7", "piso": "tri
 trilhas_json.append({"id": "ramal_patio", "nome": "Ramal do Pátio", "piso": "trilho", "largura": 2.0, "pontos": [[40, LY], [40, 46], [12, 46]]})
 # praça e adro da matriz
 T[circ(PRACA, 6.5)] = "l"
-T[ellip((MATRIZ[0], MATRIZ[1] - 7.5), 6, 2.2)] = "l"
+# adro da matriz: laje em volta da nave, caminho até a praça e os canteiros do Jardim de São Lázaro (terra regada)
+_mx, _my = MATRIZ
+ADRO = (np.abs(XX - _mx) < 9.5) & (YY > _my - 13) & (YY < _my + 9.5)
+T[ADRO] = "l"
+CANTEIROS = []
+for (bx0, by0, bx1, by1) in [(40.6, 80.4, 45.8, 85.0), (50.2, 80.4, 55.4, 85.0),      # na frente, dos dois lados do caminho
+                             (53.4, 86.6, 56.6, 99.0), (39.4, 86.6, 42.6, 99.0),      # ao longo da nave (lado dos vitrais e lado da torre)
+                             (44.2, 99.0, 51.8, 101.0)]:                              # atrás da cabeceira
+    CANTEIROS.append((bx0, by0, bx1, by1))
+    T[(XX > bx0) & (XX < bx1) & (YY > by0) & (YY < by1)] = "t"
 
 # ------------------------------------------------------------------ água e pontes
 T[LEITO & np.isin(T, ["a", "u", "e", "z", "y", "v", "f", "t", "g", "n", "i"])] = "s"
@@ -345,21 +358,57 @@ cx_, cy_ = CITY
 PORTOES = []
 for (tx, ty) in [(50, 56), (74, 80), (60, 102), (36, 98), (33, 63), (27, LY), (73, LY)]:
     a = math.atan2(ty - cy_, tx - cx_); PORTOES.append(a)
-RESERVA |= circ(PRACA, 7.5) | ellip((MATRIZ[0], MATRIZ[1] - 7), 7, 3)
-# ---- a matriz
+# a vista da matriz: o que fica na frente dela na tela (câmera 2:1, frente = x - y maior) não pode ser alto
+VISTA = (np.abs((XX + YY) - (MATRIZ[0] + MATRIZ[1])) < 12.5) & ((XX - YY) - (MATRIZ[0] - MATRIZ[1]) > -2) & \
+        ((XX - YY) - (MATRIZ[0] - MATRIZ[1]) < 26)
+RESERVA |= circ(PRACA, 7.5) | ADRO | VISTA
+# ---- a matriz: a nave gótica inteira de pé, com os vitrais vermelhos acesos, em evidência no meio da cidade
 qx, qy = MATRIZ
-add("capela_enterrada", qx, qy, fp=(9, 12), light=L("vitral", 8), ponto="matriz_sao_lazaro",
-    luzes_extra=[[qx - 2.5, qy - 5.5] + L("sagrada", 5), [qx + 3, qy + 2] + L("vitral", 5), [qx - 3, qy + 3] + L("vitral", 4)],
-    nota="Igreja Matriz de São Lázaro, enterrada até o coro; os Sineiros da Vigília tocam o sino e fundem os outros em bala")
-add("marcador_npc", qx, qy - 7.4, block=False, invisivel=True, ponto="porta_matriz", objeto="matriz_sao_lazaro", silhueta=False, nota="porta da matriz (a rosácea)")
-for (dx, dy) in [(-4.2, -7.2), (4.2, -7.2)]:
+LUZ["vitral_rubro"] = [1, .15, .08]
+add("capela_sao_lazaro", qx, qy, fp=(8, 12), light=L("vitral_rubro", 9), ponto="matriz_sao_lazaro",
+    luzes_extra=[[qx + 4.5, qy - 2] + L("vitral_rubro", 5), [qx + 4.5, qy + 3] + L("vitral_rubro", 5), [qx - 1.5, qy - 6.5] + L("vitral_rubro", 4),
+                 [qx - 1, qy - 9.5] + L("sagrada", 8)],
+    nota="Igreja Matriz de São Lázaro: a nave que a areia não engoliu; os Sineiros da Vigília tocam o sino e fundem os outros em bala")
+add("marcador_npc", qx, qy - 7.4, block=False, invisivel=True, ponto="porta_matriz", objeto="matriz_sao_lazaro", silhueta=False, nota="porta da matriz")
+for (dx, dy) in [(-2.4, -6.8), (2.4, -6.8)]:                       # braseiros colados ao portal
     add("braseiro_sagrado", qx + dx, qy + dy, light=L("sagrada", 4.5))
-for (dx, dy) in [(-6.5, -6), (6.5, -6)]:
-    add("estatua_anjo_quebrada", qx + dx, qy + dy)
-for (dx, dy) in [(-2.2, -7.8), (1.6, -8.2), (2.6, -7.4), (-1.2, -8.4)]:
+for (dx, dy) in [(-1.6, -7.6), (1.3, -7.9), (2.0, -7.3), (-.8, -8.2), (.4, -7.5)]:
     add("velas_chao", qx + dx, qy + dy, block=False, light=L("vela", 1.6), silhueta=False)
-add("lapide_cruz_vitoriana", qx - 6.2, qy - 2.5); add("lapide_vitoriana", qx - 6.8, qy + 1); add("tumulo_vitoriano", qx + 6.4, qy + 1.5)
-add("banco_capela", qx + 5.6, qy - 3.4); add("banco_capela", qx - 5.4, qy - 3.8)
+# luz de destaque: dois holofotes de estádio virados braseiro, de fora da vista, apontados para a fachada e os vitrais
+add("braseiro_holofote", qx + 14.5, qy - 1.5, light=L("sagrada", 10), nota="holofote da matriz (lado dos vitrais)")
+add("braseiro_holofote", qx - 10.5, qy - 13.5, light=L("sagrada", 9), nota="holofote da matriz (lado da praça)")
+# o caminho de laje da porta até a Praça da Vela, com lampiões só nas pontas
+for (dx, dy) in [(-1.9, -11.6), (1.9, -11.6)]:
+    add("lampiao_gas", qx + dx, qy + dy, light=L("gas", 3.5))
+# Jardim de São Lázaro: o último jardim do deserto, regado com a água do poço pelos Sineiros. Canteiros cercados de ferro batido;
+# baixo na frente e do lado dos vitrais (nada tampa a igreja), ciprestes e oliveira só atrás e do lado da torre
+JR = random.Random(77)
+def canteiro(b, kinds, passo, grade_lados):
+    bx0, by0, bx1, by1 = b
+    for lado in grade_lados:                                       # grade de ferro batido na borda do canteiro
+        if lado in "nN":
+            for x in np.arange(bx0 + .35, bx1, .7): add("grade_ferro_batido", x, by0 + .1 if lado == "n" else by1 - .1, orient="x", block=False, silhueta=False)
+        else:
+            for y in np.arange(by0 + .35, by1, .7): add("grade_ferro_batido", bx0 + .1 if lado == "w" else bx1 - .1, y, orient="y", block=False, silhueta=False)
+    for x in np.arange(bx0 + .9, bx1 - .5, passo):
+        for y in np.arange(by0 + .9, by1 - .5, passo):
+            add(JR.choice(kinds), x + JR.uniform(-.25, .25), y + JR.uniform(-.25, .25), block=False, silhueta=False)
+BAIXAS = ["tapete_flores", "tapete_flores_2", "tapete_flores_3", "moita_florida_3", "moita_florida_3", "planta_mutante"]
+canteiro(CANTEIROS[0], BAIXAS, 1.3, "nw")
+canteiro(CANTEIROS[1], BAIXAS, 1.3, "ne")
+canteiro(CANTEIROS[2], BAIXAS + ["campanula"], 1.55, "e")
+canteiro(CANTEIROS[3], ["mirto", "moita_florida", "moita_florida_2", "tapete_flores"], 1.6, "w")
+canteiro(CANTEIROS[4], ["mirto", "moita_florida", "tapete_flores_2"], 1.6, "N")
+for y in np.arange(88.0, 100.5, 3.0):                               # alameda de ciprestes do lado da torre (atrás na tela)
+    add("cipreste" if int(y) % 2 else "cipreste_2", 38.4, y)
+for x in (41.5, 46.0, 50.5, 55.0):                                  # e atrás da cabeceira
+    add("cipreste_2" if x in (46.0,) else "cipreste", x, 102.2)
+add("oliveira", 41.0, 103.5, nota="a oliveira de São Lázaro, plantada no dia em que a areia parou no 4º andar")
+add("trelica_videira", 56.4, 101.6, block=False)
+add("banco_capela", 44.3, 84.0); add("banco_capela", 52.0, 84.0)
+add("poco", 39.0, 84.4, objeto="poco_jardim", nota="poço que rega o jardim")
+add("vela_tumulo", 41.8, 101.4, block=False, silhueta=False); add("cruz_madeira", 57.2, 98.5)
+add("lapide_cruz_vitoriana", 56.0, 88.0); add("tumulo_vitoriano", 39.6, 100.6)
 def por_predio(k, x, y, busca=5, **kw):
     """Põe um prédio o mais perto possível de (x, y) sem invadir rua, praça nem outro prédio."""
     f = fp_de(k)
@@ -385,8 +434,10 @@ px_, py_ = PRACA
 add("lampada_arco", px_, py_, light=L("arco", 11), ponto="a_vela")
 for a in range(0, 360, 60):                                  # anel de velas e postes em volta da Vela
     ar = math.radians(a + 30)
-    add("lampiao_gas", px_ + 5.6 * math.cos(ar), py_ + 5.6 * math.sin(ar), light=L("gas", 3.5))
-add("poco", px_ + 3.2, py_ + 3.4, objeto="poco_praca")
+    lx_, ly_ = px_ + 5.6 * math.cos(ar), py_ + 5.6 * math.sin(ar)
+    if VISTA[int(lx_), int(ly_)]: continue                      # o anel abre para a vista da matriz
+    add("lampiao_gas", lx_, ly_, light=L("gas", 3.5))
+add("poco", px_ - 3.0, py_ - 3.6, objeto="poco_praca")
 def praca_primarca(ax, ay, ponto):
     """Gustavo, o Primarca (armazém), em evidência na praça: Arca com as válvulas roxas, caldeira atrás, velas na frente."""
     add("marcador_npc", ax + 1.6, ay - 1.6, block=False, fp=(4, 4), invisivel=True, nota="praça do Primarca (livre)", silhueta=False)
@@ -405,12 +456,12 @@ add("caixas", ex - 6.5, ey - 2.2); add("barris", ex + 2.6, ey - 3.2); add("sacos
 add("caixa_dagua_sucata", ex + 6.5, ey + 5.5)
 add("guindaste_sucata", ex - 9.5, LY + 3.2, light=L("tonel", 3))
 # ---- Rua do Mercado: forja, caldeirão, carrinho e vidraria
-add("bancada_ferreiro", 59, 84.2, light=L("fornalha", 5), ponto="forja_bigorna"); add("pilha_carvao", 57.4, 85.2); add("tonel_fogo", 61.3, 85.6, light=L("tonel", 4))
-add("caldeirao_cardo", 53.6, 84.6, light=L("fogo", 4), ponto="caldeirao_cardo"); add("moita_cardo", 52.2, 86.0, block=False)
+add("bancada_ferreiro", 64.6, 87.4, light=L("fornalha", 5), ponto="forja_bigorna"); add("pilha_carvao", 63.0, 88.4); add("tonel_fogo", 66.6, 88.8, light=L("tonel", 4))
+add("caldeirao_cardo", 61.2, 83.4, light=L("fogo", 4), ponto="caldeirao_cardo"); add("moita_cardo", 60.0, 84.8, block=False)
 add("carrinho_tobias", 66.5, 83.6, ponto="carrinho_tobias", light=L("vela", 2.5))
 add("caldeira_vapor", 70.4, 84.4, ponto="forno_vidro", light=L("fornalha", 4))
 add("tanque_latao", 72.0, 76.0); add("varal_roupas", 68.6, 86.8)
-for x in (55, 63, 71):
+for x in (63, 71):
     add("lampiao_gas", x, 82.3, light=L("gas", 3.5))
     add("lampiao_gas", x + 3, 78.0, light=L("gas", 3.5))
 # ---- enfermaria (Anselmo e Lindalva) e dormitórios
@@ -439,7 +490,7 @@ for g in PORTOES[:3]:
 add("marcador_npc", cx_ + 24.6 * math.cos(PORTOES[1]), cy_ + 24.6 * math.sin(PORTOES[1]) - 2, block=False, invisivel=True,
     ponto="costelas_cupula", nota="Damião vigia o portão leste", silhueta=False)
 # ---- a cidade afogada: prédios enterrados formando as quadras (o que dá a silhueta da cidade)
-CID = ZCITY & ~ROAD & ~circ(PRACA, 7.5) & ~ellip((MATRIZ[0], MATRIZ[1] - 7), 7, 3) & (np.hypot(XX - cx_, YY - cy_) < 21.5)
+CID = ZCITY & ~ROAD & ~circ(PRACA, 7.5) & ~ADRO & ~VISTA & (np.hypot(XX - cx_, YY - cy_) < 21.5)
 espalhar(CID, ["caixas", "barris", "sacos_areia", "sacos_sal", "carroca_quebrada", "tonel_fogo"], 38, sep=1.0, light=None)
 espalhar(CID, ["varal_roupas"], 6, sep=2.5)
 espalhar(CID, ["lampiao_gas", "poste_gas"], 12, sep=3.5, light=L("gas", 3.5))
@@ -810,6 +861,10 @@ for nome, x, y, entre in DESCANSO:
     add("carrinho_tobias", x + 1.6, y - .6, ponto="descanso")
     add("sacos_areia", x - 1.4, y + .2); add("tonel_fogo", x + .4, y - 1.8, light=L("tonel", 3))
     desc_json.append({"nome": nome, "x": x, "y": y, "props": ["fogueira", "carrinho_tobias"], "npc": "tobias (vende poção)", "entre": entre})
+
+# Cartaz do Agrak (inscrição no evento PvP, 16/10; Level design): na praça da Vela, posto no fim para não mexer no sorteio do resto
+add("placa_aviso", PRACA[0] - 4.4, PRACA[1] - 5.2, objeto="cartaz_agrak", ponto="cartaz_agrak_vela", silhueta=False,
+    texto="O AGRAK CHAMA · INSCRIÇÃO 100 OURO · NV 25+")
 
 # ------------------------------------------------------------------ colisão
 blocked |= AGUA & ~VAU & ~P1 & ~P2

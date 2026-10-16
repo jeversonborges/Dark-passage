@@ -86,7 +86,7 @@
    ],
    "lore": "Os bondes que a companhia largou no ramal morto. Os corvos fazem ninho nos mastros e defendem o poste torto; os Carniçais dormem dentro dos vagões.",
    "missao": "vc02 Cobre dos Bondes (Odete)",
-   "livre": 0.79,
+   "livre": 0.78,
    "dist_trilha": 10.4
   },
   {
@@ -126,7 +126,7 @@
    ],
    "lore": "A matilha caça ratos entre os telhados enterrados, perto da antena de repetição da Rádio; os corvos ficam nas chaminés.",
    "missao": "linha D: d02 Antena no Telhado",
-   "livre": 0.86,
+   "livre": 0.87,
    "dist_trilha": 9.2
   },
   {
@@ -166,7 +166,7 @@
    ],
    "lore": "O bueiro desabado onde a matilha dorme. De dia ela defende a toca; à noite caça.",
    "missao": "v03 Os Cães da Vala",
-   "livre": 0.94,
+   "livre": 0.93,
    "dist_trilha": 10.4
   },
   {
@@ -194,7 +194,7 @@
    ],
    "lore": "A fila de Não-Julgados parada diante da torre do sino, com o andor no meio, esperando o Juízo. Só revidam: o spot feito para o leque.",
    "missao": "v04 Lacres Inteiros, f02 O Rosto do Padroeiro",
-   "livre": 0.88,
+   "livre": 0.89,
    "dist_trilha": 4.5
   },
   {
@@ -388,7 +388,7 @@
    ],
    "lore": "O bonde tombado onde Andras foi partido. Desertores vêm procurar o corpo do general e guardam o lugar; os Carniçais incharam de tanto comer ali.",
    "missao": "e04 O Marco do Corte",
-   "livre": 0.92,
+   "livre": 0.91,
    "dist_trilha": 13.9
   },
   {
@@ -470,7 +470,7 @@
    ],
    "lore": "A vila dos oficiais do silo. Os apóstatas fizeram das casas um altar e sangram os Não-Julgados que ainda batem às portas.",
    "missao": "vc05 O Último Turno (Isaura)",
-   "livre": 0.65,
+   "livre": 0.66,
    "dist_trilha": 8.9
   },
   {
@@ -534,7 +534,7 @@
   {
    "nome": "Fogueira do Pátio",
    "x": 56.0,
-   "y": 74.0,
+   "y": 76.0,
    "props": [
     "fogueira",
     "carrinho_tobias"
@@ -559,8 +559,8 @@
   },
   {
    "nome": "Fogueira da Vala",
-   "x": 133.0,
-   "y": 64.0,
+   "x": 128.0,
+   "y": 58.0,
    "props": [
     "fogueira",
     "carrinho_tobias"

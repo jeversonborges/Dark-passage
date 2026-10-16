@@ -12,6 +12,6 @@ R = [(50, 80, "São Lázaro", "a cidade da Vigília · zona segura"), (90, 82, "
 rot = [(x + o, y + o, n, s) for x, y, n, s in R]
 cena2d.render(M, (14, 14, 186, 186), .2, f"{OUT}/visao_geral.jpg", mobs=False, npcs=False, rotulos=rot, luz_amb=(.6, .6, .7),
               titulo="Cidade de São Lázaro", subtitulo="área inicial da Vigília · níveis 1 a 12 · 160 x 160 m jogáveis", max_lado=3200)
-for nome, caixa, s in [("cidade", (46, 76, 94, 124), .55), ("cemiterio", (78, 128, 120, 168), .55), ("abatedouro_rio", (122, 50, 168, 100), .55),
+for nome, caixa, s in [("igreja", (54, 94, 80, 124), .9), ("cidade", (46, 76, 94, 124), .55), ("cemiterio", (78, 128, 120, 168), .55), ("abatedouro_rio", (122, 50, 168, 100), .55),
                        ("campos_marco", (96, 66, 132, 116), .55), ("patio_bondes", (28, 42, 64, 78), .6)]:
     cena2d.render(M, caixa, s, f"{OUT}/{nome}.jpg", max_lado=2400); print(nome)

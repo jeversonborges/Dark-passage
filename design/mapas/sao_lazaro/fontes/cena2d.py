@@ -26,9 +26,10 @@ def obj(kind):
     """(imagem RGBA, âncora, meta) do objeto do kit; None se não tem arte."""
     if kind in _objs: return _objs[kind]
     p = f"{AMB}/objetos/{kind}.png"
+    if not os.path.exists(p): p = f"{PF}/game/assets/ext/ambiente/objetos/{kind}.png"   # peça do kit antigo, só no jogo
     r = None
     if os.path.exists(p):
-        m = json.load(open(f"{AMB}/objetos/{kind}.json"))
+        m = json.load(open(p[:-4] + ".json"))
         r = (Image.open(p).convert("RGBA"), m["anchor"], m)
     _objs[kind] = r
     return r
