@@ -1,0 +1,69 @@
+--- /mnt/project-files/game/scripts/client/chao.gd	2026-10-15 22:31:03.652084000 +0000
++++ scripts/client/chao.gd	2026-10-16 08:31:01.794837608 +0000
+@@ -11,6 +11,13 @@
+ uniform vec2 tam;
+ uniform vec4 cor_vazio : source_color = vec4(0.02, 0.018, 0.02, 1.0);
+ uniform float agua = -1.0;
++// cores da água por mapa (campo "agua" do JSON; padrão = Rio Amargo)
++uniform vec3 agua_fundo = vec3(0.03, 0.085, 0.085);
++uniform vec3 agua_raso = vec3(0.11, 0.21, 0.19);
++uniform vec3 agua_reflexo = vec3(0.42, 0.52, 0.5);
++uniform vec3 agua_brilho = vec3(0.8, 0.92, 0.85);
++uniform vec3 agua_lume = vec3(0.008, 0.035, 0.016);
++uniform vec3 agua_espuma = vec3(0.46, 0.54, 0.44);
+ uniform float lama = -1.0;
+ varying vec2 pm;
+ 
+@@ -38,25 +45,25 @@
+ 	float d1 = mix(texture(ruido, u0 * 2.7 + 0.21).g, texture(ruido, u1 * 2.7 + 0.53).g, mx);
+ 	vec2 inc = vec2(hx - h, hy - h) / e * 0.11 + (d1 - 0.5) * 0.25;
+ 	// cor: verde amargo escuro no fundo; no raso aparece um pouco do leito
+-	vec3 fundo = vec3(0.03, 0.085, 0.085);
+-	vec3 raso = vec3(0.11, 0.21, 0.19);
++	vec3 fundo = agua_fundo;
++	vec3 raso = agua_raso;
+ 	vec3 c = mix(mix(leito * 0.5, raso, 0.6), fundo, smoothstep(0.3, 0.95, prof));
+ 	// luz vinda de cima-esquerda: lado da onda virado para ela clareia, o outro escurece
+ 	float lz = dot(inc, normalize(vec2(-0.6, -0.8)));
+ 	c *= 1.0 + clamp(lz, -0.4, 0.7) * 0.8;
+ 	// reflexo do céu nublado (mais forte onde a água está lisa)
+ 	float liso = 1.0 - clamp(length(inc) * 1.6, 0.0, 1.0);
+-	c = mix(c, vec3(0.42, 0.52, 0.5), 0.26 + 0.32 * liso);
++	c = mix(c, agua_reflexo, 0.26 + 0.32 * liso);
+ 	// riscos compridos no sentido da corrente (filetes de luz)
+ 	vec2 lado = vec2(-fl.y, fl.x);
+ 	vec2 ur = vec2(dot(t, fl) * 0.05 - TIME * 0.06, dot(t, lado) * 0.34);
+ 	float risco = texture(ruido, ur).b;
+-	c += vec3(0.4, 0.5, 0.42) * smoothstep(0.64, 0.78, risco) * 0.07;
++	c += agua_reflexo * smoothstep(0.64, 0.78, risco) * 0.07;
+ 	// cintilado discreto onde a crista pega luz
+ 	float cint = smoothstep(0.32, 0.5, lz) * smoothstep(0.55, 0.75, d1);
+-	c += vec3(0.8, 0.92, 0.85) * cint * 0.5;
++	c += agua_brilho * cint * 0.5;
+ 	// o Amargo luminesce de leve à noite
+-	c += vec3(0.008, 0.035, 0.016) * (0.6 + 0.4 * sin(TIME * 0.7 + t.x * 0.3 + t.y * 0.2));
++	c += agua_lume * (0.6 + 0.4 * sin(TIME * 0.7 + t.x * 0.3 + t.y * 0.2));
+ 	return c;
+ }
+ 
+@@ -90,7 +97,7 @@
+ 		// espuma fina onde a água encosta na margem
+ 		float esp = (1.0 - smoothstep(0.32, 0.55, prof)) * smoothstep(0.12, 0.3, prof);
+ 		float ne = texture(ruido, t * 1.4 + fl * TIME * 0.12).r;
+-		ag = mix(ag, vec3(0.46, 0.54, 0.44), esp * smoothstep(0.4, 0.8, ne) * 0.35);
++		ag = mix(ag, agua_espuma, esp * smoothstep(0.4, 0.8, ne) * 0.35);
+ 		// a terra molhada escurece logo antes da água
+ 		c *= mix(1.0, 0.62, smoothstep(0.02, 0.15, prof));
+ 		c = mix(c, ag, borda);
+@@ -180,6 +187,11 @@
+ 	_mat.set_shader_parameter("ruido", ImageTexture.create_from_image(ri))
+ 	_mat.set_shader_parameter("tam", Vector2(w, h))
+ 	_mat.set_shader_parameter("agua", float(nomes.find("agua_toxica")))
++	var ag: Dictionary = m.get("agua", {})
++	for k in ["fundo", "raso", "reflexo", "brilho", "lume", "espuma"]:
++		if ag.has(k):
++			var v: Array = ag[k]
++			_mat.set_shader_parameter("agua_" + k, Vector3(v[0], v[1], v[2]))
+ 	var ceu: Dictionary = m.get("ceu", {})
+ 	_mat.set_shader_parameter("cor_vazio", Color(0.012, 0.01, 0.012) if not m.get("exterior", false) else Color(0.05, 0.045, 0.04))
+ 	material = _mat

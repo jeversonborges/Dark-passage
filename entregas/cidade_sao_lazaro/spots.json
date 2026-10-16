@@ -1,0 +1,618 @@
+{
+ "_doc": "Spots de farm da Cidade de São Lázaro (grade 200x200 de area_inicial.json).",
+ "regras": {
+  "respawn_s": "14 por mob nos spots de farm (padrão do Combate); 18 nos dois spots de nível 1 a 4; 25 fora dos spots",
+  "subgrupos": "2 ou 3 mobs, a pelo menos 5 m um do outro; aggro_social 0 entre subgrupos",
+  "afastamento": "spot a mais de 14 m da Cerca da cidade e fora das estradas principais; quem só passa não puxa nada",
+  "skill_em_area": "clareira de 8 a 10 m de raio sem objetos altos, para o leque do nível 5 e o modo automático",
+  "descanso": "fogueira + carrinho do Tobias (poção) perto de cada par de spots"
+ },
+ "spots": [
+  {
+   "id": "covas_rasas",
+   "nome": "Covas Rasas",
+   "nivel": [
+    1,
+    3
+   ],
+   "zona": "campos_cinza",
+   "x": 108.0,
+   "y": 112.0,
+   "raio": 10,
+   "respawn_s": 18,
+   "mobs": [
+    {
+     "kind": "carnical",
+     "nivel": [
+      1,
+      2
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    },
+    {
+     "kind": "corvo_de_cinza",
+     "nivel": [
+      2,
+      3
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "Carniçais revirando os mortos da Grande Batalha no vidro derretido; os corvos esperam a vez. Ninguém aqui ataca primeiro.",
+   "missao": "v01 Pavio Curto, v02 (Odete): primeiros abates",
+   "livre": 0.98,
+   "dist_trilha": 4.5
+  },
+  {
+   "id": "cemiterio_bondes",
+   "nome": "Cemitério de Bondes",
+   "nivel": [
+    2,
+    4
+   ],
+   "zona": "patio_bondes",
+   "x": 46.0,
+   "y": 60.0,
+   "raio": 10,
+   "respawn_s": 18,
+   "novo": true,
+   "mobs": [
+    {
+     "kind": "corvo_de_cinza",
+     "nivel": [
+      2,
+      3
+     ],
+     "qtd": 6,
+     "temperamento": "territorial",
+     "ancora": "poste_torto",
+     "raio_territorio": 4,
+     "subgrupos": 2
+    },
+    {
+     "kind": "carnical",
+     "nivel": [
+      3,
+      4
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "Os bondes que a companhia largou no ramal morto. Os corvos fazem ninho nos mastros e defendem o poste torto; os Carniçais dormem dentro dos vagões.",
+   "missao": "vc02 Cobre dos Bondes (Odete)",
+   "livre": 0.78,
+   "dist_trilha": 10.4
+  },
+  {
+   "id": "telhados_dos_corvos",
+   "nome": "Telhados dos Corvos",
+   "nivel": [
+    3,
+    5
+   ],
+   "zona": "bairro_afogado",
+   "x": 40.0,
+   "y": 148.0,
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "cao_de_vala",
+     "nivel": [
+      3,
+      5
+     ],
+     "qtd": 6,
+     "temperamento": "territorial",
+     "ancora": "toca_caes",
+     "raio_territorio": 4,
+     "subgrupos": 2
+    },
+    {
+     "kind": "corvo_de_cinza",
+     "nivel": [
+      3,
+      4
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "A matilha caça ratos entre os telhados enterrados, perto da antena de repetição da Rádio; os corvos ficam nas chaminés.",
+   "missao": "linha D: d02 Antena no Telhado",
+   "livre": 0.87,
+   "dist_trilha": 9.2
+  },
+  {
+   "id": "fosso_dos_caes",
+   "nome": "Fosso dos Cães",
+   "nivel": [
+    3,
+    5
+   ],
+   "zona": "vala_comum",
+   "x": 120.0,
+   "y": 46.0,
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "cao_de_vala",
+     "nivel": [
+      3,
+      5
+     ],
+     "qtd": 9,
+     "temperamento": "territorial",
+     "ancora": "toca_caes",
+     "raio_territorio": 4,
+     "subgrupos": 3
+    },
+    {
+     "kind": "carnical",
+     "nivel": [
+      3,
+      4
+     ],
+     "qtd": 3,
+     "temperamento": "neutro",
+     "subgrupos": 1
+    }
+   ],
+   "lore": "O bueiro desabado onde a matilha dorme. De dia ela defende a toca; à noite caça.",
+   "missao": "v03 Os Cães da Vala",
+   "livre": 0.93,
+   "dist_trilha": 10.4
+  },
+  {
+   "id": "procissao_parada",
+   "nome": "Procissão Parada",
+   "nivel": [
+    4,
+    6
+   ],
+   "zona": "cemiterio_sao_lazaro",
+   "x": 108.0,
+   "y": 144.0,
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      4,
+      6
+     ],
+     "qtd": 12,
+     "temperamento": "neutro",
+     "subgrupos": 4
+    }
+   ],
+   "lore": "A fila de Não-Julgados parada diante da torre do sino, com o andor no meio, esperando o Juízo. Só revidam: o spot feito para o leque.",
+   "missao": "v04 Lacres Inteiros, f02 O Rosto do Padroeiro",
+   "livre": 0.89,
+   "dist_trilha": 4.5
+  },
+  {
+   "id": "chiqueiro_do_carnica",
+   "nome": "Chiqueiro do Carniça",
+   "nivel": [
+    4,
+    6
+   ],
+   "zona": "chiqueiros",
+   "x": 162.0,
+   "y": 104.0,
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "porco_pestilento",
+     "nivel": [
+      4,
+      6
+     ],
+     "qtd": 12,
+     "temperamento": "neutro",
+     "subgrupos": 4
+    }
+   ],
+   "lore": "Os porcos gordos fuçam a lama atrás das cercas de chapa; o rastro de arrasto passa por aqui.",
+   "missao": "linha E: o rastro de arrasto",
+   "livre": 0.8,
+   "dist_trilha": 6.4
+  },
+  {
+   "id": "alameda_ciprestes",
+   "nome": "Alameda dos Ciprestes",
+   "nivel": [
+    5,
+    7
+   ],
+   "zona": "cemiterio_sao_lazaro",
+   "x": 86.0,
+   "y": 154.0,
+   "raio": 9,
+   "novo": true,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      5,
+      7
+     ],
+     "qtd": 9,
+     "temperamento": "neutro",
+     "subgrupos": 3
+    },
+    {
+     "kind": "corvo_de_cinza_carnica",
+     "substituto": "corvo_de_cinza",
+     "nivel": [
+      6,
+      7
+     ],
+     "qtd": 3,
+     "temperamento": "territorial",
+     "ancora": "mausoleu",
+     "raio_territorio": 4,
+     "subgrupos": 1
+    }
+   ],
+   "lore": "Os mortos mais antigos da paróquia, nas covas de família do alto do morro. Os corvos-carniça guardam o mausoléu onde fazem ninho.",
+   "missao": "vc04 Os Nomes do Alto (Simão)",
+   "livre": 0.88,
+   "dist_trilha": 4.0
+  },
+  {
+   "id": "margem_das_viuvas",
+   "nome": "Margem das Viúvas",
+   "nivel": [
+    5,
+    7
+   ],
+   "zona": "bosque_viuvas",
+   "x": 148.0,
+   "y": 142.0,
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      5,
+      6
+     ],
+     "qtd": 8,
+     "temperamento": "neutro",
+     "subgrupos": 3
+    },
+    {
+     "kind": "sangrador_apostata",
+     "substituto": "nao_julgado",
+     "nivel": [
+      6,
+      7
+     ],
+     "qtd": 4,
+     "temperamento": "territorial",
+     "ancora": "arvore_viuvas",
+     "raio_territorio": 5,
+     "subgrupos": 2
+    }
+   ],
+   "lore": "As viúvas da Grande Batalha andam entre as árvores mortas; uma célula de cultistas apóstatas se esconde na Árvore dos Enforcados.",
+   "missao": "linha D: a vila militar do silo",
+   "livre": 0.95,
+   "dist_trilha": 8.6
+  },
+  {
+   "id": "acampamento_desertores",
+   "nome": "Acampamento dos Desertores",
+   "nivel": [
+    6,
+    9
+   ],
+   "zona": "rio_amargo",
+   "x": 138.0,
+   "y": 120.0,
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "desertor_legiao",
+     "substituto": "acougueiro_oco",
+     "nivel": [
+      6,
+      9
+     ],
+     "qtd": 8,
+     "temperamento": "territorial",
+     "ancora": "tenda_demonio",
+     "raio_territorio": 5,
+     "subgrupos": 3
+    },
+    {
+     "kind": "cao_de_vala",
+     "nivel": [
+      6,
+      8
+     ],
+     "qtd": 4,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "Demônios da Legião Blasfema que largaram a bandeira quando o general sumiu, acampados na margem do oásis, cobrando pedágio da água.",
+   "missao": "e02 Desertores, d04 O Que a Água Lembra",
+   "livre": 0.95,
+   "dist_trilha": 8.2
+  },
+  {
+   "id": "marco_do_corte",
+   "nome": "Marco do Corte",
+   "nivel": [
+    7,
+    9
+   ],
+   "zona": "campos_cinza",
+   "x": 112.0,
+   "y": 78.0,
+   "raio": 9,
+   "mobs": [
+    {
+     "kind": "desertor_legiao",
+     "substituto": "acougueiro_oco",
+     "nivel": [
+      7,
+      9
+     ],
+     "qtd": 6,
+     "temperamento": "territorial",
+     "ancora": "marco_do_corte",
+     "raio_territorio": 5,
+     "subgrupos": 2
+    },
+    {
+     "kind": "carnical_inchado",
+     "substituto": "carnical",
+     "nivel": [
+      7,
+      8
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "O bonde tombado onde Andras foi partido. Desertores vêm procurar o corpo do general e guardam o lugar; os Carniçais incharam de tanto comer ali.",
+   "missao": "e04 O Marco do Corte",
+   "livre": 0.91,
+   "dist_trilha": 13.9
+  },
+  {
+   "id": "patio_do_abatedouro",
+   "nome": "Pátio do Abatedouro",
+   "nivel": [
+    7,
+    9
+   ],
+   "zona": "abatedouro_carnica",
+   "x": 154.0,
+   "y": 58.0,
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "acougueiro_oco",
+     "nivel": [
+      7,
+      9
+     ],
+     "qtd": 11,
+     "temperamento": "agressivo",
+     "subgrupos": 4
+    },
+    {
+     "kind": "capataz_gancho",
+     "nivel": [
+      9,
+      9
+     ],
+     "qtd": 1,
+     "temperamento": "agressivo",
+     "elite": true,
+     "respawn_s": 300,
+     "subgrupos": 1
+    }
+   ],
+   "lore": "Os açougueiros ainda trabalham para o patrão morto e atacam quem entra no pátio. O único spot agressivo de verdade, e a porta da Cripta.",
+   "missao": "c02 O Livro de Óbitos, c03 A Porta Debaixo da Carne",
+   "livre": 0.85,
+   "dist_trilha": 4.1
+  },
+  {
+   "id": "casas_da_vila",
+   "nome": "Casas da Vila",
+   "nivel": [
+    8,
+    10
+   ],
+   "zona": "vila_militar",
+   "x": 168.0,
+   "y": 158.0,
+   "raio": 8,
+   "novo": true,
+   "mobs": [
+    {
+     "kind": "sangrador_apostata",
+     "substituto": "nao_julgado",
+     "nivel": [
+      8,
+      10
+     ],
+     "qtd": 6,
+     "temperamento": "territorial",
+     "ancora": "vila_militar",
+     "raio_territorio": 4,
+     "subgrupos": 2
+    },
+    {
+     "kind": "nao_julgado",
+     "nivel": [
+      8,
+      9
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    }
+   ],
+   "lore": "A vila dos oficiais do silo. Os apóstatas fizeram das casas um altar e sangram os Não-Julgados que ainda batem às portas.",
+   "missao": "vc05 O Último Turno (Isaura)",
+   "livre": 0.66,
+   "dist_trilha": 8.9
+  },
+  {
+   "id": "beira_da_tempestade",
+   "nome": "Beira da Tempestade",
+   "nivel": [
+    9,
+    12
+   ],
+   "zona": "tempestade_areia",
+   "x": 140.0,
+   "y": 168.0,
+   "raio": 10,
+   "mobs": [
+    {
+     "kind": "nao_julgado_da_tempestade",
+     "substituto": "nao_julgado",
+     "nivel": [
+      9,
+      11
+     ],
+     "qtd": 6,
+     "temperamento": "neutro",
+     "subgrupos": 2
+    },
+    {
+     "kind": "sombra_gravada",
+     "substituto": "nao_julgado",
+     "nivel": [
+      10,
+      12
+     ],
+     "qtd": 6,
+     "temperamento": "territorial",
+     "ancora": "muro_sombras",
+     "raio_territorio": 4,
+     "subgrupos": 2
+    }
+   ],
+   "lore": "As sombras que o clarão da bomba gravou no muro da vila descolam à noite e defendem o muro. Na borda da tempestade o contador não para de estalar.",
+   "missao": "d05 O Muro das Sombras, d06 Absinto-2",
+   "livre": 0.88,
+   "dist_trilha": 14.4
+  }
+ ],
+ "descanso": [
+  {
+   "nome": "Fogueira do Espantalho",
+   "x": 104.0,
+   "y": 94.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "covas_rasas",
+    "marco_do_corte"
+   ]
+  },
+  {
+   "nome": "Fogueira do Pátio",
+   "x": 56.0,
+   "y": 76.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "cemiterio_bondes"
+   ]
+  },
+  {
+   "nome": "Fogueira dos Telhados",
+   "x": 51.0,
+   "y": 144.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "telhados_dos_corvos"
+   ]
+  },
+  {
+   "nome": "Fogueira da Vala",
+   "x": 128.0,
+   "y": 58.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "fosso_dos_caes",
+    "patio_do_abatedouro"
+   ]
+  },
+  {
+   "nome": "Fogueira das Lápides",
+   "x": 111.0,
+   "y": 162.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "procissao_parada",
+    "alameda_ciprestes"
+   ]
+  },
+  {
+   "nome": "Fogueira do Vau",
+   "x": 151.0,
+   "y": 114.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "chiqueiro_do_carnica",
+    "acampamento_desertores"
+   ]
+  },
+  {
+   "nome": "Fogueira da Tempestade",
+   "x": 153.0,
+   "y": 163.0,
+   "props": [
+    "fogueira",
+    "carrinho_tobias"
+   ],
+   "npc": "tobias (vende poção)",
+   "entre": [
+    "beira_da_tempestade",
+    "margem_das_viuvas",
+    "casas_da_vila"
+   ]
+  }
+ ]
+}

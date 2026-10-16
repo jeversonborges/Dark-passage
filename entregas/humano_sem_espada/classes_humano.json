@@ -1,0 +1,207 @@
+{
+  "_doc": "Humano sem espada larga (Jefin, 2026-10-16). Bloco 'classes.humano' completo para substituir o de design/combate/classes_base.json.",
+  "classes": {
+    "humano": {
+      "faccao": "vigilia",
+      "papel": "tiro a distância com besta pesada; escopeta de cano serrado no tiro secundário (mudança do Jefin, 2026-10-16: sem espada larga)",
+      "atributos_iniciais": {
+        "FOR": 17,
+        "AGI": 18,
+        "VIT": 12,
+        "ESP": 7
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 2,
+        "AGI": 2,
+        "VIT": 1,
+        "ESP": 0
+      },
+      "hp": {
+        "base": 105,
+        "por_nivel": 2.2,
+        "por_vit": 2.8
+      },
+      "perfil_dano": "hibrido",
+      "elemento_ataque": "fisico",
+      "arma_inicial": {
+        "nome": "Besta Pesada",
+        "min": 6,
+        "max": 10,
+        "intervalo": 1.25,
+        "postura": 18,
+        "tipo": "arma_de_fogo",
+        "projetil_vel": 16,
+        "sensacao": "tiro_pesado",
+        "_doc": "ataque básico com a besta pesada: dispara a distância (gasta 1 munição). Sem munição, vira um golpe de coronha curto."
+      },
+      "recurso": {
+        "nome": "Municao + Folego",
+        "municao": {
+          "por_ataque_basico": 1,
+          "pilha_max": 500,
+          "inicial": 300,
+          "_doc": "so o tiro gasta; sem municao o basico vira so espada. Comprada no acampamento; tipos especiais vem de Agua Benta e Polvora"
+        },
+        "folego": {
+          "max": 100,
+          "regen_por_s": 6
+        }
+      },
+      "habilidades": [
+        {
+          "id": "tiro_certeiro",
+          "nome": "Tiro Certeiro",
+          "nivel": 1,
+          "custo": 20,
+          "recarga": 5.0,
+          "mult": 2.0,
+          "critico_extra": 0.2,
+          "alcance": 9,
+          "conjuracao": 0.3,
+          "postura": 30,
+          "empurrao": 0.6,
+          "sensacao": "tiro_pesado"
+        },
+        {
+          "id": "corte_largo",
+          "nome": "Rajada de Escopeta",
+          "nivel": 3,
+          "custo": 25,
+          "recarga": 6.0,
+          "mult": 1.4,
+          "arco_graus": 360,
+          "alcance": 0,
+          "postura": 35,
+          "empurrao": 1.0,
+          "_doc": "mesmo peso do antigo Corte Giratório (custo 25, recarga 6, mult 1.4, raio 2). Escopeta em volta do corpo; sai a animação de giro.",
+          "sensacao": "area",
+          "area_raio": 2.0,
+          "empurrao_a_partir_do_centro": true
+        },
+        {
+          "id": "humano_coquetel_querosene",
+          "nome": "Coquetel de Querosene",
+          "nivel": 5,
+          "custo": 22,
+          "recarga": 2.2,
+          "mult": 1.3,
+          "elemento": "fogo",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
+          "forma": "circulo_no_mouse",
+          "raio": 2.0,
+          "alcance": 7,
+          "chao_em_chamas_s": 3.0,
+          "queimadura": {
+            "duracao": 2,
+            "dano_por_s_mult": 0.15
+          }
+        },
+        {
+          "id": "arrancada",
+          "nome": "Salto de Recuo",
+          "nivel": 6,
+          "custo": 20,
+          "recarga": 5.0,
+          "cargas": 2,
+          "deslocamento": 4,
+          "duracao_s": 0.18,
+          "invulneravel": 0.2,
+          "atravessa_inimigos": true,
+          "proximo_ataque_extra": 0.3,
+          "janela_bonus_s": 2.0,
+          "vai_para": "ponto sob o mouse",
+          "_doc": "mesmo peso da antiga Arrancada (custo 20, recarga 5, 2 cargas, 4 tiles). Salto com 0.2s de invulnerabilidade e tiro de escopeta no caminho; o próximo tiro em 2s causa +30%.",
+          "sensacao": "investida",
+          "substitui": "rolamento",
+          "mult": 0.9,
+          "largura_corte": 1.2,
+          "acerta_cada_inimigo_uma_vez": true,
+          "postura": 20,
+          "empurrao_lateral": 0.5
+        },
+        {
+          "id": "rajada",
+          "nome": "Rajada",
+          "nivel": 9,
+          "custo": 35,
+          "recarga": 8.0,
+          "projeteis": 5,
+          "cone_graus": 50,
+          "mult_por_projetil": 0.6,
+          "alcance": 6,
+          "postura_por_projetil": 8,
+          "empurrao": 0.4,
+          "sensacao": "area",
+          "_doc": "voltou para o nivel 9: o nivel 5 do Humano e o Coquetel de Querosene da thread de skills"
+        },
+        {
+          "id": "agua_benta_polvora",
+          "nome": "Agua Benta e Polvora",
+          "nivel": 12,
+          "custo": 30,
+          "recarga": 30.0,
+          "buff": {
+            "duracao": 15.0,
+            "municao": "alterna sagrado/fogo",
+            "lamina": "a espada larga tambem ganha o elemento",
+            "dano_extra_elemental": 0.2
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "armadilha_prata",
+          "nome": "Armadilha de Prata",
+          "nivel": 15,
+          "custo": 30,
+          "recarga": 15.0,
+          "alcance": 4,
+          "arma_s": 1.0,
+          "dura_s": 20,
+          "mult": 1.5,
+          "efeito": {
+            "enraizado": 3.0
+          },
+          "bonus_vs": {
+            "tag:celestial": 1.3,
+            "tag:infernal": 1.3
+          },
+          "sensacao": "armadilha",
+          "_doc": "passou para o nivel 15 (depois da primeira entrega) para abrir espaco ao Corte Largo"
+        }
+      ],
+      "perfil_hibrido": {
+        "_doc": "sem espada: o básico sempre dispara; só sem munição ele dá o golpe de coronha (alcance curto).",
+        "distancia_troca": 0.0,
+        "tempo_troca_s": 0.0,
+        "espada": "corpo_a_corpo",
+        "tiro": "distancia"
+      },
+      "alcance_basico": {
+        "espada": 1.6,
+        "tiro": 7
+      },
+      "arma_secundaria": {
+        "nome": "Escopeta de Cano Serrado",
+        "min": 4,
+        "max": 7,
+        "intervalo": 1.1,
+        "postura": 10,
+        "projetil_vel": 16,
+        "tipo": "arma_de_fogo",
+        "sensacao": "tiro_pesado",
+        "vfx": [
+          "disparo_cano",
+          "fumaca_tiro",
+          "projetil_bala",
+          "impacto_bala"
+        ]
+      }
+    }
+  }
+}
