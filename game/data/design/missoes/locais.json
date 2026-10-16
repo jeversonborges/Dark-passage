@@ -14,18 +14,26 @@
       "subzonas": [
         {
           "id": "acampamento_vela",
-          "nome": "Acampamento da Vela",
+          "nome": "Cidade de São Lázaro",
           "tipo": "base",
           "faccao": "vigilia",
           "seguro": true,
-          "descricao": "Montado sobre a cúpula de vidro da antiga estação de bondes, a única que a areia não quebrou. Bondes-veleiros atracam nos trilhos que saem da duna. No centro, a Vela: uma lâmpada de arco que queima os Não-Julgados e faz o Amargo assentar, deixando o ar limpo em volta.",
+          "descricao": "A cidade da Vigília, em cima da cidade afogada: a rua de hoje é o telhado de ontem. No meio, a Igreja Matriz enterrada até o coro, com a Praça da Vela na porta. A Linha 7 corta a cidade e para na Estação de cúpula de vidro; a Rádio da Isaura fica no prédio da beira do precipício.",
           "pontos": [
             "a_vela",
             "barraca_anselmo",
             "forja_bigorna",
             "caldeirao_cardo",
             "carrinho_tobias",
-            "posto_odete"
+            "posto_odete",
+            "plataforma_bondes",
+            "forno_vidro",
+            "portao_cupula",
+            "enfermaria_lindalva",
+            "costelas_cupula",
+            "matriz_sao_lazaro",
+            "porta_matriz",
+            "radio_sao_lazaro"
           ]
         },
         {
@@ -190,6 +198,47 @@
             "muro_sombras",
             "escotilha_silo"
           ]
+        },
+        {
+          "id": "patio_bondes",
+          "nome": "Pátio dos Bondes",
+          "tipo": "caca",
+          "nivel": [
+            2,
+            4
+          ],
+          "descricao": "O ramal morto onde a companhia largava os bondes quebrados. A maré de areia cobriu metade dos vagões; os corvos fazem ninho nos mastros.",
+          "monstros": [
+            "corvo_de_cinza",
+            "carnical"
+          ]
+        },
+        {
+          "id": "vila_militar",
+          "nome": "Vila Militar do Silo",
+          "tipo": "caca",
+          "nivel": [
+            8,
+            10
+          ],
+          "descricao": "As casas dos oficiais do Silo São Lázaro, com as sombras do clarão gravadas nas paredes. Os apóstatas fizeram das cozinhas um altar.",
+          "monstros": [
+            "nao_julgado",
+            "sangrador_apostata"
+          ]
+        },
+        {
+          "id": "chiqueiros",
+          "nome": "Chiqueiros",
+          "tipo": "caca",
+          "nivel": [
+            4,
+            6
+          ],
+          "descricao": "Cercas de chapa e lama na frente do Abatedouro Carniça.",
+          "monstros": [
+            "porco_pestilento"
+          ]
         }
       ],
       "regiao": "Deserto de Absinto",
@@ -328,6 +377,122 @@
           "d05"
         ],
         "motivo": "As sombras do muro da vila militar; d05 precisa delas (dropam fragmento_clarao). Escotilha do silo (escotilha_silo, d06, invoca o elite ultimo_operador) fica nesse muro."
+      },
+      {
+        "id": "cemiterio_bondes",
+        "nome": "Cemitério de Bondes",
+        "subzona": "patio_bondes",
+        "nivel": [
+          2,
+          4
+        ],
+        "monstros": [
+          "corvo_de_cinza",
+          "carnical"
+        ],
+        "missoes": [
+          "vc02"
+        ]
+      },
+      {
+        "id": "alameda_ciprestes",
+        "nome": "Alameda dos Ciprestes",
+        "subzona": "cemiterio_sao_lazaro",
+        "nivel": [
+          5,
+          7
+        ],
+        "monstros": [
+          "nao_julgado",
+          "corvo_de_cinza"
+        ],
+        "missoes": [
+          "vc04"
+        ]
+      },
+      {
+        "id": "casas_da_vila",
+        "nome": "Casas da Vila",
+        "subzona": "vila_militar",
+        "nivel": [
+          8,
+          10
+        ],
+        "monstros": [
+          "sangrador_apostata",
+          "nao_julgado"
+        ],
+        "missoes": [
+          "vc05"
+        ]
+      }
+    ]
+  },
+  "registro_chefes": {
+    "nota": "Todo chefe de dungeon do jogo, com o nível dele. O objetivo 'chefes_dungeon {ate_nivel}' fica cumprido quando o jogador tem a flag 'venceu_<id>' (o jogo já marca ao matar o chefe, e também para quem está na arena) de TODOS os chefes daqui com nivel <= ate_nivel. Abates de antes de aceitar a missão contam. Quem fizer dungeon nova acrescenta os chefes aqui; nada mais muda. Ids iguais aos de monstros.json ou de design/mapas/mata_do_granizo/dados.json > chefes.",
+    "lista": [
+      {
+        "id": "general_partido",
+        "nome": "Andras, o General Partido",
+        "dungeon": "cripta_trombeta",
+        "area": "Deserto de Absinto",
+        "nivel": 8
+      },
+      {
+        "id": "irma_celeste",
+        "nome": "Irmã Celeste, a Carpideira",
+        "dungeon": "cripta_trombeta",
+        "area": "Deserto de Absinto",
+        "nivel": 10
+      },
+      {
+        "id": "zacarias_arauto",
+        "nome": "Zacarias, o Arauto da Trombeta Calada",
+        "dungeon": "cripta_trombeta",
+        "area": "Deserto de Absinto",
+        "nivel": 12
+      },
+      {
+        "id": "centuriao_ferrabras",
+        "nome": "Centurião Ferrabrás",
+        "dungeon": "a_torre",
+        "area": "Mata do Granizo",
+        "nivel": 15
+      },
+      {
+        "id": "madre_brasilia",
+        "nome": "Madre Brasília da Comunhão",
+        "dungeon": "a_torre",
+        "area": "Mata do Granizo",
+        "nivel": 19
+      },
+      {
+        "id": "bento_fel",
+        "nome": "Bento Fel, o Coveiro do Amargo",
+        "dungeon": "catacumba_das_raizes",
+        "area": "Mata do Granizo",
+        "nivel": 22
+      },
+      {
+        "id": "o_telegrafista",
+        "nome": "O Telegrafista",
+        "dungeon": "a_torre",
+        "area": "Mata do Granizo",
+        "nivel": 23
+      },
+      {
+        "id": "malaquias_escudeiro_cego",
+        "nome": "Malaquias, o Escudeiro Cego",
+        "dungeon": "a_torre",
+        "area": "Mata do Granizo",
+        "nivel": 27
+      },
+      {
+        "id": "baraquiel_arauto_do_granizo",
+        "nome": "Baraquiel, o Arauto do Granizo",
+        "dungeon": "a_torre",
+        "area": "Mata do Granizo",
+        "nivel": 30
       }
     ]
   }

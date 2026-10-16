@@ -24,9 +24,9 @@
         "infernal",
         "demonio"
       ],
-      "hp": 1800,
+      "hp": 2430,
       "defesa": 22,
-      "dano_base": 30,
+      "dano_base": 40,
       "intervalo_ataque": 1.8,
       "velocidade_mov": 1.6,
       "postura_max": 300,
@@ -35,7 +35,7 @@
         "sagrado": -0.2,
         "veneno": 0.3
       },
-      "duracao_alvo_s": 95,
+      "duracao_alvo_s": 128,
       "furia_tempo_s": 240,
       "visual": "So o tronco: se arrasta com os bracos enormes, a parte de baixo e um toco cauterizado em brasa com tripas de corrente arrastando. Usa o estandarte quebrado do proprio exercito como arma. Dragonas de general podres nos ombros.",
       "arena": "Vala da Grande Batalha: fosso 14x14 tiles cheio de ossos e armaduras velhas, com 6 Pilhas de Mortos espalhadas (cadaveres de guerreiros).",
@@ -235,7 +235,8 @@
         "rastro": "deixa rastro de sangue escuro e brasa que some em 3s (so visual)",
         "vira_devagar": "gira no maximo 120 graus por segundo: dar a volta nele e uma forma de fugir dos cones",
         "sem_pulo": true
-      }
+      },
+      "_ajuste_jefin_2026_10_11": "Jefin achou facil: HP e dano_base +35% (1800->2430, 30->40). Todos os ataques escalam junto porque usam mult x dano_base."
     },
     "irma_celeste": {
       "nome": "Irma Celeste, a Carpideira",

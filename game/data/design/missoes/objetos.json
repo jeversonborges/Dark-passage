@@ -61,7 +61,10 @@
       "subzona": "cemiterio_sao_lazaro",
       "texto_ao_usar": "No alto da torre, o último sino de São Lázaro está rachado ao meio. O badalo solta com facilidade, como se quisesse ir embora.",
       "visivel_se": {
-        "missao_ativa": "s03"
+        "missao_ativa": [
+          "s03",
+          "f03"
+        ]
       }
     },
     {
@@ -172,6 +175,37 @@
       "texto_ao_usar": "Você troca as válvulas queimadas. A torre estala, e lá do alto, em todo o bairro, a voz de Isaura sai mais alta: 'Absinto-dois. Ainda aqui. Ainda aqui.'",
       "visivel_se": {
         "missao_ativa": "d02"
+      }
+    },
+    {
+      "id": "andor_padroeiro",
+      "nome": "Andor de São Lázaro",
+      "subzona": "cemiterio_sao_lazaro",
+      "pendente": true,
+      "posicao_sugerida": "no meio da fila da Procissão Parada (spot procissao_parada), carregado por quatro Não-Julgados parados",
+      "texto_ao_usar": "Você afasta o pano roxo. A imagem do padroeiro tem faixas de linho nos pulsos, uma pá na mão direita e o rosto do coveiro. Na base, entalhado: 1714.",
+      "visivel_se": {
+        "missao_ativa": "f02"
+      }
+    },
+    {
+      "id": "sepulcro_primeiro",
+      "nome": "O Primeiro Sepulcro",
+      "subzona": "cemiterio_sao_lazaro",
+      "pendente": true,
+      "posicao_sugerida": "no fundo do cemitério, atrás do mausoléu, longe das trilhas: um sepulcro escavado na pedra com a laje da entrada rolada para o lado",
+      "texto_ao_usar": "A vela acende sozinha. Na parede do fundo, em letras gregas, alguém gravou: ΛΑΖΑΡΕ, ΔΕΥΡΟ ΕΞΩ. Embaixo, a canivete, em português: Lázaro, vem para fora. O sepulcro está vazio, e varrido.",
+      "visivel_se": {
+        "missao_ativa": "f05"
+      }
+    },
+    {
+      "id": "matriz_sao_lazaro",
+      "nome": "Rosácea da Matriz",
+      "subzona": "acampamento_vela",
+      "texto_ao_usar": "Você desce pela rosácea quebrada por uma escada de corda. Lá embaixo, na nave cheia de areia, o sétimo sino espera pendurado numa viga. Uma batida. O som desce pela areia e alguma coisa lá fora responde.",
+      "visivel_se": {
+        "missao_ativa": "vc03"
       }
     }
   ],

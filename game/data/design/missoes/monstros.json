@@ -27,6 +27,23 @@
           "item": "pena_querubim",
           "chance": 0.45,
           "missao": "a02"
+        },
+        {
+          "item": "folha_tombo",
+          "chance": 0.4,
+          "missao": "f03"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 14",
+          "texto": "Corvos levaram bobinas, cartuchos e um olho de vidro do Sargento Mota. Atirar no bando todo é desperdício. Atire no que está com o olho."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Comem o que a duna descobre. Às vezes descobre gente. Eu chego tarde nesses dias."
         }
       ]
     },
@@ -45,7 +62,35 @@
       "descricao": "Os primeiros mortos do cerco, os que nem esperaram o lacre. Ficaram com fome em vez de esperança. Cavam a areia com as mãos atrás de qualquer coisa que um dia foi carne.",
       "aparencia": "Cadáver magro e curvado, pele cinza-esverdeada, unhas compridas, restos de roupa de operário.",
       "comportamento": "Anda devagar, corre nos últimos metros. Para para comer corpos caídos.",
-      "drops_missao": []
+      "drops_missao": [
+        {
+          "item": "placa_coveiro",
+          "chance": 0.35,
+          "missao": "f01v"
+        },
+        {
+          "item": "placa_coveiro",
+          "chance": 0.35,
+          "missao": "f01a"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 1",
+          "texto": "Mortos sem lacre. Não esperam Juízo, esperam janta. Seis abrem uma brecha."
+        },
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro das Ordens, 3",
+          "texto": "E houve os que não esperaram o chamado, e a fome lhes foi dada no lugar da esperança."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Os primeiros do cerco. Enterrei mal, com pressa. A culpa é minha. Eles cavam para sair, e eu não consigo cobrir rápido."
+        }
+      ]
     },
     {
       "id": "cao_de_vala",
@@ -82,6 +127,18 @@
           "chance": 0.4,
           "missao": "d02"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 2",
+          "texto": "Matilha da Vala. Oito na última contagem. Aprendem rápido. Alguém dá sopa para eles no portão."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Comeram nas valas comuns durante o cerco. Não tenho como culpar. Eles também não tinham outra coisa."
+        }
       ]
     },
     {
@@ -109,6 +166,23 @@
           "chance": 0.3,
           "missao": "d03"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro do Chamado, 1",
+          "texto": "E os mortos ouviram a meia nota, e levantaram, e esperam de pé, como servos à porta. Bem-aventurados os que esperam."
+        },
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 3",
+          "texto": "Lacres inteiros em todos. Ninguém foi julgado. Não atacam se não forem tocados. Não toque."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Abaixam a cabeça quando eu passo. Não é respeito. É reconhecimento."
+        }
       ]
     },
     {
@@ -130,6 +204,18 @@
           "item": "sebo_rancoso",
           "chance": 0.55,
           "missao": "c01"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 7",
+          "texto": "Porcos do Carniça. Gordos demais para o que tem para comer neste deserto. Não pergunte. Não coma."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Benedito dava a eles o que sobrava. Sobrava muito."
         }
       ]
     },
@@ -153,6 +239,18 @@
           "item": "ferro_velho",
           "chance": 0.5,
           "missao": "s03"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 8",
+          "texto": "Funcionários do abatedouro. Continuam o turno. Ocos por dentro, cortes limpos, trabalho de profissional."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Bati ponto com eles por anos, entregando sebo. Eram bons rapazes. O patrão não."
         }
       ]
     },
@@ -180,6 +278,18 @@
           "item": "chave_gancho",
           "chance": 1.0,
           "missao": "c02"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 8, adendo",
+          "texto": "Elite. Dois ganchos, nenhuma mão. Guarda o mezanino e a chave do porão."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "O único que sabia o que entrava no moedor. Não dormia. Agora não precisa."
         }
       ]
     },
@@ -209,6 +319,18 @@
           "chance": 1.0,
           "missao": "s02"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 11, reservado",
+          "texto": "Mutante de grande porte no cemitério. Não engajar. Ordem da Capitã: é assunto da cozinha."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Ronda o túmulo do pai toda noite. Às vezes eu deixo a vela acesa para ele. Ele gosta."
+        }
       ]
     },
     {
@@ -230,7 +352,14 @@
       "falas": {
         "ao_ver": "Herege! A nota vai terminar, quer você queira ou não!"
       },
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 5",
+          "texto": "Patrulhas da Comunhão rondam os Campos. Atiram primeiro, rezam depois. Às vezes rezam antes, o que dá tempo."
+        }
+      ]
     },
     {
       "id": "patrulha_vigilia",
@@ -251,7 +380,14 @@
       "falas": {
         "ao_ver": "Olha, um coroinha do apocalipse. Hoje não, padre!"
       },
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro das Ordens, 5",
+          "texto": "E os da Vela saqueiam os mortos do Coro, e chamam isso de sucata. Que a nota os encontre primeiro."
+        }
+      ]
     },
     {
       "id": "larva_de_carne",
@@ -267,7 +403,14 @@
       "descricao": "O que cresce na carne esquecida nas câmaras frias. Benedito deixava crescer de propósito: dizia que era o gado dele.",
       "aparencia": "Larva branca do tamanho de um homem deitado, boca circular cheia de dentes, pele translúcida mostrando o que comeu.",
       "comportamento": "Lenta. Cospe ácido. Divide-se em 2 larvas pequenas ao morrer.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Benedito chamava de gado. Eu chamo de motivo para não descer."
+        }
+      ]
     },
     {
       "id": "gancheiro",
@@ -283,7 +426,19 @@
       "descricao": "Clientes que vieram cobrar Benedito pela carne estranha. Ele os pendurou nos trilhos. Eles se soltaram sozinhos.",
       "aparencia": "Cadáver com um gancho atravessado nas costas, ainda preso a um pedaço de corrente que arrasta e usa como chicote.",
       "comportamento": "Ataque de corrente em arco à média distância. Pode estar pendurado no teto e cair em cima do jogador.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Arquivo do cerco",
+          "texto": "Desaparecidos: catorze moradores que foram reclamar da carne no Carniça. Nenhum voltou para registrar a queixa."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Vieram cobrar. Foram pendurados. Soltaram-se sozinhos. Ainda querem o troco."
+        }
+      ]
     },
     {
       "id": "soldado_caido",
@@ -299,7 +454,24 @@
       "descricao": "Restos dos guerreiros da Grande Batalha, de qualquer lado, que Andras ainda não comeu. Ele ainda os comanda.",
       "aparencia": "Cadáver meio comido em armadura misturada: placa branca de anjo, couro da Vigília, cota rubra da Legião. Espada quebrada, elmo amassado.",
       "comportamento": "Só surge das Pilhas de Mortos quando Andras dá a ordem. Ao morrer vira um cadáver fresco que ele pode devorar.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Arquivo da Grande Batalha",
+          "texto": "Baixas não recuperadas: muitas. Dos dois lados. A Cerca nunca teve gente para enterrar todo mundo."
+        },
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro da Retirada, 2",
+          "texto": "E a Legião ficou no campo, e o campo ficou com a Legião."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Não chegaram ao cemitério. A carroça do Benedito passou antes da minha."
+        }
+      ]
     },
     {
       "id": "general_partido",
@@ -354,6 +526,23 @@
           "chance": 1.0,
           "missao": "c04"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Arquivo da Grande Batalha",
+          "texto": "O general inimigo ficou de pé nos trilhos. A Capitã Ferrolho não freou. Corpo não recuperado. Presumido destruído."
+        },
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro da Retirada, 1",
+          "texto": "E o Coro recebeu ordem de subir, e subiu. E a Legião, que não tinha asas, ficou para segurar a terra, como era o seu lugar."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Ninguém presumiu nada. Eu enterrei a metade de baixo. A de cima nunca chegou ao cemitério. A carroça do Benedito passou antes da minha."
+        }
       ]
     },
     {
@@ -370,7 +559,25 @@
       "descricao": "Monges que se deixaram emparedar vivos por penitência séculos atrás. A meia nota os acordou dentro da parede. Alguns saíram.",
       "aparencia": "Esqueleto de hábito marrom podre com tijolos e argamassa grudados no corpo, ainda com o terço na mão.",
       "comportamento": "Sai da parede quando o jogador passa perto. Golpe de terço com chance de silenciar.",
-      "drops_missao": []
+      "drops_missao": [
+        {
+          "item": "ultimo_tijolo",
+          "chance": 0.2,
+          "missao": "f04"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Eles pediram a parede. Eu assentei os tijolos. Era o costume, e eu sabia o que era esperar dentro de pedra."
+        },
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro do Chamado, 4",
+          "texto": "E até os que se encerraram em pedra ouviram a meia nota, e a pedra não os segurou."
+        }
+      ]
     },
     {
       "id": "carpideira_de_ossos",
@@ -386,7 +593,14 @@
       "descricao": "As aprendizes da Irmã Celeste. Choraram tanto que viraram só o choro e os ossos.",
       "aparencia": "Esqueleto feminino de véu negro rasgado, lágrimas de cera escorrendo das órbitas e endurecendo no queixo.",
       "comportamento": "Canta e cura outros mortos próximos. Prioridade de alvo. Grita e assusta (medo curto) quando morre.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Eu pagava a elas para chorar nos enterros. Uma moeda por cova. Choraram de graça por trinta e um anos."
+        }
+      ]
     },
     {
       "id": "fogo_de_vela",
@@ -402,7 +616,14 @@
       "descricao": "As milhares de velas acesas no ossário guardam um pouco de cada oração feita. Algumas orações eram raivosas.",
       "aparencia": "Chama de vela solta no ar, do tamanho de uma cabeça, com um rosto derretendo na cera que pinga.",
       "comportamento": "Flutua em grupo e explode em fogo ao tocar no jogador.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Cada vela guarda um pouco da oração de quem acendeu. Algumas eu não acenderia de novo."
+        }
+      ]
     },
     {
       "id": "irma_celeste",
@@ -451,6 +672,23 @@
           "chance": 1.0,
           "missao": "c05"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Desceu para cantar até os mortos dormirem. Cantou por anos. Os ossos aprenderam a letra. Ela não aprendeu a parar."
+        },
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro do Chamado, 6",
+          "texto": "E houve uma que cantou contra o chamado, e o seu canto fez os mortos dormirem antes da hora. Que a nota a encontre."
+        },
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 9",
+          "texto": "Contato no segundo andar da cripta. Coro de ossos. Cura os próprios. Corte o canto primeiro."
+        }
       ]
     },
     {
@@ -467,7 +705,19 @@
       "descricao": "Os querubins da guarda de Zacarias. Ele os desmontou um por um para não ficar sozinho e os remontou errado.",
       "aparencia": "Boneco de porcelana branca rachada do tamanho de uma criança, asas de ferro batido, membros trocados de lugar e presos com arame e pregos de latão, rosto sorridente pintado.",
       "comportamento": "Voa em zigue-zague. Quando quebra, os pedaços tentam se juntar de novo em 5 segundos se não forem pisados.",
-      "drops_missao": []
+      "drops_missao": [],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro da Guarda, 1",
+          "texto": "E deu-se ao arauto uma guarda de querubins, para que nunca estivesse só."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Ele os desmontou para ter o que fazer. Montou errado. A solidão faz isso com mãos boas."
+        }
+      ]
     },
     {
       "id": "eco_da_trombeta",
@@ -483,7 +733,20 @@
       "descricao": "Pedaços da meia nota que ficaram presos na câmara. Têm forma porque o som tinha vontade.",
       "aparencia": "Silhueta dourada distorcida, como uma onda de calor no formato de um homem com a boca aberta.",
       "comportamento": "Invisível até chegar perto. Dá um grito que empurra e atordoa. Imune a dano físico por 2 segundos após gritar.",
-      "drops_missao": []
+      "drops_missao": [
+        {
+          "item": "eco_do_nome",
+          "chance": 0.25,
+          "missao": "f06"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "A meia nota não acabou. Ficou lá embaixo, batendo nas paredes. Tem vontade, como todo som que devia ter terminado."
+        }
+      ]
     },
     {
       "id": "zacarias_arauto",
@@ -533,6 +796,23 @@
           "chance": 1.0,
           "missao": "c06"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Ordem selada do Coro",
+          "texto": "Descerás sob a cidade de Lázaro e soprarás a quinta trombeta quando o céu rachar. Não abandonarás o posto até que a nota esteja completa."
+        },
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 0, cópia",
+          "texto": "Lacre de chumbo vazado no bocal na janela de três segundos. O arauto ficou lá embaixo. Ninguém voltou para conferir."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Ninguém veio. Ele escreveu isso muitas vezes. Eu ouvi. Também não fui."
+        }
       ]
     },
     {
@@ -559,6 +839,23 @@
           "chance": 0.5,
           "missao": "e02"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro das Ordens, 9",
+          "texto": "E os que largaram o estandarte não são mais Legião, nem aliança, nem nada."
+        },
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Despacho nº 12",
+          "texto": "Demônios sem bandeira no Rio Amargo. Cobram pedágio da água. Costuram o nome do general atrás das insígnias arrancadas."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Perguntam por um corpo. Eu digo que não enterrei. É verdade, pela metade."
+        }
       ]
     },
     {
@@ -584,6 +881,18 @@
           "chance": 0.35,
           "missao": "e03"
         }
+      ],
+      "registros": [
+        {
+          "fonte": "versiculo_coro",
+          "titulo": "Livro das Ordens, 11",
+          "texto": "E houve na Comunhão os que se disseram puros demais para marchar com asa e com chifre. A Madre os chama de filhos. Abdiel os chama de outra coisa."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Rezam entre as viúvas. As viúvas não gostam. Eu também não."
+        }
       ]
     },
     {
@@ -608,6 +917,18 @@
           "item": "fragmento_clarao",
           "chance": 0.4,
           "missao": "d05"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "Não tenho o que enterrar. Só a sombra ficou. Já tentei cobrir com areia. A areia escorre."
+        },
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Relatório de Isaura Valente, cópia",
+          "texto": "Elas apontam para o céu. É o último gesto. Não sabem que o clarão já passou. Eu não conto a elas."
         }
       ]
     },
@@ -635,6 +956,18 @@
           "item": "chave_lancamento",
           "chance": 1.0,
           "missao": "d06"
+        }
+      ],
+      "registros": [
+        {
+          "fonte": "despacho_vela",
+          "titulo": "Relatório de Isaura Valente, cópia",
+          "texto": "Sargento Brandão. Operador de serviço na noite das 03h11. Aguardando a segunda ordem. Ninguém vai mandar."
+        },
+        {
+          "fonte": "caderno_coveiro",
+          "titulo": "Página sem data",
+          "texto": "O único homem do deserto que espera mais do que eu. E sentado."
         }
       ]
     }

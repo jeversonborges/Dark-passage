@@ -70,7 +70,7 @@
     "nivel": 1,
     "custo": 12,
     "recarga": 4.0,
-    "mult": 1.8,
+    "mult": 4.09,
     "elemento": "sagrado",
     "alcance": 1.4,
     "postura": 30,
@@ -156,12 +156,12 @@
     "direcao": "mouse"
    },
    "dano": {
-    "mult": 1.3,
+    "mult": 1.51,
     "queimadura": {
      "duracao": 2,
      "dano_por_s_mult": 0.15
     },
-    "chao_em_chamas_s": 3.0
+    "chao_em_chamas_s": 2.0
    },
    "efeitos": [
     "golpe de espada no alvo da frente",
@@ -181,7 +181,7 @@
     "nivel": 5,
     "custo": 18,
     "recarga": 2.2,
-    "mult": 1.3,
+    "mult": 1.51,
     "elemento": "sagrado",
     "preparo": 0.25,
     "postura": 18,
@@ -190,7 +190,7 @@
     "auto": true,
     "sensacao": "area",
     "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
-    "chao_em_chamas_s": 3.0,
+    "chao_em_chamas_s": 2.0,
     "queimadura": {
      "duracao": 2,
      "dano_por_s_mult": 0.15
@@ -236,7 +236,7 @@
     "nivel": 6,
     "custo": 30,
     "recarga": 12.0,
-    "mult": 1.1,
+    "mult": 1.93,
     "area_raio": 2.5,
     "cura_mult": 0.8,
     "efeito": {
@@ -400,13 +400,13 @@
     "nivel": 1,
     "custo": 0.03,
     "recarga": 2.5,
-    "mult": 1.2,
+    "mult": 0.29,
     "alcance": 7,
     "projetil_vel": 10,
     "efeito": {
      "sangramento": {
       "duracao": 6.0,
-      "dano_por_s_mult": 0.25
+      "dano_por_s_mult": 0.06
      }
     },
     "elemento": "sangue",
@@ -419,6 +419,80 @@
     "64": "assets/icones/skills/64/cultista_sangria.png",
     "40": "assets/icones/skills/40/cultista_sangria.png",
     "32": "assets/icones/skills/32/cultista_sangria.png"
+   }
+  },
+  {
+   "id": "cultista_familiar_pacto",
+   "classe": "cultista",
+   "nome": "Pacto do Familiar",
+   "tipo": "racial",
+   "nivel": 1,
+   "custo": 0,
+   "recarga": 0,
+   "conjuracao": 0.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "fogo",
+   "escala": [
+    "ESP",
+    "VIT"
+   ],
+   "racial": true,
+   "slot": null,
+   "efeitos": [
+    "familiar demoníaco permanente que anda com o Cultista",
+    "ataca quem bater no mestre; nunca puxa briga sozinho",
+    "racial: não ocupa slot de skill nem tecla",
+    "se o familiar morrer, volta sozinho em 30 s",
+    "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16)"
+   ],
+   "descricao": "O livro acorrentado tem uma página que ninguém escreveu. Quem assina com sangue ganha um demônio de estimação, e o demônio cresce junto com a dívida.",
+   "fx": "selo de cera rachando no chão + fuligem subindo; o familiar sai de dentro da fumaça",
+   "som": "risada curta e aguda + estalo de brasa",
+   "familiar": {
+    "dados_combate": "design/combate/classes_base.json > cultista > racial > familiar",
+    "plano_sprites": "design/personagens/familiar_cultista.md",
+    "formas": [
+     {
+      "id": "familiar_diabrete",
+      "nome": "Diabrete de Fuligem",
+      "nivel": 1,
+      "descricao": "Um diabinho do tamanho de um gato, de avental de couro queimado e óculos de soldador rachados. Cospe brasa em quem encosta no mestre e ri de tudo.",
+      "ataque": "Cuspe de Brasa: projétil de brasa que deixa queimadura leve",
+      "fx": "cuspe laranja com fagulhas",
+      "som": "risadinha + cuspe chiando"
+     },
+     {
+      "id": "familiar_algoz",
+      "nome": "Algoz de Enxofre",
+      "nivel": 6,
+      "descricao": "O diabrete engordou de dívida. Agora é um carrasco do tamanho de um homem, capuz de couro, chifres serrados, corrente no pescoço e um cutelo de açougue. Puxa pela corrente quem ousou bater no mestre.",
+      "ataque": "Cutelo de Enxofre (corpo a corpo)",
+      "especial": "Puxão de Corrente: arrasta o agressor até ele e o provoca por 3 s",
+      "passiva": "Guarda-Costas: recebe 15% do dano que o mestre levaria",
+      "fx": "corrente com gancho em brasa + rastro de enxofre amarelo-sujo",
+      "som": "corrente arrastando + grunhido"
+     },
+     {
+      "id": "familiar_tirano",
+      "nome": "Tirano da Fornalha",
+      "nivel": 16,
+      "descricao": "Um couraçado da Legião Blasfema que perdeu o general e jurou ao Cultista. Quase três metros de placas rebitadas, chifres de carneiro, uma fornalha acesa no peito, pistão na perna e um canhão de brasa no lugar do braço.",
+      "ataque": "Punho de Fornalha (corpo a corpo, quebra postura)",
+      "especial": "Canhão de Brasa: tiro em área de 2 tiles que deixa o chão em chamas por 3 s; Rugido da Legião: provoca todos em 3 tiles",
+      "passiva": "Guarda-Costas: recebe 25% do dano que o mestre levaria",
+      "fx": "tiro de brasa com fumaça preta + anel de fogo no chão; vapor saindo do pistão",
+      "som": "rugido grave + escape de vapor + explosão abafada"
+     }
+    ]
+   },
+   "fonte_numeros": "design/combate/classes_base.json > cultista > racial",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_familiar_pacto.png",
+    "40": "assets/icones/skills/40/cultista_familiar_pacto.png",
+    "32": "assets/icones/skills/32/cultista_familiar_pacto.png"
    }
   },
   {
@@ -489,10 +563,10 @@
     "alcance_max_tiles": 7
    },
    "dano": {
-    "mult": 1.35,
+    "mult": 1.32,
     "sangramento": {
      "duracao": 4,
-     "dano_por_s_mult": 0.12
+     "dano_por_s_mult": 0.072
     }
    },
    "efeitos": [
@@ -513,7 +587,7 @@
     "nivel": 5,
     "custo": 0.035,
     "recarga": 2.2,
-    "mult": 1.35,
+    "mult": 1.32,
     "elemento": "sangue",
     "preparo": 0.25,
     "postura": 18,
@@ -525,7 +599,7 @@
     "custo_em": "pct_hp_max",
     "sangramento": {
      "duracao": 4,
-     "dano_por_s_mult": 0.12
+     "dano_por_s_mult": 0.072
     },
     "forma": "circulo_no_mouse",
     "raio": 2.2,
@@ -612,7 +686,7 @@
     "nivel": 9,
     "custo": 0.1,
     "recarga": 10.0,
-    "mult_por_tick": 0.45,
+    "mult_por_tick": 0.12,
     "ticks": 6,
     "intervalo_tick": 0.5,
     "area_raio": 2.5,
@@ -746,12 +820,12 @@
     "custo": 0,
     "gera": 10,
     "recarga": 5.0,
-    "mult": 1.7,
+    "mult": 2.76,
     "alcance": 1.4,
     "efeito": {
      "veneno": {
       "duracao": 6.0,
-      "dano_por_s_mult": 0.15
+      "dano_por_s_mult": 0.244
      }
     },
     "elemento": "veneno",
@@ -835,7 +909,7 @@
     "origem": "personagem"
    },
    "dano": {
-    "mult": 1.2,
+    "mult": 1.68,
     "veneno": {
      "duracao": 4,
      "dano_por_s_mult": 0.12
@@ -859,7 +933,7 @@
     "nivel": 5,
     "custo": 18,
     "recarga": 2.4,
-    "mult": 1.2,
+    "mult": 1.68,
     "elemento": "veneno",
     "preparo": 0.25,
     "postura": 18,
@@ -957,7 +1031,7 @@
     "nivel": 9,
     "custo": 20,
     "recarga": 10.0,
-    "mult": 1.5,
+    "mult": 2.44,
     "deslocamento": 5,
     "efeito": {
      "derrubado": 1.2
@@ -1078,7 +1152,7 @@
     "gera": 18,
     "recarga": 3.5,
     "golpes": 3,
-    "mult_por_golpe": 0.65,
+    "mult_por_golpe": 0.83,
     "intervalo_golpes": 0.12,
     "alcance": 1.4,
     "postura_por_golpe": 10,
@@ -1121,7 +1195,7 @@
     "nivel": 3,
     "custo": 20,
     "recarga": 9.0,
-    "mult": 0.8,
+    "mult": 1.02,
     "alcance": 6,
     "puxa_para": 1.2,
     "postura": 40,
@@ -1162,7 +1236,7 @@
     "direcao": "mouse"
    },
    "dano": {
-    "mult": 1.3
+    "mult": 1.08
    },
    "efeitos": [
     "foiçada em meia-lua que deixa um rastro de fogo no chão",
@@ -1181,7 +1255,7 @@
     "nivel": 5,
     "custo": 18,
     "recarga": 2.0,
-    "mult": 1.3,
+    "mult": 1.08,
     "elemento": "fogo",
     "preparo": 0.25,
     "postura": 18,
@@ -1392,7 +1466,7 @@
     "nivel": 1,
     "custo": 20,
     "recarga": 5.0,
-    "mult": 2.0,
+    "mult": 2.5,
     "critico_extra": 0.2,
     "alcance": 9,
     "conjuracao": 0.3,
@@ -1439,7 +1513,7 @@
     "nivel": 3,
     "custo": 25,
     "recarga": 6.0,
-    "mult": 1.4,
+    "mult": 0.53,
     "arco_graus": 360,
     "alcance": 0,
     "postura": 35,
@@ -1482,7 +1556,7 @@
     "alcance_max_tiles": 6
    },
    "dano": {
-    "mult": 1.3,
+    "mult": 1.45,
     "queimadura": {
      "duracao": 2,
      "dano_por_s_mult": 0.15
@@ -1506,7 +1580,7 @@
     "nivel": 5,
     "custo": 22,
     "recarga": 2.2,
-    "mult": 1.3,
+    "mult": 1.45,
     "elemento": "fogo",
     "preparo": 0.25,
     "postura": 18,
@@ -1575,7 +1649,7 @@
     "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
     "sensacao": "investida",
     "substitui": "rolamento",
-    "mult": 0.9,
+    "mult": 1.12,
     "largura_corte": 1.2,
     "acerta_cada_inimigo_uma_vez": true,
     "postura": 20,
@@ -1621,7 +1695,7 @@
     "recarga": 8.0,
     "projeteis": 5,
     "cone_graus": 50,
-    "mult_por_projetil": 0.6,
+    "mult_por_projetil": 0.23,
     "alcance": 6,
     "postura_por_projetil": 8,
     "empurrao": 0.4,
@@ -1714,7 +1788,7 @@
     "alcance": 4,
     "arma_s": 1.0,
     "dura_s": 20,
-    "mult": 1.5,
+    "mult": 1.88,
     "efeito": {
      "enraizado": 3.0
     },
@@ -1795,7 +1869,7 @@
     "nivel": 1,
     "custo": 15,
     "recarga": 3.0,
-    "mult": 1.4,
+    "mult": 0.63,
     "saltos": 3,
     "queda_por_salto": 0.25,
     "raio_salto": 3,
@@ -1819,7 +1893,7 @@
    "tipo": "invocacao",
    "nivel": 3,
    "custo": 35,
-   "recarga": 18.0,
+   "recarga": 10.0,
    "conjuracao": 1.2,
    "alcance": 3,
    "area": 0,
@@ -1840,10 +1914,10 @@
     "nome": "Torreta Sentinela",
     "nivel": 3,
     "custo": 35,
-    "recarga": 18.0,
+    "recarga": 10.0,
     "invoca": "torreta",
-    "duracao": 15.0,
-    "max": 1,
+    "duracao": 40.0,
+    "max": 2,
     "sensacao": "invocacao"
    },
    "fonte_numeros": "design/combate/classes_base.json",
@@ -1878,7 +1952,7 @@
     "origem": "personagem"
    },
    "dano": {
-    "mult": 1.25,
+    "mult": 1.39,
     "chance_atordoar": 0.15,
     "atordoar_s": 0.5
    },
@@ -1899,7 +1973,7 @@
     "nivel": 5,
     "custo": 16,
     "recarga": 2.0,
-    "mult": 1.25,
+    "mult": 1.39,
     "elemento": "eletrico",
     "preparo": 0.25,
     "postura": 18,
@@ -2035,7 +2109,7 @@
     "custo": 30,
     "recarga": 16.0,
     "area_raio": 3.0,
-    "mult": 0.8,
+    "mult": 0.36,
     "efeito": {
      "silenciado": 3.0
     },
@@ -2051,6 +2125,71 @@
     "64": "assets/icones/skills/64/tecnomancer_pulso_antidivino.png",
     "40": "assets/icones/skills/40/tecnomancer_pulso_antidivino.png",
     "32": "assets/icones/skills/32/tecnomancer_pulso_antidivino.png"
+   }
+  },
+  {
+   "id": "tecnomancer_rosario_voltaico",
+   "classe": "tecnomancer",
+   "nome": "Rosário Voltaico",
+   "tipo": "area",
+   "nivel": 16,
+   "custo": 34,
+   "recarga": 4.0,
+   "conjuracao": 0.35,
+   "alcance": 7,
+   "area": "salta até 6 alvos (3.5 tiles entre um e outro)",
+   "duracao": 0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP",
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "cadeia",
+    "alvos_max": 6,
+    "raio_salto_tiles": 3.5,
+    "origem": "alvo_do_mouse"
+   },
+   "efeitos": [
+    "raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum",
+    "cada salto perde 12% do dano",
+    "15% de chance de paralisar 0.5 s",
+    "+15% de dano em invocações",
+    "pedido do Jefin (2026-10-11)"
+   ],
+   "descricao": "Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
+   "fx": "raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão",
+   "som": "estalo elétrico forte + estalos menores em cadeia, cada um um tom acima",
+   "combate": {
+    "id": "tecnomancer_rosario_voltaico",
+    "nome": "Rosário Voltaico",
+    "nivel": 16,
+    "custo": 34,
+    "recarga": 4.0,
+    "conjuracao": 0.35,
+    "mult": 0.72,
+    "alvos_max": 6,
+    "saltos": 5,
+    "queda_por_salto": 0.12,
+    "raio_salto": 3.5,
+    "alcance": 7,
+    "elemento": "eletrico",
+    "nao_repete_alvo": true,
+    "chance_paralisar": 0.15,
+    "paralisar_s": 0.5,
+    "bonus_vs": {
+     "tag:invocacao": 1.15
+    },
+    "postura": 20,
+    "sensacao": "raio",
+    "_doc": "pedido do Jefin (2026-10-11): raio que salta ate 6 alvos. Versao grande do Arco Voltaico. Dano por alvo = mult * (1-queda)^n: 1.60, 1.41, 1.24, 1.09, 0.96, 0.84 (total 7.14x). PROVISORIO ate o Design do combate revisar."
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_rosario_voltaico.png",
+    "40": "assets/icones/skills/40/tecnomancer_rosario_voltaico.png",
+    "32": "assets/icones/skills/32/tecnomancer_rosario_voltaico.png"
    }
   },
   {

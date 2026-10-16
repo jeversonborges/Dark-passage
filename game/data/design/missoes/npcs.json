@@ -175,13 +175,11 @@
         "subzona": "cemiterio_sao_lazaro",
         "ponto": "casa_simao"
       },
-      "servicos": [
-        "armazem"
-      ],
+      "servicos": [],
       "dialogo": "dlg_simao",
       "aparencia": "Velho muito alto e muito magro, pele cinza de quem já foi enterrado, faixas de linho velho enroladas nos pulsos e no pescoço. Chapéu de aba larga, pá apoiada no ombro, lampião com uma vela de sebo.",
       "personalidade": "Gentil, lento, cansado de um jeito que não é de sono. Responde perguntas com perguntas. Gosta de quem trabalha com as mãos.",
-      "historia": "Cuida do cemitério desde que alguém lembra. No deserto o ofício virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Os Não-Julgados não o atacam: abaixam a cabeça quando ele passa. Guarda os pertences dos vivos em covas numeradas, porque ninguém rouba de um cemitério. Segredo (nunca dito, só insinuado): ele é Lázaro, o homem chamado de volta da morte. Já morreu duas vezes. Não sabe se quer que a trombeta termine a nota."
+      "historia": "Cuida do cemitério desde que alguém lembra. No deserto o ofício virou o contrário: a maré de areia desenterra os túmulos toda noite, e ele passa os dias cobrindo de novo. Os Não-Julgados não o atacam: abaixam a cabeça quando ele passa. Guardava os pertences dos vivos em covas numeradas, porque ninguém rouba de um cemitério; hoje quem guarda é Gustavo, o Primarca, que ergueu suas Arcas no pátio do Acampamento da Vela e no adro da Capela. Segredo em duas camadas (linha F, Vem Para Fora): a primeira, que o jogador descobre em f01 a f05, é que ele seria Lázaro, o homem chamado de volta da morte. A verdade, revelada só em f06: ele é o arcanjo Rafael, que tomou o nome de Lázaro e o ofício de coveiro em 1688 para guardar a quinta trombeta, se afeiçoou aos humanos e, na meia nota, lutou contra o próprio Coro na Batalha do Impasse para dar à humanidade uma chance. Perdeu as asas; as faixas de linho escondem as cicatrizes. Não morre: volta."
     },
     {
       "id": "frei_anacleto",
@@ -233,6 +231,202 @@
       "aparencia": "Mulher jovem de capa de penas pretas costuradas em couro, metade do rosto pintada de branco osso e metade sem pintura, um olho de vidro verde. Mora num sótão afogado em que se entra por uma janela na duna.",
       "personalidade": "Simpática, curiosa, sem lealdade nenhuma. Cobra por tudo e não mente nunca: vende a verdade inteira para os dois lados.",
       "historia": "Foi cultista na Capela até perceber que segredo vale mais que fé. Hoje compra e vende informação entre a Capela e o Acampamento da Vela. Foi ela quem espalhou, dos dois lados, que o general da Legião Blasfema sumiu, e cobrou caro das duas vezes."
+    },
+    {
+      "id": "zulmira_faroleira",
+      "nome": "Nhá Zulmira",
+      "titulo": "Faroleira da Vela",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "visual_proprio": "zulmira_faroleira",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "a_vela"
+      },
+      "posicao_sugerida": [
+        42.0,
+        44.6
+      ],
+      "servicos": [],
+      "dialogo": "dlg_zulmira",
+      "aparencia": "Velha alta e ossuda, cega, com os olhos brancos de quem olhou para o arco elétrico a vida inteira. Óculos de solda de lentes rachadas empurrados na testa, avental de couro queimado cheio de bolsos com chaves de boca, almotolia de óleo pendurada no cinto. Anda descalça sobre o vidro da cúpula porque diz que sente a Vela pelos pés.",
+      "modelo": "Corpo magro e comprido, levemente curvado. Avental de couro marrom até a canela sobre vestido cinza remendado. Óculos de solda de latão na testa. Almotolia e molho de chaves no cinto. Pés descalços. Paleta: couro queimado, latão, cinza; brilho azul do arco refletido nas lentes.",
+      "personalidade": "Calma, fala devagar e conta as horas pelo zumbido da lâmpada. Trata a Vela como uma criança doente. Não tem medo de nada, porque não vê nada.",
+      "historia": "Foi eletricista da estação quando ainda passavam bondes. Quando o Doutor Anselmo montou a Vela, ela foi a única que topou subir nas costelas da cúpula para ligar os cabos. O arco a cegou na primeira noite. Desde então cuida da lâmpada sozinha: troca as bobinas, limpa os eletrodos e escuta. Ela diz que, quando o zumbido muda de tom, é porque tem Não-Julgado na beira da luz.",
+      "falas_ambiente": [
+        "Zumbido em mi. Tá tudo bem.",
+        "Ô menino, não pisa no cabo.",
+        "Ela tá com fome hoje. Cobre, óleo e paciência.",
+        "Lá fora a areia brilha. Aqui dentro, não."
+      ]
+    },
+    {
+      "id": "bento_atracador",
+      "nome": "Mestre Bento Catraca",
+      "titulo": "Atracador da Estação",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "visual_proprio": "bento_atracador",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "plataforma_bondes"
+      },
+      "posicao_sugerida": [
+        36.5,
+        48.5
+      ],
+      "servicos": [],
+      "dialogo": "dlg_bento",
+      "aparencia": "Homem gordo de bigode branco em ferradura, quepe de condutor de bonde com a placa da linha 7 polida, sobretudo azul da companhia com botões de latão faltando. Um apito de metal no pescoço e uma catraca de bonde inteira presa nas costas como mochila, que ele gira para contar quem embarca.",
+      "modelo": "Corpo largo e baixo. Quepe azul com placa de latão '7'. Sobretudo azul até o joelho, botões de latão, dragonas puídas. Catraca de ferro presa às costas por correias. Apito no pescoço. Botas de cano alto com areia até o tornozelo. Paleta: azul de companhia desbotado, latão, ferrugem.",
+      "personalidade": "Pontual num mundo sem horário. Anuncia partidas que não vão sair, xinga a areia como se fosse passageiro sem bilhete e defende Odete de qualquer um.",
+      "historia": "Era o despachante da linha 7, a de Odete. Na noite da Grande Batalha foi ele quem soltou o bonde ladeira abaixo, com o freio cortado, para Odete levar até os Campos de Cinza. Ele ficou na plataforma e ouviu o barulho de longe. Hoje cuida dos bondes-veleiros que atracam nos trilhos que saem da duna, cobra passagem em parafusos e mantém a velha catraca girando, porque enquanto ela gira a estação está aberta.",
+      "falas_ambiente": [
+        "Linha 7, partida das seis! ...Das seis de algum dia.",
+        "Passagem é um parafuso. Dois, se for com mala.",
+        "Areia não paga bilhete, mas embarca em tudo.",
+        "Segura a vela, que o vento vira!"
+      ]
+    },
+    {
+      "id": "celina_vidraceira",
+      "nome": "Dona Celina",
+      "titulo": "Vidraceira da Cúpula",
+      "faccao": "vigilia",
+      "classe_visual": "mutante",
+      "visual_proprio": "celina_vidraceira",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "forno_vidro"
+      },
+      "posicao_sugerida": [
+        40.0,
+        50.8
+      ],
+      "servicos": [],
+      "dialogo": "dlg_celina",
+      "aparencia": "Mulher de meia-idade com as duas mãos vitrificadas até o pulso: a praga transformou a pele em vidro verde translúcido, e dá para ver os ossos por dentro. Lenço amarrado no cabelo, macacão de operária manchado de fuligem, cana de sopro de vidro de dois metros pendurada no ombro como uma lança.",
+      "modelo": "Corpo médio e firme. Macacão de lona escuro com mangas arregaçadas; mãos e antebraços de vidro verde translúcido com ossos visíveis e brilho fraco. Lenço vermelho desbotado. Cana de sopro comprida no ombro. Avental de couro. Paleta: lona carvão, verde Amargo nas mãos, vermelho do lenço.",
+      "personalidade": "Seca, prática, perfeccionista. Fala pouco e só elogia trabalho bem feito. Tem uma ternura enorme pela cúpula, que chama de 'a velha'.",
+      "historia": "Remenda a cúpula desde que o acampamento existe. As vidraças novas ela sopra com a areia vitrificada dos Campos de Cinza, a que a Grande Batalha derreteu. Diz que cada vidraça tem dentro um pouco de algum soldado que morreu lá, e por isso a cúpula aguenta: os mortos não deixam a areia entrar. As mãos viraram vidro de tanto mexer no Amargo quente. Ela acha que foi um preço justo.",
+      "falas_ambiente": [
+        "Racha nova no painel doze. Ninguém encosta.",
+        "Vidro de batalha. Aguenta mais que gente.",
+        "A velha tá rangendo. Vem tempestade.",
+        "Não toca na minha mão. Corta."
+      ]
+    },
+    {
+      "id": "damiao_sentinela",
+      "nome": "Cabo Damião Pé-de-Chumbo",
+      "titulo": "Sentinela do Portão",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "visual_proprio": "damiao_sentinela",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "portao_cupula"
+      },
+      "posicao_sugerida": [
+        48.2,
+        41.0
+      ],
+      "servicos": [],
+      "dialogo": "dlg_damiao",
+      "aparencia": "Soldado velho e magro, de capacete de aço do exército pintado com uma vela, farda verde do Comando Sul rasgada e remendada com couro. Usa botas de chumbo enormes, que pesam mais que ele, para o Amargo não subir pelos pés. Carrega um fuzil antigo com baioneta e um terço de balas no pescoço.",
+      "modelo": "Corpo magro, ombros caídos, pernas terminando em botas de chumbo cinza desproporcionais. Capacete de aço com uma vela pintada em branco. Farda verde do exército, remendos de couro. Fuzil com baioneta apoiado no ombro. Terço de cartuchos no pescoço. Paleta: verde militar desbotado, chumbo, couro.",
+      "personalidade": "Desconfiado, rabugento, leal até o osso. Pede senha para todo mundo, até para quem ele conhece. Tem pesadelos e não fala deles.",
+      "historia": "Fazia a guarda da cerca da vila militar do Silo São Lázaro. Na noite em que a Absinto-1 subiu ele estava de costas para o muro, olhando a estrada, e por isso não ficou gravado na pedra como os outros. Fugiu a pé pelo deserto e chegou à cúpula quase morto. Nunca contou de onde vinha. Hoje vigia o portão e não deixa ninguém entrar depois que a Vela acende, nem gente que ele ama.",
+      "falas_ambiente": [
+        "Senha.",
+        "Senha errada. Pode passar, mas é a última vez.",
+        "Depois que a Vela acende, ninguém entra.",
+        "Não olha pro clarão. Nunca olha pro clarão."
+      ]
+    },
+    {
+      "id": "lindalva_parteira",
+      "nome": "Lindalva",
+      "titulo": "Parteira da Cúpula",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "visual_proprio": "lindalva_parteira",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "enfermaria_lindalva"
+      },
+      "posicao_sugerida": [
+        37.2,
+        44.0
+      ],
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_lindalva",
+      "dialogo": "dlg_lindalva",
+      "aparencia": "Mulher jovem e forte, de pele escura, tranças presas com fios de cobre, avental branco lavado mil vezes e já cinza, bolsa de couro de médico atravessada no peito. No pescoço, um caderno amarrado por um cordão, onde anota os nascimentos. Uma máscara de gás de couro pendurada na cintura.",
+      "modelo": "Corpo robusto, postura firme. Tranças longas com fios de cobre enrolados. Avental branco acinzentado sobre vestido marrom, mangas arregaçadas. Bolsa de médico de couro a tiracolo. Caderno pendurado no pescoço. Máscara de gás na cintura. Paleta: marrom, branco sujo, cobre brilhante.",
+      "personalidade": "Alegre, firme e prática. A única pessoa no deserto que fala do futuro sem ironia. Briga com quem chama os bebês mutantes de 'coisa'.",
+      "historia": "Aprendeu o ofício com a mãe, que fazia partos na estação antes da areia. Hoje ajuda a nascer todas as crianças da cúpula, e muitas nascem diferentes: com escamas, com três braços, com olhos que brilham no escuro. Ela anota cada uma no caderno. 'O Simão tem a lista dos mortos. Eu tenho a lista que cresce.' Faz tônicos e curativos com o que o Doutor Anselmo não aproveita, e vende barato para quem vai lutar lá fora.",
+      "falas_ambiente": [
+        "Mais um nasceu essa noite. Tem escama, é lindo.",
+        "Vai pra fora? Leva tônico. Leva dois.",
+        "Lista dos vivos: cento e doze. E contando.",
+        "Quem chamar meu bebê de coisa vai dormir lá fora."
+      ]
+    },
+    {
+      "id": "pirralho_ferrolho",
+      "nome": "Ferrolho",
+      "titulo": "Moleque de Recados",
+      "faccao": "vigilia",
+      "classe_visual": "mutante",
+      "visual_proprio": "pirralho_ferrolho",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "costelas_cupula"
+      },
+      "posicao_sugerida": [
+        43.5,
+        49.2
+      ],
+      "servicos": [],
+      "dialogo": "dlg_ferrolho",
+      "aparencia": "Menino de uns dez anos, magro como um varal, com um terceiro braço pequeno saindo do lado esquerdo das costelas. Óculos de aviador grandes demais, boné de jornaleiro, suspensórios de cabo de aço, um saco de sucata nas costas. Anda pendurado nas costelas de ferro da cúpula como um macaco.",
+      "modelo": "Criança pequena e esguia, com três braços (o terceiro menor, saindo da lateral esquerda). Óculos de aviador enormes na testa, boné de jornaleiro, camisa listrada rasgada, suspensórios de cabo de aço, calção. Saco de sucata nas costas. Pés descalços. Paleta: listras creme e marrom, latão dos óculos, ferrugem.",
+      "personalidade": "Esperto, linguarudo, vende fofoca por bala. Sonha em pilotar um bonde-veleiro. Morre de medo da Capela e finge que não.",
+      "historia": "Nasceu na cúpula, foi um dos primeiros partos da Lindalva. Os pais saíram para buscar água no Rio Amargo e não voltaram. Desde então é de todo mundo e de ninguém: leva recado, entrega encomenda, cata parafuso para o Bento e conta tudo o que ouve. Usa o terceiro braço para segurar nas costelas da cúpula enquanto os outros dois roubam.",
+      "falas_ambiente": [
+        "Recado! Recado! ...Não, não é pra você.",
+        "Tem um parafuso aí? Meio parafuso serve.",
+        "Eu vi um anjo lá na duna! Juro! ...Era um corvo.",
+        "Um dia eu piloto a linha 7."
+      ]
+    },
+    {
+      "id": "gustavo_primarca",
+      "nome": "Gustavo",
+      "titulo": "O Primarca",
+      "faccao": "neutro",
+      "classe_visual": "gustavo_primarca",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "arca_primarca",
+        "outros_locais": [{"subzona": "capela_sao_lazaro", "ponto": "arca_primarca_capela"}]
+      },
+      "servicos": [
+        "armazem"
+      ],
+      "armazem": {
+        "titulo": "Arca do Primarca",
+        "fala": "O que entra na Arca não pertence a guerra nenhuma."
+      },
+      "dialogo": "dlg_gustavo",
+      "homenagem": "Ao primeiro jogador do DARK PASSAGE, o Gustavo.",
+      "aparencia": "Velho enorme e ainda reto, careca, barba branca até o peito presa em duas tranças com anéis de latão. Lupa de três lentes no olho direito. Sobretudo azul-ferro até o chão com debrum de latão, manto acolchoado de isolamento nos ombros, braço esquerdo mecânico com manômetro no antebraço. Atrás da cabeça, presa a uma caldeira de cobre, a Coroa de Válvulas: sete válvulas em leque que acendem roxas. Apoia-se na Chave-Mestra, um cajado com um anel de chave no alto. Ao lado dele, a Arca: um baú de carvalho negro e ferro com volante de cofre, manômetros e cinco válvulas roxas no tampo.",
+      "personalidade": "Calmo, lento, preciso como um relojoeiro. Fala pouco e sempre em ordem, como quem dita instruções. Trata todo mundo por aprendiz. Não escolhe lado faz trinta anos e não deixa ninguém brigar perto da Arca.",
+      "historia": "O primeiro Tecnomancer. Na noite da meia nota, quando o Coro decretou que toda máquina era pecado e todo engenheiro, alvo, Gustavo juntou os sobreviventes que sabiam soldar e fundou os Engenheiros Hereges. Comandou-os na Guerra da Heresia e foi um dos maiores líderes daquela guerra: o que mais trouxe os seus de volta. Anselmo foi aprendiz dele. Quando a Vigília virou exército, ele largou o comando ('eu fiz ferramentas, não generais') e veio para São Lázaro, onde Simão guardava as coisas dos vivos em covas. Ergueu duas Arcas, uma no pátio do Acampamento da Vela e outra no adro da Capela, cofres de válvulas ligados pelo mesmo fio que só abrem para quem guardou. Arautos e Vigília deixam suas coisas com ele, e nenhum dos dois lados ousa levantar arma perto da Coroa. Dizem que Simão e ele conversam a noite inteira, e que são as únicas duas pessoas em São Lázaro que lembram do mundo antes de 1962."
     }
-  ]
+  ],
+  "nota": "'visual_proprio' é o id do sprite próprio do NPC (a thread Personagens 3D faz a partir de 'modelo'); enquanto não existir, o jogo usa 'classe_visual'. 'falas_ambiente' são frases curtas que o NPC solta sozinho quando o jogador passa perto. 'posicao_sugerida' é na grade de area_inicial.json; a posição final é da Level design."
 }

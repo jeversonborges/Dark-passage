@@ -1,6 +1,6 @@
 {
   "_doc": "Atributos iniciais, crescimento, recurso e numeros das habilidades de cada classe ate o fim da primeira entrega (nivel ~13). Nomes de habilidades seguem design/classes.md; icones e textos sao da thread Skills, itens e icones. 'mult' multiplica a rolagem de dano (formulas.json). Tempos em segundos, distancias em tiles (1 tile = 48x24 px).",
-  "versao": "0.1",
+  "versao": "0.1+dps1610",
   "desbloqueio_habilidades_niveis": [
     1,
     3,
@@ -14,10 +14,10 @@
       "faccao": "arautos",
       "papel": "suporte de cura e corpo a corpo leve",
       "atributos_iniciais": {
-        "FOR": 22,
-        "AGI": 18,
-        "VIT": 22,
-        "ESP": 28
+        "FOR": 13,
+        "AGI": 11,
+        "VIT": 13,
+        "ESP": 17
       },
       "build_sugerida_por_nivel": {
         "FOR": 1,
@@ -57,7 +57,7 @@
           "nivel": 1,
           "custo": 12,
           "recarga": 4.0,
-          "mult": 1.8,
+          "mult": 4.09,
           "elemento": "sagrado",
           "alcance": 1.4,
           "postura": 30,
@@ -83,7 +83,7 @@
           "nivel": 5,
           "custo": 18,
           "recarga": 2.2,
-          "mult": 1.3,
+          "mult": 1.51,
           "elemento": "sagrado",
           "preparo": 0.25,
           "postura": 18,
@@ -107,7 +107,7 @@
           "nivel": 6,
           "custo": 30,
           "recarga": 12.0,
-          "mult": 1.1,
+          "mult": 1.93,
           "area_raio": 2.5,
           "cura_mult": 0.8,
           "efeito": {
@@ -147,10 +147,10 @@
       "faccao": "arautos",
       "papel": "mago de dano continuo e invocador",
       "atributos_iniciais": {
-        "FOR": 14,
-        "AGI": 18,
-        "VIT": 20,
-        "ESP": 38
+        "FOR": 8,
+        "AGI": 11,
+        "VIT": 12,
+        "ESP": 23
       },
       "build_sugerida_por_nivel": {
         "FOR": 0,
@@ -191,13 +191,13 @@
           "nivel": 1,
           "custo": 0.03,
           "recarga": 2.5,
-          "mult": 1.2,
+          "mult": 0.7,
           "alcance": 7,
           "projetil_vel": 10,
           "efeito": {
             "sangramento": {
               "duracao": 6.0,
-              "dano_por_s_mult": 0.25
+              "dano_por_s_mult": 0.06
             }
           },
           "elemento": "sangue",
@@ -211,7 +211,7 @@
           "custo": 0.12,
           "recarga": 20.0,
           "buff": {
-            "dano_magico": 0.3,
+            "dano_magico": 0.1,
             "duracao": 10.0
           },
           "sensacao": "buff"
@@ -222,7 +222,7 @@
           "nivel": 5,
           "custo": 0.035,
           "recarga": 2.2,
-          "mult": 1.35,
+          "mult": 1.32,
           "elemento": "sangue",
           "preparo": 0.25,
           "postura": 18,
@@ -234,7 +234,7 @@
           "custo_em": "pct_hp_max",
           "sangramento": {
             "duracao": 4,
-            "dano_por_s_mult": 0.12
+            "dano_por_s_mult": 0.072
           },
           "forma": "circulo_no_mouse",
           "raio": 2.2,
@@ -258,7 +258,7 @@
           "nivel": 9,
           "custo": 0.1,
           "recarga": 10.0,
-          "mult_por_tick": 0.45,
+          "mult_por_tick": 0.15,
           "ticks": 6,
           "intervalo_tick": 0.5,
           "area_raio": 2.5,
@@ -289,12 +289,160 @@
       "invocacoes": {
         "servo_de_carne": {
           "hp": "max_hp_dono * 0.6",
-          "dano": "dano_magico_dono * 0.5",
+          "dano": "dano_magico_dono * 0.15",
           "intervalo": 1.4,
           "ameaca_mult": 2.0,
           "tags": [
             "invocacao"
           ]
+        }
+      },
+      "racial": {
+        "id": "pacto_do_familiar",
+        "nome": "Pacto do Familiar",
+        "tipo": "racial",
+        "familiar": {
+          "_doc": "RACIAL do Cultista (Jefin, 2026-10-11): nao ocupa slot de skill nem tecla. Nasce com o Cultista, segue o dono a 1,5-2 tiles e so ataca quem bateu no dono ou nele (nunca puxa neutro parado). Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Se morrer, volta sozinho. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma.",
+          "segue": {
+            "distancia_tiles": [
+              1.5,
+              2.0
+            ],
+            "teleporta_acima_de_tiles": 12,
+            "vel_mult_dono": 1.1
+          },
+          "alvo": {
+            "prioridade": [
+              "ultimo_que_bateu_no_dono",
+              "quem_bateu_no_familiar"
+            ],
+            "nao_ataca_neutro_parado": true,
+            "larga_alvo_se_dono_a_mais_de_tiles": 9
+          },
+          "formas": [
+            {
+              "id": "familiar_diabrete",
+              "nome": "Diabrete de Fuligem",
+              "nivel_dono": 1,
+              "altura_m": 0.75,
+              "hp": "max_hp_dono * 0.35",
+              "defesa": "defesa_dono * 0.5",
+              "dano": "dano_magico_dono * 0.18",
+              "intervalo": 1.2,
+              "alcance": 4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cuspe_de_brasa",
+                "nome": "Cuspe de Brasa",
+                "projetil_vel": 9,
+                "efeito": {
+                  "queimadura": {
+                    "duracao": 3.0,
+                    "dano_por_s_mult": 0.1
+                  }
+                }
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_algoz",
+              "nome": "Algoz de Enxofre",
+              "nivel_dono": 6,
+              "altura_m": 1.9,
+              "hp": "max_hp_dono * 0.70",
+              "defesa": "defesa_dono * 0.8",
+              "dano": "dano_magico_dono * 0.27",
+              "intervalo": 1.4,
+              "alcance": 1.4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cutelo_de_enxofre",
+                "nome": "Cutelo de Enxofre"
+              },
+              "especial": {
+                "id": "puxao_de_corrente",
+                "nome": "Puxão de Corrente",
+                "recarga": 10.0,
+                "alcance": 5,
+                "puxa_ate_familiar": true,
+                "provoca_s": 3.0,
+                "_doc": "usa no inimigo que bateu no dono"
+              },
+              "passiva": {
+                "id": "guarda_costas",
+                "nome": "Guarda-Costas",
+                "desvia_dano_do_dono": 0.15,
+                "raio_tiles": 4
+              },
+              "ameaca_mult": 2.5,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_tirano",
+              "nome": "Tirano da Fornalha",
+              "nivel_dono": 16,
+              "altura_m": 2.7,
+              "hp": "max_hp_dono * 1.10",
+              "defesa": "defesa_dono * 1.2",
+              "dano": "dano_magico_dono * 0.36",
+              "intervalo": 1.7,
+              "alcance": 1.6,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "punho_de_fornalha",
+                "nome": "Punho de Fornalha",
+                "postura": 20
+              },
+              "especial": {
+                "id": "canhao_de_brasa",
+                "nome": "Canhão de Brasa",
+                "recarga": 12.0,
+                "alcance": 6,
+                "area_raio": 2.0,
+                "mult": 1.6,
+                "chao_em_chamas_s": 3.0
+              },
+              "especial_2": {
+                "id": "rugido_da_legiao",
+                "nome": "Rugido da Legião",
+                "recarga": 20.0,
+                "area_raio": 3.0,
+                "provoca_s": 3.0,
+                "_doc": "quando 2 ou mais inimigos batem no dono"
+              },
+              "passiva": {
+                "id": "guarda_costas",
+                "nome": "Guarda-Costas",
+                "desvia_dano_do_dono": 0.25,
+                "raio_tiles": 4
+              },
+              "ameaca_mult": 3.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            }
+          ],
+          "evolucao": {
+            "quando": "dono sobe para o nivel da forma",
+            "anim": "evolve",
+            "cura_total": true,
+            "_doc": "casulo de brasa e carne de 2 s; o familiar fica invulneravel durante a troca"
+          },
+          "morte": {
+            "volta_sozinho_s": 30.0,
+            "anim_volta": "spawn"
+          }
         }
       }
     },
@@ -302,10 +450,10 @@
       "faccao": "vigilia",
       "papel": "tanque e berserker",
       "atributos_iniciais": {
-        "FOR": 26,
-        "AGI": 14,
-        "VIT": 34,
-        "ESP": 16
+        "FOR": 16,
+        "AGI": 8,
+        "VIT": 20,
+        "ESP": 10
       },
       "build_sugerida_por_nivel": {
         "FOR": 3,
@@ -347,12 +495,12 @@
           "custo": 0,
           "gera": 10,
           "recarga": 5.0,
-          "mult": 1.7,
+          "mult": 2.76,
           "alcance": 1.4,
           "efeito": {
             "veneno": {
               "duracao": 6.0,
-              "dano_por_s_mult": 0.15
+              "dano_por_s_mult": 0.244
             }
           },
           "elemento": "veneno",
@@ -378,7 +526,7 @@
           "nivel": 5,
           "custo": 18,
           "recarga": 2.4,
-          "mult": 1.2,
+          "mult": 1.68,
           "elemento": "veneno",
           "preparo": 0.25,
           "postura": 18,
@@ -413,7 +561,7 @@
           "nivel": 9,
           "custo": 20,
           "recarga": 10.0,
-          "mult": 1.5,
+          "mult": 2.44,
           "deslocamento": 5,
           "efeito": {
             "derrubado": 1.2
@@ -436,10 +584,10 @@
       "faccao": "arautos",
       "papel": "tanque ofensivo e assassino corpo a corpo",
       "atributos_iniciais": {
-        "FOR": 32,
-        "AGI": 24,
-        "VIT": 22,
-        "ESP": 12
+        "FOR": 19,
+        "AGI": 14,
+        "VIT": 13,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 3,
@@ -486,7 +634,7 @@
           "gera": 18,
           "recarga": 3.5,
           "golpes": 3,
-          "mult_por_golpe": 0.65,
+          "mult_por_golpe": 0.83,
           "intervalo_golpes": 0.12,
           "alcance": 1.4,
           "postura_por_golpe": 10,
@@ -498,7 +646,7 @@
           "nivel": 3,
           "custo": 20,
           "recarga": 9.0,
-          "mult": 0.8,
+          "mult": 1.02,
           "alcance": 6,
           "puxa_para": 1.2,
           "postura": 40,
@@ -510,7 +658,7 @@
           "nivel": 5,
           "custo": 18,
           "recarga": 2.0,
-          "mult": 1.3,
+          "mult": 1.08,
           "elemento": "fogo",
           "preparo": 0.25,
           "postura": 18,
@@ -560,10 +708,10 @@
       "faccao": "vigilia",
       "papel": "hibrido: tiro a distancia + espada larga corpo a corpo (mudanca do Jefin, 2026-10-04)",
       "atributos_iniciais": {
-        "FOR": 28,
-        "AGI": 30,
-        "VIT": 20,
-        "ESP": 12
+        "FOR": 17,
+        "AGI": 18,
+        "VIT": 12,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 2,
@@ -608,7 +756,7 @@
           "nivel": 1,
           "custo": 20,
           "recarga": 5.0,
-          "mult": 2.0,
+          "mult": 2.5,
           "critico_extra": 0.2,
           "alcance": 9,
           "conjuracao": 0.3,
@@ -622,7 +770,7 @@
           "nivel": 3,
           "custo": 25,
           "recarga": 6.0,
-          "mult": 1.4,
+          "mult": 0.53,
           "arco_graus": 360,
           "alcance": 0,
           "postura": 35,
@@ -638,7 +786,7 @@
           "nivel": 5,
           "custo": 22,
           "recarga": 2.2,
-          "mult": 1.3,
+          "mult": 1.45,
           "elemento": "fogo",
           "preparo": 0.25,
           "postura": 18,
@@ -673,7 +821,7 @@
           "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
           "sensacao": "investida",
           "substitui": "rolamento",
-          "mult": 0.9,
+          "mult": 1.12,
           "largura_corte": 1.2,
           "acerta_cada_inimigo_uma_vez": true,
           "postura": 20,
@@ -687,7 +835,7 @@
           "recarga": 8.0,
           "projeteis": 5,
           "cone_graus": 50,
-          "mult_por_projetil": 0.6,
+          "mult_por_projetil": 0.23,
           "alcance": 6,
           "postura_por_projetil": 8,
           "empurrao": 0.4,
@@ -717,7 +865,7 @@
           "alcance": 4,
           "arma_s": 1.0,
           "dura_s": 20,
-          "mult": 1.5,
+          "mult": 1.88,
           "efeito": {
             "enraizado": 3.0
           },
@@ -761,10 +909,10 @@
       "faccao": "vigilia",
       "papel": "suporte, controle e invocacoes mecanicas",
       "atributos_iniciais": {
-        "FOR": 14,
-        "AGI": 24,
-        "VIT": 20,
-        "ESP": 32
+        "FOR": 8,
+        "AGI": 14,
+        "VIT": 12,
+        "ESP": 19
       },
       "build_sugerida_por_nivel": {
         "FOR": 0,
@@ -803,7 +951,7 @@
           "nivel": 1,
           "custo": 15,
           "recarga": 3.0,
-          "mult": 1.4,
+          "mult": 0.63,
           "saltos": 3,
           "queda_por_salto": 0.25,
           "raio_salto": 3,
@@ -817,10 +965,10 @@
           "nome": "Torreta Sentinela",
           "nivel": 3,
           "custo": 35,
-          "recarga": 18.0,
+          "recarga": 10.0,
           "invoca": "torreta",
-          "duracao": 15.0,
-          "max": 1,
+          "duracao": 40.0,
+          "max": 2,
           "sensacao": "invocacao"
         },
         {
@@ -829,7 +977,7 @@
           "nivel": 5,
           "custo": 16,
           "recarga": 2.0,
-          "mult": 1.25,
+          "mult": 1.39,
           "elemento": "eletrico",
           "preparo": 0.25,
           "postura": 18,
@@ -873,7 +1021,7 @@
           "custo": 30,
           "recarga": 16.0,
           "area_raio": 3.0,
-          "mult": 0.8,
+          "mult": 0.36,
           "efeito": {
             "silenciado": 3.0
           },
@@ -882,12 +1030,36 @@
           },
           "postura": 40,
           "sensacao": "area"
+        },
+        {
+          "id": "tecnomancer_rosario_voltaico",
+          "nome": "Rosário Voltaico",
+          "nivel": 16,
+          "custo": 34,
+          "recarga": 4.0,
+          "conjuracao": 0.35,
+          "mult": 0.72,
+          "alvos_max": 6,
+          "saltos": 5,
+          "queda_por_salto": 0.12,
+          "raio_salto": 3.5,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "nao_repete_alvo": true,
+          "chance_paralisar": 0.15,
+          "paralisar_s": 0.5,
+          "bonus_vs": {
+            "tag:invocacao": 1.15
+          },
+          "postura": 20,
+          "sensacao": "raio",
+          "_doc": "pedido do Jefin (2026-10-11): raio que salta ate 6 alvos. Versao grande do Arco Voltaico. Dano por alvo = mult * (1-queda)^n: 1.60, 1.41, 1.24, 1.09, 0.96, 0.84 (total 7.14x). PROVISORIO ate o Design do combate revisar."
         }
       ],
       "invocacoes": {
         "torreta": {
           "hp": "max_hp_dono * 0.5",
-          "dano": "dano_magico_dono * 0.45",
+          "dano": "dano_magico_dono * 0.29",
           "intervalo": 0.9,
           "alcance": 6,
           "tags": [
@@ -902,6 +1074,32 @@
     "_doc": "Valor de referencia para a thread de itens: arma de nivel N tem media de dano proxima a 5 + 1.2*N. Armadura completa de nivel N soma defesa proxima a 1.5*N.",
     "media_dano_arma": "5 + 1.2*nivel_requerido",
     "spread_min_max": 0.6,
-    "defesa_armadura_completa": "1.5*nivel_requerido"
-  }
+    "defesa_armadura_completa": "1.5*nivel_requerido",
+    "faixas": {
+      "faixa1": [
+        1,
+        7
+      ],
+      "faixa2": [
+        7,
+        18
+      ],
+      "faixa3": [
+        19,
+        35
+      ],
+      "faixa4": [
+        36,
+        55
+      ],
+      "faixa5": [
+        56,
+        75
+      ]
+    },
+    "intervalo": "arma com intervalo maior bate proporcionalmente mais forte: media = (5 + 1.2*nivel) * intervalo / intervalo_padrao_da_classe, para o DPS da arma nao depender do tipo (16/10/2026; mosquete e besta de repeticao variavam de 0,70 a 1,24)"
+  },
+  "peso_por_ponto": 1.6,
+  "_peso_por_ponto": "Pedido do Jefin (2026-10-11): atributos iniciais -40% e cada ponto distribuido vale 1.6 no atributo efetivo. atributo_efetivo = inicial + pontos_distribuidos * 1.6 (itens somam direto, sem o peso). Todas as formulas usam o atributo efetivo. Resultado: comeco mais fraco, e no nivel ~12 fica igual ao balanceamento anterior.",
+  "_dps_1610": "Revisao de 16/10/2026 (Jefin: DPS parecido entre as classes, no spot e no chefe). Mults de skills, invocacoes e familiar ajustados por dps_classes.py; antes e depois em revisao_1610/proposta_dps_classes.json."
 }

@@ -70,6 +70,17 @@
         "hostia_negra"
       ],
       "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Isso é honestidade."
+    },
+    {
+      "id": "loja_lindalva",
+      "npc": "lindalva_parteira",
+      "nome": "Enfermaria da Lindalva",
+      "itens": [
+        "tonico_graxa",
+        "agua_doce",
+        "pao_duro"
+      ],
+      "fala_ao_abrir": "Preço de quem vai voltar. Volta, viu?"
     }
   ],
   "ferreiros": [
