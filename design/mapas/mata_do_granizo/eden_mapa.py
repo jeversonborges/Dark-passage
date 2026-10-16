@@ -72,7 +72,7 @@ RIOS = {
 LAGO = (68.5, 48.5, 4.2)
 POCO_HAVILA = (89.5, 70.5, 2.2)
 POCO_EUFRATES = (61, 24, 2.6)
-ARVORE_CONHECIMENTO = [53.5, 36.0]
+ARVORE_CONHECIMENTO = [51.0, 38.5]
 A_SERPENTE = [55.0, 34.0]
 
 
@@ -152,7 +152,7 @@ def mata():
     # ---- borda: a mata fecha o jardim (copas altas só atrás das clareiras, vegetação baixa na frente)
     alta_viva = ["arvore_eden", "arvore_eden_2", "arvore_eden_3", "arvore_eden", "figueira", "figueira_2", "arvore_eden_2"]
     baixa_viva = ["samambaia", "samambaia_2", "samambaia_3", "moita_florida", "moita_florida_2", "moita_florida_3", "pedra_coberta_3", "folha_larga", "samambaia"]
-    alta_lume = ["arvore_lume", "arvore_lume_2", "arvore_eden_3", "palmeira_lume", "arvore_lume"]
+    alta_lume = ["arvore_eden_3", "arvore_jovem_lume", "arvore_eden", "arvore_jovem_lume"]
     baixa_lume = ["moita_lume", "flor_lume", "flor_lume_2", "samambaia_2", "folha_larga", "moita_lume"]
     alta_morta = ["arvore_morta", "arvore_morta_2", "arvore_morta_grande", "arvore_morta"]
     baixa_morta = ["toco_arvore", "arbusto_seco", "arbusto_seco_2", "mato_seco", "samambaia_3", "toco_arvore"]
@@ -214,9 +214,9 @@ def mata():
                     a.prop("fogueira", qx_, qy_, bloqueia=.5, luz=FOGO + [6])
                     a.prop("carrinho_tobias", qx_ + 1.8, qy_ + .8, bloqueia=.5, ponto="descanso"); descanso.append([qx_, qy_]); break
         # marco do spot atrás (subir na tela = (-1, +1)), para o lugar ter cara própria
-        marco = {"havila": "arvore_frutos", "toca_dos_javalis": "tronco_caido_eden", "lago_de_giom": "salgueiro",
-                 "frente_de_queimada": "arvore_morta_grande", "bosque_dos_enxertos": "figueira_2", "clareira_do_ent": "arvore_eden_2",
-                 "estrada_da_torre": "pilar_porcelana", "ruinas_do_coro": "pilar_porcelana", "charco_dos_querubins": "salgueiro_2",
+        marco = {"havila": "colmeia", "toca_dos_javalis": "tronco_caido_eden", "lago_de_giom": "ponte_tabuas",
+                 "frente_de_queimada": "arvore_morta_grande", "bosque_dos_enxertos": "trelica_videira", "clareira_do_ent": "tronco_caido_eden_2",
+                 "estrada_da_torre": "pilar_porcelana", "ruinas_do_coro": "pilar_porcelana", "charco_dos_querubins": "juncos_eden",
                  "acampamento_da_legiao": "tenda_demonio", "ninho_da_serpente": "pedra_coberta_2"}[sid]
         mx, my = bx - r*.55, by + r*.55
         if a.livre(int(mx), int(my)) and not agua(int(mx), int(my)): a.prop(marco, mx, my, bloqueia=1.0)
@@ -251,7 +251,6 @@ def mata():
     solto(["cogumelos_eden", "cogumelos_palidos"], 40, 0, 2.2, zonas=vivas + list(LUMES), spot_ok=True)
     solto(["pedra_coberta", "pedra_coberta_2", "pedra_coberta_3"], 34, .7, 3.5, zonas=vivas + list(LUMES))
     solto(["tronco_caido_eden", "tronco_caido_eden_2"], 16, .8, 5.0, zonas=vivas)
-    solto(["arvore_frutos", "arvore_frutos_2"], 22, .7, 6.0, zonas=vivas, luz=[1.0] + AMBAR + [5])
     solto(["flor_lume", "flor_lume_2", "moita_lume", "tapete_flores"], 40, 0, 1.8, zonas=list(LUMES), spot_ok=True)
     solto(["arbusto_seco", "arbusto_seco_2", "mato_seco", "pilha_carvao", "toco_arvore"], 40, 0, 1.8, zonas=list(QUEIMADAS), spot_ok=True, pisos="zft")
     solto(["cratera_cinza", "soldado_morto", "pilha_carvao"], 8, .5, 4.0, zonas=[5], pisos="zf")
@@ -303,7 +302,7 @@ def mata():
     for (dx, dy) in [(-3.5, -3.5), (3.5, -3.5), (3.5, 3.5), (-3.5, 3.5)]: a.prop("lanterna_eden", vx + dx, vy + dy, bloqueia=.2, luz=AMBAR + [5])
     for (dx, dy) in [(-1.0, -7.5), (0.5, -7.8), (4.0, 7.0), (-4.5, 6.5)]: a.prop("campanula", vx + dx, vy + dy, bloqueia=.3, luz=LUME + [3])
     for (dx, dy) in [(-7.0, -1.5), (6.0, 6.0), (1.5, 7.5)]: a.prop("placa_versiculo", vx + dx, vy + dy, bloqueia=.3)
-    a.prop("figueira", vx - 9.5, vy + 4.0, bloqueia=1.2); a.prop("arvore_frutos", vx + 9.0, vy + 1.0, bloqueia=.7, luz=AMBAR + [5])
+    a.prop("trelica_videira", vx - 9.5, vy + 4.0, bloqueia=1.0); a.prop("moita_florida_2", vx + 9.0, vy + 1.0, bloqueia=.5, luz=AMBAR + [5])
     # ---- a Árvore da Vida (Árvore-Mãe, o primeiro enxerto de Simão) e a Catacumba das Raízes
     a.prop("arvore_mae", ARVORE_MAE[0], ARVORE_MAE[1], bloqueia=1.4, marco="arvore_mae", luz=LUME + [9])
     a.prop("portal_dungeon_lume", PORTA_CATACUMBA[0], PORTA_CATACUMBA[1] + .4, bloqueia=0, luz=LUME + [6])
@@ -312,14 +311,14 @@ def mata():
     a.prop("placa_versiculo", ARVORE_MAE[0] + 2.5, ARVORE_MAE[1] - 2.5, bloqueia=.3, texto="A árvore da vida no meio do jardim. Gn 2:9")
     # ---- Havilá: "onde há ouro; o bdélio e a pedra de ônix" (pomar dourado e pedras negras em volta do poço do Pisom)
     hx, hy = BLOBS[2][:2]
-    for (dx, dy) in [(-5.5, 6.0), (2.5, 7.5), (-7.5, 1.5)]: a.prop(rng.choice(["arvore_frutos", "arvore_frutos_2"]), hx + dx, hy + dy, bloqueia=.7, luz=AMBAR + [5])
+    for (dx, dy) in [(-5.5, 6.0), (2.5, 7.5), (-7.5, 1.5)]: a.prop(rng.choice(["moita_florida_2", "lanterna_eden", "colmeia"]), hx + dx, hy + dy, bloqueia=.5, luz=AMBAR + [5])
     for (dx, dy) in [(3.0, 5.8), (5.5, 4.0), (1.0, 6.8)]: a.prop("pedras_rio", hx + dx, hy + dy)
     a.prop("placa_versiculo", hx - 6.5, hy - 5.0, bloqueia=.3, texto="O ouro dessa terra é bom; ali há o bdélio e a pedra de ônix. Gn 2:12")
     # ---- Lago de Giom: a margem de descanso
     lx, ly = LAGO[:2]
     a.prop("fogueira", lx + 8.0, ly - 5.0, bloqueia=.5, luz=FOGO + [6])
     a.prop("carrinho_tobias", lx + 9.8, ly - 4.2, bloqueia=.5, ponto="descanso"); descanso.append([lx + 8.0, ly - 5.0])
-    a.prop("salgueiro", lx - 6.5, ly + 4.5, bloqueia=.6); a.prop("salgueiro_2", lx + 4.0, ly + 6.5, bloqueia=.6)
+    a.prop("juncos_eden", lx - 6.5, ly + 4.5, bloqueia=.3); a.prop("pedra_coberta_2", lx + 4.0, ly + 6.5, bloqueia=.8)
     # ---- Frente de Queimada: o acampamento dos Arautos, onde o Hidéquel seca
     fx, fy = BLOBS[5][:2]
     a.prop("tenda_demonio", fx - 6.5, fy - 3.0, bloqueia=1.4); a.prop("estandarte_rasgado", fx - 4.5, fy + 5.5, bloqueia=.3)
@@ -366,7 +365,7 @@ def mata():
         a.spawns.append({"mob": mob, "pos": [round(x, 1), round(y, 1)], "raio": 1.0, "qtd": 2, "nivel": niv,
                          "temperamento": "territorial" if mob == "javali_brasa" else "neutro", "respawn_s": 30, "motivo": MOTIVO[mob]})
     # ---- elites: o Ent-de-Cinza (na sua árvore) e A Serpente (enrolada na Árvore do Conhecimento)
-    a.prop("arvore_eden_2", 82.5, 20.0, bloqueia=1.0)
+    a.prop("pedra_coberta", 82.5, 20.0, bloqueia=1.0)
     a.spawns.append({"mob": "ent_de_cinza", "pos": [81.0, 22.0], "raio": .5, "qtd": 1, "nivel": 22, "elite": True, "temperamento": "neutro",
                      "respawn_s": 300, "ancora": [82.5, 20.0], "motivo": MOTIVO["ent_de_cinza"]})
     a.spawns.append({"mob": "a_serpente", "pos": A_SERPENTE, "raio": .5, "qtd": 1, "nivel": 27, "elite": True, "temperamento": "neutro",

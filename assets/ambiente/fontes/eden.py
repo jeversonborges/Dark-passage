@@ -525,7 +525,7 @@ def arvore_conhecimento(seed=3):
     como mãos, frutos acesos no verde do Amargo (a única cor "errada" do jardim) e a Serpente enrolada na base.
     A Enxertia cerca a árvore com cordas e placas: ninguém come daquele fruto."""
     def fn(m):
-        rr = rnd(seed); mat = K.mat_wood("casca_palida", (.2, .17, .13), 7.0); h = 9.0
+        rr = rnd(seed); mat = K.mat_wood("casca_palida", (.2, .17, .13), 7.0); h = 6.0
         n = 18; pts, rad = [], []
         for i in range(n + 1):
             t = i/n; z = -.3 + t*(h + .3); a = t*5.0
