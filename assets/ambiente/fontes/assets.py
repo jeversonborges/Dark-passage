@@ -561,6 +561,107 @@ def entrada_cripta(m, seed=17):
         box(m["blood"], (W/2 + .35 + k*.15, -D/2 - .07, 1.1), (.06, .01, .2), bevel=0)
     return {"emissivo": "brilho vermelho da escada"}
 
+def _veu_portal(nome, rgb):
+    """Véu do portal: redemoinho de luz (anéis torcidos por ruído), mais forte nas bordas."""
+    m, nt, b = K.new_mat(nome); N, L = nt.nodes, nt.links
+    b.inputs["Base Color"].default_value = (0, 0, 0, 1)
+    tc = N.new("ShaderNodeTexCoord"); mp = N.new("ShaderNodeMapping")
+    mp.inputs["Location"].default_value = (0, 0, -1.6); L.new(tc.outputs["Object"], mp.inputs["Vector"])
+    nz = N.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = 2.2; nz.inputs["Detail"].default_value = 6
+    L.new(mp.outputs["Vector"], nz.inputs["Vector"])
+    mix = N.new("ShaderNodeMix"); mix.data_type = 'VECTOR'; mix.inputs["Factor"].default_value = .35
+    L.new(mp.outputs["Vector"], mix.inputs["A"]); L.new(nz.outputs["Color"], mix.inputs["B"])
+    wv = N.new("ShaderNodeTexWave"); wv.wave_type = 'RINGS'; wv.inputs["Scale"].default_value = 2.6
+    wv.inputs["Distortion"].default_value = 4.0; wv.inputs["Detail"].default_value = 3
+    L.new(mix.outputs["Result"], wv.inputs["Vector"])
+    ln = N.new("ShaderNodeVectorMath"); ln.operation = 'LENGTH'; L.new(mp.outputs["Vector"], ln.inputs[0])
+    borda = N.new("ShaderNodeMapRange"); borda.inputs["From Min"].default_value = .2; borda.inputs["From Max"].default_value = 1.7
+    borda.inputs["To Min"].default_value = .35; borda.inputs["To Max"].default_value = 1.6
+    L.new(ln.outputs["Value"], borda.inputs["Value"])
+    pw = N.new("ShaderNodeMath"); pw.operation = 'POWER'; pw.inputs[1].default_value = 3.0
+    L.new(wv.outputs["Fac"], pw.inputs[0])
+    mul = N.new("ShaderNodeMath"); mul.operation = 'MULTIPLY'
+    L.new(pw.outputs[0], mul.inputs[0]); L.new(borda.outputs["Result"], mul.inputs[1])
+    s = N.new("ShaderNodeMath"); s.operation = 'MULTIPLY_ADD'; s.inputs[1].default_value = 9.0; s.inputs[2].default_value = .6
+    L.new(mul.outputs[0], s.inputs[0])
+    b.inputs["Emission Color"].default_value = (*rgb, 1)
+    L.new(s.outputs[0], b.inputs["Emission Strength"])
+    return m
+
+def _portal(m, rgb, seed):
+    """Arco gótico de pedra da cripta com cintas de ferro e um véu de luz que gira:
+    marca toda entrada de dungeon. Uma só cor emissiva (o véu e as runas da chave)."""
+    r = rnd(seed)
+    Wi, Hs = 1.25, 2.1          # meia-largura interna, altura onde começa a ogiva
+    R = 2*Wi                    # raio da ogiva (arco quebrado equilátero)
+    glow = K.mat_emit("runa_" + str(seed), rgb, 6.0)
+    # degraus e soleira
+    box(m["dark_stone"], (0, -.35, .06), (3.9, 1.5, .12), bevel=.02)
+    box(m["stone_d"], (0, -1.0, .03), (3.2, .5, .06), bevel=.02)
+    # pilares: blocos irregulares com junta
+    for sx in (-1, 1):
+        x = sx*(Wi + .3)
+        box(m["dark_stone"], (x, 0, .3), (.8, .8, .36), bevel=.03)
+        z = .48
+        while z < Hs:
+            h = r.uniform(.34, .46); dx = r.uniform(-.02, .02)
+            box(m["stone_d"], (x + dx, 0, z + h/2), (.58, .58, h - .03), (0, 0, r.uniform(-2, 2)), .025)
+            z += h
+        for zz in (.9, 1.8):
+            box(m["iron"], (x, 0, zz), (.62, .62, .07), bevel=.005)
+        cyl(m["iron"], (x - sx*.31, -.31, 1.35), .018, .9, verts=6)
+    # ogiva: aduelas ao longo dos dois arcos, centros em (+-Wi - ... )
+    n = 9
+    for sx in (-1, 1):
+        cx = -sx*Wi                                   # centro do arco do lado oposto
+        a0 = 0.0 if sx > 0 else math.pi
+        a1 = math.radians(60) if sx > 0 else math.radians(120)
+        for k in range(n):
+            t = (k + .5)/n; a = a0 + (a1 - a0)*t
+            rr = R + .3
+            x = cx + math.cos(a)*rr; z = Hs + math.sin(a)*rr
+            box(m["stone_d"], (x, 0, z), (.58, .62, (R + .3)*abs(a1 - a0)/n + .02), (0, -math.degrees(a), 0), .025)
+    # pedra-chave com runa acesa e chifre partido de ferro
+    ztop = Hs + math.sin(math.radians(60))*(R + .3)
+    box(m["dark_stone"], (0, 0, ztop + .05), (.5, .7, .62), bevel=.03)
+    box(glow, (0, -.36, ztop + .05), (.06, .01, .34), bevel=0)
+    box(glow, (0, -.36, ztop + .1), (.22, .01, .05), bevel=0)
+    for sx in (-1, 1):
+        along(m["rust"], (sx*.15, 0, ztop + .3), (sx*.45, -.1, ztop + .75), .05, verts=6)
+    # correntes penduradas no arco e lanternas apagadas
+    for sx in (-1, 1):
+        chain(m["iron"], (sx*.9, -.3, Hs + 1.4), (sx*1.0, -.36, Hs + .4), 7, .025)
+    # véu: polígono que preenche a abertura
+    pts = [(-Wi, .12)]
+    for k in range(13):
+        a = math.radians(180 - 60*k/12); pts.append((Wi + math.cos(a)*R, Hs + math.sin(a)*R))
+    for k in range(1, 13):
+        a = math.radians(60 - 60*k/12); pts.append((-Wi + math.cos(a)*R, Hs + math.sin(a)*R))
+    pts.append((Wi, .12))
+    me = bpy.data.meshes.new("veu"); me.from_pydata([(x, 0, z) for x, z in pts], [], [list(range(len(pts)))])
+    ob = bpy.data.objects.new("veu", me); bpy.context.collection.objects.link(ob)
+    ob.data.materials.append(_veu_portal("veu_" + str(seed), rgb))
+    # chão iluminado e luz
+    point((0, -.8, 1.4), rgb, 140, 1.0)
+    point((0, .3, 2.2), rgb, 60, .8)
+    # ossos e cera no degrau (o vocabulário da cripta)
+    for k in range(4):
+        sphere(m["bone"], (r.uniform(-1.6, 1.6), r.uniform(-1.1, -.7), .14), (.07, .05, .05), segs=8)
+    for sx in (-1, 1):
+        for k in range(3):
+            cyl(K.mat_solid("cera", (.5, .45, .35), 0, .5), (sx*(1.75 + k*.12), -.55 + k*.1, .2 + k*.03), .04, .16 + k*.05, verts=8)
+    return {"emissivo": "véu do portal", "uso": "entrada de dungeon (Cripta, Torre, Catacumba)"}
+
+@asset("predios", fp=(4, 2), samples=64)
+def portal_dungeon(m, seed=91):
+    """Portal de dungeon, véu rubro (Cripta da Trombeta Calada, A Torre)."""
+    return _portal(m, (1.0, .16, .06), seed)
+
+@asset("predios", fp=(4, 2), samples=64)
+def portal_dungeon_lume(m, seed=92):
+    """Portal de dungeon, véu ciano (Catacumba das Raízes, no Novo Éden)."""
+    return _portal(m, (.1, .85, 1.0), seed)
+
 # ================================================================ PROPS (área inicial)
 @asset("props")
 def tonel_fogo(m, seed=20):
@@ -1512,7 +1613,17 @@ def areia_obj():
     return K.mat_sand_obj()
 
 def duna(loc, sx, sy, h, seed):
-    """Monte de areia liso, com crista assimétrica (vento) e ondulações."""
+    """Monte de areia. Desde a 0.7.8 vira campo de altura com crista de vento e base que some no piso
+    (duna_campo, mais abaixo); só os montes que ficam no alto (z > 5 cm, em cima de telhado) seguem esfera."""
+    if loc[2] <= .05:
+        z = loc[2]; he = h + z
+        if he <= .05: return None
+        k = math.sqrt(max(.15, 1 - (z/h)**2)) if z < 0 else 1.0
+        o = duna_campo([(0, 0, sx*k*1.15, sy*k*1.15, he, 0)], seed)
+        o.location = (loc[0], loc[1], 0); return o
+    return duna_esfera(loc, sx, sy, h, seed)
+
+def duna_esfera(loc, sx, sy, h, seed):
     bpy.ops.mesh.primitive_uv_sphere_add(segments=40, ring_count=20, location=loc)
     o = bpy.context.object; o.scale = (sx, sy, h); bpy.ops.object.transform_apply(scale=True)
     o.data.materials.append(areia_obj())
@@ -2170,7 +2281,7 @@ def janela_na_areia(m, seed=156):
     box(m["wood_d"], (0, -.17, 2.5), (.9, .04, .08), bevel=0)
     box(m["wood_d"], (-.45, -.25, 1.9), (.06, .25, 1.1), (0, 0, -40), 0)
     for k in range(4): box(m["wood"], (0, -.4 - k*.2, 1.5 - k*.07), (.6, .2, .04), bevel=0)
-    duna((0, -.6, 1.4), 1.2, .9, .35, seed)
+    duna((.9, -.2, 0), 1.2, 1.0, .5, seed)
     return {}
 
 @asset("props", bury=1.2)
@@ -2179,7 +2290,7 @@ def placa_rua_enterrada(m, seed=157):
     cyl(m["iron"], (0, 0, 1.0), .03, 2.0, (6, 0, 0), 6)
     box(K.mat_solid("esmalte_azul", (.03, .05, .09), .2, .3), (.3, -.03, 1.85), (.6, .02, .18), (0, 0, 0), .005)
     box(K.mat_solid("letras", (.3, .28, .24)), (.3, -.045, 1.85), (.45, .005, .05), bevel=0)
-    duna((0, 0, 1.2), .5, .5, .15, seed)
+    duna((.15, .1, 0), .75, .7, .28, seed)
     return {}
 
 @asset("paredes", walls=True)
@@ -2647,3 +2758,1238 @@ def bay(m, c, cx, cy, z, bw, FH, axis, kind="dark", seed=0, t=.25):
         P(0, t*.3, ww*.9, .04, wh*.95, wz + wh/2, m["rust"])
         for k in range(3): P(0, t*.3 + .03, ww*.9, .01, .05, wz + wh*(k + .5)/3, m["iron"])
 
+
+
+# ================================================================ MORRINHOS v2 (0.7.8): dunas de campo de altura
+# As dunas antigas eram esferas achatadas: borda dura, cara de almofada. Estas são um campo de altura com lobos
+# assimétricos (subida longa a barlavento, face de queda curta a sotavento), crista viva, ondulação de vento e,
+# principalmente, base que some em alpha: o monte nasce do piso em vez de ficar pousado em cima dele.
+def mat_areia_suave(name="areia_monte_suave"):
+    m = K.mat_sand_obj(name)
+    nt = m.node_tree; b = [n for n in nt.nodes if n.type == 'BSDF_PRINCIPLED'][0]
+    out = [n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'][0]
+    geo = K.N(nt, "ShaderNodeNewGeometry"); sep = K.N(nt, "ShaderNodeSeparateXYZ"); K.L(nt, geo.outputs["Position"], sep.inputs[0])
+    nz = K.noise(nt, geo.outputs["Position"], None, 2.2, 3, .5, 11.0)
+    zz = K.math_(nt, 'ADD', sep.outputs["Z"], K.math_(nt, 'MULTIPLY', K.math_(nt, 'SUBTRACT', nz.outputs["Fac"], .5), .08))
+    mr = K.N(nt, "ShaderNodeMapRange", interpolation_type='SMOOTHSTEP'); K.L(nt, zz, mr.inputs["Value"])
+    mr.inputs["From Min"].default_value = .003; mr.inputs["From Max"].default_value = .05
+    tr = K.N(nt, "ShaderNodeBsdfTransparent"); mx = K.N(nt, "ShaderNodeMixShader")
+    K.L(nt, mr.outputs["Result"], mx.inputs[0]); K.L(nt, tr.outputs[0], mx.inputs[1]); K.L(nt, b.outputs[0], mx.inputs[2])
+    K.L(nt, mx.outputs[0], out.inputs["Surface"])
+    return m
+
+def duna_campo(lobos, seed, ext=None, res=.045, vento=30.0):
+    """lobos: (cx, cy, comprimento, largura, altura, ang_extra). Vento sopra no eixo do ângulo `vento` (graus, no plano)."""
+    import bmesh
+    r = rnd(seed)
+    xs = [l[0] for l in lobos]; ys = [l[1] for l in lobos]; R = max(max(l[2], l[3]) for l in lobos)
+    x0, x1 = min(xs) - R*1.25, max(xs) + R*1.25; y0, y1 = min(ys) - R*1.25, max(ys) + R*1.25
+    nx, ny = int((x1 - x0)/res), int((y1 - y0)/res)
+    bm = bmesh.new()
+    def alt(x, y):
+        h = 0.0; soma = 0.0
+        for cx, cy, lc, lw, hh, da in lobos:
+            a = math.radians(vento + da); ca, sa = math.cos(a), math.sin(a)
+            u = (x - cx)*ca + (y - cy)*sa; v = -(x - cx)*sa + (y - cy)*ca
+            # crista curva (barcana): a crista avança nas pontas
+            vv = v/lw
+            if abs(vv) >= 1: continue
+            larg = math.sqrt(1 - vv*vv); u2 = u + vv*vv*lc*.35
+            Hc = hh*(1 - vv*vv)**1.3
+            if u2 <= 0:                                  # barlavento: rampa longa, côncava no pé
+                q = -u2/(lc*larg)
+                f = (1 - q)**1.25 if q < 1 else 0.0
+            else:                                        # sotavento: face de queda curta, crista viva
+                q = u2/(lc*.42*larg)
+                f = (1 - q*q)**1.5 if q < 1 else 0.0
+            h = max(h, Hc*f); soma += Hc*f*.25
+        return h + soma*.3
+    verts = [[None]*(nx + 1) for _ in range(ny + 1)]
+    for j in range(ny + 1):
+        for i in range(nx + 1):
+            x = x0 + i*res; y = y0 + j*res
+            verts[j][i] = bm.verts.new((x, y, alt(x, y)))
+    for j in range(ny):
+        for i in range(nx):
+            bm.faces.new((verts[j][i], verts[j][i + 1], verts[j + 1][i + 1], verts[j + 1][i]))
+    me = bpy.data.meshes.new(f"duna_campo{seed}"); bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new(me.name, me); bpy.context.collection.objects.link(o)
+    for p in me.polygons: p.use_smooth = True
+    me.materials.append(mat_areia_suave())
+    t = bpy.data.textures.new(f"dtc{seed}", 'CLOUDS'); t.noise_scale = .9; t.noise_depth = 2
+    d = o.modifiers.new("disp", 'DISPLACE'); d.texture = t; d.strength = .05; d.texture_coords = 'GLOBAL'; d.direction = 'Z'
+    return o
+
+def _seixos(n, area, seed, z=.0):
+    r = rnd(seed); st = K.mat_stone("seixo", (.11, .095, .08), (.04, .035, .03), 3, .9)
+    for k in range(n):
+        o = sphere(st, (r.uniform(-area[0], area[0]), r.uniform(-area[1], area[1]), z + .01),
+                   (r.uniform(.04, .11), r.uniform(.035, .09), r.uniform(.025, .06)), segs=8)
+        displace(o, .012, .08, seed + k, 1)
+
+def _tufos(n, pts, seed):
+    r = rnd(seed)
+    grass = [K.mat_solid("capim_seco", (.11, .09, .045), 0, .8), K.mat_solid("capim_escuro", (.05, .045, .025), 0, .8)]
+    for (px, py, pz) in pts[:n]:
+        for k in range(26):
+            a = Vector((px + r.gauss(0, .06), py + r.gauss(0, .06), pz - .02))
+            d = Vector((r.uniform(-.6, .6) + .3, r.uniform(-.6, .6), 1)).normalized()
+            along(grass[k % 2], a, a + d*r.uniform(.1, .28), .006, .001, verts=3)
+
+@asset("vegetacao", fp=(4, 3), name="duna_ondulacao")
+def duna_ondulacao_v2(m, seed=300):
+    """Duna baixa e comprida com crista viva; a base some no piso (Mar de Dunas e Estrada do Sul)."""
+    duna_campo([(0, 0, 1.885, 1.105, 0.5, 0), (0.9, 0.54, 1.105, 0.78, 0.32, 12), (-1.02, -0.36, 0.91, 0.65, 0.24, -10)], seed)
+    return {}
+
+@asset("vegetacao", fp=(4, 3), name="duna_ondulacao_2")
+def duna_ondulacao_2(m, seed=301):
+    """Barcana: duna em meia-lua, com as pontas apontando para onde o vento vai."""
+    duna_campo([(0, 0, 1.56, 1.43, 0.55, 0), (-0.3, 1.02, 0.845, 0.52, 0.25, 25), (-0.3, -1.02, 0.845, 0.52, 0.25, -25)], seed)
+    return {}
+
+@asset("vegetacao", fp=(4, 3), name="duna_ondulacao_3")
+def duna_ondulacao_3(m, seed=302):
+    """Morrinho baixo e firme, com tufos de capim seco e seixos na base."""
+    duna_campo([(0, 0, 1.495, 1.235, 0.34, 0), (0.72, -0.54, 0.91, 0.715, 0.22, 30)], seed)
+    _tufos(4, [(-.9, .7, .12), (.4, -1.1, .08), (-1.3, -.5, .06), (1.0, .5, .25)], seed)
+    _seixos(9, (1.6, 1.3), seed)
+    return {}
+
+@asset("vegetacao", fp=(3, 3), name="duna_areia")
+def duna_areia_v2(m, seed=303):
+    """Monte de areia redondo, com face de queda e ondulação de vento."""
+    duna_campo([(0, 0, 1.3, 1.105, 0.46, 0), (-0.48, 0.42, 0.715, 0.585, 0.25, 20)], seed)
+    return {}
+
+@asset("vegetacao", fp=(3, 3), name="duna_areia_2")
+def duna_areia_2(m, seed=304):
+    """Monte pequeno que o vento descobriu: costelas de bicho saindo da areia."""
+    duna_campo([(0, 0, 1.105, 0.975, 0.38, 0)], seed)
+    ossos_costela(m["bone"], (.55, .3, .05), 5, .45, .14, seed)
+    _seixos(5, (1.1, 1.0), seed + 3)
+    return {}
+
+
+# ================================================================ CRIPTA 0.7.8: meia-parede da frente, pilares de canto, props novos
+# Na cripta as bordas da frente (lado de baixo da tela) levam meia-parede quebrada na altura do joelho: fecha a sala
+# sem tapar o personagem, então o jogo não precisa esmaecer parede nenhuma. Os pilares de canto fecham o encontro
+# das paredes _a e _b sem degrau. Pontas de cada segmento com a mesma altura: os tiles vizinhos emendam.
+def _toco(m, mat, seed, base=.5, cap=None):
+    r = rnd(seed); L = T; n = 5
+    prof = [base] + [base + r.uniform(-.22, .25) for _ in range(n - 2)] + [base]
+    for i in range(n):
+        w = L/n; h = prof[i]
+        box(mat, (-L/2 + w*(i + .5), 0, h/2), (w + .002, .26, h), bevel=.004)
+        o = box(cap or mat, (-L/2 + w*(i + .5) + r.uniform(-.02, .02), r.uniform(-.02, .02), h + .03), (w*.85, .22, .09),
+                (r.uniform(-12, 12), r.uniform(-8, 8), r.uniform(-6, 6)), .01)
+        crumble(o, .03, seed + i)
+    for k in range(5):  # cacos caídos para fora (lado da câmera)
+        box(cap or mat, (r.uniform(-L/2, L/2), -r.uniform(.17, .34), .035), (r.uniform(.06, .14), r.uniform(.05, .09), .05),
+            (r.uniform(-15, 15), r.uniform(-15, 15), r.uniform(0, 90)), .005)
+    return prof
+
+@asset("paredes", walls=True, dungeon=True)
+def parede_matadouro_frente(m, seed=310):
+    """Meia-parede da frente do Porão: tijolo quebrado na altura do joelho, resto de azulejo e cano rompido."""
+    prof = _toco(m, m["brick"], seed, .5)
+    tile = K.mat_stone("azulejo", (.32, .3, .26), (.12, .11, .09), 6, .0, ("wall", T), 2.8, 7.0)
+    box(tile, (-.08, -.135, .22), (T*.55, .02, .3), bevel=.002)
+    box(m["blood"], (.05, -.147, .2), (.03, .002, .22), bevel=0)
+    cyl(m["brass"], (.1, -.05, .58), .035, .3, (0, 90, 8), 12)
+    return {}
+
+@asset("paredes", walls=True, dungeon=True)
+def parede_ossario_frente(m, seed=311):
+    """Meia-parede da frente do Ossário: pedra rachada com crânios assentados no topo."""
+    prof = _toco(m, m["stone_d"], seed, .55)
+    r = rnd(seed)
+    for i in range(3):
+        x = -T*.3 + i*T*.3 + r.uniform(-.03, .03); z = prof[min(4, 1 + i)] + .1
+        sphere(m["bone"], (x, -.02, z), (.065, .07, .065), segs=12)
+        sphere(K.mat_solid("orbita", (0, 0, 0)), (x - .022, -.08, z + .005), (.016, .01, .018), segs=8)
+        sphere(K.mat_solid("orbita", (0, 0, 0)), (x + .022, -.08, z + .005), (.016, .01, .018), segs=8)
+    along(m["bone"], (-.3, -.16, .03), (.1, -.22, .04), .016, verts=6)
+    return {}
+
+@asset("paredes", walls=True, dungeon=True)
+def parede_trombeta_frente(m, seed=312):
+    """Meia-parede da frente da Câmara: pedra clara, caco de porcelana e toco de nervura de ferro."""
+    _toco(m, m["stone_d"], seed, .55)
+    box(m["porcelain"], (-.05, -.14, .3), (T*.5, .03, .32), (0, 4, 0), bevel=.008)
+    box(m["iron"], (T/2 - .04, -.06, .35), (.06, .08, .7), bevel=.01)
+    return {}
+
+def _pilar(m, mat, h, seed, topo=None):
+    w = T*.78
+    box(m["dark_stone"], (0, 0, .1), (w + .08, w + .08, .2), bevel=.01)
+    o = box(mat, (0, 0, h/2), (w, w, h), bevel=.006)
+    if topo: topo()
+    else: box(m["dark_stone"], (0, 0, h + .06), (w + .1, w + .1, .12), bevel=.01)
+    return o
+
+@asset("paredes", dungeon=True, samples=32)
+def parede_matadouro_canto(m, seed=313):
+    """Pilar de canto do Porão (fecha o encontro de duas paredes de trás)."""
+    _pilar(m, m["brick"], 3.0, seed); cyl(m["brass"], (0, -T*.4, 2.4), .06, .2, (90, 0, 0), 14); return {}
+
+@asset("paredes", dungeon=True, samples=32)
+def parede_ossario_canto(m, seed=314):
+    """Pilar de canto do Ossário, com coluna de crânios."""
+    _pilar(m, m["stone_d"], 3.0, seed)
+    for z in (.6, 1.3, 2.0):
+        for d in ((0, -T*.4), (T*.4, 0)):
+            sphere(m["bone"], (d[0], d[1], z), (.07, .07, .075), segs=12)
+    return {}
+
+@asset("paredes", dungeon=True, samples=32)
+def parede_trombeta_canto(m, seed=315):
+    """Pilar de canto da Câmara, com cinta de latão."""
+    _pilar(m, m["stone_d"], 3.2, seed)
+    for z in (.4, 2.6): box(m["brass"], (0, 0, z), (T*.84, T*.84, .06), bevel=.01)
+    return {}
+
+@asset("paredes", dungeon=True, name="parede_matadouro_frente_canto")
+def parede_matadouro_frente_canto(m, seed=316):
+    """Toco de pilar na quina da frente do Porão."""
+    _pilar(m, m["brick"], .6, seed, topo=lambda: crumble(box(m["brick"], (0, 0, .64), (T*.7, T*.7, .1), (6, -4, 3), .01), .03, seed)); return {}
+
+@asset("paredes", dungeon=True, name="parede_ossario_frente_canto")
+def parede_ossario_frente_canto(m, seed=317):
+    _pilar(m, m["stone_d"], .62, seed); sphere(m["bone"], (0, 0, .82), (.075, .08, .075), segs=12); return {}
+
+@asset("paredes", dungeon=True, name="parede_trombeta_frente_canto")
+def parede_trombeta_frente_canto(m, seed=318):
+    _pilar(m, m["stone_d"], .62, seed); box(m["brass"], (0, 0, .5), (T*.84, T*.84, .05), bevel=.01); return {}
+
+@asset("dungeon", dungeon=True)
+def carrinho_carne(m, seed=320):
+    """Carrinho de ferro de levar carne do frigorífico para o porão, com uma carcaça coberta."""
+    for sx in (-1, 1):
+        for sy in (-1, 1): cyl(m["iron"], (sx*.32, sy*.22, .1), .09, .05, (90, 0, 0), 16)
+    box(m["rust"], (0, 0, .42), (.8, .52, .06), bevel=.01)
+    for sx in (-1, 1): box(m["rust"], (sx*.4, 0, .6), (.03, .52, .36), bevel=.005)
+    for sy in (-1, 1): box(m["rust"], (0, sy*.26, .6), (.8, .03, .36), bevel=.005)
+    along(m["iron"], (-.4, 0, .78), (-.75, 0, .95), .02)
+    o = sphere(m["meat"], (0, 0, .62), (.3, .2, .16), segs=16); displace(o, .04, .2, seed, 1)
+    sphere(m["sack"], (.1, .05, .74), (.32, .22, .06), segs=16)
+    _pool(m["blood"], .4, .3, seed, 4)
+    return {}
+
+@asset("decalques")
+def rastro_arrasto(m, seed=321):
+    """Rastro de arrasto: sulco largo de sangue velho e unhas na poeira, de alguém que se puxa pelos braços."""
+    r = rnd(seed)
+    sulco = K.mat_solid("sulco", (.035, .02, .015), 0, .85)
+    for i in range(14):
+        t = i/13; x = -1.1 + 2.2*t; y = math.sin(t*3.1)*.12
+        sphere(m["blood"], (x, y, .003), (.16, r.uniform(.13, .2), .006), segs=10)
+        sphere(sulco, (x, y, .001), (.2, .24, .004), segs=10)
+        if i % 3 == 0:
+            for sy in (-1, 1):
+                for k in range(3):
+                    along(m["blood"], (x, y + sy*(.2 + k*.03), .006), (x - .18, y + sy*(.24 + k*.04), .006), .008, verts=4)
+    return {}
+
+@asset("dungeon", dungeon=True)
+def pilha_carvao(m, seed=322):
+    """Monte de carvão da caldeira, com pá."""
+    r = rnd(seed)
+    o = sphere(m["coal"], (0, 0, 0), (.55, .45, .35), segs=16); displace(o, .08, .12, seed, 2)
+    for k in range(18):
+        sphere(m["coal"], (r.uniform(-.7, .7), r.uniform(-.6, .6), .03), (r.uniform(.03, .07),)*3, segs=6)
+    along(m["wood"], (.2, -.3, .05), (.5, .1, .7), .02); box(m["iron"], (.17, -.34, .05), (.18, .2, .02), (10, 0, 30), .005)
+    return {}
+
+@asset("dungeon", fp=(2, 2), dungeon=True)
+def tanque_salmoura(m, seed=323):
+    """Tanque de salmoura de madeira e ferro, sal empedrado na borda e um pernil boiando."""
+    cyl(m["wood_d"], (0, 0, .45), .55, .9, verts=28)
+    for z in (.15, .45, .8): torus(m["rust"], (0, 0, z), .56, .025)
+    cyl(K.mat_solid("salmoura", (.06, .055, .04), 0, .15), (0, 0, .86), .52, .02, verts=28)
+    o = sphere(m["meat"], (.12, .05, .87), (.16, .1, .05), segs=12)
+    r = rnd(seed)
+    sal = K.mat_solid("sal", (.35, .33, .3), 0, .9)
+    for k in range(14):
+        a = r.uniform(0, 6.28); sphere(sal, (math.cos(a)*.55, math.sin(a)*.55, .9), (.05, .04, .03), segs=6)
+    return {}
+
+@asset("dungeon", dungeon=True)
+def sacos_sal(m, seed=324):
+    """Sacos de sal empilhados, um furado."""
+    r = rnd(seed)
+    for i, (x, y, z) in enumerate([(-.2, 0, .14), (.2, 0, .14), (0, .05, .4)]):
+        o = sphere(m["sack"], (x, y, z), (.28, .2, .14), segs=14); displace(o, .02, .2, seed + i, 1)
+    sphere(K.mat_solid("sal", (.35, .33, .3), 0, .9), (.4, -.25, .02), (.2, .14, .03), segs=10)
+    return {}
+
+@asset("paredes", walls=True, dungeon=True)
+def estante_ossos(m, seed=325):
+    """Nicho de ossos encostado na parede de trás do Ossário: tíbias empilhadas e crânios em fileira."""
+    r = rnd(seed); L = T
+    box(m["stone_d"], (0, .1, .06), (L, .32, .12), bevel=.01)
+    for row in range(4):
+        z = .16 + row*.075
+        for i in range(5):
+            along(m["bone"], (-L*.45, .05 + r.uniform(-.03, .03), z), (L*.45, .05 + r.uniform(-.03, .03), z + r.uniform(-.015, .015)), .02, verts=6)
+    for i in range(4):
+        x = -L*.33 + i*L*.22
+        sphere(m["bone"], (x, .02, .54), (.065, .07, .065), segs=12)
+        sphere(K.mat_solid("orbita", (0, 0, 0)), (x - .022, -.04, .545), (.016, .01, .018), segs=8)
+        sphere(K.mat_solid("orbita", (0, 0, 0)), (x + .022, -.04, .545), (.016, .01, .018), segs=8)
+    return {}
+
+@asset("dungeon", dungeon=True)
+def velas_chao(m, seed=326):
+    """Velas de sebo coladas no chão em cera escorrida, de alturas diferentes."""
+    r = rnd(seed)
+    cera = K.mat_solid("cera", (.32, .28, .2), 0, .5)
+    sphere(cera, (0, 0, 0), (.3, .24, .03), segs=14)
+    for k in range(7):
+        x, y = r.uniform(-.22, .22), r.uniform(-.17, .17); h = r.uniform(.08, .32)
+        candle((x, y, 0), h)
+    return {"emissivo": "chamas das velas", "luz": "vela"}
+
+@asset("dungeon", fp=(2, 1), dungeon=True)
+def banco_capela(m, seed=327):
+    """Banco de igreja quebrado, madeira escura."""
+    W = 1.1
+    box(m["wood_d"], (0, 0, .42), (W, .32, .05), bevel=.005)
+    box(m["wood_d"], (0, .15, .7), (W, .04, .5), (6, 0, 0), bevel=.005)
+    for sx in (-1, 1): box(m["wood_d"], (sx*W*.45, 0, .22), (.05, .32, .44), bevel=.005)
+    box(m["wood_d"], (W*.2, -.2, .03), (.3, .06, .03), (0, 0, 25), bevel=.003)
+    return {}
+
+@asset("dungeon", fp=(3, 2), dungeon=True, samples=40)
+def tubos_orgao(m, seed=328):
+    """Órgão da Câmara: tubos de latão tortos sobre caixa de madeira, alguns arrancados."""
+    r = rnd(seed)
+    box(m["wood_d"], (0, .2, .55), (2.0, .7, 1.1), bevel=.01)
+    box(m["wood"], (0, -.17, .9), (1.8, .1, .1), bevel=.005)
+    for i in range(13):
+        x = -.9 + i*.15; h = 1.2 + (1 - abs(i - 6)/6)*1.6 + r.uniform(-.2, .2)
+        if i in (3, 9): h *= .4
+        cyl(m["brass"], (x, .25, 1.1 + h/2), .055, h, (r.uniform(-3, 3), 0, 0), 14)
+        cyl(K.mat_solid("boca_tubo", (0, 0, 0)), (x, .19, 1.25), .03, .01, (90, 0, 0), 10)
+    cyl(m["brass"], (.6, -.5, .06), .055, 1.0, (0, 90, 30), 14)
+    return {}
+
+# ---- variantes de parede de trás (o layout alterna com a de sempre para a parede não repetir) e ganchos refeitos
+@asset("paredes", walls=True, dungeon=True)
+def parede_matadouro_v2(m, seed=330):
+    """Porão: azulejo arrancado deixando o tijolo, volante de válvula e manômetro de latão, gancho na corrente."""
+    r = rnd(seed); L = T
+    tile = K.mat_stone("azulejo", (.32, .3, .26), (.12, .11, .09), 6, .0, ("wall", T), 2.8, 7.0)
+    box(m["brick"], (0, .03, 1.5), (L, .24, 3.0), bevel=.004)
+    for k in range(9):   # restos de azulejo, o resto caiu
+        x = r.uniform(-L/2 + .06, L/2 - .06); z = r.uniform(.1, 1.3)
+        box(tile, (x, -.1, z), (r.uniform(.08, .16), .03, r.uniform(.08, .16)), (0, r.uniform(-6, 6), 0), bevel=.002)
+    for k in range(3): box(m["blood"], (-.15 + k*.14, -.123, 1.1 - k*.12), (.025, .002, .55 + k*.1), bevel=0)
+    cyl(m["brass"], (0, -.16, 2.4), .06, L + .01, (0, 90, 0), 14)
+    cyl(m["brass"], (-.12, -.16, 1.95), .035, .9, verts=12)
+    torus(m["iron"], (-.12, -.26, 1.6), .1, .012, (90, 0, 0)); cyl(m["iron"], (-.12, -.21, 1.6), .015, .1, (90, 0, 0), 8)
+    cyl(m["brass"], (.15, -.18, 1.75), .07, .04, (90, 0, 0), 20); cyl(K.mat_solid("mostrador", (.3, .28, .22), 0, .4), (.15, -.2, 1.75), .058, .01, (90, 0, 0), 20)
+    chain(m["iron"], (.2, -.15, 2.3), (.2, -.2, 1.3), 8, .02)
+    cyl(m["iron"], (.2, -.22, 1.2), .03, .2, verts=8, r2=0)
+    return {}
+
+@asset("paredes", walls=True, dungeon=True)
+def parede_ossario_v2(m, seed=331):
+    """Ossário: arco de nicho com uma carpideira de ossos sentada, coberta de pano e cera de vela."""
+    L = T
+    box(m["stone_d"], (0, .05, 1.5), (L, .3, 3.0), bevel=.006)
+    box(K.mat_solid("nicho", (.005, .004, .004)), (0, -.1, 1.05), (L*.72, .1, 1.5), bevel=.01)
+    cyl(K.mat_solid("nicho", (.005, .004, .004)), (0, -.1, 1.8), L*.36, .1, (90, 0, 0), 24)
+    cyl(m["stone"], (0, -.11, 1.8), L*.42, .12, (90, 0, 0), 24, r2=L*.42)
+    box(m["stone"], (0, -.16, .32), (L*.8, .14, .08), bevel=.01)
+    sphere(m["bone"], (0, -.12, 1.24), (.07, .075, .075), segs=12)
+    for sx in (-1, 1): sphere(K.mat_solid("orbita", (0, 0, 0)), (sx*.024, -.18, 1.25), (.017, .01, .019), segs=8)
+    o = sphere(m["cloth"], (0, -.1, .85), (.18, .13, .34), segs=14); displace(o, .02, .2, seed, 1)
+    for sx in (-1, 1): along(m["bone"], (sx*.12, -.16, .95), (sx*.05, -.22, .7), .016, verts=6)
+    candle((-.2, -.17, .36), .14); candle((.18, -.17, .36), .09)
+    return {}
+
+@asset("paredes", walls=True, dungeon=True)
+def parede_trombeta_v2(m, seed=332):
+    """Câmara: placa de porcelana com a trombeta em relevo de latão e tubo de órgão subindo pela parede."""
+    L = T
+    box(m["stone_d"], (0, .05, 1.6), (L, .3, 3.2), bevel=.006)
+    box(m["porcelain"], (0, -.11, 1.5), (L*.8, .04, 2.2), bevel=.01)
+    for x in (-L/2 + .03, L/2 - .03): box(m["iron"], (x, -.12, 1.6), (.06, .08, 3.2), bevel=.01)
+    along(m["brass"], (-.18, -.15, 1.0), (.12, -.15, 1.6), .022, .022, verts=10)
+    cyl(m["brass"], (.15, -.15, 1.66), .02, .2, (0, 40, 0), 14, r2=.09)
+    cyl(m["brass"], (.22, -.17, 1.6), .045, 3.2, verts=14)
+    return {}
+
+@asset("props", fp=(2, 1), name="ganchos_carne")
+def ganchos_carne_v2(m, seed=333):
+    """Trilho de ganchos com carcaças penduradas (Abatedouro Carniça e Câmara fria)."""
+    r = rnd(seed)
+    for sx in (-1, 1):
+        box(m["iron"], (sx*.95, 0, 1.3), (.07, .07, 2.6), bevel=.005)
+        box(m["iron"], (sx*.95, 0, .03), (.3, .3, .06), bevel=.005)
+    box(m["iron"], (0, 0, 2.55), (2.0, .08, .1), bevel=.005)
+    box(m["rust"], (0, 0, 2.47), (1.95, .04, .04), bevel=.003)
+    for k, x in enumerate((-.6, 0, .6)):
+        chain(m["iron"], (x, 0, 2.45), (x, 0, 2.05), 4, .022)
+        cyl(m["iron"], (x, 0, 1.98), .02, .14, verts=8, r2=.005)
+        if k == 1 and r.random() < .5: continue
+        # carcaça: tronco aberto (costelas à mostra), pernas para cima no gancho
+        rot = r.uniform(-12, 12)
+        o = sphere(m["meat"], (x, 0, 1.45), (.2, .15, .42), segs=16); displace(o, .04, .15, seed + k, 1)
+        sphere(K.mat_solid("gordura", (.42, .32, .24), 0, .5), (x, .07, 1.5), (.13, .08, .36), segs=12)
+        for j in range(6): along(m["bone"], (x - .13, -.14, 1.18 + j*.09), (x + .13, -.14, 1.22 + j*.09), .011, verts=6)
+        for sx in (-1, 1): along(m["meat"], (x + sx*.07, 0, 1.8), (x + sx*.1, 0, 2.0), .06, .035, verts=10)
+        sphere(m["meat"], (x, 0, 1.0), (.1, .1, .12), segs=10)
+        for d in range(2): along(m["blood"], (x + r.uniform(-.05, .05), -.05, .95), (x + r.uniform(-.05, .05), -.05, .4 + r.uniform(0, .3)), .006, verts=4)
+    _pool(m["blood"], .9, .45, seed, 6)
+    return {}
+
+
+# ================================================================ NOVO ÉDEN (0.8.3, visual aprovado pelo Jefin em 11/10)
+# O vocabulário vivo vem da prévia aprovada (design/mapas/mundo/fontes/area_floresta_enxerto.py): copas com
+# folhas instanciadas que acendem em ciano/violeta, palmeiras, folhas largas, flores de seiva, cipós, campânulas.
+import os as _os
+_NE = {}
+def _ne():
+    if not _NE:
+        f = _os.path.normpath(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "..",
+                                            "design", "mapas", "mundo", "fontes", "area_floresta_enxerto.py"))
+        ns = {"__file__": f, "__name__": "novo_eden"}
+        exec(compile(open(f).read().split("\n# ================================================================ cena")[0], f, "exec"), ns)
+        _NE.update(ns)
+    _NE["_MT"].clear(); _NE["_FOLHA"].clear()          # o render limpa a cena a cada objeto
+    return _NE
+
+def _viva(construtor, args, esc=1.0, rala=1.0):
+    """esc: escala final do objeto (no jogo a câmera é próxima; copa grande tampa a tela, Jefin 11/10)."""
+    def fn(m, seed=0):
+        antes = set(bpy.data.objects)
+        _ne()[construtor](*args)(m)
+        if rala != 1.0:     # copa rala: menos folhas, dá para ver através
+            for o in bpy.data.objects:
+                if o not in antes:
+                    for md in o.modifiers:
+                        if md.type == 'PARTICLE_SYSTEM': md.particle_system.settings.count = int(md.particle_system.settings.count*rala)
+        if esc != 1.0:
+            for o in bpy.data.objects:
+                if o not in antes and o.parent is None:
+                    o.location = o.location*esc; o.scale = o.scale*esc
+            bpy.context.view_layer.update()
+        return {"emissivo": "folhas e seiva em ciano", "bioma": "novo_eden"}
+    return fn
+
+_RALA = {"arvore_lume_rala": .3}
+_ESC = {"arvore_lume_rala": .7, "arvore_baixa_lume": .45, "arvore_lume": .55, "arvore_lume_2": .55, "arvore_mae": .7, "arvore_jovem_lume": .8, "palmeira_lume": .75, "palmeira_lume_2": .8}
+for _nome, _cat, _fp, _c, _a in [
+    ("arvore_lume", "vegetacao", (2, 2), "arvore_enxertada", (4, 6.5, .42)),
+    ("arvore_lume_2", "vegetacao", (2, 2), "arvore_enxertada", (7, 8.0, .5)),
+    ("arvore_mae", "vegetacao", (4, 4), "arvore_enxertada", (12, 13.0, 1.15)),
+    ("arvore_lume_rala", "vegetacao", (2, 2), "arvore_enxertada", (4, 6.5, .42)),
+    ("arvore_baixa_lume", "vegetacao", (2, 2), "arvore_enxertada", (11, 3.0, .5)),
+    ("arvore_jovem_lume", "vegetacao", (1, 1), "arvore_jovem", (3, 4.0)),
+    ("palmeira_lume", "vegetacao", (1, 1), "palmeira", (5, 5.5)),
+    ("palmeira_lume_2", "vegetacao", (1, 1), "palmeira", (9, 4.2)),
+    ("folha_larga", "vegetacao", (1, 1), "folha_larga", (2,)),
+    ("flor_lume", "vegetacao", (1, 1), "flor_lume", (3,)),
+    ("flor_lume_2", "vegetacao", (1, 1), "flor_lume", (8,)),
+    ("moita_lume", "vegetacao", (1, 1), "moita", (4,)),
+    ("cipo_lume", "vegetacao", (1, 1), "cipo_lume", (6, 3.2)),
+    ("campanula", "props", (1, 1), "campanula", (2,)),
+    ("tanque_latao", "props", (2, 2), "tanque", (1,)),
+]:
+    REG[_nome] = dict(fn=_viva(_c, _a, _ESC.get(_nome, 1.0), _RALA.get(_nome, 1.0)), cat=_cat, fp=_fp, dungeon=False, walls=False, samples=48, bury=0.0)
+
+
+# ================================================================ ÁREA INICIAL 0.7.9: cerca legível e cúpula visível
+@asset("paredes", walls=True, name="palicada")
+def palicada_v2(m, seed=340):
+    """Cerca do Acampamento da Vela: mourões, travessas, tábuas de alturas diferentes com fresta, chapa de zinco
+    ondulada e arame farpado. Baixa (1,5 m) para o acampamento aparecer por cima."""
+    r = rnd(seed); L = T
+    for x in (-L/2 + .04, L/2 - .04):                       # mourões nas pontas (emendam com o vizinho)
+        cyl(m["wood_d"], (x, 0, .85), .06, 1.7, verts=8)
+        cyl(m["wood_d"], (x, 0, 1.73), .06, .08, verts=8, r2=.03)
+    for z in (.45, 1.15): box(m["wood"], (0, .04, z), (L, .05, .09), (0, r.uniform(-2, 2), 0), .008)
+    n = 5
+    for i in range(n):                                      # tábuas com fresta
+        x = -L/2 + L/n*(i + .5); h = r.uniform(1.05, 1.45)
+        box(m["wood"] if i % 2 else m["wood_d"], (x, -.01, h/2 + .03), (L/n*.78, .03, h), (r.uniform(-2, 2), 0, 0), .006)
+    sx = r.uniform(-.08, .08)                               # chapa de zinco pregada por cima
+    box(m["tin"], (sx, -.04, .55), (L*.55, .012, .6), (0, r.uniform(-6, 6), 0), .003)
+    for k in range(4): box(m["rust"], (sx - L*.25 + k*L*.165, -.05, .55), (.012, .006, .6), bevel=0)
+    for z in (1.52, 1.64):                                  # arame farpado
+        along(m["iron"], (-L/2, -.0, z), (L/2, 0, z + r.uniform(-.02, .02)), .006, verts=4)
+        for k in range(5): torus(m["iron"], (-L/2 + (k + .5)*L/5, 0, z), .025, .004, (r.uniform(0, 90), 90, 0))
+    if seed % 2 == 0:
+        o = sphere(m["sack"], (r.uniform(-.15, .15), -.18, .1), (.2, .12, .1), segs=12); displace(o, .015, .2, seed, 1)
+    return {}
+
+def _cupula(m, seed, R=4.2):
+    r = rnd(seed)
+    escuro = K.mat_solid("vidro_cupula2", (.07, .1, .1), .3, .06)
+    aceso = K.mat_emit("vidraca_acesa", (1, .55, .2), 2.2)
+    meio = K.mat_emit("vidraca_meia", (.85, .5, .2), .7)
+    bpy.ops.mesh.primitive_uv_sphere_add(segments=32, ring_count=16, radius=R, location=(0, 0, 0))
+    dome = bpy.context.object
+    for mt in (escuro, aceso, meio): dome.data.materials.append(mt)
+    import bmesh
+    bm = bmesh.new(); bm.from_mesh(dome.data)
+    morto = []
+    for f in bm.faces:
+        c = f.calc_center_median()
+        if c.z < .05: morto.append(f); continue
+        u = r.random(); alt = c.z/R
+        if u < .06: morto.append(f)                         # vidraça quebrada
+        elif u < .28 + .2*(1 - alt): f.material_index = 1   # vidraças acesas (mais embaixo, onde ficam as velas)
+        elif u < .42: f.material_index = 2
+    bmesh.ops.delete(bm, geom=morto, context='FACES'); bm.to_mesh(dome.data); bm.free()
+    for p in dome.data.polygons: p.use_smooth = False
+    ferro = m["rust"]
+    for k in range(16):
+        a = 2*math.pi*k/16
+        pts = [Vector((math.cos(a)*R*math.cos(t), math.sin(a)*R*math.cos(t), R*math.sin(t))) for t in [i*math.pi/2/8 for i in range(9)]]
+        for p, q in zip(pts, pts[1:]): along(ferro, p*1.012, q*1.012, .055, verts=6)
+    for t in (.2, .45, .75, 1.05, 1.3):
+        torus(ferro, (0, 0, R*math.sin(t)), R*math.cos(t)*1.012, .05)
+    torus(m["dark_stone"], (0, 0, .2), R*1.02, .25)        # mureta de pedra na base
+    for k in range(7):
+        a = r.uniform(0, 2*math.pi); t = r.uniform(.25, 1.0)
+        p = Vector((math.cos(a)*R*math.cos(t), math.sin(a)*R*math.cos(t), R*math.sin(t)))*1.03
+        o = box(r.choice([m["cloth"], m["tin"], m["red_cloth"]]), tuple(p), (.95, .95, .03), bevel=.003)
+        o.rotation_euler = p.normalized().to_track_quat('Z', 'Y').to_euler()
+    # dentro: chão quente e silhuetas de tendas vistas pelo vidro
+    cyl(K.mat_emit("chao_quente", (.9, .45, .15), .5), (0, 0, .05), R*.95, .05, verts=32)
+    for k in range(5):
+        a = 2*math.pi*k/5 + .3
+        prism(m["cloth"], (math.cos(a)*R*.55, math.sin(a)*R*.55, .05), 1.4, 1.2, 1.2)
+        point((math.cos(a)*R*.4, math.sin(a)*R*.4, .9), (1, .55, .2), 160, .5)
+    # lâmpada de arco no topo
+    cyl(m["iron"], (0, 0, R + .3), .3, .6, verts=12)
+    along(m["iron"], (0, 0, R + .6), (0, 0, R + 2.4), .06, verts=8)
+    sphere(m["brass"], (0, 0, R + 2.5), (.2, .2, .2))
+    arc = K.mat_emit("arco_eletrico", (.62, .85, 1.0), 40)
+    for k in range(5):
+        a0, a1 = math.radians(72*k), math.radians(72*(k+1))
+        p0 = Vector((math.cos(a0)*.5, math.sin(a0)*.5, R + 2.7)); p1 = Vector((math.cos(a1)*.5, math.sin(a1)*.5, R + 2.7))
+        along(m["iron"], (0, 0, R + 2.5), p0, .015, verts=4)
+        mid = p0.lerp(p1, .5) + Vector((r.uniform(-.1, .1), r.uniform(-.1, .1), .15))
+        along(arc, p0, mid, .012, verts=4); along(arc, mid, p1, .012, verts=4)
+    sphere(K.mat_emit("arco_nucleo", (.85, .95, 1.0), 60), (0, 0, R + 2.85), (.1, .1, .1))
+    point((0, 0, R + 2.9), (.55, .8, 1.0), 1400, .3)
+    # entrada voltada para a câmera (lado -Y/+X): arco aberto com cortina de lona e luz quente
+    a = math.radians(-45)
+    ex, ey = math.cos(a)*R*.98, math.sin(a)*R*.98
+    box(K.mat_emit("vao_quente", (1, .5, .18), 2.5), (ex, ey, 1.1), (1.4, .06, 2.0), (0, 0, math.degrees(a) + 90), 0)
+    for s in (-1, 1):
+        box(m["wood_d"], (ex + s*.75*math.cos(a + math.pi/2), ey + s*.75*math.sin(a + math.pi/2), 1.2), (.15, .15, 2.4), (0, 0, math.degrees(a)), .01)
+    box(m["wood_d"], (ex, ey, 2.45), (1.7, .18, .15), (0, 0, math.degrees(a) + 90), .01)
+    for k in range(5):
+        box(m["wood"], (ex + math.cos(a)*(.3 + k*.28), ey + math.sin(a)*(.3 + k*.28), .04), (.3, 1.3, .05), (0, 0, math.degrees(a)), .005)
+    point((ex*1.2, ey*1.2, 1.2), (1, .55, .2), 300, .5)
+
+@asset("predios", fp=(5, 5), samples=48, name="cupula_estacao")
+def cupula_estacao_v2(m, seed=341):
+    """Cúpula de vidro da estação de bonde, coração do Acampamento da Vela: costelas de ferro, vidraças acesas por
+    dentro (velas da Vigília), remendos de lona, porta aberta voltada para quem chega e a lâmpada de arco no topo.
+    Cabe em 5x5 tiles dentro da paliçada (a área inicial a põe atrás do acampamento)."""
+    antes = set(bpy.data.objects)
+    _cupula(m, seed)
+    k = .43                                   # modelada com 4,2 m de raio; reduzida para ~1,8 m
+    piv = bpy.data.objects.new("piv_cupula", None); bpy.context.scene.collection.objects.link(piv)
+    for o in set(bpy.data.objects) - antes - {piv}:
+        if o.parent is None: o.parent = piv
+        if o.type == 'LIGHT': o.data.energy *= k*k
+    piv.scale = (k, k, k); bpy.context.view_layer.update()
+    for o in [o for o in set(bpy.data.objects) - antes if o is not piv]:
+        mw = o.matrix_world.copy(); o.parent = None; o.matrix_world = mw
+    bpy.data.objects.remove(piv)
+    for k2 in range(8):                       # areia encostada na mureta
+        a = 2*math.pi*k2/8 + .2
+        duna((math.cos(a)*1.9, math.sin(a)*1.9, -.1), .7, .5, .35, seed + k2)
+    return {"emissivo": "vidraças acesas, porta e arco elétrico azul"}
+
+
+# ================================================================ BARREIRA DO CHEFE (substitui o portão em anel)
+def _runas(raio, z, n, mat, r):
+    for k in range(n):
+        a = 2*math.pi*k/n + r.uniform(-.1, .1)
+        box(mat, (math.cos(a)*raio, math.sin(a)*raio, z + r.uniform(-.02, .02)), (.025, .05, .09), (0, 0, math.degrees(a)), 0)
+
+@asset("dungeon", dungeon=True, samples=48)
+def barreira_chefe(m, seed=350):
+    """Estaca de selo: poste de ferro baixo (1,3 m) com anel de runas em brasa, correntes caídas e brasa no pé.
+    Repetida a cada ~1,5 tile em volta da arena, fecha o círculo sem tampar a luta."""
+    r = rnd(seed); brasa = K.mat_emit("runa_brasa", (1, .16, .04), 9)
+    cyl(m["stone_d"], (0, 0, .09), .26, .18, verts=8, r2=.2)                        # sapata de pedra
+    crumble(cyl(m["stone_d"], (0, 0, .2), .19, .08, verts=8), .02, seed)
+    cyl(m["rust"], (0, 0, .75), .07, 1.1, verts=8, r2=.05)                          # poste
+    cyl(m["rust"], (0, 0, 1.36), .05, .14, verts=8, r2=0)                           # ponta
+    for z in (.45, 1.05): torus(m["iron"], (0, 0, z), .085, .02)
+    cyl(m["iron"], (0, 0, .78), .1, .16, verts=12)                                   # cinta das runas
+    _runas(.1, .78, 8, brasa, r)
+    for k in range(3):                                                                # correntes caídas no chão
+        a = 2*math.pi*k/3 + r.uniform(-.3, .3)
+        K.chain(m["iron"], (math.cos(a)*.08, math.sin(a)*.08, 1.0), (math.cos(a)*.55, math.sin(a)*.55, .02), 7, .03)
+    for k in range(5):                                                                # brasas e cinza no pé
+        a = r.uniform(0, 6.28); d = r.uniform(.25, .4)
+        sphere(brasa if k % 2 else K.mat_solid("cinza", (.03, .028, .026), 0, 1), (math.cos(a)*d, math.sin(a)*d, .02), (.05, .05, .025), segs=6)
+    sphere(m["bone"], (.12, -.1, 1.18), (.07, .08, .08))                              # crânio pregado
+    point((0, 0, .85), (1, .2, .05), 18, .1)
+    return {"emissivo": "runas e brasas vermelhas"}
+
+@asset("dungeon", dungeon=True, samples=48)
+def barreira_chefe_2(m, seed=351):
+    """Variação: feixe de lanças cravadas e amarradas, com braseiro de ferro em cima."""
+    r = rnd(seed); brasa = K.mat_emit("runa_brasa", (1, .16, .04), 9)
+    for k in range(5):
+        a = 2*math.pi*k/5 + r.uniform(-.2, .2); b = Vector((math.cos(a)*.22, math.sin(a)*.22, 0))
+        top = Vector((math.cos(a)*.05, math.sin(a)*.05, r.uniform(1.0, 1.25)))
+        along(m["wood_d"], b, top, .03, .025, 6)
+        cyl(m["rust"], top + (top - b).normalized()*.08, .03, .16, verts=5, r2=0)
+    for z in (.5, .8): torus(m["iron"], (0, 0, z), .13 - z*.06, .018)
+    cyl(m["rust"], (0, 0, 1.08), .12, .12, verts=10, r2=.17)                          # braseiro
+    flame((0, 0, 1.13), .5, strength=10)
+    _runas(.24, .03, 10, brasa, r)                                                     # runas no chão em volta
+    return {"emissivo": "fogo e runas no chão"}
+
+
+# ================================================================ GÓTICO INGLÊS (Catacumba das Raízes)
+# Tijolo escuro com cantaria clara, arcos Tudor baixos (quatro centros), grade de ferro batido, lampião a gás,
+# hera seca e lápides vitorianas. Família parede_gotica_* com as mesmas medidas do Ossário (troca direta no gerar.py).
+import bmesh as _bm
+def _mg():
+    return dict(tij=K.mat_brick("tijolo_ingles", ("wall", T), 4.0, tint=(.075, .036, .028), rh=.065),
+                can=K.mat_stone("cantaria", (.15, .135, .115), (.07, .064, .056), 1.4, .25),
+                fer=K.mat_metal("ferro_batido", (.02, .02, .022), .25, 2.0, .4),
+                hera=K.mat_solid("hera_seca", (.06, .045, .022), 0, .8),
+                hera_v=K.mat_solid("hera_verde", (.025, .04, .015), 0, .7))
+
+def _tudor(a, w, h):
+    """ponto do arco Tudor (quatro centros) para a em [0,1]; x de -w/2 a w/2, z de 0 ao ápice h"""
+    u = abs(a*2 - 1); s = -1 if a < .5 else 1
+    x = s*w/2*u
+    z = h*((1 - u**2.6)**.55) if u > 0 else h
+    return x, z
+
+def arco_tudor(mat, w, h, banda, y, prof, z0=0.0, n=24):
+    """faixa de cantaria em arco Tudor (sólida), de pé no plano XZ em y"""
+    me = bpy.data.meshes.new("arco"); bm = _bm.new(); ins, out = [], []
+    for i in range(n + 1):
+        a = i/n
+        xi, zi = _tudor(a, w, h); xo, zo = _tudor(a, w + banda*2, h + banda)
+        for lst, (x, z) in ((ins, (xi, zi)), (out, (xo, zo))):
+            lst.append((_bm_v(bm, x, y - prof/2, z + z0), _bm_v(bm, x, y + prof/2, z + z0)))
+    for i in range(n):
+        for (a0, a1), (b0, b1) in ((ins[i], ins[i+1]), (out[i], out[i+1])):
+            bm.faces.new((a0, b0, b1, a1))
+        bm.faces.new((ins[i][0], ins[i+1][0], out[i+1][0], out[i][0]))
+        bm.faces.new((ins[i][1], out[i][1], out[i+1][1], ins[i+1][1]))
+    for e in (0, n): bm.faces.new((ins[e][0], out[e][0], out[e][1], ins[e][1]))
+    _bm.ops.recalc_face_normals(bm, faces=bm.faces); bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new("arco", me); bpy.context.scene.collection.objects.link(o)
+    return K.obj(o, mat)
+
+def _bm_v(bm, x, y, z): return bm.verts.new((x, y, z))
+
+def nicho_tudor(w, h, y, z0):
+    """vão escuro em forma de arco Tudor (placa fina)"""
+    me = bpy.data.meshes.new("nicho"); bm = _bm.new()
+    pts = [(-w/2, 0)] + [_tudor(i/20, w, h) for i in range(21)] + [(w/2, 0)]
+    f = bm.faces.new([_bm_v(bm, x, y, z + z0) for x, z in pts[::-1]])
+    bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new("nicho", me); bpy.context.scene.collection.objects.link(o)
+    return K.obj(o, K.mat_solid("nicho", (.005, .004, .004)))
+
+def hera(g, base, alto, seed, larg=.5, y=-.17, dens=1.0):
+    """hera seca subindo pela parede: ramos finos e folhas pequenas (algumas ainda verdes)"""
+    r = rnd(seed)
+    for k in range(int(3*dens) + 1):
+        x0 = base[0] + r.uniform(-larg/2, larg/2); p = Vector((x0, y, base[1]))
+        for s in range(int(alto/.12)):
+            q = p + Vector((r.uniform(-.06, .06), 0, .12))
+            along(g["hera"], p, q, .006, verts=4); p = q
+            for f in range(2):
+                o = box(g["hera_v"] if r.random() < .25 else g["hera"], (p.x + r.uniform(-.07, .07), y - .01, p.z + r.uniform(-.05, .05)),
+                        (.06, .008, .05), (r.uniform(-30, 30), 0, r.uniform(-40, 40)), 0)
+
+def _mat_musgo():
+    return K.mat_stone("musgo_parede", (.06, .13, .03), (.025, .06, .015), 6.0, 0.0)
+
+def raiz(pts, r0, seed, mat=None):
+    """raiz grossa (tubo rugoso afinando) seguindo os pontos"""
+    ne = _ne(); n = len(pts)
+    ne["tubo"](mat or K.mat_wood("raiz", (.05, .036, .024), seed*.1), pts, [r0*(1 - .8*i/(n - 1)) + .006 for i in range(n)], 8, seed, .15)
+
+def raizes_parede(g, seed, L=T, y=-.16, n=2, topo=3.0, musgo=True):
+    """raízes que rompem o coroamento e descem pela face da parede, com radículas e musgo nos tijolos"""
+    r = rnd(seed); mus = _mat_musgo()
+    for k in range(n):
+        x = r.uniform(-L*.4, L*.4); z = topo + .1; pts = [(x, .1, z + .15), (x, y + .05, z - .05)]
+        while z > r.uniform(.1, 1.0):
+            z -= r.uniform(.22, .35); x = max(-L*.48, min(L*.48, x + r.uniform(-.14, .14)))
+            pts.append((x, y + r.uniform(-.015, .015), z))
+        raiz(pts, r.uniform(.045, .07), seed + k)
+        for j in range(2, len(pts) - 1, 2):                                   # radículas
+            p = Vector(pts[j]); d = Vector((r.choice((-1, 1))*r.uniform(.1, .2), 0, -r.uniform(.1, .25)))
+            raiz([tuple(p), tuple(p + d*.5 + Vector((0, -.01, 0))), tuple(p + d)], .014, seed + 10*k + j)
+    if musgo:
+        for k in range(int(5*L/T)):                                            # placas de musgo
+            o = sphere(mus, (r.uniform(-L*.45, L*.45), y + .03, (r.choice((r.uniform(.05, .5), r.uniform(1.8, 2.95))) if topo > 1 else r.uniform(.05, topo - .05))), (r.uniform(.08, .2), .03, r.uniform(.05, .14)), segs=10)
+            displace(o, .015, .06, seed + k, 1)
+        for k in range(4):                                                     # musgo no topo
+            o = sphere(mus, (r.uniform(-L*.45, L*.45), .05, topo + .07), (r.uniform(.1, .2), .14, .04), segs=10); displace(o, .02, .08, seed + 20 + k, 1)
+
+def _parede_gotica(m, g, seed, arco=False, lampiao=False, hera_d=0.0):
+    L = T; r = rnd(seed)
+    box(g["tij"], (0, .05, 1.5), (L, .3, 3.0), bevel=.004)                             # parede de tijolo
+    box(g["can"], (0, -.02, .16), (L + .002, .36, .32), bevel=.012)                     # embasamento
+    box(g["can"], (0, -.03, 2.2), (L + .002, .38, .1), bevel=.012)                      # cordão
+    box(g["can"], (0, .0, 2.97), (L + .002, .4, .14), bevel=.015)                       # coroamento
+    for z, alt in ((.45, .28), (.95, .22), (1.45, .28), (1.9, .22)):                    # cunhal na emenda
+        box(g["can"], (L/2 - (.11 if alt > .25 else .08), -.11, z), ((.22 if alt > .25 else .16), .04, alt - .03), bevel=.01)
+    if arco:
+        nicho_tudor(L*.62, 1.45, -.105, .35)
+        arco_tudor(g["can"], L*.62, 1.45, .07, -.12, .06, .35)
+        for sx in (-1, 1): box(g["can"], (sx*(L*.31 + .035), -.12, .35 + .55), (.07, .06, 1.1), bevel=.008)
+        box(g["can"], (0, -.13, .33), (L*.78, .1, .05), bevel=.008)                     # peitoril
+    if lampiao:
+        z = 1.75
+        box(g["fer"], (0, -.14, z - .2), (.08, .03, .14), bevel=.004)                   # chapa
+        along(g["fer"], (0, -.15, z - .15), (0, -.32, z - .05), .012, verts=6)          # braço
+        along(g["fer"], (0, -.32, z - .05), (0, -.32, z + .02), .01, verts=6)
+        cyl(g["fer"], (0, -.32, z + .04), .07, .04, verts=6, r2=.05)                    # base da lanterna
+        cyl(K.mat_emit("vidro_gas", (1, .72, .38), 9), (0, -.32, z + .15), .055, .18, verts=6)
+        cyl(g["fer"], (0, -.32, z + .27), .08, .07, verts=6, r2=.02)                    # chapéu
+        for a in range(6):
+            aa = a*math.pi/3; along(g["fer"], (math.cos(aa)*.058, -.32 + math.sin(aa)*.058, z + .06), (math.cos(aa)*.058, -.32 + math.sin(aa)*.058, z + .24), .005, verts=4)
+        point((0, -.45, z + .15), (1, .62, .3), 22, .05)
+    if hera_d: hera(g, (r.uniform(-.15, .15), .3), r.uniform(1.4, 2.6), seed, .5, -.12, hera_d)
+
+@asset("paredes", walls=True, dungeon=True, samples=40)
+def parede_gotica(m, seed=360):
+    """Parede gótica inglesa: tijolo escuro, embasamento, cordão e coroamento de cantaria, cunhal na emenda."""
+    g = _mg(); _parede_gotica(m, g, seed, hera_d=.3); raizes_parede(g, seed, n=2); return {}
+
+@asset("paredes", walls=True, dungeon=True, samples=40)
+def parede_gotica_v2(m, seed=361):
+    """Arco Tudor cego em cantaria com lampião a gás aceso (a luz da sala vem daqui)."""
+    g = _mg(); _parede_gotica(m, g, seed, arco=True, lampiao=True)
+    r = rnd(seed)                                                              # raízes emoldurando o arco Tudor
+    for sx in (-1, 1):
+        raiz([(sx*T*.44, .1, 3.15), (sx*T*.45, -.15, 2.7), (sx*T*.42, -.17, 2.0), (sx*T*.46, -.16, 1.2), (sx*T*.43, -.17, .45)], .055, seed + sx)
+    raiz([(-T*.42, -.17, 2.3), (-.05, -.18, 2.05 + .1), (T*.42, -.17, 2.3)], .03, seed + 5)
+    raizes_parede(g, seed + 3, n=0); return {"emissivo": "lampião a gás"}
+
+@asset("paredes", walls=True, dungeon=True, samples=40)
+def parede_gotica_frente(m, seed=362):
+    """Meia-parede da frente: mureta de tijolo com capa de cantaria e grade de ferro batido com lanças (não tampa)."""
+    g = _mg(); L = T
+    box(g["tij"], (0, 0, .25), (L, .26, .5), bevel=.004)
+    box(g["can"], (0, 0, .54), (L + .002, .32, .08), bevel=.01)
+    box(g["fer"], (0, 0, .64), (L, .025, .025), bevel=0)
+    box(g["fer"], (0, 0, 1.0), (L, .025, .025), bevel=0)
+    for i in range(5):
+        x = -L/2 + L/5*(i + .5)
+        cyl(g["fer"], (x, 0, .84), .01, .6, verts=6)
+        cyl(g["fer"], (x, 0, 1.18), .024, .08, verts=4, r2=0)                           # ponta de lança
+        if i % 2 == 0: torus(g["fer"], (x + L/10, 0, .82), .05, .008, (90, 0, 0))       # voluta
+    raiz([(-T*.5, .1, .62), (-T*.2, -.02, .7), (T*.1, .04, .6), (T*.5, -.03, .68)], .045, seed)   # raiz correndo na mureta
+    raizes_parede(g, seed, n=0, topo=.5, y=-.14)
+    return {}
+
+@asset("paredes", dungeon=True, samples=32)
+def parede_gotica_canto(m, seed=363):
+    """Pilar de canto em cantaria, com pináculo baixo."""
+    g = _mg(); w = T*.78
+    box(g["can"], (0, 0, .15), (w + .1, w + .1, .3), bevel=.012)
+    box(g["tij"], (0, 0, 1.5), (w, w, 3.0), bevel=.006)
+    for z in (.6, 1.3, 2.2): box(g["can"], (0, 0, z), (w + .03, w + .03, .18), bevel=.01)
+    box(g["can"], (0, 0, 3.02), (w + .12, w + .12, .14), bevel=.015)
+    cyl(g["can"], (0, 0, 3.3), w*.36, .45, verts=4, r2=0, rot=(0, 0, 45))
+    r = rnd(seed)                                                              # raiz-mestra abraçando o pilar
+    for k in range(3):
+        a0 = r.uniform(0, 6.28); pts = []
+        for i in range(12):
+            a = a0 + i*.55; z = 3.3 - i*.29; rr = w*.62 + .02
+            pts.append((math.cos(a)*rr, math.sin(a)*rr, z))
+        pts.append((pts[-1][0]*1.6, pts[-1][1]*1.6, -.05))
+        raiz(pts, .085 - k*.015, seed + k)
+    mus = _mat_musgo()
+    for k in range(6):
+        a = r.uniform(-2.4, .8); o = sphere(mus, (math.cos(a)*w*.55, math.sin(a)*w*.55, r.uniform(.2, 2.8)), (.13, .13, .1), segs=10); displace(o, .02, .07, seed + k, 1)
+    return {}
+
+@asset("paredes", dungeon=True, name="parede_gotica_frente_canto", samples=32)
+def parede_gotica_frente_canto(m, seed=364):
+    """Pilarete da frente com bola de pedra."""
+    g = _mg(); w = T*.6
+    box(g["can"], (0, 0, .4), (w, w, .8), bevel=.012)
+    box(g["can"], (0, 0, .83), (w + .06, w + .06, .07), bevel=.01)
+    sphere(g["can"], (0, 0, .98), (.14, .14, .14), segs=14)
+    raiz([(.05, .3, 1.05), (.02, .1, 1.1), (-.12, -.05, .9), (-.2, -.2, .4), (-.35, -.4, -.05)], .05, seed)
+    o = sphere(_mat_musgo(), (0, 0, 1.06), (.12, .12, .05), segs=10); displace(o, .015, .05, seed, 1)
+    return {}
+
+@asset("dungeon", dungeon=True, samples=40)
+def lampiao_gas(m, seed=365):
+    """Poste de lampião a gás vitoriano, ferro batido, chama quente."""
+    g = _mg()
+    cyl(g["fer"], (0, 0, .12), .14, .24, verts=8, r2=.09)
+    cyl(g["fer"], (0, 0, 1.3), .04, 2.2, verts=8, r2=.03)
+    for z in (.4, 2.0): torus(g["fer"], (0, 0, z), .05, .012)
+    along(g["fer"], (0, 0, 2.2), (.18, 0, 2.38), .012, verts=6); along(g["fer"], (0, 0, 2.2), (-.18, 0, 2.38), .012, verts=6)
+    cyl(g["fer"], (0, 0, 2.45), .1, .05, verts=6, r2=.08)
+    cyl(K.mat_emit("vidro_gas", (1, .72, .38), 9), (0, 0, 2.6), .08, .26, verts=6, r2=.1)
+    cyl(g["fer"], (0, 0, 2.78), .13, .1, verts=6, r2=.02)
+    cyl(g["fer"], (0, 0, 2.88), .012, .1, verts=6, r2=0)
+    point((0, 0, 2.6), (1, .62, .3), 60, .06)
+    return {"emissivo": "lampião a gás"}
+
+@asset("dungeon", walls=True, dungeon=True, samples=32)
+def grade_ferro_batido(m, seed=366):
+    """Grade vitoriana de ferro batido (cerca túmulos), lanças e volutas, com hera seca."""
+    g = _mg(); L = T
+    box(g["can"], (0, 0, .06), (L, .16, .12), bevel=.01)
+    for z in (.2, .95): box(g["fer"], (0, 0, z), (L, .02, .025), bevel=0)
+    for i in range(6):
+        x = -L/2 + L/6*(i + .5)
+        cyl(g["fer"], (x, 0, .6), .009, .9, verts=6)
+        cyl(g["fer"], (x, 0, 1.1), .022, .08, verts=4, r2=0)
+        torus(g["fer"], (x, 0, .3), .035, .006, (90, 0, 0))
+    hera(g, (.1, .1), .7, seed, .3, -.03, .5)
+    return {}
+
+def _lapide(m, g, r, forma):
+    lq = K.mat_stone("liquen", (.13, .125, .1), (.05, .06, .04), 2.0, .7)
+    if forma == "redonda":
+        box(lq, (0, 0, .45), (.5, .1, .9), bevel=.01); cyl(lq, (0, 0, .9), .25, .1, (90, 0, 0), 20)
+        box(g["can"], (0, -.055, .55), (.04, .01, .3), bevel=0); box(g["can"], (0, -.055, .62), (.18, .01, .04), bevel=0)
+    elif forma == "obelisco":
+        box(g["can"], (0, 0, .15), (.44, .44, .3), bevel=.01); box(lq, (0, 0, .35), (.34, .34, .1), bevel=.01)
+        cyl(lq, (0, 0, .95), .19, 1.1, verts=4, r2=.11, rot=(0, 0, 45)); cyl(lq, (0, 0, 1.58), .11, .16, verts=4, r2=0, rot=(0, 0, 45))
+    else:  # cruz celta
+        box(lq, (0, 0, .5), (.12, .1, 1.0), bevel=.01); box(lq, (0, 0, .78), (.44, .1, .12), bevel=.01)
+        torus(lq, (0, 0, .78), .16, .025, (90, 0, 0)); box(g["can"], (0, 0, .07), (.36, .2, .14), bevel=.01)
+    for o in list(bpy.context.selected_objects): pass
+
+@asset("dungeon", dungeon=True, samples=32)
+def lapide_vitoriana(m, seed=367):
+    """Lápide vitoriana de topo redondo com cruz em relevo, tombada e com hera."""
+    g = _mg(); r = rnd(seed); antes = set(bpy.data.objects); _lapide(m, g, r, "redonda")
+    piv = bpy.data.objects.new("pv", None); bpy.context.scene.collection.objects.link(piv)
+    for o in set(bpy.data.objects) - antes - {piv}: o.parent = piv
+    piv.rotation_euler = (math.radians(-7), math.radians(5), math.radians(8)); piv.location.z = -.08
+    hera(g, (0, 0), .5, seed, .3, -.06, .4); return {}
+
+@asset("dungeon", dungeon=True, samples=32)
+def lapide_obelisco(m, seed=368):
+    """Obelisco vitoriano baixo sobre base de cantaria."""
+    g = _mg(); _lapide(m, g, rnd(seed), "obelisco"); hera(g, (0, .3), .6, seed, .2, -.18, .4); return {}
+
+@asset("dungeon", dungeon=True, samples=32)
+def lapide_cruz_vitoriana(m, seed=369):
+    """Cruz celta de pedra com liquen."""
+    g = _mg(); _lapide(m, g, rnd(seed), "cruz"); return {}
+
+@asset("dungeon", fp=(2, 1), dungeon=True, samples=40)
+def tumulo_vitoriano(m, seed=370):
+    """Túmulo-arca em cantaria com tampa moldada, cercado por grade baixa de ferro batido."""
+    g = _mg(); r = rnd(seed)
+    box(g["can"], (0, 0, .1), (1.5, .8, .2), bevel=.015)
+    box(K.mat_stone("liquen", (.13, .125, .1), (.05, .06, .04), 2.0, .7), (0, 0, .45), (1.3, .62, .5), bevel=.01)
+    box(g["can"], (0, 0, .75), (1.42, .72, .1), bevel=.02); box(g["can"], (0, 0, .83), (1.2, .5, .08), bevel=.02)
+    for sx in (-1, 1):
+        for sy in (-1, 1): cyl(g["fer"], (sx*.85, sy*.5, .35), .018, .7, verts=6); cyl(g["fer"], (sx*.85, sy*.5, .74), .03, .08, verts=4, r2=0)
+    for (a, b) in (((-.85, -.5), (.85, -.5)), ((-.85, .5), (.85, .5)), ((-.85, -.5), (-.85, .5)), ((.85, -.5), (.85, .5))):
+        for z in (.15, .6): along(g["fer"], (a[0], a[1], z), (b[0], b[1], z), .008, verts=4)
+    hera(g, (.3, .9), .3, seed, .5, -.32, .6)
+    return {}
+
+
+# ================================================================ LINHA F (Vem Para Fora): andor, primeiro sepulcro, laje rolada
+@asset("props", fp=(3, 2), samples=48)
+def andor_padroeiro(m, seed=380):
+    """Andor de São Lázaro pousado no chão no meio da Procissão Parada: varais ao longo de X, pano roxo,
+    imagem do padroeiro com faixas de linho nos pulsos e pá na mão, velas e a data 1714 na base."""
+    r = rnd(seed); roxo = K.mat_cloth("pano_roxo", (.1, .008, .15), 2.0); linho = K.mat_cloth("linho", (.32, .29, .23), 3.0)
+    ouro = m["brass"]; mad = m["wood_d"]
+    for sy in (-1, 1):                                                       # varais de carregar
+        box(mad, (0, sy*.42, .62), (2.1, .08, .08), bevel=.012)
+        for sx in (-1, 1): sphere(ouro, (sx*1.06, sy*.42, .62), (.05, .05, .05), segs=10)
+    for sx in (-1, 1):
+        for sy in (-1, 1):                                                   # cavaletes onde pousaram
+            along(mad, (sx*.7, sy*.42, .58), (sx*.82, sy*.55, 0), .03, verts=6); along(mad, (sx*.7, sy*.42, .58), (sx*.58, sy*.55, 0), .03, verts=6)
+    box(mad, (0, 0, .72), (1.1, .9, .14), bevel=.02)                         # plataforma
+    pano = box(roxo, (0, 0, .78), (1.2, 1.0, .04), bevel=.01); displace(pano, .02, .2, seed, 2)
+    for sx in (-1, 1):                                                       # pano caindo pelos lados
+        o = box(roxo, (sx*.6, 0, .62), (.03, 1.0, .34), bevel=.005); displace(o, .03, .15, seed + sx, 2)
+    for sx in (-1, 1):                                                       # franja dourada
+        for k in range(9): cyl(ouro, (sx*.62, -.45 + k*.11, .4), .008, .1, verts=4)
+    box(m["stone"], (0, 0, .86), (.44, .44, .14), bevel=.01)                 # pedestal com 1714
+    for i in range(4): box(ouro, (-.09 + i*.06, -.225, .86), (.035, .006, .06), bevel=0)
+    # imagem do padroeiro (o coveiro): túnica, faixas de linho nos pulsos, pá na mão direita
+    pele = K.mat_solid("madeira_policromada", (.2, .13, .08), 0, .5)
+    tun = K.mat_cloth("tunica_santo", (.11, .085, .06), 4.0)
+    cyl(tun, (0, 0, 1.27), .19, .7, verts=12, r2=.12)
+    sphere(pele, (0, 0, 1.73), (.1, .1, .12), segs=14)
+    sphere(K.mat_cloth("capuz", (.06, .045, .035), 5.0), (0, .03, 1.76), (.12, .12, .12), segs=12)
+    torus(ouro, (0, .05, 1.88), .13, .012, (70, 0, 0))                       # resplendor
+    for sx in (-1, 1):
+        along(tun, (sx*.15, 0, 1.5), (sx*.24, -.08, 1.2), .045, .035, 8)
+        cyl(linho, (sx*.245, -.085, 1.2), .045, .07, verts=8)                # faixa de linho no pulso
+        sphere(pele, (sx*.25, -.1, 1.14), (.035, .035, .04), segs=8)
+    along(mad, (.27, -.12, 1.65), (.27, -.12, .95), .015, verts=6)           # pá
+    box(m["iron"], (.27, -.12, .93), (.11, .015, .16), bevel=.004)
+    for sx in (-1, 1):                                                       # tocheiros com velas
+        for sy in (-1, 1):
+            cyl(ouro, (sx*.42, sy*.32, .85), .03, .14, verts=8, r2=.05)
+            K.candle((sx*.42, sy*.32, .92), .12)
+    for k in range(6):                                                       # flores secas e fitas caídas
+        a = r.uniform(0, 6.28); sphere(K.mat_solid("flor_seca", (.12, .06, .04), 0, .8), (math.cos(a)*.35, math.sin(a)*.3, .8), (.04, .04, .025), segs=6)
+    for k in range(3):
+        box(roxo, (r.uniform(-.9, .9), r.uniform(-.7, .7), .01), (.5, .07, .01), (0, 0, r.uniform(0, 180)), 0)
+    K.point((0, -.6, 1.4), (1, .6, .3), 30, .2)
+    return {"emissivo": "velas"}
+
+@asset("props", fp=(2, 2), samples=48)
+def sepulcro_primeiro(m, seed=381):
+    """O Primeiro Sepulcro: afloramento de rocha com a entrada escavada (vão baixo e escuro), degrau varrido,
+    trilho onde a laje rolou e uma vela no chão da entrada."""
+    r = rnd(seed); rocha = K.mat_stone("rocha_sepulcro", (.11, .095, .08), (.05, .043, .037), 1.3, .35)
+    for k, (x, y, z, s) in enumerate([(0, .25, .7, (1.1, .75, .8)), (-.55, .1, .45, (.6, .6, .55)), (.6, .2, .5, (.55, .6, .6)), (.1, .55, 1.0, (.8, .5, .6))]):
+        o = sphere(rocha, (x, y, z), s, segs=18); crumble(o, .2, seed + k)
+    face = box(rocha, (0, -.4, .6), (1.15, .3, 1.2), (0, 0, 0), .02); crumble(face, .04, seed + 9)    # face lavrada
+    box(K.mat_solid("abismo", (.002, .0015, .0015)), (.0, -.56, .42), (.46, .04, .78), bevel=0)        # vão da entrada
+    cyl(K.mat_solid("abismo", (.002, .0015, .0015)), (0, -.56, .8), .23, .04, (90, 0, 0), 20)
+    for sx in (-1, 1): box(m["stone"], (sx*.29, -.57, .5), (.08, .05, 1.0), bevel=.01)               # ombreiras
+    for k in range(3): box(K.mat_solid("veio", (.06, .05, .04), 0, 1), (0, -.56 + .001, .15 + k*.1), (1.1, .005, .015), bevel=0)
+    box(rocha, (0, -.47, .03), (.9, .16, .06), bevel=.01)                                             # soleira gasta
+    box(m["stone"], (0, -.7, .03), (.7, .3, .06), bevel=.02)                                          # degrau varrido
+    for k in range(5):                                                                                # sulco da laje no chão
+        box(K.mat_solid("sulco", (.03, .025, .02), 0, 1), (.35 + k*.14, -.62 - k*.03, .005), (.12, .05, .01), (0, 0, -12), 0)
+    K.candle((-.18, -.62, .06), .1)
+    for k in range(6):                                                                                # cascalho e capim seco
+        a = r.uniform(-1, 4); sphere(rocha, (math.cos(a)*r.uniform(.9, 1.2), math.sin(a)*r.uniform(.6, .9), .04), (.08, .07, .05), segs=8)
+    return {"emissivo": "vela"}
+
+@asset("props", samples=40)
+def laje_rolada(m, seed=382):
+    """Laje redonda da entrada do sepulcro, rolada para o lado e encostada inclinada numa pedra."""
+    rocha = K.mat_stone("rocha_sepulcro", (.11, .095, .08), (.05, .043, .037), 1.3, .35)
+    o = cyl(rocha, (0, 0, .5), .5, .18, (90, -18, 30), 28); crumble(o, .03, seed)
+    sphere(rocha, (.18, .25, .1), (.16, .14, .1), segs=10)
+    return {}
+
+# Novo Éden · kit "Gênesis" (15/10/2026): registra os objetos de eden.py
+import eden  # noqa
+
+
+# ================================================================ AGRAK: o estádio de São Lázaro enterrado (arena PvP)
+# Plano: design/pvp/agrak/coliseu_e_narrador.md. Concreto rachado com ferragem, sucata, lona, latão, braseiro.
+# Arquibancadas e muro são peças de parede (_a/_b, 1 tile) que sobem para trás (+Y), como as paredes da cripta.
+def _ma():
+    return dict(conc=K.mat_stone("concreto_estadio", (.13, .12, .105), (.055, .05, .045), 2.2, .15),
+                conc_e=K.mat_stone("concreto_escuro", (.075, .07, .062), (.03, .028, .025), 2.6, .1),
+                cal=K.mat_solid("cal", (.55, .52, .45), 0, .9), lona=K.mat_cloth("lona_faixa", (.16, .13, .09), 2.0),
+                verm=K.mat_cloth("faixa_vermelha", (.2, .025, .02), 3.0), tinta=K.mat_solid("tinta_branca", (.6, .58, .52), 0, .8),
+                areia=K.mat_sand_obj())
+
+def _letreiro(txt, mat, loc, tam, rot=(90, 0, 0), extr=.01):
+    bpy.ops.object.text_add(location=loc, rotation=[math.radians(a) for a in rot])
+    t = bpy.context.object; t.data.body = txt; t.data.size = tam; t.data.extrude = extr
+    t.data.align_x = 'CENTER'; t.data.align_y = 'CENTER'
+    bpy.ops.object.convert(target='MESH'); t = bpy.context.object
+    t.data.materials.clear(); t.data.materials.append(mat); return t
+
+def _ferragem(m, base, n, r, alt=.35):
+    for k in range(n):
+        p = Vector(base) + Vector((r.uniform(-.15, .15), r.uniform(-.05, .05), 0))
+        along(m["rust"], p, p + Vector((r.uniform(-.12, .12), r.uniform(-.1, .1), r.uniform(.12, alt))), .008, verts=4)
+
+def _degraus(m, a, seed, n=4, quebra=0.0, gente=False):
+    """degraus de concreto subindo para trás: cada um 0,5 m de altura e 0,8 m de fundo"""
+    r = rnd(seed); L = T
+    for i in range(n):
+        y0 = i*.8; h = 1.2 + i*.5
+        if r.random() < quebra and i > 0: continue
+        o = box(a["conc"], (0, y0 + .4, h/2), (L + .002, .8, h), bevel=.006)
+        lab = box(a["conc_e"], (0, y0 + .02, h - .03), (L + .004, .1, .08), bevel=.01)    # quina do degrau
+        if r.random() < .5: crumble(lab, .03, seed + i)
+        if r.random() < .5: _ferragem(m, (r.uniform(-L*.3, L*.3), y0 + .05, h), 2, r)
+        for k in range(2):                                                                 # areia assentada
+            o = sphere(a["areia"], (r.uniform(-L*.4, L*.4), y0 + r.uniform(.2, .7), h), (r.uniform(.1, .25), r.uniform(.1, .2), .05), segs=10); displace(o, .02, .1, seed + i*7 + k, 1)
+    return r
+
+@asset("paredes", walls=True, samples=40)
+def arquibancada_agrak(m, seed=390):
+    """Arquibancada do estádio enterrado: 4 degraus de concreto rachado com ferragem exposta e areia nos cantos."""
+    a = _ma(); _degraus(m, a, seed); return {}
+
+@asset("paredes", walls=True, samples=40)
+def arquibancada_agrak_v2(m, seed=391):
+    """Variação: degrau quebrado, cadeiras de plástico derretidas e um holofote caído."""
+    a = _ma(); r = _degraus(m, a, seed, quebra=.3)
+    for k in range(3):
+        y = r.choice((.4, 1.2, 2.0)); h = 1.2 + (y - .4)/.8*.5
+        c = K.mat_solid("cadeira", r.choice([(.25, .05, .03), (.04, .08, .2), (.2, .18, .05)]), 0, .4)
+        x = r.uniform(-T*.35, T*.35); box(c, (x, y, h + .2), (.32, .3, .05), (r.uniform(-15, 15), 0, r.uniform(-20, 20)), .02)
+        box(c, (x, y + .14, h + .38), (.32, .05, .32), (r.uniform(-25, 0), 0, r.uniform(-20, 20)), .02)
+    return {}
+
+@asset("paredes", walls=True, samples=40)
+def arquibancada_caida(m, seed=392):
+    """Arquibancada que desabou: rampa de areia escorrendo do alto dos degraus até o fosso, com lajes de
+    degrau tombadas meio enterradas e ferragem para fora."""
+    a = _ma(); r = rnd(seed); L = T
+    me = bpy.data.meshes.new("rampa"); bm = _bm.new(); nx, ny = 6, 14; vs = []
+    for j in range(ny + 1):
+        y = -.7 + j*(3.9/ny); t = (y + .7)/3.9
+        z = 2.75*(t**1.15) + (.08*math.sin(j*1.7) if 0 < j < ny else 0)
+        vs.append([bm.verts.new((-L/2 + L*i/nx, y, max(0, z + (r.uniform(-.06, .06) if 0 < i < nx and 0 < j < ny else 0)))) for i in range(nx + 1)])
+    for j in range(ny):
+        for i in range(nx): bm.faces.new((vs[j][i], vs[j][i+1], vs[j+1][i+1], vs[j+1][i]))
+    for i in range(nx):                                                                     # costas e laterais fechadas
+        bm.faces.new((vs[ny][i+1], vs[ny][i], bm.verts.new((-L/2 + L*i/nx, vs[ny][i].co.y, 0)), bm.verts.new((-L/2 + L*(i+1)/nx, vs[ny][i].co.y, 0))))
+    bm.to_mesh(me); bm.free()
+    o = bpy.data.objects.new("rampa", me); bpy.context.scene.collection.objects.link(o); K.obj(o, a["areia"], smooth=True)
+    displace(o, .05, .4, seed, 2)
+    box(a["conc"], (0, 3.4, 1.45), (L + .002, .5, 2.9), bevel=.006)                       # resto do degrau de cima
+    for i in range(4):                                                                      # lajes tombadas meio enterradas
+        y = .2 + i*.85; z = 2.75*(((y + .7)/3.9)**1.15) - .05
+        lj = box(a["conc"], (r.uniform(-.12, .12), y, z), (L*r.uniform(.6, .9), .55, .18), (r.uniform(-35, -15), r.uniform(-15, 15), r.uniform(-20, 20)), .01)
+        crumble(lj, .04, seed + i); _ferragem(m, (0, y - .2, z + .05), 2, r)
+    for k in range(6): box(a["conc_e"], (r.uniform(-L/2, L/2), r.uniform(-.9, -.3), .04), (.15, .1, .08), (r.uniform(0, 40), r.uniform(0, 40), r.uniform(0, 90)), .01)
+    return {}
+
+@asset("paredes", walls=True, samples=40)
+def muro_fosso(m, seed=393):
+    """Muro do fosso (3 m, a mureta da arquibancada de baixo): concreto com faixa de propaganda desbotada,
+    estacas e arame farpado no topo."""
+    a = _ma(); r = rnd(seed); L = T
+    box(a["conc"], (0, .1, 1.5), (L + .002, .4, 3.0), bevel=.006)
+    box(K.mat_solid("propaganda", (.16, .08, .03), 0, .8), (0, -.105, 2.2), (L + .002, .02, .5), bevel=0)
+    box(a["tinta"], (r.uniform(-.1, .1), -.118, 2.2), (L*.5, .005, .08), bevel=0)
+    for z in (.4, 1.1): box(a["conc_e"], (0, -.1, z), (L + .002, .03, .06), bevel=0)      # marcas de água/areia
+    for k in range(3):
+        x = -L/2 + L/3*(k + .5); along(m["wood_d"], (x, 0, 2.9), (x + r.uniform(-.05, .05), -.12, 3.5), .03, .015, 6)
+    for z in (3.15, 3.35): K.chain(m["iron"], (-L/2, -.05, z), (L/2, -.05, z), 6, .015)
+    for k in range(3): box(m["blood"], (r.uniform(-.25, .25), -.112, r.uniform(.3, 1.2)), (.04, .003, r.uniform(.2, .5)), bevel=0)
+    return {}
+
+@asset("paredes", walls=True, samples=32)
+def muro_fosso_frente(m, seed=394):
+    """Frente do fosso (lado da câmera): mureta quebrada na altura do joelho com estacas, para não tampar a luta."""
+    a = _ma(); prof = _toco(m, a["conc"], seed, .7)
+    r = rnd(seed)
+    for k in range(2):
+        x = -T*.25 + k*T*.5; along(m["wood_d"], (x, 0, prof[1 + k*2]), (x, -.1, prof[1 + k*2] + .45), .025, .01, 6)
+    return {}
+
+@asset("paredes", samples=32)
+def muro_fosso_canto(m, seed=395):
+    a = _ma(); _pilar(m, a["conc"], 3.0, seed); _ferragem(m, (0, 0, 3.0), 4, rnd(seed), .5); return {}
+
+@asset("paredes", samples=32, name="muro_fosso_frente_canto")
+def muro_fosso_frente_canto(m, seed=396):
+    a = _ma(); _pilar(m, a["conc"], .75, seed); _ferragem(m, (0, 0, .87), 3, rnd(seed)); return {}
+
+def _portao_agrak(m, a, aberto, seed, grande=False):
+    w = 2*T if not grande else 3*T; h = 2.6 if not grande else 3.4
+    for sx in (-1, 1): box(a["conc"], (sx*(w/2 + .2), .1, h/2 + .2), (.4, .5, h + .4), bevel=.01)
+    box(a["conc_e"], (0, .1, h + .3), (w + .8, .5, .4), bevel=.01)
+    box(K.mat_solid("abismo", (.003, .002, .002)), (0, .25, h/2), (w, .1, h), bevel=0)   # túnel escuro
+    sobe = h*.85 if aberto else 0
+    n = int(w/.17)
+    for k in range(n + 1):
+        x = -w/2 + w*k/n
+        along(m["rust"], (x, -.02, .05 + sobe), (x, -.02, h + sobe*.15), .022, verts=6)
+        cyl(m["rust"], (x, -.02, .02 + sobe), .028, .12, verts=5, r2=0)
+    for z in (.5, 1.3, 2.1)[:3 if not grande else 3]:
+        box(m["rust"], (0, -.03, min(h, z + sobe)), (w, .05, .06), bevel=0)
+
+@asset("dungeon", fp=(2, 1), walls=True, samples=40)
+def portao_grade_agrak(m, seed=397):
+    """Portão do fosso com grade de ferro baixada (fechado)."""
+    a = _ma(); _portao_agrak(m, a, False, seed); return {}
+
+@asset("dungeon", fp=(2, 1), walls=True, samples=40)
+def portao_grade_agrak_aberto(m, seed=398):
+    """Mesmo portão com a grade erguida (aberto)."""
+    a = _ma(); _portao_agrak(m, a, True, seed); return {}
+
+@asset("dungeon", fp=(3, 1), walls=True, samples=40)
+def portao_gigante(m, seed=399):
+    """Portão do Gigante (leste): o maior, grade baixada, duas correntes grossas penduradas na verga."""
+    a = _ma(); _portao_agrak(m, a, False, seed, True)
+    for sx in (-1, 1): K.chain(m["iron"], (sx*.6, -.1, 3.75), (sx*.75, -.15, 1.5), 12, .07)
+    return {}
+
+@asset("props", fp=(2, 2), samples=40)
+def jaula_leao(m, seed=400):
+    """Jaula de sucata do Portão dos Leões: chapas e barras soldadas, palha e ossos no chão."""
+    a = _ma(); r = rnd(seed)
+    box(m["rust"], (0, 0, .05), (1.3, 1.0, .1), bevel=.01); box(m["rust"], (0, 0, 1.45), (1.36, 1.06, .08), bevel=.01)
+    for k in range(9):
+        x = -.63 + k*.1575
+        for y in (-.5, .5): along(m["iron"], (x, y, .1), (x + r.uniform(-.02, .02), y, 1.42), .016, verts=5)
+    for k in range(6):
+        y = -.5 + k*.2
+        for x in (-.65, .65): along(m["iron"], (x, y, .1), (x, y, 1.42), .016, verts=5)
+    box(m["tin"], (.66, .1, .9), (.03, .6, .9), (0, 4, 0), .01)                           # chapa remendada
+    for k in range(10):
+        o = box(K.mat_solid("palha", (.3, .23, .1), 0, .9), (r.uniform(-.5, .5), r.uniform(-.38, .38), .12), (.25, .02, .01), (0, 0, r.uniform(0, 180)), 0)
+    for k in range(4): along(m["bone"], (r.uniform(-.4, .4), r.uniform(-.3, .3), .12), (r.uniform(-.4, .4), r.uniform(-.3, .3), .13), .022, verts=6)
+    for sx in (-1, 1): sphere(K.mat_emit("olhos_leao", (.5, 1, .2), 18), (sx*.05, .25, .55), (.025, .025, .02), segs=6)
+    return {"emissivo": "olhos verdes no escuro"}
+
+@asset("props", fp=(2, 2), samples=40)
+def guincho_corrente(m, seed=401):
+    """Guincho do Portão do Gigante: tambor de corrente, engrenagens, manivela e trava."""
+    a = _ma()
+    for sx in (-1, 1): box(m["rust"], (sx*.55, 0, .55), (.1, .6, 1.1), bevel=.01)
+    cyl(m["iron"], (0, 0, .85), .3, 1.0, (0, 90, 0), 20)
+    for k in range(10): torus(m["rust"], (-.4 + k*.09, 0, 1.15), .07, .02, (90 if k % 2 else 0, 0, 0))
+    cyl(m["brass"], (.68, 0, .85), .42, .06, (0, 90, 0), 24); cyl(m["rust"], (.68, 0, .85), .1, .1, (0, 90, 0), 12)
+    for k in range(16):
+        aa = 2*math.pi*k/16; box(m["brass"], (.68, math.cos(aa)*.44, .85 + math.sin(aa)*.44), (.06, .06, .06), (math.degrees(aa), 0, 0), 0)
+    along(m["iron"], (.75, 0, .85), (.75, -.35, 1.25), .025, verts=6); cyl(m["wood_d"], (.85, -.35, 1.25), .03, .2, (0, 90, 0), 8)
+    K.chain(m["iron"], (0, .3, 1.1), (0, .95, .02), 9, .05)
+    box(m["rust"], (0, 0, .05), (1.3, .8, .1), bevel=.01)
+    return {}
+
+@asset("predios", fp=(6, 3), samples=48)
+def placar_camarote(m, seed=402):
+    """Placar enferrujado do estádio com o camarote de Caim e Abel em cima: SÃO LÁZARO 0 x 0, megafone, braseiros."""
+    a = _ma(); r = rnd(seed)
+    for sx in (-1, 1):                                                                       # pernas de treliça
+        for sy in (-1, 1): along(m["rust"], (sx*1.6, sy*.6, 0), (sx*1.5, sy*.45, 3.2), .07, .06, 8)
+        for z in (.8, 1.6, 2.4):
+            along(m["rust"], (sx*1.58, -.55, z), (sx*1.53, .5, z + .7), .025, verts=5)
+            along(m["rust"], (sx*1.58, -.55, z), (sx*1.58, .55, z), .025, verts=5)
+    box(m["rust"], (0, 0, 3.6), (4.0, .3, 1.5), bevel=.02)                                   # caixa do placar
+    box(K.mat_solid("painel", (.015, .016, .014), 0, .6), (0, -.16, 3.55), (3.7, .02, 1.2), bevel=0)
+    tl = K.mat_solid("lata_pintada", (.5, .43, .25), .3, .5)
+    _letreiro("SÃO LÁZARO", tl, (0, -.18, 3.95), .32)
+    _letreiro("0  x  0", tl, (0, -.18, 3.35), .5)
+    for k in range(4): box(m["tin"], (r.uniform(-1.8, 1.8), -.17, r.uniform(3.0, 4.2)), (.3, .02, .2), (0, r.uniform(-20, 20), 0), 0)
+    box(m["wood_d"], (0, .1, 4.4), (4.2, 1.6, .12), bevel=.01)                               # piso do camarote
+    for x in [-2.05 + k*.25 for k in range(17)]: along(m["rust"], (x, -.65, 4.46), (x, -.65, 5.15), .015, verts=4)
+    box(m["rust"], (0, -.65, 5.15), (4.2, .04, .05), bevel=0)
+    for sx in (-1, 1):
+        cyl(m["iron"], (sx*1.8, .4, 4.75), .06, .6, verts=8); cyl(m["rust"], (sx*1.8, .4, 5.1), .22, .2, verts=12, r2=.32)
+        flame((sx*1.8, .4, 5.2), .9, strength=12)
+    cyl(m["brass"], (.6, -.4, 5.0), .14, .5, (90, 0, 25), 14, r2=.04)                         # megafone no gradil
+    for k in range(3): box(a["verm"], (-1.2 + k*1.1, -.67, 4.85), (.6, .02, .5), (0, r.uniform(-4, 4), 0), .005)
+    along(m["wood"], (1.95, .85, 0), (1.95, .85, 4.4), .04, verts=6)                          # escada de mão
+    along(m["wood"], (1.65, .85, 0), (1.65, .85, 4.4), .04, verts=6)
+    for z in [.3 + k*.35 for k in range(12)]: along(m["wood"], (1.65, .85, z), (1.95, .85, z), .025, verts=5)
+    return {"emissivo": "braseiros do camarote"}
+
+@asset("decalques", fp=(7, 7), samples=40)
+def circulo_ferro(m, seed=403):
+    """Círculo de Ferro: anel de trilho de bonde cravado na areia (raio 3,5 tiles), dormentes e grampos."""
+    r = rnd(seed); R = 3.5*T
+    for rr in (R - .05, R + .05): torus(m["iron"], (0, 0, .03), rr, .025)
+    for k in range(28):
+        aa = 2*math.pi*k/28 + r.uniform(-.03, .03)
+        box(m["wood_d"], (math.cos(aa)*R, math.sin(aa)*R, .015), (.32, .1, .03), (0, 0, math.degrees(aa)), .005)
+        if k % 4 == 0: cyl(m["rust"], (math.cos(aa)*(R + .2), math.sin(aa)*(R + .2), .05), .03, .1, verts=6)
+    for k in range(6):
+        A_ = r.uniform(0, 6.28); antes = set(bpy.data.objects); _pool(m["blood"], .3, .2, seed + k)
+        for o in set(bpy.data.objects) - antes: o.location += Vector((math.cos(A_)*R*.6, math.sin(A_)*R*.6, 0))
+    return {}
+
+def _cal(comp, larg=.09, seed=0):
+    r = rnd(seed); n = 6
+    for i in range(n):
+        if r.random() < .15: continue
+        box(K.mat_solid("cal", (.5, .48, .42), 0, .9), (-comp/2 + comp*(i + .5)/n, r.uniform(-.01, .01), .004), (comp/n*r.uniform(.7, .98), larg, .006), (0, 0, r.uniform(-2, 2)), 0)
+
+@asset("decalques", walls=True, samples=16)
+def linha_cal(m, seed=404):
+    """Linha de cal do antigo campo, apagada aos pedaços (1 tile)."""
+    _cal(T, seed=seed); return {}
+
+@asset("decalques", fp=(2, 2), samples=16)
+def linha_cal_meio(m, seed=405):
+    """Pedaço do círculo central do campo em cal."""
+    r = rnd(seed); R = 1.1
+    for k in range(14):
+        if r.random() < .2: continue
+        aa = math.pi*k/14
+        box(K.mat_solid("cal", (.5, .48, .42), 0, .9), (math.cos(aa)*R, math.sin(aa)*R - .5, .004), (.24, .09, .006), (0, 0, math.degrees(aa) + 90), 0)
+    return {}
+
+def _faixa(m, a, txt, seed, cor):
+    r = rnd(seed); L = T*2
+    pano = box(cor, (0, -.13, 2.05), (L*.9, .02, .7), (r.uniform(-3, 3), 0, 0), .003); displace(pano, .02, .3, seed, 2)
+    _letreiro(txt, a["tinta"], (0, -.15, 2.05), min(.24, 1.05/max(1, len(txt))*1.6))
+    for sx in (-1, 1): K.chain(m["iron"], (sx*L*.45, -.1, 2.55), (sx*L*.43, -.13, 2.4), 3, .02)
+    for k in range(3):                                                                      # rasgos
+        box(K.mat_solid("abismo", (.003, .002, .002)), (r.uniform(-L*.4, L*.4), -.142, r.uniform(1.75, 1.85)), (.06, .005, .12), (0, r.uniform(-30, 30), 0), 0)
+    return {}
+
+@asset("paredes", fp=(2, 1), walls=True, samples=32)
+def faixa_campeao(m, seed=406):
+    """Faixa de pano rasgada com nome pintado (para pendurar no muro do fosso)."""
+    a = _ma(); return _faixa(m, a, "A-GRAK!", seed, a["verm"])
+@asset("paredes", fp=(2, 1), walls=True, samples=32)
+def faixa_campeao_2(m, seed=407):
+    a = _ma(); return _faixa(m, a, "DO PÓ VIEMOS", seed, a["lona"])
+@asset("paredes", fp=(2, 1), walls=True, samples=32)
+def faixa_campeao_3(m, seed=408):
+    a = _ma(); return _faixa(m, a, "IIII IIII II", seed, K.mat_cloth("faixa_preta", (.03, .028, .03), 5.0))
+
+@asset("props", samples=40)
+def braseiro_holofote(m, seed=409):
+    """Holofote de estádio morto virado braseiro: poste de treliça, cabeça de lâmpadas quebradas com fogo dentro."""
+    r = rnd(seed)
+    cyl(m["rust"], (0, 0, .1), .2, .2, verts=8, r2=.15)
+    for k in range(3):
+        aa = 2*math.pi*k/3; along(m["rust"], (math.cos(aa)*.12, math.sin(aa)*.12, .1), (math.cos(aa)*.05, math.sin(aa)*.05, 2.2), .022, verts=5)
+    box(m["rust"], (0, 0, 2.4), (.8, .25, .5), (-20, 0, 0), .01)
+    for i in range(3):
+        for j in range(2):
+            cyl(K.mat_solid("lampada_morta", (.05, .05, .045), .5, .2), (-.25 + i*.25, -.13, 2.3 + j*.2), .08, .04, (70, 0, 0), 10)
+    flame((0, -.05, 2.62), .6, strength=11)
+    return {"emissivo": "fogo"}
+
+@asset("props", fp=(2, 2), samples=40)
+def pilar_entulho(m, seed=410):
+    """Pilar baixo de entulho (cobertura contra o Bote dos leões): blocos de concreto, ferragem e sacos."""
+    a = _ma(); r = rnd(seed)
+    for k in range(5):
+        o = box(a["conc"], (r.uniform(-.3, .3), r.uniform(-.25, .25), .25 + k*.22), (r.uniform(.6, .9), r.uniform(.5, .7), .3), (r.uniform(-8, 8), r.uniform(-8, 8), r.uniform(0, 40)), .01)
+        crumble(o, .05, seed + k)
+    _ferragem(m, (0, 0, 1.3), 5, r, .5)
+    for k in range(4): o = sphere(m["sack"], (math.cos(k*1.6)*.55, math.sin(k*1.6)*.45, .15), (.25, .17, .14), segs=10); displace(o, .02, .2, seed + k, 1)
+    return {}
+
+@asset("predios", fp=(4, 3), samples=48)
+def ermida_saulo(m, seed=411):
+    """Ermida do Saulo: nicho baixo de concreto debaixo da arquibancada, velas derretidas, esteira de palha,
+    a Couraça do Agrak pendurada em ganchos e as seis armas encostadas. Luz dourada."""
+    a = _ma(); r = rnd(seed)
+    for i in range(4):                                                                       # degraus por cima (arquibancada)
+        box(a["conc"], (0, .4 + i*.6, 2.4 + i*.45), (2.8, .6, .45), bevel=.008)
+    box(a["conc"], (0, 1.3, 1.2), (2.8, 1.8, 2.4), bevel=.008)
+    box(K.mat_solid("nicho_quente", (.03, .022, .012), 0, .9), (0, .55, 1.0), (2.2, .4, 1.9), bevel=0)      # nicho
+    for sx in (-1, 1): box(a["conc_e"], (sx*1.2, .35, 1.0), (.4, .3, 2.0), bevel=.01)
+    box(a["conc_e"], (0, .35, 2.05), (2.8, .3, .25), bevel=.01)
+    box(K.mat_solid("esteira", (.3, .22, .1), 0, .9), (0, -.2, .02), (1.6, .9, .03), (0, 0, 4), .01)    # esteira de palha
+    for k in range(9):                                                                       # velas derretidas
+        x, y = r.uniform(-1, 1), r.uniform(-.5, .3)
+        cyl(K.mat_solid("cera_escorrida", (.4, .35, .25), 0, .5), (x, y, .03), .05, .06, verts=10)
+        K.candle((x, y, .05), r.uniform(.06, .2), light=k % 3 == 0)
+    ouro = K.mat_emit("halo_saulo", (1, .78, .3), 3)
+    for k, x in enumerate((-.6, 0, .6)):                                                     # couraça nos ganchos
+        cyl(m["iron"], (x, .38, 1.75), .015, .12, (90, 0, 0), 6)
+        o = cyl(K.mat_solid("couro_leao", (.18, .1, .05), 0, .6), (x, .3, 1.45), .2, .45, verts=10, r2=.16); o.scale.y = .5
+        box(m["brass"], (x, .2, 1.5), (.25, .02, .04), bevel=0)
+    for k in range(6):                                                                       # seis armas encostadas
+        x = .7 + k*.12 - .3
+        along(m["iron"] if k % 2 else m["wood_d"], (x - .6, .3, .02), (x - .55, .4, 1.1 + r.uniform(0, .4)), .022, .012, 6)
+    torus(ouro, (0, .4, 1.6), .55, .01, (90, 0, 0))                                         # marca dourada na parede
+    K.point((0, -.5, 1.2), (1, .75, .35), 90, .4)
+    return {"emissivo": "velas e brilho dourado"}

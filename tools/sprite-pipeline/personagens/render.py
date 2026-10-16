@@ -14,13 +14,14 @@ for _k in ("demonio", "cultista", "mutante", "tecnomancer"): setattr(classes, _k
 import classes3; classes.mutante = classes3.mutante
 import turret; classes.torreta = turret.torreta
 import npcs
-for _n in ("zulmira", "bento", "celina", "damiao", "lindalva", "ferrolho", "pedro"): setattr(classes, "npc_" + _n, getattr(npcs, _n))
+for _n in ("zulmira", "bento", "celina", "damiao", "lindalva", "ferrolho", "saulo", "pedro_exilado"): setattr(classes, "npc_" + _n, getattr(npcs, _n))
 import npcs_atlantida  # NPCs da Atlântida (Iolanda, Nestor, Evêmon, Thotme, Sinésia, Belzarim)
 for _n in npcs_atlantida.NPCS: setattr(classes, "npc_" + _n, getattr(npcs_atlantida, _n))
 import gustavo; classes.gustavo_primarca = gustavo.gustavo_primarca  # NPC: Gustavo, o Primarca
 import evolucoes  # evoluções de classe do nível 50 (e a Forma Colossal da Abominação)
 for _k in ("arcanjo", "serafim", "lorde_das_trevas", "ceifador", "arquimago", "profeta_do_amargo", "pistoleiro", "cacador_de_anjos",
            "gladiador", "abominacao", "abominacao_colossal", "mechanicus", "engenheiro_herege"): setattr(classes, _k, getattr(evolucoes, _k))
+import warlord; classes.warlord = warlord.warlord  # classe neutra: Warlord, o Senhor da Guerra
 sc = bpy.context.scene
 
 PX = int(os.environ.get("PX", 192))  # tamanho final do quadro (renderiza em 2x); PX=320 para formas gigantes
@@ -34,6 +35,7 @@ style = info.get("anim", "melee"); flash = info.get("flash"); flash_frames = Non
 if kind == "torreta": acts = turret.torreta_anims(arm)
 elif kind.startswith("npc_"): acts = info.get("anims_fn", npcs.npc_anims)(arm)
 elif style == "primarca": acts = gustavo.primarca_anims(arm)
+elif style == "warlord": acts = warlord.warlord_anims(arm)
 elif kind in ("anjo", "demonio") or info.get("base") in ("anjo", "demonio"): acts = anims.flyer_anims(arm, info.get("extra"))
 elif style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
 elif style == "gun": acts, flash_frames = anims.humano_anims(arm, flash)

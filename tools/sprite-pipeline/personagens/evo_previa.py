@@ -12,11 +12,13 @@ for kind in kinds:
     import classes, classes2, classes3, anims, evolucoes, importlib
     for _k in ("demonio", "cultista", "mutante", "tecnomancer"): setattr(classes, _k, getattr(classes2, _k))
     classes.mutante = classes3.mutante
-    fn = getattr(evolucoes, kind, None) or getattr(classes, kind)
+    import npcs
+    fn = getattr(evolucoes, kind, None) or getattr(npcs, kind, None) or getattr(classes, kind)
     sc = bpy.context.scene
     arm, info = fn()
     style = info.get("anim", "melee"); base = info.get("base", kind)
-    if base in ("anjo", "demonio") or info.get("fly"): acts = anims.flyer_anims(arm, info.get("extra"))
+    if style == "npc": acts = npcs.npc_anims(arm)
+    elif base in ("anjo", "demonio") or info.get("fly"): acts = anims.flyer_anims(arm, info.get("extra"))
     elif style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
     elif style == "gun": acts, _ = anims.humano_anims(arm, info.get("flash"))
     elif style == "dual": acts, _ = anims.humano_dual_anims(arm)

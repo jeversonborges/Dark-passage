@@ -3,8 +3,141 @@
   "versao": "0.1",
   "nivel_evolucao": 50,
   "missao": {
-    "id_padrao": "evolucao_<classe>",
-    "_doc": "Missão de escolha no nível 50: a facção dá dois mestres, cada um com uma prova curta (1 mapa + 1 chefe). Concluir a prova aplica a evolução."
+    "_doc": "Jefin 16/10/2026: Pedro, o Exilado (homenagem ao Pedro) é o responsável pela ascensão de classe. O Livro dos Vencidos do Simão (linha G) continua sendo o requisito: ele registra os chefes e manda o jogador até o Pedro. As evoluções dos níveis 150 e 400 (g07, h01) seguem com o Simão por enquanto.",
+    "npc": {
+      "id": "pedro_exilado",
+      "nome": "Pedro",
+      "titulo": "O Exilado",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "ilha_do_exilado",
+        "ponto": "oficina_do_exilado",
+        "_doc": "ilhota no meio do Rio Amargo, ligada às duas margens por pontes de corda; precisa entrar no mapa (Level design)"
+      },
+      "servicos": [
+        "ascensao_de_classe"
+      ],
+      "dialogo": "dlg_pedro_exilado",
+      "aparencia": "Homem de uns sessenta anos, largo e firme, barba grisalha trançada com anéis de latão. Usa um sobretudo costurado de dois: metade lona azul-noite da Vigília, metade tecido rubro-negro do Coro, unidos por uma costura grossa no meio do peito. Carrega um cajado-lampião com uma lente de farol e uma bolsa de livros amarrados com corda. Nos antebraços, os símbolos das duas facções foram riscados a faca, e ele nunca escondeu as cicatrizes.",
+      "personalidade": "Calmo, generoso, de humor seco. Escuta antes de falar e trata todo aprendiz igual, venha de que lado vier. Não dá ordens, dá escolhas. Ri alto, e é o único riso que se ouve no rio.",
+      "historia": "Foi mestre de armas e de ofícios dos dois lados do Impasse. Ensinou humanos a aguentar o Amargo no corpo e ensinou anjos e demônios a lutar sem o Coro, porque achava que quem sobrevive ao fim do mundo merece ficar mais forte, de qualquer lado. A Vigília o expulsou por treinar Arautos; o Coro, por treinar humanos. Ele não brigou com nenhum dos dois: atravessou o Rio Amargo, ergueu uma oficina numa ilhota que nenhum lado reclama e esperou. Os aprendizes vieram mesmo assim. É velho amigo de Simão: 'Ele escreve os vencidos. Eu ensino os que venceram.' Quando o Livro dos Vencidos chega ao nível 50, é a carta de Simão que abre a ponte da ilha.",
+      "falas_curtas": [
+        "Os dois lados me mandaram embora. Nenhum dos dois parou de mandar gente.",
+        "Força não tem bandeira. Quem decide a bandeira é você.",
+        "Escolhe com calma. Um caminho a gente não desescolhe.",
+        "Simão escreveu seu nome no livro? Então você já está pronto. Só não sabe ainda."
+      ]
+    },
+    "missoes": [
+      {
+        "id": "a01",
+        "titulo": "A Carta do Coveiro",
+        "tipo": "principal",
+        "linha": "A Ascensão",
+        "faccao": "ambas",
+        "nivel": 50,
+        "nivel_minimo": 50,
+        "doador": "simao_coveiro",
+        "entrega": "pedro_exilado",
+        "requer": [
+          "g02"
+        ],
+        "resumo": "Com o Livro dos Vencidos cheio até o nível 50, leve a carta de Simão até Pedro, o Exilado, na ilha do Rio Amargo.",
+        "descricao": "Simão fecha o livro e escreve uma carta curta, com a letra de quem tem pressa nenhuma: 'Pedro. Este venceu. Ensina.' A ilha do Exilado fica no meio do Rio Amargo, e a ponte só baixa para quem traz a palavra do coveiro.",
+        "objetivos": [
+          {
+            "tipo": "chefes_dungeon",
+            "ate_nivel": 50
+          },
+          {
+            "tipo": "falar",
+            "npc": "pedro_exilado",
+            "etapa": 2
+          }
+        ],
+        "ao_aceitar_recebe": [
+          {
+            "id": "carta_de_simao",
+            "qtd": 1
+          }
+        ],
+        "ao_concluir_inicia": "a02",
+        "recompensas": {
+          "xp": 120000,
+          "ouro": 1500
+        },
+        "flags": [
+          "conheceu_pedro_exilado"
+        ]
+      },
+      {
+        "id": "a02",
+        "titulo": "Os Dois Caminhos",
+        "tipo": "principal",
+        "linha": "A Ascensão",
+        "faccao": "ambas",
+        "nivel": 50,
+        "nivel_minimo": 50,
+        "doador": "pedro_exilado",
+        "entrega": "pedro_exilado",
+        "requer": [
+          "a01"
+        ],
+        "resumo": "Pedro mostra os dois caminhos da sua classe. Escolha um: ele não se desfaz.",
+        "descricao": "Na oficina do Exilado há dois manequins vestidos com o que você pode virar. Pedro acende o cajado-lampião e espera. 'Os dois são fortes. Só um é seu.'",
+        "objetivos": [
+          {
+            "tipo": "decidir",
+            "npc": "pedro_exilado"
+          }
+        ],
+        "escolhas_por_classe": {
+          "anjo": [
+            "arcanjo",
+            "serafim"
+          ],
+          "demonio": [
+            "lorde_das_trevas",
+            "ceifador"
+          ],
+          "cultista": [
+            "arquimago",
+            "profeta_do_amargo"
+          ],
+          "humano": [
+            "pistoleiro",
+            "cacador_de_anjos"
+          ],
+          "mutante": [
+            "gladiador",
+            "abominacao"
+          ],
+          "tecnomancer": [
+            "mechanicus",
+            "engenheiro_herege"
+          ]
+        },
+        "recompensas": {
+          "xp": 250000,
+          "ouro": 3000,
+          "_doc": "aplica a evolução escolhida (id em evolucoes.json) e libera as skills do nível 50; não mexe no estágio de classe da linha G (evolucao_classe 2 e 3 em 150/400)",
+          "aplica_evolucao": "escolhida"
+        },
+        "texto_conclusao": "Pedro amarrou no seu braço um anel de latão da barba dele. 'Agora some daqui. E volta quando o mundo tiver ficado pequeno pra você.'",
+        "flags": [
+          "evolucao_50"
+        ]
+      }
+    ],
+    "itens": [
+      {
+        "id": "carta_de_simao",
+        "nome": "Carta de Simão",
+        "tipo": "missao",
+        "descricao": "Papel de embrulhar vela, dobrado em quatro. Três palavras: 'Pedro. Este venceu. Ensina.'"
+      }
+    ]
   },
   "bonus_ao_evoluir": {
     "pontos_atributo_extra": 10,
