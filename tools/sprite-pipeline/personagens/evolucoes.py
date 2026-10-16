@@ -48,11 +48,35 @@ def blade_mesh(name, m, pts, widths, normal, thick=.01):
     o = obj_from_bm(name, bm, m); o.modifiers.new("s", 'SOLIDIFY').thickness = thick; _apply_mods(o); return o
 
 def cowl(name, m, seed=6, sc=1.0):
-    """Capuz arredondado que cobre o topo da cabeça e cai para trás (sem bico para cima)."""
-    rings = [(1.46,.19,.17,.03), (1.54,.16,.15,.02), (1.62,.14,.14,.0), (1.7,.135,.14,-.012), (1.77,.128,.136,-.014),
-             (1.82,.114,.124,-.006), (1.855,.088,.1,.015), (1.875,.054,.07,.04), (1.884,.02,.03,.065), (1.886,.004,.006,.075)]
-    rings = [(z, rx*sc, ry*sc, yo) for z, rx, ry, yo in rings]
-    return skirt(name, m, rings, open_front=.62, seed=seed, folds=7, famp=.06, thick=.014)
+    """Capuz fechado: domo redondo sobre a cabeça, manto nos ombros e abertura do rosto oval com borda grossa."""
+    zc, top, R, Ry = 1.69, 1.835, .135, .145
+    rings = []
+    for k in range(13):                     # manto: 1.46 -> 1.69
+        z = 1.46 + .23*k/12; t = min(1, (z - 1.46)/.16)
+        rings.append((z, .19 + (R - .19)*t, .17 + (Ry - .17)*t, .03*(1 - t)))
+    for k in range(1, 15):                  # domo: 1.69 -> topo
+        a = k/14*math.pi/2; z = zc + (top - zc)*math.sin(a)
+        rings.append((z, max(.003, R*math.cos(a)), max(.003, Ry*math.cos(a)), .025*math.sin(a)**2))
+    rings = [(z, rx*sc, ry*sc, yo*sc) for z, rx, ry, yo in rings]
+    o = skirt(name, m, rings, seed=seed, folds=3, famp=.03, thick=0)
+    bm = bmesh.new(); bm.from_mesh(o.data)
+    fc, hz, aw = 1.685, .088, .95            # janela do rosto (frente = -Y)
+    def inside(v):
+        az = math.atan2(v.x, -v.y); return (az/aw)**2 + ((v.z - fc)/hz)**2 < 1 and v.y < 0
+    bmesh.ops.delete(bm, geom=[f for f in bm.faces if inside(f.calc_center_median())], context='FACES')
+    loop = [v.co.copy() for v in bm.verts if v.is_boundary and v.co.z > 1.5]
+    loop.sort(key=lambda c: math.atan2(c.z - fc, c.x))
+    bm.to_mesh(o.data); bm.free()
+    s_ = o.modifiers.new("s", 'SOLIDIFY'); s_.thickness = .014; _apply_mods(o)
+    cu = bpy.data.curves.new(name + "_borda", 'CURVE'); cu.dimensions = '3D'; cu.bevel_depth = .017; cu.bevel_resolution = 3
+    sp = cu.splines.new('POLY'); sp.points.add(len(loop) - 1); sp.use_cyclic_u = True
+    for pt, c in zip(sp.points, loop): pt.co = (c.x*1.02, c.y - .004, c.z, 1)
+    rim = bpy.data.objects.new(name + "_borda", cu); bpy.context.scene.collection.objects.link(rim)
+    dg = bpy.context.evaluated_depsgraph_get(); me = bpy.data.meshes.new_from_object(rim.evaluated_get(dg))
+    bpy.data.objects.remove(rim); bpy.data.curves.remove(cu)
+    bm = bmesh.new(); bm.from_mesh(o.data); bm.from_mesh(me); bm.to_mesh(o.data); bm.free(); bpy.data.meshes.remove(me)
+    for p in o.data.polygons: p.use_smooth = True
+    return o
 
 def tabard(name, m, x, y, z0, z1, w, seed=3, back=False):
     """Faixa de pano pendurada (tabardo/estola) com barra rasgada."""
