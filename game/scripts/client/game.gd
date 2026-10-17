@@ -402,7 +402,8 @@ func _surgiu(id: int) -> void:
 	if e.tipo == "chefe":
 		chefe_view = v
 		v.set_meta("luz", luz.adicionar(v.position, Color(1.0, 0.62, 0.38), 5.5, 1.1, true))
-	if e.invisivel: v.visible = false
+	if e.invisivel and e != jog: v.visible = false
+	elif e.invisivel: v.modulate.a = 0.45   # GM invisível se vê translúcido
 	if e.aux.has("anim_entrada") and v.has_method("tocar"): v.tocar(str(e.aux["anim_entrada"]), 0.0)   # Vigilantes: rise / land
 	if e.kind == "nao_julgado" and mapa.get("exterior", false):
 		fx.folha("naojulgado_brilho_noite", v.position, {"segue": v, "dura": 99999.0, "aditivo": true})
@@ -626,6 +627,7 @@ func _item_chao_sumiu(id: int) -> void:
 # =================================================================== eventos do servidor
 func _ev(tipo: String, d: Dictionary) -> void:
 	if agrak_cena != null: agrak_cena.ev(tipo, d)
+	if tipo.begins_with("gm_"): GmPainel.ev(self, tipo, d); return   # painel do GM (scripts/client/gm_painel.gd)
 	match tipo:
 		"surgiu": _surgiu(int(d["id"]))
 		"sumiu": _sumiu(int(d["id"]))
@@ -1198,6 +1200,8 @@ func _unhandled_input(ev: InputEvent) -> void:
 			KEY_K: janelas.alternar("habilidades")
 			KEY_T: janelas.alternar("talentos")
 			KEY_V: janelas.alternar("teleporte")
+			KEY_F8: GmPainel.alternar(self)   # só abre para conta GM (o servidor avisa com gm_ativo)
+			KEY_F7: GmPainel.ponto(self)
 			KEY_M, KEY_TAB: hud.alternar_mapa()
 			KEY_H, KEY_F1: hud.alternar_ajuda()
 			KEY_ESCAPE:
