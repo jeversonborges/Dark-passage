@@ -24,6 +24,9 @@ func _init() -> void:
 			if t == "morreu" and int(d["id"]) == fam.id: mortes_fam += 1)
 		# um monstro bate no familiar à força (área sem alvo e dano puro)
 		for i in 30 * 20:
+			# os mobs batem no dono (a IA de hoje deixa o cão voltar a ocioso na área inicial; o golpe direto garante o agressor)
+			if i % 30 == 0:
+				for m in mobs: sim.aplicar_golpe(m, j, {"mult": 1.0, "nunca_erra": true})
 			if i == 60: sim.aplicar_dano_puro(fam, 999999.0, "fogo", mobs[0])
 			if i == 90: sim.aplicar_golpe(mobs[0], fam, {"mult": 50.0, "nunca_erra": true})
 			sim.passo(WorldSim.TICK)
