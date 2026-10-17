@@ -53,6 +53,15 @@
       "feixe": true,
       "peso_base": 0,
       "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
+    },
+    "demiurgico": {
+      "nome_exibido": "Demiúrgico",
+      "cor": "#f4ffe9",
+      "cor_feixe": "#9dffc8",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 0,
+      "_doc": "branco-esmeralda; acima do Lendário. Só o Cetro do Demiurgo, a arma do administrador (Jefin), vinculada à conta. Nunca sai no sorteio de drop e nenhuma outra arma pode ter esta raridade."
     }
   },
   "nivel_de_refino_no_drop": {

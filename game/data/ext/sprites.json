@@ -39,6 +39,40 @@
    }
   }
  },
+ "ahmose_barqueiro": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/ahmose_barqueiro/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/ahmose_barqueiro/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "anjo": {
   "frame": [
    192,
@@ -227,6 +261,40 @@
    }
   }
  },
+ "besankh_ferreiro": {
+  "frame": [
+   272,
+   272
+  ],
+  "anchor": [
+   136.0,
+   187.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/besankh_ferreiro/idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/besankh_ferreiro/walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   }
+  }
+ },
  "cacador_de_anjos": {
   "frame": [
    224,
@@ -264,6 +332,40 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   }
+  }
+ },
+ "capita_odete": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/capita_odete/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/capita_odete/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -341,6 +443,108 @@
    }
   }
  },
+ "comandante_abdiel": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   243.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/comandante_abdiel/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/comandante_abdiel/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "conego_barnabe": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   183.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/conego_barnabe/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/conego_barnabe/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "corvina_atravessadora": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   144.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/corvina_atravessadora/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/corvina_atravessadora/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "cultista": {
   "frame": [
    192,
@@ -378,6 +582,40 @@
     "frames": 12,
     "fps": 18,
     "loop": false
+   }
+  }
+ },
+ "dalva_ferraz": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/dalva_ferraz/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/dalva_ferraz/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -455,6 +693,108 @@
    }
   }
  },
+ "diaprepes_atlante": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   161.6
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/diaprepes_atlante/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/diaprepes_atlante/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "djedi_mago": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   156.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/djedi_mago/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/djedi_mago/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "doutor_anselmo": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/doutor_anselmo/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/doutor_anselmo/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "engenheiro_herege": {
   "frame": [
    224,
@@ -495,6 +835,40 @@
    }
   }
  },
+ "eulalia_prado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   144.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/eulalia_prado/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/eulalia_prado/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "evemon_parado": {
   "frame": [
    192,
@@ -525,6 +899,74 @@
     "file": "res://assets/ext/personagens/evemon_parado/walk.png",
     "frames": 8,
     "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "frei_anacleto": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/frei_anacleto/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/frei_anacleto/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "gaspar_bigorna": {
+  "frame": [
+   272,
+   272
+  ],
+  "anchor": [
+   136.0,
+   187.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/gaspar_bigorna/idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/gaspar_bigorna/walk.png",
+    "frames": 8,
+    "fps": 8,
     "loop": true
    }
   }
@@ -606,6 +1048,108 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   }
+  }
+ },
+ "hapu_mercador": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/hapu_mercador/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/hapu_mercador/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "henoc_escriba": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/henoc_escriba/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/henoc_escriba/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "hulda_escada": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   144.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/hulda_escada/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/hulda_escada/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -735,6 +1279,142 @@
    }
   }
  },
+ "irmao_lucio": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/irmao_lucio/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/irmao_lucio/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "isaura_radialista": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   143.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/isaura_radialista/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/isaura_radialista/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "jael_escuta": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   144.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/jael_escuta/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/jael_escuta/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "joana_enxertadeira": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/joana_enxertadeira/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/joana_enxertadeira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "lindalva_parteira": {
   "frame": [
    192,
@@ -809,6 +1489,108 @@
    }
   }
  },
+ "madre_ivone": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   159.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/madre_ivone/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/madre_ivone/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "mae_cardo": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   135.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/mae_cardo/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/mae_cardo/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "malfas": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   141.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/malfas/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/malfas/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "mechanicus": {
   "frame": [
    224,
@@ -846,6 +1628,40 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   }
+  }
+ },
+ "meritre_barqueira": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   163.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/meritre_barqueira/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/meritre_barqueira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -889,6 +1705,40 @@
    }
   }
  },
+ "nefer_aguadeira": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   150.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/nefer_aguadeira/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/nefer_aguadeira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "nestor_calco": {
   "frame": [
    192,
@@ -917,6 +1767,40 @@
    },
    "walk": {
     "file": "res://assets/ext/personagens/nestor_calco/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "nina": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   123.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/nina/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/nina/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
@@ -1151,6 +2035,142 @@
    }
   }
  },
+ "reis_abdu": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   140.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/reis_abdu/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/reis_abdu/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "rispa_vigilia": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   161.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/rispa_vigilia/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/rispa_vigilia/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "rute_abelheira": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   138.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/rute_abelheira/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/rute_abelheira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "sariel_porta": {
+  "frame": [
+   272,
+   272
+  ],
+  "anchor": [
+   136.0,
+   193.6
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/sariel_porta/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/sariel_porta/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "saulo_penitente": {
   "frame": [
    192,
@@ -1179,6 +2199,40 @@
    },
    "walk": {
     "file": "res://assets/ext/personagens/saulo_penitente/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "senebtisi_sacerdotisa": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   153.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/senebtisi_sacerdotisa/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/senebtisi_sacerdotisa/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
@@ -1222,6 +2276,74 @@
     "frames": 16,
     "fps": 24,
     "loop": false
+   }
+  }
+ },
+ "simao_coveiro": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   169.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/simao_coveiro/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/simao_coveiro/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "tadeu_vigia": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   159.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/tadeu_vigia/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/tadeu_vigia/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -1299,6 +2421,40 @@
    }
   }
  },
+ "tobias_pavio": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   134.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/tobias_pavio/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/tobias_pavio/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "torreta_sentinela": {
   "frame": [
    192,
@@ -1330,6 +2486,40 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   }
+  }
+ },
+ "tuya_nomarca": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   148.5
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/tuya_nomarca/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/tuya_nomarca/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -1370,6 +2560,40 @@
     "frames": 14,
     "fps": 21,
     "loop": false
+   }
+  }
+ },
+ "zaqueu_vendedor": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/zaqueu_vendedor/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/zaqueu_vendedor/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },

@@ -18,6 +18,7 @@ static var PROG := {}        # combate/progressao.json
 static var ITENS := {}       # skills-itens/itens.json por id
 static var ITENS_DOC := {}
 static var VISUAIS := {}     # assets/armas/visuais.json -> itens (silhueta, mão, tinta, brilho)
+static var PADRAO := {}       # assets/armas/visuais.json -> camada da mão por classe (mão nunca vazia)
 static var POR_TAG := {}     # tag de drop -> [ids]
 static var SKILLS := {}      # "classe/id_combate" -> skill completa (texto + combate + ícone)
 static var NPCS := {}
@@ -96,7 +97,10 @@ static func carregar() -> void:
 	for dg in lc["dungeons"]:
 		for s in dg["andares"]: LOCAIS[s["id"]] = s
 	for m in ler(DESIGN + "missoes/monstros.json")["monstros"]: MON_TXT[m["id"]] = m
-	if FileAccess.file_exists("res://assets/ext/armas/visuais.json"): VISUAIS = ler("res://assets/ext/armas/visuais.json").get("itens", {})
+	if FileAccess.file_exists("res://assets/ext/armas/visuais.json"):
+		var vis_json: Dictionary = ler("res://assets/ext/armas/visuais.json")
+		VISUAIS = vis_json.get("itens", {})
+		PADRAO = vis_json.get("padrao", {})
 	_extras_v06()
 	var sp: Dictionary = ler(DESIGN + "mapas/spots.json")
 	for s in sp.get("spots", []): SPOTS[s["id"]] = s
@@ -182,7 +186,7 @@ static func cor_raridade(r: String) -> Color:
 	return cor(rr.get("cor", "#b8afa0"))
 
 static func nome_raridade(r: String) -> String:
-	return {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia"}.get(r, r.capitalize())
+	return {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia", "demiurgico": "Demiúrgico"}.get(r, r.capitalize())
 
 ## Sprite de um tipo de unidade (classe, monstro, npc). Usa substituto quando a arte ainda não chegou.
 static func sprite(kind: String) -> Dictionary:

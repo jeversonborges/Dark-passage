@@ -36,10 +36,12 @@ var troca = Troca.new(self) # troca de itens e ouro entre jogadores (scripts/net
 var agrak: Node = preload("res://scripts/net/agrak.gd").new()   # O Agrak: agenda, inscrição, levar e trazer (entregas/agrak)
 var hermon: EventoHermon      # evento O Cume dos Vigilantes: agenda, entrada de 5 min e convite
 var t_hermon := 0.0
+var gm: Node = preload("res://scripts/net/gm.gd").new()   # painel do GM: contas GM, punições, invocar, eventos (entregas/gm)
 
 func _ready() -> void:
 	_carregar_contas()
 	add_child(agrak)
+	add_child(gm)
 	hermon = EventoHermon.new(Defs.ler(HermonCtl.DADOS)["evento"])
 	print("[servidor] contas: ", "pelo site (%s)" % SITE_AUTENTICAR if contas_pelo_site else "neste servidor (%s)" % ARQ)
 
@@ -152,17 +154,23 @@ func receber(peer: int, m: Dictionary) -> void:
 		"troca":
 			if s.is_empty() or s["jog"] == null: return
 			troca.receber(peer, m)
+		"gm":   # painel do GM: só vale para conta GM deste servidor (scripts/net/gm.gd confere tudo)
+			if s.is_empty() or s["jog"] == null: return
+			gm.receber(peer, m)
 		"cmd":
 			if s.is_empty() or s["jog"] == null: return
 			var n = m.get("n", ""); var a = m.get("a", [])
 			if n is String and troca.em_troca(peer) and n in Troca.TRAVADOS:
 				_para(peer, "aviso", {"texto": "Termine a troca primeiro."}); return
+			if n is String and n == "falar" and gm.mudo(peer): return   # silenciado por um GM
 			if n is String and a is Array and mundos.has(s["mapa"]):
 				Comandos.executar(mundos[s["mapa"]], s["jog"], n, a)
 
 func _logar(peer: int, u: String, novo: bool) -> void:
 	for p in sessoes:
 		if sessoes[p].get("u", "") == u: _erro(peer, "Essa conta já está no jogo em outro PC."); return
+	var ban: String = gm.ban_login(u)   # banida por um GM
+	if ban != "": _erro(peer, ban); return
 	if not contas.has(u):   # conta criada no site: aqui só guardamos os personagens
 		contas[u] = {"personagens": [], "criada": Time.get_datetime_string_from_system()}
 		_gravar_contas()
@@ -276,8 +284,10 @@ func _entrar_mundo(peer: int, idx: int) -> void:
 	por_jog[e.id] = peer
 	sim.adicionar_jogador(e, pos)
 	_chave_primarca(s["u"], e, sim)
+	_cetro_demiurgo(s["u"], e, sim)
 	e.flags["torre_aberta"] = true   # A Torre liberada para todos (0.8.6): a grade do mata_do_granizo pede esta flag
 	_enviar_mapa(peer, novo)
+	gm.entrou(peer)   # conta GM recebe a chave do painel (F8)
 	print("[servidor] entrou: %s com %s (%s, nível %d)" % [s["u"], e.nome, e.classe, e.nivel])
 	for x in OS.get_cmdline_user_args():   # teste: leva o jogador para outro mapa depois de 8 s
 		if x.begins_with("teste_mapa="):
@@ -290,6 +300,16 @@ func _chave_primarca(usuario: String, e: Ent, sim: WorldSim) -> void:
 	e.flags["chave_primarca"] = true
 	Jogador.dar_item(sim, e, Itens.novo("chave_mestra_primarca"))
 	_gravar_contas()
+
+## Cetro do Demiurgo (0.9.4): uma única vez por personagem de conta GM (scripts/net/gm.gd), qualquer classe.
+## Quem deixou de ser GM perde o cetro ao entrar: ninguém além do administrador fica com ele.
+func _cetro_demiurgo(usuario: String, e: Ent, sim: WorldSim) -> void:
+	if gm.eh_conta_gm(usuario):
+		if e.flags.has("cetro_demiurgo"): return
+		if not Jogador.dar_item(sim, e, Itens.novo("cetro_do_demiurgo")): return   # mochila cheia: tenta na próxima entrada
+		e.flags["cetro_demiurgo"] = true
+		_gravar_contas()
+	elif Demiurgo.tirar(sim, e): _gravar_contas()
 
 func _enviar_mapa(peer: int, novo := false) -> void:
 	var s: Dictionary = sessoes[peer]

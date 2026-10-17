@@ -90,6 +90,10 @@ func _abertura(motivo: String) -> void:
 		jogo = Jogo.new()
 		add_child(jogo)
 		jogo.iniciar_rede(r, m)
+		if args.has("teste_gm"):   # teste do painel do GM (entregas/gm, tools/teste_gm.gd)
+			var tg: Node = load("res://tools/teste_gm.gd").new()
+			tg.jogo = jogo; tg.args = args
+			add_child(tg)
 		if args.has("teste_rede"):
 			var t: Node = load("res://tools/teste_rede.gd").new()
 			t.jogo = jogo; t.args = args

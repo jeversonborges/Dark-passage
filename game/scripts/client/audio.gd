@@ -16,6 +16,7 @@ var t := 0.0
 var vol := {"musica": -8.0, "ambiente": -6.0, "sfx": -2.0, "ui": -4.0}
 var mudo := false
 var ouvinte := Vector2.ZERO   # posição de tela do jogador (para volume por distância)
+var loops := {}               # chave -> {p, nome, t}: sons posicionais em loop (forja do ferreiro, aura do Cetro)
 
 func _ready() -> void:
 	sons = Defs.AUDIO.get("sons", {})
@@ -40,6 +41,30 @@ func _stream(nome: String, idx := -1) -> AudioStream:
 
 func _process(dt: float) -> void:
 	t += dt
+	for k in loops.keys():   # loop que ninguém pediu por 0,5 s: a entidade sumiu ou saiu do mapa
+		if t - float(loops[k]["t"]) > 0.5:
+			loops[k]["p"].queue_free(); loops.erase(k)
+
+## Som posicional em loop (forja do ferreiro, aura do Cetro do Demiurgo). Quem toca chama TODO quadro com a posição
+## de tela; o volume cai com a distância ao jogador e, se ninguém pedir por 0,5 s, o loop para sozinho.
+func loop_em(chave: String, nome: String, pos_tela: Vector2, vol_db := 0.0) -> void:
+	if mudo or nome == "" or not sons.has(nome): return
+	var bus: String = sons[nome].get("bus", "ambiente")
+	var l: Dictionary = loops.get(chave, {})
+	if l.is_empty():
+		var st := _stream(nome, 0)
+		if st == null: return
+		if st is AudioStreamOggVorbis: st.loop = true
+		var p := AudioStreamPlayer.new(); add_child(p)
+		p.stream = st; p.bus = Ajustes.bus_de(bus); p.volume_db = -60.0
+		p.play(randf() * float(st.get_length()))   # cada forja começa num ponto diferente do loop
+		l = {"p": p, "nome": nome, "t": t}; loops[chave] = l
+	l["t"] = t
+	var d := pos_tela.distance_to(ouvinte)
+	(l["p"] as AudioStreamPlayer).volume_db = -60.0 if d > 1100.0 else float(vol.get(bus, 0.0)) + vol_db - d / 1100.0 * 18.0
+
+func loop_fim(chave: String) -> void:
+	if loops.has(chave): loops[chave]["p"].queue_free(); loops.erase(chave)
 
 ## Efeito sonoro. pos_tela opcional: atenua com a distância ao jogador.
 func tocar(nome: String, pos_tela = null, vol_db := 0.0, pitch_var := 0.05) -> void:
@@ -100,3 +125,4 @@ func _crossfade(velho: AudioStreamPlayer, novo: AudioStreamPlayer, nome: String,
 func alternar_mudo() -> void:
 	mudo = not mudo
 	for p in [musica_a, musica_b, amb_a, amb_b]: p.stream_paused = mudo
+	for k in loops: loops[k]["p"].stream_paused = mudo

@@ -1,11 +1,42 @@
 {
- "nota": "silhueta = camada assets/armas/<personagem>/<silhueta>.png; tinta pinta o metal (máscara R); brilho pinta o emissivo (máscara G) e o halo (máscara B). brilho_proprio: o item já nasce brilhando; nos outros o brilho só acende com refino (+7 em diante, estilo MU).",
+ "nota": "silhueta = camada assets/armas/<personagem>/<silhueta>.png; tinta pinta o metal (máscara R); brilho pinta o emissivo (máscara G) e o halo (máscara B). por_personagem: silhueta a usar naquele personagem quando ele não tem a do item (null = sem camada, mão esquerda vazia ou Abominação). padrao: camada da mão quando nada está equipado ou o item não está aqui (mão nunca vazia; null só na Abominação). brilho_proprio: o item já nasce brilhando; nos outros o brilho só acende com refino (+7 em diante, estilo MU).",
+ "padrao": {
+  "abominacao": null,
+  "anjo": "espada",
+  "arcanjo": "espada",
+  "arquimago": "cajado_osso",
+  "cacador_de_anjos": "escopeta",
+  "ceifador": "espada",
+  "cultista": "cajado_osso",
+  "demonio": "espada",
+  "engenheiro_herege": "cajado_antena",
+  "gladiador": "machado",
+  "humano": "escopeta",
+  "lorde_das_trevas": "espada",
+  "mechanicus": "cajado_antena",
+  "mutante": "machado",
+  "pistoleiro": "escopeta",
+  "profeta_do_amargo": "cajado_osso",
+  "serafim": "espada",
+  "tecnomancer": "cajado_antena"
+ },
  "itens": {
   "espada_vigilia_rachada": {
    "silhueta": "espada",
    "mao": "R",
    "tinta": "#9aa0a8",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "escudo_porta_capela": {
@@ -13,6 +44,23 @@
    "mao": "L",
    "tinta": "#8a6a48",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "cultista": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "profeta_do_amargo": null,
+    "tecnomancer": null
+   },
    "brilho_proprio": false
   },
   "lanca_procissao": {
@@ -20,6 +68,23 @@
    "mao": "R",
    "tinta": "#cfc2a0",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": false
   },
   "espada_sineiro": {
@@ -27,6 +92,17 @@
    "mao": "R",
    "tinta": "#b0773a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "adaga_ritual_cega": {
@@ -34,6 +110,23 @@
    "mao": "R",
    "tinta": "#cfc2a0",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "cajado_vertebras": {
@@ -41,6 +134,17 @@
    "mao": "R",
    "tinta": "#cfc2a0",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
    "brilho_proprio": false
   },
   "grimorio_acorrentado": {
@@ -48,6 +152,23 @@
    "mao": "L",
    "tinta": "#7a2a3a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": null,
+    "arcanjo": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "serafim": null,
+    "tecnomancer": null
+   },
    "brilho_proprio": false
   },
   "adaga_ossuario": {
@@ -55,6 +176,23 @@
    "mao": "R",
    "tinta": "#4a4850",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "machado_placa_transito": {
@@ -62,6 +200,24 @@
    "mao": "R",
    "tinta": "#9a9a6a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "punhos_sucata": {
@@ -69,6 +225,24 @@
    "mao": "R",
    "tinta": "#9a5a2e",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "luva",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "luva",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "luva"
+   },
    "brilho_proprio": false
   },
   "cutelo_matadouro": {
@@ -76,6 +250,21 @@
    "mao": "R",
    "tinta": "#9aa0a8",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "espada",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "garras_ossario": {
@@ -83,6 +272,24 @@
    "mao": "R",
    "tinta": "#7a8a4a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "luva",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "luva",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "luva"
+   },
    "brilho_proprio": false
   },
   "foice_serrilhada": {
@@ -90,6 +297,23 @@
    "mao": "R",
    "tinta": "#9aa0a8",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": false
   },
   "espada_serrilhada": {
@@ -97,6 +321,23 @@
    "mao": "R",
    "tinta": "#4a4850",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "corrente_gancho": {
@@ -104,6 +345,21 @@
    "mao": "R",
    "tinta": "#4a4850",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "escopeta",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "foice_sepultura": {
@@ -111,6 +367,23 @@
    "mao": "R",
    "tinta": "#4a4850",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": false
   },
   "besta_sucata": {
@@ -118,6 +391,23 @@
    "mao": "R",
    "tinta": "#8a6a48",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "espada_larga_sucata": {
@@ -125,6 +415,23 @@
    "mao": "R",
    "tinta": "#9aa0a8",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "escopeta_cano_serrado": {
@@ -132,6 +439,23 @@
    "mao": "R",
    "tinta": "#8a6a48",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "espada_larga_carrasco": {
@@ -139,6 +463,23 @@
    "mao": "R",
    "tinta": "#7c7a78",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "montante_vigilia": {
@@ -146,6 +487,23 @@
    "mao": "R",
    "tinta": "#c8ccd4",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "escopeta_cano_duplo": {
@@ -153,6 +511,23 @@
    "mao": "R",
    "tinta": "#8a6a48",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "mosquete_pederneira": {
@@ -160,6 +535,23 @@
    "mao": "R",
    "tinta": "#c39a4a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "besta_repeticao": {
@@ -167,6 +559,23 @@
    "mao": "R",
    "tinta": "#c39a4a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "cajado_antena_torto": {
@@ -174,6 +583,23 @@
    "mao": "R",
    "tinta": "#c39a4a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca"
+   },
    "brilho_proprio": false
   },
   "luva_voltaica": {
@@ -181,6 +607,23 @@
    "mao": "R",
    "tinta": "#b8643a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "gladiador": "garras",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mutante": "garras",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada"
+   },
    "brilho_proprio": false
   },
   "pistola_raios": {
@@ -188,6 +631,23 @@
    "mao": "R",
    "tinta": "#c39a4a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "gladiador": "machado",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mutante": "machado",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada"
+   },
    "brilho_proprio": false
   },
   "cajado_valvulas": {
@@ -195,90 +655,47 @@
    "mao": "R",
    "tinta": "#b8643a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca"
+   },
    "brilho_proprio": false
-  },
-  "espada_ferro_sangrento": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#8a2a22",
-   "brilho": "#ff4a2a",
-   "brilho_proprio": true
-  },
-  "espada_geada_atomica": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#9ac8e8",
-   "brilho": "#9ae8ff",
-   "brilho_proprio": true
-  },
-  "espada_vazio_violeta": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#5a3a8a",
-   "brilho": "#b46aff",
-   "brilho_proprio": true
-  },
-  "espada_custodia_solar": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#d8b060",
-   "brilho": "#ffd890",
-   "brilho_proprio": true
-  },
-  "espada_fornalha": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#9a5a2a",
-   "brilho": "#ff8a2a",
-   "brilho_proprio": true
-  },
-  "espada_amargo": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#5a7a3a",
-   "brilho": "#8aff4a",
-   "brilho_proprio": true
-  },
-  "espada_bobina_viva": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#4a6a9a",
-   "brilho": "#6ac8ff",
-   "brilho_proprio": true
-  },
-  "espada_firmamento_partido": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#b8c0d8",
-   "brilho": "#e0e8ff",
-   "brilho_proprio": true
-  },
-  "espada_eclipse_rubro": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#3a1a1a",
-   "brilho": "#ff2a1a",
-   "brilho_proprio": true
-  },
-  "espada_juizo_acorrentado": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#a08850",
-   "brilho": "#ffe0a0",
-   "brilho_proprio": true
-  },
-  "decreto_vampirico": {
-   "silhueta": "grimorio",
-   "mao": "L",
-   "tinta": "#6a1018",
-   "brilho": "#ff2a3a",
-   "brilho_proprio": true
   },
   "escopeta_badalada": {
    "silhueta": "escopeta",
    "mao": "R",
    "tinta": "#b0773a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
    "brilho_proprio": false
   },
   "machado_bonde": {
@@ -286,6 +703,24 @@
    "mao": "R",
    "tinta": "#4a6a9a",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "cajado_lampiao": {
@@ -293,6 +728,23 @@
    "mao": "R",
    "tinta": "#7c7a78",
    "brilho": "#ffe0a0",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca"
+   },
    "brilho_proprio": true
   },
   "espada_escudeiro": {
@@ -300,6 +752,17 @@
    "mao": "R",
    "tinta": "#c8ccd4",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "foice_penhor": {
@@ -307,6 +770,23 @@
    "mao": "R",
    "tinta": "#9aa0a8",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": false
   },
   "adaga_chaga": {
@@ -314,6 +794,23 @@
    "mao": "R",
    "tinta": "#8a2018",
    "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": false
   },
   "gancho_capataz": {
@@ -321,13 +818,40 @@
    "mao": "R",
    "tinta": "#9a5a2e",
    "brilho": "#ffc890",
-   "brilho_proprio": false
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "escopeta",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
   },
   "estandarte_legiao": {
    "silhueta": "estandarte",
    "mao": "R",
    "tinta": "#8a2018",
    "brilho": "#ff7a1a",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": true
   },
   "bacula_femur": {
@@ -335,76 +859,672 @@
    "mao": "R",
    "tinta": "#cfc2a0",
    "brilho": "#bfe6ff",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
    "brilho_proprio": true
   },
-  "lamina_primeiro_martir": {
-   "silhueta": "espada",
+  "balanca_de_barnabe": {
+   "silhueta": "grimorio",
+   "mao": "L",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": null,
+    "arcanjo": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "serafim": null,
+    "tecnomancer": null
+   },
+   "brilho_proprio": true
+  },
+  "khopesh_de_ramesses": {
+   "silhueta": "espada_serrilhada",
    "mao": "R",
-   "tinta": "#c8b8a0",
-   "brilho": "#ffd0a0",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
    "brilho_proprio": true
   },
-  "unha_carpideira": {
-   "silhueta": "adaga",
-   "mao": "R",
-   "tinta": "#cfc2a0",
-   "brilho": "#d0e0ff",
-   "brilho_proprio": true
-  },
-  "raio_anunciacao": {
-   "silhueta": "espada",
-   "mao": "R",
-   "tinta": "#e0d0a0",
-   "brilho": "#fff0b0",
-   "brilho_proprio": true
-  },
-  "meia_lua_andras": {
-   "silhueta": "foice",
-   "mao": "R",
-   "tinta": "#4a3a3a",
-   "brilho": "#ff5a2a",
-   "brilho_proprio": true
-  },
-  "lanca_centuriao_calado": {
-   "silhueta": "lanca",
-   "mao": "R",
-   "tinta": "#8a8a90",
-   "brilho": "#d0e0ff",
-   "brilho_proprio": true
-  },
-  "espinha_coro_mudo": {
+  "cetro_was_do_pesador": {
    "silhueta": "cajado_osso",
    "mao": "R",
-   "tinta": "#cfc2a0",
-   "brilho": "#bfe6ff",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
    "brilho_proprio": true
   },
-  "porta_ossario": {
+  "arpao_do_juncal": {
+   "silhueta": "lanca",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "tecnomancer": "cajado_osso"
+   },
+   "brilho_proprio": true
+  },
+  "cajado_da_cheia": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
+   "brilho_proprio": true
+  },
+  "lamina_da_pergunta": {
+   "silhueta": "espada",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "ferrao_de_bronze": {
+   "silhueta": "espada",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "cetro_que_abre_a_garganta": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
+   "brilho_proprio": true
+  },
+  "presas_do_massacre": {
+   "silhueta": "garras",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "luva",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "luva",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "luva"
+   },
+   "brilho_proprio": true
+  },
+  "taca_de_cerveja_ocre": {
+   "silhueta": "grimorio",
+   "mao": "L",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": null,
+    "arcanjo": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "serafim": null,
+    "tecnomancer": null
+   },
+   "brilho_proprio": true
+  },
+  "bastao_que_virou_serpente": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
+   "brilho_proprio": true
+  },
+  "cimitarra_de_janes": {
+   "silhueta": "espada_serrilhada",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "arco_de_qebehsenuef": {
+   "silhueta": "besta",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
+   "brilho_proprio": true
+  },
+  "escudo_de_duamutef": {
    "silhueta": "escudo",
    "mao": "L",
-   "tinta": "#cfc2a0",
-   "brilho": "#ffd0a0",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "cultista": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "profeta_do_amargo": null,
+    "tecnomancer": null
+   },
    "brilho_proprio": true
   },
-  "badalo_de_carne": {
-   "silhueta": "machado",
+  "cetro_dos_quatro": {
+   "silhueta": "cajado_osso",
    "mao": "R",
-   "tinta": "#8a3a30",
-   "brilho": "#ff6a4a",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
    "brilho_proprio": true
   },
-  "alabarda_juramento": {
+  "remo_da_barca_de_ra": {
    "silhueta": "alabarda",
    "mao": "R",
    "tinta": "#9aa0a8",
-   "brilho": "#ffe0a0",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca",
+    "tecnomancer": "cajado_osso"
+   },
    "brilho_proprio": true
   },
-  "machado_ultimo_bonde": {
+  "brasa_da_proa": {
+   "silhueta": "cajado_antena",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca"
+   },
+   "brilho_proprio": true
+  },
+  "prato_do_coracao": {
+   "silhueta": "grimorio",
+   "mao": "L",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": null,
+    "arcanjo": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "serafim": null,
+    "tecnomancer": null
+   },
+   "brilho_proprio": true
+  },
+  "garra_de_ammit": {
+   "silhueta": "garras",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "luva",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "luva",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "luva"
+   },
+   "brilho_proprio": true
+  },
+  "cajado_das_dez_pragas": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
+   "brilho_proprio": true
+  },
+  "khopesh_do_coracao_duro": {
+   "silhueta": "espada_serrilhada",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "humano": "espada",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "cetro_heka": {
+   "silhueta": "grimorio",
+   "mao": "L",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": null,
+    "arcanjo": null,
+    "cacador_de_anjos": null,
+    "ceifador": null,
+    "demonio": null,
+    "engenheiro_herege": null,
+    "gladiador": null,
+    "humano": null,
+    "lorde_das_trevas": null,
+    "mechanicus": null,
+    "mutante": null,
+    "pistoleiro": null,
+    "serafim": null,
+    "tecnomancer": null
+   },
+   "brilho_proprio": true
+  },
+  "espada_primeiro_juramento": {
+   "silhueta": "espada",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "arquimago": "adaga",
+    "cultista": "adaga",
+    "engenheiro_herege": "cajado_antena",
+    "gladiador": "cutelo",
+    "mechanicus": "cajado_antena",
+    "mutante": "cutelo",
+    "profeta_do_amargo": "adaga",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "cajado_estrelas_contadas": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
+   "brilho_proprio": true
+  },
+  "falx_de_azazel": {
+   "silhueta": "foice",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "cultista": "cajado_osso",
+    "engenheiro_herege": "cajado_osso",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "mechanicus": "cajado_osso",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca",
+    "tecnomancer": "cajado_osso"
+   },
+   "brilho_proprio": true
+  },
+  "escopeta_juramento_quebrado": {
+   "silhueta": "escopeta",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "engenheiro_herege": "pistola",
+    "gladiador": "machado",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "pistola",
+    "mutante": "machado",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada",
+    "tecnomancer": "pistola"
+   },
+   "brilho_proprio": true
+  },
+  "malho_de_tubal": {
    "silhueta": "machado",
    "mao": "R",
-   "tinta": "#9a6a2a",
-   "brilho": "#ffb04a",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "adaga",
+    "cacador_de_anjos": "espada",
+    "ceifador": "espada",
+    "cultista": "adaga",
+    "demonio": "espada",
+    "engenheiro_herege": "cajado_antena",
+    "humano": "espada",
+    "lorde_das_trevas": "espada",
+    "mechanicus": "cajado_antena",
+    "pistoleiro": "espada",
+    "profeta_do_amargo": "adaga",
+    "serafim": "espada",
+    "tecnomancer": "cajado_antena"
+   },
+   "brilho_proprio": true
+  },
+  "bobina_de_baraquiel": {
+   "silhueta": "luva",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "espada",
+    "arcanjo": "espada",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "espada",
+    "cultista": "cajado_osso",
+    "demonio": "espada",
+    "gladiador": "garras",
+    "humano": "escopeta",
+    "lorde_das_trevas": "espada",
+    "mutante": "garras",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "espada"
+   },
+   "brilho_proprio": true
+  },
+  "chave_mestra_primarca": {
+   "silhueta": "cajado_antena",
+   "mao": "R",
+   "tinta": "#9aa0a8",
+   "brilho": "#ffc890",
+   "por_personagem": {
+    "abominacao": null,
+    "anjo": "lanca",
+    "arcanjo": "lanca",
+    "arquimago": "cajado_osso",
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "cultista": "cajado_osso",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta",
+    "profeta_do_amargo": "cajado_osso",
+    "serafim": "lanca"
+   },
+   "brilho_proprio": true
+  },
+  "cetro_do_demiurgo": {
+   "silhueta": "cajado_osso",
+   "mao": "R",
+   "tinta": "#e6c25a",
+   "brilho": "#9dffc8",
+   "por_personagem": {
+    "abominacao": null,
+    "cacador_de_anjos": "escopeta",
+    "ceifador": "alabarda",
+    "demonio": "alabarda",
+    "gladiador": "alabarda",
+    "humano": "escopeta",
+    "lorde_das_trevas": "alabarda",
+    "mutante": "alabarda",
+    "pistoleiro": "escopeta"
+   },
    "brilho_proprio": true
   }
  }

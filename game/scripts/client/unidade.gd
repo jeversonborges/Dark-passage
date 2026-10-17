@@ -88,6 +88,8 @@ var _armas := {}       # slot -> Sprite2D (arma, segunda_mao)
 var _camadas := {}     # silhueta -> {json, tex, mask}
 var _kind_armas := ""  # classe com pasta em assets/armas (vazio: sem camadas)
 var anim_base := ""           # animação em loop no lugar de idle (eat do Andras devorando)
+var sons := {}                # "sons" do substituto do NPC: loop posicional + som por quadro (forja do ferreiro)
+var _quadro_total := 0        # quadros contados desde o início da animação em loop (detecta o quadro cruzado)
 
 func iniciar(g, e: Ent) -> void:
 	game = g; ent = e; id = e.id
@@ -103,8 +105,10 @@ func iniciar(g, e: Ent) -> void:
 	info = Defs.sprite(kind)
 	if e.tipo == "npc" and not Defs.SPR.has(kind):
 		var s: Dictionary = Defs.SPR_SUBST.get(kind, {})
-		var base: String = s.get("usa", e.aux.get("visual", "humano"))
+		# sem entrada: pasta com o id do NPC (modelo próprio) e, na falta dela, a classe de classe_visual
+		var base: String = s.get("usa", e.kind if Defs.SPR.has(e.kind) else e.aux.get("visual", "humano"))
 		if Defs.SPR.has(base): info = {"meta": Defs.SPR[base], "escala": float(s.get("escala", 1.0)), "tint": Defs.cor(s.get("tint", "#ffffff")), "fantasma": s.get("fantasma", false)}
+		sons = s.get("sons", {})
 	meta = info["meta"]
 	escala_base = float(info.get("escala", 1.0)) * float(meta.get("escala", 1.0))
 	if e.tipo == "chefe": escala_base *= 1.5   # chefe tem que impor presença
@@ -159,7 +163,7 @@ func _definir_anim(nome: String) -> void:
 	var a := _sheet(nome)
 	if a.is_empty(): a = _sheet("idle"); nome = "idle"
 	anim = nome
-	frame = 0; frame_t = 0.0
+	frame = 0; frame_t = 0.0; _quadro_total = 0
 	corpo.texture = Tema.tex(a["file"])
 
 ## Toca uma animação de ação uma vez (attack, shoot, spin, dash, hit, death, eat...). dur: segundos (ajusta o fps).
@@ -265,10 +269,13 @@ func _process(dt: float) -> void:
 			var fps := float(a2["fps"])
 			if anim == "walk" and ent != null: fps *= clampf(ent.vel / 3.2, 0.6, 1.6)
 			frame_t += dt
-			frame = int(frame_t * fps) % int(a2["frames"])
+			var total := int(frame_t * fps)
+			frame = total % int(a2["frames"])
+			if not sons.is_empty(): _som_do_quadro(total, int(a2["frames"]))
 	if morto and anim_unica != "_sem_morte":
 		morte_t += dt
 		if morte_t > 5.0: modulate.a = maxf(0.0, 1.0 - (morte_t - 5.0) / 1.0)
+	if not sons.is_empty(): _som_em_loop()
 	_aplicar_frame()
 	_atualizar_flash(dt)
 	_atualizar_realce(dt)
@@ -294,6 +301,25 @@ func _atualizar_flash(dt: float) -> void:
 		flash_t -= dt
 		mat.set_shader_parameter("flash", clampf(flash_t / flash_dur, 0.0, 1.0))
 	else: mat.set_shader_parameter("flash", 0.0)
+
+## Som por quadro ("sons": {"quadros": {"idle": {"3": "itens/forja_martelo"}}}): toca uma vez por volta, quando a
+## contagem de quadros cruza o quadro configurado (não a cada quadro de tela em que ele aparece).
+func _som_do_quadro(total: int, n: int) -> void:
+	var q: Dictionary = sons.get("quadros", {}).get(anim, {})
+	if total > _quadro_total and not q.is_empty() and is_visible_in_tree():
+		for i in range(_quadro_total + 1, mini(total, _quadro_total + n) + 1):   # quadros cruzados desde a última chamada
+			var nome := str(q.get(str(i % n), ""))
+			if nome != "": game.audio.tocar(nome, position)
+	_quadro_total = total
+
+## Loop posicional ("sons": {"loop": "ambiente/forja"}): pedido todo quadro enquanto a unidade está na tela;
+## o Audio atenua pela distância ao jogador e para o loop sozinho quando ninguém mais pede.
+func _som_em_loop() -> void:
+	var loop := str(sons.get("loop", ""))
+	if loop != "" and not morto and is_visible_in_tree(): game.audio.loop_em("npc_%d" % id, loop, position, -6.0)
+
+func _exit_tree() -> void:
+	if sons.has("loop") and is_instance_valid(game) and game.audio != null: game.audio.loop_fim("npc_%d" % id)
 
 func _desenhar_sombra() -> void:
 	var r := 0.42 * escala_base * float(ent.escala if ent else 1.0)
@@ -351,7 +377,7 @@ func _aplicar_armas() -> void:
 	var vis: Dictionary = ent.vis if ent else {}
 	for slot in _armas:
 		var sp: Sprite2D = _armas[slot]
-		var q = _quadro_arma(vis.get(slot, {}), anim, dir, frame)
+		var q = _quadro_arma(vis.get(slot, {}), slot, anim, dir, frame)
 		if q == null:
 			sp.visible = false; continue
 		sp.visible = true
@@ -365,11 +391,23 @@ func _aplicar_armas() -> void:
 		mat_arma.set_shader_parameter("brilho", q["brilho"])
 		mat_arma.set_shader_parameter("forca_brilho", q["forca"])
 
+## Camada da mão para o item (ordem: silhueta do item, silhueta por personagem, padrão da classe; "" = mão vazia).
+func _silhueta_arma(v: Dictionary, slot: String) -> String:
+	var it: Dictionary = Defs.VISUAIS.get(str(v.get("id", "")), {})
+	if not it.is_empty():
+		var sil: Variant = it.get("silhueta")
+		if sil != null and FileAccess.file_exists("res://assets/ext/armas/%s/%s.json" % [_kind_armas, sil]): return str(sil)
+		var pp: Dictionary = it.get("por_personagem", {})
+		if pp.has(_kind_armas): return "" if pp[_kind_armas] == null else str(pp[_kind_armas])
+	if slot != "arma": return ""   # mão secundária sem item: vazia
+	var padrao: Variant = Defs.PADRAO.get(_kind_armas)
+	return "" if padrao == null else str(padrao)
+
 ## Quadro da camada da arma para a animação, direção e quadro atuais; null quando a arma está escondida.
-func _quadro_arma(v: Dictionary, nome: String, d: int, f: int):
-	if v.is_empty() or not Defs.VISUAIS.has(str(v.get("id", ""))): return null
-	var it: Dictionary = Defs.VISUAIS[str(v["id"])]
-	var sil := str(it.get("silhueta", ""))
+func _quadro_arma(v: Dictionary, slot: String, nome: String, d: int, f: int):
+	var sil := _silhueta_arma(v, slot)
+	if sil == "": return null
+	var it: Dictionary = Defs.VISUAIS.get(str(v.get("id", "")), {})
 	if not _camadas.has(sil):
 		var base := "res://assets/ext/armas/%s/%s" % [_kind_armas, sil]
 		_camadas[sil] = {} if not FileAccess.file_exists(base + ".json") else {"json": Defs.ler(base + ".json"), "tex": Tema.tex(base + ".png"), "mask": Tema.tex(base + "_mascara.png")}

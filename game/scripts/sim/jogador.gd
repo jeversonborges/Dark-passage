@@ -73,6 +73,7 @@ static func entrar(sim: WorldSim, e: Ent, mapa: String, pos: Vector2) -> void:
 # =================================================================== passo
 static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 	_regen(sim, e, dt)
+	Demiurgo.aura(sim, e, dt)   # Aura Demiúrgica (tick de 1 s)
 	if e.buffs.size() > 0:
 		var mudou := false
 		for b in e.buffs.duplicate():
@@ -168,6 +169,7 @@ static func _checar_zona(sim: WorldSim, e: Ent) -> void:
 		Missoes.evento(sim, e, "explorar", z)
 
 static func _regen(sim: WorldSim, e: Ent, dt: float) -> void:
+	Demiurgo.sopro(e, dt)   # Sopro do Primeiro Dia
 	var c: Dictionary = Defs.CLASSES[e.classe]
 	var rc: Dictionary = c["recurso"]
 	var fora := e.em_combate_t >= float(Defs.FORM["regeneracao"]["segundos_para_sair_de_combate"])
@@ -571,7 +573,7 @@ static func ataque_basico(sim: WorldSim, e: Ent, al: Ent) -> void:
 	e.cd_basico = e.intervalo
 	var prep := e.intervalo * 0.4
 	var corpo_a_corpo := alcance_basico(e) < 2.0
-	var op := {"postura": e.postura_arma, "sensacao": "golpe_leve", "magico": Defs.CLASSES[e.classe]["perfil_dano"] == "magico"}
+	var op := {"postura": e.postura_arma, "sensacao": "golpe_leve", "magico": Defs.CLASSES[e.classe]["perfil_dano"] == "magico", "basico": true}
 	if e.classe == "humano" and e.municao <= 0:
 		op["mult"] = 0.6
 	if e.classe == "humano" and e.municao > 0 and e.aux.has("municao_especial"):
@@ -618,7 +620,7 @@ static func _basico_humano(sim: WorldSim, e: Ent, al: Ent, op: Dictionary) -> vo
 			if e.pos.distance_to(a2.pos) - a2.raio <= float(c["alcance_basico"]["espada"]) + 0.8:
 				sim.aplicar_golpe(e, a2, op)
 			if alvos.size() > 1:
-				var op2 := op.duplicate(); op2["mult"] = float(op.get("mult", 1.0)) * 0.5
+				var op2 := op.duplicate(); op2["mult"] = float(op.get("mult", 1.0)) * 0.5; op2.erase("basico")   # o Verbo do Cetro só sai no golpe principal
 				sim.aplicar_golpe(e, alvos[1], op2)
 			sim.emitir("vfx", {"nome": "golpe_corte", "alvo": alvo_id, "de": e.id})
 		})
@@ -646,6 +648,7 @@ static func skill_def(e: Ent, slot: int) -> Dictionary:
 	return {}
 
 static func custo(e: Ent, h: Dictionary) -> float:
+	if Demiurgo.tem(e): return 0.0   # A Mão que Mede: custo zero
 	var c := float(h.get("custo", 0))
 	if e.classe == "cultista": return c * e.hp_max
 	return c
@@ -703,17 +706,18 @@ static func _tentar_skill(sim: WorldSim, e: Ent, slot: int, alvo_id: int, ponto:
 	cst = Evolucao.custo(e, cst)   # Três Auréolas do Arquimago
 	if e.classe == "cultista": e.hp -= cst
 	else: e.rec -= cst
+	var recarga := float(h.get("recarga", 1.0)) * Demiurgo.mult_recarga(e)   # A Mão que Mede: -90%
 	if h.has("cargas"):
 		var k: String = "cargas_" + h["id"]
 		e.aux[k] = int(e.aux.get(k, int(h["cargas"]))) - 1
-		if e.aux[k] <= 0: e.cds[h["id"]] = float(h.get("recarga", 1.0))
-		else: e.aux["recarga_carga_" + h["id"]] = float(h.get("recarga", 1.0))
-	else: e.cds[h["id"]] = float(h.get("recarga", 1.0))
+		if e.aux[k] <= 0: e.cds[h["id"]] = recarga
+		else: e.aux["recarga_carga_" + h["id"]] = recarga
+	else: e.cds[h["id"]] = recarga
 	e.buffer_skill = {}
 	if h.has("gera"): e.rec = minf(e.rec_max, e.rec + float(h["gera"]))
 	e.em_combate_t = minf(e.em_combate_t, 4.0)
 	Habilidades.usar(sim, e, h, alvo, ponto)
-	sim.emitir_a(e, "skill", {"id": e.id, "skill": h["id"], "slot": slot, "recarga": float(h.get("recarga", 1.0))})
+	sim.emitir_a(e, "skill", {"id": e.id, "skill": h["id"], "slot": slot, "recarga": recarga})
 	return true
 
 static func _tipo_skill(h: Dictionary) -> String:
@@ -728,6 +732,7 @@ static func _tipo_skill(h: Dictionary) -> String:
 
 # =================================================================== recursos e gatilhos de combate
 static func ao_acertar(sim: WorldSim, e: Ent, alvo: Ent, r: Dictionary, op: Dictionary) -> void:
+	Demiurgo.ao_acertar(sim, e, alvo, op)   # Cetro do Demiurgo: Golpe, Verbo e Juízo
 	if op.get("sem_recurso", false): return   # skill em área: só o primeiro alvo gera recurso
 	var rc: Dictionary = Defs.CLASSES[e.classe]["recurso"]
 	match e.classe:
@@ -746,6 +751,7 @@ static func ao_ser_atingido(sim: WorldSim, e: Ent, atk: Ent, dano: float, r: Dic
 	if e.classe == "mutante":
 		e.rec = minf(e.rec_max, e.rec + dano / e.hp_max * 100.0)
 	if not e.interagindo.is_empty() and dano > 0: cancelar_canal(sim, e)
+	Demiurgo.refletir(sim, e, atk, dano)   # Como em Cima, Assim Embaixo
 	# Pele de Enxofre: reflete
 	for b in e.buffs:
 		if b["mods"].has("reflete") and atk != null and atk.vivo and atk != e:
@@ -779,6 +785,7 @@ static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
 
 static func ganhar_xp(sim: WorldSim, e: Ent, q: int, fonte: String = "") -> void:
 	if q <= 0: return
+	q = int(round(q * (1.0 + e.mod("xp"))))   # Aura Demiúrgica: +50% de XP
 	e.xp += q
 	sim.emitir_a(e, "xp", {"valor": q, "fonte": fonte})
 	while e.xp >= Defs.xp_para_proximo(e.nivel):
@@ -1160,7 +1167,7 @@ static func mover_item(sim: WorldSim, e: Ent, uid: int, de: String, para: String
 static func soltar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 	var it := Itens.por_uid(e.inv, uid)
 	if it.is_empty(): return
-	if Itens.categoria(it) == "missao":
+	if Itens.categoria(it) == "missao" or Itens.vinculado(it):
 		sim.emitir_a(e, "aviso", {"texto": "Item de missão: melhor não jogar fora."}); return
 	e.inv.erase(it)
 	sim.soltar_no_chao(it, e.pos, e.id, e.pos)
@@ -1228,7 +1235,7 @@ static func vender(sim: WorldSim, e: Ent, uid: int) -> void:
 	var it := Itens.por_uid(e.inv, uid)
 	if it.is_empty(): return
 	var v := Itens.preco_venda(it)
-	if v <= 0 or Itens.categoria(it) == "missao":
+	if v <= 0 or Itens.categoria(it) == "missao" or Itens.vinculado(it):
 		sim.emitir_a(e, "aviso", {"texto": "Ninguém compra isto."}); return
 	e.inv.erase(it)
 	e.ouro += v

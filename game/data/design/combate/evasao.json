@@ -23,7 +23,6 @@
       "deslocamento": 4.5,
       "duracao_s": 0.42,
       "invulneravel_s": 0.32,
-      "altura_px": 34,
       "anim": "evasao",
       "vfx_origem": "evasao_anjo_revoada",
       "vfx_rastro": "evasao_anjo_penas",
@@ -69,9 +68,9 @@
       "invulneravel_s": 0.3,
       "anim": "evasao",
       "vfx_origem": "esquiva_poeira",
-      "vfx_rastro": "evasao_humano_rastro",
       "som": "evasao/humano_cambalhota",
-      "_peso": "a referencia: 4 tiles, 0,3 s"
+      "_peso": "a referencia: 4 tiles, 0,3 s",
+      "vfx_destino": "esquiva_poeira"
     },
     "mutante": {
       "id": "evasao_mutante",
@@ -101,7 +100,6 @@
       "deslocamento": 4.0,
       "duracao_s": 0.38,
       "invulneravel_s": 0.32,
-      "altura_px": 28,
       "anim": "evasao",
       "vfx_origem": "evasao_tecnomancer_vapor",
       "vfx_destino": "esquiva_poeira",
@@ -112,7 +110,7 @@
       "id": "evasao_warlord",
       "nome": "Passo de Escudo",
       "estilo": "escudo",
-      "descricao": "Um passo largo de lado com o escudo erguido; o primeiro golpe depois do passo bate no ferro.",
+      "descricao": "Um passo largo com o escudo erguido; por um instante depois do passo, os golpes batem no ferro.",
       "deslocamento": 3.5,
       "duracao_s": 0.3,
       "invulneravel_s": 0.25,
@@ -176,5 +174,6 @@
       "nome": "Propulsor Herege",
       "vfx_cor": "#a8f070"
     }
-  }
+  },
+  "_doc_anim": "A altura do voo e do salto está na própria animação (folha 'evasao' de cada personagem, tools/sprite-pipeline/personagens/anims_evasao.py); o jogo só move no chão, some (teleporte) ou dissolve (névoa)."
 }

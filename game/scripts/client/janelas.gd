@@ -1636,7 +1636,7 @@ func _tip_talento(h: Dictionary) -> String:
 	return s
 
 # =================================================================== menu de teleporte (V)
-## Lista estilo MU: cada área de caça com o nome e a faixa de nível; viajar custa 1 Lágrima Sanguínea, que o servidor
+## Lista estilo MU: cada área de caça com o nome e a faixa de nível; viajar custa 3.000 de ouro, que o servidor
 ## só gasta quando o canal de 3 s termina (andar ou apanhar cancela). A regra é Teleporte.bloqueio, a mesma do servidor.
 const TP_COR_FAIXA := Color("#a8d870")    # nível do jogador dentro da faixa
 const TP_COR_ACIMA := Color("#8f8574")    # área fraca para ele
@@ -1647,34 +1647,22 @@ func abrir_teleporte() -> void:
 	jan["teleporte"].offset_top = -330; jan["teleporte"].offset_bottom = 218
 	_limpar(c)
 	var j := _jog()
-	var cst: Dictionary = Teleporte.dados().get("custo", {"item": "lagrima_sanguinea", "qtd": 1})
-	var tem := Itens.contar(j.inv, str(cst["item"]))
-	# placa do preço: a lágrima no slot de latão e quantas o jogador tem
+	var preco := Teleporte.preco({})
+	var falta := j.ouro < preco
+	# placa do preço: quanto custa e quanto ouro o jogador tem
 	var topo := PanelContainer.new(); topo.add_theme_stylebox_override("panel", Tema.caixa_menu(8))
 	var th := HBoxContainer.new(); th.add_theme_constant_override("separation", 12); topo.add_child(th)
-	var slot := PanelContainer.new(); slot.custom_minimum_size = Vector2(52, 52)
-	var sbs := _sb("menu_slot", [8, 8, 8, 8], [4, 4, 4, 4])
-	if sbs: slot.add_theme_stylebox_override("panel", sbs)
-	var tr := TextureRect.new(); tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED; tr.custom_minimum_size = Vector2(44, 44)
-	var tm := Tema.icone_mochila(str(cst["item"]))
-	if tm != null: tr.texture = tm
-	else:
-		var ic := Tema.icone_item(str(cst["item"]), true)
-		if ic.size() == 2:
-			var at := AtlasTexture.new(); at.atlas = ic[0]; at.region = ic[1]; tr.texture = at
-	slot.add_child(tr); th.add_child(slot)
 	var tv := VBoxContainer.new(); tv.add_theme_constant_override("separation", 0)
 	tv.size_flags_horizontal = Control.SIZE_EXPAND_FILL; tv.alignment = BoxContainer.ALIGNMENT_CENTER
-	tv.add_child(Tema.rotulo("Cada viagem custa %d Lágrima Sanguínea" % int(cst["qtd"]), 16, Color("#e0c890"), Tema.FONTE_TITULO))
+	tv.add_child(Tema.rotulo("Cada viagem custa %s de ouro" % _milhar(preco), 16, Tema.COR_OURO, Tema.FONTE_TITULO))
 	tv.add_child(Tema.rotulo("Escolha uma área de caça. Voltar ao acampamento (R) continua grátis.", 13, Color("#a89f8c"), Tema.FONTE_ITALICO))
 	th.add_child(tv)
-	var qt := Tema.rotulo("%d" % tem, 28, Tema.COR_SANGUE.lightened(0.2) if tem < int(cst["qtd"]) else Color("#e0c890"), Tema.FONTE_TITULO, 3)
-	qt.tooltip_text = "Lágrimas Sanguíneas na mochila"; qt.mouse_filter = Control.MOUSE_FILTER_PASS
+	var qt := Tema.rotulo(_milhar(j.ouro), 24, Tema.COR_SANGUE.lightened(0.2) if falta else Tema.COR_OURO, Tema.FONTE_TITULO, 3)
+	qt.tooltip_text = "Seu ouro"; qt.mouse_filter = Control.MOUSE_FILTER_PASS
 	var qv := VBoxContainer.new(); qv.alignment = BoxContainer.ALIGNMENT_CENTER; qv.add_theme_constant_override("separation", -4)
 	qt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; qv.add_child(qt)
-	var ql := Tema.rotulo("na mochila", 11, Color("#7d7466"), Tema.FONTE_ITALICO); ql.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	qv.add_child(ql); qv.custom_minimum_size.x = 80
+	var ql := Tema.rotulo("seu ouro", 11, Color("#7d7466"), Tema.FONTE_ITALICO); ql.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	qv.add_child(ql); qv.custom_minimum_size.x = 96
 	th.add_child(qv)
 	c.add_child(topo)
 	# uma coluna por região (Deserto de Absinto, Novo Éden...); regiões novas descem para a linha de baixo
@@ -1752,6 +1740,13 @@ func abrir_teleporte() -> void:
 			fechar("teleporte"))
 		colunas[grupo].add_child(b)
 	if rolar_para: sc.ensure_control_visible.call_deferred(rolar_para)
-	var rod := Tema.rotulo("Verde: áreas do seu nível.  Andar ou apanhar durante a viagem cancela, e a lágrima fica com você.", 12, Color("#7d7466"), Tema.FONTE_ITALICO)
+	var rod := Tema.rotulo("Verde: áreas do seu nível.  Andar ou apanhar durante a viagem cancela, e o ouro fica com você.", 12, Color("#7d7466"), Tema.FONTE_ITALICO)
 	rod.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	c.add_child(rod)
+
+## 3000 -> "3.000"
+func _milhar(v: int) -> String:
+	var t := str(absi(v)); var out := ""
+	while t.length() > 3:
+		out = "." + t.right(3) + out; t = t.left(t.length() - 3)
+	return ("-" if v < 0 else "") + t + out
