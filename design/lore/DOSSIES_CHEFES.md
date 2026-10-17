@@ -54,12 +54,12 @@ Regra de ouro: o chefe nunca diz o que ele é. Diz o que ele quer. O jogador des
 - **Como contam:** Versículo da Comunhão ("abençoado o fogo que come o que nasce"), Bilhete da Enxertia, Rádio (Isaura: "fumaça na Torre de novo, ouvinte; cheira a trigo").
 
 ### O Telegrafista · Torre, 3º andar (Sala do Rádio)
-- **Quem era:** Tomé Prado ⊕, radiotelegrafista, marido de Eulália, o que subiu na torre da Rádio São Lázaro e não desceu. Não desceu porque foi levado: o Coro precisava de alguém que soubesse transmitir, e o transportou para a Torre da mata, onde o rádio alcança o jardim inteiro.
+- **Quem era:** um radiotelegrafista de São Lázaro cujo nome não ficou em registro nenhum ⊕. Foi levado: o Coro precisava de alguém que soubesse transmitir, e o transportou para a Torre da mata, onde o rádio alcança o jardim inteiro.
 - **O que quebrou:** trinta anos transmitindo para o Coro a posição de cada broto, em código, sem parar, com fones que não tira. Já não sabe se é ele ou o aparelho.
 - **O que quer:** que a mensagem chegue. Não sabe mais qual é a mensagem.
-- **O que deixa:** última fala ⊕, em Morse falado: "ponto... ponto... Eulália... traço". Item: a chave de telégrafo (citação: "Devolução em atraso: um marido." — Eulália Prado, ficha de empréstimo). Consequência: Eulália recebe a chave; é a única vez que ela fecha a biblioteca mais cedo. Isaura perde o ruído que escutava toda noite na frequência da Torre e não sabe por quê.
-- **Como contam:** Rádio (Isaura, que o chamava de "a interferência"), Caderno de Eulália, Versículo ("e o que ouve, transmita").
-- **Nota de cânone:** Eulália diz que Tomé "subiu na torre e não desceu"; o jogo nunca disse qual torre. Esta ficha fecha a ponta. Se a thread da Biblioteca tiver outro plano para Tomé, a dela vence.
+- **O que deixa:** última fala ⊕, em Morse falado: "ponto... ponto... traço". Item: a chave de telégrafo (citação: "A interferência da Torre parou às 02h40. Anoto o silêncio." — Isaura Valente). Consequência: Isaura perde o ruído que escutava toda noite na frequência da Torre e não sabe por quê.
+- **Como contam:** Rádio (Isaura, que o chamava de "a interferência"), Bilhete da Enxertia, Versículo ("e o que ouve, transmita").
+- **Nota de cânone:** o Telegrafista fica sem nome de propósito; a thread da Biblioteca confirmou que dar-lhe um nome conhecido esbarra em outra coisa. Não ligar a Tomé Prado nem a nenhum NPC existente.
 
 ### Malaquias, o Escudeiro Cego · Torre, 4º andar
 - **Quem era:** escudeiro de Baraquiel, o arauto da primeira trombeta. Um anjo jovem, dos que carregam o estandarte.
@@ -206,5 +206,5 @@ Soberbo) ou sem expressão (o Perfeito).
   campo novo) e `itens.json` (`citacao`). Peço à Prévia que avise se o campo `fala_final` cabe no sistema de chefes.
 - Os chefes da Torre e do Egito tinham `registros` vazios ou repetidos ("Adicional de chefe"). As linhas de **Como
   contam** acima dão três fontes para cada um; passo para o JSON quando a Combate confirmar que os ids ficam.
-- Tomé Prado como o Telegrafista e Madre Urze como agrônoma de Brasília são propostas de cânone (⊕). Se o Jefin
-  não quiser, a ficha funciona sem o nome.
+- Madre Urze como agrônoma do posto de sementes é proposta de cânone (⊕). O Telegrafista fica sem nome (ver a nota
+  da ficha dele).
