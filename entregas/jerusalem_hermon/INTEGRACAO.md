@@ -100,3 +100,23 @@ murada o caminho desce o Monte das Oliveiras (Getsêmani, a necrópole), passa p
 e sobe pelos cedros até as Fontes do Jordão e o cume do Hermon, onde os duzentos Vigilantes juraram. O Fosso dos
 Vigilantes fica atrás dos Portões do Hades. Linhas próprias: **O Juramento do Hermon** (espelho da D), **O Trono da
 Geena** (da E) e **O Escriba Que Não Morreu** (da F). Plantas em `planta_*.png`.
+
+## 0.9.4 · cidade de Jerusalém refeita (17/10)
+
+O Jefin achou a cidade amontoada ("paredes estranhas"). O traçado mudou só dentro e em volta da muralha (o resto do
+mapa, spots, baús e números ficam iguais). **A grade mudou: suba `rede.VERSAO`.**
+
+- Muro baixo de pedra e barro (`muro_lama`) nos quatro lados, com pilares (`muralha_estanho`) nas portas: a câmera
+  vê a cidade por cima. Saíram as paredes góticas da cripta e as casas de tijolo gigantes (`casa_ruina`) em volta.
+- Uma praça de laje no meio (Brasa do Altar, Cúpula no fundo) e uma rua de pedra de cada porta até ela; quintais de areia.
+- Peças do Egito sem nada específico: casas de pedra e barro, casas baixas, pombal, bancas de mercado, jarros,
+  cestos, lampiões de óleo, duas tamareiras e acácias. Casas altas no fundo, mercado e casas baixas na frente.
+- A Porta do Esterco foi para x=101, alinhada à Estrada dos Peregrinos da thread Mapas interligados.
+- `ESTRADA_SUL` sem trava de nível (pedido dos Mapas interligados); o `ligacoes.py` acerta os portais depois.
+- NPCs da cidade e o `rolos_da_escada` mudaram de lugar junto com o traçado.
+
+Passos: rode o `aplicar_dados.py` (passo 3 acima), depois
+`python3 design/mapas/mundo/fontes/ligacoes.py game/data/mapas` depois do `sync.sh`, e troque
+`game/tools/teste_jerusalem.gd` pelo `integrar/teste_jerusalem.gd` (o teste do nível 12 virou "nível 1 já desce").
+Testado numa cópia do `game/`: `teste_jerusalem.gd` 49 ok, 0 falhas, todos os 49 grupos alcançáveis a pé.
+Fotos em `previa_cidade/` (`antes.png` é a cidade da 0.9.3).

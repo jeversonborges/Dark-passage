@@ -561,7 +561,7 @@ def main():
             if "requer_itens" in x: x["requer_itens"] = [item_novo(i) for i in x["requer_itens"]]
             if "leva_para" in x: x["leva_para"] = SUB.get(x["leva_para"], x["leva_para"])
             if "texto_trancado" in x:
-                x["texto_trancado"] = {"porta_de_pa": "A gruta de Pã está fechada por uma pedra com um buraco em forma de chifre. Do outro lado, algo respira devagar e quente.",
+                x["texto_trancado"] = {"porta_de_pa": "A gruta de Pã está fechada por uma pedra com um buraco em forma de chifre. Do outro lado, algo respira devagar e quente. A chave de chifre anda no cinto do Capataz de Tofete, nas fornalhas do Vale de Hinom.",
                                        "porta_do_altar": "Uma porta de pedra negra com dois buracos: um em forma de olho fechado, outro em forma de onda.",
                                        "laje_do_juramento": "Uma laje negra rachada no meio de sete pilares. Ela não se mexe para quem não foi chamado."}.get(o_novo, x["texto_trancado"])
             x["espelho_de"] = o_orig

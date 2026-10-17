@@ -171,13 +171,25 @@ ESTRADA = ["J", "HIS", "SAP", "FON2", "CUM2", "NEVE"]          # Estrada dos Per
 
 # ---- cidade murada (Jerusalém): retângulo alinhado aos eixos; portas = vãos de 3 tiles
 CID = (90, 36, 112, 56)               # x0, y0, x1, y1 (piso por dentro)
-PORTAS = {"dourada": ("y1", 103), "damasco": ("x0", 47), "esterco": ("y0", 99), "fonte": ("x1", 41)}
+PORTAS = {"dourada": ("y1", 103), "damasco": ("x0", 47), "esterco": ("y0", 101), "fonte": ("x1", 41)}
 PORTA_DE = {"DAVI": "fonte", "GETS": "dourada", "HIS": "damasco", "HIN": "esterco"}   # por qual porta sai cada caminho da cidade
 SPAWN = [101.5, 42.5]
 PORTA_HADES = [92.5, 114.5]           # Portões do Hades (Banias): entrada do Fosso dos Vigilantes
 CHEGADA_HADES = [92.5, 111.5]
 FENDA = [(129, 76), (124, 80), (118, 82), (112, 86), (108, 92), (106, 99)]   # o Monte partido ao meio (Zc 14:4)
 RIACHO = [(30, 146), (40, 132), (52, 122), (66, 116), (80, 112), (90, 108), (104, 108), (118, 112), (134, 112), (148, 108)]
+
+
+# traçado da cidade (células, inclusivo): uma praça no meio e uma rua de cada porta até ela; o resto são quarteirões
+PRACA = (96, 41, 106, 51)
+RUAS = [(90, 46, 96, 48), (100, 36, 102, 41), (102, 51, 104, 56), (106, 40, 112, 42)]   # Damasco, Esterco, Dourada, Fonte
+
+
+def rua_jer(x, y):
+    dentro = lambda r: r[0] <= x <= r[2] and r[1] <= y <= r[3]
+    if dentro(PRACA): return "c" if x in (PRACA[0], PRACA[2]) or y in (PRACA[1], PRACA[3]) else "l"
+    if any(dentro(r) for r in RUAS): return "c"
+    return "k" if ruido(x*1.7, y*1.7, 5) > .55 else "a"
 
 
 def mapa():
@@ -222,7 +234,7 @@ def mapa():
             if a.blk[y][x] or trilha[y][x]: continue
             z = zona_de[y][x]; n1 = ruido(x*1.6, y*1.6, 2); n2 = ruido(x*2.3, y*2.3, 7)
             if z == "jerusalem":
-                if (x - x0c) % 7 in (3,) or (y - y0c) % 7 in (3,): a.ter[y][x] = "c"            # ruas da cidade velha
+                a.ter[y][x] = rua_jer(x, y)                                                     # praça de laje, ruas de pedra, quintais de areia
             elif z == "cidade_de_davi" and n1 > .35: a.ter[y][x] = "c"
             elif z == "monte_oliveiras" and n1 > .42: a.ter[y][x] = "z"                        # cinza da primeira trombeta
             elif z == "vale_josafa" and n2 > .45: a.ter[y][x] = "g"
@@ -280,58 +292,67 @@ def mapa():
             for xx in range(int(x - fp[0]/2 + .5), int(x - fp[0]/2 + .5) + fp[0]): a.extra_blk.add((xx, yy))
 
     # ================================================================ Jerusalém (base dos Arautos, zona segura)
-    # muralha: alta atrás (topo da tela), meia-muralha na frente; pilares nos cantos; vãos nas quatro portas
-    def porta_em(lado, i):
-        if lado not in [l for l, c in PORTAS.values()]: return False
-        return any(l == lado and abs(i - c) <= 1 for l, c in PORTAS.values())
-    for y in range(y0c, y1c + 1):
-        if not porta_em("x0", y): a.prop("parede_gotica_b" if (y % 3) else "parede_gotica_v2_b", x0c - .5, y + .5); a.extra_blk.add((x0c - 1, y))
-        if not porta_em("x1", y): a.prop("parede_gotica_frente_b", x1c + 1.5, y + .5); a.extra_blk.add((x1c + 1, y))
+    # Uma cidade pequena e legível: muro baixo de pedra e barro em volta (a câmera vê por cima), quatro portas com
+    # pilares, uma rua de cada porta até a praça da Brasa do Altar. Casas altas só no fundo (topo da tela),
+    # casas baixas e o mercado na frente. Poucas peças, cada uma com motivo.
+    def porta_em(lado, i): return any(l == lado and abs(i - c) <= 1 for l, c in PORTAS.values())
+    def pilar_de(lado, i): return any(l == lado and abs(i - c) == 2 for l, c in PORTAS.values())
+    for y in range(y0c - 1, y1c + 2):
+        for lado, xx in (("x0", x0c - 1), ("x1", x1c + 1)):
+            if porta_em(lado, y): continue
+            a.prop("muralha_estanho_b" if pilar_de(lado, y) else "muro_lama_b", xx + .5, y + .5); a.extra_blk.add((xx, y))
     for x in range(x0c, x1c + 1):
-        if not porta_em("y1", x): a.prop("parede_gotica_a" if (x % 3) else "parede_gotica_v2_a", x + .5, y1c + 1.5); a.extra_blk.add((x, y1c + 1))
-        if not porta_em("y0", x): a.prop("parede_gotica_frente_a", x + .5, y0c - .5); a.extra_blk.add((x, y0c - 1))
-    a.prop("parede_gotica_canto", x0c - .5, y1c + 1.5); a.extra_blk.add((x0c - 1, y1c + 1))
-    for (cx_, cy_) in [(x1c + 1, y1c + 1), (x0c - 1, y0c - 1), (x1c + 1, y0c - 1)]:
-        a.prop("parede_gotica_frente_canto", cx_ + .5, cy_ + .5); a.extra_blk.add((cx_, cy_))
-    # portas: braseiros nos batentes (a Porta Dourada, fechada desde Ezequiel, foi aberta pelos Arautos no primeiro dia)
+        for lado, yy in (("y0", y0c - 1), ("y1", y1c + 1)):
+            if porta_em(lado, x): continue
+            a.prop("muralha_estanho_a" if pilar_de(lado, x) else "muro_lama_a", x + .5, yy + .5); a.extra_blk.add((x, yy))
+    # portas: dois braseiros do lado de fora e o estandarte (a Porta Dourada, fechada desde Ezequiel, foi aberta no primeiro toque)
     for nome, (lado, c) in PORTAS.items():
-        if lado == "y1": p0, p1, fx, fy = (c - 1.6, y1c + 2.2), (c + 2.6, y1c + 2.2), c + .5, y1c + 3.5
-        elif lado == "y0": p0, p1, fx, fy = (c - 1.6, y0c - 1.2), (c + 2.6, y0c - 1.2), c + .5, y0c - 2.5
-        elif lado == "x0": p0, p1, fx, fy = (x0c - 1.2, c - 1.6), (x0c - 1.2, c + 2.6), x0c - 2.5, c + .5
-        else: p0, p1, fx, fy = (x1c + 2.2, c - 1.6), (x1c + 2.2, c + 2.6), x1c + 3.5, c + .5
+        if lado == "y1": p0, p1, fx, fy = (c - 1.6, y1c + 2.4), (c + 2.6, y1c + 2.4), c - 1.8, y1c + 3.6
+        elif lado == "y0": p0, p1, fx, fy = (c - 1.6, y0c - 1.4), (c + 2.6, y0c - 1.4), c + 2.8, y0c - 2.6
+        elif lado == "x0": p0, p1, fx, fy = (x0c - 1.4, c - 1.6), (x0c - 1.4, c + 2.6), x0c - 2.6, c - 1.8
+        else: p0, p1, fx, fy = (x1c + 2.4, c - 1.6), (x1c + 2.4, c + 2.6), x1c + 3.6, c + 2.8
         a.prop("braseiro_sagrado", *p0, bloqueia=.4, luz=BRASA + [6]); a.prop("braseiro_sagrado", *p1, bloqueia=.4, luz=BRASA + [6])
         a.prop("estandarte_rasgado", fx, fy, bloqueia=.3)
         lugares.append({"id": f"porta_{nome}", "nome": {"dourada": "Porta Dourada", "damasco": "Porta de Damasco", "esterco": "Porta do Esterco",
-                                                         "fonte": "Porta da Fonte"}[nome], "pos": [fx, fy]})
-    # a Cúpula sobre a Pedra e a Brasa do Altar (Is 6:6): o fogo que não apaga desde o primeiro toque
+                                                         "fonte": "Porta da Fonte"}[nome], "pos": [round(fx, 1), round(fy, 1)]})
+    # a praça: a Cúpula sobre a Pedra no fundo, a Brasa do Altar no meio (Is 6:6), o fogo que não apaga desde o primeiro toque
     predio("cupula_estacao", 98.5, 50.5, (5, 5), luz=SANTO + [9], marco="cupula_da_pedra", pendente="cupula_da_rocha")
     pendentes.append("cupula_da_rocha (cúpula de latão dourado sobre a Pedra; hoje usa cupula_estacao)")
     a.prop("braseiro_sagrado", 101.5, 46.0, bloqueia=.6, luz=BRASA + [11], marco="brasa_do_altar")
-    for (dx, dy) in [(-2.5, -1.5), (2.5, -1.5), (-2.5, 2.0), (2.5, 2.0)]: a.prop("velas_chao", 101.5 + dx, 46 + dy, luz=VELA + [3])
-    a.prop("pulpito_externo", 104.5, 49.5, bloqueia=.6)
-    for (x, y) in [(95.5, 44.0), (95.5, 46.0), (95.5, 48.0)]: a.prop("banco_capela", x, y, bloqueia=.5)
-    a.prop("tubos_orgao", 92.5, 54.0, bloqueia=1.0, luz=SANTO + [5])                    # o Coro de Sião
-    predio("torre_sino", 92.0, 38.5, (3, 3), luz=FOGO + [6], marco="torre_de_davi")
-    # Legião Blasfema: tendas e a forja de Tubal no canto da Porta da Fonte
-    predio("tenda_demonio", 109.0, 52.0, (3, 3), luz=FOGO + [5])
-    a.prop("bancada_ferreiro", 108.5, 39.5, bloqueia=.6); a.prop("braseiro_ferro", 110.5, 38.0, bloqueia=.4, luz=FOGO + [6])
-    a.prop("tonel_fogo", 106.5, 37.5, bloqueia=.4, luz=FOGO + [5]); a.prop("pilha_carvao", 111.0, 40.5, bloqueia=.4)
-    a.prop("caldeirao_cardo", 94.5, 40.0, bloqueia=.5, luz=FOGO + [4])                  # o caldeirão da Zilpa (hissopo)
-    a.prop("carrinho_tobias", 106.0, 46.5, bloqueia=.5, ponto="carrinho_bartimeu")
-    a.prop("arca_primarca", 96.0, 53.5, bloqueia=.5, luz=[.62, .4, 1] + [6])
-    a.prop("trono_sucata", 110.5, 55.0, bloqueia=.6)                                       # a cadeira vazia do general, na tenda
-    for (x, y) in [(91.5, 41.5), (91.5, 51.5), (110.5, 44.5), (110.5, 48.5), (100.5, 55.0), (100.5, 37.5)]:
-        a.prop("lanterna_procissao", x, y, bloqueia=.2, luz=VELA + [5])
-    for (x, y) in [(93.5, 49.0), (107.5, 43.5), (103.0, 38.5)]: a.prop("estatua_anjo_quebrada", x, y, bloqueia=.7)
-    a.prop("caixas", 111.0, 45.0, bloqueia=.4); a.prop("barris", 111.2, 42.8, bloqueia=.4); a.prop("sacos_areia", 97.5, 37.5, bloqueia=.3)
-    a.espalhar(["velas_chao", "folhas_papeis", "penas_espalhadas"], 18, (x0c + 1, y0c + 1, x1c - 1, y1c - 1))
-    npcs = [("sariel_porta", 103.5, 54.5, [0, -1]), ("hulda_escada", 100.0, 44.0, [1, 0]), ("zilpa_hissopo", 94.5, 41.8, [1, 0]),
-            ("tubal_malho", 108.8, 41.5, [-1, 0]), ("bartimeu_brasas", 106.0, 44.8, [-1, 0]), ("zaqueu_cobrador", 98.5, 38.4, [0, 1]),
-            ("gustavo_primarca", 96.0, 52.2, [1, 0])]
+    for (dx, dy) in [(-1.6, -1.6), (1.6, -1.6), (-1.6, 1.6), (1.6, 1.6)]: a.prop("velas_chao", 101.5 + dx, 46 + dy, luz=VELA + [3], chao=True)
+    a.prop("pulpito_externo", 103.6, 49.6, bloqueia=.6)                                    # a escada da Hulda
+    a.prop("estatua_anjo_quebrada", 97.6, 43.4, bloqueia=.7)
+    a.prop("carrinho_tobias", 105.2, 43.6, bloqueia=.5, ponto="carrinho_bartimeu")
+    for (x, y) in [(97.2, 47.6), (105.6, 47.2), (99.0, 45.0)]: a.prop("penas_espalhadas", x, y, chao=True)
+    # fundo à esquerda (topo da tela): as casas altas e a Torre de Davi
+    predio("casa_reerguida", 93.0, 52.5, (5, 5), luz=VELA + [4])
+    predio("torre_sino", 97.0, 55.0, (3, 3), luz=FOGO + [6], marco="torre_de_davi")
+    a.prop("tamareira_nilo", 95.4, 48.8, bloqueia=.4)
+    a.prop("arca_primarca", 100.5, 54.5, bloqueia=.5, luz=[.62, .4, 1] + [6])
+    # esquerda: o quintal da Zilpa (o caldeirão de hissopo) e duas casas baixas junto ao muro da frente
+    predio("casa_artesao", 92.0, 38.5, (3, 4))
+    predio("casa_artesao_2", 96.0, 38.5, (3, 4), luz=VELA + [3])
+    a.prop("caldeirao_cardo", 93.2, 43.4, bloqueia=.5, luz=FOGO + [4])
+    a.prop("jarros", 91.2, 44.6, bloqueia=.3); a.prop("cestos_graos", 98.6, 37.0, bloqueia=.3)
+    # direita, ao fundo: o acampamento da Legião Blasfema e a forja de Tubal (a cadeira vazia do general na tenda)
+    predio("tenda_demonio", 109.5, 54.0, (3, 3), luz=FOGO + [5])
+    a.prop("bancada_ferreiro", 108.0, 50.4, bloqueia=.6); a.prop("braseiro_ferro", 110.0, 49.6, bloqueia=.4, luz=FOGO + [6])
+    a.prop("pilha_carvao", 111.2, 51.2, bloqueia=.4); a.prop("trono_sucata", 111.4, 55.6, bloqueia=.6)
+    a.prop("pombal", 111.0, 44.5, bloqueia=.9)
+    a.prop("tamareira_nilo_2", 111.3, 47.6, bloqueia=.4)
+    # frente à direita: o mercado da rua da Fonte (bancas baixas, nada que tape a praça)
+    for x in (104.5, 107.5, 110.5): a.prop("banca_mercado", x, 38.0, bloqueia=.7, luz=VELA + [3])
+    a.prop("jarros", 106.0, 36.8, bloqueia=.3); a.prop("cestos_graos", 109.0, 36.8, bloqueia=.3)
+    # lampiões nas esquinas das ruas com a praça
+    for (x, y) in [(95.6, 45.4), (99.4, 41.4), (106.6, 42.9), (104.7, 51.6), (93.0, 48.7), (109.6, 42.9)]:
+        a.prop("lampiao_oleo", x, y, bloqueia=.2, luz=VELA + [4])
+    npcs = [("sariel_porta", 103.5, 55.2, [0, -1]), ("hulda_escada", 102.4, 49.8, [1, -1]), ("zilpa_hissopo", 94.6, 43.0, [1, 0]),
+            ("tubal_malho", 106.8, 49.6, [-1, 0]), ("bartimeu_brasas", 104.2, 44.2, [-1, 0]), ("zaqueu_cobrador", 99.4, 38.6, [1, 0]),
+            ("gustavo_primarca", 101.4, 53.6, [1, -1])]
     # ================================================================ fora da muralha
     # Cidade de Davi (1-3): a cidade de baixo, de antes dos muros; escadas de Siloé, o tanque seco
     dx_, dy_ = B["DAVI"][:2]
-    predio("casa_ruina", dx_ - 4.0, dy_ + 3.5, (6, 6), luz=VELA + [4]); predio("barraco_sucata", dx_ + 4.5, dy_ + 1.0, (3, 3))
+    predio("casa_reerguida_2", dx_ - 4.0, dy_ + 3.5, (5, 5), luz=VELA + [4]); predio("barraco_sucata", dx_ + 4.5, dy_ + 1.0, (3, 3))
     a.prop("poco", B["SILOE"][0] - 4.5, B["SILOE"][1] + 4.0, bloqueia=.8, marco="tanque_de_siloe")
     npcs.append(("zaqueu_cobrador_casa", dx_ + 2.5, dy_ - 1.0, [1, 0]))
     lugares.append({"id": "tanque_de_siloe", "nome": "Tanque de Siloé", "pos": [B["SILOE"][0] - 4.5, B["SILOE"][1] + 4.0]})
@@ -405,7 +426,7 @@ def mapa():
 
     # ================================================================ borda: o mundo acaba em encosta, não em muro
     # vegetação/pedra alta só onde não há chão aberto na frente (câmera), baixa na frente
-    alta = {"cidade_de_davi": ["casa_ruina", "ruina_concreto", "muro_tijolo_quebrado_a", "muro_tijolo_quebrado_b"],
+    alta = {"cidade_de_davi": ["casa_soterrada", "acacia", "muro_tijolo_quebrado_a", "muro_tijolo_quebrado_b"],
             "monte_oliveiras": ["arvore_morta", "arvore_morta_2", "arvore_morta_grande", "arvore_morta"],
             "vale_josafa": ["arvore_morta_2", "ruina_concreto", "forca_ponte"],
             "bosque_hissopo": ["arvore_morta", "arvore_morta_2", "arvore_morta"],
@@ -415,8 +436,8 @@ def mapa():
             "pocilgas_gadara": ["arvore_morta_2", "barraco_sucata", "arvore_morta"],
             "fontes_jordao": ["arvore_morta_grande", "arvore_morta", "ruina_concreto"],
             "cume_hermon": ["ossada_gigante", "estatua_anjo_quebrada", "torre_tombada", "ossada_gigante"],
-            "jerusalem": ["casa_ruina", "ruina_concreto"]}
-    baixa = {"cidade_de_davi": ["entulho", "muro_tijolo_quebrado_b", "sacos_areia", "laje_rolada"],
+            "jerusalem": ["casa_soterrada", "acacia", "tamareira_nilo_3", "rocha_granito"]}
+    baixa = {"cidade_de_davi": ["entulho", "jarros", "cestos_graos", "laje_rolada"],
              "monte_oliveiras": ["toco_arvore", "arbusto_seco", "mato_seco", "lapide", "arbusto_seco_2"],
              "vale_josafa": ["ossada_viajante", "mato_seco", "pedras_rio", "cruz_madeira"],
              "bosque_hissopo": ["moita_cardo", "arbusto_seco", "toco_arvore", "mato_seco_2"],
@@ -426,12 +447,12 @@ def mapa():
              "pocilgas_gadara": ["estacas_cerca", "mato_seco", "arbusto_seco", "lama_porcos"],
              "fontes_jordao": ["juncos", "pedras_rio", "tronco_margem", "mato_seco"],
              "cume_hermon": ["laje_rolada", "ossada_animal", "cratera_cinza", "elmo_espada_fincada"],
-             "jerusalem": ["entulho", "laje_rolada"]}
+             "jerusalem": ["entulho", "jarros", "laje_rolada"]}
     feitas = []
     for y in range(H):
         for x in range(W):
             if not a.blk[y][x] or a.ter[y][x] == "w": continue
-            if x0c - 2 <= x <= x1c + 2 and y0c - 2 <= y <= y1c + 2: continue
+            if x0c - 4 <= x <= x1c + 4 and y0c - 4 <= y <= y1c + 4: continue          # em volta da muralha, areia limpa
             if dist_poli(x + .5, y + .5, FENDA) < 2.2: continue                       # a fenda fica à vista
             if not any(0 <= x + dx < W and 0 <= y + dy < H and not a.blk[y + dy][x + dx] for dx in (-2, -1, 0, 1, 2) for dy in (-2, -1, 0, 1, 2)): continue
             qx, qy = x + rng.uniform(.2, .8), y + rng.uniform(.2, .8)
@@ -634,7 +655,7 @@ def mapa():
     inter("estandartes_da_legiao", [(76, 26), (60, 38), (50, 30)], prop="estandarte_rasgado")
     inter("trono_vazio", [(tx - 6.0, ty - 5.5)])
     inter("rastro_de_brasas", [(38, 58), (48, 64), (52, 72)], prop="rastro_arrasto")
-    inter("rolos_da_escada", [(100.5, 52.5)])
+    inter("rolos_da_escada", [(101.5, 52.5)])
     inter("pedra_da_ascensao", [(gx + 3.0, gy - 6.0)], prop="laje_rolada")
     inter("tumulo_de_joas", [(nx - 6.5, ny - 3.5)], prop="lapide_cruz_celta")
     inter("tumulo_vazio_de_henoc", [(nx - 8.0, ny + 1.0)], prop="sepulcro_primeiro")

@@ -35,8 +35,8 @@ LOJAS_JERUSALEM = ["loja_hulda", "loja_zilpa", "loja_bartimeu", "loja_carrinho_b
 # Estrada para o deserto (a volta está no game/tools/mapa.py). O São Lázaro novo (200x200) não tem a Capela de
 # antes: a chegada fica no caminho da banca da Corvina (Arautos), no sul da cidade.
 ESTRADA_SUL = {"kind": "portal", "pos": [101.5, 32.0], "para": "area_inicial", "chegada": [56.5, 128.5],
-               "nome": "Estrada do Sul · para o Deserto de Absinto", "visual": "escada_subida", "nivel_minimo": 12,
-               "texto_trancado": "Bartimeu segura o seu braço: \"Lá embaixo é a Vigília. Volte no nível 12.\""}
+               "nome": "Estrada do Sul · para o Deserto de Absinto", "visual": "escada_subida"}
+# sem trava de nível (Mapas interligados, 17/10): o ligacoes.py de design/mapas/mundo/fontes ajeita este portal depois
 
 
 def ler(p):

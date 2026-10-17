@@ -29,7 +29,7 @@
    "nome": "Gruta de Pã",
    "subzona": "vale_hinom",
    "requer_item": "chave_de_pa",
-   "texto_trancado": "A gruta de Pã está fechada por uma pedra com um buraco em forma de chifre. Do outro lado, algo respira devagar e quente.",
+   "texto_trancado": "A gruta de Pã está fechada por uma pedra com um buraco em forma de chifre. Do outro lado, algo respira devagar e quente. A chave de chifre anda no cinto do Capataz de Tofete, nas fornalhas do Vale de Hinom.",
    "texto_ao_usar": "A chave entra no chifre e gira sozinha o resto do caminho. A pedra se afasta e um bafo quente sobe das Fontes do Jordão para o fundo do monte.",
    "leva_para": "minas_dos_gigantes",
    "espelho_de": "porta_ganchos",
