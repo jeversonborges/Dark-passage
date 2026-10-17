@@ -80,6 +80,7 @@ static func recalc_jogador(e: Ent) -> void:
 	e.rec_max *= Evolucao.mult(e, "recurso_max_mult")
 	e.rec = minf(e.rec, e.rec_max)
 	if hp_old > 0.0 and e.hp <= 0.0: e.hp = e.hp_max * hp_old
+	Demiurgo.atualizar_aura(e)   # Cetro do Demiurgo: aux.aura enquanto está equipado
 
 static func Ent_arma(e: Ent) -> Dictionary:
 	var c: Dictionary = Defs.CLASSES[e.classe]

@@ -427,6 +427,7 @@ func _passo_ent(e: Ent, dt: float) -> void:
 		if e.escudo_t <= 0.0: e.escudo = 0.0
 	_passo_status(e, dt)
 	if not e.vivo: return
+	if e.tipo != "jogador" and not e.buffs.is_empty(): Demiurgo.expirar(e, dt)   # fraqueza da Aura Demiúrgica
 	_passo_postura(e, dt)
 	for k in e.cds.keys():
 		e.cds[k] -= dt
@@ -903,6 +904,7 @@ const CC := ["atordoado", "derrubado", "enraizado", "cegueira", "silenciado"]
 ## v: duração (float) ou {duracao, dano_por_s_mult}
 func aplicar_status(alvo: Ent, s: String, v, atk: Ent) -> void:
 	if not alvo.vivo or alvo.tipo in ["npc", "objeto"]: return
+	if alvo.tipo == "jogador" and Demiurgo.tem(alvo): return   # Como em Cima, Assim Embaixo: imune a todos os status
 	var dur: float
 	var dados := {}
 	if typeof(v) == TYPE_DICTIONARY:
