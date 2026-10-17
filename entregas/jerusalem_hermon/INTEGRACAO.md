@@ -36,6 +36,7 @@ godot --headless --path . --import
 godot --headless --path . -s res://tools/check.gd               # todos "ok"
 godot --headless --path . -s res://tools/teste_hermon.gd        # 50 ok, 0 falhas
 godot --headless --path . -s res://tools/teste_jerusalem.gd     # 50 ok, 0 falhas
+godot --headless --path . -s res://tools/sim_test.gd            # 6 classes e os 3 chefes da Cripta, sem SCRIPT ERROR
 ```
 
 No PC do Jefin é o mesmo: os dois patches e o script estão no projeto compartilhado; quem copia o `game/` inteiro do
@@ -55,6 +56,7 @@ compartilhado depois do passo 4 não precisa repetir 1 e 2.
 | `tools/mapa.py` | portal **Estrada dos Peregrinos** no São Lázaro novo (56.5, 126.5), no caminho da banca da Corvina. |
 | `tools/sync.sh` | copia os 4 mapas de `design/mapas/jerusalem_hermon/` e o `design/pvp/hermon/cume_dos_vigilantes.json`. |
 | `tools/teste_jerusalem.gd` | teste novo. |
+| `tools/sim_test.gd` | não trava mais: o São Lázaro novo só tem spawn da Vigília e o teste pedia o dos Arautos (erro e o teste nunca terminava). |
 
 ## O que o `aplicar_dados.py` faz
 

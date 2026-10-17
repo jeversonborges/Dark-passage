@@ -300,6 +300,20 @@ index 827c7b4..fefca81 100644
      luzes += mapa_biblioteca.rua(objetos, props, npcs, blk)   # Biblioteca Soterrada: lanterna, lintel e quarto da Nina
      m = {"id": "area_inicial", "nome": d["name"], "w": n, "h": n,
           "grade": ["".join("#" if blk[y][x] else "." for x in range(n)) for y in range(n)],
+diff --git a/game/tools/sim_test.gd b/game/tools/sim_test.gd
+index 10cbd2c..8ce893a 100644
+--- a/game/tools/sim_test.gd
++++ b/game/tools/sim_test.gd
+@@ -39,7 +39,8 @@ func _init() -> void:
+ 		var sim := WorldSim.new(42)
+ 		sim.evento.connect(_ev)
+ 		var j := Jogador.criar(sim, c, "Teste")
+-		var sp: Array = Defs.ler("res://data/mapas/area_inicial.json")["spawn_por_faccao"][j.faccao]
++		var mi: Dictionary = Defs.ler("res://data/mapas/area_inicial.json")   # o São Lázaro novo só tem spawn da Vigília
++		var sp: Array = mi["spawn_por_faccao"].get(j.faccao, mi["spawn"])
+ 		Jogador.entrar(sim, j, "area_inicial", Vector2(sp[0], sp[1]))
+ 		rodar(sim, 1.0)
+ 		j.pos = sim.celula_livre_perto(Vector2(57, 53))
 diff --git a/game/tools/sync.sh b/game/tools/sync.sh
 index 375aa2d..df12a03 100644
 --- a/game/tools/sync.sh
