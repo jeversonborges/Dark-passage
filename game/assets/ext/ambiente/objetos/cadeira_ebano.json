@@ -1,0 +1,17 @@
+{
+ "w": 118,
+ "h": 100,
+ "anchor": [
+  29,
+  74
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cadeira de ébano do enxoval com pés de leão e encosto de folha de ouro gasta, o banquinho dos pés e o apoio de     cabeça de alabastro; o assento de junco trançado afundou.",
+ "kind": "cadeira_ebano"
+}

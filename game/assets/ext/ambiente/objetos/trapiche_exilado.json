@@ -1,0 +1,18 @@
+{
+ "w": 232,
+ "h": 132,
+ "anchor": [
+  108,
+  66
+ ],
+ "emissivo": "verde do Amargo (limo nas estacas)",
+ "nota": "linha d'água em z=0",
+ "bioma": "deserto_absinto",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Trapiche da ilha: tábuas desencontradas sobre estacas de tronco com limo verde do Amargo, uma canoa de casco     remendado amarrada, remo, balde e um puçá secando.",
+ "kind": "trapiche_exilado"
+}

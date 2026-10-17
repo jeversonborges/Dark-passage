@@ -1,0 +1,19 @@
+{
+ "w": 544,
+ "h": 342,
+ "anchor": [
+  198,
+  238
+ ],
+ "emissivo": "esmeralda (escrita e cristais)",
+ "bioma": "amenti",
+ "altura_topo_m": 1.2,
+ "escada": "+X",
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "",
+ "kind": "palco_lorde"
+}

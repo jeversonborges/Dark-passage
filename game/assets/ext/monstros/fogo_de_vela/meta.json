@@ -1,0 +1,105 @@
+{
+ "monstro": "fogo_de_vela",
+ "frame_size": [
+  192,
+  192
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  96.0,
+  148.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "blink_out": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "blink_in": {
+   "frames": 7,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "fogo_de_vela_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "fogo_de_vela_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "fogo_de_vela_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "blink_out": {
+   "file": "fogo_de_vela_blink_out.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "blink_in": {
+   "file": "fogo_de_vela_blink_in.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "fogo_de_vela_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "fogo_de_vela_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.5
+ }
+}

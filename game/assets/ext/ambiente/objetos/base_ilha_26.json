@@ -1,0 +1,18 @@
+{
+ "w": 352,
+ "h": 422,
+ "anchor": [
+  176,
+  72
+ ],
+ "bioma": "amenti",
+ "pendurado": true,
+ "camada": "abaixo_do_chao",
+ "categoria": "predios",
+ "footprint_tiles": [
+  7,
+  7
+ ],
+ "descricao": "",
+ "kind": "base_ilha_26"
+}

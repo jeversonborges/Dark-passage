@@ -1,0 +1,16 @@
+{
+ "w": 308,
+ "h": 202,
+ "anchor": [
+  49,
+  171
+ ],
+ "emissivo": "luzes piloto",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Quadro de força de parede: painel de ardósia com chaves-faca de cobre sobre porcelana, fusíveis,     amperímetros, barramento e cabos subindo e descendo. Uma chave está aberta.",
+ "kind": "quadro_disjuntores"
+}

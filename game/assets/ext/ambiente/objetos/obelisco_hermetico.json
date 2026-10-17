@@ -1,0 +1,17 @@
+{
+ "w": 316,
+ "h": 208,
+ "anchor": [
+  47,
+  180
+ ],
+ "emissivo": "esmeralda (escrita)",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "obelisco_hermetico"
+}

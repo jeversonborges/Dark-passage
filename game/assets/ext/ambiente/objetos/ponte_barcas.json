@@ -1,0 +1,18 @@
+{
+ "w": 246,
+ "h": 144,
+ "anchor": [
+  91,
+  94
+ ],
+ "nota": "segmento repetível; linha d'água em z=0",
+ "bioma": "egito",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Segmento da Ponte de Barcas dos Engenheiros: dois barcos amarrados lado a lado com o tabuleiro de tábuas por     cima, guarda-corpo de corda e cabos de aço amarrando ao próximo segmento. Repete ao longo do eixo X.",
+ "kind": "ponte_barcas"
+}

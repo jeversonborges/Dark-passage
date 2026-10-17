@@ -1,0 +1,15 @@
+{
+ "w": 294,
+ "h": 160,
+ "anchor": [
+  131,
+  91
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Monte pequeno que o vento descobriu: costelas de bicho saindo da areia.",
+ "kind": "duna_areia_2"
+}

@@ -175,5 +175,15 @@
     "troca_alvo_corpo_a_corpo": 1.1,
     "troca_alvo_distancia": 1.3
   },
-  "recurso_em_area": "Skill em area gera Graca, Furia ou Brasa so pelo primeiro alvo atingido em cada uso."
+  "recurso_em_area": "Skill em area gera Graca, Furia ou Brasa so pelo primeiro alvo atingido em cada uso.",
+  "peso_por_ponto": 1.6,
+  "atributo_efetivo": "inicial_da_classe + pontos_distribuidos * peso_por_ponto (1.6) + bonus_de_itens",
+  "tetos_de_bonus": {
+    "_doc": "Revisao 16/10/2026: somas de itens, opcoes e buffs param aqui (antes empilhavam sem limite: ate 60% de reducao, 48% de roubo de vida e +400% de ouro).",
+    "reducao_de_dano": 0.4,
+    "roubo_de_vida": 0.15,
+    "bonus_de_ouro": 1.0,
+    "critico": 0.5,
+    "velocidade_ataque": 0.6
+  }
 }

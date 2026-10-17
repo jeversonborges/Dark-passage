@@ -1,0 +1,125 @@
+{
+ "monstro": "farao_sem_nome",
+ "frame_size": [
+  384,
+  384
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  192.0,
+  280.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "cast": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "plague": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "summon": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "farao_sem_nome_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "farao_sem_nome_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "farao_sem_nome_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "farao_sem_nome_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "farao_sem_nome_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "farao_sem_nome_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "plague": {
+   "file": "farao_sem_nome_plague.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "farao_sem_nome_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "farao_sem_nome_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 64,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.85
+ }
+}

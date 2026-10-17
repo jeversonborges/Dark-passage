@@ -1,0 +1,16 @@
+{
+ "w": 396,
+ "h": 260,
+ "anchor": [
+  39,
+  238
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilastra de canto: cantaria com base e capitel moldurados na altura da galeria e um castiçal de ferro     com três velas, cera escorrida até o chão.",
+ "kind": "parede_biblioteca_canto"
+}

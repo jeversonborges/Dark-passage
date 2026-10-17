@@ -1,0 +1,17 @@
+{
+ "w": 386,
+ "h": 210,
+ "anchor": [
+  167,
+  122
+ ],
+ "bioma": "atlantida",
+ "no_chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  7
+ ],
+ "descricao": "(girada: ao longo do eixo Y do mapa)",
+ "kind": "ponte_laje_y"
+}

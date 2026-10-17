@@ -1,0 +1,214 @@
+{
+ "base_10": {
+  "anjo": {
+   "chefe": 59.5,
+   "chefe_pct": 1.01,
+   "spot": 105.5,
+   "spot_pct": 1.06
+  },
+  "cultista": {
+   "chefe": 62.9,
+   "chefe_pct": 1.07,
+   "spot": 111.6,
+   "spot_pct": 1.13
+  },
+  "mutante": {
+   "chefe": 59.0,
+   "chefe_pct": 1.0,
+   "spot": 99.1,
+   "spot_pct": 1.0
+  },
+  "demonio": {
+   "chefe": 58.6,
+   "chefe_pct": 0.99,
+   "spot": 94.7,
+   "spot_pct": 0.96
+  },
+  "humano": {
+   "chefe": 48.8,
+   "chefe_pct": 0.83,
+   "spot": 97.1,
+   "spot_pct": 0.98
+  },
+  "tecnomancer": {
+   "chefe": 60.7,
+   "chefe_pct": 1.03,
+   "spot": 102.5,
+   "spot_pct": 1.03
+  },
+  "warlord": {
+   "chefe": 44.3,
+   "chefe_pct": 0.75,
+   "spot": 91.2,
+   "spot_pct": 0.92
+  }
+ },
+ "base_30": {
+  "anjo": {
+   "chefe": 143.6,
+   "chefe_pct": 0.98,
+   "spot": 254.6,
+   "spot_pct": 0.96
+  },
+  "cultista": {
+   "chefe": 163.1,
+   "chefe_pct": 1.11,
+   "spot": 292.3,
+   "spot_pct": 1.1
+  },
+  "mutante": {
+   "chefe": 146.9,
+   "chefe_pct": 1.0,
+   "spot": 247.0,
+   "spot_pct": 0.93
+  },
+  "demonio": {
+   "chefe": 149.9,
+   "chefe_pct": 1.02,
+   "spot": 239.4,
+   "spot_pct": 0.9
+  },
+  "humano": {
+   "chefe": 145.4,
+   "chefe_pct": 0.99,
+   "spot": 280.4,
+   "spot_pct": 1.05
+  },
+  "tecnomancer": {
+   "chefe": 157.9,
+   "chefe_pct": 1.08,
+   "spot": 283.5,
+   "spot_pct": 1.06
+  },
+  "warlord": {
+   "chefe": 118.7,
+   "chefe_pct": 0.81,
+   "spot": 266.5,
+   "spot_pct": 1.0
+  }
+ },
+ "base_50": {
+  "anjo": {
+   "chefe": 227.7,
+   "chefe_pct": 0.92,
+   "spot": 403.7,
+   "spot_pct": 0.93
+  },
+  "cultista": {
+   "chefe": 261.0,
+   "chefe_pct": 1.05,
+   "spot": 467.7,
+   "spot_pct": 1.07
+  },
+  "mutante": {
+   "chefe": 234.7,
+   "chefe_pct": 0.95,
+   "spot": 394.6,
+   "spot_pct": 0.91
+  },
+  "demonio": {
+   "chefe": 249.7,
+   "chefe_pct": 1.01,
+   "spot": 394.1,
+   "spot_pct": 0.91
+  },
+  "humano": {
+   "chefe": 247.6,
+   "chefe_pct": 1.0,
+   "spot": 474.1,
+   "spot_pct": 1.09
+  },
+  "tecnomancer": {
+   "chefe": 258.9,
+   "chefe_pct": 1.05,
+   "spot": 461.9,
+   "spot_pct": 1.06
+  },
+  "warlord": {
+   "chefe": 191.5,
+   "chefe_pct": 0.77,
+   "spot": 435.3,
+   "spot_pct": 1.0
+  }
+ },
+ "evo_70": {
+  "arcanjo": {
+   "chefe": 492.6,
+   "chefe_pct": 0.94,
+   "spot": 1123.6,
+   "spot_pct": 1.07
+  },
+  "serafim": {
+   "chefe": 322.8,
+   "chefe_pct": 0.62,
+   "spot": 586.9,
+   "spot_pct": 0.56
+  },
+  "lorde_das_trevas": {
+   "chefe": 431.0,
+   "chefe_pct": 0.82,
+   "spot": 715.1,
+   "spot_pct": 0.68
+  },
+  "ceifador": {
+   "chefe": 714.7,
+   "chefe_pct": 1.37,
+   "spot": 1110.3,
+   "spot_pct": 1.05
+  },
+  "arquimago": {
+   "chefe": 783.9,
+   "chefe_pct": 1.5,
+   "spot": 1902.1,
+   "spot_pct": 1.81
+  },
+  "profeta_do_amargo": {
+   "chefe": 527.1,
+   "chefe_pct": 1.01,
+   "spot": 1053.4,
+   "spot_pct": 1.0
+  },
+  "pistoleiro": {
+   "chefe": 631.2,
+   "chefe_pct": 1.21,
+   "spot": 1088.0,
+   "spot_pct": 1.03
+  },
+  "cacador_de_anjos": {
+   "chefe": 490.3,
+   "chefe_pct": 0.94,
+   "spot": 874.2,
+   "spot_pct": 0.83
+  },
+  "gladiador": {
+   "chefe": 385.6,
+   "chefe_pct": 0.74,
+   "spot": 613.1,
+   "spot_pct": 0.58
+  },
+  "abominacao": {
+   "chefe": 1009.5,
+   "chefe_pct": 1.93,
+   "spot": 2151.7,
+   "spot_pct": 2.04
+  },
+  "mechanicus": {
+   "chefe": 523.5,
+   "chefe_pct": 1.0,
+   "spot": 813.3,
+   "spot_pct": 0.77
+  },
+  "engenheiro_herege": {
+   "chefe": 616.0,
+   "chefe_pct": 1.18,
+   "spot": 1339.3,
+   "spot_pct": 1.27
+  },
+  "warlord": {
+   "chefe": 261.8,
+   "chefe_pct": 0.5,
+   "spot": 595.0,
+   "spot_pct": 0.56
+  }
+ }
+}

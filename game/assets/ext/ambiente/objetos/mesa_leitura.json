@@ -1,0 +1,16 @@
+{
+ "w": 276,
+ "h": 168,
+ "anchor": [
+  104,
+  114
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  2
+ ],
+ "descricao": "Mesa longa de leitura em carvalho, com trilho de veludo puído, três castiçais acesos, livros abertos, pilhas     e um tinteiro; cera escorrida no tampo.",
+ "kind": "mesa_leitura"
+}

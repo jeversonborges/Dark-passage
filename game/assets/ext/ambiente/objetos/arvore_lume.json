@@ -1,0 +1,17 @@
+{
+ "w": 1428,
+ "h": 850,
+ "anchor": [
+  283,
+  783
+ ],
+ "emissivo": "folhas e seiva em ciano",
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "arvore_lume"
+}

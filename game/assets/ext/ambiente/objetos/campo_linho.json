@@ -1,0 +1,16 @@
+{
+ "w": 250,
+ "h": 138,
+ "anchor": [
+  122,
+  74
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Canteiro de linho em flor sobre o lodo preto, em fileiras, flores azul-pálidas (o pano das múmias e dos     vivos); um rego d'água no meio.",
+ "kind": "campo_linho"
+}

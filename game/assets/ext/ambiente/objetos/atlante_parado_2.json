@@ -1,0 +1,17 @@
+{
+ "w": 212,
+ "h": 152,
+ "anchor": [
+  41,
+  129
+ ],
+ "bioma": "atlantida",
+ "lore": "os_parados",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "atlante_parado_2"
+}

@@ -1,0 +1,18 @@
+{
+ "w": 90,
+ "h": 58,
+ "anchor": [
+  34,
+  36
+ ],
+ "lore": "feitico_30b",
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Escaravelho do coração de pedra verde, do tamanho de um cão, num pedestal de calcário: as asas entalhadas e, na     base, o feitiço 30B (\"ó meu coração, não te levantes como testemunha contra mim\").",
+ "kind": "escaravelho_coracao"
+}

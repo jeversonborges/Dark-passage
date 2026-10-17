@@ -1,0 +1,18 @@
+{
+ "w": 440,
+ "h": 254,
+ "anchor": [
+  151,
+  175
+ ],
+ "emissivo": "fogo (lamparina)",
+ "npc": "Reis Abdu",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Tenda do capataz Reis Abdu: lona de linho cru, mesa com o livro de ponto e a lamparina, caixotes de achados,     pás, picaretas e cestos; a bandeira listrada da escavação.",
+ "kind": "tenda_escavacao"
+}

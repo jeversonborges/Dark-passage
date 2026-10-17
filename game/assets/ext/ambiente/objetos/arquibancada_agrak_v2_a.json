@@ -1,0 +1,16 @@
+{
+ "w": 418,
+ "h": 252,
+ "anchor": [
+  23,
+  236
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Variação: degrau quebrado, cadeiras de plástico derretidas e um holofote caído.",
+ "kind": "arquibancada_agrak_v2_a"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 244,
+ "h": 152,
+ "anchor": [
+  60,
+  120
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Estante de nichos da Casa da Vida, de madeira de acácia escurecida, com rolos de papiro amarrados e jarros de     guardar rolos; poeira e rolos caídos no chão.",
+ "kind": "estante_rolos"
+}

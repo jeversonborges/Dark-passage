@@ -1,0 +1,15 @@
+{
+ "w": 110,
+ "h": 76,
+ "anchor": [
+  36,
+  48
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Sacos de sal empilhados, um furado.",
+ "kind": "sacos_sal"
+}

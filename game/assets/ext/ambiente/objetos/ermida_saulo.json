@@ -1,0 +1,16 @@
+{
+ "w": 580,
+ "h": 354,
+ "anchor": [
+  73,
+  315
+ ],
+ "emissivo": "velas e brilho dourado",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Ermida do Saulo: nicho baixo de concreto debaixo da arquibancada, velas derretidas, esteira de palha,     a Couraça do Agrak pendurada em ganchos e as seis armas encostadas. Luz dourada.",
+ "kind": "ermida_saulo"
+}

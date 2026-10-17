@@ -1,0 +1,17 @@
+{
+ "w": 652,
+ "h": 398,
+ "anchor": [
+  131,
+  327
+ ],
+ "nota": "linha d'água em z=0",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  2
+ ],
+ "descricao": "Feluca do Nilo (o barco do barqueiro Ahmose): casco de acácia escuro, a grande vela latina de linho remendado     numa verga inclinada, leme de remo, cordame, jarros e uma esteira no fundo.",
+ "kind": "feluca"
+}

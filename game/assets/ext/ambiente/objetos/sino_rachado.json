@@ -1,0 +1,17 @@
+{
+ "w": 152,
+ "h": 88,
+ "anchor": [
+  46,
+  56
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Sino de bronze caído da torre e rachado, de boca para o lado, com o badalo arrancado, a trave quebrada e a corda     podre; verdete por fora e cera pingada por cima (alguém acende velas para ele).",
+ "kind": "sino_rachado"
+}

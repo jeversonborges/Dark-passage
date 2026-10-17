@@ -1,0 +1,16 @@
+{
+ "w": 378,
+ "h": 240,
+ "anchor": [
+  86,
+  190
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "Trilho com três porcos escaldados pendurados no balancim, barrigas abertas.",
+ "kind": "ganchos_porcos"
+}

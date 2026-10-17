@@ -10,6 +10,25 @@ var alvo_ui: Control
 var minimapa: Control
 var rastreador: RichTextLabel
 var log_box: VBoxContainer
+var chat_painel: PanelContainer
+var chat_texto: RichTextLabel
+var chat_entrada: LineEdit
+var chat_fundo: StyleBoxFlat
+var chat_canal_bt: Button
+var chat_canal := "perto"     # canal da caixa: "perto" ou "global" (o botão troca); /g, /m e /r mudam só aquela mensagem
+var chat_ultimo_pm := ""
+var chat_barra: HBoxContainer   # aba "Chat" + botões minimizar e fechar, logo abaixo do painel
+var chat_aba: Button
+var chat_min_bt: Button
+var chat_estado := "aberto"   # "aberto", "minimizado" (só a aba, contando as novas) ou "fechado" (some tudo; F2 ou Enter reabrem). Salvo em user://chat.cfg
+var chat_nao_lidas := 0
+var chat_tw: Tween
+const CHAT_CFG := "user://chat.cfg"
+var grupo_box: VBoxContainer
+var convite_box: PanelContainer
+var troca_box: PanelContainer
+var inspecao_box: PanelContainer
+var menu_box: PanelContainer
 var aviso_lbl: Label
 var aviso_t := 0.0
 var banner: Control
@@ -35,12 +54,15 @@ var hover_slot := -1
 var hover_cinto := -1
 var hover_menu := -1
 var pressionado := {}         # slot -> tempo do flash
+var pet_ui: Control           # barra do pet do Cultista (retrato, vida e 5 comandos), em cima da barra de skills
+var hover_pet := -1
 var status_jog := {}          # s -> fim
 
 const MENU := ["personagem", "mochila", "habilidades", "missoes", "mapa", "menu"]
 const MENU_JANELA := {"personagem": "personagem", "mochila": "inventario", "habilidades": "habilidades", "missoes": "missoes"}
 const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "habilidades": "Habilidades (K)", "missoes": "Missões (J)", "mapa": "Mapa (M)", "menu": "Menu (Esc)"}
 const CINTO := [["vida", "Q"], ["recurso", "W"], ["antidoto", "E"], ["vela", "R"]]
+const CINTO_PAD := ["pocao_vida", "pocao_recurso", "antidoto", "vela"]   # ações do controle de cada slot do cinto
 const STATUS_NOME := {"atordoado": "Atordoado", "lento": "Lento", "queimadura": "Queimando", "sangramento": "Sangrando", "veneno": "Envenenado",
 	"agarrado": "Agarrado", "silenciado": "Silenciado", "derrubado": "Derrubado", "medo": "Medo", "cego": "Cego", "enraizado": "Preso"}
 
@@ -51,10 +73,13 @@ func _ready() -> void:
 	raiz.theme = Tema.tema_janelas()
 	add_child(raiz)
 	_montar_barra()
+	_montar_pet()
 	_montar_topo()
 	_montar_alvo()
 	_montar_minimapa()
 	_montar_log()
+	_montar_chat()
+	_montar_grupo()
 	_montar_centro()
 	_montar_tooltip()
 
@@ -104,13 +129,18 @@ func _montar_barra() -> void:
 	barra.mouse_filter = Control.MOUSE_FILTER_STOP
 	barra.dentro = func(p: Vector2) -> bool:
 		if p.y > 66 and p.x > 0 and p.x < 1280: return true
+		if _n_slots() > 10 and p.y > 30 and p.x > 218 and p.x < 222 + 48 * (_n_slots() - 10): return true
 		return p.distance_to(Vector2(78, 78)) < 66 or p.distance_to(Vector2(1202, 78)) < 66
 	barra.entrada = _entrada_barra
 	barra.mouse_exited.connect(func(): hover_slot = -1; hover_cinto = -1; hover_menu = -1; esconder_tip())
 	raiz.add_child(barra)
 
 func _slot_rect(i: int) -> Rect2:
+	if i >= Evolucao.SLOT_EVO: return Rect2(222 + 48 * (i - Evolucao.SLOT_EVO), 34, 44, 44)   # fileira da evolução (Shift+1..5)
 	return Rect2(222 + 54 * i, 90, 52, 52)
+
+func _n_slots() -> int:
+	return maxi(10, game.jog.skills_slots.size()) if game.jog else 10
 
 func _cinto_rect(i: int) -> Rect2:
 	return Rect2(792 + 52 * i, 94, 46, 46)
@@ -122,7 +152,7 @@ func _entrada_barra(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion:
 		var p: Vector2 = ev.position
 		var hs := -1; var hc := -1; var hm := -1
-		for i in 10: if _slot_rect(i).has_point(p): hs = i
+		for i in _n_slots(): if _slot_rect(i).has_point(p): hs = i
 		for i in 4: if _cinto_rect(i).has_point(p): hc = i
 		for i in 6: if _menu_rect(i).has_point(p): hm = i
 		if hs != hover_slot or hc != hover_cinto or hm != hover_menu:
@@ -131,6 +161,11 @@ func _entrada_barra(ev: InputEvent) -> void:
 			elif hc >= 0: mostrar_tip(_tip_cinto(hc))
 			elif hm >= 0: mostrar_tip("[font_size=14]%s[/font_size]" % MENU_NOME[MENU[hm]])
 			else: esconder_tip()
+	elif ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_RIGHT and hover_slot >= 0:
+		# clique direito no slot: a skill entra ou sai do modo automático
+		game.audio.tocar("ui/clique", null, -6.0)
+		game.cmd("auto_skill", [hover_slot])
+		barra.accept_event()
 	elif ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
 		if hover_slot >= 0: game.usar_skill(hover_slot)
 		elif hover_cinto >= 0:
@@ -223,19 +258,21 @@ func _desenhar_barra(c: Painel) -> void:
 	else:
 		_txt(c, Vector2(186, 134), "%d OURO" % j.ouro, 7, Color("#e0b84a"), Tema.FONTE_PIXEL, 0, 2)
 	# skills
-	for i in 10:
+	for i in _n_slots():
 		var r := _slot_rect(i)
+		var k := r.size.x / 52.0
 		var h: Dictionary = Jogador.skill_def(j, i) if i < j.skills_slots.size() else {}
 		if not h.is_empty():
 			var ic := Tema.icone_skill(j.classe, h["id"])
 			var bloq := j.nivel < int(h["nivel"])
 			var falta: bool = not bloq and not h.get("passiva", false) and ((j.classe == "cultista" and j.hp <= Jogador.custo(j, h)) or (j.classe != "cultista" and j.rec < Jogador.custo(j, h)))
 			var mod := Color(0.3, 0.3, 0.3) if bloq else (Color(0.55, 0.6, 0.85) if falta else Color.WHITE)
-			if ic.size() == 2: c.draw_texture_rect_region(ic[0], Rect2(r.position + Vector2(6, 6), Vector2(40, 40)), ic[1], mod)
+			if ic.size() == 2: c.draw_texture_rect_region(ic[0], Rect2(r.position + Vector2(6, 6) * k, Vector2(40, 40) * k), ic[1], mod)
+			elif h.has("_evo"): _txt(c, r.position + Vector2(26, 30) * k, String(h["nome"]).left(3).to_upper(), 11, Color("#d8c08a") * mod, Tema.FONTE_PIXEL, 0, 2)   # ícone pintado ainda não chegou (LISTA.md)
 			if bloq: _txt(c, r.position + Vector2(26, 32), "%d" % int(h["nivel"]), 13, Color("#a89f8c"))
 			var cd := float(j.cds.get(h["id"], 0.0))
 			if cd > 0.0:
-				var tot := float(h.get("recarga", 1.0))
+				var tot := float(Jogador.talentos_em(j, h).get("recarga", 1.0))
 				_setor(c, r.position + Vector2(26, 26), 20.0, cd / maxf(0.1, tot), Color(0, 0, 0, 0.72))
 				_txt(c, r.position + Vector2(26, 31), ("%.1f" % cd) if cd < 3.0 else ("%d" % ceili(cd)), 13, Color("#f6ead0"))
 			if h.has("cargas"):
@@ -243,13 +280,15 @@ func _desenhar_barra(c: Painel) -> void:
 				_txt(c, r.position + Vector2(44, 46), "%d" % cg, 8, Color("#f6ead0"), Tema.FONTE_PIXEL, 1, 2)
 				var rc := float(j.aux.get("recarga_carga_" + h["id"], 0.0))
 				if rc > 0.0 and cd <= 0.0: c.draw_rect(Rect2(r.position + Vector2(6, 44), Vector2(40.0 * (1.0 - rc / float(h["recarga"])), 2)), Color(0.9, 0.75, 0.3, 0.9))
-		c.draw_texture(Tema.ui("slot_sombra"), r.position)
+		c.draw_texture_rect(Tema.ui("slot_sombra"), r, false)
 		var mold := "slot_moldura"
 		if pressionado.get(i, 0.0) > t: mold = "slot_pressionado"
 		elif i == hover_slot: mold = "slot_hover"
 		elif not h.is_empty() and j.buffer_skill.get("slot", -1) == i: mold = "slot_ativo"
-		c.draw_texture(Tema.ui(mold), r.position)
-		c.draw_texture(Tema.ui("tecla_%d" % ((i + 1) % 10)), r.position + Vector2(-4, -5))
+		c.draw_texture_rect(Tema.ui(mold), r, false)
+		if i < 10: _tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % ((i + 1) % 10), "skill_%d" % (i + 1))
+		elif not h.is_empty(): _txt(c, r.position + Vector2(4, 9), "⇧%d" % (i - 9), 8, Color("#d8c08a"), Tema.FONTE_PIXEL, -1, 2)
+		if not h.is_empty() and Jogador.skill_no_auto(j, i): _selo_auto(c, r)
 	# modo automático (tecla Z): "AUTO" dourado sobre a barra de skills e moldura pulsando no slot da skill automática
 	if j.aux.get("auto", false):
 		var pulso := 0.65 + 0.35 * sin(t * 4.0)
@@ -257,9 +296,9 @@ func _desenhar_barra(c: Painel) -> void:
 		c.draw_arc(ca, 9.0, t * 3.0, t * 3.0 + TAU * 0.75, 18, Color(0.94, 0.78, 0.32, pulso), 2.0)
 		c.draw_circle(ca, 3.0, Color(0.94, 0.78, 0.32, pulso))
 		_txt(c, Vector2(540, 56), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso), Tema.FONTE_TITULO, 0, 4)
-		var sa := Jogador.slot_auto(j)
-		if sa >= 0 and sa < 10:
-			c.draw_rect(_slot_rect(sa).grow(1.0 + 2.0 * pulso), Color(0.98, 0.8, 0.3, 0.5 + 0.4 * pulso), false, 2.0)
+		for sa in mini(10, j.skills_slots.size()):
+			if Jogador.skill_no_auto(j, sa):
+				c.draw_rect(_slot_rect(sa).grow(1.0 + 2.0 * pulso), Color(0.98, 0.8, 0.3, 0.5 + 0.4 * pulso), false, 2.0)
 	# cinto
 	for i in 4:
 		var r := _cinto_rect(i)
@@ -272,7 +311,7 @@ func _desenhar_barra(c: Painel) -> void:
 		if cdp > 0.0 and i < 2: _setor(c, r.position + Vector2(23, 23), 18.0, cdp / Jogador.CD_POCAO, Color(0, 0, 0, 0.6))
 		c.draw_texture(Tema.ui("cinto_sombra"), r.position)
 		c.draw_texture(Tema.ui("cinto_hover" if i == hover_cinto else "cinto_moldura"), r.position)
-		c.draw_texture(Tema.ui("tecla_" + CINTO[i][1].to_lower()), r.position + Vector2(-4, -5))
+		_tecla(c, r.position + Vector2(-4, -5), "tecla_" + CINTO[i][1].to_lower(), CINTO_PAD[i])
 	# menu
 	for i in 6:
 		var r := _menu_rect(i)
@@ -281,6 +320,103 @@ func _desenhar_barra(c: Painel) -> void:
 		c.draw_texture(Tema.ui("botao_%s_%s" % [nm, "hover" if i == hover_menu or aberto else "normal"]), r.position)
 		if nm == "personagem" and j.pontos > 0:
 			c.draw_circle(r.position + Vector2(31, 3), 4.0, Color(1.0, 0.75, 0.2, 0.7 + 0.3 * sin(t * 5.0)))
+
+# =================================================================== barra do pet (Cultista, 0.9.3)
+## Arte: pet_barra.png (pintada pelo Jefin; retrato, molduras, ícones e nomes já vêm nela). O código desenha por
+## cima a vida do familiar, o modo ativo, o hover e o retrato apagado enquanto ele volta do abismo.
+const PET_CMD := ["atacar", "proteger", "teleportar", "agressivo", "passivo"]
+const PET_NOME := {"atacar": "Atacar: o familiar vai no seu alvo", "proteger": "Proteger: ataca quem bater em você ou nele",
+	"teleportar": "Teleportar: o familiar volta para o seu lado", "agressivo": "Modo agressivo: ataca monstros perto de você",
+	"passivo": "Modo passivo: só segue, não ataca"}
+const PET_BOTAO := [Rect2(80, 8, 54, 49), Rect2(140, 8, 53, 49), Rect2(198, 8, 54, 49), Rect2(258, 8, 57, 49), Rect2(321, 8, 53, 49)]
+const PET_RETRATO := Rect2(15, 5, 54, 53)
+
+func _montar_pet() -> void:
+	pet_ui = _painel(_desenhar_pet)
+	pet_ui.size = Vector2(387, 63)
+	pet_ui.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	pet_ui.mouse_filter = Control.MOUSE_FILTER_STOP
+	pet_ui.entrada = _entrada_pet
+	pet_ui.mouse_exited.connect(func(): hover_pet = -1; esconder_tip())
+	pet_ui.visible = false
+	raiz.add_child(pet_ui)
+
+## O familiar do jogador (vivo ou voltando do abismo), procurado pelo dono: serve no solo e em rede.
+func _meu_pet() -> Ent:
+	var j := _jog()
+	if j == null or j.classe != "cultista": return null
+	for e: Ent in game.sim.ents.values():
+		if e.tipo == "invocacao" and e.dono == j.id and String(e.kind).begins_with("familiar_"): return e
+	return null
+
+func _posicionar_pet() -> void:
+	var j := _jog()
+	pet_ui.visible = j != null and j.classe == "cultista" and _meu_pet() != null
+	if not pet_ui.visible: return
+	var sobe := 48.0 if _n_slots() > 10 else 0.0   # com a fileira da evolução (Shift+1..5), a barra do pet sobe
+	pet_ui.offset_left = -640 + 185; pet_ui.offset_right = pet_ui.offset_left + 387
+	pet_ui.offset_top = -147 - sobe; pet_ui.offset_bottom = pet_ui.offset_top + 63
+
+func _entrada_pet(ev: InputEvent) -> void:
+	if ev is InputEventMouseMotion:
+		var h := -1
+		for i in PET_BOTAO.size(): if PET_BOTAO[i].has_point(ev.position): h = i
+		if h != hover_pet:
+			hover_pet = h
+			if h >= 0: mostrar_tip("[font_size=14]%s[/font_size]" % PET_NOME[PET_CMD[h]])
+			elif PET_RETRATO.has_point(ev.position): mostrar_tip(_tip_pet())
+			else: esconder_tip()
+	elif ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
+		if hover_pet >= 0:
+			game.audio.tocar("ui/clique", null, -6.0)
+			game.cmd("pet", [PET_CMD[hover_pet]])
+			pressionado["pet_%d" % hover_pet] = t + 0.18
+		pet_ui.accept_event()
+
+func _tip_pet() -> String:
+	var f := _meu_pet()
+	if f == null: return ""
+	var est := "voltando do abismo" if not f.vivo else "%d / %d de vida" % [ceili(f.hp), ceili(f.hp_max)]
+	return "[font_size=15][b]%s[/b][/font_size]\n[font_size=13]%s · cura 10%% do dano que você causa[/font_size]" % [f.nome, est]
+
+func _desenhar_pet(c: Painel) -> void:
+	var f := _meu_pet()
+	var j := _jog()
+	if f == null or j == null: return
+	var tex := Tema.ui("pet_barra")
+	if tex: c.draw_texture_rect(tex, Rect2(Vector2.ZERO, c.size), false)
+	# retrato apagado enquanto o familiar volta sozinho (30 s)
+	if not f.vivo:
+		c.draw_rect(PET_RETRATO, Color(0.02, 0.01, 0.01, 0.7))
+		_txt(c, PET_RETRATO.get_center() + Vector2(0, 4), "VOLTANDO", 7, Color("#c9a27a"), Tema.FONTE_PIXEL, 0, 2)
+	# vida do familiar no pé do retrato
+	var hr := Rect2(PET_RETRATO.position.x + 2, PET_RETRATO.end.y - 7, PET_RETRATO.size.x - 4, 5)
+	_barra(c, hr, f.frac_hp() if f.vivo else 0.0, Color("#b3261e") if f.frac_hp() > 0.3 else Color("#ff4a2a"))
+	# modo ativo: moldura de latão acesa; hover e clique clareiam o botão
+	var modo: String = j.aux.get("pet_modo", "proteger")
+	for i in PET_BOTAO.size():
+		var r: Rect2 = PET_BOTAO[i]
+		if PET_CMD[i] == modo:
+			var pulso := 0.75 + 0.25 * sin(t * 3.0)
+			c.draw_rect(r.grow(1.0), Color(0.98, 0.78, 0.32, 0.85 * pulso), false, 2.0)
+		if float(pressionado.get("pet_%d" % i, 0.0)) > t: c.draw_rect(r, Color(1.0, 0.85, 0.5, 0.22))
+		elif i == hover_pet: c.draw_rect(r, Color(1.0, 0.95, 0.8, 0.10))
+	if not f.vivo:
+		for i in [0, 2]: c.draw_rect(PET_BOTAO[i], Color(0, 0, 0, 0.45))   # Atacar e Teleportar esperam o familiar voltar
+	# o "AUTO" da barra fica embaixo desta; repete ao lado
+	if j.aux.get("auto", false):
+		var pulso2 := 0.65 + 0.35 * sin(t * 4.0)
+		_txt(c, Vector2(c.size.x + 34, 40), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso2), Tema.FONTE_TITULO, 0, 4)
+
+## Selo de latão no canto do slot: a skill está no modo automático (clique direito liga/desliga).
+func _selo_auto(c: CanvasItem, r: Rect2) -> void:
+	var p := r.position + Vector2(44, 44)
+	var losango := PackedVector2Array([p + Vector2(0, -7), p + Vector2(7, 0), p + Vector2(0, 7), p + Vector2(-7, 0)])
+	c.draw_colored_polygon(losango, Color(0.07, 0.05, 0.03, 0.92))
+	var dentro := PackedVector2Array([p + Vector2(0, -5), p + Vector2(5, 0), p + Vector2(0, 5), p + Vector2(-5, 0)])
+	c.draw_colored_polygon(dentro, Color(0.55, 0.38, 0.14))
+	c.draw_polyline(PackedVector2Array([losango[0], losango[1], losango[2], losango[3], losango[0]]), Color(0.94, 0.78, 0.36), 1.0)
+	_txt(c, p + Vector2(0, 3), "A", 7, Color("#fff0c0"), Tema.FONTE_PIXEL, 0, 2)
 
 func _cinto_item(i: int) -> Array:
 	var j := _jog()
@@ -298,6 +434,19 @@ func _cinto_item(i: int) -> Array:
 		total += q
 	if primeiro == "": primeiro = ordem[0] if j.classe != "cultista" or CINTO[i][0] != "recurso" else ""
 	return [primeiro, total]
+
+## Etiqueta de atalho no canto do slot: a tecla, ou o botão do controle quando ele está em uso.
+## Combinação (LT + botão): o LT pequeno atrás e o botão na frente.
+func _tecla(c: CanvasItem, p: Vector2, tecla: String, acao_pad: String) -> void:
+	if Controle.pad_ativo():
+		var gl: Array = Controle.inst.glifos(Controle.inst.mapa.get(acao_pad, ""))
+		if gl.size() == 2:
+			c.draw_texture_rect(gl[0], Rect2(p + Vector2(-3, -3), Vector2(15, 15)), false)
+			c.draw_texture(gl[1], p + Vector2(6, 2))
+			return
+		if gl.size() == 1: c.draw_texture(gl[0], p + Vector2(-1, -2))
+		return   # sem botão no controle (slot 10): sem etiqueta
+	c.draw_texture(Tema.ui(tecla), p)
 
 func _setor(c: CanvasItem, centro: Vector2, r: float, frac: float, cor: Color) -> void:
 	if frac <= 0.0: return
@@ -326,10 +475,12 @@ func _tip_skill(i: int) -> String:
 		if h.has("alcance") and float(h["alcance"]) > 2.0: linha.append("alcance %d" % int(h["alcance"]))
 		if h.has("cargas"): linha.append("%d cargas" % int(h["cargas"]))
 	s += "[color=#a89f8c][i]%s[/i][/color]\n" % " · ".join(linha)
-	s += "[color=#e8dfc9]%s[/color]" % sk.get("descricao", "")
+	s += "[color=#e8dfc9]%s[/color]" % sk.get("descricao", h.get("descricao", ""))
 	for ef in sk.get("efeitos", []):
 		s += "\n[color=#9cc8ff]• %s[/color]" % ef
 	if j.nivel < int(h["nivel"]): s += "\n[color=#ff6a4a]Libera no nível %d[/color]" % int(h["nivel"])
+	if not h.get("passiva", false):
+		s += "\n[color=#e0b84a]%s[/color] [color=#7d7466]· clique direito muda · Shift+Z ajustes[/color]" % ("No automático (Z)" if Jogador.skill_no_auto(j, i) else "Fora do automático")
 	return s
 
 func _tip_cinto(i: int) -> String:
@@ -344,12 +495,52 @@ func _tip_cinto(i: int) -> String:
 func _montar_topo() -> void:
 	topo_esq = _painel(_desenhar_topo)
 	topo_esq.position = Vector2(10, 10)
-	topo_esq.size = Vector2(270, 110)
+	topo_esq.size = Vector2(280, 118)
 	raiz.add_child(topo_esq)
 
 func _desenhar_topo(c: Painel) -> void:
 	var j := _jog()
 	if j == null: return
+	if Tema.ui("retrato_painel"): _desenhar_retrato(c, j)
+	else: _desenhar_retrato_simples(c, j)
+	_desenhar_buffs(c, j, 92.0 if Tema.ui("retrato_painel") else 82.0)
+
+## Retrato no painel Ferrugem Sagrada (retrato_painel.png, 272x84): poço quadrado de latão com o sprite,
+## medalhão do nível e sulcos gravados para vida e recurso. retrato_vidro.png vai por cima do sprite.
+func _desenhar_retrato(c: Painel, j: Ent) -> void:
+	c.draw_texture(Tema.ui("retrato_painel"), Vector2.ZERO)
+	var meta: Dictionary = Defs.SPR.get(j.classe, {})
+	if not meta.is_empty():
+		var tex := Tema.tex(meta["anims"]["idle"]["file"])
+		var anc: Array = meta["anchor"]
+		if tex: c.draw_texture_rect_region(tex, Rect2(12, 12, 56, 56), Rect2(anc[0] - 28, anc[1] - 116, 56, 56))
+	var vidro := Tema.ui("retrato_vidro")
+	if vidro: c.draw_texture(vidro, Vector2.ZERO)
+	_txt(c, Vector2(71, 77), "%d" % j.nivel, 12 if j.nivel < 100 else 10, Color("#f0dca0"), Tema.FONTE_TITULO, 0, 3)
+	_txt(c, Vector2(92, 27), j.nome, 15, Color("#f0dca0"), Tema.FONTE_TITULO, -1, 3)
+	_txt(c, Vector2(92, 41), _linha_classe(j), 12, Color("#a89f8c"), Tema.FONTE_ITALICO, -1, 2)
+	_encher(c, Rect2(90, 50, 166, 9), j.frac_hp(), Color(0.72, 0.1, 0.08))
+	if j.rec_max > 0.0: _encher(c, Rect2(90, 63, 166, 6), j.rec / j.rec_max, _cor_recurso())
+
+## Líquido dentro de um sulco já desenhado na arte (sem caixa em volta).
+func _encher(c: CanvasItem, r: Rect2, frac: float, cor: Color) -> void:
+	var f := Rect2(r.position, Vector2(r.size.x * clampf(frac, 0.0, 1.0), r.size.y))
+	if f.size.x <= 0.0: return
+	c.draw_rect(f, cor.darkened(0.25))
+	c.draw_rect(Rect2(f.position + Vector2(0, 1), Vector2(f.size.x, maxf(1.0, r.size.y * 0.35))), cor.lightened(0.15))
+	c.draw_rect(Rect2(f.position.x, f.end.y - 1, f.size.x, 1), Color(0, 0, 0, 0.45))
+	c.draw_rect(Rect2(f.end.x - 1, f.position.y, 1, f.size.y), cor.lightened(0.45))
+
+func _linha_classe(j: Ent) -> String:
+	var cls: Dictionary = {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+	return "%s · %s" % [Evolucao.nome_classe(j) if j.evolucao != "" else cls.get(j.classe, j.classe), "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"]
+
+func _cor_recurso() -> Color:
+	var cr := {"folego": Color(0.3, 0.55, 0.9), "graca": Color(0.95, 0.85, 0.45), "furia": Color(0.85, 0.35, 0.1), "brasa": Color(1.0, 0.45, 0.1), "carga": Color(0.35, 0.8, 1.0)}
+	return cr.get(_liquido_recurso(), Color(0.5, 0.5, 0.8))
+
+## Visual antigo, quando a peça do retrato não existe.
+func _desenhar_retrato_simples(c: Painel, j: Ent) -> void:
 	var r := Rect2(0, 0, 262, 76)
 	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.9), Color(0.42, 0.34, 0.2), 2, 3), r)
 	# retrato: primeiro quadro do idle virado para o sul
@@ -368,13 +559,12 @@ func _desenhar_topo(c: Painel) -> void:
 	_arco(c, Vector2(62, 62), 11, Color(0.69, 0.55, 0.31), 1.5)
 	_txt(c, Vector2(62, 67), "%d" % j.nivel, 12, Color("#f0dca0"))
 	_txt(c, Vector2(82, 24), j.nome, 15, Color("#f0dca0"), Tema.FONTE_TITULO, -1)
-	var cls: Dictionary = {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
-	_txt(c, Vector2(82, 40), "%s · %s" % [cls.get(j.classe, j.classe), "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 12, Color("#a89f8c"), Tema.FONTE_ITALICO, -1, 2)
+	_txt(c, Vector2(82, 40), _linha_classe(j), 12, Color("#a89f8c"), Tema.FONTE_ITALICO, -1, 2)
 	_barra(c, Rect2(82, 48, 168, 8), j.frac_hp(), Color(0.72, 0.1, 0.08))
-	if j.rec_max > 0.0:
-		var cr := {"folego": Color(0.3, 0.55, 0.9), "graca": Color(0.95, 0.85, 0.45), "furia": Color(0.85, 0.35, 0.1), "brasa": Color(1.0, 0.45, 0.1), "carga": Color(0.35, 0.8, 1.0)}
-		_barra(c, Rect2(82, 60, 168, 5), j.rec / j.rec_max, cr.get(_liquido_recurso(), Color(0.5, 0.5, 0.8)))
-	# buffs e status
+	if j.rec_max > 0.0: _barra(c, Rect2(82, 60, 168, 5), j.rec / j.rec_max, _cor_recurso())
+
+## Buffs e status embaixo do retrato.
+func _desenhar_buffs(c: Painel, j: Ent, y: float) -> void:
 	var x := 0.0
 	var agora := []
 	for b in j.buffs: agora.append([b["id"], float(b["t"]), Color(0.4, 0.75, 0.35)])
@@ -382,11 +572,11 @@ func _desenhar_topo(c: Painel) -> void:
 	for a in agora:
 		var nome: String = STATUS_NOME.get(a[0], Defs.ITENS.get(a[0], {}).get("nome", str(a[0]).replace("_", " ").capitalize()))
 		var w := Tema.FONTE_TEXTO.get_string_size(nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x + 30
-		var rr := Rect2(x, 82, w, 18)
+		var rr := Rect2(x, y, w, 18)
 		c.draw_rect(rr, Color(0.06, 0.05, 0.04, 0.85))
 		c.draw_rect(rr, a[2], false, 1.0)
-		c.draw_string(Tema.FONTE_TEXTO, Vector2(x + 5, 96), nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, a[2].lightened(0.35))
-		c.draw_string(Tema.FONTE_PIXEL, Vector2(x + w - 22, 95), "%d" % ceili(a[1]), HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color("#e8dfc9"))
+		c.draw_string(Tema.FONTE_TEXTO, Vector2(x + 5, y + 14), nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 12, a[2].lightened(0.35))
+		c.draw_string(Tema.FONTE_PIXEL, Vector2(x + w - 22, y + 13), "%d" % ceili(a[1]), HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color("#e8dfc9"))
 		x += w + 4
 
 func _arco(c: CanvasItem, cen: Vector2, r: float, cor: Color, w: float) -> void:
@@ -671,7 +861,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 	# legenda à direita
 	var lx := s.x - 250.0
 	var caixa := Rect2(lx, 70, 230, s.y - 110)
-	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.95), Color(0.42, 0.34, 0.2), 1, 3), caixa)
+	c.draw_style_box(Tema.moldura_popup(), caixa)
 	var y0 := 100.0
 	_txt_esq(c, Vector2(lx + 16, y0), "LEGENDA", 14, Color("#e0c890"), Tema.FONTE_TITULO); y0 += 26
 	var itens := [["voce", "Você"], ["estrela", "Objetivo de missão"], ["!", "Missão nova"], ["?", "Entregar missão"],
@@ -702,6 +892,10 @@ const DESTINOS := {
 	"ossario_carpideiras": "Ossário (chefe Irmã Celeste, nv 10)",
 	"camara_trombeta": "Câmara (chefe Zacarias, nv 12)",
 	"area_inicial": "Saída para a Paróquia",
+	"minas_dos_gigantes": "Fosso · Minas dos Gigantes (chefe Ohya, nv 8)",
+	"salao_das_noivas": "Fosso · Salão das Noivas (chefe Naamá, nv 10)",
+	"altar_do_juramento": "Fosso · Altar do Juramento (chefe Semyaza, nv 12)",
+	"jerusalem_hermon": "Saída para as Fontes do Jordão",
 }
 var mapa_tex: ImageTexture
 var mapa_tex_id := ""
@@ -813,6 +1007,385 @@ func _montar_log() -> void:
 	ganhos.alignment = BoxContainer.ALIGNMENT_END
 	ganhos.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	raiz.add_child(ganhos)
+
+# =================================================================== grupo, convite, inspecionar
+func _montar_grupo() -> void:
+	grupo_box = VBoxContainer.new()
+	grupo_box.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	grupo_box.offset_left = 380; grupo_box.offset_top = 14; grupo_box.offset_right = 600
+	grupo_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	grupo_box.add_theme_constant_override("separation", 3)
+	grupo_box.visible = false
+	raiz.add_child(grupo_box)
+
+## Barras de vida do grupo (de todos os mapas): só aparecem com dois ou mais membros.
+func grupo_atualizar(membros: Array) -> void:
+	grupo_box.visible = membros.size() >= 2
+	if not grupo_box.visible:
+		for c in grupo_box.get_children(): c.queue_free()
+		return
+	while grupo_box.get_child_count() > membros.size(): var c := grupo_box.get_child(grupo_box.get_child_count() - 1); grupo_box.remove_child(c); c.queue_free()
+	for i in membros.size():
+		var m: Dictionary = membros[i]
+		var linha: VBoxContainer
+		if i < grupo_box.get_child_count():
+			linha = grupo_box.get_child(i)
+		else:
+			linha = VBoxContainer.new(); linha.add_theme_constant_override("separation", 0)
+			linha.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			grupo_box.add_child(linha)
+			var barra := ProgressBar.new(); barra.show_percentage = false; barra.custom_minimum_size = Vector2(200, 9)
+			barra.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			var cheio := Tema.caixa(Color(0.62, 0.12, 0.08), Color(0, 0, 0, 0), 0, 1); cheio.set_content_margin_all(0)
+			var vazio := Tema.caixa(Color(0.08, 0.06, 0.05, 0.85), Color(0, 0, 0, 0), 0, 1); vazio.set_content_margin_all(0)
+			barra.add_theme_stylebox_override("fill", cheio)
+			barra.add_theme_stylebox_override("background", vazio)
+			linha.add_child(barra)
+			var nome := Tema.rotulo("", 13, Color("#e8dcc0"), Tema.FONTE_TEXTO, 3)
+			nome.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			linha.add_child(nome)
+		var nome_lbl: Label = linha.get_child(1)
+		var cor: String = COR_CLASSE.get(str(m.get("classe", "")), "#e8dcc0")
+		var txt := ("★ " if m.get("lider", false) else "") + "%s  Nv %d" % [str(m.get("nome", "?")), int(m.get("nivel", 1))]
+		if not m.get("vivo", true): txt += "  (morto)"
+		nome_lbl.text = txt
+		nome_lbl.add_theme_color_override("font_color", Color(cor))
+		var barra: ProgressBar = linha.get_child(0)
+		barra.max_value = maxf(float(m.get("hp_max", 1)), 1.0)
+		barra.value = clampf(float(m.get("hp", 0)), 0.0, barra.max_value)
+
+func convite_mostrar(d: Dictionary) -> void:
+	if convite_box != null: convite_box.queue_free()
+	convite_box = PanelContainer.new()
+	convite_box.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	convite_box.offset_top = 150; convite_box.offset_left = -200; convite_box.offset_right = 200
+	convite_box.add_theme_stylebox_override("panel", Tema.moldura_popup())
+	convite_box.custom_minimum_size.y = 120
+	raiz.add_child(convite_box)
+	var v := VBoxContainer.new(); v.add_theme_constant_override("separation", 8)
+	convite_box.add_child(v)
+	var tl := Tema.rotulo("%s convida você para o grupo." % str(d.get("de", "Alguém")), 16, Color("#f0e2c0"), Tema.FONTE_TEXTO, 2)
+	tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(tl)
+	var linha := HBoxContainer.new(); linha.alignment = BoxContainer.ALIGNMENT_CENTER; linha.add_theme_constant_override("separation", 10)
+	v.add_child(linha)
+	var ok := Button.new(); ok.text = "Aceitar"
+	ok.pressed.connect(func(): game.grupo_cmd("aceitar"); convite_box.queue_free())
+	linha.add_child(ok)
+	var nao := Button.new(); nao.text = "Recusar"
+	nao.pressed.connect(func(): game.grupo_cmd("recusar"); convite_box.queue_free())
+	linha.add_child(nao)
+	get_tree().create_timer(30.0).timeout.connect(func(): if is_instance_valid(convite_box): convite_box.queue_free())
+
+## Alguém pediu para negociar: Aceitar abre a janela de troca nos dois (o servidor manda o estado).
+func troca_pedido_mostrar(d: Dictionary) -> void:
+	if troca_box != null and is_instance_valid(troca_box): troca_box.queue_free()
+	var caixa := PanelContainer.new()
+	troca_box = caixa
+	caixa.set_anchors_preset(Control.PRESET_CENTER_TOP)
+	caixa.offset_top = 150; caixa.offset_left = -200; caixa.offset_right = 200
+	caixa.add_theme_stylebox_override("panel", Tema.moldura_popup())
+	caixa.custom_minimum_size.y = 120
+	raiz.add_child(caixa)
+	var v := VBoxContainer.new(); v.add_theme_constant_override("separation", 8)
+	caixa.add_child(v)
+	var tl := Tema.rotulo("%s quer negociar com você." % str(d.get("de", "Alguém")), 16, Color("#f0e2c0"), Tema.FONTE_TEXTO, 2)
+	tl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(tl)
+	var linha := HBoxContainer.new(); linha.alignment = BoxContainer.ALIGNMENT_CENTER; linha.add_theme_constant_override("separation", 10)
+	v.add_child(linha)
+	var ok := Button.new(); ok.text = "Negociar"
+	ok.pressed.connect(func(): game.troca_cmd("aceitar"); caixa.queue_free())
+	linha.add_child(ok)
+	var nao := Button.new(); nao.text = "Recusar"
+	nao.pressed.connect(func(): game.troca_cmd("recusar"); caixa.queue_free())
+	linha.add_child(nao)
+	game.audio.tocar("ui/notificacao", null, -4.0)
+	get_tree().create_timer(20.0).timeout.connect(func(): if is_instance_valid(caixa): caixa.queue_free())
+
+func inspecao_mostrar(d: Dictionary) -> void:
+	if inspecao_box != null: inspecao_box.queue_free()
+	inspecao_box = PanelContainer.new()
+	inspecao_box.set_anchors_preset(Control.PRESET_CENTER_RIGHT)
+	inspecao_box.offset_left = -320; inspecao_box.offset_right = -14; inspecao_box.offset_top = -220; inspecao_box.offset_bottom = 220
+	inspecao_box.add_theme_stylebox_override("panel", Tema.moldura_popup([28, 26, 28, 26]))
+	raiz.add_child(inspecao_box)
+	var v := VBoxContainer.new(); v.add_theme_constant_override("separation", 5)
+	inspecao_box.add_child(v)
+	var cor: String = COR_CLASSE.get(str(d.get("classe", "")), "#e8dcc0")
+	var nm := Tema.rotulo(str(d.get("nome", "?")), 20, Color(cor), Tema.FONTE_TITULO, 3)
+	nm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var placa := Tema.sb_ui("menu_titulo", [60, 0, 60, 0], [44, 3, 44, 7])
+	if placa: nm.add_theme_stylebox_override("normal", placa); nm.custom_minimum_size.y = 40
+	v.add_child(nm)
+	v.add_child(Tema.rotulo("%s · nível %d" % [str(d.get("classe", "")).capitalize(), int(d.get("nivel", 1))], 14, Color("#b8aa8e"), Tema.FONTE_TEXTO, 2))
+	v.add_child(Tema.rotulo("Vida %d / %d" % [int(d.get("hp", 0)), int(d.get("hp_max", 0))], 14, Color("#e8dcc0"), Tema.FONTE_TEXTO, 2))
+	var st: Dictionary = d.get("stats", {})
+	v.add_child(Tema.rotulo("FOR %d · AGI %d · VIT %d · ESP %d" % [int(st.get("FOR", 0)), int(st.get("AGI", 0)), int(st.get("VIT", 0)), int(st.get("ESP", 0))], 14, Color("#e8dcc0"), Tema.FONTE_TEXTO, 2))
+	var div := Tema.ui("menu_divisor")
+	if div:
+		var tr := TextureRect.new(); tr.texture = div; tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; tr.custom_minimum_size = Vector2(0, 14)
+		v.add_child(tr)
+	v.add_child(Tema.rotulo("Equipamento", 15, Color("#d8b870"), Tema.FONTE_TITULO, 2))
+	var eq: Dictionary = d.get("equip", {})
+	if eq.is_empty(): v.add_child(Tema.rotulo("(nada equipado)", 14, Color("#8f8270"), Tema.FONTE_ITALICO, 2))
+	for slot in eq:
+		var it: Dictionary = eq[slot]
+		v.add_child(Tema.rotulo("%s: %s" % [str(slot).capitalize(), str(it.get("nome", "?"))], 14, Defs.cor_raridade(str(it.get("raridade", "comum"))), Tema.FONTE_TEXTO, 2))
+	var fechar := Button.new(); fechar.text = "Fechar"
+	fechar.pressed.connect(func(): inspecao_box.queue_free())
+	v.add_child(fechar)
+
+## Menu do botão direito num jogador: inspecionar ou convidar para o grupo.
+func menu_jogador(id: int, pos: Vector2) -> void:
+	fechar_menu_jogador()
+	var caixa := PanelContainer.new()
+	menu_box = caixa
+	caixa.position = pos + Vector2(14, 10)
+	caixa.add_theme_stylebox_override("panel", Tema.moldura_dica())
+	raiz.add_child(caixa)
+	var v := VBoxContainer.new(); v.add_theme_constant_override("separation", 4)
+	caixa.add_child(v)
+	var e: Ent = game.sim.ents.get(id)
+	if e != null and e.nome != "":
+		v.add_child(Tema.rotulo(e.nome, 15, Color("#f0e2c0"), Tema.FONTE_TITULO, 2))
+	var b1 := Button.new(); b1.text = "Inspecionar"; b1.focus_mode = Control.FOCUS_NONE
+	b1.pressed.connect(func(): game.inspecionar(id); fechar_menu_jogador())
+	v.add_child(b1)
+	var b2 := Button.new(); b2.text = "Convidar ao grupo"; b2.focus_mode = Control.FOCUS_NONE
+	b2.pressed.connect(func(): game.grupo_cmd("convidar", {"id": id}); fechar_menu_jogador())
+	v.add_child(b2)
+	var b3 := Button.new(); b3.text = "Negociar"; b3.focus_mode = Control.FOCUS_NONE
+	b3.pressed.connect(func(): game.troca_cmd("pedir", {"id": id}); fechar_menu_jogador())
+	v.add_child(b3)
+	# some sozinho depois de 8 s (só este menu, não um aberto depois)
+	get_tree().create_timer(8.0).timeout.connect(func(): if is_instance_valid(caixa): caixa.queue_free())
+
+func fechar_menu_jogador() -> void:
+	if menu_box != null and is_instance_valid(menu_box): menu_box.queue_free()
+	menu_box = null
+
+# =================================================================== chat (Enter abre, Enter manda, Esc cancela)
+const COR_CLASSE := {"anjo": "#f3dc8e", "demonio": "#ff7a5c", "cultista": "#d77ad6", "humano": "#e8d4b0", "mutante": "#9fd86a", "tecnomancer": "#7fc8ff"}
+
+func _montar_chat() -> void:
+	chat_painel = PanelContainer.new()
+	chat_painel.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	chat_painel.offset_left = 12; chat_painel.offset_right = 432; chat_painel.offset_top = -530; chat_painel.offset_bottom = -362
+	chat_painel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	chat_fundo = Tema.caixa(Color(0.04, 0.03, 0.025, 0.0), Color(0.45, 0.36, 0.22, 0.0), 1, 3)
+	chat_fundo.set_content_margin_all(8)
+	chat_painel.add_theme_stylebox_override("panel", chat_fundo)
+	raiz.add_child(chat_painel)
+	var v := VBoxContainer.new()
+	v.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	v.add_theme_constant_override("separation", 4)
+	chat_painel.add_child(v)
+	chat_texto = RichTextLabel.new()
+	chat_texto.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	chat_texto.scroll_following = true
+	chat_texto.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	chat_texto.add_theme_font_override("normal_font", Tema.FONTE_TEXTO)
+	chat_texto.add_theme_font_override("bold_font", Tema.FONTE_TITULO)
+	chat_texto.add_theme_font_size_override("normal_font_size", 15)
+	chat_texto.add_theme_font_size_override("bold_font_size", 13)
+	chat_texto.add_theme_constant_override("outline_size", 4)
+	chat_texto.add_theme_color_override("font_outline_color", Color(0, 0, 0, 0.9))
+	chat_texto.scroll_active = false
+	v.add_child(chat_texto)
+	var linha := HBoxContainer.new()
+	linha.add_theme_constant_override("separation", 4)
+	v.add_child(linha)
+	chat_canal_bt = Button.new()
+	chat_canal_bt.focus_mode = Control.FOCUS_NONE
+	chat_canal_bt.custom_minimum_size = Vector2(76, 0)
+	chat_canal_bt.add_theme_font_size_override("font_size", 12)
+	chat_canal_bt.tooltip_text = "Troca o canal: Perto (balão, quem está perto) ou Global (todo mundo online)"
+	chat_canal_bt.pressed.connect(func():
+		chat_canal = "global" if chat_canal == "perto" else "perto"
+		_chat_bt(); chat_entrada.grab_focus())
+	chat_canal_bt.visible = false
+	linha.add_child(chat_canal_bt)
+	_chat_bt()
+	chat_entrada = LineEdit.new()
+	chat_entrada.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	chat_entrada.max_length = 160
+	chat_entrada.placeholder_text = "Enter manda · /g global · /m Nome privado · /r responde"
+	chat_entrada.add_theme_font_override("font", Tema.FONTE_TEXTO)
+	chat_entrada.add_theme_font_size_override("font_size", 15)
+	chat_entrada.visible = false
+	chat_entrada.text_submitted.connect(_chat_enviar)
+	chat_entrada.gui_input.connect(func(ev):
+		if ev is InputEventKey and ev.pressed and ev.keycode == KEY_ESCAPE:
+			_chat_fechar(); chat_entrada.accept_event())
+	linha.add_child(chat_entrada)
+	chat_barra = HBoxContainer.new()
+	chat_barra.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	chat_barra.offset_left = 12; chat_barra.offset_top = -360; chat_barra.offset_bottom = -336
+	chat_barra.add_theme_constant_override("separation", 2)
+	chat_barra.modulate.a = 0.6
+	chat_barra.mouse_entered.connect(func(): chat_barra.modulate.a = 1.0)
+	chat_barra.mouse_exited.connect(func(): chat_barra.modulate.a = 0.6)
+	raiz.add_child(chat_barra)
+	chat_aba = _chat_botao("", "Minimiza ou mostra o chat (F2). Enter continua abrindo para escrever.", func():
+		_chat_mudar("minimizado" if chat_estado == "aberto" else "aberto"))
+	chat_min_bt = _chat_botao("–", "Minimizar o chat (F2)", func(): _chat_mudar("minimizado"))
+	_chat_botao("×", "Fechar o chat. F2 ou Enter abrem de novo.", func(): _chat_mudar("fechado"))
+	var cfg := ConfigFile.new()
+	if cfg.load(CHAT_CFG) == OK: chat_estado = str(cfg.get_value("chat", "estado", "aberto"))
+	if not chat_estado in ["aberto", "minimizado", "fechado"]: chat_estado = "aberto"
+	_chat_aplicar()
+	chat_linha_sistema("Enter conversa com quem está perto. /g fala no global, /m Nome manda privado, /r responde o último privado. F2 minimiza o chat.")
+
+func _chat_botao(txt: String, dica: String, acao: Callable) -> Button:
+	var b := Button.new()
+	b.text = txt
+	b.focus_mode = Control.FOCUS_NONE
+	b.custom_minimum_size = Vector2(24, 0)
+	b.add_theme_font_override("font", Tema.FONTE_TITULO)
+	b.add_theme_font_size_override("font_size", 12)
+	b.tooltip_text = dica
+	b.mouse_entered.connect(func(): chat_barra.modulate.a = 1.0)
+	b.pressed.connect(acao)
+	chat_barra.add_child(b)
+	return b
+
+func _unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventKey and ev.pressed and not ev.echo and ev.keycode == KEY_F2:
+		_chat_mudar("minimizado" if chat_estado == "aberto" else "aberto"); get_viewport().set_input_as_handled()
+
+func _chat_mudar(estado: String) -> void:
+	chat_estado = estado
+	var cfg := ConfigFile.new()
+	cfg.set_value("chat", "estado", chat_estado)
+	cfg.save(CHAT_CFG)
+	_chat_aplicar()
+
+## Minimizado: some o texto e fica só a aba, contando as mensagens novas. Fechado: some até a aba.
+## Aberto: as linhas somem sozinhas depois de um tempo parado, para não ficar texto em cima do jogo.
+func _chat_aplicar() -> void:
+	if chat_estado == "aberto": chat_nao_lidas = 0
+	chat_texto.visible = chat_estado == "aberto" or chat_aberto()
+	chat_barra.visible = chat_estado != "fechado" or chat_aberto()
+	chat_min_bt.visible = chat_estado == "aberto"
+	if chat_aberto() or chat_estado != "aberto": _chat_parar_sumico(); chat_texto.modulate.a = 1.0
+	else: _chat_acordar()
+	var txt := "Chat ▾" if chat_estado == "aberto" else "Chat ▸"
+	if chat_estado == "minimizado" and chat_nao_lidas > 0: txt = "Chat ▸  %d nova%s" % [chat_nao_lidas, "" if chat_nao_lidas == 1 else "s"]
+	chat_aba.text = txt
+	chat_aba.add_theme_color_override("font_color", Color("#f0c060") if chat_nao_lidas > 0 else Color("#cdbf9f"))
+
+func _chat_parar_sumico() -> void:
+	if chat_tw and chat_tw.is_valid(): chat_tw.kill()
+
+func _chat_acordar() -> void:
+	_chat_parar_sumico()
+	chat_texto.modulate.a = 1.0
+	if chat_aberto(): return
+	chat_tw = chat_texto.create_tween()
+	chat_tw.tween_interval(14.0)
+	chat_tw.tween_property(chat_texto, "modulate:a", 0.0, 2.0)
+
+func _chat_chegou() -> void:
+	if chat_estado == "minimizado" and not chat_aberto():
+		chat_nao_lidas += 1; _chat_aplicar()
+	elif chat_estado == "aberto" and not chat_aberto(): _chat_acordar()
+
+func chat_aberto() -> bool:
+	return chat_entrada != null and chat_entrada.visible
+
+func _chat_bt() -> void:
+	chat_canal_bt.text = "Global" if chat_canal == "global" else "Perto"
+	chat_canal_bt.add_theme_color_override("font_color", Color("#f0c060") if chat_canal == "global" else Color("#e8dcc0"))
+
+func abrir_chat(texto := "") -> void:
+	if chat_estado == "fechado": _chat_mudar("aberto")
+	chat_entrada.visible = true; chat_canal_bt.visible = true
+	chat_entrada.text = texto
+	chat_entrada.grab_focus()
+	chat_entrada.caret_column = texto.length()
+	chat_fundo.bg_color.a = 0.62; chat_fundo.border_color.a = 0.9
+	chat_texto.scroll_active = true
+	chat_texto.mouse_filter = Control.MOUSE_FILTER_STOP
+	chat_painel.queue_redraw()
+	chat_nao_lidas = 0; _chat_aplicar()
+
+func _chat_fechar() -> void:
+	chat_entrada.release_focus()
+	chat_entrada.visible = false; chat_canal_bt.visible = false
+	chat_fundo.bg_color.a = 0.0; chat_fundo.border_color.a = 0.0
+	chat_texto.scroll_active = false
+	chat_texto.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	chat_painel.queue_redraw()
+	_chat_aplicar()
+
+func _chat_enviar(t: String) -> void:
+	t = t.strip_edges()
+	var canal := chat_canal; var para := ""
+	var low := t.to_lower()
+	if low.begins_with("/g ") or low.begins_with("/global "):
+		canal = "global"; t = t.substr(t.find(" ") + 1)
+	elif low.begins_with("/p ") or low.begins_with("/perto "):
+		canal = "perto"; t = t.substr(t.find(" ") + 1)
+	elif low.begins_with("/m ") or low.begins_with("/w ") or low.begins_with("/pm "):
+		var resto := t.substr(t.find(" ") + 1).strip_edges()
+		var sp := resto.find(" ")
+		if sp > 0: canal = "pm"; para = resto.left(sp); t = resto.substr(sp + 1)
+		else: chat_linha_sistema("Use: /m Nome mensagem"); _chat_fechar(); return
+	elif low.begins_with("/gr "):
+		canal = "grupo"; t = t.substr(4)
+	elif low.begins_with("/convidar "):
+		game.grupo_cmd("convidar_nome", {"nome": t.substr(10).strip_edges()}); _chat_fechar(); return
+	elif low == "/sair":
+		game.grupo_cmd("sair"); _chat_fechar(); return
+	elif low == "/ajoelhar":
+		game.cmd("gesto", ["ajoelhar"]); _chat_fechar(); return
+	elif low.begins_with("/r "):
+		if chat_ultimo_pm == "": chat_linha_sistema("Ninguém te mandou mensagem privada ainda."); _chat_fechar(); return
+		canal = "pm"; para = chat_ultimo_pm; t = t.substr(3)
+	elif low.begins_with("/"):
+		chat_linha_sistema("Comandos: /g global · /gr grupo · /convidar Nome · /sair · /m Nome privado · /r responde · /ajoelhar"); _chat_fechar(); return
+	t = t.strip_edges()
+	if t != "": game.cmd("falar", [t.left(120), canal, para])
+	_chat_fechar()
+
+func chat_linha(d: Dictionary) -> void:
+	var canal := str(d.get("canal", "perto"))
+	if d.get("anuncio", false):   # anúncio do servidor (um mistério resolvido): linha dourada e aviso na tela
+		chat_texto.push_color(Color("#e8c060")); chat_texto.add_text("✦ " + str(d.get("texto", ""))); chat_texto.pop()
+		chat_texto.newline(); _chat_aparar()
+		if chat_aba: _chat_chegou()
+		aviso(str(d.get("texto", "")))
+		return
+	if canal == "sistema": chat_linha_sistema(str(d.get("texto", ""))); return
+	var nome := str(d.get("nome", "?"))
+	var cor: String = COR_CLASSE.get(str(d.get("classe", "")), "#e8d4b0")
+	var cor_txt := Color("#efe6d2")
+	var prefixo := ""
+	if canal == "global": prefixo = "[Global] "; cor_txt = Color("#f0d48a")
+	elif canal == "grupo": prefixo = "[Grupo] "; cor_txt = Color("#9fd0ff")
+	elif canal == "pm":
+		cor_txt = Color("#f2a6d8")
+		if game.jog != null and nome == game.jog.nome and str(d.get("para", "")).to_lower() != nome.to_lower(): prefixo = "[Para %s] " % str(d.get("para", ""))
+		else: prefixo = "[De %s] " % nome; chat_ultimo_pm = nome
+	if prefixo != "":
+		chat_texto.push_color(cor_txt); chat_texto.add_text(prefixo); chat_texto.pop()
+	if not prefixo.begins_with("[De") and not prefixo.begins_with("[Para"):
+		chat_texto.push_bold(); chat_texto.push_color(Color(cor)); chat_texto.add_text(nome + ": "); chat_texto.pop(); chat_texto.pop()
+	chat_texto.push_color(cor_txt); chat_texto.add_text(str(d.get("texto", ""))); chat_texto.pop()
+	chat_texto.newline()
+	_chat_aparar()
+	_chat_chegou()
+
+func chat_linha_sistema(t: String) -> void:
+	chat_texto.push_italics(); chat_texto.push_color(Color("#9c8f78")); chat_texto.add_text(t); chat_texto.pop(); chat_texto.pop()
+	chat_texto.newline()
+	_chat_aparar()
+	if chat_aba: _chat_chegou()
+
+func _chat_aparar() -> void:
+	while chat_texto.get_paragraph_count() > 60: chat_texto.remove_paragraph(0)
 
 func log_msg(txt: String, cor := Color("#d8cfb8")) -> void:
 	if txt == "": return
@@ -941,7 +1514,8 @@ func mostrar_ajuda() -> void:
 	if ajuda_ui == null:
 		ajuda_ui = PanelContainer.new()
 		ajuda_ui.set_anchors_preset(Control.PRESET_CENTER)
-		ajuda_ui.offset_left = -300; ajuda_ui.offset_right = 300; ajuda_ui.offset_top = -210; ajuda_ui.offset_bottom = 190
+		ajuda_ui.offset_left = -316; ajuda_ui.offset_right = 316; ajuda_ui.offset_top = -238; ajuda_ui.offset_bottom = 218
+		ajuda_ui.add_theme_stylebox_override("panel", Tema.moldura_popup([30, 24, 30, 26]))
 		var v := VBoxContainer.new()
 		v.add_theme_constant_override("separation", 8)
 		ajuda_ui.add_child(v)
@@ -955,13 +1529,16 @@ func mostrar_ajuda() -> void:
 		r.text = """[b]Clique[/b] no chão para andar (segure para seguir o mouse).
 [b]Clique[/b] num inimigo para atacar. [b]Shift + clique[/b] ataca sem sair do lugar.
 [b]1 a 6[/b] usam as habilidades (no alvo ou onde o mouse aponta). [b]Botão direito[/b] = habilidade 1.
-[b]Q[/b] poção de vida, [b]W[/b] poção de recurso, [b]E[/b] antídoto, [b]R[/b] Vela de Retorno.
-[b]Z[/b] liga o modo automático: luta sozinho perto de onde você está e bebe poção (desliga ao clicar).
+[b]Q[/b] poção de vida, [b]W[/b] poção de recurso, [b]E[/b] antídoto, [b]R[/b] volta para a Paróquia (grátis).
+[b]V[/b] abre o teleporte: leva a qualquer área de caça do seu nível por 1 Lágrima Sanguínea.
+[b]Z[/b] liga o modo automático: luta sozinho perto de onde você está, junta os drops e bebe poção (desliga ao clicar).
+[b]Clique direito[/b] numa skill da barra põe ou tira ela do automático; [b]Shift+Z[/b] abre os ajustes (raio, poções, drops).
 [b]Clique[/b] em NPCs, baús, portas e itens no chão. [b]Alt[/b] mostra os itens caídos.
-[b]I[/b] mochila e equipamento · [b]C[/b] personagem · [b]K[/b] habilidades · [b]J[/b] missões · [b]M[/b] mapa.
+[b]I[/b] mochila e equipamento · [b]C[/b] personagem · [b]K[/b] habilidades · [b]T[/b] talentos · [b]J[/b] missões · [b]M[/b] mapa.
 Na mochila: [b]botão direito[/b] usa ou equipa; [b]arraste[/b] para mover, equipar ou jogar fora.
 Os [b]![/b] em cima das pessoas são missões novas; [b]?[/b] são missões prontas para entregar.
 Áreas vermelhas no chão avisam um golpe: saia delas.
+[b]ENTER[/b] abre o chat: escreva e aperte Enter de novo; [b]Esc[/b] cancela.
 [b]F11[/b] ou [b]Alt + Enter[/b] liga e desliga a tela cheia.
 
 [color=#a89f8c][i]H mostra esta ajuda de novo.[/i][/color]"""
@@ -979,8 +1556,10 @@ func alternar_ajuda() -> void:
 # =================================================================== tooltip
 func _montar_tooltip() -> void:
 	tooltip = PanelContainer.new()
-	var sb := Tema.caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2)
-	sb.set_content_margin_all(10)
+	var sb: StyleBox = Tema.sb_ui("menu_dica", [18, 18, 18, 18], [14, 11, 14, 12])
+	if sb == null:
+		sb = Tema.caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2)
+		sb.set_content_margin_all(10)
 	tooltip.add_theme_stylebox_override("panel", sb)
 	tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	tip_lbl = RichTextLabel.new()
@@ -1051,6 +1630,8 @@ func _process(dt: float) -> void:
 		if canal_t > float(canal_d.get("dur", 1.0)) + 0.6: canal_d = {}
 	if morte_ui and morte_ui.visible: morte_ui.set_meta("t", float(morte_ui.get_meta("t")) + dt); morte_ui.queue_redraw()
 	if game.jog == null: return
+	_posicionar_pet()
+	if pet_ui.visible: pet_ui.queue_redraw()
 	barra.queue_redraw(); topo_esq.queue_redraw(); alvo_ui.queue_redraw(); minimapa.queue_redraw(); banner.queue_redraw(); canal_ui.queue_redraw()
 	if mapa_ui and mapa_ui.visible: mapa_ui.queue_redraw()
 	if Engine.get_process_frames() % 15 == 0: _atualizar_rastreador()

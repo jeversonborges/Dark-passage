@@ -1,0 +1,17 @@
+{
+ "w": 112,
+ "h": 116,
+ "anchor": [
+  56,
+  83
+ ],
+ "estado": "fechado",
+ "emissivo": "válvulas roxas",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Arca do Primarca: baú tecnomancer do Gustavo (armazém). Carvalho negro, cintas de ferro, volante de cofre, manômetros e cinco válvulas roxas no tampo.",
+ "kind": "arca_primarca"
+}

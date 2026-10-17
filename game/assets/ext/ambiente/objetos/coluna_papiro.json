@@ -1,0 +1,17 @@
+{
+ "w": 680,
+ "h": 420,
+ "anchor": [
+  99,
+  380
+ ],
+ "lore": "salao_hipostilo",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Coluna do salão hipostilo de Karnak: fuste papiriforme coberto de hieróglifos com restos de azul, amarrações     pintadas e o capitel de papiro aberto com as sépalas verdes e azuis; ábaco no alto.",
+ "kind": "coluna_papiro"
+}

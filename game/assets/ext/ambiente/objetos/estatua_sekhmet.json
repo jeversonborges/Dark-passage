@@ -1,0 +1,17 @@
+{
+ "w": 164,
+ "h": 112,
+ "anchor": [
+  36,
+  90
+ ],
+ "lore": "sekhmet",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Sekhmet, a deusa leoa, sentada no trono: granito preto (das centenas que Amenhotep III pôs em Mut), disco     solar com a uraeus, o ankh na mão; o polimento gasto deixa o grão cinza.",
+ "kind": "estatua_sekhmet"
+}

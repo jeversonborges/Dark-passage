@@ -1,0 +1,15 @@
+{
+ "w": 520,
+ "h": 276,
+ "anchor": [
+  242,
+  157
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Barcana: duna em meia-lua, com as pontas apontando para onde o vento vai.",
+ "kind": "duna_ondulacao_2"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 154,
+ "h": 100,
+ "anchor": [
+  35,
+  79
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Atril de latão em tripé sobre base de pedra, com o Livro de Horas grande aberto e a fita vermelha caída;     faltam páginas no meio.",
+ "kind": "atril_livro"
+}

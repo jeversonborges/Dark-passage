@@ -1,0 +1,17 @@
+{
+ "w": 626,
+ "h": 372,
+ "anchor": [
+  232,
+  251
+ ],
+ "emissivo": "azul de estrela",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  7,
+  7
+ ],
+ "descricao": "",
+ "kind": "plataforma_astral"
+}

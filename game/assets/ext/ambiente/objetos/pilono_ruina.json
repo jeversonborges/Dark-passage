@@ -1,0 +1,17 @@
+{
+ "w": 1064,
+ "h": 526,
+ "anchor": [
+  335,
+  347
+ ],
+ "lore": "pilono_de_karnak",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  3
+ ],
+ "descricao": "Pilono em ruína: a torre da esquerda desabou pela metade, o lintel do portal caiu, entulho e areia na base.",
+ "kind": "pilono_ruina"
+}

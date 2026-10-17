@@ -1,0 +1,581 @@
+{
+ "_doc": "Destinos do Menu de Teleporte (tecla V). Gerado por entregas/teleporte/gerar.py; não edite à mão.",
+ "canal_s": 3.0,
+ "custo": {
+  "item": "lagrima_sanguinea",
+  "qtd": 1
+ },
+ "destinos": [
+  {
+   "id": "campos_cinza",
+   "nome": "Campos de Cinza",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    109.5,
+    97.5
+   ],
+   "nivel": [
+    1,
+    9
+   ],
+   "nivel_min": 1,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "mata_cardos",
+   "nome": "Mata dos Cardos",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    83.5,
+    127.5
+   ],
+   "nivel": [
+    2,
+    4
+   ],
+   "nivel_min": 2,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "patio_bondes",
+   "nome": "Pátio dos Bondes",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    47.5,
+    70.5
+   ],
+   "nivel": [
+    2,
+    4
+   ],
+   "nivel_min": 2,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "bairro_afogado",
+   "nome": "Bairro Afogado",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    45.5,
+    140.5
+   ],
+   "nivel": [
+    3,
+    5
+   ],
+   "nivel_min": 3,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "vala_comum",
+   "nome": "A Vala",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    129.5,
+    52.5
+   ],
+   "nivel": [
+    3,
+    5
+   ],
+   "nivel_min": 3,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "chiqueiros",
+   "nome": "Chiqueiros",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    152.5,
+    106.5
+   ],
+   "nivel": [
+    4,
+    6
+   ],
+   "nivel_min": 4,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "cemiterio_sao_lazaro",
+   "nome": "Cemitério de São Lázaro",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    97.5,
+    151.5
+   ],
+   "nivel": [
+    4,
+    7
+   ],
+   "nivel_min": 4,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "bosque_viuvas",
+   "nome": "Bosque das Viúvas",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    159.5,
+    140.5
+   ],
+   "nivel": [
+    5,
+    7
+   ],
+   "nivel_min": 5,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "rio_amargo",
+   "nome": "Rio Amargo",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    138.5,
+    97.5
+   ],
+   "nivel": [
+    6,
+    9
+   ],
+   "nivel_min": 6,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "abatedouro_carnica",
+   "nome": "Abatedouro Carniça",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    159.5,
+    67.5
+   ],
+   "nivel": [
+    7,
+    9
+   ],
+   "nivel_min": 7,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "vila_militar",
+   "nome": "Vila Militar do Silo",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    159.5,
+    153.5
+   ],
+   "nivel": [
+    8,
+    10
+   ],
+   "nivel_min": 8,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "tempestade_areia",
+   "nome": "Beira da Tempestade",
+   "grupo": "Deserto de Absinto",
+   "mapa": "area_inicial",
+   "pos": [
+    96.5,
+    171.5
+   ],
+   "nivel": [
+    9,
+    12
+   ],
+   "nivel_min": 9,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "cidade_de_davi",
+   "nome": "Cidade de Davi",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    122.5,
+    26.5
+   ],
+   "nivel": [
+    1,
+    3
+   ],
+   "nivel_min": 1,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "monte_oliveiras",
+   "nome": "Monte das Oliveiras",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    112.5,
+    73.5
+   ],
+   "nivel": [
+    1,
+    3
+   ],
+   "nivel_min": 1,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "vale_josafa",
+   "nome": "Vale de Josafá",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    135.5,
+    96.5
+   ],
+   "nivel": [
+    2,
+    4
+   ],
+   "nivel_min": 2,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "bosque_hissopo",
+   "nome": "Bosque do Hissopo",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    80.5,
+    72.5
+   ],
+   "nivel": [
+    2,
+    4
+   ],
+   "nivel_min": 2,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "necropole_oliveiras",
+   "nome": "Necrópole das Oliveiras",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    97.5,
+    110.5
+   ],
+   "nivel": [
+    3,
+    5
+   ],
+   "nivel_min": 3,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "encosta_cedros",
+   "nome": "Encosta dos Cedros",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    54.5,
+    96.5
+   ],
+   "nivel": [
+    4,
+    5
+   ],
+   "nivel_min": 4,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "pocilgas_gadara",
+   "nome": "Pocilgas de Gadara",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    32.5,
+    61.5
+   ],
+   "nivel": [
+    4,
+    6
+   ],
+   "nivel_min": 4,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "vale_hinom",
+   "nome": "Vale do Hinom (Geena)",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    47.5,
+    32.5
+   ],
+   "nivel": [
+    4,
+    7
+   ],
+   "nivel_min": 4,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "fontes_jordao",
+   "nome": "Fontes do Jordão",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    76.5,
+    88.5
+   ],
+   "nivel": [
+    6,
+    8
+   ],
+   "nivel_min": 6,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "cume_hermon",
+   "nome": "Cume do Hermon",
+   "grupo": "Jerusalém e Monte Hermon",
+   "mapa": "jerusalem_hermon",
+   "pos": [
+    42.5,
+    128.5
+   ],
+   "nivel": [
+    9,
+    12
+   ],
+   "nivel_min": 9,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "viveiro",
+   "nome": "O Viveiro",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    61.5,
+    69.5
+   ],
+   "nivel": [
+    12,
+    12
+   ],
+   "nivel_min": 12,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   },
+   "base": "Base da Enxertia"
+  },
+  {
+   "id": "linha_de_cinza",
+   "nome": "Linha de Cinza",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    70.5,
+    85.5
+   ],
+   "nivel": [
+    12,
+    13
+   ],
+   "nivel_min": 12,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "bordas_queimadas",
+   "nome": "Bordas Queimadas",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    40.5,
+    70.5
+   ],
+   "nivel": [
+    12,
+    16
+   ],
+   "nivel_min": 12,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "lago_de_granizo",
+   "nome": "Lago de Granizo",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    54.5,
+    49.5
+   ],
+   "nivel": [
+    15,
+    17
+   ],
+   "nivel_min": 15,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "frente_de_queimada",
+   "nome": "Frente de Queimada",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    46.5,
+    54.5
+   ],
+   "nivel": [
+    16,
+    18
+   ],
+   "nivel_min": 16,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "fundo_da_mata",
+   "nome": "Fundo da Mata",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    58.5,
+    29.5
+   ],
+   "nivel": [
+    18,
+    22
+   ],
+   "nivel_min": 18,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "estrada_da_torre",
+   "nome": "Estrada da Torre",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    15.5,
+    9.5
+   ],
+   "nivel": [
+    20,
+    22
+   ],
+   "nivel_min": 20,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "coracao_da_mata",
+   "nome": "Coração da Mata",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    62.5,
+    19.5
+   ],
+   "nivel": [
+    22,
+    30
+   ],
+   "nivel_min": 22,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+ "w": 332,
+ "h": 172,
+ "anchor": [
+  164,
+  86
+ ],
+ "bioma": "biblioteca",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Decalque: tapete persa vermelho-sangue puído, com a trama à mostra no meio e areia nas franjas.",
+ "kind": "tapete_biblioteca"
+}

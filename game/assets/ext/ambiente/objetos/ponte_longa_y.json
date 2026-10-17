@@ -1,0 +1,16 @@
+{
+ "w": 640,
+ "h": 364,
+ "anchor": [
+  248,
+  236
+ ],
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  12
+ ],
+ "descricao": "(girada: ao longo do eixo Y do mapa)",
+ "kind": "ponte_longa_y"
+}

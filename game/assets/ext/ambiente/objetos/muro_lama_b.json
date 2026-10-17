@@ -1,0 +1,17 @@
+{
+ "w": 198,
+ "h": 134,
+ "anchor": [
+  32,
+  112
+ ],
+ "bioma": "egito",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Muro de tijolo de lama do Nilo (cercas da cidade e dos templos): fiadas em onda, reboco de lama em manchas,     capeamento arredondado, pé roído pela umidade da cheia. Segmento de 1 tile.",
+ "kind": "muro_lama_b"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 138,
+ "h": 86,
+ "anchor": [
+  22,
+  73
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Lápide vitoriana de topo redondo com cruz em relevo, tombada e com hera.",
+ "kind": "lapide_vitoriana"
+}

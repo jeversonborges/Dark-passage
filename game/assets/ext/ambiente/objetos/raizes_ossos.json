@@ -1,0 +1,17 @@
+{
+ "w": 140,
+ "h": 62,
+ "anchor": [
+  71,
+  33
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Raízes grossas que furaram o piso da catacumba e saíram arrastando ossos e uma caveira presa no meio; lajes     levantadas em volta e terra preta.",
+ "kind": "raizes_ossos"
+}

@@ -1,9 +1,9 @@
 {
- "w": 650,
- "h": 324,
+ "w": 842,
+ "h": 354,
  "anchor": [
-  290,
-  175
+  365,
+  203
  ],
  "categoria": "limites",
  "footprint_tiles": [

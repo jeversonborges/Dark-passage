@@ -9,6 +9,9 @@ const Efeitos := preload("res://scripts/client/efeitos.gd")
 const Audio := preload("res://scripts/client/audio.gd")
 const Hud := preload("res://scripts/client/hud.gd")
 const Janelas := preload("res://scripts/client/janelas.gd")
+const MiraControle := preload("res://scripts/client/mira_controle.gd")
+const AgrakCena := preload("res://scripts/client/agrak_cena.gd")   # O Agrak: apresentação ao vivo (entregas/agrak)
+const SHADER_RECORTE := preload("res://shaders/recorte.gdshader")
 
 const SAVE := "user://dark_passage_v2.save"
 
@@ -31,11 +34,18 @@ var views := {}            # id -> Unidade
 var objs := {}             # id -> ObjView (baús, portais, interativos)
 var itens_chao := {}       # id -> ItemChao
 var props_altos: Array = []
+var props_anel := {}          # cume do Hermon: anel -> [sprites] que caem com ele
+var rachas := {}              # anel -> [sprites de fenda] que acendem no aviso
 var oclusores: Array = []          # [sprite, rect, kind] de todo prop de pé que pode esconder o jogador
 var mascaras := {}                 # kind -> BitMap da arte (alfa), para testar oclusão por pixel
+var recortes := {}                 # sprite -> ShaderMaterial do recorte em volta do jogador (só os que cobrem o corpo)
 var silhueta := Sprite2D.new()     # o jogador desenhado por cima do cenário quando está escondido
 var silhueta_a := 0.0
 var hover_id := -1
+var alvo_amigo := -1   # aliado selecionado com clique esquerdo: as curas vão nele
+var _selecionou := false
+var mira := -1          # jogador na mira (Ctrl + clique): as skills de ataque vão nele
+var mira_t := 0.0
 var hover_chao := -1
 var segurando := false
 var t_seguro := 0.0
@@ -53,6 +63,8 @@ var cores_piso := {}
 var zona_atual := ""
 var musica_chefe := false
 var rede: Node = null      # conexão de rede (null = jogo solo, o mundo roda aqui mesmo)
+var mira_ctl: Node2D       # combate no controle (mira_controle.gd); só manda enquanto mira_ctl.ativo
+var agrak_cena: Node = null  # O Agrak (mapa com bloco "agrak"): falas, faixa, plateia, portões, Anel do Amargo
 
 # =================================================================== início
 func iniciar(classe: String, nome: String, salvo: Dictionary = {}) -> void:
@@ -61,7 +73,7 @@ func iniciar(classe: String, nome: String, salvo: Dictionary = {}) -> void:
 	sim.evento.connect(_ev)
 	jog = Jogador.criar(sim, classe, nome, salvo)
 	_montar_nos()
-	var mapa_ini: String = salvo.get("mapa", "area_inicial")
+	var mapa_ini: String = salvo.get("mapa", Defs.mapa_casa(jog.faccao))
 	var pos := Vector2(-1, -1)
 	if salvo.get("pos", []).size() == 2: pos = Vector2(salvo["pos"][0], salvo["pos"][1])
 	_entrar(mapa_ini, pos)
@@ -106,7 +118,7 @@ func _entrar_rede(m: Dictionary) -> void:
 	cam.position = Iso.to_screen(jog.pos)
 	cam.reset_smoothing()
 	hud.ao_trocar_mapa()
-	if trocou and m["mapa"] != "area_inicial": audio.tocar("musica/vinheta/entrar_cripta")
+	if trocou and not Defs.eh_mapa_casa(m["mapa"]): audio.tocar("musica/vinheta/entrar_cripta")
 	cortina.modulate.a = 1.0
 	var tw := create_tween()
 	tw.tween_property(cortina, "modulate:a", 0.0, 0.8)
@@ -133,6 +145,7 @@ func _chefe_vivo() -> bool:
 	return sim.chefe != null and sim.chefe.estado != "morto"
 
 func _montar_nos() -> void:
+	add_to_group("jogo_cliente")   # o Controle (scripts/client/controle.gd) acha o jogo por aqui
 	chao = Chao.new(); chao.z_index = -30; add_child(chao)
 	decal.z_index = -20; add_child(decal)
 	mundo.y_sort_enabled = true; add_child(mundo)
@@ -155,6 +168,9 @@ func _montar_nos() -> void:
 	camada_fx.add_child(silhueta)
 	fx = Efeitos.new(); fx.game = self; fx.chao_fx = decal
 	camada_fx.add_child(fx)
+	# mira do controle: o controle.gd acha este nó pelo nome; desenha no chão, embaixo do mundo
+	mira_ctl = MiraControle.new(); mira_ctl.name = "MiraControle"; mira_ctl.game = self
+	add_child(mira_ctl)
 	sobre.z_index = 40
 	camada_fx.add_child(sobre)
 	sobre.draw.connect(_desenhar_sobre)
@@ -162,6 +178,7 @@ func _montar_nos() -> void:
 	audio = Audio.new(); add_child(audio)
 	hud = Hud.new(); hud.game = self; add_child(hud)
 	janelas = Janelas.new(); janelas.game = self; add_child(janelas)
+	Ajustes.ligar_jogo(self)
 	var cl := CanvasLayer.new(); cl.layer = 50; add_child(cl)
 	cortina.color = Color.BLACK; cortina.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	cortina.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -200,7 +217,8 @@ func _limpar_visual() -> void:
 	for v in views.values(): v.queue_free()
 	for o in objs.values(): o.queue_free()
 	for c in itens_chao.values(): c.queue_free()
-	views.clear(); objs.clear(); itens_chao.clear(); props_altos.clear(); oclusores.clear()
+	views.clear(); objs.clear(); itens_chao.clear(); props_altos.clear(); oclusores.clear(); recortes.clear()
+	props_anel.clear(); rachas.clear()
 	for c in mundo.get_children(): c.queue_free()
 	for c in decal.get_children(): c.queue_free()
 	for c in fx.get_children(): c.queue_free()
@@ -208,9 +226,11 @@ func _limpar_visual() -> void:
 	for c in clima.get_children(): c.queue_free()
 	camadas_clima.clear(); tempestade.clear(); tempestade_alvo = 0.0
 	luz.limpar()
+	mira_ctl.limpar()
 	chefe_view = null
 	musica_chefe = false
 	zona_atual = ""
+	if agrak_cena != null: agrak_cena.limpar(); agrak_cena = null
 
 # =================================================================== mapa: chão, cenário, luzes, clima
 func _montar_mapa() -> void:
@@ -219,18 +239,21 @@ func _montar_mapa() -> void:
 	for p in mapa.get("props", []):
 		if p.has("oculto_por_obj"): continue
 		var k: String = p["k"]
+		if k in ["duna_ondulacao", "duna_areia"]:   # morrinhos: sorteia a variante pela posição (sempre igual no mesmo lugar)
+			var vs: Array = [k] + ["_2", "_3"].map(func(x): return k + x).filter(func(x): return amb.has(x))
+			k = vs[absi(hash(Vector2i(int(p["x"] * 10), int(p["y"] * 10)))) % vs.size()]
 		if not amb.has(k): continue
 		var s := _sprite_kit(k, Vector2(p["x"], p["y"]), p.get("espelho", 0) == 1)
 		if s == null: continue
+		if p.get("anel", "") != "" and p.get("anel") != null: props_anel[p["anel"]] = props_anel.get(p["anel"], []) + [s]
+		if p.has("racha"): rachas[p["racha"]] = rachas.get(p["racha"], []) + [s]
 		if p.get("chao", 0) == 1: decal.add_child(s)
+		elif p.get("frente", 0) == 1 or k.contains("_frente"): mundo.add_child(s)   # meia-parede da frente: baixa, nunca esconde o personagem
 		else:
 			mundo.add_child(s)
 			var m: Dictionary = amb[k]
 			if float(m["h"]) >= 56.0:
 				oclusores.append([s, Rect2(s.position + s.offset, s.texture.get_size()), k])
-			if float(m["h"]) > 200.0 and not k.begins_with("parede_"):
-				var anc: Array = m["anchor"]
-				props_altos.append([s, Rect2(s.position - Vector2(anc[0], anc[1]) + Vector2(m["w"] * 0.1, 0), Vector2(m["w"] * 0.8, m["h"] * 0.85))])
 	# luz ambiente e pontos de luz
 	var ceu: Dictionary = mapa.get("ceu", {})
 	var cor: Array = ceu.get("cor", [0.8, 0.8, 0.75])
@@ -249,6 +272,8 @@ func _montar_mapa() -> void:
 	cam.limit_top = int(16.0 * (c4[0] - c4[3]))
 	cam.limit_bottom = int(16.0 * (c4[2] - c4[1]))
 	_cores_minimapa()
+	if mapa.has("agrak"):
+		agrak_cena = AgrakCena.new(); add_child(agrak_cena); agrak_cena.iniciar(self)
 
 ## espelho: vira a arte na horizontal (um objeto feito ao longo de Y passa a ficar ao longo de X).
 func _sprite_kit(k: String, p: Vector2, espelho := false) -> Sprite2D:
@@ -294,6 +319,7 @@ func _montar_clima(ceu: Dictionary) -> void:
 		clima.add_child(tp)
 		camadas_clima.append(tp)
 		tempestade = [tp]
+	Ajustes.aplicar_clima(self)
 
 var camadas_clima: Array = []
 var tempestade: Array = []
@@ -377,6 +403,7 @@ func _surgiu(id: int) -> void:
 		chefe_view = v
 		v.set_meta("luz", luz.adicionar(v.position, Color(1.0, 0.62, 0.38), 5.5, 1.1, true))
 	if e.invisivel: v.visible = false
+	if e.aux.has("anim_entrada") and v.has_method("tocar"): v.tocar(str(e.aux["anim_entrada"]), 0.0)   # Vigilantes: rise / land
 	if e.kind == "nao_julgado" and mapa.get("exterior", false):
 		fx.folha("naojulgado_brilho_noite", v.position, {"segue": v, "dura": 99999.0, "aditivo": true})
 
@@ -387,7 +414,7 @@ func _criar_obj(e: Ent) -> void:
 	var k := ""
 	match e.kind:
 		"bau": k = e.aux.get("visual", "bau_comum")
-		"portal": k = "escada_descida"
+		"portal": k = e.aux.get("visual", "") if str(e.aux.get("visual", "")).begins_with("portal_dungeon") else "escada_descida"   # entrada de dungeon: arco de véu (0.8.4)
 		"pilha_de_mortos": k = "pilha_cranios"
 		"cadaver_fresco": k = "ossos_espalhados"
 		"interativo":
@@ -563,6 +590,8 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 	n.nome = ("%d de ouro" % int(it["qtd"])) if n.ouro else Itens.nome(it)
 	if not n.ouro and int(it.get("qtd", 1)) > 1: n.nome += " (%d)" % int(it["qtd"])
 	n.cor = Defs.cor_raridade(it.get("raridade", "comum")) if not n.ouro else Tema.COR_OURO
+	var joia: Dictionary = Defs.ITENS.get(it["id"], {}).get("brilho_chao", {})   # Lágrimas: brilham como joia (Bless/Soul do MU)
+	if not joia.is_empty(): n.cor = Color(joia["cor"])
 	n.icone = Tema.icone_item(it["id"]) if not n.ouro else []
 	n.origem = Iso.to_screen(de); n.destino = Iso.to_screen(pos)
 	n.position = n.origem
@@ -572,6 +601,12 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 	n.luz = luz.adicionar(n.destino, cl, 0.85, 0.75)
 	n.luz_cor = n.luz.modulate
 	var rar: String = it.get("raridade", "comum")
+	if not joia.is_empty():
+		fx.folha(joia["queda"], n.destino, {})
+		var fb = fx.folha(joia["loop"], n.destino, {"dura": 9999.0})
+		if fb: n.set_meta("feixe", fb)
+		audio.tocar(joia.get("som", "itens/joia_aplicar"), n.destino, -2.0)
+		return
 	if rar in ["raro", "excelente", "lendario", "conjunto"]:
 		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto"] else "item_feixe_raro"
 		var f = fx.folha(nome, n.destino, {"dura": 9999.0, "cor": n.cor.lightened(0.2)})
@@ -590,6 +625,7 @@ func _item_chao_sumiu(id: int) -> void:
 
 # =================================================================== eventos do servidor
 func _ev(tipo: String, d: Dictionary) -> void:
+	if agrak_cena != null: agrak_cena.ev(tipo, d)
 	match tipo:
 		"surgiu": _surgiu(int(d["id"]))
 		"sumiu": _sumiu(int(d["id"]))
@@ -600,6 +636,14 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			if v and float(d.get("valor", 0)) >= 1.0 and not d.get("silencioso", false):
 				fx.numero(v.position + Vector2(0, -v.altura_px), int(d["valor"]), "cura", v.id)
 		"morreu": _morreu(d)
+		"hermon_aviso": _hermon_aviso(str(d["anel"]))
+		"hermon_anel_caiu": _hermon_caiu(str(d["anel"]))
+		"hermon_queda":
+			var vq = views.get(int(d["id"]))
+			if vq:
+				var tq := create_tween().set_parallel()
+				tq.tween_property(vq, "position:y", vq.position.y + 260.0, 0.9).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+				tq.tween_property(vq, "modulate:a", 0.0, 0.9)
 		"telegrafo":
 			fx.telegrafo(d)
 			audio.tocar("combate/telegrafo_inicio", Iso.to_screen(d["origem"]), -6.0)
@@ -651,7 +695,9 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			if v: v.trocar_visual(d["kind"])
 		"fala":
 			var v = views.get(int(d["id"]))
-			if v: fx.fala(v, d.get("texto", ""), Defs.cor(d.get("cor", "#f0e2c0")))
+			if v and d.get("chat", false): fx.fala(v, d.get("texto", ""), Color("#f4ead4"), clampf(2.5 + str(d.get("texto", "")).length() * 0.06, 3.0, 8.0), true)
+			elif v: fx.fala(v, d.get("texto", ""), Defs.cor(d.get("cor", "#f0e2c0")))
+		"chat": hud.chat_linha(d)
 		"chefe_fala":
 			var v = views.get(int(d["id"]))
 			if v and d.get("texto", "") != "": fx.fala(v, d["texto"], Color("#ffcf9a"), 4.0)
@@ -663,6 +709,14 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			var v = views.get(int(d["id"]))
 			if v: fx.texto_flutuante(v.position + Vector2(0, -v.altura_px - 20), "FOME SACIADA x%d" % int(d.get("fome", 1)), Color("#ff7a3a"), 16)
 		"porta": _porta(d)
+		"evolucao", "forma":   # troca o boneco (evolução do nível 50, Forma Colossal)
+			var v = views.get(int(d["id"]))
+			if v:
+				v.iniciar(self, v.ent)
+				if tipo == "evolucao": fx.folha("level_up", v.position, {"segue": v})
+			if tipo == "evolucao" and jog and int(d["id"]) == jog.id:
+				audio.evento("nivel_sobe")
+				_salvar()
 		"teleporte":
 			var v = views.get(int(d["id"]))
 			if v:
@@ -729,8 +783,24 @@ func _ev(tipo: String, d: Dictionary) -> void:
 		"item_ganho": hud.item_ganho(d)
 		"ouro": hud.log_msg("+%d de ouro" % int(d["valor"]), Tema.COR_OURO)
 		"aviso": hud.aviso(d.get("texto", ""))
+		"auto_cfg": janelas.auto_mudou()
+		"talentos": janelas.talentos_mudou(); janelas.atualizar()
+		"grupo": hud.grupo_atualizar(d.get("membros", []))
+		"convite": hud.convite_mostrar(d)
+		"inspecao": hud.inspecao_mostrar(d)
+		"troca_pedido": hud.troca_pedido_mostrar(d)
+		"troca": janelas.troca_estado(d)
+		"troca_fim": janelas.troca_fim(d)
 		"log": hud.log_msg(d.get("texto", ""))
-		"texto": janelas.texto(d.get("titulo", ""), d.get("texto", ""))
+		"texto": janelas.texto_lido(d)
+		"estante": janelas.estante(d)
+		"gesto":
+			var vg = views.get(int(d["id"]))
+			if vg and d.get("gesto", "") == "ajoelhar":
+				vg.ajoelhar()
+		"efeito_bib":
+			var vf = views.get(int(d["id"]))
+			if vf: fx.folha(str(d.get("fx", "")), vf.position, {"segue": vf})   # sem efeito com esse id: nada acontece
 		"dialogo": janelas.dialogo(d)
 		"dialogo_fim": janelas.fechar("dialogo")
 		"missao":
@@ -759,7 +829,7 @@ func _trocar_mapa(id_mapa: String, pos: Vector2) -> void:
 	var tw := create_tween()
 	tw.tween_property(cortina, "modulate:a", 1.0, 0.45)
 	await tw.finished
-	if id_mapa != "area_inicial": audio.tocar("musica/vinheta/entrar_cripta")
+	if not Defs.eh_mapa_casa(id_mapa): audio.tocar("musica/vinheta/entrar_cripta")
 	_entrar(id_mapa, pos)
 	trocando = false
 	_salvar()
@@ -770,7 +840,7 @@ func _ataque(d: Dictionary) -> void:
 	var e: Ent = sim.ents.get(v.id)
 	var nome := "attack"
 	if d.get("anim", "") != "": nome = d["anim"]
-	elif e != null and e.tipo == "chefe" and e.kind == "general_partido":
+	elif e != null and e.tipo == "chefe" and Defs.mecanica_chefe(e.kind) == "general_partido":
 		nome = {"arrasto": "lunge", "vomito_de_brasa": "vomit", "banquete": "feast", "golpe_estandarte": "attack", "varredura": "sweep", "ordem_de_levantar": "roar"}.get(d.get("nome", ""), "sweep" if d.get("nome", "").contains("varre") else "attack")
 	elif e != null and e.kind == "capataz_gancho" and d.get("nome", "") != "": nome = "hook" if d["nome"].contains("gancho") else ("spin" if d["nome"].contains("gir") else "attack")
 	elif e != null and e.kind == "cao_de_vala" and d.get("nome", "") == "bote": nome = "leap"
@@ -844,6 +914,9 @@ func _dano(d: Dictionary) -> void:
 	elif d.get("sens", "") in ["golpe_leve", "combo"]: fx.folha("golpe_corte", pos + Vector2(0, 30), {"rot": randf_range(-0.6, 0.6)})
 	if alvo != null and alvo.tipo != "objeto" and not "espectro" in alvo.tags and not "mecanico" in alvo.tags and randf() < 0.6:
 		fx.folha("sangue_jorro", pos + Vector2(0, 26), {"escala": 0.8})
+	if eh_jog and alvo.id == jog.id:   # controle: o golpe que você toma treme na mão
+		var forca := clampf(float(valor) / maxf(1.0, jog.hp_max) * 4.0, 0.15, 1.0)
+		Controle.vibrar(0.2 + 0.4 * forca, 0.6 * forca + (0.3 if estilo.contains("critico") else 0.0), 0.12 + 0.12 * forca)
 	# som
 	if eh_jog: audio.evento("jogador_ferido", pos)
 	elif estilo.contains("excelente"): audio.evento("golpe_excelente", pos)
@@ -864,8 +937,9 @@ func _morreu(d: Dictionary) -> void:
 	var e: Ent = sim.ents.get(v.id)
 	fx.folha("sangue_poca", v.position, {"dura": 7.0})
 	if v.anim_unica == "_sem_morte": fx.folha("morte_monstro", v.position)
+	if v.id == jog.id: Controle.vibrar(0.7, 1.0, 0.6)
 	if d.get("chefe", false):
-		audio.evento("abate_chefe"); _tremer(8, 0.6)
+		audio.evento("abate_chefe"); _tremer(8, 0.6); Controle.vibrar(0.5, 0.8, 0.7)
 		fx.folha("chefe_morte", v.position, {"escala": 1.5})
 	elif e != null and e.tipo == "monstro":
 		audio.evento("abate", v.position)
@@ -958,15 +1032,17 @@ func _porta(d: Dictionary) -> void:
 	var feitos: Array = []
 	for c in cel:
 		var p := Vector2(c[0] + 0.5, c[1] + 0.5)
-		if feitos.any(func(q): return q.distance_to(p) < 2.2): continue
+		if feitos.any(func(q): return q.distance_to(p) < 1.45): continue
 		feitos.append(p)
-		var s := _sprite_kit("portao_ferro", p)
+		# estacas de selo (0.8.7): 1 em cada 3 é a variante _2; uma luz vermelha a cada 2 estacas
+		var kit := "barreira_chefe_2" if (feitos.size() - 1) % 3 == 2 else "barreira_chefe"
+		var s := _sprite_kit(kit, p)
 		if s:
 			mundo.add_child(s)
 			get_meta("portoes").append(s)
-			s.modulate = Color(1, 0.7, 0.6)
-		var l = luz.adicionar(Iso.to_screen(p), Color(1, 0.3, 0.15), 2.0, 1.0, true)
-		get_meta("portoes").append(l)
+		if (feitos.size() - 1) % 2 == 0:
+			var l = luz.adicionar(Iso.to_screen(p), Color(1, 0.3, 0.15), 2.0, 1.0, true)
+			get_meta("portoes").append(l)
 
 func _luzes_arena(d: Dictionary) -> void:
 	if has_meta("luzes_arena"):
@@ -1013,10 +1089,16 @@ func _tremer(px: float, dur: float) -> void:
 
 # =================================================================== entrada
 func mouse_mundo() -> Vector2:
-	return Iso.to_world(get_global_mouse_position())
+	return Iso.to_world(ponteiro())
+
+## Onde o jogador aponta: o mouse, ou, no modo controle, o alvo/ponto da mira do controle.
+func ponteiro() -> Vector2:
+	if Controle.inst != null and Controle.inst.no_mundo(): return Controle.inst.ponteiro()
+	return get_global_mouse_position()
 
 func _sob_mouse() -> void:
-	var m := get_global_mouse_position()
+	if mira_ctl.ativo: _hover_controle(); return
+	var m := ponteiro()
 	var melhor := -1
 	var md := 1e9
 	for id in views.keys():
@@ -1043,16 +1125,8 @@ func _sob_mouse() -> void:
 		if Rect2(o.position.x - 40, o.position.y - 70, 80, 85).has_point(m):
 			var dd3 := m.distance_to(o.position + Vector2(0, -25)) + 10
 			if dd3 < md: md = dd3; melhor = id
-	if hover_id != melhor:
-		if objs.has(hover_id) and is_instance_valid(objs[hover_id]): objs[hover_id].brilho = 0.0
-		if views.has(hover_id) and is_instance_valid(views[hover_id]): views[hover_id].hover = false
-		hover_id = melhor
-		if objs.has(hover_id): objs[hover_id].brilho = 1.0
-		if views.has(hover_id):
-			var ev2: Ent = sim.ents.get(hover_id)
-			views[hover_id].hover = true
-			views[hover_id].cor_anel = Color(1.0, 0.22, 0.12, 0.95) if ev2 != null and jog.eh_inimigo_de(ev2) else Color(1.0, 0.96, 0.86, 0.85)
-			if ev2 != null and ev2.aux.get("neutro", false) and ev2.estado in ["ocioso", "vagar"]: views[hover_id].cor_anel = Color(1.0, 0.85, 0.2, 0.95)
+	if melhor == -1: melhor = _jogador_sob_mouse()   # jogadores acendem quando não há mob/objeto na frente
+	_definir_hover(melhor)
 	hover_chao = -1
 	var mc := 42.0   # área de clique generosa em volta do item
 	for id in itens_chao.keys():
@@ -1063,48 +1137,96 @@ func _sob_mouse() -> void:
 		n.hover = false
 	if hover_chao != -1: itens_chao[hover_chao].hover = true
 
+## Controle: acende o alvo da mira (ou o NPC/baú da frente) e o item que o botão de pegar vai pegar.
+func _hover_controle() -> void:
+	var alvo: int = mira_ctl.alvo()
+	if alvo == -1: alvo = mira_ctl._interativo_na_frente()
+	_definir_hover(alvo)
+	for n in itens_chao.values(): n.hover = false
+	hover_chao = mira_ctl._item_na_frente()
+	if hover_chao != -1: itens_chao[hover_chao].hover = true
+
+func _definir_hover(melhor: int) -> void:
+	if hover_id != melhor:
+		if objs.has(hover_id) and is_instance_valid(objs[hover_id]): objs[hover_id].brilho = 0.0
+		if views.has(hover_id) and is_instance_valid(views[hover_id]): views[hover_id].hover = false
+		hover_id = melhor
+		if objs.has(hover_id): objs[hover_id].brilho = 1.0
+		if views.has(hover_id):
+			var ev2: Ent = sim.ents.get(hover_id)
+			views[hover_id].hover = true
+			views[hover_id].cor_anel = Color(1.0, 0.22, 0.12, 0.95) if ev2 != null and jog.eh_inimigo_de(ev2) else Color(1.0, 0.96, 0.86, 0.85)
+			if ev2 != null and ev2.aux.get("neutro", false) and ev2.estado in ["ocioso", "vagar"]: views[hover_id].cor_anel = Color(1.0, 0.85, 0.2, 0.95)
+			if ev2 != null and ev2.tipo == "jogador" and not jog.eh_inimigo_de(ev2): views[hover_id].cor_anel = Color(0.45, 1.0, 0.55, 0.95)
+
 func _unhandled_input(ev: InputEvent) -> void:
+	if ev is InputEventKey and ev.pressed and not ev.echo and ev.keycode in [KEY_ENTER, KEY_KP_ENTER] and not hud.chat_aberto():
+		hud.abrir_chat(); get_viewport().set_input_as_handled(); return
 	if trocando or not jog.vivo: return
 	if janelas.mao_ativa() and ev is InputEventMouseButton and ev.pressed:
 		janelas.soltar_no_mundo(); return
 	if ev is InputEventMouseButton:
 		if ev.button_index == MOUSE_BUTTON_LEFT:
 			if ev.pressed:
-				_clique(ev.shift_pressed)
-				segurando = true; t_seguro = 0.0
+				_selecionou = false
+				_clique(ev.shift_pressed, ev.ctrl_pressed)
+				segurando = not _selecionou; t_seguro = 0.0
 			else: segurando = false
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_UP and ev.pressed: cam.zoom = (cam.zoom * 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_DOWN and ev.pressed: cam.zoom = (cam.zoom / 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
-		elif ev.button_index == MOUSE_BUTTON_RIGHT and ev.pressed: usar_skill(0)
+		elif ev.button_index == MOUSE_BUTTON_RIGHT and ev.pressed:
+			# botão direito num jogador abre o menu (Inspecionar / Convidar ao grupo); fora dele, skill 1
+			var outro := _jogador_sob_mouse()
+			var eo: Ent = sim.ents.get(outro)
+			if outro != -1 and rede != null and not jog.eh_inimigo_de(eo): hud.menu_jogador(outro, get_viewport().get_mouse_position())   # em briga, o direito solta skill nele
+			else: usar_skill(0)
 	elif ev is InputEventKey and ev.pressed and not ev.echo:
 		match ev.keycode:
-			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9: usar_skill(ev.keycode - KEY_1)
+			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
+				if ev.shift_pressed and ev.keycode <= KEY_5: usar_skill(Evolucao.SLOT_EVO + ev.keycode - KEY_1)   # skills da evolução
+				else: usar_skill(ev.keycode - KEY_1)
 			KEY_Q: cmd("pocao", ["vida"])
 			KEY_W: cmd("pocao", ["recurso"])
 			KEY_E: cmd("pocao", ["antidoto"])
 			KEY_R: usar_vela()
-			KEY_Z: cmd("auto", [not jog.aux.get("auto", false)])
+			KEY_Z:
+				if ev.shift_pressed: janelas.alternar("auto")   # ajustes do automático
+				else: cmd("auto", [not jog.aux.get("auto", false)])
 			KEY_I, KEY_B: janelas.alternar("inventario")
 			KEY_C: janelas.alternar("personagem")
 			KEY_J, KEY_L: janelas.alternar("missoes")
 			KEY_K: janelas.alternar("habilidades")
+			KEY_T: janelas.alternar("talentos")
+			KEY_V: janelas.alternar("teleporte")
 			KEY_M, KEY_TAB: hud.alternar_mapa()
 			KEY_H, KEY_F1: hud.alternar_ajuda()
 			KEY_ESCAPE:
-				if not janelas.fechar_tudo(): janelas.alternar("menu")
+				if janelas.fechar_tudo(): pass
+				elif mira != -1: soltar_mira()   # Esc solta a mira e o alvo de cura antes de abrir o menu
+				elif alvo_amigo != -1: selecionar_amigo(alvo_amigo)
+				else: janelas.alternar("menu")
 			KEY_ALT: mostrar_nomes = true
 	elif ev is InputEventKey and not ev.pressed and ev.keycode == KEY_ALT:
-		mostrar_nomes = false
+		mostrar_nomes = bool(Ajustes.v("nomes_sempre"))
 
+## Teleporte de volta ao acampamento: grátis, não gasta item.
 func usar_vela() -> void:
-	for it in jog.inv:
-		if it["id"] == "vela_retorno":
-			cmd("usar_item", [int(it["uid"])]); return
-	hud.aviso("Sem Vela de Retorno na mochila.")
+	cmd("voltar", [])
 
 func usar_skill(slot: int) -> void:
+	if mira_ctl.ativo: mira_ctl.usar_skill(slot); return   # controle: mira pelo alvo automático e pelos sticks
+	# cura e suporte (Toque da Graça, Nanoreparo): vai no aliado sob o mouse; sem aliado, o servidor cura você mesmo
+	var h := Jogador.skill_def(jog, slot)
+	if not h.is_empty() and Jogador._tipo_skill(h) == "alvo_aliado":
+		var am := _aliado_sob_mouse()
+		if am == -1 and _amigo_valido(): am = alvo_amigo
+		var ea: Ent = sim.ents.get(am)
+		if ea != null and ea.pos.distance_to(jog.pos) > Jogador._alcance_skill(h) + 0.5:
+			hud.aviso("%s está longe demais para %s." % [ea.nome, str(h["nome"])]); return
+		cmd("skill", [slot, am, mouse_mundo()]); return
 	var alvo := hover_id
-	if alvo == -1 or not sim.ents.has(alvo) or not jog.eh_inimigo_de(sim.ents[alvo]): alvo = jog.alvo
+	if alvo == -1 or not sim.ents.has(alvo) or not jog.eh_inimigo_de(sim.ents[alvo]):
+		alvo = mira if mira != -1 and sim.ents.has(mira) and jog.eh_inimigo_de(sim.ents[mira]) else jog.alvo
 	if sim.valido(alvo) == null:   # sem alvo: o inimigo mais perto do cursor, ou o mais perto do jogador
 		var p := _inimigo_perto_do_mouse(2.5)
 		if p == null:
@@ -1115,10 +1237,23 @@ func usar_skill(slot: int) -> void:
 		if p != null: alvo = p.id
 	cmd("skill", [slot, alvo, mouse_mundo()])
 
-func _clique(shift: bool) -> void:
+func _clique(shift: bool, ctrl := false) -> void:
 	_sob_mouse()
+	hud.fechar_menu_jogador()
+	if ctrl:   # Ctrl + clique num jogador: ataca e liga o PvP (o servidor recusa em área segura); depois o ataque segue sozinho
+		var pj := hover_id
+		var ep: Ent = sim.ents.get(pj)
+		if ep == null or ep.tipo != "jogador": pj = _jogador_sob_mouse()
+		if pj != -1:
+			cmd("atacar", [pj, shift, true]); _selecionou = true   # o servidor recusa (com aviso) mesma facção, cripta e área segura
+			var ef: Ent = sim.ents.get(pj)
+			if ef != null and ef.faccao != jog.faccao: mirar(pj)
+			return
 	if hover_chao != -1:
 		cmd("pegar", [hover_chao]); return
+	var ej: Ent = sim.ents.get(hover_id)
+	if ej != null and ej.tipo == "jogador" and not jog.eh_inimigo_de(ej):   # clique no aliado: vira o alvo das curas
+		selecionar_amigo(hover_id); _selecionou = true; return
 	if hover_id != -1:
 		var e: Ent = sim.ents.get(hover_id)
 		if e != null:
@@ -1138,7 +1273,86 @@ func _clique(shift: bool) -> void:
 		return
 	cmd("no_lugar", [false])
 	cmd("mover", [mouse_mundo()])
-	_marcador_clique(get_global_mouse_position())
+	_marcador_clique(ponteiro())
+
+## Ctrl + clique num jogador: liga o PvP (servidor) e trava a mira das skills nele, até ele morrer, sair ou a briga esfriar.
+func mirar(id: int) -> void:
+	soltar_mira()
+	if not views.has(id): return
+	mira = id; mira_t = 0.0
+	views[id].selecionado = true; views[id].cor_sel = Color(1.0, 0.25, 0.15, 0.95)
+	var e: Ent = sim.ents.get(id)
+	if e != null: hud.aviso("Mira em %s: suas skills vão nele." % e.nome, Color("#ff9a80"))
+
+func soltar_mira() -> void:
+	if views.has(mira) and is_instance_valid(views[mira]):
+		views[mira].selecionado = mira == alvo_amigo; views[mira].cor_sel = Color(0.45, 1.0, 0.55, 0.95)
+	mira = -1
+
+func _mira_passo(dt: float) -> void:
+	mira_t += dt
+	var e: Ent = sim.ents.get(mira)
+	# o PvP liga no servidor um instante depois do clique: só solta se não virou inimigo em 2 s
+	if e == null or not e.vivo or not views.has(mira) or (mira_t > 2.0 and not jog.eh_inimigo_de(e)): soltar_mira()
+
+## Seleciona (ou, clicando de novo, solta) o aliado que recebe as curas.
+func selecionar_amigo(id: int) -> void:
+	if views.has(alvo_amigo) and is_instance_valid(views[alvo_amigo]): views[alvo_amigo].selecionado = false
+	alvo_amigo = -1 if id == alvo_amigo else id
+	if alvo_amigo != -1:
+		views[alvo_amigo].selecionado = true
+		audio.tocar("ui/clique", null, -8.0)
+		var e: Ent = sim.ents.get(alvo_amigo)
+		hud.aviso("Alvo de cura: %s" % e.nome, Color("#a8f0b0"))
+
+func _amigo_valido() -> bool:
+	var e: Ent = sim.ents.get(alvo_amigo)
+	if e != null and e.vivo and views.has(alvo_amigo): return true
+	if alvo_amigo != -1: selecionar_amigo(alvo_amigo)   # saiu do mapa ou morreu: solta
+	return false
+
+## Aliado (outro jogador do mesmo lado) sob o mouse, para as curas; -1 se não houver.
+func _aliado_sob_mouse() -> int:
+	var id := hover_id
+	var e: Ent = sim.ents.get(id)
+	if e == null or e.tipo != "jogador" or id == jog.id or jog.eh_inimigo_de(e): id = _jogador_sob_mouse()
+	e = sim.ents.get(id)
+	if e == null or jog.eh_inimigo_de(e): return -1
+	return id
+
+## Outro personagem sob o mouse (botão direito abre o menu: inspecionar ou convidar para o grupo).
+func _jogador_sob_mouse() -> int:
+	var m := ponteiro()
+	var melhor := -1
+	var md := 1e9
+	for id in views.keys():
+		var v = views[id]
+		var e: Ent = sim.ents.get(id)
+		if e == null or e.tipo != "jogador" or id == jog.id or not e.vivo or not v.visible: continue
+		var larg: float = maxf(30.0 * v.escala_base * e.escala, 28.0)
+		var alt: float = maxf(v.altura_px * e.escala, 80.0)
+		var r := Rect2(v.position.x - larg - 24, v.position.y - alt - 30, (larg + 24) * 2, alt + 50)
+		if r.has_point(m):
+			var dd := absf(m.x - v.position.x) + absf(m.y - (v.position.y - alt * 0.5)) * 0.5
+			if dd < md: md = dd; melhor = id
+	return melhor
+
+## Pedidos de grupo e de inspeção vão para o servidor (que confere tudo).
+func grupo_cmd(a: String, extra := {}) -> void:
+	if rede == null: return
+	var m := {"t": "grupo", "a": a}
+	m.merge(extra)
+	rede.enviar_srv(m)
+
+## Troca entre jogadores (scripts/net/troca.gd): pedir, aceitar, por/tirar item, ouro, ok, cancelar.
+func troca_cmd(a: String, extra := {}) -> void:
+	if rede == null: return
+	var m := {"t": "troca", "a": a}
+	m.merge(extra)
+	rede.enviar_srv(m)
+
+func inspecionar(id: int) -> void:
+	if rede != null: rede.enviar_srv({"t": "inspecionar", "id": id})
 
 func _inimigo_perto_do_mouse(raio: float) -> Ent:
 	var mm := mouse_mundo()
@@ -1175,6 +1389,8 @@ func _process(dt: float) -> void:
 			acc -= WorldSim.TICK
 			sim.passo(WorldSim.TICK)
 	_sob_mouse()
+	if alvo_amigo != -1: _amigo_valido()
+	if mira != -1: _mira_passo(dt)
 	# segurar o botão: segue o mouse (ou continua batendo no alvo)
 	if segurando and jog.vivo and not trocando:
 		t_seguro += dt
@@ -1219,17 +1435,34 @@ func _process(dt: float) -> void:
 
 func _fade_props(vj) -> void:
 	if vj == null: return
-	var p: Vector2 = vj.pos_vis + Vector2(0, -50)
-	for pr in props_altos:
-		var s: Sprite2D = pr[0]
-		if not is_instance_valid(s): continue
-		var r: Rect2 = pr[1]
-		var alvo := 1.0
-		if r.has_point(p) and s.position.y > vj.pos_vis.y: alvo = 0.4
-		s.modulate.a = lerpf(s.modulate.a, alvo, 0.15)
-	# silhueta: se algum pixel de cenário na frente cobre o corpo, desenha o jogador por cima (Diablo / Dark Eden)
-	var escondido: bool = not vj.morto and _coberto(vj.pos_vis, vj.altura_px)
-	silhueta_a = lerpf(silhueta_a, 1.0 if escondido else 0.0, 0.25)
+	# recorte (Diablo 3 / Path of Exile): só o prop que cobre o corpo abre um óvalo translúcido em volta do jogador;
+	# o resto da cidade fica sólido. Antes (0.8.5) o prédio alto inteiro ficava a 40%, e numa rua cheia sumia tudo.
+	var cobrem: Dictionary = {} if vj.morto else _cobridores(vj.pos_vis, vj.altura_px)
+	for s2 in cobrem:
+		if recortes.has(s2): continue
+		var m := ShaderMaterial.new()
+		m.shader = SHADER_RECORTE
+		m.set_shader_parameter("forca", 0.0)
+		s2.material = m
+		recortes[s2] = m
+	var tronco: Vector2 = vj.pos_vis + Vector2(0, -vj.altura_px * 0.5)
+	var raio := Vector2(0.8, 1.05) * maxf(vj.altura_px, 80.0)
+	for s2 in recortes.keys():
+		if not is_instance_valid(s2): recortes.erase(s2); continue
+		var m: ShaderMaterial = recortes[s2]
+		var f := lerpf(float(m.get_shader_parameter("forca")), 1.0 if cobrem.has(s2) else 0.0, 0.18)
+		if f < 0.01 and not cobrem.has(s2):
+			s2.material = null
+			recortes.erase(s2)
+			continue
+		m.set_shader_parameter("forca", f)
+		m.set_shader_parameter("centro", tronco)
+		m.set_shader_parameter("raio", raio)
+	# silhueta: se algum pixel de cenário na frente cobre o corpo, desenha o jogador por cima (Diablo / Dark Eden).
+	# Com o recorte aberto o corpo já aparece, então ela fica só um contorno leve.
+	var escondido := false
+	for n in cobrem.values(): escondido = escondido or n >= 2
+	silhueta_a = lerpf(silhueta_a, 0.45 if escondido else 0.0, 0.25)
 	silhueta.visible = silhueta_a > 0.03
 	if silhueta.visible:
 		var c: Sprite2D = vj.corpo
@@ -1240,6 +1473,13 @@ func _fade_props(vj) -> void:
 
 ## Algum pixel de cenário na frente cobre um corpo de altura alt com os pés em pe (tela)?
 func _coberto(pe: Vector2, alt: float) -> bool:
+	for n in _cobridores(pe, alt).values():
+		if n >= 2: return true
+	return false
+
+## Sprites de cenário na frente do corpo (pés em pe, altura alt) que cobrem algum ponto dele, por pixel: sprite -> nº de pontos.
+func _cobridores(pe: Vector2, alt: float) -> Dictionary:
+	var res := {}
 	var pts := [pe + Vector2(0, -alt * 0.2), pe + Vector2(0, -alt * 0.5), pe + Vector2(0, -alt * 0.8),
 		pe + Vector2(-alt * 0.15, -alt * 0.5), pe + Vector2(alt * 0.15, -alt * 0.5)]
 	var caixa := Rect2(pe - Vector2(alt * 0.2, alt), Vector2(alt * 0.4, alt))
@@ -1254,9 +1494,10 @@ func _coberto(pe: Vector2, alt: float) -> bool:
 		for q in pts:
 			if r2.has_point(q):
 				var l: Vector2 = q - r2.position
+				if s2.flip_h: l.x = r2.size.x - 1.0 - l.x
 				if bm.get_bitv(Vector2i(int(l.x), int(l.y))): cobre += 1
-		if cobre >= 2: return true
-	return false
+		if cobre > 0: res[s2] = cobre
+	return res
 
 ## Ponto de nascimento em área aberta: procura em volta do spawn do mapa uma célula livre que nada cubra.
 func _spawn_aberto(p: Vector2) -> Vector2:
@@ -1309,7 +1550,7 @@ func _desenhar_sobre() -> void:
 					if tit != "": _nome(topo + Vector2(0, 14), tit, Color("#a89f8c"), 11, Tema.FONTE_ITALICO)
 			"monstro", "invocacao":
 				var ferido := e.hp < e.hp_max - 0.5
-				if id == hover_id or id == jog.alvo or ferido or e.arquetipo in ["elite", "raro"]:
+				if id == hover_id or id == jog.alvo or ferido or e.arquetipo in ["elite", "raro"] or Ajustes.v("barras_sempre"):
 					var larg := 44.0
 					var cor_b := Color(0.75, 0.12, 0.08) if e.tipo == "monstro" else Color(0.3, 0.7, 0.3)
 					if e.tipo == "monstro" and e.aux.get("neutro", false) and e.estado in ["ocioso", "vagar", "voltar"]: cor_b = Color(0.85, 0.7, 0.15)
@@ -1324,6 +1565,12 @@ func _desenhar_sobre() -> void:
 					elif e.arquetipo == "raro": cn = Color("#7fb8ff")
 					_nome(topo + Vector2(0, -8), "%s  %d" % [e.nome, e.nivel], cn, 12)
 			"jogador":
+				if str(e.aux.get("aura", "")) != "":   # aura de mistério resolvido: anel que respira no chão
+					var ra := Iso.elipse(0.62 + 0.04 * sin(t * 1.7))
+					Unidade._elipse(sobre, v.position, ra, Color(0.95, 0.82, 0.45, 0.28 + 0.12 * sin(t * 1.7)), false, 2.0)
+				var tit_j: String = e.aux.get("titulo", "")   # título de mistério resolvido (Biblioteca), embaixo do nome
+				if tit_j != "" and (id != jog.id or id == hover_id or mostrar_nomes):
+					_nome(topo + Vector2(0, 6 if id != jog.id else -8), tit_j, Color("#e0c068"), 11, Tema.FONTE_ITALICO)
 				if id != jog.id:   # outros jogadores da rede: nome, nível e vida
 					_nome(topo + Vector2(0, -8), "%s  %d" % [e.nome, e.nivel], Color("#9fd8ff"), 12)
 					sobre.draw_rect(Rect2(topo.x - 21, topo.y - 1, 42, 5), Color(0, 0, 0, 0.8))
@@ -1396,3 +1643,28 @@ static func carregar_save() -> Dictionary:
 	var f := FileAccess.open(SAVE, FileAccess.READ)
 	var d = JSON.parse_string(f.get_as_text())
 	return d if d is Dictionary else {}
+
+# =================================================================== cume do Hermon (evento O Cume dos Vigilantes)
+## Aviso: as fendas do anel acendem na luz do juramento e pulsam; a terra treme.
+func _hermon_aviso(anel: String) -> void:
+	for s: Sprite2D in rachas.get(anel, []):
+		if not is_instance_valid(s): continue
+		var t := create_tween().set_loops(10)
+		t.tween_property(s, "modulate", Color(2.6, 1.9, 1.0), 0.5)
+		t.tween_property(s, "modulate", Color(1.5, 1.1, 0.7), 0.5)
+		luz.adicionar(s.position, Color(1.0, 0.8, 0.45), 1.6, 1.0, true)
+	_tremer(2, 1.0)
+
+## Queda: o chão do anel vira abismo e os props daquele anel despencam.
+func _hermon_caiu(anel: String) -> void:
+	for a in mapa.get("hermon", {}).get("aneis", []):
+		if a["id"] == anel: chao.derrubar(a["celulas"])
+	for s: Sprite2D in props_anel.get(anel, []) + rachas.get(anel, []):
+		if not is_instance_valid(s): continue
+		var t := create_tween().set_parallel()
+		t.tween_property(s, "position:y", s.position.y + 300.0, 1.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+		t.tween_property(s, "modulate:a", 0.0, 1.4)
+		t.chain().tween_callback(s.queue_free)
+		props_altos = props_altos.filter(func(pr): return pr[0] != s)
+		oclusores = oclusores.filter(func(oc): return oc[0] != s)
+	_tremer(10, 0.8)

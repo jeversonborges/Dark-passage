@@ -1,0 +1,17 @@
+{
+ "w": 416,
+ "h": 274,
+ "anchor": [
+  65,
+  235
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Variante: trilho de latão com a escada de correr de imbuia encostada nas lombadas, etiquetas de     classificação nas tábuas e um livro aberto esquecido num degrau.",
+ "kind": "parede_biblioteca_v3_a"
+}

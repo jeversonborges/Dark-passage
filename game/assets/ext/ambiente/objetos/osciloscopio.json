@@ -1,0 +1,17 @@
+{
+ "w": 142,
+ "h": 104,
+ "anchor": [
+  26,
+  77
+ ],
+ "emissivo": "tela laranja",
+ "andar": 3,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Osciloscópio de válvula num carrinho de rodinhas: tela laranja com a senoide da faixa     morta, ponteiras penduradas, bateria e rolo de cabo na prateleira de baixo.",
+ "kind": "osciloscopio"
+}

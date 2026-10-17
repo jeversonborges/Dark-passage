@@ -1,0 +1,115 @@
+{
+ "monstro": "esfinge_de_hawara",
+ "frame_size": [
+  640,
+  640
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  320.0,
+  419.8
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 4,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 11,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 9,
+   "fps": 10,
+   "loop": false
+  },
+  "riddle": {
+   "frames": 8,
+   "fps": 6,
+   "loop": true
+  },
+  "slam": {
+   "frames": 10,
+   "fps": 11,
+   "loop": false
+  },
+  "wave": {
+   "frames": 10,
+   "fps": 11,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "esfinge_de_hawara_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "esfinge_de_hawara_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "esfinge_de_hawara_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "esfinge_de_hawara_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "esfinge_de_hawara_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "riddle": {
+   "file": "esfinge_de_hawara_riddle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "slam": {
+   "file": "esfinge_de_hawara_slam.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "wave": {
+   "file": "esfinge_de_hawara_wave.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 2.6
+ }
+}

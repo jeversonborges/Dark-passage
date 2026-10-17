@@ -1,0 +1,15 @@
+{
+ "w": 144,
+ "h": 78,
+ "anchor": [
+  52,
+  48
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Monte de carvão da caldeira, com pá.",
+ "kind": "pilha_carvao"
+}

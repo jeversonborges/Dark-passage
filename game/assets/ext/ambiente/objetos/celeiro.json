@@ -1,0 +1,16 @@
+{
+ "w": 348,
+ "h": 210,
+ "anchor": [
+  104,
+  155
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Celeiro de silos em cúpula (como nas maquetes dos túmulos): três colmeias de tijolo rebocado com a portinhola     de cima para encher e a de baixo para tirar o grão, escada de mão e sacos.",
+ "kind": "celeiro"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 164,
+ "h": 102,
+ "anchor": [
+  27,
+  87
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Globo terrestre de 1888 em pé de carvalho, com meridiano de latão; os continentes de antes do Impasse.",
+ "kind": "globo_terrestre"
+}

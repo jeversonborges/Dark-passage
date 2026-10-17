@@ -1,0 +1,16 @@
+{
+ "w": 180,
+ "h": 86,
+ "anchor": [
+  59,
+  52
+ ],
+ "andar": 4,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Pedaço de treliça vermelha e branca caído na plataforma: um trecho reto e outro     entortado na queda, barras arrancadas com pontas rasgadas, parafusos e um degrau de escada.",
+ "kind": "viga_trelica"
+}

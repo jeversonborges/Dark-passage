@@ -1,0 +1,16 @@
+{
+ "w": 226,
+ "h": 138,
+ "anchor": [
+  78,
+  95
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Touceira de juncos e taboas da margem, verdes embaixo e secos na ponta, com espigas marrons.",
+ "kind": "juncos_nilo"
+}

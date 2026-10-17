@@ -1,0 +1,95 @@
+{
+ "monstro": "bombardeiro_legiao",
+ "frame_size": [
+  288,
+  288
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  144.0,
+  207.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 12,
+   "fps": 16,
+   "loop": false
+  },
+  "fire": {
+   "frames": 11,
+   "fps": 11,
+   "loop": false
+  },
+  "hit": {
+   "frames": 5,
+   "fps": 14,
+   "loop": false
+  },
+  "death": {
+   "frames": 14,
+   "fps": 12,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "bombardeiro_legiao_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "bombardeiro_legiao_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "bombardeiro_legiao_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "fire": {
+   "file": "bombardeiro_legiao_fire.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "bombardeiro_legiao_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "bombardeiro_legiao_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "w": 1236,
+ "h": 730,
+ "anchor": [
+  386,
+  534
+ ],
+ "emissivo": "esmeralda (a Flor, o fogo frio)",
+ "bioma": "amenti",
+ "lore": "flor_da_vida",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  12
+ ],
+ "descricao": "",
+ "kind": "flor_da_vida_ardente"
+}

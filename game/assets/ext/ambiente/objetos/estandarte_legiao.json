@@ -1,0 +1,16 @@
+{
+ "w": 286,
+ "h": 184,
+ "anchor": [
+  45,
+  159
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estandarte partido da Legião Blasfema cravado na pilha: haste quebrada, travessa com pontas de ferro,     pano vermelho-sangue em farrapos com o bode bordado já sem forma.",
+ "kind": "estandarte_legiao"
+}

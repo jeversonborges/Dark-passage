@@ -1,0 +1,16 @@
+{
+ "w": 224,
+ "h": 132,
+ "anchor": [
+  72,
+  93
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Medas de cevada amarradas no lodo da Terra Negra, prontas para o terreiro.",
+ "kind": "feixes_cevada_egito"
+}

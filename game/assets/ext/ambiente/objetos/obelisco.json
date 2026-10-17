@@ -1,0 +1,17 @@
+{
+ "w": 700,
+ "h": 458,
+ "anchor": [
+  96,
+  406
+ ],
+ "lore": "obelisco",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Obelisco de granito rosa de Assuã num pedestal: três colunas de hieróglifos em cada face com o cartucho do     rei, pirâmide do topo que já foi coberta de electro (sobrou o verde do bronze).",
+ "kind": "obelisco"
+}

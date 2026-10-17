@@ -274,7 +274,7 @@ static func usar_ataque(sim: WorldSim, e: Ent, at: Dictionary, a: Ent) -> void:
 	var acao := {"preparo": prep, "rec": rec, "alvo": aid, "def": at, "op": op, "dir": dir, "nome": id}
 	if at.has("conjuracao") and not at.has("preparo"): acao["conj"] = true
 	if at.has("telegrafo") and at["telegrafo"]["forma"] == "circulo":
-		acao["ponto_tele"] = a.pos if id in ["brotar"] else e.pos
+		acao["ponto_tele"] = a.pos if id in ["brotar"] or at["telegrafo"].get("no_alvo", false) else e.pos
 	# especiais
 	if at.has("teleporte"):
 		var p := sim.celula_livre_perto(a.pos + Vector2.from_angle(sim.rng.randf() * TAU) * float(at["teleporte"]))

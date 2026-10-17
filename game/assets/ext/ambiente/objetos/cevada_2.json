@@ -1,0 +1,16 @@
+{
+ "w": 218,
+ "h": 128,
+ "anchor": [
+  54,
+  97
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "cevada_2"
+}

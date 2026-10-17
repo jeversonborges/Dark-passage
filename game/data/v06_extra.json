@@ -1,30 +1,7150 @@
 {
  "_doc": "v0.6: dados que as outras frentes ainda não entregaram (números de combate dos monstros novos das linhas D e E e das variantes da Beira da Tempestade, e o carrinho de poção das fogueiras). Defs só usa um id daqui se o design não tiver o mesmo id: quando a entrega chegar, ela vale sozinha.",
  "mobs": {
-  "nao_julgado_da_tempestade": {"nome": "Não-Julgado da Tempestade", "base": "nao_julgado", "niveis": [9, 11], "ajuste": {"hp": 1.15}, "res": {"fisico": 0.2, "sagrado": -0.4, "eletrico": 0.3}, "renascimento_s": 14},
-  "carnical_inchado": {"nome": "Carniçal Inchado", "base": "carnical", "niveis": [11, 12], "ajuste": {"hp": 1.6, "mov": 0.7, "dano": 1.15}, "renascimento_s": 14,
-   "ataques": [{"id": "arranhao", "mult": 1.0, "preparo": 0.55}, {"id": "vomito", "mult": 1.4, "preparo": 0.8, "telegrafo": {"forma": "cone", "raio": 2.2, "angulo": 70}, "efeito": {"veneno": {"duracao": 4, "dano_por_s_mult": 0.12}}, "recarga": 7}]},
-  "desertor_legiao": {"nome": "Desertor da Legiao", "area": "rio amargo e campos de cinza", "niveis": [6, 9], "arquetipo": "normal", "ajuste": {"hp": 1.15, "dano": 1.1}, "tags": ["demonio"], "grupo": [2, 3],
-   "res": {"fogo": 0.4, "sagrado": -0.3}, "alcance": 1.6, "ia": {"padrao": "matilha", "raio_aggro": 5, "aggro_social": 5}, "renascimento_s": 14,
-   "ataques": [{"id": "estocada", "mult": 1.0, "preparo": 0.5}, {"id": "investida_lanca", "mult": 1.6, "preparo": 0.8, "telegrafo": {"forma": "linha", "comprimento": 4.5, "largura": 1}, "recarga": 8}], "drop": "inicial_humanoide"},
-  "sangrador_apostata": {"nome": "Sangrador Apostata", "area": "bosque das viuvas", "niveis": [5, 7], "arquetipo": "atirador", "tags": ["humano"], "grupo": [2, 3],
-   "res": {"sangue": 0.3}, "alcance": 5, "ia": {"padrao": "conjurador", "raio_aggro": 6, "distancia_ideal": 4, "distancia_minima": 2}, "renascimento_s": 14,
-   "ataques": [{"id": "sangria", "mult": 1.0, "preparo": 0.6, "projetil_vel": 10, "efeito": {"sangramento": {"duracao": 3, "dano_por_s_mult": 0.1}}}], "drop": "inicial_humanoide"},
-  "sombra_gravada": {"nome": "Sombra Gravada", "area": "borda da tempestade", "niveis": [9, 12], "arquetipo": "normal", "ajuste": {"hp": 0.95, "mov": 1.1}, "tags": ["espectro"], "grupo": [2, 3],
-   "res": {"fisico": 0.25, "sagrado": -0.5, "fogo": -0.3}, "alcance": 1.2, "ia": {"padrao": "piscar", "raio_aggro": 6}, "renascimento_s": 14,
-   "ataques": [{"id": "toque_apontar", "mult": 1.0, "preparo": 0.5, "efeito": {"lento": 2}}, {"id": "piscar", "recarga": 7, "teleporte": 1.5}], "drop": "inicial_espectro"},
-  "ultimo_operador": {"nome": "Sargento Brandao, o Ultimo Operador", "area": "silo sao lazaro", "niveis": [12, 12], "arquetipo": "elite", "tags": ["humano"], "res": {"fisico": 0.1, "eletrico": 0.3},
-   "renascimento_s": 0, "alcance": 5, "ia": {"padrao": "elite", "raio_aggro": 8, "raio_coleira": 18},
-   "ataques": [{"id": "tiro_de_servico", "mult": 1.0, "preparo": 0.6, "projetil_vel": 14}, {"id": "sirene", "mult": 1.8, "preparo": 1.1, "telegrafo": {"forma": "circulo", "raio": 2.5}, "recarga": 9},
-    {"id": "chamado", "em_hp": 0.5, "invoca": {"sombra_gravada": 2}}], "drop": "elite_inicial"}
+  "nao_julgado_da_tempestade": {
+   "nome": "Não-Julgado da Tempestade",
+   "base": "nao_julgado",
+   "niveis": [
+    9,
+    11
+   ],
+   "ajuste": {
+    "hp": 1.15
+   },
+   "res": {
+    "fisico": 0.2,
+    "sagrado": -0.4,
+    "eletrico": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "carnical_inchado": {
+   "nome": "Carniçal Inchado",
+   "base": "carnical",
+   "niveis": [
+    11,
+    12
+   ],
+   "ajuste": {
+    "hp": 1.6,
+    "mov": 0.7,
+    "dano": 1.15
+   },
+   "renascimento_s": 14,
+   "ataques": [
+    {
+     "id": "arranhao",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "vomito",
+     "mult": 1.4,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.2,
+      "angulo": 70
+     },
+     "efeito": {
+      "veneno": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.12
+      }
+     },
+     "recarga": 7
+    }
+   ]
+  },
+  "desertor_legiao": {
+   "nome": "Desertor da Legiao",
+   "area": "rio amargo e campos de cinza",
+   "niveis": [
+    6,
+    9
+   ],
+   "arquetipo": "normal",
+   "ajuste": {
+    "hp": 1.15,
+    "dano": 1.1
+   },
+   "tags": [
+    "demonio"
+   ],
+   "grupo": [
+    2,
+    3
+   ],
+   "res": {
+    "fogo": 0.4,
+    "sagrado": -0.3
+   },
+   "alcance": 1.6,
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 5,
+    "aggro_social": 5
+   },
+   "renascimento_s": 14,
+   "ataques": [
+    {
+     "id": "estocada",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "investida_lanca",
+     "mult": 1.6,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 4.5,
+      "largura": 1
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "inicial_humanoide"
+  },
+  "sangrador_apostata": {
+   "nome": "Sangrador Apostata",
+   "area": "bosque das viuvas",
+   "niveis": [
+    5,
+    7
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "humano"
+   ],
+   "grupo": [
+    2,
+    3
+   ],
+   "res": {
+    "sangue": 0.3
+   },
+   "alcance": 5,
+   "ia": {
+    "padrao": "conjurador",
+    "raio_aggro": 6,
+    "distancia_ideal": 4,
+    "distancia_minima": 2
+   },
+   "renascimento_s": 14,
+   "ataques": [
+    {
+     "id": "sangria",
+     "mult": 1.0,
+     "preparo": 0.6,
+     "projetil_vel": 10,
+     "efeito": {
+      "sangramento": {
+       "duracao": 3,
+       "dano_por_s_mult": 0.1
+      }
+     }
+    }
+   ],
+   "drop": "inicial_humanoide"
+  },
+  "sombra_gravada": {
+   "nome": "Sombra Gravada",
+   "area": "borda da tempestade",
+   "niveis": [
+    9,
+    12
+   ],
+   "arquetipo": "normal",
+   "ajuste": {
+    "hp": 0.95,
+    "mov": 1.1
+   },
+   "tags": [
+    "espectro"
+   ],
+   "grupo": [
+    2,
+    3
+   ],
+   "res": {
+    "fisico": 0.25,
+    "sagrado": -0.5,
+    "fogo": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "piscar",
+    "raio_aggro": 6
+   },
+   "renascimento_s": 14,
+   "ataques": [
+    {
+     "id": "toque_apontar",
+     "mult": 1.0,
+     "preparo": 0.5,
+     "efeito": {
+      "lento": 2
+     }
+    },
+    {
+     "id": "piscar",
+     "recarga": 7,
+     "teleporte": 1.5
+    }
+   ],
+   "drop": "inicial_espectro"
+  },
+  "ultimo_operador": {
+   "nome": "Sargento Brandao, o Ultimo Operador",
+   "area": "silo sao lazaro",
+   "niveis": [
+    12,
+    12
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "humano"
+   ],
+   "res": {
+    "fisico": 0.1,
+    "eletrico": 0.3
+   },
+   "renascimento_s": 0,
+   "alcance": 5,
+   "ia": {
+    "padrao": "elite",
+    "raio_aggro": 8,
+    "raio_coleira": 18
+   },
+   "ataques": [
+    {
+     "id": "tiro_de_servico",
+     "mult": 1.0,
+     "preparo": 0.6,
+     "projetil_vel": 14
+    },
+    {
+     "id": "sirene",
+     "mult": 1.8,
+     "preparo": 1.1,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.5
+     },
+     "recarga": 9
+    },
+    {
+     "id": "chamado",
+     "em_hp": 0.5,
+     "invoca": {
+      "sombra_gravada": 2
+     }
+    }
+   ],
+   "drop": "elite_inicial"
+  },
+  "lobo_de_cinza": {
+   "nome": "Lobo de Cinza",
+   "base": "cao_de_vala",
+   "niveis": [
+    12,
+    14
+   ],
+   "ajuste": {
+    "hp": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "renascimento_s": 14
+  },
+  "corvo_de_brasa": {
+   "nome": "Corvo de Brasa",
+   "base": "corvo_de_cinza",
+   "niveis": [
+    12,
+    15
+   ],
+   "ajuste": {
+    "dano": 1.1
+   },
+   "tags": [
+    "animal",
+    "voador"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "javali_brasa": {
+   "nome": "Javali-Brasa",
+   "base": "porco_pestilento",
+   "niveis": [
+    13,
+    16
+   ],
+   "ajuste": {
+    "hp": 1.2
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": 0.4
+   },
+   "renascimento_s": 14
+  },
+  "enxame_de_fagulhas": {
+   "nome": "Enxame de Fagulhas",
+   "base": "fogo_de_vela",
+   "niveis": [
+    15,
+    17
+   ],
+   "ajuste": {},
+   "tags": [
+    "espectro"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.8,
+    "gelo": -0.5
+   },
+   "renascimento_s": 14
+  },
+  "legionario_desgarrado": {
+   "nome": "Legionário Desgarrado",
+   "base": "soldado_caido",
+   "niveis": [
+    16,
+    18
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.1
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.4,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "incendiaria_da_comunhao": {
+   "nome": "Incendiária da Comunhão",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    16,
+    18
+   ],
+   "ajuste": {
+    "dano": 1.15
+   },
+   "tags": [
+    "humano"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "cao_de_brasa": {
+   "nome": "Cão de Brasa da Legião",
+   "base": "cao_de_vala",
+   "niveis": [
+    17,
+    20
+   ],
+   "ajuste": {
+    "hp": 1.15,
+    "dano": 1.15
+   },
+   "tags": [
+    "animal",
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.6
+   },
+   "renascimento_s": 14
+  },
+  "escudeiro_sem_hoste": {
+   "nome": "Escudeiro sem Hoste",
+   "base": "soldado_caido",
+   "niveis": [
+    18,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.35
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "sagrado": 0.5,
+    "fogo": -0.2
+   },
+   "renascimento_s": 14
+  },
+  "enxerto_errado": {
+   "nome": "Enxerto Errado",
+   "base": "monge_emparedado",
+   "niveis": [
+    18,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "mov": 0.8
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": -0.5,
+    "veneno": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "ent_de_cinza": {
+   "nome": "Ent-de-Cinza",
+   "base": "capataz_gancho",
+   "niveis": [
+    21,
+    22
+   ],
+   "ajuste": {
+    "hp": 1.6
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "elite_mata",
+   "res": {
+    "fogo": -0.4,
+    "fisico": 0.2
+   },
+   "renascimento_s": 300,
+   "arquetipo": "elite"
+  },
+  "corista_da_torre": {
+   "nome": "Corista da Torre",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    24,
+    26
+   ],
+   "ajuste": {
+    "hp": 1.2
+   },
+   "tags": [
+    "celestial",
+    "espectro"
+   ],
+   "drop": "torre_horda",
+   "renascimento_s": 14
+  },
+  "querubim_queimado": {
+   "nome": "Querubim Queimado",
+   "base": "querubim_desfeito",
+   "niveis": [
+    26,
+    28
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.1
+   },
+   "tags": [
+    "celestial",
+    "voador"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "fogo": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "centuriao_sem_bandeira": {
+   "nome": "Centurião sem Bandeira",
+   "base": "acougueiro_oco",
+   "niveis": [
+    27,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.4,
+    "dano": 1.2
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "fogo": 0.5,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "vitral_andante": {
+   "nome": "Vitral Andante",
+   "base": "querubim_desfeito",
+   "niveis": [
+    22,
+    25
+   ],
+   "ajuste": {
+    "hp": 1.3
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "sagrado": 0.5,
+    "fisico": -0.2
+   },
+   "renascimento_s": 14
+  },
+  "sapo_sacristao": {
+   "nome": "Sapo-Sacristão",
+   "base": "porco_pestilento",
+   "niveis": [
+    25,
+    28
+   ],
+   "ajuste": {
+    "hp": 1.45,
+    "dano": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "veneno": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "bombardeiro_legiao": {
+   "nome": "Bombardeiro da Legião",
+   "base": "gancheiro",
+   "niveis": [
+    28,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.5,
+    "dano": 1.25
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.5,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "raiz_ossuda": {
+   "nome": "Raiz Ossuda",
+   "base": "filho_de_cardo",
+   "niveis": [
+    18,
+    20
+   ],
+   "ajuste": {
+    "hp": 1.25
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.4,
+    "fogo": -0.4
+   },
+   "renascimento_s": 14
+  },
+  "enterrado_florido": {
+   "nome": "Enterrado Florido",
+   "base": "nao_julgado",
+   "niveis": [
+    19,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "dano": 1.1
+   },
+   "tags": [
+    "morto_vivo",
+    "planta"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "envenenador_da_comunhao": {
+   "nome": "Envenenador da Comunhão",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    20,
+    22
+   ],
+   "ajuste": {
+    "dano": 1.2
+   },
+   "tags": [
+    "humano"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.6
+   },
+   "renascimento_s": 14
+  },
+  "ibis_de_thoth": {
+   "nome": "Íbis de Thoth",
+   "area": "egito",
+   "niveis": [
+    50,
+    52
+   ],
+   "arquetipo": "rasteiro",
+   "tags": [
+    "animal",
+    "voador"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {},
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "enxame",
+    "raio_aggro": 4,
+    "aggro_social": 5
+   },
+   "comportamento": "Circula a 2 tiles e mergulha. Neutra: só ataca quem bate.",
+   "ataques": [
+    {
+     "id": "bicada",
+     "mult": 1.0,
+     "preparo": 0.35
+    },
+    {
+     "id": "mergulho",
+     "mult": 1.5,
+     "preparo": 0.6,
+     "salto": 2.5,
+     "recarga": 7
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "as íbis de Thoth pescam no juncal desde antes das pirâmides; só bicam quem chega perto do ninho",
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Íbis",
+     "texto": "Thoth tinha cabeça de íbis porque a íbis anda com o bico no chão, como quem lê."
+    }
+   ]
+  },
+  "crocodilo_do_nilo": {
+   "nome": "Crocodilo do Nilo",
+   "area": "egito",
+   "niveis": [
+    50,
+    64
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "animal",
+    "anfibio"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "emboscada",
+    "raio_aggro": 2.5,
+    "raio_coleira": 12
+   },
+   "comportamento": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "giro_da_morte",
+     "mult": 1.3,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.2,
+      "angulo": 80
+     },
+     "efeito": {
+      "sangramento": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "tomam sol no lodo da margem; o Nilo voltou e eles voltaram junto",
+   "ajuste": {
+    "mov": 0.8,
+    "hp": 0.85
+   },
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ]
+  },
+  "crocodilo_gigante": {
+   "nome": "Crocodilo Gigante",
+   "area": "egito",
+   "niveis": [
+    62,
+    69
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "animal",
+    "anfibio"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.4,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "emboscada",
+    "raio_aggro": 3,
+    "raio_coleira": 12
+   },
+   "comportamento": "Rabada em círculo empurra. Territorial.",
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.15,
+     "preparo": 0.65
+    },
+    {
+     "id": "rabada",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.4
+     },
+     "empurrao_px": 18,
+     "recarga": 8
+    },
+    {
+     "id": "giro_da_morte",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.4,
+      "angulo": 80
+     },
+     "efeito": {
+      "sangramento": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.25
+      }
+     },
+     "recarga": 10
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "os velhos machos da catarata e de Méris; defendem o pedaço de água que é deles",
+   "ajuste": {
+    "hp": 1.15,
+    "mov": 0.8
+   }
+  },
+  "escaravelho_sagrado": {
+   "nome": "Escaravelho Sagrado",
+   "area": "egito",
+   "niveis": [
+    50,
+    56
+   ],
+   "arquetipo": "rasteiro",
+   "tags": [
+    "animal",
+    "inseto"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.4
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "teimoso",
+    "raio_aggro": 3,
+    "raio_coleira": 12
+   },
+   "comportamento": "Neutro. Joga a bola de lodo (lentidão) e foge para a bola.",
+   "ataques": [
+    {
+     "id": "pinca",
+     "mult": 1.0,
+     "preparo": 0.35
+    },
+    {
+     "id": "bola_de_lodo",
+     "mult": 1.2,
+     "preparo": 0.7,
+     "projetil_vel": 6,
+     "efeito": {
+      "lento": 2
+     },
+     "recarga": 6
+    }
+   ],
+   "drop": "egito_inseto",
+   "renascimento_s": 14,
+   "motivo": "rolam bolas de lodo pelos campos como Khepri rola o sol; ninguém mexe com eles, por respeito e por medo",
+   "ajuste": {
+    "hp": 1.6,
+    "dano": 1.4
+   },
+   "registros": [
+    {
+     "fonte": "caderno_tamit",
+     "titulo": "Khepri",
+     "texto": "Khepri, 'o que vem a ser'. O sol nasce porque um besouro o empurra. Neste ano 31 o besouro está cansado."
+    }
+   ]
+  },
+  "escaravelho_carniceiro": {
+   "nome": "Escaravelho Carniceiro",
+   "area": "egito",
+   "niveis": [
+    51,
+    58
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "animal",
+    "inseto"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.5,
+    "fogo": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 4,
+    "aggro_social": 6
+   },
+   "comportamento": "Sangramento; deixa um enxame no chão a cada 6 s.",
+   "ataques": [
+    {
+     "id": "mandibula",
+     "mult": 1.0,
+     "preparo": 0.45,
+     "efeito": {
+      "sangramento": {
+       "duracao": 3,
+       "dano_por_s_mult": 0.15
+      }
+     }
+    },
+    {
+     "id": "enxame",
+     "mult": 0.4,
+     "preparo": 1.0,
+     "a_cada_s": 6,
+     "area": {
+      "raio": 1.6,
+      "duracao": 3
+     }
+    }
+   ],
+   "drop": "egito_inseto",
+   "renascimento_s": 14,
+   "motivo": "os escaravelhos que os embalsamadores usavam para limpar os ossos; acharam as múmias de novo"
+  },
+  "escaravelho_rei": {
+   "nome": "Escaravelho-Rei",
+   "area": "egito",
+   "niveis": [
+    58,
+    64
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "animal",
+    "inseto",
+    "sagrado"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.5,
+    "fogo": 0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "elite",
+    "raio_aggro": 4,
+    "raio_coleira": 14
+   },
+   "comportamento": "Elite do spot. Disco solar em círculo; chama o ninho na metade da vida.",
+   "ataques": [
+    {
+     "id": "pinca",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "disco_solar",
+     "mult": 1.5,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 3
+     },
+     "efeito": {
+      "queimadura": {
+       "duracao": 3,
+       "dano_por_s_mult": 0.3
+      }
+     },
+     "recarga": 10
+    },
+    {
+     "id": "chamar_ninho",
+     "em_hp": 0.5,
+     "invoca": {
+      "escaravelho_carniceiro": 2
+     }
+    }
+   ],
+   "drop": "egito_elite",
+   "renascimento_s": 14,
+   "motivo": "o escaravelho de lápis que guarda o ninho debaixo da escavação; os escavadores juram que ele tem nome"
+  },
+  "esfinge_carneiro": {
+   "nome": "Esfinge de Carneiro",
+   "area": "egito",
+   "niveis": [
+    53,
+    58
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "construto",
+    "pedra",
+    "sagrado"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fisico": 0.25,
+    "veneno": 1.0,
+    "sangue": 1.0,
+    "raio": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 3,
+    "raio_coleira": 10
+   },
+   "comportamento": "Territorial e lenta; investida em linha que empurra. Resiste a físico.",
+   "ataques": [
+    {
+     "id": "chifrada",
+     "mult": 1.0,
+     "preparo": 0.7
+    },
+    {
+     "id": "investida",
+     "mult": 1.6,
+     "preparo": 1.0,
+     "investida": true,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 6,
+      "largura": 1.4
+     },
+     "empurrao_px": 22,
+     "recarga": 9
+    }
+   ],
+   "drop": "egito_construto",
+   "renascimento_s": 14,
+   "motivo": "as esfinges da avenida acordaram com a quarta trombeta e guardam a calçada de Amon; quem anda no meio é deixado em paz",
+   "ajuste": {
+    "mov": 0.75
+   },
+   "registros": [
+    {
+     "fonte": "diario_dalva",
+     "titulo": "Avenida",
+     "texto": "Duas fileiras de esfinges de carneiro, uma para cada lado, do templo de Ptah até Karnak. Vimos uma virar a cabeça. Ninguém mais anda fora da calçada."
+    }
+   ]
+  },
+  "mumia_operaria": {
+   "nome": "Múmia Operária",
+   "area": "egito",
+   "niveis": [
+    52,
+    63
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "morto_vivo",
+    "humano"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.5,
+    "sagrado": -0.3,
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "teimoso",
+    "raio_aggro": 4,
+    "raio_coleira": 14
+   },
+   "comportamento": "Lenta e teimosa; joga faixas de linho que deixam lento.",
+   "ataques": [
+    {
+     "id": "enxo",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "faixas",
+     "mult": 0.6,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 4,
+      "largura": 1
+     },
+     "efeito": {
+      "lento": 3
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "egito_mumia",
+   "renascimento_s": 14,
+   "motivo": "os artesãos que cavaram as tumbas levantaram quando o coração do Faraó bateu; ainda tentam terminar o turno",
+   "ajuste": {
+    "mov": 0.8,
+    "hp": 1.15
+   },
+   "registros": [
+    {
+     "fonte": "ostraco_vila",
+     "titulo": "Lista de faltas",
+     "texto": "'Neferhotep: ausente, embalsamando o irmão. Hay: ausente, morto.' Ano 31: Hay voltou ao trabalho."
+    }
+   ]
+  },
+  "sacerdote_mumia": {
+   "nome": "Sacerdote Mumificado",
+   "area": "egito",
+   "niveis": [
+    56,
+    70
+   ],
+   "arquetipo": "conjurador",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "sacerdote"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.5,
+    "sagrado": -0.2,
+    "veneno": 1.0,
+    "magico": 0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "suporte",
+    "distancia_ideal": 5,
+    "distancia_minima": 3
+   },
+   "comportamento": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "ataques": [
+    {
+     "id": "incenso",
+     "mult": 1.0,
+     "preparo": 0.8,
+     "projetil_vel": 6
+    },
+    {
+     "id": "maldicao_de_seth",
+     "mult": 0.8,
+     "preparo": 1.1,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.2
+     },
+     "efeito": {
+      "silenciado": 2
+     },
+     "recarga": 10
+    },
+    {
+     "id": "abertura_da_boca",
+     "cura_frac_hp_alvo": 0.25,
+     "conjuracao": 1.4,
+     "interrompivel": true,
+     "recarga": 9
+    }
+   ],
+   "drop": "egito_mumia",
+   "renascimento_s": 14,
+   "motivo": "os sacerdotes do rito de abertura da boca ainda rezam pelos mortos; defendem os textos que leem"
+  },
+  "guardiao_mumia": {
+   "nome": "Guardião Mumificado",
+   "area": "egito",
+   "niveis": [
+    60,
+    70
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "guardiao"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.4,
+    "fisico": 0.15,
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 4,
+    "raio_coleira": 12
+   },
+   "comportamento": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "golpe_de_escudo",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "efeito": {
+      "atordoado": 1.0
+     },
+     "recarga": 10
+    },
+    {
+     "id": "corte_em_arco",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.4,
+      "angulo": 110
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "egito_guardiao",
+   "renascimento_s": 14,
+   "motivo": "os guardas da necrópole juraram defender o sono do rei; o rei acordou e eles continuam de guarda"
+  },
+  "anubis_sentinela": {
+   "nome": "Anúbis Sentinela",
+   "area": "egito",
+   "niveis": [
+    56,
+    70
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chacal"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.3,
+    "sombra": -0.2
+   },
+   "alcance": 1.8,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 4,
+    "raio_coleira": 12
+   },
+   "comportamento": "Alcance de lança; estocada em linha.",
+   "ataques": [
+    {
+     "id": "lanca",
+     "mult": 1.0,
+     "preparo": 0.55,
+     "alcance": 1.8
+    },
+    {
+     "id": "estocada",
+     "mult": 1.5,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 4.5,
+      "largura": 0.9
+     },
+     "recarga": 7
+    }
+   ],
+   "drop": "egito_guardiao",
+   "renascimento_s": 14,
+   "motivo": "os chacais de Anúbis voltaram às portas dos templos e das tumbas; só deixam passar quem não toca em nada"
+  },
+  "anubis_guardiao": {
+   "nome": "Anúbis Guardião",
+   "area": "egito",
+   "niveis": [
+    64,
+    70
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chacal"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.35,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 4.5,
+    "raio_coleira": 12
+   },
+   "comportamento": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "julgamento",
+     "mult": 1.8,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.6
+     },
+     "recarga": 11
+    },
+    {
+     "id": "uivo_de_anubis",
+     "em_hp": 0.4,
+     "buff": {
+      "dano": 0.25,
+      "duracao": 8
+     }
+    }
+   ],
+   "drop": "egito_guardiao",
+   "renascimento_s": 14,
+   "motivo": "a guarda de honra do Vale dos Reis; foram eles que deixaram os escavadores entrarem na tumba sem cartucho, e ninguém sabe por quê"
+  },
+  "sobekita": {
+   "nome": "Sobekita",
+   "area": "egito",
+   "niveis": [
+    57,
+    65
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "guardiao",
+    "anfibio",
+    "crocodilo"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.3,
+    "fogo": -0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 4,
+    "raio_coleira": 12
+   },
+   "comportamento": "Salta no jogador e deixa o chão de lodo.",
+   "ataques": [
+    {
+     "id": "maca",
+     "mult": 1.1,
+     "preparo": 0.65
+    },
+    {
+     "id": "mergulho_de_lodo",
+     "mult": 1.3,
+     "preparo": 0.9,
+     "salto": 3.5,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 1.8
+     },
+     "efeito": {
+      "lento": 2
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "egito_guardiao",
+   "renascimento_s": 14,
+   "motivo": "os guardiões de Sobek ainda vigiam as águas sagradas; atacam quem pisa no lodo deles",
+   "ajuste": {
+    "hp": 1.2
+   }
+  },
+  "guardiao_falcao": {
+   "nome": "Guardião de Hórus",
+   "area": "egito",
+   "niveis": [
+    59,
+    67
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "voador"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.2,
+    "raio": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 6,
+    "distancia_minima": 3
+   },
+   "comportamento": "Fica longe e atira; chuva de flechas em círculo.",
+   "ataques": [
+    {
+     "id": "flecha",
+     "mult": 1.0,
+     "preparo": 0.6,
+     "projetil_vel": 11
+    },
+    {
+     "id": "chuva_de_flechas",
+     "mult": 0.7,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.4
+     },
+     "recarga": 10
+    }
+   ],
+   "drop": "egito_guardiao",
+   "renascimento_s": 14,
+   "motivo": "os falcões de Hórus guardam do alto os terraços e a biblioteca; atiram em quem rouba rolo"
+  },
+  "escorpiao_de_serket": {
+   "nome": "Escorpião de Serket",
+   "area": "egito",
+   "niveis": [
+    58,
+    66
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "animal",
+    "venenoso"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.8,
+    "fogo": -0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 3.5,
+    "aggro_social": 5
+   },
+   "comportamento": "Ferrão envenena (pilha).",
+   "ataques": [
+    {
+     "id": "pinca",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "ferrao",
+     "mult": 1.2,
+     "preparo": 0.75,
+     "efeito": {
+      "veneno": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 6
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "a escavação rachou os ninhos de Serket debaixo das pirâmides; defendem o ninho e nada mais"
+  },
+  "escorpiao_negro": {
+   "nome": "Escorpião Negro",
+   "area": "egito",
+   "niveis": [
+    62,
+    66
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "animal",
+    "venenoso"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 3.5,
+    "raio_coleira": 12
+   },
+   "comportamento": "Ferrão em linha com veneno forte.",
+   "ataques": [
+    {
+     "id": "pinca_dupla",
+     "mult": 1.1,
+     "preparo": 0.55
+    },
+    {
+     "id": "ferrao_turquesa",
+     "mult": 1.5,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 3.5,
+      "largura": 0.9
+     },
+     "efeito": {
+      "veneno": {
+       "duracao": 8,
+       "dano_por_s_mult": 0.3
+      }
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "os escorpiões do Mar de Areia, pretos como a noite do Duat, caçam na tempestade"
+  },
+  "naja": {
+   "nome": "Naja",
+   "area": "egito",
+   "niveis": [
+    54,
+    68
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "animal",
+    "venenoso",
+    "serpente"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 4,
+    "distancia_minima": 2
+   },
+   "comportamento": "Cospe veneno que cega (erra mais golpes).",
+   "ataques": [
+    {
+     "id": "bote",
+     "mult": 1.0,
+     "preparo": 0.4
+    },
+    {
+     "id": "cuspe",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "projetil_vel": 8,
+     "efeito": {
+      "cegueira": 2,
+      "veneno": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 7
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "as najas da coroa do faraó; cospem nos olhos de quem chega perto do ovo"
+  },
+  "cria_de_apofis": {
+   "nome": "Cria de Apófis",
+   "area": "egito",
+   "niveis": [
+    63,
+    69
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "serpente",
+    "caos"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0,
+    "sombra": 0.3,
+    "sagrado": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 4,
+    "raio_coleira": 12
+   },
+   "comportamento": "Constrição atordoa; cone de veneno.",
+   "ataques": [
+    {
+     "id": "bote",
+     "mult": 1.1,
+     "preparo": 0.55
+    },
+    {
+     "id": "constricao",
+     "mult": 0.5,
+     "preparo": 0.8,
+     "efeito": {
+      "atordoado": 1.5
+     },
+     "recarga": 12
+    },
+    {
+     "id": "veneno_do_caos",
+     "mult": 1.2,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 3,
+      "angulo": 60
+     },
+     "efeito": {
+      "veneno": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.3
+      }
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "egito_animal",
+   "renascimento_s": 14,
+   "motivo": "filhas da serpente do caos que saem da areia quando o sol escurece; mordem tudo o que brilha",
+   "ajuste": {
+    "hp": 1.1
+   }
+  },
+  "crocodilo_sagrado": {
+   "nome": "Crocodilo Sagrado",
+   "area": "dungeon",
+   "niveis": [
+    50,
+    51
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "animal",
+    "anfibio"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "emboscada",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "giro_da_morte",
+     "mult": 1.3,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.2,
+      "angulo": 80
+     },
+     "efeito": {
+      "sangramento": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "os crocodilos que os sacerdotes de Sobek criavam para o deus; a água do Labirinto subiu e eles voltaram a nadar",
+   "ajuste": {
+    "mov": 0.8,
+    "hp": 0.85
+   },
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ]
+  },
+  "sacerdote_de_sobek": {
+   "nome": "Sacerdote de Sobek",
+   "area": "dungeon",
+   "niveis": [
+    50,
+    52
+   ],
+   "arquetipo": "conjurador",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "sacerdote"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.5,
+    "sagrado": -0.2,
+    "veneno": 1.0,
+    "magico": 0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "suporte",
+    "distancia_ideal": 5,
+    "distancia_minima": 3,
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "ataques": [
+    {
+     "id": "incenso",
+     "mult": 1.0,
+     "preparo": 0.8,
+     "projetil_vel": 6
+    },
+    {
+     "id": "maldicao_de_seth",
+     "mult": 0.8,
+     "preparo": 1.1,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.2
+     },
+     "efeito": {
+      "silenciado": 2
+     },
+     "recarga": 10
+    },
+    {
+     "id": "abertura_da_boca",
+     "cura_frac_hp_alvo": 0.25,
+     "conjuracao": 1.4,
+     "interrompivel": true,
+     "recarga": 9
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "os sacerdotes que enfeitavam Petsuchos de ouro; ainda cuidam dele"
+  },
+  "escaravelho_do_labirinto": {
+   "nome": "Escaravelho do Labirinto",
+   "area": "dungeon",
+   "niveis": [
+    50,
+    53
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "animal",
+    "inseto"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.5,
+    "fogo": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 5,
+    "aggro_social": 6,
+    "raio_coleira": 18
+   },
+   "comportamento": "Sangramento; deixa um enxame no chão a cada 6 s.",
+   "ataques": [
+    {
+     "id": "mandibula",
+     "mult": 1.0,
+     "preparo": 0.45,
+     "efeito": {
+      "sangramento": {
+       "duracao": 3,
+       "dano_por_s_mult": 0.15
+      }
+     }
+    },
+    {
+     "id": "enxame",
+     "mult": 0.4,
+     "preparo": 1.0,
+     "a_cada_s": 6,
+     "area": {
+      "raio": 1.6,
+      "duracao": 3
+     }
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "limpam as três mil salas há três mil anos"
+  },
+  "guarda_do_labirinto": {
+   "nome": "Guarda do Labirinto",
+   "area": "dungeon",
+   "niveis": [
+    52,
+    54
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "guardiao"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.4,
+    "fisico": 0.15,
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "golpe_de_escudo",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "efeito": {
+      "atordoado": 1.0
+     },
+     "recarga": 10
+    },
+    {
+     "id": "corte_em_arco",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.4,
+      "angulo": 110
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "Heródoto escreveu que os guardas não o deixaram descer; continuam não deixando",
+   "ajuste": {
+    "hp": 0.9
+   }
+  },
+  "esfinge_do_patio": {
+   "nome": "Esfinge do Pátio",
+   "area": "dungeon",
+   "niveis": [
+    52,
+    53
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "construto",
+    "pedra",
+    "sagrado"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fisico": 0.25,
+    "veneno": 1.0,
+    "sangue": 1.0,
+    "raio": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Territorial e lenta; investida em linha que empurra. Resiste a físico.",
+   "ataques": [
+    {
+     "id": "chifrada",
+     "mult": 1.0,
+     "preparo": 0.7
+    },
+    {
+     "id": "investida",
+     "mult": 1.6,
+     "preparo": 1.0,
+     "investida": true,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 6,
+      "largura": 1.4
+     },
+     "empurrao_px": 22,
+     "recarga": 9
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "guardam os doze pátios; cada uma olha para uma porta",
+   "ajuste": {
+    "mov": 0.75
+   },
+   "registros": [
+    {
+     "fonte": "diario_dalva",
+     "titulo": "Avenida",
+     "texto": "Duas fileiras de esfinges de carneiro, uma para cada lado, do templo de Ptah até Karnak. Vimos uma virar a cabeça. Ninguém mais anda fora da calçada."
+    }
+   ]
+  },
+  "filha_de_serket": {
+   "nome": "Filha de Serket",
+   "area": "dungeon",
+   "niveis": [
+    53,
+    54
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "animal",
+    "venenoso"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.8,
+    "fogo": -0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 5,
+    "aggro_social": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Ferrão envenena (pilha).",
+   "ataques": [
+    {
+     "id": "pinca",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "ferrao",
+     "mult": 1.2,
+     "preparo": 0.75,
+     "efeito": {
+      "veneno": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 6
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "o ninho da deusa escorpião no fundo da tumba de Amenemés"
+  },
+  "naja_do_labirinto": {
+   "nome": "Naja do Labirinto",
+   "area": "dungeon",
+   "niveis": [
+    53,
+    54
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "animal",
+    "venenoso",
+    "serpente"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 4,
+    "distancia_minima": 2,
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Cospe veneno que cega (erra mais golpes).",
+   "ataques": [
+    {
+     "id": "bote",
+     "mult": 1.0,
+     "preparo": 0.4
+    },
+    {
+     "id": "cuspe",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "projetil_vel": 8,
+     "efeito": {
+      "cegueira": 2,
+      "veneno": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 7
+    }
+   ],
+   "drop": "hawara",
+   "renascimento_s": 14,
+   "motivo": "as najas que os construtores puseram nas falsas portas"
+  },
+  "leoa_de_sekhmet": {
+   "nome": "Leoa de Sekhmet",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "animal",
+    "anfibio",
+    "felino"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "emboscada",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Fica parado como tronco. Quando apanha, morde e prende (giro da morte).",
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "giro_da_morte",
+     "mult": 1.3,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.2,
+      "angulo": 80
+     },
+     "efeito": {
+      "sangramento": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "as leoas que caçavam ao lado da deusa no dia da Destruição da Humanidade",
+   "ajuste": {
+    "mov": 1.35,
+    "hp": 2.2,
+    "dano": 1.3
+   },
+   "registros": [
+    {
+     "fonte": "diario_ahmose",
+     "titulo": "Margem",
+     "texto": "Meu avô dizia que crocodilo é o Nilo com fome. Hoje o Nilo come de novo."
+    }
+   ]
+  },
+  "sacerdotisa_de_sekhmet": {
+   "nome": "Sacerdotisa de Sekhmet",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "conjurador",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "sacerdote"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.5,
+    "sagrado": -0.2,
+    "veneno": 1.0,
+    "magico": 0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "suporte",
+    "distancia_ideal": 5,
+    "distancia_minima": 3,
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "ataques": [
+    {
+     "id": "incenso",
+     "mult": 1.0,
+     "preparo": 0.8,
+     "projetil_vel": 6
+    },
+    {
+     "id": "maldicao_de_seth",
+     "mult": 0.8,
+     "preparo": 1.1,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.2
+     },
+     "efeito": {
+      "silenciado": 2
+     },
+     "recarga": 10
+    },
+    {
+     "id": "abertura_da_boca",
+     "cura_frac_hp_alvo": 0.25,
+     "conjuracao": 1.4,
+     "interrompivel": true,
+     "recarga": 9
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "as sacerdotisas que acalmavam a leoa com cerveja e oração; agora a incitam",
+   "ajuste": {
+    "hp": 2.2
+   }
+  },
+  "serpente_de_bastao": {
+   "nome": "Serpente de Bastão",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "animal",
+    "venenoso",
+    "serpente"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 4,
+    "distancia_minima": 2,
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Cospe veneno que cega (erra mais golpes).",
+   "ataques": [
+    {
+     "id": "bote",
+     "mult": 1.0,
+     "preparo": 0.4
+    },
+    {
+     "id": "cuspe",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "projetil_vel": 8,
+     "efeito": {
+      "cegueira": 2,
+      "veneno": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.2
+      }
+     },
+     "recarga": 7
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "o bastão dos magos que vira serpente (Êx 7:12); a de Arão engoliu as deles, mas Arão não está aqui",
+   "ajuste": {
+    "hp": 1.6
+   }
+  },
+  "guardiao_do_duat": {
+   "nome": "Guardião do Duat",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "guardiao"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.4,
+    "fisico": 0.15,
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Escudo atordoa; corte em arco. Agressivo nas tumbas.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "golpe_de_escudo",
+     "mult": 0.8,
+     "preparo": 0.7,
+     "efeito": {
+      "atordoado": 1.0
+     },
+     "recarga": 10
+    },
+    {
+     "id": "corte_em_arco",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.4,
+      "angulo": 110
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "os porteiros das doze horas da noite",
+   "ajuste": {
+    "hp": 2.4,
+    "dano": 1.2
+   }
+  },
+  "anubita_do_duat": {
+   "nome": "Anúbis do Duat",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chacal"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.35,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "julgamento",
+     "mult": 1.8,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.6
+     },
+     "recarga": 11
+    },
+    {
+     "id": "uivo_de_anubis",
+     "em_hp": 0.4,
+     "buff": {
+      "dano": 0.25,
+      "duracao": 8
+     }
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "a guarda dos vasos canópicos do rei",
+   "ajuste": {
+    "hp": 2.4,
+    "dano": 1.2
+   }
+  },
+  "falcao_do_duat": {
+   "nome": "Falcão do Duat",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "atirador",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "voador"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.2,
+    "raio": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 6,
+    "distancia_minima": 3,
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Fica longe e atira; chuva de flechas em círculo.",
+   "ataques": [
+    {
+     "id": "flecha",
+     "mult": 1.0,
+     "preparo": 0.6,
+     "projetil_vel": 11
+    },
+    {
+     "id": "chuva_de_flechas",
+     "mult": 0.7,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.4
+     },
+     "recarga": 10
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "olhos de Hórus nas paredes da câmara canópica",
+   "ajuste": {
+    "hp": 2.2
+   }
+  },
+  "cria_do_duat": {
+   "nome": "Cria do Rio do Duat",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "serpente",
+    "caos"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 1.0,
+    "sombra": 0.3,
+    "sagrado": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Constrição atordoa; cone de veneno.",
+   "ataques": [
+    {
+     "id": "bote",
+     "mult": 1.1,
+     "preparo": 0.55
+    },
+    {
+     "id": "constricao",
+     "mult": 0.5,
+     "preparo": 0.8,
+     "efeito": {
+      "atordoado": 1.5
+     },
+     "recarga": 12
+    },
+    {
+     "id": "veneno_do_caos",
+     "mult": 1.2,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 3,
+      "angulo": 60
+     },
+     "efeito": {
+      "veneno": {
+       "duracao": 6,
+       "dano_por_s_mult": 0.3
+      }
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "a cria de Apófis que sobe na barca da noite",
+   "ajuste": {
+    "hp": 2.0
+   }
+  },
+  "escaravelho_do_coracao": {
+   "nome": "Escaravelho do Coração",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "animal",
+    "inseto",
+    "sagrado"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.5,
+    "fogo": 0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "elite",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Elite do spot. Disco solar em círculo; chama o ninho na metade da vida.",
+   "ataques": [
+    {
+     "id": "pinca",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "disco_solar",
+     "mult": 1.5,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 3
+     },
+     "efeito": {
+      "queimadura": {
+       "duracao": 3,
+       "dano_por_s_mult": 0.3
+      }
+     },
+     "recarga": 10
+    },
+    {
+     "id": "chamar_ninho",
+     "em_hp": 0.5,
+     "invoca": {
+      "escaravelho_carniceiro": 2
+     }
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "os escaravelhos do coração que mentem pelo morto na pesagem (feitiço 30B)",
+   "ajuste": {
+    "hp": 0.5
+   }
+  },
+  "primogenito_do_egito": {
+   "nome": "Primogênito do Egito",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "morto_vivo",
+    "humano"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.5,
+    "sagrado": -0.3,
+    "veneno": 1.0
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "teimoso",
+    "raio_aggro": 5,
+    "raio_coleira": 18
+   },
+   "comportamento": "Lenta e teimosa; joga faixas de linho que deixam lento.",
+   "ataques": [
+    {
+     "id": "enxo",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "faixas",
+     "mult": 0.6,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 4,
+      "largura": 1
+     },
+     "efeito": {
+      "lento": 3
+     },
+     "recarga": 8
+    }
+   ],
+   "drop": "raid_coracao",
+   "renascimento_s": 14,
+   "motivo": "os primogênitos que o Anjo Destruidor levou na décima praga; o Faraó os chama na fúria",
+   "ajuste": {
+    "mov": 1.1,
+    "hp": 1.6
+   },
+   "registros": [
+    {
+     "fonte": "ostraco_vila",
+     "titulo": "Lista de faltas",
+     "texto": "'Neferhotep: ausente, embalsamando o irmão. Hay: ausente, morto.' Ano 31: Hay voltou ao trabalho."
+    }
+   ]
+  },
+  "jambres": {
+   "nome": "Jambres, o Mago de Faraó",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "raro",
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "sacerdote",
+    "chefe_par"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "fogo": -0.3,
+    "sagrado": -0.2,
+    "magico": 0.2
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "suporte",
+    "distancia_ideal": 6,
+    "distancia_minima": 3,
+    "raio_aggro": 30,
+    "raio_coleira": 40
+   },
+   "comportamento": "Fica atrás e cura as múmias (interrompa). Silencia em área.",
+   "ataques": [
+    {
+     "id": "incenso",
+     "mult": 1.0,
+     "preparo": 0.8,
+     "projetil_vel": 7
+    },
+    {
+     "id": "maldicao_de_seth",
+     "mult": 0.9,
+     "preparo": 1.1,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.6
+     },
+     "efeito": {
+      "silenciado": 2
+     },
+     "recarga": 9
+    }
+   ],
+   "drop": null,
+   "renascimento_s": 0,
+   "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
+   "ajuste": {
+    "hp": 30.0,
+    "dano": 1.9,
+    "defesa": 1.3
+   }
+  },
+  "hapi": {
+   "nome": "Hapi, o Babuíno do Norte",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "raro",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chefe_par"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.35,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 30,
+    "raio_coleira": 40
+   },
+   "comportamento": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "julgamento",
+     "mult": 1.8,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.6
+     },
+     "recarga": 11
+    },
+    {
+     "id": "uivo_de_anubis",
+     "em_hp": 0.4,
+     "buff": {
+      "dano": 0.25,
+      "duracao": 8
+     }
+    }
+   ],
+   "drop": null,
+   "renascimento_s": 0,
+   "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
+   "ajuste": {
+    "hp": 22.0,
+    "dano": 1.6,
+    "defesa": 1.2
+   }
+  },
+  "duamutef": {
+   "nome": "Duamutef, o Chacal do Leste",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "raro",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chefe_par"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.35,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 30,
+    "raio_coleira": 40
+   },
+   "comportamento": "Golpe de julgamento em círculo; com 40% de vida uiva e bate mais forte.",
+   "ataques": [
+    {
+     "id": "khopesh",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "julgamento",
+     "mult": 1.8,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.6
+     },
+     "recarga": 11
+    },
+    {
+     "id": "uivo_de_anubis",
+     "em_hp": 0.4,
+     "buff": {
+      "dano": 0.25,
+      "duracao": 8
+     }
+    }
+   ],
+   "drop": null,
+   "renascimento_s": 0,
+   "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
+   "ajuste": {
+    "hp": 22.0,
+    "dano": 1.6,
+    "defesa": 1.2
+   }
+  },
+  "qebehsenuef": {
+   "nome": "Qebehsenuef, o Falcão do Oeste",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "raro",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "chefe_par"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "sagrado": 0.2,
+    "raio": -0.3
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "atirador",
+    "distancia_ideal": 6,
+    "distancia_minima": 3,
+    "raio_aggro": 30,
+    "raio_coleira": 40
+   },
+   "comportamento": "Fica longe e atira; chuva de flechas em círculo.",
+   "ataques": [
+    {
+     "id": "flecha",
+     "mult": 1.0,
+     "preparo": 0.6,
+     "projetil_vel": 11
+    },
+    {
+     "id": "chuva_de_flechas",
+     "mult": 0.7,
+     "preparo": 1.2,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.4
+     },
+     "recarga": 10
+    }
+   ],
+   "drop": null,
+   "renascimento_s": 0,
+   "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
+   "ajuste": {
+    "hp": 22.0,
+    "dano": 1.6,
+    "defesa": 1.2
+   }
+  },
+  "ammit": {
+   "nome": "Ammit, a Devoradora",
+   "area": "dungeon",
+   "niveis": [
+    60,
+    60
+   ],
+   "arquetipo": "raro",
+   "tags": [
+    "monstro",
+    "sagrado",
+    "chefe_par"
+   ],
+   "grupo": [
+    2,
+    2
+   ],
+   "res": {
+    "veneno": 0.4,
+    "fisico": 0.1
+   },
+   "alcance": 1.2,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 30,
+    "raio_coleira": 40
+   },
+   "comportamento": "Rabada em círculo empurra. Territorial.",
+   "ataques": [
+    {
+     "id": "mordida",
+     "mult": 1.15,
+     "preparo": 0.65
+    },
+    {
+     "id": "rabada",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2.4
+     },
+     "empurrao_px": 18,
+     "recarga": 8
+    },
+    {
+     "id": "giro_da_morte",
+     "mult": 1.4,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.4,
+      "angulo": 80
+     },
+     "efeito": {
+      "sangramento": {
+       "duracao": 4,
+       "dano_por_s_mult": 0.25
+      }
+     },
+     "recarga": 10
+    }
+   ],
+   "drop": null,
+   "renascimento_s": 0,
+   "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
+   "ajuste": {
+    "hp": 20.0,
+    "dano": 2.0,
+    "mov": 1.3
+   }
+  },
+  "peregrino_ressecado": {
+   "nome": "Peregrino Ressecado",
+   "base": "carnical",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "morto_vivo"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "carnical"
+  },
+  "abutre_do_hermon": {
+   "nome": "Abutre do Hermon",
+   "base": "corvo_de_cinza",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "animal",
+    "voador"
+   ],
+   "drop": "inicial_animal",
+   "renascimento_s": 14,
+   "espelho_de": "corvo_de_cinza"
+  },
+  "chacal_de_josafa": {
+   "nome": "Chacal de Josafá",
+   "base": "cao_de_vala",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "animal"
+   ],
+   "drop": "inicial_animal",
+   "renascimento_s": 14,
+   "espelho_de": "cao_de_vala"
+  },
+  "levantado_das_oliveiras": {
+   "nome": "Levantado das Oliveiras",
+   "base": "nao_julgado",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "morto_vivo"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "nao_julgado"
+  },
+  "porco_de_gadara": {
+   "nome": "Porco de Gadara",
+   "base": "porco_pestilento",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "animal",
+    "demonio"
+   ],
+   "drop": "inicial_animal",
+   "renascimento_s": 14,
+   "espelho_de": "porco_pestilento"
+  },
+  "sineiro_infiltrado": {
+   "nome": "Sineiro Infiltrado",
+   "base": "sangrador_apostata",
+   "niveis": [
+    5,
+    7
+   ],
+   "ajuste": {},
+   "tags": [
+    "humano"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "sangrador_apostata"
+  },
+  "sapador_herege": {
+   "nome": "Sapador Herege",
+   "base": "desertor_legiao",
+   "niveis": [
+    6,
+    9
+   ],
+   "ajuste": {},
+   "tags": [
+    "humano"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "desertor_legiao"
+  },
+  "vigilante_acorrentado": {
+   "nome": "Vigilante Acorrentado",
+   "base": "sombra_gravada",
+   "niveis": [
+    9,
+    12
+   ],
+   "ajuste": {},
+   "tags": [
+    "espectro",
+    "celestial"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "sombra_gravada"
+  },
+  "fornalheiro_de_tofete": {
+   "nome": "Fornalheiro de Tofete",
+   "base": "acougueiro_oco",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "demonio"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "acougueiro_oco"
+  },
+  "capataz_de_tofete": {
+   "nome": "Capataz de Tofete",
+   "base": "capataz_gancho",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "demonio"
+   ],
+   "drop": "inicial_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "capataz_gancho",
+   "ataques": [
+    {
+     "id": "porrete",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "gancho",
+     "mult": 0.8,
+     "preparo": 0.8,
+     "telegrafo": {
+      "forma": "linha",
+      "comprimento": 7,
+      "largura": 1
+     },
+     "puxa": true,
+     "recarga": 10
+    },
+    {
+     "id": "giro",
+     "mult": 1.6,
+     "preparo": 0.9,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 2
+     },
+     "recarga": 8
+    },
+    {
+     "id": "chamado",
+     "em_hp": 0.5,
+     "invoca": {
+      "peregrino_ressecado": 2
+     }
+    }
+   ]
+  },
+  "filho_do_hissopo": {
+   "nome": "Filho do Hissopo",
+   "base": "filho_de_cardo",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "planta"
+   ],
+   "drop": "raro_missao_cardo",
+   "renascimento_s": 14,
+   "espelho_de": "filho_de_cardo"
+  },
+  "verme_do_fosso": {
+   "nome": "Verme do Fosso",
+   "base": "larva_de_carne",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "animal"
+   ],
+   "drop": "cripta_carne",
+   "renascimento_s": 14,
+   "espelho_de": "larva_de_carne"
+  },
+  "escravo_dos_gigantes": {
+   "nome": "Escravo dos Gigantes",
+   "base": "gancheiro",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "humano",
+    "morto_vivo"
+   ],
+   "drop": "cripta_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "gancheiro"
+  },
+  "nefilim_mirrado": {
+   "nome": "Nefilim Mirrado",
+   "base": "acougueiro_oco",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "gigante"
+   ],
+   "drop": "cripta_carne",
+   "renascimento_s": 14,
+   "espelho_de": "acougueiro_oco"
+  },
+  "soldado_de_pedra": {
+   "nome": "Soldado de Pedra",
+   "base": "soldado_caido",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "morto_vivo"
+   ],
+   "drop": "cripta_humanoide",
+   "renascimento_s": 14,
+   "espelho_de": "soldado_caido"
+  },
+  "noiva_afogada": {
+   "nome": "Noiva Afogada",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "morto_vivo",
+    "espectro"
+   ],
+   "drop": "cripta_monge",
+   "renascimento_s": 14,
+   "espelho_de": "carpideira_de_ossos"
+  },
+  "brasa_de_azazel": {
+   "nome": "Brasa de Azazel",
+   "base": "fogo_de_vela",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "espectro"
+   ],
+   "drop": "cripta_espectro",
+   "renascimento_s": 14,
+   "espelho_de": "fogo_de_vela"
+  },
+  "escriba_emparedado": {
+   "nome": "Escriba Emparedado",
+   "base": "monge_emparedado",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "humano",
+    "morto_vivo"
+   ],
+   "drop": "cripta_monge",
+   "renascimento_s": 14,
+   "espelho_de": "monge_emparedado"
+  },
+  "kokabiel_contador": {
+   "nome": "Kokabiel, o Contador de Estrelas",
+   "base": "ultimo_operador",
+   "niveis": [
+    12,
+    12
+   ],
+   "ajuste": {},
+   "tags": [
+    "celestial"
+   ],
+   "drop": "elite_inicial",
+   "renascimento_s": 0,
+   "espelho_de": "ultimo_operador",
+   "arquetipo": "elite"
+  },
+  "eco_do_juramento": {
+   "nome": "Eco do Juramento",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "celestial",
+    "espectro"
+   ],
+   "drop": "cripta_celestial",
+   "renascimento_s": 14,
+   "espelho_de": "eco_da_trombeta",
+   "ataques": [
+    {
+     "id": "zumbido",
+     "mult": 1.0,
+     "preparo": 0.5
+    },
+    {
+     "id": "onda",
+     "mult": 1.5,
+     "preparo": 1.0,
+     "telegrafo": {
+      "forma": "anel",
+      "raio_final": 5,
+      "largura": 0.8,
+      "vao_graus": 45
+     },
+     "empurrao_px": 16,
+     "recarga": 8
+    },
+    {
+     "id": "ressoar",
+     "conjuracao": 3.0,
+     "interrompivel": true,
+     "invoca": {
+      "eco_do_juramento": 1
+     },
+     "recarga": 20
+    }
+   ]
+  },
+  "vigilante_desfeito": {
+   "nome": "Vigilante Desfeito",
+   "base": "querubim_desfeito",
+   "niveis": [
+    1,
+    1
+   ],
+   "ajuste": {},
+   "tags": [
+    "celestial"
+   ],
+   "drop": "cripta_celestial",
+   "renascimento_s": 14,
+   "espelho_de": "querubim_desfeito"
+  },
+  "sintonizado": {
+   "nome": "Sintonizado",
+   "base": "gancheiro",
+   "niveis": [
+    12,
+    20
+   ],
+   "ajuste": {
+    "hp": 1.0
+   },
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "eletrico": 0.3
+   },
+   "renascimento_s": 0
+  },
+  "sintonizado_locutor": {
+   "nome": "Locutor da Portadora",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    16,
+    26
+   ],
+   "ajuste": {
+    "dano": 1.15
+   },
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "eletrico": 0.3
+   },
+   "renascimento_s": 0
+  },
+  "guarda_fios": {
+   "nome": "Guarda-Fios",
+   "base": "soldado_caido",
+   "niveis": [
+    14,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.6,
+    "dano": 1.2
+   },
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "drop": "torre_elite",
+   "res": {
+    "eletrico": 0.5,
+    "fisico": 0.15
+   },
+   "renascimento_s": 0,
+   "arquetipo": "elite"
+  },
+  "receptaculo": {
+   "nome": "Receptáculo",
+   "base": "cao_de_vala",
+   "niveis": [
+    20,
+    28
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "dano": 1.15
+   },
+   "tags": [
+    "humano",
+    "inaudivel"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "sagrado": -0.2,
+    "eletrico": 0.4
+   },
+   "renascimento_s": 0
+  },
+  "receptaculo_inchado": {
+   "nome": "Receptáculo Saturado",
+   "base": "larva_de_carne",
+   "niveis": [
+    24,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.7,
+    "dano": 1.25
+   },
+   "tags": [
+    "humano",
+    "inaudivel"
+   ],
+   "drop": "torre_elite",
+   "res": {
+    "sagrado": -0.2,
+    "eletrico": 0.6
+   },
+   "renascimento_s": 0,
+   "arquetipo": "elite"
+  },
+  "eco_da_estatica": {
+   "nome": "Eco da Estática",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    22,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.1
+   },
+   "tags": [
+    "inaudivel",
+    "espectro"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "fisico": 0.25,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 0
+  },
+  "inaudivel": {
+   "nome": "Inaudível",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    26,
+    30
+   ],
+   "ajuste": {
+    "hp": 2.2,
+    "dano": 1.35
+   },
+   "tags": [
+    "inaudivel",
+    "espectro"
+   ],
+   "drop": "torre_elite",
+   "res": {
+    "fisico": 0.3,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 0,
+   "arquetipo": "elite"
+  }
  },
  "npcs": [
-  {"id": "tobias_carrinho", "nome": "Tobias 'Pavio'", "titulo": "Carrinho de Poções", "faccao": "neutro", "classe_visual": "humano", "servicos": ["loja"], "loja": "loja_carrinho", "dialogo": "dlg_tobias_carrinho"}
+  {
+   "id": "tobias_carrinho",
+   "nome": "Tobias 'Pavio'",
+   "titulo": "Carrinho de Poções",
+   "faccao": "neutro",
+   "classe_visual": "humano",
+   "servicos": [
+    "loja"
+   ],
+   "loja": "loja_carrinho",
+   "dialogo": "dlg_tobias_carrinho"
+  }
  ],
  "dialogos": [
-  {"id": "dlg_tobias_carrinho", "npc": "tobias_carrinho", "inicio": "raiz", "nos": {"raiz": {"fala": "Frasco fresco, Cabeça-de-Bota! Pra quem fica no spot o dia inteiro, eu trago o carrinho até a fogueira. Preço de acampamento, juro. Dessa vez é verdade.", "opcoes": [{"texto": "Mostra as poções.", "acoes": [{"abrir_loja": "loja_carrinho"}]}, {"texto": "Tchau, Tobias."}]}}}
+  {
+   "id": "dlg_tobias_carrinho",
+   "npc": "tobias_carrinho",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Frasco fresco, Cabeça-de-Bota! Pra quem fica no spot o dia inteiro, eu trago o carrinho até a fogueira. Preço de acampamento, juro. Dessa vez é verdade.",
+     "opcoes": [
+      {
+       "texto": "Mostra as poções.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_carrinho"
+        }
+       ]
+      },
+      {
+       "texto": "Tchau, Tobias."
+      }
+     ]
+    }
+   }
+  }
  ],
  "lojas": [
-  {"id": "loja_carrinho", "npc": "tobias_carrinho", "nome": "Carrinho de Poções do Tobias", "fala_ao_abrir": "Vida, éter, antídoto. O resto ficou no acampamento.", "itens": ["pocao_vida_p", "pocao_vida_m", "pocao_recurso_p", "pocao_recurso_m", "antidoto_querosene", "agua_benta", "vela_retorno"]}
- ]
+  {
+   "id": "loja_carrinho",
+   "npc": "tobias_carrinho",
+   "nome": "Carrinho de Poções do Tobias",
+   "fala_ao_abrir": "Vida, éter, antídoto. O resto ficou no acampamento.",
+   "itens": [
+    "pocao_vida_p",
+    "pocao_vida_m",
+    "pocao_recurso_p",
+    "pocao_recurso_m",
+    "antidoto_querosene",
+    "agua_benta",
+    "vela_retorno"
+   ]
+  }
+ ],
+ "chefes": {
+  "madre_brasilia": {
+   "nome": "Madre Brasília, a Voz da Portadora",
+   "andar": 2,
+   "nivel": 19,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 6650,
+   "defesa": 42,
+   "dano_base": 50,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.0,
+   "postura_max": 490,
+   "res": {
+    "eletrico": 0.4,
+    "sagrado": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "A locutora do programa da noite da Repetidora, que nunca saiu do ar. Leu no microfone o que a estática dizia e fundou a Congregação da Portadora. O estúdio virou a capela dela.",
+   "fala_entrada": "Boa noite, ouvintes. Este é o último programa.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "No Ar",
+     "ataques": [
+      {
+       "id": "golpe_de_pedestal",
+       "nome": "Golpe de Pedestal",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.0,
+       "anim": "attack"
+      },
+      {
+       "id": "microfonia",
+       "nome": "Microfonia",
+       "mult": 1.3,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5.0,
+        "angulo": 70
+       },
+       "efeito": {
+        "silenciado": 2
+       },
+       "recarga": 8,
+       "anim": "lunge"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Boletim Urgente",
+       "mult": 1.4,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.1
+       },
+       "dupla": true,
+       "angulo_entre": 30,
+       "recarga": 9,
+       "anim": "cast"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Fora do Ar",
+     "ataques": [
+      {
+       "id": "golpe_de_pedestal",
+       "nome": "Golpe de Pedestal",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.0,
+       "anim": "attack"
+      },
+      {
+       "id": "fora_do_ar",
+       "nome": "Fora do Ar",
+       "mult": 1.7,
+       "preparo": 1.4,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 4.2
+       },
+       "recarga": 10,
+       "anim": "spin"
+      },
+      {
+       "id": "microfonia",
+       "nome": "Microfonia",
+       "mult": 1.3,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5.0,
+        "angulo": 80
+       },
+       "efeito": {
+        "silenciado": 2
+       },
+       "recarga": 6,
+       "anim": "lunge"
+      },
+      {
+       "id": "chamada_geral",
+       "nome": "Chamada Geral",
+       "invoca": {
+        "sintonizado_locutor": 2
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_2"
+  },
+  "o_telegrafista": {
+   "nome": "O Telegrafista",
+   "andar": 3,
+   "nivel": 23,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 8050,
+   "defesa": 50,
+   "dano_base": 58,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 1.7,
+   "postura_max": 530,
+   "res": {
+    "eletrico": 0.5,
+    "fogo": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Transmite há onze mil noites o mesmo traço-ponto que abriu a fenda. O corpo se fundiu à cadeira e à mesa do telégrafo, que andam sobre seis pernas de ferro; quatro braços batem manipuladores sem parar.",
+   "fala_entrada": "· · · — — — · · ·",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Traço",
+     "ataques": [
+      {
+       "id": "manipulador",
+       "nome": "Manipulador",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.2,
+       "anim": "attack"
+      },
+      {
+       "id": "arrasto",
+       "nome": "Linha de Morse",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 7,
+        "largura": 1.0
+       },
+       "deslocamento": 3,
+       "encadeia": 3,
+       "recarga": 9,
+       "anim": "lunge"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Traço-Ponto",
+       "mult": 1.2,
+       "quantidade": 4,
+       "intervalo": 0.45,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 8,
+       "anim": "cast"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "SOS",
+     "ataques": [
+      {
+       "id": "manipulador",
+       "nome": "Manipulador",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.2,
+       "anim": "attack"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "S · O · S",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.1
+       },
+       "dupla": true,
+       "angulo_entre": 40,
+       "recarga": 7,
+       "anim": "spin"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Traço-Ponto",
+       "mult": 1.2,
+       "quantidade": 6,
+       "intervalo": 0.4,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 7,
+       "anim": "cast"
+      },
+      {
+       "id": "mensagem_recebida",
+       "nome": "Mensagem Recebida",
+       "invoca": {
+        "receptaculo": 2
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_3"
+  },
+  "bento_fel": {
+   "nome": "Bento Fel, o Coveiro do Amargo",
+   "andar": 1,
+   "nivel": 22,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 7700,
+   "defesa": 48,
+   "dano_base": 56,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 520,
+   "res": {
+    "veneno": 0.6,
+    "fogo": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "catacumba_das_raizes",
+   "conceito": "Coveiro da Comunhão do Amargo que inveja o dom de Simão: cava por baixo da Árvore-Mãe e derrama Amargo na raiz-mestra para matá-la de dentro.",
+   "fala_entrada": "Ele enterra, a coisa brota. Eu desenterro, a coisa morre. Alguém tem de fazer o serviço ao contrário.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "A Pá",
+     "ataques": [
+      {
+       "id": "golpe_de_pa",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.8
+      },
+      {
+       "id": "arrasto",
+       "nome": "Pá que Puxa",
+       "mult": 1.3,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.2
+       },
+       "deslocamento": 4,
+       "recarga": 9
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Jorro de Amargo",
+       "mult": 1.2,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 4.5,
+        "angulo": 60
+       },
+       "ticks": 3,
+       "intervalo_tick": 0.4,
+       "recarga": 8
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "A Raiz Grita",
+     "ataques": [
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Terra",
+       "mult": 1.1,
+       "quantidade": 5,
+       "intervalo": 0.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 8
+      },
+      {
+       "id": "chamar_raizes",
+       "invoca": {
+        "raiz_ossuda": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_catacumba"
+  },
+  "petsuchos": {
+   "nome": "Petsuchos, o Crocodilo Sagrado",
+   "andar": 1,
+   "dungeon": "labirinto_de_hawara",
+   "nivel": 51,
+   "tags": [
+    "animal",
+    "sagrado",
+    "anfibio"
+   ],
+   "hp": 26000,
+   "escala_grupo": {
+    "base": 1,
+    "por_jogador": 0.75
+   },
+   "defesa": 105,
+   "dano_base": 125,
+   "intervalo_ataque": 2.0,
+   "velocidade_mov": 2.2,
+   "postura_max": 900,
+   "res": {
+    "veneno": 0.5,
+    "fogo": -0.2,
+    "sagrado": 0.2
+   },
+   "duracao_alvo_s": 180,
+   "furia_tempo_s": 420,
+   "conceito": "O crocodilo-deus de Crocodilópolis (Heródoto e Estrabão: enfeitado de ouro, alimentado pelos sacerdotes). Ficou no Labirinto quando a cheia o encheu.",
+   "fala_entrada": "(o salão inteiro range, e a água começa a subir)",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.6
+     ],
+     "nome": "O Deus Come",
+     "ataques": [
+      {
+       "id": "mordida",
+       "mult": 1.0,
+       "preparo": 0.7,
+       "alcance": 2.2
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Investida do Lodo",
+       "mult": 1.6,
+       "preparo": 1.1,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 2.0
+       },
+       "deslocamento": 8,
+       "recarga": 10
+      },
+      {
+       "id": "rabada",
+       "nome": "Rabada",
+       "mult": 1.3,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 3.5,
+        "angulo": 140
+       },
+       "empurrao_px": 20,
+       "recarga": 8
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.6,
+      0.25
+     ],
+     "nome": "A Água Sobe",
+     "ataques": [
+      {
+       "id": "lanca_do_juizo",
+       "encadeia": 2,
+       "recarga": 9
+      },
+      {
+       "id": "banquete",
+       "nome": "Giro da Morte",
+       "mult": 0.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 2.5,
+        "angulo": 70
+       },
+       "mult_por_tick": 0.45,
+       "depois": {
+        "exausto": 2.5
+       },
+       "recarga": 14
+      },
+      {
+       "id": "chamar_sacerdotes",
+       "nome": "Os Sacerdotes Trazem Comida",
+       "invoca": {
+        "sacerdote_de_sobek": 2
+       },
+       "uma_vez": true
+      }
+     ],
+     "fala": "(ele afunda; as ilhas de pedra são o único chão seco)"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.25,
+      0.0
+     ],
+     "nome": "Fome de Deus",
+     "ataques": [
+      {
+       "id": "lanca_do_juizo",
+       "encadeia": 3,
+       "recarga": 8
+      },
+      {
+       "id": "rabada",
+       "recarga": 6
+      }
+     ],
+     "fala": "(as oferendas acabaram; ele vem por você)"
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "agua_que_sobe",
+    "regra": "A cada 35 s (fase 2 em diante, a cada 25 s) a água do salão sobe por 8 s: o chão fora das 4 ilhas de pedra vira área de dano (3% do HP máx por s) e Petsuchos submerge (imune, some) e reaparece com uma Investida do Lodo telegrafada contra um jogador aleatório. Nas mesas de oferenda (4 objetos, 600 HP) ele se cura 6% do HP máximo por mesa inteira que alcançar enquanto está submerso; quebrar as mesas antes nega a cura.",
+    "ciclo_s": [
+     35,
+     25,
+     25
+    ],
+    "duracao_s": 8,
+    "dano_fora_ilha_frac": 0.03,
+    "ilhas": "arena.ilhas",
+    "oferendas": "arena.oferendas",
+    "oferenda_hp": 600,
+    "cura_por_oferenda": 0.06
+   },
+   "drop": "chefe_hawara_1",
+   "morte": "(Petsuchos afunda devagar; o ouro dos brincos fica boiando)",
+   "trava": "diaria"
+  },
+  "esfinge_de_hawara": {
+   "nome": "A Esfinge de Hawara",
+   "andar": 2,
+   "dungeon": "labirinto_de_hawara",
+   "nivel": 53,
+   "tags": [
+    "construto",
+    "pedra",
+    "sagrado"
+   ],
+   "hp": 29000,
+   "escala_grupo": {
+    "base": 1,
+    "por_jogador": 0.75
+   },
+   "defesa": 112,
+   "dano_base": 132,
+   "intervalo_ataque": 2.2,
+   "velocidade_mov": 1.8,
+   "postura_max": 1100,
+   "res": {
+    "fisico": 0.15,
+    "veneno": 1.0,
+    "sangue": 1.0,
+    "raio": -0.25
+   },
+   "duracao_alvo_s": 190,
+   "furia_tempo_s": 420,
+   "conceito": "A guardiã dos doze pátios. Não pergunta em voz: mostra no peito a sequência dos glifos e espera a resposta nos pedestais.",
+   "fala_entrada": "QUEM ANDA NO LABIRINTO SEM SABER O CAMINHO É O CAMINHO QUE ANDA NELE.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Os Doze Pátios",
+     "ataques": [
+      {
+       "id": "patada",
+       "mult": 1.0,
+       "preparo": 0.8,
+       "alcance": 2.4
+      },
+      {
+       "id": "onda_de_pedra",
+       "nome": "Onda de Pedra",
+       "mult": 1.4,
+       "preparo": 1.1,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6,
+        "angulo": 50
+       },
+       "recarga": 9
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Teto que Cai",
+       "mult": 1.2,
+       "quantidade": 4,
+       "intervalo": 0.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.5
+       },
+       "recarga": 12
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "A Resposta",
+     "ataques": [
+      {
+       "id": "onda_de_pedra",
+       "recarga": 7
+      },
+      {
+       "id": "pranto_que_cai",
+       "quantidade": 6,
+       "recarga": 10
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Salto da Esfinge",
+       "mult": 1.7,
+       "preparo": 1.2,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 8,
+        "largura": 2.2
+       },
+       "deslocamento": 7,
+       "recarga": 11
+      }
+     ],
+     "fala": "ERRADO É SÓ OUTRO CAMINHO."
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "enigma",
+    "regra": "Em 80%, 55% e 30% de HP a Esfinge senta (imune) e acende três glifos no peito em sequência (escaravelho, olho, ankh, pena, djed, junco). Os 6 pedestais da sala têm um glifo cada; o certo é o que COMPLETA a sequência (a regra muda: repete o primeiro, o que falta da tríade, o oposto). Um jogador precisa ficar 3 s no pedestal certo em até 12 s: ela fica Quebrada (dano recebido +50% por 10 s). Pedestal errado ou tempo esgotado: Onda de Pedra na sala inteira (60% do HP máx; os pedestais protegem só quem está no certo).",
+    "gatilhos_hp": [
+     0.8,
+     0.55,
+     0.3
+    ],
+    "glifos": [
+     "escaravelho",
+     "olho",
+     "ankh",
+     "pena",
+     "djed",
+     "junco"
+    ],
+    "tempo_s": 12,
+    "ficar_s": 3,
+    "quebrada": {
+     "dano_recebido": 0.5,
+     "duracao": 10
+    },
+    "erro_frac_hp_max": 0.6,
+    "pedestais": "arena.pedestais"
+   },
+   "drop": "chefe_hawara_2",
+   "morte": "A RESPOSTA... ERA VOCÊ.",
+   "trava": "diaria"
+  },
+  "serket": {
+   "nome": "Serket, a Que Faz a Garganta Respirar",
+   "andar": 3,
+   "dungeon": "labirinto_de_hawara",
+   "nivel": 54,
+   "tags": [
+    "sagrado",
+    "venenoso",
+    "monstro"
+   ],
+   "hp": 33000,
+   "escala_grupo": {
+    "base": 1,
+    "por_jogador": 0.75
+   },
+   "defesa": 110,
+   "dano_base": 136,
+   "intervalo_ataque": 1.6,
+   "velocidade_mov": 2.6,
+   "postura_max": 900,
+   "res": {
+    "veneno": 1.0,
+    "fogo": -0.2,
+    "sagrado": 0.3
+   },
+   "duracao_alvo_s": 200,
+   "furia_tempo_s": 450,
+   "conceito": "A deusa escorpião que protegia os vasos canópicos e curava picada, guardando a tumba de Amenemés III no fundo do Labirinto. O título dela é a cura; a picada é o preço.",
+   "fala_entrada": "Eu fecho a garganta. Eu abro a garganta. Respire enquanto eu deixo.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.6
+     ],
+     "nome": "A Picada",
+     "ataques": [
+      {
+       "id": "pinca",
+       "mult": 1.0,
+       "preparo": 0.55,
+       "alcance": 2.0,
+       "efeito": {
+        "veneno": {
+         "duracao": 8,
+         "dano_por_s_mult": 0.12
+        }
+       }
+      },
+      {
+       "id": "ferroada",
+       "nome": "Ferroada Carregada",
+       "mult": 1.8,
+       "preparo": 1.3,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 5,
+        "largura": 1.2
+       },
+       "efeito": {
+        "veneno": {
+         "duracao": 10,
+         "dano_por_s_mult": 0.25
+        }
+       },
+       "recarga": 9
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Névoa de Veneno",
+       "mult": 0.6,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5,
+        "angulo": 60
+       },
+       "ticks": 4,
+       "efeito": {
+        "veneno": {
+         "duracao": 6,
+         "dano_por_s_mult": 0.2
+        }
+       },
+       "recarga": 12
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.6,
+      0.3
+     ],
+     "nome": "O Ninho",
+     "ataques": [
+      {
+       "id": "ferroada",
+       "recarga": 8
+      },
+      {
+       "id": "vomito_de_brasa",
+       "recarga": 11
+      }
+     ],
+     "fala": "Filhas. A garganta deles."
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "Respire",
+     "ataques": [
+      {
+       "id": "ferroada",
+       "recarga": 6
+      },
+      {
+       "id": "vomito_de_brasa",
+       "recarga": 9
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Selo de Serket",
+       "mult": 2.0,
+       "preparo": 3.0,
+       "telegrafo": {
+        "forma": "circulo_segue_jogador",
+        "raio": 2.2
+       },
+       "recarga": 14
+      }
+     ],
+     "fala": "Agora ninguém respira."
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "veneno_e_ankh",
+    "regra": "Os golpes empilham Veneno de Serket (até 10 pilhas; cada pilha tira 0,6% do HP máx por s e reduz a cura recebida em 4%). Os 4 ankhs acesos da sala tiram todas as pilhas de quem pisa neles e apagam por 25 s. Na fase 2 ela se enterra (imune) a cada 40 s, por 6 s, e reaparece embaixo do jogador com mais pilhas (círculo telegrafado). Os 3 ninhos (800 HP) chamam uma filha cada a cada 30 s na fase 2 em diante, enquanto estiverem de pé.",
+    "pilha_max": 10,
+    "dano_por_pilha_frac": 0.006,
+    "cura_reduzida_por_pilha": 0.04,
+    "ankhs": "arena.ankhs",
+    "ankh_recarga_s": 25,
+    "enterra": {
+     "a_cada_s": 40,
+     "dur_s": 6,
+     "desde_fase": 2
+    },
+    "ninhos": "arena.ninhos",
+    "ninho_hp": 800
+   },
+   "drop": "chefe_hawara_3",
+   "morte": "Respire... agora... sozinho.",
+   "trava": "diaria"
+  },
+  "sekhmet": {
+   "nome": "Sekhmet, a Leoa Que Bebeu o Sangue",
+   "andar": 1,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "sagrado",
+    "felino",
+    "deusa"
+   ],
+   "hp": 240000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 125,
+   "dano_base": 165,
+   "intervalo_ataque": 1.7,
+   "velocidade_mov": 2.6,
+   "postura_max": 1500,
+   "res": {
+    "fogo": 0.5,
+    "sagrado": 0.3,
+    "gelo": -0.2
+   },
+   "duracao_alvo_s": 300,
+   "furia_tempo_s": 480,
+   "conceito": "Rá mandou Sekhmet exterminar a humanidade e, arrependido, a deteve com sete mil jarras de cerveja tingida de ocre, que ela bebeu achando que era sangue. Foi o primeiro extermínio interrompido da história. O rito do Faraó a acordou para guardar o primeiro portão.",
+   "fala_entrada": "Sete mil jarras. Eu bebi todas. Desta vez eu olho antes de beber.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.6
+     ],
+     "nome": "A Caçada",
+     "ataques": [
+      {
+       "id": "garras",
+       "mult": 1.0,
+       "preparo": 0.55,
+       "alcance": 2.2
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Sopro do Sol",
+       "mult": 1.1,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6,
+        "angulo": 70
+       },
+       "ticks": 4,
+       "recarga": 12
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Salto da Leoa",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 10,
+        "largura": 2.0
+       },
+       "deslocamento": 9,
+       "alvo": "mais_longe",
+       "recarga": 11
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.6,
+      0.3
+     ],
+     "nome": "O Massacre",
+     "ataques": [
+      {
+       "id": "chamar_leoas",
+       "nome": "A Matilha do Sol",
+       "invoca": {
+        "leoa_de_sekhmet": 3
+       },
+       "recarga": 40
+      },
+      {
+       "id": "lanca_do_juizo",
+       "encadeia": 2,
+       "recarga": 10
+      },
+      {
+       "id": "vomito_de_brasa",
+       "recarga": 10
+      }
+     ],
+     "fala": "O GOSTO! EU LEMBRO DO GOSTO!"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "Sete Mil Jarras",
+     "ataques": [
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Brasa",
+       "mult": 1.2,
+       "quantidade": 6,
+       "intervalo": 0.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.6
+       },
+       "recarga": 9
+      },
+      {
+       "id": "lanca_do_juizo",
+       "encadeia": 3,
+       "recarga": 9
+      }
+     ],
+     "fala": "Não é sangue. NÃO É SANGUE."
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "sede",
+    "regra": "Sede: +6 por golpe dela que acerta um jogador, +2 por segundo na fase 2 em diante. Com 100 ela entra em Massacre por 8 s (dano +80%, velocidade +40%, ataques em cone sem pausa). As 8 jarras de cerveja ocre (objetos, 1 golpe) espalhadas pelo pátio: quebrar uma jarra a até 4 m dela tira 35 de Sede e a deixa Embriagada por 4 s (dano recebido +20%). Jarras renascem a cada 45 s. Longe dela a jarra só derrama no chão (desperdício).",
+    "sede_por_golpe": 6,
+    "sede_por_s": [
+     0,
+     2,
+     3
+    ],
+    "massacre": {
+     "dano": 0.8,
+     "vel": 0.4,
+     "dur_s": 8
+    },
+    "jarras": "arena.jarras",
+    "jarra_raio": 4.0,
+    "jarra_reduz": 35,
+    "embriagada": {
+     "dano_recebido": 0.2,
+     "dur_s": 4
+    },
+    "jarra_renasce_s": 45
+   },
+   "drop": "chefe_coracao_1",
+   "morte": "Era... cerveja. Sempre foi cerveja.",
+   "trava": "semanal"
+  },
+  "janes": {
+   "nome": "Janes e Jambres, os Magos de Faraó",
+   "andar": 2,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "morto_vivo",
+    "humano",
+    "sacerdote"
+   ],
+   "hp": 130000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 110,
+   "dano_base": 150,
+   "intervalo_ataque": 2.0,
+   "velocidade_mov": 2.2,
+   "postura_max": 1100,
+   "res": {
+    "fogo": -0.3,
+    "sagrado": -0.2,
+    "magico": 0.2
+   },
+   "duracao_alvo_s": 300,
+   "furia_tempo_s": 480,
+   "conceito": "Os magos que imitaram Moisés diante de Faraó (Êx 7-8): também jogaram bastões que viraram serpentes, também tornaram a água em sangue, também fizeram subir rãs. Na terceira praga não conseguiram e disseram 'isto é o dedo de Deus'. O nome deles está em 2 Timóteo 3:8. Morreram juntos e foram enterrados de mãos dadas.",
+   "fala_entrada": "Tudo o que ele fez, nós fizemos. Tudo o que vocês fizerem, nós faremos.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "O Bastão",
+     "ataques": [
+      {
+       "id": "golpe_de_bastao",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.0
+      },
+      {
+       "id": "chamar_serpentes",
+       "nome": "Bastão que Vira Serpente",
+       "invoca": {
+        "serpente_de_bastao": 2
+       },
+       "recarga": 25
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Rãs",
+       "mult": 0.9,
+       "quantidade": 5,
+       "intervalo": 0.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 11
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "O Rio de Sangue",
+     "ataques": [
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Água em Sangue",
+       "mult": 0.8,
+       "preparo": 1.1,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6,
+        "angulo": 60
+       },
+       "ticks": 4,
+       "recarga": 12
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "O Dedo de Deus",
+       "mult": 2.2,
+       "preparo": 3.0,
+       "telegrafo": {
+        "forma": "circulo_segue_jogador",
+        "raio": 2.4
+       },
+       "recarga": 16
+      }
+     ],
+     "fala": "Isto... não é o dedo de Deus. É o nosso."
+    }
+   ],
+   "adicionais": {
+    "jambres": {
+     "_doc": "o segundo mago (mob com HP de chefe, ver dados.mobs.jambres); nasce no início da luta ao lado de Janes"
+    }
+   },
+   "mecanica_egito": {
+    "tipo": "imitacao",
+    "regra": "Dois chefes (Janes é o principal; Jambres nasce junto). Imitação: a cada feitiço com telegrafo que um lança, o outro repete o mesmo 2 s depois, no seu próprio alvo. Vínculo: se um morrer, o outro tem 10 s; se não morrer também, ergue o irmão com 40% do HP (canal de 4 s, interrompível com postura). Rio de Sangue: na fase 2 uma poça de sangue cresce no centro (+0,5 m de raio a cada 10 s; dentro dela a cura recebida cai). Distância: se os dois ficarem a menos de 6 m um do outro por 3 s, ganham Pacto (dano +30%) até se separarem.",
+    "segundo": "jambres",
+    "eco_s": 2.0,
+    "vinculo_s": 10,
+    "ressuscita_frac": 0.4,
+    "canal_s": 4.0,
+    "rio": {
+     "desde_fase": 2,
+     "cresce_por_10s": 0.5,
+     "cura_reduzida": 0.5
+    },
+    "pacto": {
+     "dist": 6.0,
+     "apos_s": 3.0,
+     "dano": 0.3
+    }
+   },
+   "drop": "chefe_coracao_2",
+   "morte": "Juntos... como fomos enterrados.",
+   "trava": "semanal"
+  },
+  "imseti": {
+   "nome": "Os Quatro Filhos de Hórus",
+   "andar": 3,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "guardiao",
+    "sagrado"
+   ],
+   "hp": 120000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 120,
+   "dano_base": 150,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 1200,
+   "res": {
+    "sagrado": 0.3
+   },
+   "duracao_alvo_s": 330,
+   "furia_tempo_s": 540,
+   "conceito": "Imseti (homem, guarda o fígado, sul), Hapi (babuíno, os pulmões, norte), Duamutef (chacal, o estômago, leste) e Qebehsenuef (falcão, os intestinos, oeste), guardiões dos quatro vasos canópicos do rei. Imseti é o primogênito e o último a cair.",
+   "fala_entrada": "IMSETI: Os quatro vasos estão cheios. O rei está inteiro. Vocês não.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.0
+     ],
+     "nome": "Os Quatro Vasos",
+     "ataques": [
+      {
+       "id": "golpe",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.0
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Corte do Sul",
+       "mult": 1.4,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 8,
+        "largura": 1.6
+       },
+       "recarga": 10
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Natrão",
+       "mult": 1.0,
+       "quantidade": 4,
+       "intervalo": 0.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.6
+       },
+       "recarga": 12
+      }
+     ]
+    }
+   ],
+   "adicionais": {
+    "hapi": {},
+    "duamutef": {},
+    "qebehsenuef": {}
+   },
+   "mecanica_egito": {
+    "tipo": "conselho",
+    "regra": "Quatro guardiões, dois lutando por vez (os outros dois ficam nos pedestais dos vasos, imunes, e dão uma aura aos que lutam: Hapi +25% de dano, Duamutef cura 1% do HP máx por s, Qebehsenuef flechas em quem estiver longe, Imseti reduz dano recebido em 25%). A cada 30 s a dupla troca. Imseti é imune até os outros três caírem. Cada guardião que morre derrama o vaso: uma área permanente no lugar onde caiu (fígado: dano; pulmões: lentidão; estômago: tira cura; intestinos: veneno), por isso o grupo escolhe ONDE e EM QUE ORDEM derrubá-los.",
+    "membros": [
+     "imseti",
+     "hapi",
+     "duamutef",
+     "qebehsenuef"
+    ],
+    "troca_s": 30,
+    "ultimo": "imseti",
+    "auras": {
+     "hapi": {
+      "dano": 0.25
+     },
+     "duamutef": {
+      "cura_frac_s": 0.01
+     },
+     "qebehsenuef": {
+      "flechas_longe": 8.0
+     },
+     "imseti": {
+      "reducao_dano": 0.25
+     }
+    },
+    "vasos": {
+     "imseti": "figado_dano",
+     "hapi": "pulmoes_lento",
+     "duamutef": "estomago_sem_cura",
+     "qebehsenuef": "intestinos_veneno"
+    },
+    "pedestais": "arena.pedestais"
+   },
+   "drop": "chefe_coracao_3",
+   "morte": "IMSETI: O rei... está inteiro sem nós?",
+   "trava": "semanal"
+  },
+  "apofis": {
+   "nome": "Apófis, a Serpente Sem Fim",
+   "andar": 4,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "serpente",
+    "caos"
+   ],
+   "hp": 340000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 120,
+   "dano_base": 170,
+   "intervalo_ataque": 2.2,
+   "velocidade_mov": 0.0,
+   "postura_max": 1800,
+   "res": {
+    "veneno": 1.0,
+    "sombra": 0.4,
+    "sagrado": -0.3,
+    "fogo": -0.2
+   },
+   "duracao_alvo_s": 360,
+   "furia_tempo_s": 540,
+   "conceito": "A serpente do caos que ataca a barca de Rá toda noite na sétima hora do Amduat. Toda noite perde. Desde que o Sol Terço ficou parado, a noite não acaba e a luta também não. O grupo luta em cima da barca da noite.",
+   "fala_entrada": "(do rio escuro sobe uma cabeça do tamanho da barca, e ela não termina de subir)",
+   "imovel": true,
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "A Sétima Hora",
+     "ataques": [
+      {
+       "id": "bote",
+       "nome": "Bote",
+       "mult": 1.0,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 4,
+        "angulo": 50
+       },
+       "alcance": 4.0
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Bote pela Lateral",
+       "mult": 1.8,
+       "preparo": 1.3,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 14,
+        "largura": 2.6
+       },
+       "recarga": 9
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Cuspe da Treva",
+       "mult": 0.7,
+       "preparo": 1.1,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 7,
+        "angulo": 40
+       },
+       "ticks": 3,
+       "recarga": 14
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "As Crias",
+     "ataques": [
+      {
+       "id": "chamar_crias",
+       "nome": "As Crias Sobem na Barca",
+       "invoca": {
+        "cria_do_duat": 3
+       },
+       "recarga": 35
+      },
+      {
+       "id": "lanca_do_juizo",
+       "dupla": true,
+       "angulo_entre": 30,
+       "recarga": 8
+      },
+      {
+       "id": "vomito_de_brasa",
+       "recarga": 11
+      }
+     ],
+     "fala": "(as escamas abrem e algo sobe pelos remos)"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "O Olhar",
+     "ataques": [
+      {
+       "id": "lanca_do_juizo",
+       "dupla": true,
+       "angulo_entre": 30,
+       "recarga": 7
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Escamas que Caem",
+       "mult": 1.2,
+       "quantidade": 6,
+       "intervalo": 0.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.6
+       },
+       "recarga": 10
+      }
+     ],
+     "fala": "(os olhos acendem; não olhe)"
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "lanterna_de_ra",
+    "regra": "A Lanterna de Rá no meio da barca tem Luz (0 a 100), perde 3 por s e 25 a cada Cuspe da Treva que a atinge. Jogadores pegam Brasa nos 2 braseiros da proa (interagir: carrega 1 brasa, anda 30% mais devagar) e levam até a lanterna (+30 de Luz). Com Luz acima de 50 o grupo tem Sol de Rá (dano +15%); com 0 a barca escurece, Apófis Engole a Luz (dano em todos, 8% do HP máx por s, até alguém reacender). Fase 3: Olhar a cada 25 s (telegrafado 3 s, os olhos acendem): quem estiver de frente para ele no fim fica Petrificado 4 s; vire de costas.",
+    "luz_max": 100,
+    "perde_por_s": 3,
+    "cuspe_tira": 25,
+    "brasa": {
+     "da": 30,
+     "lento": 0.3
+    },
+    "braseiros": "arena.braseiros",
+    "lanterna": "arena.lanterna",
+    "sol_de_ra": {
+     "acima": 50,
+     "dano": 0.15
+    },
+    "escuro_frac_s": 0.08,
+    "olhar": {
+     "desde_fase": 3,
+     "a_cada_s": 25,
+     "aviso_s": 3,
+     "petrifica_s": 4
+    }
+   },
+   "drop": "chefe_coracao_4",
+   "morte": "(a serpente afunda no rio escuro; a barca segue para a oitava hora)",
+   "trava": "semanal"
+  },
+  "anubis_pesador": {
+   "nome": "Anúbis, o Pesador",
+   "andar": 5,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "sagrado",
+    "chacal",
+    "deus"
+   ],
+   "hp": 320000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 130,
+   "dano_base": 165,
+   "intervalo_ataque": 1.9,
+   "velocidade_mov": 2.3,
+   "postura_max": 1700,
+   "res": {
+    "sagrado": 0.4,
+    "sombra": 0.3
+   },
+   "duracao_alvo_s": 360,
+   "furia_tempo_s": 540,
+   "conceito": "No Salão das Duas Verdades Anúbis põe o coração do morto num prato e a pena de Maat no outro; Thoth anota; Ammit espera o coração pesado. Há três mil e trezentos anos ele não consegue pesar o coração do Faraó. Vai pesar o seu.",
+   "fala_entrada": "Coração de um lado. Pena do outro. Nenhum de vocês vai sair daqui sem ser pesado.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.55
+     ],
+     "nome": "A Pesagem",
+     "ataques": [
+      {
+       "id": "cetro_was",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.2
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Marca do Pesador",
+       "mult": 1.6,
+       "preparo": 3.0,
+       "telegrafo": {
+        "forma": "circulo_segue_jogador",
+        "raio": 2.2
+       },
+       "recarga": 13
+      },
+      {
+       "id": "pancada",
+       "nome": "Pancada",
+       "mult": 1.5,
+       "preparo": 1.1,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 3.2
+       },
+       "recarga": 9
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.55,
+      0.0
+     ],
+     "nome": "A Devoradora",
+     "ataques": [
+      {
+       "id": "marca_do_juizo",
+       "recarga": 10
+      },
+      {
+       "id": "pancada",
+       "recarga": 7
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Avanço do Chacal",
+       "mult": 1.6,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.8
+       },
+       "deslocamento": 8,
+       "recarga": 11
+      }
+     ],
+     "fala": "Ammit. Coma."
+    }
+   ],
+   "adicionais": {
+    "ammit": {
+     "_doc": "entra na fase 2 (mob com HP de chefe)"
+    }
+   },
+   "mecanica_egito": {
+    "tipo": "balanca",
+    "regra": "A cada 30 s Anúbis divide o grupo: metade recebe Coração, metade Pena (sorteado, equilibrado). A Balança no centro tem dois pratos (áreas de 3 m): em 8 s, cada um precisa estar no prato da sua marca. Pesagem: se o número de jogadores em cada prato for igual (diferença de até 1), a balança fica equilibrada e todos ganham Maat (dano +20% por 15 s). Desequilibrada, o prato mais pesado afunda: quem está nele toma 50% do HP máx e Ammit pula nele. Quem ficou fora dos pratos toma 70%. Fase 2: Ammit (adicional) entra, pula no prato que pesou e precisa ser segurada por alguém resistente.",
+    "a_cada_s": 30,
+    "prazo_s": 8,
+    "pratos": "arena.pratos",
+    "raio_prato": 3.0,
+    "tolerancia": 1,
+    "maat": {
+     "dano": 0.2,
+     "dur_s": 15
+    },
+    "pesado_frac": 0.5,
+    "fora_frac": 0.7,
+    "ammit": {
+     "desde_fase": 2,
+     "kind": "ammit"
+    }
+   },
+   "drop": "chefe_coracao_5",
+   "morte": "A pena... pesou mais. Finalmente... alguma coisa pesou.",
+   "trava": "semanal"
+  },
+  "farao_sem_nome": {
+   "nome": "O Faraó Sem Nome",
+   "andar": 6,
+   "raid": "coracao_endurecido",
+   "nivel": 60,
+   "tags": [
+    "morto_vivo",
+    "rei",
+    "nao_julgado"
+   ],
+   "hp": 480000,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "defesa": 135,
+   "dano_base": 175,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.0,
+   "postura_max": 2200,
+   "res": {
+    "fogo": -0.3,
+    "sagrado": -0.2,
+    "veneno": 1.0,
+    "sombra": 0.3
+   },
+   "duracao_alvo_s": 480,
+   "furia_tempo_s": 600,
+   "conceito": "O faraó do Êxodo, apagado das paredes pelos próprios sacerdotes. Dez vezes disse não; na última Deus endureceu o coração dele. O coração não coube na balança: nem julgado nem devorado. Em 1962 o coração bateu. A luta é o Êxodo ao contrário: ele lança as pragas.",
+   "fala_entrada": "Dez vezes ele pediu. Dez vezes eu disse não. Vocês acham que vieram me pedir alguma coisa?",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.8
+     ],
+     "nome": "Sangue e Rãs",
+     "ataques": [
+      {
+       "id": "mangual",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.2
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Cajado do Rei",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.6
+       },
+       "recarga": 10
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Rãs",
+       "mult": 0.8,
+       "quantidade": 6,
+       "intervalo": 0.35,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.3
+       },
+       "recarga": 11
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.8,
+      0.6
+     ],
+     "nome": "Piolhos, Moscas e Peste",
+     "ataques": [
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Enxame",
+       "mult": 0.7,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6,
+        "angulo": 70
+       },
+       "ticks": 4,
+       "efeito": {
+        "cegueira": 3
+       },
+       "recarga": 11
+      },
+      {
+       "id": "chamar_escaravelhos",
+       "nome": "Escaravelhos do Coração",
+       "invoca": {
+        "escaravelho_do_coracao": 4
+       },
+       "recarga": 30
+      }
+     ],
+     "fala": "Piolho. Mosca. Peste. Eles também pediram que parasse."
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.6,
+      0.4
+     ],
+     "nome": "Úlceras e Granizo",
+     "ataques": [
+      {
+       "id": "pranto_que_cai",
+       "nome": "Granizo com Fogo",
+       "mult": 1.3,
+       "quantidade": 8,
+       "intervalo": 0.3,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.8
+       },
+       "recarga": 9
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Úlcera",
+       "mult": 1.8,
+       "preparo": 3.0,
+       "telegrafo": {
+        "forma": "circulo_segue_jogador",
+        "raio": 2.4
+       },
+       "recarga": 12
+      }
+     ],
+     "fala": "O granizo veio com fogo dentro. Eu fiquei olhando da janela."
+    },
+    {
+     "n": 4,
+     "hp": [
+      0.4,
+      0.2
+     ],
+     "nome": "Gafanhotos e Trevas",
+     "ataques": [
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Nuvem de Gafanhotos",
+       "dupla": true,
+       "angulo_entre": 25,
+       "mult": 1.4,
+       "recarga": 8
+      },
+      {
+       "id": "vomito_de_brasa",
+       "recarga": 9
+      }
+     ],
+     "fala": "Trevas que se podem apalpar. Apalpem."
+    },
+    {
+     "n": 5,
+     "hp": [
+      0.2,
+      0.0
+     ],
+     "nome": "A Décima",
+     "ataques": [
+      {
+       "id": "mangual",
+       "mult": 1.3
+      },
+      {
+       "id": "lanca_do_juizo",
+       "encadeia": 2,
+       "recarga": 8
+      },
+      {
+       "id": "chamar_primogenitos",
+       "nome": "Os Primogênitos",
+       "invoca": {
+        "primogenito_do_egito": 4
+       },
+       "uma_vez": true
+      }
+     ],
+     "fala": "Falta uma. Quem vai passar esta noite por cima das portas de vocês?"
+    }
+   ],
+   "mecanica_egito": {
+    "tipo": "dez_pragas",
+    "regra": "Cada fase traz duas pragas, na ordem do Êxodo, além dos ataques. 1) Sangue: o chão da arena vira sangue aos poucos (manchas que crescem; dentro, a cura recebida cai 50%). 2) Rãs: os círculos 'Rãs' deixam rãs (adicionais fracos). 3) Piolhos: cegueira (erra 30%) em 2 jogadores; só sai perto de um braseiro. 4) Moscas: o Enxame. 5) Peste: a cada 15 s um jogador adoece (2% do HP máx por s, 8 s) e passa a doença a quem chegar a 2 m dele (espalhar). 6) Úlceras: a Úlcera explode no alvo e espalha em quem estiver junto (espalhar). 7) Granizo. 8) Gafanhotos: linhas que cruzam a arena. 9) Trevas: a arena fica escura (só se enxerga a 3 m das 4 lamparinas, que se movem a cada 20 s; fora da luz o grupo perde 2% do HP máx por s). 10) A Décima (fúria em 20%): a cada 40 s o Anjo Destruidor passa: as 4 portas da arena acendem; quem não estiver sob uma porta com sangue no lintel (cada porta cabe até 3 jogadores; as portas se marcam com o sangue das manchas, interagindo nelas antes) morre. Ao morrer o Faraó deixa o Coração (objeto) para a escolha da linha N.",
+    "pragas": [
+     "sangue",
+     "ras",
+     "piolhos",
+     "moscas",
+     "peste",
+     "ulceras",
+     "granizo",
+     "gafanhotos",
+     "trevas",
+     "decima"
+    ],
+    "por_fase": [
+     [
+      "sangue",
+      "ras"
+     ],
+     [
+      "piolhos",
+      "moscas",
+      "peste"
+     ],
+     [
+      "ulceras",
+      "granizo"
+     ],
+     [
+      "gafanhotos",
+      "trevas"
+     ],
+     [
+      "decima"
+     ]
+    ],
+    "sangue": {
+     "cresce_s": 15,
+     "cura_reduzida": 0.5
+    },
+    "piolhos": {
+     "alvos": 2,
+     "erra": 0.3
+    },
+    "peste": {
+     "a_cada_s": 15,
+     "dur_s": 8,
+     "dano_frac_s": 0.02,
+     "raio": 2.0
+    },
+    "trevas": {
+     "raio_luz": 3.0,
+     "lamparinas": "arena.lamparinas",
+     "move_s": 20,
+     "fora_frac_s": 0.02
+    },
+    "decima": {
+     "a_cada_s": 40,
+     "aviso_s": 6,
+     "portas": "arena.portas",
+     "por_porta": 3
+    },
+    "coracao": "coracao_do_farao"
+   },
+   "drop": "chefe_coracao_6",
+   "morte": "Eu disse não... e não... e... (o coração cai no chão do salão, inteiro, batendo)",
+   "trava": "semanal"
+  },
+  "ohya_gigante": {
+   "nome": "Ohya, o Gigante que Sonhou",
+   "andar": 1,
+   "nivel": 8,
+   "tags": [
+    "infernal",
+    "demonio"
+   ],
+   "hp": 2430,
+   "defesa": 22,
+   "dano_base": 40,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 1.6,
+   "postura_max": 300,
+   "res": {
+    "fogo": 0.4,
+    "sagrado": -0.2,
+    "veneno": 0.3
+   },
+   "duracao_alvo_s": 128,
+   "furia_tempo_s": 240,
+   "fala_entrada": "Os escravos acabaram. Mas você veio. O sonho dizia que viria alguém pequeno e quente.",
+   "mecanica_central": {
+    "nome": "Pilhas de Mortos",
+    "regra": "Ele se cura e fica mais forte devorando cadaveres. Cada Pilha de Mortos e um objeto com HP que o jogador pode destruir (fogo e sagrado dao dano dobrado). Pilha destruida nao pode ser comida. Assim o jogador escolhe: bater no chefe ou negar a comida dele.",
+    "pilha_de_mortos": {
+     "quantidade": 6,
+     "hp": 160,
+     "defesa": 0,
+     "fraquezas": {
+      "fogo": -1.0,
+      "sagrado": -1.0
+     },
+     "tags": [
+      "objeto"
+     ]
+    },
+    "fome_saciada": {
+     "_doc": "buff acumulativo ganho a cada pilha devorada",
+     "dano": 0.1,
+     "tamanho": 0.06,
+     "max_acumulos": 6,
+     "permanente_na_luta": true
+    }
+   },
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.6
+     ],
+     "nome": "O Comandante Faminto",
+     "ataques": [
+      {
+       "id": "estandarte",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.8,
+       "_doc": "basico",
+       "nome": "Clava de Cedro"
+      },
+      {
+       "id": "golpe_de_estandarte",
+       "mult": 1.6,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 2.6,
+        "angulo": 100
+       },
+       "recarga": 7,
+       "nome": "Varrida de Cedro"
+      },
+      {
+       "id": "arrasto",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.4
+       },
+       "deslocamento": 6,
+       "empurrao_px": 20,
+       "recarga": 9,
+       "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar",
+       "nome": "Pisão do Gigante"
+      },
+      {
+       "id": "devorar",
+       "conjuracao": 4.0,
+       "interrompivel_por_postura": true,
+       "gatilho": "a cada 20s, ou abaixo de 75% HP, vai ate a pilha intacta mais proxima",
+       "cura_frac_hp_max": 0.08,
+       "ganha": "fome_saciada",
+       "_doc": "barra de conjuracao visivel; som de mastigar. Quebrar a postura enquanto come cancela a cura e deixa ele EXAUSTO 4s",
+       "nome": "Comer os Escravos"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.6,
+      0.3
+     ],
+     "nome": "Ordem ao Exercito Morto",
+     "mudancas": "Ele ainda comanda os mortos: ergue Soldados Caidos das pilhas restantes. Soldado morto vira um cadaver fresco no chao (comida rapida: 2s para devorar, cura 4%). Vomita brasa.",
+     "ataques": [
+      {
+       "id": "estandarte",
+       "mult": 1.1,
+       "nome": "Clava de Cedro"
+      },
+      {
+       "id": "golpe_de_estandarte",
+       "nome": "Varrida de Cedro"
+      },
+      {
+       "id": "arrasto",
+       "recarga": 8,
+       "nome": "Pisão do Gigante"
+      },
+      {
+       "id": "ordem_de_levantar",
+       "invoca": {
+        "soldado_de_pedra": 2
+       },
+       "de": "pilhas intactas (se nao houver, do chao em volta dele)",
+       "recarga": 18,
+       "nome": "De Pé, Escravos!"
+      },
+      {
+       "id": "vomito_de_brasa",
+       "mult": 0.6,
+       "ticks": 3,
+       "intervalo_tick": 0.4,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 4,
+        "angulo": 45
+       },
+       "rastro_fogo": {
+        "duracao": 4,
+        "efeito": {
+         "queimadura": {
+          "duracao": 2,
+          "dano_por_s_mult": 0.25
+         }
+        }
+       },
+       "recarga": 11,
+       "nome": "Vômito de Brasa"
+      },
+      {
+       "id": "devorar",
+       "conjuracao": 4.0,
+       "cadaver_fresco_conjuracao": 2.0,
+       "cadaver_fresco_cura": 0.04,
+       "nome": "Comer os Escravos"
+      }
+     ],
+     "fala": "DE PÉ, ESCRAVOS! O gigante tem fome!"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "A Fome do Abismo",
+     "mudancas": "Fica desesperado: velocidade de ataque +25% e tenta agarrar o jogador para come-lo. Depois do Banquete erra ou acerta, fica EXAUSTO (janela de punicao).",
+     "ataques": [
+      {
+       "id": "estandarte",
+       "mult": 1.2,
+       "nome": "Clava de Cedro"
+      },
+      {
+       "id": "arrasto",
+       "encadeia": 2,
+       "recarga": 9,
+       "_doc": "dois arrastos seguidos, o segundo mira de novo",
+       "nome": "Pisão do Gigante"
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Vômito de Brasa"
+      },
+      {
+       "id": "banquete",
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 2.2,
+        "angulo": 70
+       },
+       "agarra": true,
+       "mult_por_tick": 0.45,
+       "ticks": 5,
+       "intervalo_tick": 0.5,
+       "cura_por_dano": 1.0,
+       "soltar": "o jogador escapa sozinho em 2.5s, ou antes se quebrar a postura dele (golpes contam em dobro para postura enquanto agarra)",
+       "depois": {
+        "exausto": 3.0
+       },
+       "recarga": 16
+      },
+      {
+       "id": "devorar",
+       "conjuracao": 3.0,
+       "nome": "Comer os Escravos"
+      }
+     ]
+    }
+   ],
+   "dica_de_design": "Jogador que destroi as pilhas cedo tem luta mais curta e mais facil; quem ignora enfrenta um general maior e mais forte (Fome Saciada deixa o sprite 6% maior por acumulo, efeito visivel).",
+   "morte": "Tenta devorar o proprio estandarte e desaba. O estandarte fica no chao: item de missao.",
+   "drop": "drop_ohya",
+   "movimento": {
+    "_doc": "Confirmado pelo Jefin: ele se arrasta.",
+    "tipo": "arrasto",
+    "velocidade_mov": 1.6,
+    "_velocidade": "metade da do jogador (3.2): a distancia e segura ate ele usar o Arrasto",
+    "animacao": "puxa o tronco com os dois bracos, um de cada vez; cada puxada e um passo (som de unhas e corrente no chao)",
+    "rastro": "deixa rastro de sangue escuro e brasa que some em 3s (so visual)",
+    "vira_devagar": "gira no maximo 120 graus por segundo: dar a volta nele e uma forma de fugir dos cones",
+    "sem_pulo": true
+   },
+   "_ajuste_jefin_2026_10_11": "Jefin achou facil: HP e dano_base +35% (1800->2430, 30->40). Todos os ataques escalam junto porque usam mult x dano_base.",
+   "conceito": "Filho de Semyaza com uma filha dos homens. Sonhou com o dilúvio antes de todos (Livro dos Gigantes) e se escondeu no fundo do Hermon para não morrer afogado. Sobreviveu comendo os escravos que cavavam para ele. Quando o Juízo começou, acordou com fome de novo.",
+   "mecanica_de": "general_partido",
+   "nota_mecanica": "Ohya come as 6 Pilhas de Escravos Mortos para se curar (mesma mecânica do General Partido).",
+   "dungeon": "fosso_dos_vigilantes",
+   "espelho_de": "general_partido",
+   "invoca_troca": {
+    "soldado_caido": "soldado_de_pedra",
+    "carpideira_de_ossos": "noiva_afogada",
+    "eco_da_trombeta": "eco_do_juramento",
+    "querubim_desfeito": "vigilante_desfeito"
+   }
+  },
+  "naama_noiva": {
+   "nome": "Naamá, a Noiva dos Vigilantes",
+   "andar": 2,
+   "nivel": 10,
+   "tags": [
+    "morto_vivo",
+    "espectro"
+   ],
+   "hp": 2800,
+   "defesa": 24,
+   "dano_base": 32,
+   "intervalo_ataque": 2.0,
+   "velocidade_mov": 2.0,
+   "postura_max": 300,
+   "res": {
+    "sagrado": -0.2,
+    "sangue": 0.3,
+    "fisico": 0.1
+   },
+   "duracao_alvo_s": 110,
+   "furia_tempo_s": 300,
+   "fala_entrada": "Shhh. Elas vão cantar o nome dos meus meninos. Você vai ouvir todos.",
+   "adicionais": {
+    "corista_de_osso": {
+     "hp": 220,
+     "defesa": 10,
+     "imovel": true,
+     "tags": [
+      "morto_vivo"
+     ],
+     "_doc": "So ficam vulneraveis enquanto cantam (brilham). Morto, volta a ser estatua e nao canta mais nesta fase."
+    }
+   },
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "O Velorio",
+     "ataques": [
+      {
+       "id": "toque_de_luto",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.5,
+       "nome": "Toque do Véu"
+      },
+      {
+       "id": "lamento",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6,
+        "angulo": 60
+       },
+       "efeito": {
+        "silenciado": 2
+       },
+       "recarga": 8,
+       "nome": "Lamento das Águas"
+      },
+      {
+       "id": "pranto_que_cai",
+       "mult": 1.1,
+       "quantidade": 3,
+       "intervalo": 0.5,
+       "preparo": 0.7,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.2
+       },
+       "posicao": "no jogador, um depois do outro (ele precisa continuar andando)",
+       "recarga": 10,
+       "nome": "Chuva do Dilúvio"
+      },
+      {
+       "id": "regencia",
+       "recarga": 15,
+       "ativa_coristas": 1,
+       "corista_canta_s": 6,
+       "efeito_se_completar": {
+        "escudo_frac_hp": 0.12
+       },
+       "_doc": "Matar a corista enquanto canta cancela o escudo. Ensina a trocar de alvo.",
+       "nome": "O Nome dos Filhos"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "Coro Completo",
+     "mudancas": "Ela levita no centro, IMUNE, e as 4 coristas cantam juntas. A cada 3s sai do centro uma onda em anel com um vao (que gira 45 graus por onda). Cada corista morta encurta o coro em 4s. Quando o coro acaba (16s ou todas mortas) ela cai no chao EXAUSTA por 5s. Depois volta a lutar com os ataques da fase 1 mais rapidos.",
+     "ataques": [
+      {
+       "id": "onda_do_coro",
+       "mult": 1.3,
+       "preparo": 1.0,
+       "intervalo": 3.0,
+       "telegrafo": {
+        "forma": "anel",
+        "raio_final": 8,
+        "largura": 0.8,
+        "vao_graus": 50
+       },
+       "empurrao_px": 14,
+       "duracao_coro_s": 16,
+       "reducao_por_corista_morta_s": 4,
+       "depois": {
+        "exausto": 5.0
+       },
+       "nome": "Onda do Dilúvio"
+      },
+      {
+       "id": "lamento",
+       "recarga": 6,
+       "nome": "Lamento das Águas"
+      },
+      {
+       "id": "pranto_que_cai",
+       "quantidade": 4,
+       "nome": "Chuva do Dilúvio"
+      }
+     ],
+     "fala": "Cantem! Cantem o nome deles!"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "Requiem",
+     "mudancas": "Apaga as velas: a arena escurece e so ha luz em 3 velas no chao (raio 2). Fora da luz o jogador toma 'luto' (2% do HP max por s). Chama 2 Carpideiras de Ossos. Velas mudam de lugar a cada 20s.",
+     "ataques": [
+      {
+       "id": "toque_de_luto",
+       "mult": 1.2,
+       "nome": "Toque do Véu"
+      },
+      {
+       "id": "lamento",
+       "recarga": 6,
+       "nome": "Lamento das Águas"
+      },
+      {
+       "id": "pranto_que_cai",
+       "quantidade": 5,
+       "nome": "Chuva do Dilúvio"
+      },
+      {
+       "id": "chamar_carpideiras",
+       "invoca": {
+        "noiva_afogada": 2
+       },
+       "uma_vez": true,
+       "nome": "Chamar as Noivas Afogadas"
+      },
+      {
+       "id": "escuridao",
+       "dano_por_s_frac_hp_max": 0.02,
+       "fora_da_luz": true,
+       "nome": "Águas Escuras"
+      }
+     ],
+     "fala": "Então afogue sozinho... no escuro."
+    }
+   ],
+   "drop": "drop_naama",
+   "conceito": "A filha dos homens que deu filhos gigantes a um Vigilante e viu o dilúvio levar todos. Ainda veste o véu. As noivas de pedra do salão são as outras esposas dos duzentos; ela as faz cantar o nome dos filhos.",
+   "mecanica_de": "irma_celeste",
+   "nota_mecanica": "As 4 Noivas de Pedra cantam como as Coristas de Osso (mesma mecânica da Irmã Celeste).",
+   "dungeon": "fosso_dos_vigilantes",
+   "espelho_de": "irma_celeste",
+   "invoca_troca": {
+    "soldado_caido": "soldado_de_pedra",
+    "carpideira_de_ossos": "noiva_afogada",
+    "eco_da_trombeta": "eco_do_juramento",
+    "querubim_desfeito": "vigilante_desfeito"
+   }
+  },
+  "semyaza_juramento": {
+   "nome": "Semyaza, o Primeiro Juramento",
+   "andar": 3,
+   "nivel": 12,
+   "tags": [
+    "celestial"
+   ],
+   "hp": 4500,
+   "defesa": 28,
+   "dano_base": 36,
+   "intervalo_ataque": 1.7,
+   "velocidade_mov": 2.8,
+   "postura_max": 340,
+   "res": {
+    "sagrado": 0.6,
+    "fogo": 0.2,
+    "eletrico": -0.15
+   },
+   "duracao_alvo_s": 160,
+   "furia_tempo_s": 420,
+   "fala_entrada": "Duzentos juraram comigo. Você ouve? Eles juram de novo. Que o fim fique onde está. Para sempre.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.7
+     ],
+     "nome": "O Sermao",
+     "ataques": [
+      {
+       "id": "espada_sagrada",
+       "mult": 1.0,
+       "preparo": 0.55,
+       "alcance": 1.7,
+       "nome": "Espada do Vigilante"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "mult": 1.8,
+       "preparo": 0.7,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1
+       },
+       "recarga": 6,
+       "nome": "Lança do Juramento"
+      },
+      {
+       "id": "asas_cortantes",
+       "mult": 1.4,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.2
+       },
+       "empurrao_px": 22,
+       "recarga": 8,
+       "nome": "Asas Acorrentadas"
+      },
+      {
+       "id": "marca_do_juizo",
+       "preparo": 3.0,
+       "telegrafo": {
+        "forma": "circulo_segue_jogador",
+        "raio": 1.5,
+        "trava_ultimos_s": 0.6
+       },
+       "mult": 2.2,
+       "_doc": "circulo segue o jogador e trava 0.6s antes de cair a coluna de luz: anda para sair",
+       "recarga": 14,
+       "nome": "Marca da Imprecação"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.7,
+      0.4
+     ],
+     "nome": "A Primeira Nota",
+     "mudancas": "Voa ate a trombeta e canaliza 10s (barra de conjuracao visivel). Surgem 3 Ecos da Trombeta. Durante a canalizacao a postura dele cai para 160 e quebrar a postura INTERROMPE a nota. Se a nota sair: dano de 60% do HP max em toda a arena, exceto atras dos pilares (linha de visao). Depois volta ao chao e luta com os ataques da fase 1.",
+     "ataques": [
+      {
+       "id": "primeira_nota",
+       "conjuracao": 10.0,
+       "postura_durante": 160,
+       "interrompivel_por_postura": true,
+       "dano_frac_hp_max_jogador": 0.6,
+       "cobertura": "pilares",
+       "ao_interromper": {
+        "exausto": 4.0
+       },
+       "repete_a_cada_s": 40,
+       "nome": "O Juramento"
+      },
+      {
+       "id": "chamar_ecos",
+       "invoca": {
+        "eco_do_juramento": 3
+       },
+       "ao_iniciar_nota": true,
+       "nome": "Chamar os Duzentos"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Lança do Juramento"
+      },
+      {
+       "id": "asas_cortantes",
+       "nome": "Asas Acorrentadas"
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Marca da Imprecação"
+      }
+     ],
+     "fala": "Duzentos! Jurem comigo! Que nunca termine!"
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.4,
+      0.0
+     ],
+     "nome": "Asas em Chamas",
+     "mudancas": "As asas pegam fogo sagrado. A arena encolhe: um anel de fogo fecha 1.5 tile a cada 25s ate raio minimo 5. Ataques 20% mais rapidos. Chama 1 Querubim Desfeito a cada 30s. A cada 45s tenta a nota de novo (canalizacao 6s, mesma regra).",
+     "ataques": [
+      {
+       "id": "espada_sagrada",
+       "mult": 1.2,
+       "nome": "Espada do Vigilante"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "dupla": true,
+       "angulo_entre": 35,
+       "nome": "Lança do Juramento"
+      },
+      {
+       "id": "asas_cortantes",
+       "rastro_fogo": {
+        "duracao": 3
+       },
+       "nome": "Asas Acorrentadas"
+      },
+      {
+       "id": "marca_do_juizo",
+       "recarga": 10,
+       "nome": "Marca da Imprecação"
+      },
+      {
+       "id": "arena_encolhe",
+       "a_cada_s": 25,
+       "fecha_tiles": 1.5,
+       "raio_min": 5,
+       "dano_por_s_frac_hp_max": 0.08,
+       "nome": "As Correntes Fecham"
+      },
+      {
+       "id": "chamar_querubim",
+       "invoca": {
+        "vigilante_desfeito": 1
+       },
+       "recarga": 30,
+       "nome": "Chamar um Vigilante Desfeito"
+      },
+      {
+       "id": "nota_final",
+       "conjuracao": 6.0,
+       "postura_durante": 140,
+       "interrompivel_por_postura": true,
+       "dano_frac_hp_max_jogador": 0.6,
+       "cobertura": "pilares",
+       "repete_a_cada_s": 45,
+       "nome": "O Último Juramento"
+      }
+     ],
+     "fala": "Se o fim não vem para mim... eu sou a corrente."
+    }
+   ],
+   "morte": "A trombeta cai das correntes e fica no chao, calada. Gancho de lore para a proxima area.",
+   "drop": "drop_semyaza",
+   "conceito": "O chefe dos duzentos Vigilantes que desceram no Hermon e juraram com imprecações (Enoque 6). Preso no fundo da terra até o Dia do Juízo, quando será lançado no fogo. O Juízo começou e travou: as correntes afrouxaram, o fogo não veio. Agora ele jura de novo, e o novo juramento é um só: que o fim nunca termine.",
+   "mecanica_de": "zacarias_arauto",
+   "nota_mecanica": "Semyaza canaliza O Juramento no Altar (mesma mecânica da Primeira Nota de Zacarias); os pilares dão cobertura.",
+   "dungeon": "fosso_dos_vigilantes",
+   "espelho_de": "zacarias_arauto",
+   "invoca_troca": {
+    "soldado_caido": "soldado_de_pedra",
+    "carpideira_de_ossos": "noiva_afogada",
+    "eco_da_trombeta": "eco_do_juramento",
+    "querubim_desfeito": "vigilante_desfeito"
+   }
+  },
+  "ferrabras_guarda_linhas": {
+   "nome": "Ferrabrás, o Guarda-Linhas",
+   "andar": 1,
+   "nivel": 15,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 5250,
+   "defesa": 34,
+   "dano_base": 42,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.0,
+   "postura_max": 450,
+   "res": {
+    "eletrico": 0.5,
+    "fisico": 0.1
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Chefe de turma dos eletricistas da Repetidora. Ficou para manter os geradores ligados depois da 1ª trombeta e foi o primeiro a ouvir a Portadora. Usa dois cabos de alta tensão ligados no transformador das costas como correntes.",
+   "fala_entrada": "Ninguém desliga meu gerador.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Linha Viva",
+     "ataques": [
+      {
+       "id": "cabo_vivo",
+       "nome": "Cabo Vivo",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.2,
+       "anim": "attack"
+      },
+      {
+       "id": "volta_de_cabo",
+       "nome": "Volta de Cabo",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 3.2
+       },
+       "recarga": 8,
+       "anim": "spin"
+      },
+      {
+       "id": "arrasto",
+       "nome": "Puxão de Cabo",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.2
+       },
+       "deslocamento": 5,
+       "recarga": 10,
+       "anim": "lunge"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Sobrecarga",
+     "ataques": [
+      {
+       "id": "cabo_vivo",
+       "nome": "Cabo Vivo",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.2,
+       "anim": "attack"
+      },
+      {
+       "id": "volta_de_cabo",
+       "nome": "Volta de Cabo",
+       "mult": 1.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 3.4
+       },
+       "recarga": 6,
+       "anim": "spin"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Curto-Circuito",
+       "mult": 1.2,
+       "quantidade": 3,
+       "intervalo": 0.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.6
+       },
+       "recarga": 9,
+       "anim": "cast"
+      },
+      {
+       "id": "chamar_a_turma",
+       "nome": "Chamar a Turma",
+       "invoca": {
+        "guarda_fios": 1,
+        "sintonizado": 2
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_1"
+  },
+  "malaquias_ouvinte_cego": {
+   "nome": "Malaquias, o Ouvinte Cego",
+   "andar": 4,
+   "nivel": 27,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 9450,
+   "defesa": 58,
+   "dano_base": 66,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.0,
+   "postura_max": 570,
+   "res": {
+    "eletrico": 0.5,
+    "sagrado": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Furou os próprios olhos para ouvir melhor e ouviu o outro lado. Costurou as orelhas a cornetas acústicas e guarda a plataforma das antenas com uma parabólica nas costas. Não vê o jogador: ouve.",
+   "fala_entrada": "Não precisa correr. Eu escuto o seu coração daqui.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Escuta",
+     "ataques": [
+      {
+       "id": "cajado_antena",
+       "nome": "Cajado-Antena",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.4,
+       "anim": "attack"
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Eu Te Ouço",
+       "mult": 1.6,
+       "preparo": 1.6,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.8
+       },
+       "recarga": 8,
+       "anim": "cast"
+      },
+      {
+       "id": "feixe_parabolico",
+       "nome": "Feixe Parabólico",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 10,
+        "largura": 1.4
+       },
+       "recarga": 9,
+       "anim": "lunge"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Eco do Outro Lado",
+     "ataques": [
+      {
+       "id": "cajado_antena",
+       "nome": "Cajado-Antena",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.4,
+       "anim": "attack"
+      },
+      {
+       "id": "retorno",
+       "nome": "Retorno",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5.5,
+        "angulo": 90
+       },
+       "recarga": 7,
+       "anim": "spin"
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Eu Te Ouço",
+       "mult": 1.7,
+       "preparo": 1.4,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.0
+       },
+       "recarga": 5,
+       "anim": "cast"
+      },
+      {
+       "id": "eco_do_outro_lado",
+       "nome": "Eco do Outro Lado",
+       "invoca": {
+        "eco_da_estatica": 3
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_4"
+  },
+  "baraquiel": {
+   "nome": "Baraquiel, o Que Respondeu",
+   "andar": 5,
+   "nivel": 30,
+   "tags": [
+    "inaudivel",
+    "celestial"
+   ],
+   "hp": 12000,
+   "defesa": 64,
+   "dano_base": 72,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.0,
+   "postura_max": 600,
+   "res": {
+    "eletrico": 0.6,
+    "fisico": 0.15,
+    "sagrado": -0.25
+   },
+   "duracao_alvo_s": 170,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "A Congregação quis chamar pelo rádio o anjo do relâmpago para transmitir a sétima nota. O que respondeu usou o nome dele: um Inaudível que vestiu a carcaça do anjo e flutua sobre a fenda aberta pelo sinal.",
+   "fala_entrada": "VOCÊS CHAMARAM. NÓS RESPONDEMOS.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "O Sinal",
+     "ataques": [
+      {
+       "id": "estocada",
+       "nome": "Lança-Para-Raios",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.6,
+       "anim": "attack"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.2
+       },
+       "recarga": 7,
+       "anim": "lunge"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Estática",
+       "mult": 1.2,
+       "quantidade": 4,
+       "intervalo": 0.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 9,
+       "anim": "cast"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "Varredura",
+     "ataques": [
+      {
+       "id": "estocada",
+       "nome": "Lança-Para-Raios",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.6,
+       "anim": "attack"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.2
+       },
+       "dupla": true,
+       "angulo_entre": 35,
+       "recarga": 6,
+       "anim": "lunge"
+      },
+      {
+       "id": "varredura",
+       "nome": "Varredura",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6.0,
+        "angulo": 120
+       },
+       "recarga": 8,
+       "anim": "spin"
+      },
+      {
+       "id": "a_fenda_chama",
+       "nome": "A Fenda Chama",
+       "invoca": {
+        "inaudivel": 1,
+        "eco_da_estatica": 2
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "A Sétima Nota",
+     "ataques": [
+      {
+       "id": "marca_do_juizo",
+       "nome": "A Sétima Nota",
+       "mult": 2.2,
+       "preparo": 2.2,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.8
+       },
+       "recarga": 8,
+       "anim": "roar"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Estática",
+       "mult": 1.3,
+       "quantidade": 8,
+       "intervalo": 0.4,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 7,
+       "anim": "cast"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.6,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 10,
+        "largura": 1.2
+       },
+       "dupla": true,
+       "angulo_entre": 30,
+       "recarga": 6,
+       "anim": "lunge"
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_5"
+  }
+ },
+ "drops": {
+  "mata_animal": {
+   "item_chance": 0.16,
+   "rolagens": [
+    {
+     "tag": "material:pena_suja",
+     "peso": 35
+    },
+    {
+     "tag": "equip:faixa2",
+     "peso": 55
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 10
+    }
+   ]
+  },
+  "mata_arauto": {
+   "item_chance": 0.2,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "elite_mata": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 8,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "torre_horda": {
+   "item_chance": 0.22,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "chefe_torre_1": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 20,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 73
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 19
+    }
+   ]
+  },
+  "chefe_torre_2": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 25,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 72
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "chefe_torre_3": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "raro",
+   "ouro_mult": 30,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 71
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 21
+    }
+   ]
+  },
+  "chefe_torre_4": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "raro",
+   "ouro_mult": 35,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 70
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "chefe_torre_5": {
+   "rolagens_garantidas": 5,
+   "raridade_minima": "raro",
+   "ouro_mult": 40,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 69
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 23
+    }
+   ]
+  },
+  "catacumba": {
+   "item_chance": 0.22,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "chefe_catacumba": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 18,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "egito_animal": {
+   "item_chance": 0.08,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:couro_do_nilo",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_inseto": {
+   "item_chance": 0.08,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:casca_de_escaravelho",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_mumia": {
+   "item_chance": 0.085,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:linho_de_mumia",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_guardiao": {
+   "item_chance": 0.09,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:bronze_antigo",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_construto": {
+   "item_chance": 0.09,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:po_de_calcario",
+     "peso": 26
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "egito_elite": {
+   "rolagens_garantidas": 1,
+   "raridade_minima": "magico",
+   "ouro_mult": 8,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 15
+    },
+    {
+     "tag": "chave:bau_de_ferro",
+     "peso": 10
+    },
+    {
+     "tag": "material:bronze_antigo",
+     "peso": 15
+    }
+   ]
+  },
+  "hawara": {
+   "item_chance": 0.1,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:ouro_de_sobek",
+     "peso": 18
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "raid_coracao": {
+   "item_chance": 0.12,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 52
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 18
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 8
+    },
+    {
+     "tag": "consumivel:pocao_vida_m",
+     "peso": 10
+    },
+    {
+     "tag": "consumivel:pocao_recurso_p",
+     "peso": 6
+    }
+   ]
+  },
+  "chefe_hawara_1": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 30,
+   "garantido": [
+    "missao:brinco_de_petsuchos"
+   ],
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 62
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:ouro_de_sobek",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:petsuchos",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
+    }
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
+  },
+  "chefe_hawara_2": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 35,
+   "garantido": [
+    "missao:glifo_da_resposta"
+   ],
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 62
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:ouro_de_sobek",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:esfinge_de_hawara",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
+    }
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
+  },
+  "chefe_hawara_3": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 40,
+   "garantido": [
+    "missao:ferrao_de_serket"
+   ],
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 62
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:ouro_de_sobek",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:serket",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_de_sobek",
+     "peso": 5
+    }
+   ],
+   "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
+  },
+  "chefe_coracao_1": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "raro",
+   "ouro_mult": 50,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:sekhmet",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+  },
+  "chefe_coracao_2": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "raro",
+   "ouro_mult": 60,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:janes",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+  },
+  "chefe_coracao_3": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "raro",
+   "ouro_mult": 70,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:imseti",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+  },
+  "chefe_coracao_4": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "raro",
+   "ouro_mult": 80,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:apofis",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+  },
+  "chefe_coracao_5": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "raro",
+   "ouro_mult": 90,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:anubis_pesador",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+  },
+  "chefe_coracao_6": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 100,
+   "rolagens": [
+    {
+     "tag": "equip:faixa3",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 14
+    },
+    {
+     "tag": "material:fragmento_do_duat",
+     "peso": 12
+    },
+    {
+     "tag": "lendario:farao_sem_nome",
+     "peso": 7
+    },
+    {
+     "tag": "lendario:regalia_do_farao",
+     "peso": 7
+    }
+   ],
+   "loot_de_grupo": true,
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "missao:coracao_do_farao"
+   ]
+  },
+  "drop_ohya": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "magico",
+   "ouro_mult": 25,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 7.652
+    },
+    {
+     "tag": "lendario:general",
+     "peso": 2.711
+    }
+   ],
+   "reliquias_sugeridas": [
+    {
+     "id": "dragona_do_general",
+     "tipo": "ombreira/armadura (Demonio/Mutante)",
+     "ideia": "abates curam 3% do HP e dao +2% de dano por 8s (acumula 5x)"
+    },
+    {
+     "id": "estandarte_partido",
+     "tipo": "arma de haste 2 maos",
+     "ideia": "golpe basico tem 12% de chance de erguer um Soldado Caido aliado por 10s"
+    }
+   ]
+  },
+  "drop_naama": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "magico",
+   "ouro_mult": 25,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 7.478
+    },
+    {
+     "tag": "lendario:celeste",
+     "peso": 2.644
+    }
+   ],
+   "reliquias_sugeridas": [
+    {
+     "id": "veu_de_luto",
+     "tipo": "elmo/capuz (Cultista/Anjo/Tecnomancer)",
+     "ideia": "ao matar, solta um lamento em cone que deixa lento"
+    },
+    {
+     "id": "rosario_do_coro",
+     "tipo": "amuleto",
+     "ideia": "+10% cura feita e recebida; ouve-se um coro baixinho ao curar"
+    }
+   ]
+  },
+  "drop_semyaza": {
+   "rolagens_garantidas": 5,
+   "raridade_minima": "raro",
+   "ouro_mult": 30,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 72
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 7.304
+    },
+    {
+     "tag": "lendario:zacarias",
+     "peso": 2.453
+    }
+   ],
+   "reliquias_sugeridas": [
+    {
+     "id": "lanca_do_arauto",
+     "tipo": "lanca (Anjo) / arma de haste",
+     "ideia": "a cada 5 golpes dispara uma Lanca do Juizo em linha"
+    },
+    {
+     "id": "asa_partida",
+     "tipo": "capa/asas",
+     "ideia": "+velocidade de movimento; ao tomar golpe fatal, fica invulneravel 1s (recarga 120s)"
+    },
+    {
+     "id": "bocal_calado",
+     "tipo": "anel (Humano/Tecnomancer)",
+     "ideia": "golpes criticos silenciam o alvo por 1s"
+    }
+   ]
+  },
+  "torre_elite": {
+   "rolagens_garantidas": 1,
+   "raridade_minima": "magico",
+   "ouro_mult": 4,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 76
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 24
+    }
+   ]
+  }
+ },
+ "nomes_mapa_hud": {
+  "mata_do_granizo": "Novo Éden (nv 12-30)",
+  "torre_1": "A Torre · Casa de Força (chefe nv 15)",
+  "torre_2": "A Torre · O Estúdio (chefe nv 19)",
+  "torre_3": "A Torre · A Central de Escuta (chefe nv 23)",
+  "torre_4": "A Torre · Plataforma das Antenas (chefe nv 27)",
+  "torre_5": "A Torre · O Topo (chefe nv 30)",
+  "jerusalem_hermon": "Jerusalém e Monte Hermon (nv 1-12)",
+  "minas_dos_gigantes": "Fosso dos Vigilantes · Minas dos Gigantes (chefe nv 8)",
+  "salao_das_noivas": "Fosso dos Vigilantes · Salão das Noivas (chefe nv 10)",
+  "altar_do_juramento": "Fosso dos Vigilantes · Altar do Juramento (chefe nv 12)"
+ }
 }

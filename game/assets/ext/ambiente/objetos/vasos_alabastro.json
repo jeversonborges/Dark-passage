@@ -1,0 +1,17 @@
+{
+ "w": 104,
+ "h": 78,
+ "anchor": [
+  24,
+  52
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Vasos de alabastro translúcido do enxoval: a taça em lótus, um vaso de unguento com tampa, uma jarra alta, e     os cacos de um que caiu.",
+ "kind": "vasos_alabastro"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 238,
+ "h": 164,
+ "anchor": [
+  62,
+  126
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Painéis acústicos de estúdio em pé: moldura de madeira, espuma de pirâmides amarelada,     tecido rasgado pendendo e um painel tombado.",
+ "kind": "painel_acustico"
+}

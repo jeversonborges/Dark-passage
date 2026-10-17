@@ -1,0 +1,17 @@
+{
+ "w": 762,
+ "h": 414,
+ "anchor": [
+  242,
+  319
+ ],
+ "emissivo": "folhas e seiva em ciano",
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "palmeira_lume_2"
+}

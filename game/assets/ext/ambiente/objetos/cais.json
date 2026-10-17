@@ -1,0 +1,16 @@
+{
+ "w": 260,
+ "h": 126,
+ "anchor": [
+  129,
+  72
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Cais de madeira das docas de Mênfis: tábuas gastas sobre estacas de palmeira, abitas de amarrar com corda,     jarros e um cesto; o lodo preto agarrado nas estacas.",
+ "kind": "cais"
+}

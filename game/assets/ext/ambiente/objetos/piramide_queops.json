@@ -1,0 +1,18 @@
+{
+ "w": 1944,
+ "h": 1062,
+ "anchor": [
+  773,
+  699
+ ],
+ "emissivo": "fogo (lampião e lamparinas)",
+ "lore": "piramide_de_queops",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  18,
+  18
+ ],
+ "descricao": "A Grande Pirâmide de Quéops em escala de jogo: fiadas em degrau (o revestimento de Tura foi roubado),     blocos gastos e quinas roídas; na face da frente, a entrada original sob as lajes em V, o rombo do califa     (o túnel dos ladrões, hoje entrada da escavação), andaimes, escada, guincho e o entulho de quatro mil anos.",
+ "kind": "piramide_queops"
+}

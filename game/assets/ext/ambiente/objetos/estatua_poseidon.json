@@ -1,0 +1,17 @@
+{
+ "w": 582,
+ "h": 386,
+ "anchor": [
+  146,
+  308
+ ],
+ "bioma": "atlantida",
+ "lore": "poseidon",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  4
+ ],
+ "descricao": "",
+ "kind": "estatua_poseidon"
+}

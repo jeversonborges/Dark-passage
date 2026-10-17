@@ -1,0 +1,16 @@
+{
+ "w": 186,
+ "h": 112,
+ "anchor": [
+  48,
+  93
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixa de devolução de ferro rebitado, com fenda escura e placa de latão (DEVOLUÇÕES); areia no tampo.",
+ "kind": "caixa_devolucao"
+}

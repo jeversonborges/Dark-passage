@@ -1,0 +1,17 @@
+{
+ "w": 720,
+ "h": 472,
+ "anchor": [
+  97,
+  420
+ ],
+ "emissivo": "esmeralda (escrita)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "obelisco_glifos"
+}

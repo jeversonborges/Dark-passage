@@ -1,0 +1,17 @@
+{
+ "w": 392,
+ "h": 260,
+ "anchor": [
+  32,
+  235
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Parede de trás da sala de leitura: estante de imbuia embutida do chão à galeria, cheia de lombadas de couro e     pano com filetes de ouro e etiquetas de tombo; por cima, a borda da galeria de ferro com corrimão de latão.",
+ "kind": "parede_biblioteca_b"
+}

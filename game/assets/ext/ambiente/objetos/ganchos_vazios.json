@@ -1,0 +1,16 @@
+{
+ "w": 362,
+ "h": 232,
+ "anchor": [
+  71,
+  190
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "Trilho de ganchos vazio: correntes balançando, ganchos sujos e um pedaço de carne esquecido.",
+ "kind": "ganchos_vazios"
+}

@@ -1,0 +1,18 @@
+{
+ "w": 798,
+ "h": 540,
+ "anchor": [
+  33,
+  519
+ ],
+ "emissivo": "esmeralda (escrita da pilastra)",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "parede_glifos_amenti_v2_b"
+}

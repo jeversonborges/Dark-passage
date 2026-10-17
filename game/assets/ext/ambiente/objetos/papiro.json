@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 156,
+ "anchor": [
+  64,
+  129
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "papiro"
+}

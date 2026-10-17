@@ -1,0 +1,18 @@
+{
+ "w": 950,
+ "h": 600,
+ "anchor": [
+  205,
+  493
+ ],
+ "emissivo": "esmeralda (esfera do céu)",
+ "bioma": "atlantida",
+ "lore": "atlas",
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "",
+ "kind": "estatua_atlas"
+}

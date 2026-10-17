@@ -1,0 +1,17 @@
+{
+ "w": 484,
+ "h": 328,
+ "anchor": [
+  48,
+  297
+ ],
+ "andar": 4,
+ "emissivo": null,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Antena dipolo alta num bloco de concreto: mastro galvanizado com estais, dipolo com     isolador central de porcelana, uma yagi torta mais acima, cabo coaxial descendo     e trapos do culto amarrados.",
+ "kind": "antena_dipolo"
+}

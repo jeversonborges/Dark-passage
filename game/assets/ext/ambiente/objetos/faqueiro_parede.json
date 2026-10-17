@@ -1,0 +1,17 @@
+{
+ "w": 200,
+ "h": 122,
+ "anchor": [
+  39,
+  96
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Quadro de ferramentas do magarefe em pé: tábua grossa num cavalete de ferro com facas, cutelos, serrote e chaira     pendurados, um amolador de couro e o rol de encomendas pregado.",
+ "kind": "faqueiro_parede"
+}

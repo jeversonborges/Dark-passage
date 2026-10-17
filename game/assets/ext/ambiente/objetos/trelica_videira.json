@@ -1,0 +1,16 @@
+{
+ "w": 326,
+ "h": 206,
+ "anchor": [
+  101,
+  144
+ ],
+ "bioma": "novo_eden",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "",
+ "kind": "trelica_videira"
+}

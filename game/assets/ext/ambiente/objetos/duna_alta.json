@@ -1,0 +1,17 @@
+{
+ "w": 616,
+ "h": 336,
+ "anchor": [
+  232,
+  219
+ ],
+ "borda": true,
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Duna alta de areia clara de calcário (borda): barcana com crista afiada em meia-lua, o lado do vento suave e     ondulado atrás, a face de escorregamento íngreme virada para a frente, um bloco antigo meio engolido.",
+ "kind": "duna_alta"
+}

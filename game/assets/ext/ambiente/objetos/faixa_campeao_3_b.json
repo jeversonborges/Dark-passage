@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 178,
+ "anchor": [
+  32,
+  159
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "faixa_campeao_3_b"
+}

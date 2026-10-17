@@ -30,7 +30,7 @@ sc.render.resolution_x, sc.render.resolution_y = LARG, ALT
 sc.render.image_settings.color_mode = 'RGB'
 sc.view_settings.view_transform = 'Filmic'
 sc.view_settings.look = 'Medium High Contrast'
-sc.view_settings.exposure = .4
+sc.view_settings.exposure = .6
 M = A.M()
 
 # ---------------------------------------------------------------- céu: noite de tempestade, horizonte aceso pelo Amargo
@@ -41,10 +41,10 @@ out = N_("ShaderNodeOutputWorld")
 tc = N_("ShaderNodeTexCoord")
 sep = N_("ShaderNodeSeparateXYZ"); nt.links.new(tc.outputs["Generated"], sep.inputs[0])
 # altura no céu
-alt = K.ramp(nt, [(0.0, (.30, .24, .13)), (.05, (.16, .15, .10)), (.16, (.045, .05, .05)), (.45, (.008, .010, .016))])
+alt = K.ramp(nt, [(0.0, (.55, .30, .12)), (.04, (.22, .13, .07)), (.12, (.035, .03, .035)), (.35, (.004, .005, .010))])
 nt.links.new(sep.outputs["Z"], alt.inputs[0])
 # lado: âmbar da tempestade à esquerda, verde do Amargo à direita (azimute pelo X da direção)
-lado = K.ramp(nt, [(.3, (1.0, .55, .25)), (.5, (.75, .8, .55)), (.7, (.45, .85, .35))])
+lado = K.ramp(nt, [(.25, (1.0, .45, .18)), (.5, (.85, .6, .4)), (.8, (.55, .75, .5))])
 mxs = N_("ShaderNodeMath", operation='MULTIPLY_ADD'); mxs.inputs[1].default_value = .5; mxs.inputs[2].default_value = .5
 nt.links.new(sep.outputs["X"], mxs.inputs[0]); nt.links.new(mxs.outputs[0], lado.inputs[0])
 ceu = K.mix(nt, alt.outputs[0], lado.outputs[0], 1.0, 'MULTIPLY')
@@ -73,7 +73,7 @@ nt.links.new(soma.outputs[0], bg.inputs["Color"]); nt.links.new(bg.outputs[0], o
 bpy.ops.mesh.primitive_cube_add(location=(0, 120, 6)); nv = bpy.context.object; nv.scale = (260, 200, 9); nv.name = "nevoa"
 vm = bpy.data.materials.new("nevoa"); vm.use_nodes = True; vn = vm.node_tree; vn.nodes.clear()
 vo = vn.nodes.new("ShaderNodeOutputMaterial"); vp = vn.nodes.new("ShaderNodeVolumePrincipled")
-vp.inputs["Color"].default_value = (.55, .6, .45, 1); vp.inputs["Density"].default_value = .022; vp.inputs["Anisotropy"].default_value = .55
+vp.inputs["Color"].default_value = (.42, .40, .32, 1); vp.inputs["Density"].default_value = .0035; vp.inputs["Anisotropy"].default_value = .55
 vn.links.new(vp.outputs[0], vo.inputs["Volume"]); nv.data.materials.append(vm)
 
 # ---------------------------------------------------------------- chão: dunas, com o leito do Rio Amargo cortando até o horizonte
@@ -147,10 +147,10 @@ me = bpy.data.meshes.new("rio"); bm.to_mesh(me); bm.free()
 rio = bpy.data.objects.new("rio", me); sc.collection.objects.link(rio)
 agua_m = bpy.data.materials.new("agua_amarga"); agua_m.use_nodes = True
 an = agua_m.node_tree; b = an.nodes["Principled BSDF"]
-b.inputs["Base Color"].default_value = (.004, .02, .012, 1); b.inputs["Roughness"].default_value = .04
-b.inputs["Emission Color"].default_value = (.25, 1.0, .18, 1); b.inputs["Emission Strength"].default_value = .12
+b.inputs["Base Color"].default_value = (.004, .025, .02, 1); b.inputs["Roughness"].default_value = .06; b.inputs["Specular IOR Level"].default_value = .9
+b.inputs["Emission Color"].default_value = (.25, 1.0, .18, 1); b.inputs["Emission Strength"].default_value = .04
 nn = an.nodes.new("ShaderNodeTexNoise"); nn.inputs["Scale"].default_value = 2.5; nn.inputs["Detail"].default_value = 8
-bp = an.nodes.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = .25; bp.inputs["Distance"].default_value = .1
+bp = an.nodes.new("ShaderNodeBump"); bp.inputs["Strength"].default_value = .45; bp.inputs["Distance"].default_value = .1
 an.links.new(nn.outputs["Fac"], bp.inputs["Height"]); an.links.new(bp.outputs["Normal"], b.inputs["Normal"])
 rio.data.materials.append(agua_m)
 ee.use_ssr = True; ee.ssr_quality = .5; ee.ssr_thickness = .5
@@ -228,7 +228,7 @@ K.point((11, 6, 6.5), (.6, .85, 1.0), 900, .2, "arco")
 K.point((-40, 58, 6.0), (1, .3, .12), 2500, 2.0, "rosacea")
 for t in (.12, .22, .32, .42):
     x, y, _ = no_rio(t)
-    K.point((x, y, .2), (.35, 1, .2), 260 + y * 4, 3.0, "amargo")
+    K.point((x, y, 2.5), (.35, 1, .25), 35 + y * .6, 4.0, "amargo")
 
 # ---------------------------------------------------------------- câmera: baixa, na beira do rio, olhando o vale até o horizonte
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam)

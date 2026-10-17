@@ -1,0 +1,16 @@
+{
+ "w": 502,
+ "h": 274,
+ "anchor": [
+  151,
+  195
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Acácia do deserto (a madeira dos barcos e dos sarcófagos): tronco torto, galhos abertos e a copa achatada em     guarda-chuva, folhagem miúda verde-cinza e espinhos brancos.",
+ "kind": "acacia"
+}

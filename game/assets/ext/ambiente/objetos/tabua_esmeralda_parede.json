@@ -1,0 +1,17 @@
+{
+ "w": 456,
+ "h": 288,
+ "anchor": [
+  69,
+  253
+ ],
+ "emissivo": "esmeralda (a letra)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  1
+ ],
+ "descricao": "",
+ "kind": "tabua_esmeralda_parede"
+}

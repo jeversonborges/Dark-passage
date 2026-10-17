@@ -1,0 +1,17 @@
+{
+ "w": 674,
+ "h": 416,
+ "anchor": [
+  195,
+  299
+ ],
+ "emissivo": "fogo (lamparina)",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Casa de Mênfis Reerguida (variante): escada de tijolo na frente até o terraço baixo e outra lateral até o alto.",
+ "kind": "casa_reerguida_2"
+}

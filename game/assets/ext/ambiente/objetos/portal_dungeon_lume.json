@@ -1,0 +1,17 @@
+{
+ "w": 600,
+ "h": 384,
+ "anchor": [
+  144,
+  309
+ ],
+ "emissivo": "véu do portal",
+ "uso": "entrada de dungeon (Cripta, Torre, Catacumba)",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Portal de dungeon, véu ciano (Catacumba das Raízes, no Novo Éden).",
+ "kind": "portal_dungeon_lume"
+}

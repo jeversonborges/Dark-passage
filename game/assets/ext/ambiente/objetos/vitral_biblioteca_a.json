@@ -1,0 +1,17 @@
+{
+ "w": 540,
+ "h": 334,
+ "anchor": [
+  155,
+  252
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "O vitral da sala de leitura, que hoje fica na altura da rua: ogiva de cantaria com mainéis de ferro e cacos     de vidro verde e âmbar acesos pelo Amargo lá fora. A metade de baixo quebrou e a areia do deserto escorre por ela     para dentro da sala, num cone que desce até o assoalho (continua no prop duna_interna).",
+ "kind": "vitral_biblioteca_a"
+}

@@ -1,9 +1,9 @@
 {
- "w": 262,
- "h": 176,
+ "w": 196,
+ "h": 132,
  "anchor": [
-  28,
-  157
+  26,
+  114
  ],
  "categoria": "paredes",
  "footprint_tiles": [
@@ -11,6 +11,6 @@
   1
  ],
  "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
- "descricao": "Paliçada do Acampamento da Vela: estacas, chapas de zinco e arame.",
+ "descricao": "Cerca do Acampamento da Vela: mourões, travessas, tábuas de alturas diferentes com fresta, chapa de zinco     ondulada e arame farpado. Baixa (1,5 m) para o acampamento aparecer por cima.",
  "kind": "palicada_b"
 }

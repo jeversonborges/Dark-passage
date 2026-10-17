@@ -1,0 +1,16 @@
+{
+ "w": 496,
+ "h": 270,
+ "anchor": [
+  170,
+  200
+ ],
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  3,
+  4
+ ],
+ "descricao": "Casa da Vila dos Artesãos (Deir el-Medina): estreita, de tijolo caiado sujo sobre embasamento de pedra, porta     com o batente pintado de vermelho, degraus descendo, forno de pão em cúpula no terraço.",
+ "kind": "casa_artesao"
+}

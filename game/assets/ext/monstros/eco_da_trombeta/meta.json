@@ -1,0 +1,105 @@
+{
+ "monstro": "eco_da_trombeta",
+ "frame_size": [
+  256,
+  256
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  128.0,
+  189.0
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 8,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 12,
+   "loop": false
+  },
+  "wave": {
+   "frames": 12,
+   "fps": 12,
+   "loop": false
+  },
+  "resonate": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "eco_da_trombeta_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "eco_da_trombeta_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "eco_da_trombeta_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "wave": {
+   "file": "eco_da_trombeta_wave.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "resonate": {
+   "file": "eco_da_trombeta_resonate.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "eco_da_trombeta_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "eco_da_trombeta_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.8
+ }
+}

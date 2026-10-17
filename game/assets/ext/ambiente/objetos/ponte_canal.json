@@ -1,0 +1,16 @@
+{
+ "w": 520,
+ "h": 292,
+ "anchor": [
+  193,
+  191
+ ],
+ "bioma": "atlantida",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  3
+ ],
+ "descricao": "",
+ "kind": "ponte_canal"
+}

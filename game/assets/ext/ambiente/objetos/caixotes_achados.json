@@ -1,0 +1,16 @@
+{
+ "w": 190,
+ "h": 100,
+ "anchor": [
+  64,
+  62
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Caixotes de achados numerados com palha: estatuetas ushabti de faiança, cacos de ostraca, um vaso de alabastro.",
+ "kind": "caixotes_achados"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 412,
+ "h": 252,
+ "anchor": [
+  24,
+  236
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Arquibancada do estádio enterrado: 4 degraus de concreto rachado com ferragem exposta e areia nos cantos.",
+ "kind": "arquibancada_agrak_a"
+}

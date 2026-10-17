@@ -1,0 +1,18 @@
+{
+ "w": 332,
+ "h": 202,
+ "anchor": [
+  72,
+  158
+ ],
+ "emissivo": "fogo da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Fornalha de queimar osso e carcaça: forno de tijolo com arco, boca de ferro aberta em fogo laranja,     cinza de osso transbordando, atiçador e chaminé de chapa.",
+ "kind": "fornalha_abate"
+}

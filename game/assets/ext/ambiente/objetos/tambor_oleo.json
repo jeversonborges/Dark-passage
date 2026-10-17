@@ -1,0 +1,15 @@
+{
+ "w": 162,
+ "h": 118,
+ "anchor": [
+  49,
+  69
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Tambores de óleo diesel amassados, um tombado vazando, com estêncil apagado.",
+ "kind": "tambor_oleo"
+}

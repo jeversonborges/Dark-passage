@@ -1,0 +1,18 @@
+{
+ "w": 634,
+ "h": 430,
+ "anchor": [
+  33,
+  408
+ ],
+ "emissivo": "esmeralda (página)",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "parede_livro_amenti_v2_b"
+}

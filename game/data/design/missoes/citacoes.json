@@ -1,0 +1,270 @@
+{
+  "versao": "0.1",
+  "nota": "Citações assinadas para a tela de carregamento (sorteadas). Facção 'ambas' aparece para todos; as outras só para jogadores daquela facção. Ver historia.md seção 7.",
+  "citacoes": [
+    {
+      "id": "c001",
+      "texto": "O fim começou. O fim não termina.",
+      "autor": "",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c002",
+      "texto": "Deus mandou o mundo acabar. Nós mandamos esperar.",
+      "autor": "pichado no muro da estação",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c003",
+      "texto": "Os mortos não têm pressa. Eles já foram chamados uma vez.",
+      "autor": "Caderno do Coveiro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c004",
+      "texto": "Aqui é a Rádio São Lázaro. A segunda estrela continua no lugar. Boa noite.",
+      "autor": "Isaura Valente",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c005",
+      "texto": "O Senhor não perdeu a guerra. O Senhor está sendo paciente.",
+      "autor": "Madre Ivone das Chagas",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c006",
+      "texto": "Anjo que pede ajuda a demônio já perdeu metade da pureza. A outra metade a gente cobra depois.",
+      "autor": "Malfas",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c007",
+      "texto": "Daqui ninguém passa. Até hoje ninguém passou.",
+      "autor": "Capitã Odete Ferrolho",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c008",
+      "texto": "Enquanto houver vela, não é noite.",
+      "autor": "lema da Vigília",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c009",
+      "texto": "Que a nota termine.",
+      "autor": "lema dos Arautos",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c010",
+      "texto": "A Andras, até o fim.",
+      "autor": "costurado atrás de uma insígnia arrancada",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c011",
+      "texto": "Cada bala aqui já foi sino.",
+      "autor": "Gaspar Bigorna",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c012",
+      "texto": "Se Ele não fala, alguém precisa interromper.",
+      "autor": "Dr. Anselmo Graxa",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c013",
+      "texto": "A rua de hoje é o telhado de ontem.",
+      "autor": "ditado do Bairro Afogado",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c014",
+      "texto": "Todo mundo aqui tem um mapa. Todos os mapas estão errados.",
+      "autor": "Tobias 'Pavio'",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c015",
+      "texto": "O Amargo arde na boca. Depois arde a alma. Depois não arde mais nada.",
+      "autor": "Madre Ivone das Chagas",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c016",
+      "texto": "Dizem que a primeira trombeta queimou as árvores. As que ficaram de pé ainda não sabem.",
+      "autor": "Crônica do Emparedado",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c017",
+      "texto": "Do litoral, só chega cinza. E de vez em quando um peregrino que não fala mais.",
+      "autor": "Rádio São Lázaro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c018",
+      "texto": "A quarta trombeta apagou um terço do sol. O resto a gente economiza.",
+      "autor": "pichado no muro da estação",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c019",
+      "texto": "Ninguém sabe onde está a sétima. Quem souber, não vai contar.",
+      "autor": "Corvina",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c020",
+      "texto": "Do Oriente, só rumor. Quatro anjos soltos e um exército que não cabe no horizonte.",
+      "autor": "Rádio São Lázaro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c021",
+      "texto": "Vendo a mesma verdade para a Vela e para a Capela, pelo mesmo preço. É o mais honesto deste deserto.",
+      "autor": "Corvina",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c022",
+      "texto": "Eu não odeio você, homem. Eu só fui feito antes de você.",
+      "autor": "um Arauto do Coro, a um prisioneiro",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c023",
+      "texto": "E o Coro recebeu ordem de subir, e subiu.",
+      "autor": "Versículo do Coro, Livro da Retirada",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c024",
+      "texto": "Prometeram-nos a Terra. Ninguém disse que viria cheia de gente.",
+      "autor": "Malfas",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c025",
+      "texto": "Chamam meu filho de abominação. Ele ainda me chama de mãe.",
+      "autor": "Mãe Cardo",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c026",
+      "texto": "Não morre. A linha está cara.",
+      "autor": "Capitã Odete Ferrolho",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c027",
+      "texto": "Agite. Não pergunte.",
+      "autor": "rótulo do Tônico do Doutor Graxa",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c028",
+      "texto": "Você cava torto. Mas cava com respeito.",
+      "autor": "Simão, o coveiro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c029",
+      "texto": "Corrigi o latim do abade em público. Faz trezentos anos. Ainda acho que eu estava certo.",
+      "autor": "Fr. Anacleto",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c030",
+      "texto": "Ninguém veio ninguém veio ninguém veio.",
+      "autor": "escrito na ordem de Zacarias",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c031",
+      "texto": "Dorme, que a trombeta cala. Dorme, que o Juízo tarda.",
+      "autor": "Hino das Carpideiras",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c032",
+      "texto": "Benedito Carniça agradece a preferência. Ninguém passa fome em São Lázaro.",
+      "autor": "placa do Abatedouro Carniça",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c033",
+      "texto": "O bonde da linha 7 sai com vento norte. Sem vento, ninguém sai.",
+      "autor": "Rádio São Lázaro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c034",
+      "texto": "Não beba da chuva. Não beba do rio. Beba o que a Vela filtrou, e agradeça.",
+      "autor": "Despacho da Vela",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c035",
+      "texto": "Bebemos o Amargo como quem comunga. Quem tem medo do veneno, tem medo do Céu.",
+      "autor": "Comunhão do Amargo",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c036",
+      "texto": "O cemitério desenterra os seus toda noite. Eu enterro toda manhã. Um de nós vai cansar.",
+      "autor": "Caderno do Coveiro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c037",
+      "texto": "A cidade tem o nome de um homem que voltou da morte. Ninguém pergunta se ele foi embora.",
+      "autor": "Corvina",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c038",
+      "texto": "Faltaram três segundos para o mundo acabar. Usamos os três.",
+      "autor": "Dr. Anselmo Graxa",
+      "faccao": "vigilia"
+    },
+    {
+      "id": "c039",
+      "texto": "A Legião não tem asas. Por isso ficou.",
+      "autor": "Malfas",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c040",
+      "texto": "Nenhum lado é bom. Um lado só é mais sincero.",
+      "autor": "Crônica do Emparedado",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c041",
+      "texto": "E fechou a mão sobre uma semente, e a mão não tornou a abrir. Chamai-o o Ladrão.",
+      "autor": "Versículo do Coro, Livro das Acusações",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c042",
+      "texto": "O Céu não erra. O Céu insiste.",
+      "autor": "Versículo do Coro, Livro das Acusações",
+      "faccao": "arautos"
+    },
+    {
+      "id": "c043",
+      "texto": "Toda semente é roubada de alguém.",
+      "autor": "Caderno do Coveiro",
+      "faccao": "ambas"
+    },
+    {
+      "id": "c044",
+      "texto": "A árvore do meio da mata queimou por fora e não morreu por dentro. Ninguém corta. Ninguém pergunta.",
+      "autor": "ditado dos carvoeiros",
+      "faccao": "ambas"
+    }
+  ]
+}

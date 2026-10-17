@@ -39,7 +39,8 @@ func _init() -> void:
 		var sim := WorldSim.new(42)
 		sim.evento.connect(_ev)
 		var j := Jogador.criar(sim, c, "Teste")
-		var sp: Array = Defs.ler("res://data/mapas/area_inicial.json")["spawn_por_faccao"][j.faccao]
+		var mi: Dictionary = Defs.ler("res://data/mapas/area_inicial.json")   # o São Lázaro novo só tem spawn da Vigília
+		var sp: Array = mi["spawn_por_faccao"].get(j.faccao, mi["spawn"])
 		Jogador.entrar(sim, j, "area_inicial", Vector2(sp[0], sp[1]))
 		rodar(sim, 1.0)
 		j.pos = sim.celula_livre_perto(Vector2(57, 53))

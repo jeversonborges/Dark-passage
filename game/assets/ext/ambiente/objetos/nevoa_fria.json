@@ -1,0 +1,17 @@
+{
+ "w": 334,
+ "h": 182,
+ "anchor": [
+  142,
+  107
+ ],
+ "semitransparente": true,
+ "bioma": "matadouro",
+ "categoria": "efeitos",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Névoa fria rasteira da câmara fria (semitransparente): manchas azuladas de até meio metro que escorrem pelo chão.",
+ "kind": "nevoa_fria"
+}

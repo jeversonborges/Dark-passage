@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 160,
+ "anchor": [
+  104,
+  105
+ ],
+ "bioma": "novo_eden",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "",
+ "kind": "ponte_tabuas"
+}

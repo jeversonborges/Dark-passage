@@ -1,11 +1,11 @@
 #!/bin/bash
 # Publica cliente e servidor, NESTA ordem (servidor antes do cliente tranca quem já atualizou fora do jogo).
-#   bash tools/release/publicar.sh VERSAO teste|producao
+#   bash tools/release/publicar.sh VERSAO teste|producao [tudo|cliente]
 # producao: branches downloads e servidor (a VPS puxa sozinha). teste: downloads-teste e servidor-teste.
 # downloads é recriado órfão a cada versão (force-push): o repositório não acumula 190 MB por versão.
 # servidor ganha um commit novo por cima do anterior (8 MB, histórico mantido).
 set -euo pipefail
-V=$1; DEST=$2
+V=$1; DEST=$2; PARTES=${3:-tudo}
 R=$(cd "$(dirname "$0")/../.." && pwd)
 case $DEST in producao) DL=downloads; SV=servidor;; teste) DL=downloads-teste; SV=servidor-teste;; *) echo "destino: teste|producao"; exit 1;; esac
 URL="https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
@@ -23,6 +23,9 @@ git checkout -q --orphan dl && git --work-tree=pub add -A . && git --work-tree=p
 git push -f origin "dl:refs/heads/$DL"
 echo "cliente publicado em $DL: $(git rev-parse --short HEAD)"
 # 2) servidor
+NOVO=$(sha256sum "$R/game/build/servidor/DarkPassage-servidor.pck" | cut -c1-16)
+git fetch -q --depth 1 origin servidor && echo "pck novo $NOVO | pck em produção $(git show FETCH_HEAD:servidor/DarkPassage-servidor.pck | sha256sum | cut -c1-16)"
+[ "$PARTES" = cliente ] && { echo "servidor não publicado (partes=cliente)"; exit 0; }
 if git fetch -q --depth 1 origin "$SV" 2>/dev/null; then BASE=FETCH_HEAD; else git fetch -q --depth 1 origin servidor; BASE=FETCH_HEAD; fi
 git checkout -q -B sv "$BASE"
 cp "$R/game/build/servidor/DarkPassage-servidor.pck" servidor/DarkPassage-servidor.pck

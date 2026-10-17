@@ -1,0 +1,17 @@
+{
+ "w": 1492,
+ "h": 816,
+ "anchor": [
+  575,
+  539
+ ],
+ "lore": "piramide_de_quefren",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  16,
+  16
+ ],
+ "descricao": "A pirâmide de Quéfren: mais íngreme, em degrau embaixo e com o revestimento liso de calcário de Tura ainda     no topo (a única que guardou a pele), com a borda de baixo do revestimento quebrada e lajes soltas.",
+ "kind": "piramide_quefren"
+}

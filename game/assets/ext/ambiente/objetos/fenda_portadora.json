@@ -1,0 +1,19 @@
+{
+ "w": 590,
+ "h": 348,
+ "anchor": [
+  192,
+  248
+ ],
+ "chefe": 5,
+ "emissivo": "estática violeta (#b46cff)",
+ "luz": "violeta",
+ "uso": "arena do Baraquiel, o Que Respondeu (andar 5); o chefe flutua sobre a fenda",
+ "categoria": "chefes",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "O Topo da Repetidora: a fenda aberta pelo sinal, um rasgo vertical no ar feito de     estática violeta e linhas de varredura, com bordas de papel queimado e tela rasgada;     lanças de sintonia do culto apontadas para ela e o chão chamuscado embaixo.",
+ "kind": "fenda_portadora"
+}

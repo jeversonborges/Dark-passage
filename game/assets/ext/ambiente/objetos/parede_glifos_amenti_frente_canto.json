@@ -1,0 +1,16 @@
+{
+ "w": 140,
+ "h": 88,
+ "anchor": [
+  34,
+  69
+ ],
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "parede_glifos_amenti_frente_canto"
+}

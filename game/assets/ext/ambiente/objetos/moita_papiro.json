@@ -1,0 +1,16 @@
+{
+ "w": 304,
+ "h": 172,
+ "anchor": [
+  93,
+  122
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Moita de papiro do juncal do Nilo: hastes triangulares altas com umbelas abertas, sobre o lodo preto úmido.",
+ "kind": "moita_papiro"
+}

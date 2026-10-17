@@ -1,0 +1,17 @@
+{
+ "w": 778,
+ "h": 414,
+ "anchor": [
+  334,
+  244
+ ],
+ "bioma": "amenti",
+ "altura_m": 0.88,
+ "categoria": "props",
+ "footprint_tiles": [
+  17,
+  3
+ ],
+ "descricao": "",
+ "kind": "degraus_amenti"
+}

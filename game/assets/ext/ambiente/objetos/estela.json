@@ -1,0 +1,17 @@
+{
+ "w": 182,
+ "h": 122,
+ "anchor": [
+  34,
+  99
+ ],
+ "lore": "estela",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estela de calcário de topo arredondado: o disco alado no alto, o morto oferecendo a Osíris sentado, e as     linhas do 'oferenda que o rei dá' com a tinta azul e vermelha quase apagada.",
+ "kind": "estela"
+}

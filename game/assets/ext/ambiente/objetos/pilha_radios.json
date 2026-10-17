@@ -1,0 +1,19 @@
+{
+ "w": 170,
+ "h": 110,
+ "anchor": [
+  46,
+  85
+ ],
+ "emissivo": "dial do rádio",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilha de rádios de todos os tamanhos que a Congregação recolheu nas casas de São Lázaro, empilhados como um     relicário: um só ainda acende o dial; velas e fones em volta.",
+ "kind": "pilha_radios"
+}

@@ -1,0 +1,18 @@
+{
+ "w": 1164,
+ "h": 716,
+ "anchor": [
+  266,
+  584
+ ],
+ "emissivo": "esmeralda (o sinete)",
+ "bioma": "atlantida",
+ "lore": "portao_de_amenti",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  5
+ ],
+ "descricao": "",
+ "kind": "portao_amenti"
+}

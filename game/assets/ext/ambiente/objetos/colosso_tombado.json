@@ -1,0 +1,18 @@
+{
+ "w": 388,
+ "h": 248,
+ "anchor": [
+  131,
+  148
+ ],
+ "lore": "ozymandias",
+ "texto": "Meu nome é Ozymandias, rei dos reis: contemplai as minhas obras, ó poderosos, e desesperai!",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  3
+ ],
+ "descricao": "Ramessés caído (\"Ozymandias\"): no pedestal ficaram as duas pernas imensas partidas nos joelhos; perto, meio     enterrado na areia, o rosto partido olha o céu com o lábio franzido de comando; o tronco rachado ao lado.",
+ "kind": "colosso_tombado"
+}

@@ -14,6 +14,11 @@ on:
         type: choice
         options: [teste, producao]
         default: teste
+      partes:
+        description: 'tudo = cliente e depois servidor; cliente = só o cliente'
+        type: choice
+        options: [tudo, cliente]
+        default: tudo
 
 permissions:
   contents: write
@@ -66,9 +71,10 @@ jobs:
         run: bash tools/release/exportar.sh "${{ steps.v.outputs.versao }}"
 
       - name: Publicar
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" | tee -a publicar.log
+        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" "${{ inputs.partes || 'tudo' }}" | tee -a publicar.log
 
       - name: Resumo
         if: always()

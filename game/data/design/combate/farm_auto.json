@@ -8,7 +8,7 @@
         "classe": "anjo",
         "id": "anjo_leque_juizo",
         "elemento": "sagrado",
-        "mult": 1.3,
+        "mult": 1.51,
         "custo": 18,
         "recarga": 2.2,
         "extra": {
@@ -29,7 +29,7 @@
         "classe": "cultista",
         "id": "cultista_espinhos_sangue",
         "elemento": "sangue",
-        "mult": 1.35,
+        "mult": 1.32,
         "custo": 0.035,
         "custo_em": "pct_hp_max",
         "recarga": 2.2,
@@ -51,7 +51,7 @@
         "classe": "mutante",
         "id": "mutante_terremoto_putrido",
         "elemento": "veneno",
-        "mult": 1.2,
+        "mult": 1.68,
         "custo": 18,
         "recarga": 2.4,
         "extra": {
@@ -70,7 +70,7 @@
         "classe": "demonio",
         "id": "demonio_ceifa_infernal",
         "elemento": "fogo",
-        "mult": 1.3,
+        "mult": 1.08,
         "custo": 18,
         "recarga": 2.0,
         "extra": {},
@@ -85,7 +85,7 @@
         "classe": "humano",
         "id": "humano_coquetel_querosene",
         "elemento": "fogo",
-        "mult": 1.3,
+        "mult": 1.45,
         "custo": 22,
         "recarga": 2.2,
         "extra": {
@@ -106,7 +106,7 @@
         "classe": "tecnomancer",
         "id": "tecnomancer_tempestade_bobina",
         "elemento": "eletrico",
-        "mult": 1.25,
+        "mult": 1.39,
         "custo": 16,
         "recarga": 2.0,
         "extra": {
@@ -127,7 +127,8 @@
       "empurrao_px": 6,
       "sensacao": "area",
       "nunca_erra": true
-    }
+    },
+    "_dps_1610": "revisao 16/10/2026: mult acertado para o modo automatico render cerca de 20 abates/min em todas as classes (farm.py); igual ao de classes_base.json"
   },
   "recursos": {
     "_doc": "A 'mana' de cada classe. Numeros usados pela conta do farm; os detalhes de cada mecanica estao em classes_base.json.",

@@ -1,0 +1,19 @@
+{
+ "w": 510,
+ "h": 262,
+ "anchor": [
+  254,
+  131
+ ],
+ "lore": "obelisco_inacabado",
+ "nota": "fica no chão da pedreira (furo no chão: o sprite mostra a trincheira)",
+ "bioma": "egito",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  10,
+  4
+ ],
+ "descricao": "O Obelisco Inacabado de Assuã: deitado na pedreira de granito, ainda preso à rocha, rachado de través; a     trincheira de batida em volta, as bolas de dolerito dos cortadores e as marcas de ocre do capataz.",
+ "kind": "obelisco_inacabado"
+}

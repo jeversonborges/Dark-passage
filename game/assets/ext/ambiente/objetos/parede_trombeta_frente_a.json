@@ -1,0 +1,16 @@
+{
+ "w": 120,
+ "h": 72,
+ "anchor": [
+  39,
+  53
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Meia-parede da frente da Câmara: pedra clara, caco de porcelana e toco de nervura de ferro.",
+ "kind": "parede_trombeta_frente_a"
+}

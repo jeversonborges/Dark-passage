@@ -1,0 +1,16 @@
+{
+ "w": 248,
+ "h": 214,
+ "anchor": [
+  93,
+  163
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Shaduf: o balde de couro na ponta da vara de balanço, o contrapeso de lodo seco na outra ponta, o cavalete     de troncos sobre o barranco de lodo da margem.",
+ "kind": "shaduf"
+}

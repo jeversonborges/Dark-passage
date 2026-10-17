@@ -1,9 +1,9 @@
 {
- "w": 266,
- "h": 152,
+ "w": 392,
+ "h": 216,
  "anchor": [
-  83,
-  105
+  148,
+  138
  ],
  "categoria": "props",
  "footprint_tiles": [

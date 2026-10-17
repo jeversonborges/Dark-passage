@@ -79,11 +79,14 @@ var ia := {}              # parâmetros do mob (padrao, distancias...)
 var ia_t := 0.0
 var aux := {}             # memória livre da IA / chefe
 var dono := -1            # invocações
+var lado_forcado := ""      # Arena do Agrak: "agrak" ou "g_<id>" (vazio = lado normal)
 var dura_t := -1.0
 var alvo := -1
 
 # jogador
 var classe := ""
+var vis := {}             # armas visíveis (público): slot -> {id, ref}; calculado em Regras.recalc
+var evolucao := ""         # caminho do nível 50 (design/combate/evolucoes.json), "" antes do Pedro
 var faccao := ""
 var xp := 0
 var pontos := 0
@@ -133,6 +136,7 @@ func eh_inimigo_de(o: Ent) -> bool:
 	return a != b and a != "neutro" and b != "neutro"
 
 func lado() -> String:
+	if lado_forcado != "": return lado_forcado
 	match tipo:
 		"jogador", "invocacao": return "jogadores"
 		"monstro", "chefe": return "monstros"

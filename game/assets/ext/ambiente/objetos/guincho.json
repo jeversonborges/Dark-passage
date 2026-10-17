@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 176,
+ "anchor": [
+  85,
+  133
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Cábrea de três pernas sobre um poço de escavação, com sarilho de manivela, corda e o cesto de entulho subindo.",
+ "kind": "guincho"
+}

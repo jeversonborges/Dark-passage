@@ -1,0 +1,17 @@
+{
+ "w": 206,
+ "h": 142,
+ "anchor": [
+  38,
+  110
+ ],
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estante de aço de almoxarifado: vidros de parafusos, rolos de fio de cobre, isoladores de porcelana, caixas de     papelão encharcadas e um rádio desmontado; uma prateleira cedeu.",
+ "kind": "estante_pecas"
+}

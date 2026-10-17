@@ -1,0 +1,16 @@
+{
+ "w": 236,
+ "h": 130,
+ "anchor": [
+  110,
+  71
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Pilha de Mortos da arena de Andras: soldados da Legião Blasfema e da Vigília amontoados, roídos até o osso,     piques quebrados, capacetes com chifres e um sobretudo vermelho rasgado por cima. Andras come daqui.",
+ "kind": "pilha_de_mortos"
+}

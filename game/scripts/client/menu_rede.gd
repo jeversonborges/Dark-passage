@@ -17,6 +17,7 @@ var u_edit := LineEdit.new()
 var s_edit := LineEdit.new()
 var ip_edit := LineEdit.new()
 var personagens: Array = []
+var conta_atual := ""
 var auto := {}           # teste automático: conectar=ip usuario= senha= classe=
 
 const M := "res://assets/menu/"
@@ -125,7 +126,7 @@ func _ready() -> void:
 		else: _conectar()
 
 func rede_versao() -> String:
-	return rede.VERSAO if rede != null else "0.7"
+	return rede.VERSAO if rede != null else "0.8"
 
 const NEVOA := """
 shader_type canvas_item;
@@ -316,7 +317,7 @@ func _avisar(txt: String, erro := false) -> void:
 func _inicio() -> void:
 	tela = "inicio"
 	_limpar()
-	_placa("O Portão de São Lázaro")
+	_placa("Servidores")
 	rodape_srv.text = ""
 	if OS.has_feature("web"):
 		_espaco(6)
@@ -325,15 +326,14 @@ func _inicio() -> void:
 		_texto("Para jogar online ou com amigos na rede local, use a versão de Windows.", 15, Color("#a89a80"), Tema.FONTE_ITALICO)
 		return
 	_espaco(6)
-	_botao("Jogar online", _online, true)
-	_espaco(2)
-	_botao("Jogar sozinho", func(): solo.emit())
-	_botao("Hospedar na rede local", _hospedar)
-	_botao("Entrar por IP na rede local", _tela_ip)
+	# seleção de servidor (como no MU): o jogo abre aqui e só depois vai para o login
+	_texto("Escolha o servidor", 15, Color("#a89a80"), Tema.FONTE_ITALICO)
+	_espaco(4)
+	_botao("Dark Passage · Brasil", _online, true)
+	_texto("darkpassage.com.br", 14, Color("#8f8270"), Tema.FONTE_ITALICO)
 	_espaco(4)
 	_divisor()
-	_texto("Online, sua conta e seus personagens ficam no servidor %s." % rede.ONLINE, 15, Color("#a89a80"), Tema.FONTE_ITALICO)
-	_texto("Na rede local, um PC hospeda e os amigos entram pelo IP dele.", 15, Color("#a89a80"), Tema.FONTE_ITALICO)
+	_texto("Sua conta e seus personagens ficam no servidor. Depois de escolher, entre com usuário e senha.", 15, Color("#a89a80"), Tema.FONTE_ITALICO)
 
 func _tela_ip() -> void:
 	tela = "ip"
@@ -416,6 +416,7 @@ func _conta(tipo: String) -> void:
 func _tela_personagens(lista: Array, conta: String) -> void:
 	tela = "personagens"
 	personagens = lista
+	conta_atual = conta
 	_limpar()
 	_placa("Personagens")
 	_texto("Conta " + conta, 15, Color("#cbbd9f"), Tema.FONTE_ITALICO)
@@ -433,13 +434,13 @@ func _tela_personagens(lista: Array, conta: String) -> void:
 	for i in lista.size():
 		var p: Dictionary = lista[i]
 		var idx := i
-		lv.add_child(_cartao(p, func(): _jogar(idx)))
+		lv.add_child(_cartao(p, func(): _jogar(idx), func(): _tela_apagar(idx)))
 	_espaco(4)
 	if lista.size() < 6: _botao("Novo personagem", func(): criar_personagem.emit(), lista.is_empty())
 	_botao("Sair da conta", func(): rede.sair(); _inicio())
 
 ## Cartão de um personagem: retrato da classe, nome, classe e nível.
-func _cartao(p: Dictionary, f: Callable) -> Button:
+func _cartao(p: Dictionary, f: Callable, apagar := Callable()) -> Button:
 	var b := Button.new()
 	b.custom_minimum_size = Vector2(372, 58)
 	b.add_theme_stylebox_override("normal", _estilo("cartao_normal"))
@@ -462,15 +463,58 @@ func _cartao(p: Dictionary, f: Callable) -> Button:
 	ret.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(ret)
 	var nome := Tema.rotulo(str(p.get("nome", "?")), 17, Color("#ecdcb4"), Tema.FONTE_TITULO, 3)
-	nome.position = Vector2(64, 7); nome.size = Vector2(290, 24); nome.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	nome.position = Vector2(64, 7); nome.size = Vector2(226, 24); nome.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(nome)
 	var info := Tema.rotulo("%s · nível %d" % [NOMES.get(cl, cl), int(p.get("nivel", 1))], 15, Color("#a89a80"), Tema.FONTE_ITALICO, 2)
-	info.position = Vector2(64, 30); info.size = Vector2(290, 22); info.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	info.position = Vector2(64, 30); info.size = Vector2(226, 22); info.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	b.add_child(info)
+	if apagar.is_valid():   # botãozinho discreto no canto do cartão; o clique nele não entra no jogo
+		var x := _botao("Apagar", apagar, false, b)
+		x.custom_minimum_size = Vector2(0, 0)
+		x.position = Vector2(296, 16); x.size = Vector2(66, 26)
+		x.add_theme_font_size_override("font_size", 11)
+		x.add_theme_color_override("font_color", Color("#b88a78"))
+		x.add_theme_color_override("font_hover_color", Color("#ff9a80"))
+		x.tooltip_text = "Apagar este personagem"
 	return b
+
+## Confirmação antes de apagar: o jogador digita o nome do personagem; o servidor confere de novo.
+func _tela_apagar(i: int) -> void:
+	if i < 0 or i >= personagens.size(): return
+	var p: Dictionary = personagens[i]
+	var nome := str(p.get("nome", ""))
+	tela = "apagar"
+	_limpar()
+	_placa("Apagar personagem")
+	caixa.add_child(_cartao(p, func(): pass))
+	_espaco(4)
+	_texto("Isto não tem volta. Nível, itens, ouro e missões de %s somem para sempre." % nome, 15, Color("#ff8a72"), Tema.FONTE_ITALICO)
+	_espaco(2)
+	_rotulo_campo("Digite o nome para confirmar")
+	var campo := LineEdit.new()
+	campo.placeholder_text = nome
+	campo.max_length = 16
+	campo.context_menu_enabled = false   # sem colar: tem que digitar
+	_campo(campo, "usuario")
+	caixa.add_child(campo)
+	_espaco(6)
+	var ok := _botao("Apagar para sempre", func(): pass)
+	ok.disabled = true
+	var confirmar := func():
+		if campo.text.strip_edges() != nome: return
+		ok.disabled = true
+		rede.enviar_srv({"t": "apagar", "i": i, "nome": nome})
+		_avisar("Apagando %s..." % nome)
+	ok.pressed.connect(confirmar)
+	campo.text_changed.connect(func(tx: String): ok.disabled = tx.strip_edges() != nome)
+	campo.text_submitted.connect(func(_tx: String): confirmar.call())
+	_botao("Voltar", func(): _tela_personagens(personagens, conta_atual))
+	campo.call_deferred("grab_focus")
 
 func _jogar(i: int) -> void:
 	rede.enviar_srv({"t": "jogar", "i": i})
+	var tela_carga := Tema.tex("res://assets/ext/ui/carregamento/tela_carregamento_1920x1080.png")
+	if tela_carga and fundo_arte: fundo_arte.texture = tela_carga   # arte de carregamento de fundo enquanto o mundo chega
 	_esperando("Entrando no Deserto de Absinto...")
 	caixa.get_child(caixa.get_child_count() - 1).visible = false
 
@@ -485,7 +529,7 @@ func _msg(m: Dictionary) -> void:
 	match m.get("t", ""):
 		"conectado": _tela_login()
 		"erro":
-			if tela != "login" and tela != "personagens": _tela_login()
+			if tela not in ["login", "personagens", "apagar"]: _tela_login()
 			if auto.has("conectar") and str(m["msg"]).contains("já existe"): _conta("login"); return
 			_avisar(str(m.get("msg", "")), true)
 			if str(m.get("msg", "")).contains("no site") and tela == "login" and not caixa.has_node("Site"):
@@ -493,6 +537,7 @@ func _msg(m: Dictionary) -> void:
 				b.name = "Site"
 		"conta":
 			_tela_personagens(m.get("personagens", []), str(m.get("u", "")))
+			if m.has("apagado"): _avisar("%s foi apagado." % str(m["apagado"]))
 			if auto.has("conectar"):
 				if personagens.is_empty(): criar(auto.get("classe", "anjo"), auto.get("usuario", "Teste").capitalize())
 				else: _jogar(0)

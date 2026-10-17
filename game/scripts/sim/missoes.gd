@@ -23,6 +23,7 @@ static func disponivel(jog: Ent, mid: String) -> bool:
 	var rq: Array = d.get("requer_qualquer", [])
 	if rq.size() > 0 and not rq.any(func(r): return estado(jog, r) == "concluida"): return false
 	if jog.nivel < int(d.get("nivel", 1)) - 2: return false
+	if jog.nivel < int(d.get("nivel_minimo", 0)): return false
 	return true
 
 ## Etapa atual: o menor número de etapa que ainda tem objetivo pendente.
@@ -40,6 +41,9 @@ static func _obj_feito(jog: Ent, mid: String, i: int, npc_ignora: String) -> boo
 	match o["tipo"]:
 		"coletar":
 			return Itens.contar(jog.inv, o["item"]) >= int(o.get("qtd", 1))
+		"chefes_dungeon":   # Livro dos Vencidos: todos os chefes de dungeon até o nível pedido (o espelho conta)
+			var cd := _chefes_feitos(jog, int(o.get("ate_nivel", 0)))
+			return cd[0] >= cd[1]
 		"falar", "decidir":
 			if npc_ignora != "":
 				var alvo = o.get("npc")
@@ -47,11 +51,21 @@ static func _obj_feito(jog: Ent, mid: String, i: int, npc_ignora: String) -> boo
 			return i < prog.size() and int(prog[i]) >= 1
 	return i < prog.size() and int(prog[i]) >= int(o.get("qtd", 1))
 
+## Chefes de dungeon vencidos até um nível: [feitos, total]. Um chefe com espelho conta se o espelho foi vencido.
+static func _chefes_feitos(jog: Ent, ate: int) -> Array:
+	var feitos := 0; var tot := 0
+	for b in Defs.REG_CHEFES:
+		if int(b["nivel"]) > ate: continue
+		tot += 1
+		if jog.flags.has("venceu_" + str(b["id"])) or (b.has("espelho") and jog.flags.has("venceu_" + str(b["espelho"]))): feitos += 1
+	return [feitos, tot]
+
 static func progresso(jog: Ent, mid: String, i: int) -> Array:
 	var o: Dictionary = def(mid)["objetivos"][i]
 	var prog: Array = jog.missoes.get(mid, {}).get("prog", [])
 	var tot := int(o.get("qtd", 1))
 	if o["tipo"] == "coletar": return [mini(Itens.contar(jog.inv, o["item"]), tot), tot]
+	if o["tipo"] == "chefes_dungeon": return _chefes_feitos(jog, int(o.get("ate_nivel", 0)))
 	return [mini(int(prog[i]) if i < prog.size() else 0, tot), tot]
 
 static func pronta(jog: Ent, mid: String, npc: String = "") -> bool:
@@ -86,6 +100,12 @@ static func aceitar(sim: WorldSim, jog: Ent, mid: String) -> void:
 static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "") -> void:
 	var d := def(mid)
 	if estado(jog, mid) != "ativa": return
+	var aplica = d.get("recompensas", {}).get("aplica_evolucao")
+	if aplica != null:   # Os Dois Caminhos: só conclui com um caminho válido da classe
+		var evo: String = escolha if str(aplica) == "escolhida" else str(aplica)
+		if not evo in d.get("escolhas_por_classe", {}).get(jog.classe, [evo]) or Evolucao.recusa(jog, evo) != "":
+			sim.emitir_a(jog, "aviso", {"texto": Evolucao.recusa(jog, evo) if Evolucao.recusa(jog, evo) != "" else "Esse caminho não é seu."})
+			return
 	for o in d["objetivos"]:
 		if o["tipo"] == "coletar": Itens.remover(jog.inv, o["item"], int(o.get("qtd", 1)))
 	var rec: Dictionary = d.get("recompensas", {}).duplicate(true)
@@ -104,6 +124,8 @@ static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "")
 	var epc: Dictionary = rec.get("escolha_por_classe", {})
 	if epc.has(jog.classe): Jogador.dar_item(sim, jog, Itens.novo(epc[jog.classe]))
 	if rec.has("xp"): Jogador.ganhar_xp(sim, jog, int(rec["xp"]), "missão")
+	if aplica != null: Evolucao.aplicar(sim, jog, escolha if str(aplica) == "escolhida" else str(aplica))
+	for f in d.get("flags", []): jog.flags[f] = true
 	var prox = d.get("ao_concluir_inicia")
 	if prox != null and prox != "" and disponivel(jog, prox): aceitar(sim, jog, prox)
 	sim.emitir_a(jog, "inventario", {})
@@ -177,6 +199,7 @@ static func cond(jog: Ent, se: Dictionary, npc: String) -> bool:
 			"missao_concluida": ok = lista.any(func(m): return estado(jog, m) == "concluida")
 			"missao_nao_iniciada": ok = lista.any(func(m): return estado(jog, m) == "nao_iniciada")
 			"faccao": ok = jog.faccao in lista
+			"classe": ok = jog.classe in lista and jog.evolucao == ""
 			"flag": ok = lista.any(func(f): return jog.flags.has(f))
 			"sem_flag": ok = not lista.any(func(f): return jog.flags.has(f))
 			"tem_item":
@@ -196,6 +219,9 @@ static func abrir(sim: WorldSim, jog: Ent, npc: Ent) -> void:
 	var dlg: Dictionary = Defs.DIALOGOS.get(dn.get("dialogo", ""), {})
 	if dlg.is_empty(): return
 	jog.aux["dialogo"] = {"npc": npc.id, "dlg": dlg["id"], "no": dlg["inicio"]}
+	Biblioteca.visitar(sim, jog, dlg["id"], dlg["inicio"])
+	var guardada := Biblioteca.fala_guardada(jog, npc.kind)   # fala que um mistério deixou para este personagem
+	if guardada != "": sim.emitir_a(jog, "fala", {"id": npc.id, "texto": guardada, "chat": false})
 	mostrar(sim, jog)
 
 static func mostrar(sim: WorldSim, jog: Ent) -> void:
@@ -250,6 +276,7 @@ static func escolher(sim: WorldSim, jog: Ent, idx: int) -> void:
 		if a.has("dar_item"): Jogador.dar_item(sim, jog, Itens.novo(a["dar_item"]["id"], int(a["dar_item"].get("qtd", 1))))
 		if a.has("remover_item"): Itens.remover(jog.inv, a["remover_item"]["id"], int(a["remover_item"].get("qtd", 1))); sim.emitir_a(jog, "inventario", {})
 		if a.has("definir_flag"): jog.flags[a["definir_flag"]] = true
+		if a.has("agrak"): sim.emitir_a(jog, "agrak_pedido", {"a": a["agrak"]})   # Caim e Abel: entrar ou sair da lista do Agrak
 		if a.has("abrir_loja"): servico = {"tipo": "loja", "id": a["abrir_loja"]}
 		if a.has("abrir_ferreiro"): servico = {"tipo": "ferreiro", "id": a["abrir_ferreiro"]}
 		if a.has("abrir_armazem"): servico = {"tipo": "armazem"}
@@ -269,7 +296,7 @@ static func spot_real(sim: WorldSim, id: String) -> String:
 	if sim != null:
 		var al: Dictionary = sim.mapa.get("spot_alias", {})
 		if al.has(id): return al[id]
-	return {"acampamento_desertores": "margem_das_viuvas", "marco_do_corte": "covas_rasas"}.get(id, id)
+	return id
 
 ## Texto de um objetivo para o rastreador e o diário.
 static func texto_objetivo(o: Dictionary) -> String:
@@ -293,6 +320,7 @@ static func texto_objetivo(o: Dictionary) -> String:
 		"usar_item":
 			return "Use %s em %s" % [Defs.ITENS.get(o["item"], {}).get("nome", o["item"]), Defs.OBJETOS.get(o.get("objeto", ""), {}).get("nome", str(o.get("objeto", "")).replace("_", " "))]
 		"explorar": return "Chegue a %s" % Defs.nome_local(o.get("subzona", ""))
+		"chefes_dungeon": return "Encha o Livro dos Vencidos até o nível %d" % int(o.get("ate_nivel", 0))
 		"farmar_spot":
 			var sid := spot_real(null, str(o.get("spot", "")))
 			var nm3: String = Defs.SPOTS.get(sid, {}).get("nome", sid.replace("_", " "))

@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -50,6 +50,23 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _int(a, 0) and _str(a, 1): Jogador.refinar(sim, e, a[0], a[1])
 		"redistribuir":
 			Jogador.redistribuir(sim, e)
+		"voltar":   # teleporte de volta ao acampamento: grátis, só canaliza 3 s parado
+			Jogador.voltar_acampamento(sim, e)
+		"teleportar":   # menu de teleporte (V): id do destino de data/teleporte.json; custa 1 Lágrima Sanguínea
+			if _str(a, 0): Teleporte.pedir(sim, e, a[0])
+		"falar":   # chat: balão em cima do personagem e linha na janela de chat
+			if a.size() > 0 and a[0] is String and (a[0] as String).length() <= 400:
+				var canal: String = a[1] if a.size() > 1 and a[1] is String and a[1] in ["perto", "global", "pm", "grupo"] else "perto"
+				var para: String = a[2] if a.size() > 2 and a[2] is String and (a[2] as String).length() <= 32 else ""
+				Jogador.falar(sim, e, a[0], canal, para)
+		"gesto":   # /ajoelhar: gesto com o objeto perto (evento gesto da Biblioteca)
+			if _str(a, 0) and a[0] in ["ajoelhar"]: Biblioteca.gesto(sim, e, a[0])
+		"estante":   # aba Biblioteca do diário: o que o personagem já leu
+			Biblioteca.estante_pessoal(sim, e)
+		"ler":   # ler um livro da Estante (ou de uma estante perto)
+			if _str(a, 0): Biblioteca.pedido_ler(sim, e, a[0])
+		"pet":   # barra do pet do Cultista: atacar, proteger, teleportar, agressivo, passivo
+			if _str(a, 0) and a[0] in ["atacar", "teleportar", "proteger", "agressivo", "passivo"]: Familiar.comando(sim, e, a[0])
 		"escolher":
 			if _int(a, 0): Missoes.escolher(sim, e, a[0])
 		"virar":
@@ -60,6 +77,14 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if a.size() > 0 and a[0] is bool:
 				e.aux["auto"] = a[0]
 				sim.emitir_a(e, "aviso", {"texto": "Modo automático ligado." if a[0] else "Modo automático desligado."})
+		"auto_skill":   # clique direito no slot: a skill entra ou sai do automático
+			if _int(a, 0) and a[0] >= 0 and a[0] < 9: Jogador.cmd_auto_skill(sim, e, a[0])
+		"auto_cfg":   # janela de ajustes do automático (Shift+Z); o valor é conferido em Jogador.cmd_auto_cfg
+			if _str(a, 0) and a.size() > 1: Jogador.cmd_auto_cfg(sim, e, a[0], a[1])
+		"talento":   # árvore de talentos (T): 1 ponto numa skill
+			if _str(a, 0): Jogador.cmd_talento(sim, e, a[0])
+		"esquecer_talentos":
+			Jogador.cmd_esquecer_talentos(sim, e)
 		"fechar":
 			if _str(a, 0) and a[0] in ["dialogo", "servico"]: e.aux.erase(a[0])
 

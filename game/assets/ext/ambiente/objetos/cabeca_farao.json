@@ -1,0 +1,17 @@
+{
+ "w": 176,
+ "h": 108,
+ "anchor": [
+  80,
+  64
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Cabeça de granito de um faraó caída da estátua: toucado nemes listrado com restos de azul e ouro, o nariz     quebrado, a barba postiça partida, meio afundada no lodo e no calcário que caiu junto.",
+ "kind": "cabeca_farao"
+}

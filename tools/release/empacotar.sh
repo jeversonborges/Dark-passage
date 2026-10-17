@@ -20,7 +20,7 @@ with open(z, "rb") as f:
 atual = json.load(open(lj)) if os.path.exists(lj) else {}
 d = {"versao": v, "arquivo": os.path.basename(z), "tamanho": os.path.getsize(z), "sha256": h.hexdigest(),
      "sistema": "Windows 10/11 64 bits",
-     "data": (datetime.datetime.utcnow() - datetime.timedelta(hours=3)).strftime("%Y-%m-%d")}
+     "data": (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(hours=3)).strftime("%Y-%m-%d")}
 if "launcher" in atual: d["launcher"] = atual["launcher"]
 json.dump(d, open(out, "w"), indent=2, ensure_ascii=False); open(out, "a").write("\n")
 print(json.dumps(d, indent=2, ensure_ascii=False))

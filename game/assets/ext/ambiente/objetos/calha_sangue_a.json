@@ -1,0 +1,18 @@
+{
+ "w": 56,
+ "h": 34,
+ "anchor": [
+  27,
+  17
+ ],
+ "bioma": "matadouro",
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Calha de sangue no chão (decalque): canaleta de concreto com grelha de ferro e sangue escorrendo.",
+ "kind": "calha_sangue_a"
+}

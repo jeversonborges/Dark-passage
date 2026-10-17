@@ -1,0 +1,19 @@
+{
+ "w": 122,
+ "h": 78,
+ "anchor": [
+  46,
+  47
+ ],
+ "emissivo": "VU do gravador",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Gravador de rolo da Rádio São Lázaro num caixote: os dois carretéis no tampo, a fita marrom correndo pelas     cabeças e escorrendo em laços até o chão (as gravações da Noite Zero que a Congregação toca ao contrário);     ao lado, uma pilha de carretéis e as caixas de papelão com o rótulo apagado.",
+ "kind": "fitas_rolo"
+}

@@ -3,14 +3,14 @@ class_name Sincro
 ## Os outros veem só o público; o dono do personagem recebe também mochila, missões, recargas etc.
 
 const PUB := ["tipo", "kind", "nome", "nivel", "pos", "facing", "raio", "vivo", "invisivel", "alvejavel", "escala",
-	"hp", "hp_max", "rec", "rec_max", "escudo", "postura", "postura_max", "estado", "arquetipo", "tags", "classe",
-	"faccao", "alvo", "dono", "vel", "res"]
+	"hp", "hp_max", "rec", "rec_max", "escudo", "postura", "postura_max", "estado", "arquetipo", "tags", "classe", "evolucao",
+	"faccao", "alvo", "dono", "vel", "res", "lado_forcado"]
 const PRIV := ["xp", "pontos", "ouro", "municao", "folego", "inv", "equip", "armazem", "missoes", "flags", "vistas",
 	"stats", "dano_min", "dano_max", "defesa", "ar", "er", "critico", "crit_mult", "excelente", "vel_ataque", "intervalo",
 	"alcance", "roubo_vida", "no_lugar", "zona", "abates", "skills_slots", "pity_raro"]
 ## chaves de aux que o cliente usa para desenhar entidades dos outros
 const AUX_PUB := ["neutro", "alfa", "titulo", "visual", "obj", "aberto", "requer_chefe", "visivel_se", "bau", "hist", "para",
-	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto"]
+	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto", "forma", "aura", "vis"]
 ## chaves de aux do próprio jogador que mudam todo quadro e o cliente não precisa
 const AUX_RUIDO := ["repath", "parado_t", "amargo_t", "ia_t"]
 

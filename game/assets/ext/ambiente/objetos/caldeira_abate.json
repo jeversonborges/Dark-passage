@@ -1,0 +1,18 @@
+{
+ "w": 322,
+ "h": 188,
+ "anchor": [
+  63,
+  152
+ ],
+ "emissivo": "brasa da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Caldeira a vapor do frigorífico: corpo de chapa rebitada deitado sobre berço de tijolo, fornalha com a porta     entreaberta em brasa, domo de vapor, válvula de segurança, manômetro e canos de latão.",
+ "kind": "caldeira_abate"
+}

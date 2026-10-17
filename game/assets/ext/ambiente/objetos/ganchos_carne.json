@@ -1,15 +1,16 @@
 {
- "w": 306,
- "h": 196,
+ "w": 382,
+ "h": 234,
  "anchor": [
-  58,
-  163
+  91,
+  190
  ],
- "categoria": "props",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
  "footprint_tiles": [
-  2,
-  2
+  3,
+  1
  ],
- "descricao": "Varal de ganchos com carcaças (Abatedouro Carniça).",
+ "descricao": "Trilho de ganchos da câmara fria: duas meias carcaças de boi e um porco aberto, correntes, sangue no chão.",
  "kind": "ganchos_carne"
 }

@@ -1,0 +1,17 @@
+{
+ "w": 930,
+ "h": 602,
+ "anchor": [
+  235,
+  476
+ ],
+ "borda": true,
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Paredão do Vale dos Reis, variante com um contraforte destacado e uma fenda escura (borda alta).",
+ "kind": "paredao_arenito_2"
+}

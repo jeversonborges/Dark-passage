@@ -1,0 +1,18 @@
+{
+ "w": 280,
+ "h": 160,
+ "anchor": [
+  81,
+  118
+ ],
+ "andar": 4,
+ "emissivo": "arcos laranja",
+ "luz": "laranja",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Bobina de Tesla da Congregação, montada sobre um caixote: espiral primária de tubo de     cobre, secundária enrolada à mão, toroide de duto amassado remendado com fita, garrafas     de Leyden, centelhador de latão e arcos laranja estalando até as hastes no chão.",
+ "kind": "bobina_culto"
+}

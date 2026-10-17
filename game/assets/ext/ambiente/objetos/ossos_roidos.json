@@ -1,0 +1,17 @@
+{
+ "w": 114,
+ "h": 62,
+ "anchor": [
+  53,
+  31
+ ],
+ "bioma": "matadouro",
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Ossos roídos espalhados no chão da Vala (decalque): costelas, fêmures partidos, dentes, um maxilar.",
+ "kind": "ossos_roidos"
+}

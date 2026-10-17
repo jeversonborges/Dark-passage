@@ -1,0 +1,17 @@
+{
+ "w": 204,
+ "h": 108,
+ "anchor": [
+  61,
+  80
+ ],
+ "emissivo": "válvula laranja do receptor",
+ "andar": 3,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Mesa de operador da Central de Escuta: manipulador Morse, sounder de latão, fones,     registrador soltando fita de papel que escorre da mesa e se amontoa no chão; caderno de     registro, cinzeiro, caneca e uma vela; receptor com uma válvula acesa.",
+ "kind": "mesa_telegrafo"
+}

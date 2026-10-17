@@ -14,7 +14,13 @@ static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, 
 			return cl == null or (cl is Array and (cl.is_empty() or jog.classe in cl)))
 		var pool: Array = meus if (meus.size() > 0 and sim.rng.randf() < 0.7) else ids
 		if pool.is_empty(): return {}
-		var id: String = pool[sim.rng.randi_range(0, pool.size() - 1)]
+		var tot := 0.0
+		for i in pool: tot += float(Defs.ITENS[i].get("peso_drop", 1.0))
+		var x := sim.rng.randf() * tot
+		var id: String = pool[pool.size() - 1]
+		for i in pool:
+			x -= float(Defs.ITENS[i].get("peso_drop", 1.0))
+			if x <= 0.0: id = i; break
 		var f := 1 if tag.ends_with("1") else 2
 		return Itens.gerar_equip(id, sim.rng, minima, f)
 	if tag.begins_with("lendario:"):
@@ -53,7 +59,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	var bonus_ouro := 1.0 + float(jog.aux.get("bonus", {}).get("ouro", 0.0))
 	# ouro
 	if sim.rng.randf() < float(Defs.DROPS["regras"]["ouro_chance"]) or tab.has("ouro_mult") or e.tipo == "chefe":
-		var g := sim.rng.randi_range(2 * e.nivel, 5 * e.nivel) * float(arq.get("xp", 1.0)) * float(tab.get("ouro_mult", 1.0)) * bonus_ouro
+		var g := sim.rng.randf_range(2.6 * e.nivel, 6.5 * e.nivel) * float(arq.get("xp", 1.0)) * float(tab.get("ouro_mult", 1.0)) * bonus_ouro
 		if e.tipo == "chefe": g = sim.rng.randi_range(2 * e.nivel, 5 * e.nivel) * float(tab.get("ouro_mult", 20))
 		_soltar_ouro(sim, int(g), e.pos, jog)
 	# itens de missão (só para quem tem a missão ativa e ainda precisa)
@@ -61,8 +67,9 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	var ja := {}
 	for dm in txt.get("drops_missao", []):
 		if ja.has(dm["item"]): continue
-		# a Chave de Gancho (porão -> chefes) cai sempre para quem ainda não tem e não abriu a porta
-		var chave: bool = dm["item"] == "chave_gancho" and Itens.contar(jog.inv, "chave_gancho") == 0 and not jog.flags.has("aberto_porta_ganchos")
+		# a Chave de Gancho (porão -> chefes) e a Chave de Pã (Fontes do Jordão -> Fosso) caem sempre para quem ainda não tem e não abriu a porta
+		var porta_da_chave := {"chave_gancho": "porta_ganchos", "chave_de_pa": "porta_de_pa"}
+		var chave: bool = porta_da_chave.has(dm["item"]) and Itens.contar(jog.inv, dm["item"]) == 0 and not jog.flags.has("aberto_" + porta_da_chave[dm["item"]])
 		if (chave or Missoes.precisa_item(jog, dm["missao"], dm["item"])) and sim.rng.randf() < float(dm["chance"]):
 			ja[dm["item"]] = true
 			sim.soltar_no_chao(Itens.novo(dm["item"]), e.pos, jog.id, e.pos)
@@ -71,6 +78,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		var r0 := sim.rng.randf() * 100.0
 		var pid := "pocao_vida_p" if r0 < 50.0 else ("pocao_recurso_p" if r0 < 90.0 else ("pocao_vida_m" if r0 < 96.0 else "pocao_recurso_m"))
 		if Defs.ITENS.has(pid): sim.soltar_no_chao(Itens.novo(pid), e.pos, jog.id, e.pos)
+	_rolar_lagrimas(sim, e, jog, tab_id)
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
 	for gid in tab.get("garantido", []):
@@ -91,6 +99,30 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		if it.is_empty(): continue
 		if it.get("raridade", "comum") in ["raro", "excelente", "lendario"]: jog.pity_raro = 0
 		sim.soltar_no_chao(it, e.pos, jog.id, e.pos)
+
+## Chance base da curva das lágrimas (drops.json "lagrimas"): 0,08% no nível 1 -> 0,8% no 50, depois sobe devagar até o teto.
+static func chance_lagrima(nivel: int) -> float:
+	var c: Dictionary = Defs.DROPS["lagrimas"]["curva"]
+	var a := float(c["nivel_1"]); var b := float(c["nivel_50"])
+	var p := a + (b - a) * float(clampi(nivel, 1, 50) - 1) / 49.0
+	if nivel > 50: p += float(c["por_nivel_acima_50"]) * float(nivel - 50)
+	return minf(p, float(c["teto"]))
+
+## Lágrima Angélica / Sanguínea: qualquer mob, rolagem própria por abate (estilo Bless/Soul do MU).
+static func _rolar_lagrimas(sim: WorldSim, e: Ent, jog: Ent, tab_id) -> void:
+	var L: Dictionary = Defs.DROPS.get("lagrimas", {})
+	if L.is_empty(): return
+	var m: Dictionary = L["multiplicadores"]
+	var mult := 1.0
+	if e.tipo == "chefe": mult *= float(m.get("chefe", 1.0))
+	elif e.arquetipo == "elite" or e.arquetipo == "raro": mult *= float(m.get("elite", 1.0))
+	if e.tipo == "monstro" and (str(e.aux.get("spot", "")) != "" or sim.spot_em(e.pos) != ""): mult *= float(m.get("spot_de_farm", 1.0))
+	var base := chance_lagrima(e.nivel) * mult
+	for id in L["itens"]:
+		var p := base * float(L["itens"][id])
+		if id == "lagrima_angelica" and str(tab_id) == "cripta_celestial": p *= float(m.get("angelica_de_celestial", 1.0))
+		if Defs.ITENS.has(id) and sim.rng.randf() < p:
+			sim.soltar_no_chao(Itens.novo(id), e.pos, jog.id, e.pos)
 
 static func _soltar_ouro(sim: WorldSim, g: int, p: Vector2, jog: Ent) -> void:
 	if g <= 0: return
@@ -125,5 +157,6 @@ static func abrir_bau(sim: WorldSim, b: Ent, jog: Ent) -> void:
 			it = item_da_tag(sim, "consumivel:municao" if jog.classe == "humano" else "consumivel:extra", nivel, "comum", jog)
 		if not it.is_empty(): sim.soltar_no_chao(it, b.pos, jog.id, b.pos)
 	if sim.rng.randf() < float(regra.get("joia_refino_chance", 0.0)):
-		sim.soltar_no_chao(Itens.novo("lagrima_anjo"), b.pos, jog.id, b.pos)
-	_soltar_ouro(sim, int(sim.rng.randi_range(2 * nivel, 5 * nivel) * float(regra.get("ouro_mult", 1))), b.pos, jog)
+		var jid := "lagrima_sanguinea" if sim.rng.randf() < float(regra.get("joia_sanguinea_fracao", 0.0)) else "lagrima_angelica"
+		sim.soltar_no_chao(Itens.novo(jid), b.pos, jog.id, b.pos)
+	_soltar_ouro(sim, int(sim.rng.randf_range(2.6 * nivel, 6.5 * nivel) * float(regra.get("ouro_mult", 1))), b.pos, jog)

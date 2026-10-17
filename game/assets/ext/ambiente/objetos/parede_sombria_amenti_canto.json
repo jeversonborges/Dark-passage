@@ -1,0 +1,16 @@
+{
+ "w": 478,
+ "h": 318,
+ "anchor": [
+  35,
+  298
+ ],
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "parede_sombria_amenti_canto"
+}

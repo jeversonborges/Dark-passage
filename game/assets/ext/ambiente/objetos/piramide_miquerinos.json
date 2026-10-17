@@ -1,0 +1,17 @@
+{
+ "w": 992,
+ "h": 546,
+ "anchor": [
+  388,
+  359
+ ],
+ "lore": "piramide_de_miquerinos",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  10
+ ],
+ "descricao": "A pirâmide de Miquerinos: a menor das três, com as fiadas de baixo ainda revestidas de granito rosa de Assuã     (nunca alisado) e o grande rasgo vertical na face norte, cavado pelos que tentaram desmontá-la.",
+ "kind": "piramide_miquerinos"
+}

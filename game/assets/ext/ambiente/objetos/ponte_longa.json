@@ -1,0 +1,16 @@
+{
+ "w": 640,
+ "h": 364,
+ "anchor": [
+  248,
+  236
+ ],
+ "bioma": "atlantida",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  3
+ ],
+ "descricao": "",
+ "kind": "ponte_longa"
+}

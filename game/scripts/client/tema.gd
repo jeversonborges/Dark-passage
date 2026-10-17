@@ -112,6 +112,65 @@ static func rotulo(txt: String, tam := 14, cor := COR_TEXTO, fonte: Font = null,
 		l.add_theme_color_override("font_outline_color", Color(0.04, 0.03, 0.03))
 	return l
 
+## Kit "Ferrugem Sagrada" das janelas (assets/ui/hud/1x/menu_*.png): peça como 9-slice.
+## m e cm: margens da textura e do conteúdo, [esq, topo, dir, baixo]. Devolve null se a peça não existir.
+static var _sb_ui := {}
+static func sb_ui(peca: String, m: Array, cm: Array = []) -> StyleBoxTexture:
+	var chave := "%s%s%s" % [peca, m, cm]
+	if _sb_ui.has(chave): return _sb_ui[chave]
+	var t := ui(peca)
+	if t == null: return null
+	var sb := StyleBoxTexture.new()
+	sb.texture = t
+	sb.texture_margin_left = m[0]; sb.texture_margin_top = m[1]; sb.texture_margin_right = m[2]; sb.texture_margin_bottom = m[3]
+	if cm.size() == 4:
+		sb.content_margin_left = cm[0]; sb.content_margin_top = cm[1]; sb.content_margin_right = cm[2]; sb.content_margin_bottom = cm[3]
+	_sb_ui[chave] = sb
+	return sb
+
+## Caixa interna (atributos, listas, cartões).
+static func caixa_menu(conteudo := 6) -> StyleBox:
+	var sb := sb_ui("menu_caixa", [10, 10, 10, 10], [conteudo, conteudo, conteudo, conteudo])
+	if sb: return sb
+	var c := caixa(Color(0.09, 0.075, 0.06), Color(0.3, 0.25, 0.17), 1, 2); c.set_content_margin_all(conteudo); c.shadow_size = 0
+	return c
+
+## Aba de janela (Diário, Automático...): ativa fica em latão, colada ao painel.
+static func estilo_aba(b: Button, ativa: bool) -> void:
+	var n := sb_ui("menu_aba_ativa" if ativa else "menu_aba", [14, 12, 14, 4], [16, 8, 16, 6])
+	if n == null: return
+	for est in ["normal", "hover", "pressed", "hover_pressed", "focus"]:
+		b.add_theme_stylebox_override(est, n if est != "focus" else StyleBoxEmpty.new())
+	b.add_theme_color_override("font_color", Color("#f0d48a") if ativa else Color("#9a8c74"))
+	b.add_theme_color_override("font_hover_color", Color("#fff2d0"))
+	b.add_theme_color_override("font_pressed_color", Color("#f0d48a"))
+	b.custom_minimum_size.y = 32
+
+## Botão redondo de fechar (medalhão de latão).
+static func estilo_fechar(b: Button) -> void:
+	var n := sb_ui("menu_fechar", [0, 0, 0, 0]); var h := sb_ui("menu_fechar_hover", [0, 0, 0, 0])
+	if n == null: return
+	b.text = ""
+	b.add_theme_stylebox_override("normal", n); b.add_theme_stylebox_override("hover", h)
+	b.add_theme_stylebox_override("pressed", h); b.add_theme_stylebox_override("focus", StyleBoxEmpty.new())
+	b.custom_minimum_size = Vector2(28, 28)
+	b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+
+## Moldura de ferro e latão para caixas soltas (convite, troca, inspeção, ajuda, legenda do mapa).
+## A peça tem cantos de 56 px: a caixa precisa de pelo menos 112 de altura (min_y). Sem a peça, caixa lisa.
+static func moldura_popup(cm := [26, 24, 26, 24]) -> StyleBox:
+	var sb := sb_ui("menu_moldura", [56, 56, 56, 56], cm)
+	if sb: return sb
+	var c := caixa(Color(0.06, 0.05, 0.04, 0.94), Color(0.6, 0.5, 0.3), 2, 3); c.set_content_margin_all(12)
+	return c
+
+## Moldura fina de latão (a do tooltip) para menus pequenos, como o do botão direito num jogador.
+static func moldura_dica() -> StyleBox:
+	var sb := sb_ui("menu_dica", [18, 18, 18, 18], [14, 11, 14, 12])
+	if sb: return sb
+	var c := caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2); c.set_content_margin_all(10)
+	return c
+
 static func tema_janelas() -> Theme:
 	var t := Theme.new()
 	t.default_font = FONTE_TEXTO
@@ -126,21 +185,37 @@ static func tema_janelas() -> Theme:
 	bp.set_content_margin_all(6); bp.shadow_size = 0
 	var bd := caixa(Color(0.1, 0.09, 0.08), Color(0.25, 0.22, 0.2), 1, 2)
 	bd.set_content_margin_all(6); bd.shadow_size = 0
-	t.set_stylebox("normal", "Button", b)
-	t.set_stylebox("hover", "Button", bh)
-	t.set_stylebox("pressed", "Button", bp)
-	t.set_stylebox("disabled", "Button", bd)
+	var cm := [16, 6, 16, 9]
+	if ui("menu_botao"):   # botões em relevo do kit
+		var kp := sb_ui("menu_botao_press", [14, 14, 14, 14], [16, 7, 16, 8])
+		t.set_stylebox("normal", "Button", sb_ui("menu_botao", [14, 14, 14, 14], cm))
+		t.set_stylebox("hover", "Button", sb_ui("menu_botao_hover", [14, 14, 14, 14], cm))
+		t.set_stylebox("pressed", "Button", kp); t.set_stylebox("hover_pressed", "Button", kp)
+		t.set_stylebox("disabled", "Button", sb_ui("menu_botao_off", [14, 14, 14, 14], cm))
+		t.set_color("font_pressed_color", "Button", Color("#ffd58a"))
+		t.set_color("font_color", "Button", Color("#e8d4a4"))
+		t.set_constant("outline_size", "Button", 3)
+		t.set_color("font_outline_color", "Button", Color(0, 0, 0, 0.85))
+	else:
+		t.set_stylebox("normal", "Button", b)
+		t.set_stylebox("hover", "Button", bh)
+		t.set_stylebox("pressed", "Button", bp)
+		t.set_stylebox("disabled", "Button", bd)
 	t.set_stylebox("focus", "Button", StyleBoxEmpty.new())
-	t.set_color("font_color", "Button", COR_TEXTO)
+	if not ui("menu_botao"): t.set_color("font_color", "Button", COR_TEXTO)
 	t.set_color("font_hover_color", "Button", Color("#fff2d0"))
 	t.set_color("font_disabled_color", "Button", Color("#6d665c"))
 	t.set_font("font", "Button", FONTE_TITULO)
 	t.set_font_size("font_size", "Button", 13)
-	t.set_stylebox("panel", "PanelContainer", caixa())
-	t.set_stylebox("panel", "Panel", caixa())
+	t.set_stylebox("panel", "PanelContainer", caixa_menu() if ui("menu_caixa") else caixa())
+	t.set_stylebox("panel", "Panel", caixa_menu() if ui("menu_caixa") else caixa())
 	var sb := StyleBoxFlat.new(); sb.bg_color = Color(0.3, 0.24, 0.16); sb.set_corner_radius_all(2)
 	t.set_stylebox("grabber_area", "VScrollBar", sb)
 	t.set_stylebox("grabber", "VScrollBar", sb)
 	var sbs := StyleBoxFlat.new(); sbs.bg_color = Color(0.08, 0.06, 0.05)
 	t.set_stylebox("scroll", "VScrollBar", sbs)
+	var tri := sb_ui("menu_rolagem_trilho", [0, 8, 0, 8]); var peg := sb_ui("menu_rolagem_pegador", [0, 12, 0, 12])
+	if tri and peg:
+		t.set_stylebox("scroll", "VScrollBar", tri)
+		for e in ["grabber", "grabber_highlight", "grabber_pressed"]: t.set_stylebox(e, "VScrollBar", peg)
 	return t

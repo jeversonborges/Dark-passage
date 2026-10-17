@@ -1,0 +1,16 @@
+{
+ "w": 214,
+ "h": 136,
+ "anchor": [
+  67,
+  89
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Tina de salmoura de carvalho com aros de ferro: água turva com pernis boiando, crosta de sal na borda,     remo de madeira e escadinha.",
+ "kind": "tanque_salmoura"
+}

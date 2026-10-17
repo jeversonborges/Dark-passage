@@ -1,0 +1,16 @@
+{
+ "w": 112,
+ "h": 76,
+ "anchor": [
+  33,
+  55
+ ],
+ "andar": 4,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilha de isoladores de porcelana num palete: cadeias de disco marrons empilhadas,     dois isoladores de pino brancos em pé, cacos quebrados e arame de amarrar.",
+ "kind": "isoladores_pilha"
+}

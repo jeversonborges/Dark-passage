@@ -1,0 +1,17 @@
+{
+ "w": 304,
+ "h": 176,
+ "anchor": [
+  85,
+  140
+ ],
+ "emissivo": "fogo (lamparina)",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Banca do mercado de Mênfis: quadro de varas com toldo de linho listrado, mesa com cestos de tâmaras, cebolas,     pão em cone, peixe seco pendurado, jarros e uma balança de bronze; lamparina acesa.",
+ "kind": "banca_mercado"
+}

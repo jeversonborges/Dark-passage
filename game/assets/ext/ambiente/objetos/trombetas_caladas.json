@@ -1,0 +1,17 @@
+{
+ "w": 100,
+ "h": 60,
+ "anchor": [
+  40,
+  29
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Monte de trombetas de latão caladas: amassadas, as campanas entupidas de pano de luto, amarradas e lacradas     com cera vermelha, como os Arautos fizeram com todas as que acharam depois que a sétima não tocou.",
+ "kind": "trombetas_caladas"
+}

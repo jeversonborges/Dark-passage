@@ -1,0 +1,17 @@
+{
+ "w": 1122,
+ "h": 670,
+ "anchor": [
+  335,
+  495
+ ],
+ "lore": "pilono_de_karnak",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  3
+ ],
+ "descricao": "Pilono de Ipet-Isut (Karnak): duas torres em talude com toro e cornija de cavetto, o portal com o disco solar     alado, os nichos com os mastros de bandeira vazios (braçadeiras de bronze, um trapo) e o faraó golpeando os     inimigos em relevo, com restos de pintura vermelha, amarela e azul.",
+ "kind": "pilono"
+}

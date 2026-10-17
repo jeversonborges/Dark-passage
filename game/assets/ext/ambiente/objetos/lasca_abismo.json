@@ -1,0 +1,18 @@
+{
+ "w": 130,
+ "h": 286,
+ "anchor": [
+  58,
+  42
+ ],
+ "bioma": "amenti",
+ "pendurado": true,
+ "camada": "abaixo_do_chao",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "lasca_abismo"
+}

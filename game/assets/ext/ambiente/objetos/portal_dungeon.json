@@ -1,0 +1,17 @@
+{
+ "w": 600,
+ "h": 384,
+ "anchor": [
+  144,
+  309
+ ],
+ "emissivo": "véu do portal",
+ "uso": "entrada de dungeon (Cripta, Torre, Catacumba)",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Portal de dungeon, véu rubro (Cripta da Trombeta Calada, A Torre).",
+ "kind": "portal_dungeon"
+}

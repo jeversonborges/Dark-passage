@@ -1,0 +1,16 @@
+{
+ "w": 714,
+ "h": 444,
+ "anchor": [
+  141,
+  373
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Palmeira-dum (Hyphaene, a palmeira do Egito que se ramifica em Y): tronco que se divide duas vezes, coroas de     folhas em leque e cachos de frutos marrons.",
+ "kind": "palmeira_dum"
+}

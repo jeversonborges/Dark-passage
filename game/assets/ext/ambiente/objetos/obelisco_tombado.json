@@ -1,0 +1,17 @@
+{
+ "w": 388,
+ "h": 228,
+ "anchor": [
+  183,
+  122
+ ],
+ "lore": "obelisco",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  9,
+  2
+ ],
+ "descricao": "Obelisco tombado e partido em três pedaços na areia, a ponta longe do pedestal vazio.",
+ "kind": "obelisco_tombado"
+}

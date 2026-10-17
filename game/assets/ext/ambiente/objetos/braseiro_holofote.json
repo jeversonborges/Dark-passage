@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 180,
+ "anchor": [
+  33,
+  163
+ ],
+ "emissivo": "fogo",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Holofote de estádio morto virado braseiro: poste de treliça, cabeça de lâmpadas quebradas com fogo dentro.",
+ "kind": "braseiro_holofote"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 144,
+ "h": 70,
+ "anchor": [
+  64,
+  38
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "lotus"
+}

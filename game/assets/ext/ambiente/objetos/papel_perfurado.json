@@ -1,0 +1,15 @@
+{
+ "w": 112,
+ "h": 84,
+ "anchor": [
+  63,
+  40
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Montes de fita de papel perfurado no chão da Central de Escuta: rolos inteiros     desenrolados em laçadas, fitas soltas atravessando o piso e dois carretéis vazios.",
+ "kind": "papel_perfurado"
+}

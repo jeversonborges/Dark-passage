@@ -1,0 +1,15 @@
+{
+ "w": 324,
+ "h": 200,
+ "anchor": [
+  48,
+  181
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste de ferro com cacho de alto-falantes de corneta voltados para todos os lados,     fios enrolados no poste com fita e base de tambor cheio de concreto.",
+ "kind": "alto_falante_corneta"
+}

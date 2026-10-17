@@ -1,0 +1,16 @@
+{
+ "w": 110,
+ "h": 74,
+ "anchor": [
+  28,
+  53
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Meia-parede da frente do Ossário: pedra rachada com crânios assentados no topo.",
+ "kind": "parede_ossario_frente_b"
+}

@@ -1,0 +1,18 @@
+{
+ "w": 72,
+ "h": 82,
+ "anchor": [
+  36,
+  20
+ ],
+ "bioma": "amenti",
+ "pendurado": true,
+ "camada": "abaixo_do_chao",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "laje_pendurada"
+}

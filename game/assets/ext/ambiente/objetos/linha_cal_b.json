@@ -1,0 +1,16 @@
+{
+ "w": 42,
+ "h": 28,
+ "anchor": [
+  18,
+  15
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Linha de cal do antigo campo, apagada aos pedaços (1 tile).",
+ "kind": "linha_cal_b"
+}

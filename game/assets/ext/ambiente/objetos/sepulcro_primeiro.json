@@ -1,0 +1,16 @@
+{
+ "w": 312,
+ "h": 184,
+ "anchor": [
+  82,
+  138
+ ],
+ "emissivo": "vela",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "O Primeiro Sepulcro: afloramento de rocha com a entrada escavada (vão baixo e escuro), degrau varrido,     trilho onde a laje rolou e uma vela no chão da entrada.",
+ "kind": "sepulcro_primeiro"
+}

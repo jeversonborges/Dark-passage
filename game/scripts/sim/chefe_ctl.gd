@@ -23,10 +23,16 @@ var nota_t := 0.0
 var encolhe_t := 0.0
 var raio_fogo := 99.0
 var esp := {}                # memória livre
+var horda_onda := -1         # próxima onda da horda (-1 = sem horda na luta atual)
+var horda_t := 0.0           # pausa até a próxima onda, depois que a anterior morre
+var horda_ids: Array = []    # ids dos mobs vivos da horda
+var egito: ChefeEgito = null # chefes do Egito (mecanica_egito em chefes.json): entregas/egito
+var mec := ""                # roteiro da luta: o próprio id, ou "mecanica_de" (chefes de Jerusalém espelham os da Cripta)
 
 func _init(p_sim: WorldSim, c: Dictionary) -> void:
 	sim = p_sim; cfg = c
 	d = Defs.CHEFES[c["id"]]
+	mec = Defs.mecanica_chefe(c["id"])
 	centro = Vector2(c["arena"]["centro"][0], c["arena"]["centro"][1])
 	raio_arena = float(c["arena"]["raio"])
 	if c.get("derrotado", false):
@@ -55,6 +61,7 @@ func _criar_chefe() -> void:
 		var c := _objeto_arena("corista", "Corista de Osso", Vector2(p[0], p[1]), 220.0, {})
 		sim.ents[c].alvejavel = false; sim.ents[c].defesa = 10.0
 		coristas.append(c)
+	if d.has("mecanica_egito"): egito = ChefeEgito.new(self)
 
 func _objeto_arena(kind: String, nome: String, p: Vector2, hp: float, res: Dictionary) -> int:
 	var o := Ent.new()
@@ -66,7 +73,7 @@ func _objeto_arena(kind: String, nome: String, p: Vector2, hp: float, res: Dicti
 	return o.id
 
 func porta_fechada() -> bool:
-	return estado in ["luta", "transicao"]
+	return estado in ["horda", "luta", "transicao"]
 
 ## O alvo do chefe: na arena, vivo, com mais ameaça (no solo, o jogador; null se ninguém está na luta).
 func _jog() -> Ent:
@@ -74,6 +81,7 @@ func _jog() -> Ent:
 	var ma := -1.0
 	for e: Ent in sim.jogadores():
 		if not e.vivo or e.pos.distance_to(centro) > raio_arena + 3.0: continue
+		if egito != null and egito.travado(e): continue
 		var a := float(boss.ameaca.get(e.id, 0.0)) if boss != null else 0.0
 		if a > ma: ma = a; melhor = e
 	return melhor
@@ -100,14 +108,21 @@ func _fase_def() -> Dictionary:
 	return d["fases"][fase - 1]
 
 func passo(dt: float) -> void:
+	if egito != null: egito.vigiar(dt)
 	var j := _jog()
 	if estado == "morto" or boss == null: return
 	if estado == "dormindo":
-		if j != null and j.vivo and j.pos.distance_to(centro) < raio_arena - 0.5:
-			_comecar()
+		# acorda quando alguém entra na arena ou bate nele de fora (antes ele apanhava parado e a escada ficava livre)
+		var ferido := boss.hp < boss.hp_max
+		if j != null and j.vivo and (j.pos.distance_to(centro) < raio_arena - 0.5 or ferido):
+			_iniciar()
+		elif ferido:
+			boss.hp = minf(boss.hp_max, boss.hp + boss.hp_max * 0.2 * dt)   # de longe demais não dá para tirar vida dele
 		return
 	if j == null or not j.vivo or j.pos.distance_to(centro) > raio_arena + 3.0:
 		_resetar(); return
+	if estado == "horda":
+		_passo_horda(dt); return
 	luta_t += dt
 	if luta_t > float(d["furia_tempo_s"]) and not boss.aux.has("enrage"):
 		boss.aux["enrage"] = true; boss.vel *= 1.3
@@ -128,17 +143,68 @@ func passo(dt: float) -> void:
 	if esp.has("comendo") or esp.has("canalizando") or esp.has("levitando"): return
 	_decidir(dt, j)
 
+func _iniciar() -> void:
+	if cfg.has("horda"): _comecar_horda()
+	else: _comecar()
+
+## Antes do chefe (A Torre, 0.8.3): ondas de mobs nos pontos da arena; o chefe só acorda quando a última morre.
+func _comecar_horda() -> void:
+	estado = "horda"; horda_onda = 0; horda_t = float(cfg["horda"].get("pausa_s", 3.0))
+	boss.aux["imune"] = true   # o chefe espera a horda acabar: antes dava para matá-lo durante as ondas, sem fases
+	sim.definir_bloqueio(cfg.get("porta", []), 2)
+	_empurrar_da_porta()
+	sim.emitir("porta", {"fechada": true, "celulas": cfg.get("porta", [])})
+	_spawn_onda()
+
+func _spawn_onda() -> void:
+	var hd: Dictionary = cfg["horda"]
+	var onda: Dictionary = hd["ondas"][horda_onda]
+	horda_onda += 1
+	var pontos: Array = hd["pontos"]
+	var nv: Array = hd.get("nivel", [boss.nivel, boss.nivel])
+	var i := 0
+	for k in onda:
+		for n in int(onda[k]):
+			var pt: Array = pontos[i % pontos.size()]
+			i += 1
+			var m := sim.criar_mob(k, sim.celula_livre_perto(Vector2(pt[0], pt[1])), sim.rng.randi_range(int(nv[0]), int(nv[1])))
+			m.renasce_s = 0; m.casa = centro; m.raio_coleira = raio_arena + 4
+			sim.emitir("vfx", {"nome": "chefe_portal", "pos": m.pos})
+			IA.acordar(sim, m, _jog())
+			horda_ids.append(m.id)
+
+func _passo_horda(dt: float) -> void:
+	horda_ids = horda_ids.filter(func(id): return sim.ents.has(id) and sim.ents[id].vivo)
+	if not horda_ids.is_empty(): horda_t = float(cfg["horda"].get("pausa_s", 3.0)); return
+	if horda_onda >= cfg["horda"]["ondas"].size():
+		_comecar(); return
+	horda_t -= dt
+	if horda_t <= 0.0: _spawn_onda()
+
 func _comecar() -> void:
 	estado = "luta"; luta_t = 0.0; fase = 1
+	boss.aux.erase("imune")
 	sim.definir_bloqueio(cfg.get("porta", []), 2)
+	_empurrar_da_porta()
 	sim.emitir("chefe", {"id": boss.id, "nome": d["nome"], "fase": 1, "marcas": d["fases"].map(func(x): return x["hp"][0]), "inicio": true})
 	sim.emitir("porta", {"fechada": true, "celulas": cfg.get("porta", [])})
 	sim.emitir("chefe_fala", {"id": boss.id, "texto": d.get("fala_entrada", "")})
 	boss.ameaca[_jog().id] = 1.0
 	boss.cd_basico = 1.0
 	esp["devorar_t"] = 20.0
+	if egito != null: egito.iniciar()
+
+## Quem estava no vão da grade é empurrado para dentro da arena.
+func _empurrar_da_porta() -> void:
+	for e: Ent in sim.jogadores():
+		var c := Vector2i(floori(e.pos.x), floori(e.pos.y))
+		if e.vivo and cfg.get("porta", []).any(func(q): return int(q[0]) == c.x and int(q[1]) == c.y):
+			e.caminho.clear()
+			e.pos = sim.celula_livre_perto(e.pos + (centro - e.pos).normalized() * 2.5)
+			sim.emitir("teleporte", {"id": e.id, "pos": e.pos})
 
 func _resetar() -> void:
+	if egito != null: egito.resetar()
 	for id in sim.ents.keys():
 		var o: Ent = sim.ents[id]
 		if o.tipo == "monstro" and o.renasce_s == 0 and o.pos.distance_to(centro) < raio_arena + 6: sim.remover(id)
@@ -146,8 +212,12 @@ func _resetar() -> void:
 	sim.cancelar_acao(boss)
 	boss.hp = boss.hp_max; boss.postura = boss.postura_max; boss.pos = boss.casa; boss.status.clear(); boss.buffs.clear()
 	boss.aux.erase("enrage"); boss.aux.erase("imune"); boss.aux.erase("agarrando"); boss.escala = 1.0
+	if boss.aux.has("visual_fase"):
+		boss.aux.erase("visual_fase")
+		sim.emitir("visual", {"id": boss.id, "kind": boss.kind})
 	boss.vel = float(d["velocidade_mov"])
 	esp.clear(); fase = 1; estado = "dormindo"; luzes.clear(); raio_fogo = 99.0
+	horda_ids.clear(); horda_onda = -1
 	# arena volta ao normal (pilhas e coristas inteiras)
 	for id in pilhas + coristas: sim.remover(id)
 	pilhas.clear(); coristas.clear()
@@ -163,7 +233,7 @@ func _resetar() -> void:
 
 func jogador_morreu() -> void:
 	# em grupo a luta continua enquanto alguém estiver de pé na arena
-	if estado in ["luta", "transicao"] and _jog() == null: sim.atrasar(1.0, _resetar)
+	if estado in ["horda", "luta", "transicao"] and _jog() == null: sim.atrasar(1.0, _resetar)
 
 func _nova_fase(n: int) -> void:
 	fase = n
@@ -173,10 +243,14 @@ func _nova_fase(n: int) -> void:
 	for t in sim.telegrafos.duplicate():
 		if t["dono"] == boss.id: sim.remover_telegrafo(t["id"])
 	var fd := _fase_def()
+	var vis: String = Defs.SPR_SUBST.get(boss.kind, {}).get("fase%d" % n, "")
+	if vis != "" and Defs.SPR.has(vis):
+		boss.aux["visual_fase"] = vis
+		sim.emitir("visual", {"id": boss.id, "kind": vis})
 	sim.emitir("chefe", {"id": boss.id, "fase": n, "nome_fase": fd.get("nome", "")})
 	sim.emitir("chefe_fala", {"id": boss.id, "texto": fd.get("fala", "")})
 	sim.emitir("som_evento", {"ev": "chefe_fase", "chefe": boss.kind})
-	match boss.kind:
+	match mec:
 		"irma_celeste":
 			if n == 2: _coro_comecar()
 			if n == 3: _apagar_velas()
@@ -185,6 +259,7 @@ func _nova_fase(n: int) -> void:
 			if n == 3: encolhe_t = 25.0; raio_fogo = raio_arena; nota_t = 45.0; esp["querubim_t"] = 5.0
 		"general_partido":
 			if n == 3: boss.vel_ataque = 1.25; boss.intervalo /= 1.25
+	if egito != null: egito.nova_fase(n)
 
 func ao_quebrar(interrompeu: bool) -> void:
 	if esp.has("comendo"):
@@ -202,8 +277,10 @@ func ao_quebrar(interrompeu: bool) -> void:
 	if boss.aux.get("agarrando", false): _soltar_agarrado()
 
 func ao_morrer_ent(e: Ent, killer: Ent) -> void:
+	if egito != null and e != boss: egito.morreu(e, killer)
 	if e == boss:
 		estado = "morto"
+		if egito != null: egito.encerrar()
 		sim.definir_bloqueio(cfg.get("porta", []), 0)
 		sim.emitir("porta", {"fechada": false, "celulas": cfg.get("porta", [])})
 		sim.emitir("chefe", {"id": boss.id, "fim": true, "morto": true})
@@ -283,7 +360,7 @@ func _no_alcance(a: Dictionary, dist: float) -> bool:
 
 func _virar(p: Vector2, dt: float) -> void:
 	var alvo := (p - boss.pos).normalized()
-	if boss.kind == "general_partido":
+	if mec == "general_partido":
 		var ang := boss.facing.angle()
 		var diff := angle_difference(ang, alvo.angle())
 		var mx := deg_to_rad(120.0) * dt
@@ -295,19 +372,25 @@ func _op(a: Dictionary, extra: Dictionary = {}) -> Dictionary:
 	if a.has("efeito"): op["efeito"] = a["efeito"]
 	if a.has("empurrao_px"): op["empurrao"] = float(a["empurrao_px"])
 	if a.has("telegrafo"): op["area"] = true
-	op["elemento"] = "sagrado" if boss.kind == "zacarias_arauto" else ("fogo" if a["id"] == "vomito_de_brasa" else "fisico")
+	op["elemento"] = "sagrado" if mec == "zacarias_arauto" else ("fogo" if a["id"] == "vomito_de_brasa" else "fisico")
 	op.merge(extra, true)
 	return op
 
 func _usar(a: Dictionary, j: Ent) -> void:
 	var id: String = a["id"]
 	boss.cd_basico = boss.intervalo
+	if a.has("invoca") and id not in ["chamar_carpideiras", "chamar_ecos"]:
+		# invocação genérica (chefes da Torre): o nome do golpe vem do design ("nome")
+		if a.has("recarga"): boss.cds[id] = float(a["recarga"])
+		if a.get("uma_vez", false): esp["usou_" + id] = true   # antes voltava antes de marcar e o chefe invocava sem parar
+		_acao(a, {"preparo": float(a.get("preparo", 0.8)), "rec": 0.3, "nome": a.get("nome", id), "conj": true, "impacto": func(): _invocar(a["invoca"])})
+		return
 	if a.has("recarga"): boss.cds[id] = float(a["recarga"])
 	if a.get("uma_vez", false): esp["usou_" + id] = true
 	var prep := maxf(float(a.get("preparo", 0.6)), 0.6 if a.has("telegrafo") else 0.3)
 	var jid := j.id
 	var dir := (j.pos - boss.pos).normalized()
-	if boss.kind == "general_partido": dir = boss.facing.slerp(dir, 0.5).normalized()
+	if mec == "general_partido": dir = boss.facing.slerp(dir, 0.5).normalized()
 	sim.emitir("som_evento", {"ev": "telegrafo_inicio"}) if a.has("telegrafo") else null
 	match id:
 		"arrasto", "lanca_do_juizo":
@@ -319,7 +402,7 @@ func _usar(a: Dictionary, j: Ent) -> void:
 				_linha_extra(a, dir.rotated(-ang), prep)
 		"pranto_que_cai":
 			var q := int(a.get("quantidade", 3))
-			sim.iniciar_acao(boss, {"preparo": 0.5, "rec": 0.3, "alvo": jid, "nome": id, "conj": true})
+			_acao(a, {"preparo": 0.5, "rec": 0.3, "alvo": jid, "nome": id, "conj": true})
 			for i in q:
 				sim.atrasar(float(a.get("intervalo", 0.5)) * i + 0.2, func():
 					var jj := sim.valido(jid)
@@ -327,7 +410,7 @@ func _usar(a: Dictionary, j: Ent) -> void:
 					_circulo_em(jj.pos, a, float(a["telegrafo"]["raio"]), prep))
 		"vomito_de_brasa":
 			var op := _op(a, {"mult": float(a["mult"])})
-			sim.iniciar_acao(boss, {"preparo": prep, "rec": 0.6, "alvo": jid, "def": a, "op": op, "dir": dir, "nome": id, "impacto": func():
+			_acao(a, {"preparo": prep, "rec": 0.6, "alvo": jid, "def": a, "op": op, "dir": dir, "nome": a.get("nome", id), "impacto": func():
 				for k in range(1, int(a.get("ticks", 3))):
 					sim.atrasar(float(a.get("intervalo_tick", 0.4)) * k, func():
 						var tg := {"forma": "cone", "origem": boss.pos, "dir": dir, "p": a["telegrafo"]}
@@ -343,10 +426,10 @@ func _usar(a: Dictionary, j: Ent) -> void:
 					if o.tipo == "jogador": _agarrar(o, a); break
 				if not boss.aux.get("agarrando", false): sim.aplicar_status(boss, "exausto", float(a["depois"]["exausto"]), null)
 			op2["mult"] = 0.0001
-			sim.iniciar_acao(boss, {"preparo": prep, "rec": 0.4, "alvo": jid, "def": a, "op": op2, "dir": dir, "nome": id})
+			_acao(a, {"preparo": prep, "rec": 0.4, "alvo": jid, "def": a, "op": op2, "dir": dir, "nome": a.get("nome", id)})
 		"marca_do_juizo":
 			var op3 := _op(a)
-			sim.iniciar_acao(boss, {"preparo": 0.3, "rec": 0.2, "nome": id, "conj": true})
+			_acao(a, {"preparo": 0.3, "rec": 0.2, "nome": id, "conj": true})
 			var tg_def := a.duplicate(); tg_def["telegrafo"] = a["telegrafo"]
 			var tid := sim.novo_id()
 			var tg := {"id": tid, "dono": boss.id, "forma": "circulo_segue_jogador", "origem": j.pos, "dir": Vector2.RIGHT, "p": a["telegrafo"],
@@ -357,25 +440,30 @@ func _usar(a: Dictionary, j: Ent) -> void:
 				sim.emitir("raio", {"de": tg["origem"] + Vector2(-3, -3), "para": tg["origem"], "cor": "#ffe7a0", "coluna": true})
 				sim.disparar_telegrafo(tid))
 		"chamar_carpideiras", "chamar_ecos":
-			sim.iniciar_acao(boss, {"preparo": 0.8, "rec": 0.3, "nome": id, "conj": true, "impacto": func(): _invocar(a["invoca"])})
+			_acao(a, {"preparo": 0.8, "rec": 0.3, "nome": id, "conj": true, "impacto": func(): _invocar(a["invoca"])})
 		_:
 			# golpe padrão (básico, cone, círculo, lamento...)
 			var op4 := _op(a)
 			if not a.has("telegrafo"):
-				sim.iniciar_acao(boss, {"preparo": prep, "rec": 0.35, "alvo": jid, "nome": id, "impacto": func():
+				_acao(a, {"preparo": prep, "rec": 0.35, "alvo": jid, "nome": a.get("nome", id), "impacto": func():
 					var jj := sim.valido(jid)
 					if jj != null and boss.pos.distance_to(jj.pos) - jj.raio <= float(a.get("alcance", 1.8)) + 0.7:
 						sim.aplicar_golpe(boss, jj, op4)
 					elif jj != null: sim.emitir("dano", {"id": jj.id, "de": boss.id, "valor": 0, "estilo": "esquivou"})
 				})
 			else:
-				var acao := {"preparo": prep, "rec": 0.45, "alvo": jid, "def": a, "op": op4, "dir": dir, "nome": id}
+				var acao := {"preparo": prep, "rec": 0.45, "alvo": jid, "def": a, "op": op4, "dir": dir, "nome": a.get("nome", id)}
 				if a["telegrafo"]["forma"] == "circulo": acao["ponto_tele"] = boss.pos
 				if a.has("rastro_fogo"):
 					op4["ao_impacto"] = func(_tg):
 						sim.criar_area({"pos": boss.pos, "raio": float(a["telegrafo"].get("raio", 2)), "dur": float(a["rastro_fogo"]["duracao"]), "tick": 0.5, "dono": boss.id, "tipo": "fogo",
 							"op": {"mult": 0.2, "area": true, "elemento": "fogo"}})
-				sim.iniciar_acao(boss, acao)
+				_acao(a, acao)
+
+## Inicia o golpe do chefe; "anim" (chefes da Torre) é a animação da folha que o cliente toca (cai no attack se faltar).
+func _acao(a: Dictionary, acao: Dictionary) -> void:
+	if a.get("anim", "") != "": acao["anim"] = a["anim"]
+	sim.iniciar_acao(boss, acao)
 
 func _linha(a: Dictionary, j: Ent, prep: float, dir: Vector2, n: int) -> void:
 	var op := _op(a)
@@ -388,7 +476,7 @@ func _linha(a: Dictionary, j: Ent, prep: float, dir: Vector2, n: int) -> void:
 				sim.atrasar(0.5, func():
 					var jj := sim.valido(jid)
 					if jj != null and boss.vivo and estado == "luta": _linha(a, jj, prep * 0.8, (jj.pos - boss.pos).normalized(), n - 1))
-	sim.iniciar_acao(boss, acao)
+	_acao(a, acao)
 
 func _linha_extra(a: Dictionary, dir: Vector2, prep: float) -> void:
 	var tid := sim.novo_id()
@@ -416,8 +504,10 @@ func _anel(a: Dictionary, ang: float) -> void:
 
 func _invocar(inv: Dictionary, de: Array = []) -> void:
 	var i := 0
-	for k in inv:
-		for n in int(inv[k]):
+	var troca: Dictionary = d.get("invoca_troca", {})   # o espelho chama os próprios mobs (soldado_caido -> soldado_de_pedra)
+	for k0 in inv:
+		var k: String = troca.get(k0, k0)
+		for n in int(inv[k0]):
 			var p: Vector2 = de[i % de.size()] if de.size() > 0 else boss.pos + Vector2.from_angle(sim.rng.randf() * TAU) * 2.5
 			i += 1
 			var m := sim.criar_mob(k, sim.celula_livre_perto(p), int(Defs.MOBS.get(k, {}).get("niveis", [boss.nivel])[0]))
@@ -427,10 +517,11 @@ func _invocar(inv: Dictionary, de: Array = []) -> void:
 
 # =================================================================== mecânicas especiais por chefe
 func _mecanicas(dt: float, j: Ent) -> void:
-	match boss.kind:
+	match mec:
 		"general_partido": _general(dt, j)
 		"irma_celeste": _celeste(dt, j)
 		"zacarias_arauto": _zacarias(dt, j)
+		_: if egito != null: egito.passo(dt, j)
 
 # --- Andras: Pilhas de Mortos, devorar, ordem aos mortos, banquete
 func _general(dt: float, j: Ent) -> void:

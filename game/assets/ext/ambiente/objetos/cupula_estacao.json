@@ -1,16 +1,16 @@
 {
- "w": 1304,
- "h": 658,
+ "w": 530,
+ "h": 298,
  "anchor": [
-  647,
-  362
+  212,
+  188
  ],
- "emissivo": "arco elétrico azul e interior quente",
+ "emissivo": "vidraças acesas, porta e arco elétrico azul",
  "categoria": "predios",
  "footprint_tiles": [
-  14,
-  14
+  5,
+  5
  ],
- "descricao": "Cúpula de vidro da estação de bonde, base do Acampamento da Vela: costelas de ferro,     vidraças quebradas e remendadas com lona, e a lâmpada de arco no topo.",
+ "descricao": "Cúpula de vidro da estação de bonde, coração do Acampamento da Vela: costelas de ferro, vidraças acesas por     dentro (velas da Vigília), remendos de lona, porta aberta voltada para quem chega e a lâmpada de arco no topo.     Cabe em 5x5 tiles dentro da paliçada (a área inicial a põe atrás do acampamento).",
  "kind": "cupula_estacao"
 }

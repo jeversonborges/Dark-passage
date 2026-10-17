@@ -1,0 +1,17 @@
+{
+ "w": 252,
+ "h": 176,
+ "anchor": [
+  29,
+  157
+ ],
+ "emissivo": "esmeralda (fogo frio)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "tocha_verde"
+}

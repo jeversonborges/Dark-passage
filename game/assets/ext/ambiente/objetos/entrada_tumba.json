@@ -1,0 +1,17 @@
+{
+ "w": 502,
+ "h": 290,
+ "anchor": [
+  177,
+  197
+ ],
+ "lore": "vale_dos_reis",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Entrada de tumba do Vale dos Reis: escada cavada descendo até a porta retangular aberta no paredão de calcário,     batentes alisados, lintel com o disco solar e a deusa Maat ajoelhada, entulho de lascas das escavações.",
+ "kind": "entrada_tumba"
+}

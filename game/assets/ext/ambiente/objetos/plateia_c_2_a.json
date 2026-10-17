@@ -1,0 +1,17 @@
+{
+ "w": 538,
+ "h": 328,
+ "anchor": [
+  37,
+  310
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "camada_de": "arquibancada_agrak_a",
+ "quadro": 2,
+ "animacao": "0 parado, 1 balança, 2 meio, 3 braços no alto (morte)",
+ "kind": "plateia_c_2_a"
+}

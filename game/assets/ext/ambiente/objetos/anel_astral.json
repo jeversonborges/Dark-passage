@@ -1,0 +1,18 @@
+{
+ "w": 1052,
+ "h": 592,
+ "anchor": [
+  272,
+  511
+ ],
+ "emissivo": "azul de estrela",
+ "bioma": "amenti",
+ "sobreposicao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  8,
+  8
+ ],
+ "descricao": "",
+ "kind": "anel_astral"
+}

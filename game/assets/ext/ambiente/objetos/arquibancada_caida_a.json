@@ -1,0 +1,16 @@
+{
+ "w": 478,
+ "h": 292,
+ "anchor": [
+  54,
+  257
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Arquibancada que desabou: rampa de areia escorrendo do alto dos degraus até o fosso, com lajes de     degrau tombadas meio enterradas e ferragem para fora.",
+ "kind": "arquibancada_caida_a"
+}

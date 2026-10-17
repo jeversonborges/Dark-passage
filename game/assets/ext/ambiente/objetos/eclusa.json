@@ -1,0 +1,16 @@
+{
+ "w": 404,
+ "h": 232,
+ "anchor": [
+  99,
+  178
+ ],
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  5
+ ],
+ "descricao": "",
+ "kind": "eclusa"
+}

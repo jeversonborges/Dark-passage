@@ -1,0 +1,105 @@
+{
+ "monstro": "touro_de_poseidon",
+ "frame_size": [
+  320,
+  320
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  160.0,
+  215.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 8,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 12,
+   "loop": false
+  },
+  "scrape": {
+   "frames": 8,
+   "fps": 9,
+   "loop": true
+  },
+  "charge": {
+   "frames": 6,
+   "fps": 14,
+   "loop": true
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "touro_de_poseidon_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "touro_de_poseidon_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "touro_de_poseidon_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "scrape": {
+   "file": "touro_de_poseidon_scrape.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "charge": {
+   "file": "touro_de_poseidon_charge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "touro_de_poseidon_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "touro_de_poseidon_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.4
+ }
+}

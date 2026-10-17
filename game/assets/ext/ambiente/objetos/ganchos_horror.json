@@ -1,0 +1,17 @@
+{
+ "w": 382,
+ "h": 242,
+ "anchor": [
+  82,
+  196
+ ],
+ "emissivo": "brasa nos olhos do demônio",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "O que Benedito trouxe do campo da Grande Batalha: um demônio da Legião esfolado, um anjo depenado e um boi.",
+ "kind": "ganchos_horror"
+}

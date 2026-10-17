@@ -1,0 +1,15 @@
+{
+ "w": 156,
+ "h": 98,
+ "anchor": [
+  38,
+  76
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Banco de igreja quebrado, madeira escura.",
+ "kind": "banco_capela"
+}

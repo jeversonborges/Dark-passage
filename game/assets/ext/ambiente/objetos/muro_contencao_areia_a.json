@@ -1,9 +1,9 @@
 {
- "w": 208,
- "h": 128,
+ "w": 244,
+ "h": 148,
  "anchor": [
-  34,
-  109
+  48,
+  121
  ],
  "categoria": "paredes",
  "footprint_tiles": [

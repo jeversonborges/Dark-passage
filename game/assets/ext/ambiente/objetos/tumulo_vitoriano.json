@@ -1,0 +1,15 @@
+{
+ "w": 204,
+ "h": 120,
+ "anchor": [
+  70,
+  81
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Túmulo-arca em cantaria com tampa moldada, cercado por grade baixa de ferro batido.",
+ "kind": "tumulo_vitoriano"
+}

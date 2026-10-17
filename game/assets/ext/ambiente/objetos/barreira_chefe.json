@@ -1,0 +1,16 @@
+{
+ "w": 170,
+ "h": 106,
+ "anchor": [
+  41,
+  88
+ ],
+ "emissivo": "runas e brasas vermelhas",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estaca de selo: poste de ferro baixo (1,3 m) com anel de runas em brasa, correntes caídas e brasa no pé.     Repetida a cada ~1,5 tile em volta da arena, fecha o círculo sem tampar a luta.",
+ "kind": "barreira_chefe"
+}

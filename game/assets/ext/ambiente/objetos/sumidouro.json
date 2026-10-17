@@ -1,9 +1,9 @@
 {
- "w": 312,
- "h": 164,
+ "w": 358,
+ "h": 188,
  "anchor": [
-  147,
-  87
+  170,
+  99
  ],
  "emissivo": "brilho verde",
  "categoria": "props",

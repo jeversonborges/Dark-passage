@@ -1,15 +1,16 @@
 {
- "w": 196,
- "h": 118,
+ "w": 214,
+ "h": 124,
  "anchor": [
-  67,
-  80
+  79,
+  76
  ],
+ "bioma": "matadouro",
  "categoria": "dungeon",
  "footprint_tiles": [
   2,
   1
  ],
- "descricao": "",
+ "descricao": "Mesa de desossa: cepo grosso de madeira encharcada e cortada, pés de ferro, cutelos cravados, serrote de osso,     pernil a meio desossar, cabeça de porco e balde de miúdos embaixo.",
  "kind": "mesa_acougue"
 }

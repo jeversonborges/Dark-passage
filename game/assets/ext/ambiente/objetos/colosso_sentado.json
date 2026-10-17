@@ -1,0 +1,17 @@
+{
+ "w": 554,
+ "h": 364,
+ "anchor": [
+  123,
+  295
+ ],
+ "lore": "colosso",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Colosso sentado de quartzito (como os de Mênon): o rei no trono de bloco, mãos nos joelhos, nemes, rosto roído;     nas laterais do trono, o Nilo do Norte e do Sul amarrando o papiro e o lótus (sema-tawy) em relevo gasto.",
+ "kind": "colosso_sentado"
+}

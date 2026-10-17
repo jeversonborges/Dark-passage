@@ -1,0 +1,16 @@
+{
+ "w": 238,
+ "h": 126,
+ "anchor": [
+  60,
+  91
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Sarcófago de granito aberto pela escavação: a tampa empurrada de lado sobre calços de madeira, inscrições do     Livro dos Mortos nas faces, a deusa Ísis de asas abertas na cabeceira; vazio.",
+ "kind": "sarcofago_aberto"
+}

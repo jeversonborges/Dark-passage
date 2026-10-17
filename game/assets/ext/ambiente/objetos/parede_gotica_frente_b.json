@@ -1,0 +1,16 @@
+{
+ "w": 158,
+ "h": 100,
+ "anchor": [
+  36,
+  81
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Meia-parede da frente: mureta de tijolo com capa de cantaria e grade de ferro batido com lanças (não tampa).",
+ "kind": "parede_gotica_frente_b"
+}

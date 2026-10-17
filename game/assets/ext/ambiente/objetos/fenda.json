@@ -1,0 +1,18 @@
+{
+ "w": 748,
+ "h": 444,
+ "anchor": [
+  226,
+  349
+ ],
+ "emissivo": "esmeralda (o rasgo)",
+ "bioma": "atlantida",
+ "lore": "a_fenda",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "",
+ "kind": "fenda"
+}

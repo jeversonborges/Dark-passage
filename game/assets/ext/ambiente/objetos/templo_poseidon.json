@@ -1,0 +1,18 @@
+{
+ "w": 1790,
+ "h": 1044,
+ "anchor": [
+  603,
+  734
+ ],
+ "emissivo": "fogo das trípodes",
+ "bioma": "atlantida",
+ "lore": "templo_de_poseidon",
+ "categoria": "predios",
+ "footprint_tiles": [
+  20,
+  14
+ ],
+ "descricao": "",
+ "kind": "templo_poseidon"
+}

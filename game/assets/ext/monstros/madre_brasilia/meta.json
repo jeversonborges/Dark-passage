@@ -1,0 +1,135 @@
+{
+ "monstro": "madre_brasilia",
+ "frame_size": [
+  416,
+  416
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  208.0,
+  274.5
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 11,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "spin": {
+   "frames": 12,
+   "fps": 14,
+   "loop": false
+  },
+  "lunge": {
+   "frames": 11,
+   "fps": 12,
+   "loop": false
+  },
+  "cast": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "summon": {
+   "frames": 11,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "madre_brasilia_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "madre_brasilia_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "madre_brasilia_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "madre_brasilia_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "madre_brasilia_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin": {
+   "file": "madre_brasilia_spin.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "lunge": {
+   "file": "madre_brasilia_lunge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "madre_brasilia_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "madre_brasilia_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "madre_brasilia_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}

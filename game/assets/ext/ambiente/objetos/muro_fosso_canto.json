@@ -1,0 +1,15 @@
+{
+ "w": 328,
+ "h": 220,
+ "anchor": [
+  35,
+  199
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "muro_fosso_canto"
+}

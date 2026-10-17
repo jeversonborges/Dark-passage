@@ -1,0 +1,16 @@
+{
+ "w": 248,
+ "h": 160,
+ "anchor": [
+  60,
+  126
+ ],
+ "emissivo": "velas e marca",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Altar da Congregação: gabinete de transmissor coberto com pano de luto e a marca pintada,     microfone de fita no pedestal de latão, velas e rádios velhos deixados como oferenda.",
+ "kind": "altar_microfone"
+}

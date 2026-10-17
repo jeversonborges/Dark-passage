@@ -1,0 +1,17 @@
+{
+ "w": 136,
+ "h": 68,
+ "anchor": [
+  50,
+  43
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Mesa de oferendas (hotep) de calcário com bica: pães cônicos e redondos, figos, um cacho de uva, um ganso     depenado, flores de lótus murchas e a jarra de cerveja, tudo que os vivos ainda deixam para os mortos do Faium.",
+ "kind": "mesa_oferendas"
+}

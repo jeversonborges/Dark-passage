@@ -1,0 +1,16 @@
+{
+ "w": 302,
+ "h": 204,
+ "anchor": [
+  29,
+  185
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Lado de trás da plataforma aberta: treliça do mastro em aço vermelho e branco descascado,     contraventamento em X, chapas rebitadas, cabos coaxiais e guarda-corpo.",
+ "kind": "grade_torre_a"
+}

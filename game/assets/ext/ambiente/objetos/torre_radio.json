@@ -1,0 +1,27 @@
+{
+ "w": 1264,
+ "h": 2030,
+ "anchor": [
+  585,
+  1733
+ ],
+ "emissivo": "véu rubro do portão (dungeon); luz vermelha de aviação; estática violeta no topo; válvulas laranja",
+ "marco": "a_torre",
+ "porta_offset_tiles": [
+  4.6,
+  0.0
+ ],
+ "chegada_offset_tiles": [
+  5.8,
+  1.0
+ ],
+ "bloqueia_raio_tiles": 3.6,
+ "uso": "marco da raid A Torre no Novo Éden; a porta do mapa fica no portão (face +X)",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  9
+ ],
+ "descricao": "A Repetidora do Granizo: mastro de rádio de treliça vermelho e branco (23 m) sobre o prédio dos     transmissores, com o portão de carga aceso pelo véu da dungeon (raid A Torre). A Congregação da Portadora     pendurou cabos, válvulas e estandartes; a estática violeta escorre do topo; a luz de aviação ainda pisca.",
+ "kind": "torre_radio"
+}

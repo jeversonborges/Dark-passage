@@ -1,1 +1,18 @@
-{"w": 810, "h": 458, "anchor": [223, 343], "chefe": 1, "emissivo": "carne viva no funil", "categoria": "chefes", "footprint_tiles": [6, 6], "descricao": "Chefe 1 (Porão do Matadouro): o grande moedor de carne a vapor, centro da arena."}
+{
+ "w": 430,
+ "h": 268,
+ "anchor": [
+  131,
+  198
+ ],
+ "emissivo": "brasa da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "O moedor de Benedito no fosso: moedor industrial de ferro fundido num pedestal de tijolo, funil cheio de restos,     volante de manivela, boca de discos furados cuspindo carne moída num cocho, correntes e fornalha embaixo.",
+ "kind": "arena_moedor"
+}

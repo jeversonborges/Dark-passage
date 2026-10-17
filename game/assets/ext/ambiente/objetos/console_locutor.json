@@ -1,0 +1,16 @@
+{
+ "w": 236,
+ "h": 128,
+ "anchor": [
+  56,
+  97
+ ],
+ "emissivo": "VU e velas",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Mesa de som do locutor: tampo inclinado de botões de baquelite e faders, ponte com dois VU     acesos em laranja, microfone de braço, fones e velas derretidas sobre o painel.",
+ "kind": "console_locutor"
+}

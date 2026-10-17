@@ -1,0 +1,17 @@
+{
+ "w": 1064,
+ "h": 612,
+ "anchor": [
+  297,
+  492
+ ],
+ "emissivo": "lanterna de seiva (âmbar)",
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "arvore_eden_2"
+}

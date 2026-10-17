@@ -11,7 +11,9 @@ Formato de saída (linhas indexadas por y, um caractere por x):
   props        [{k, x, y, chao?, luz?}]   k = nome do objeto do kit (já com _a/_b)
   objetos      baús, interativos, portais (lidos pelo servidor)
 """
-import json, math, os, random
+import sys as _sys, os as _os; _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+import mapa_biblioteca
+import json, math, os, random, zlib
 
 G = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = f"{G}/data/mapas"
@@ -88,15 +90,11 @@ def area_inicial():
                 "arvore_morta", "arvore_morta_grande", "lama_porcos", "duna_areia", "poca_sangue_rastro"}
     juncos_ok = []
     def limpa_rio(p):
+        # 0.8.5: só sai o que nasce em cima da água (lama funda 'w' e poça/vau 'r'); as touceiras das margens ficam
         if p["kind"] not in MATO_RIO or p.get("ponto") or p.get("objeto") or p.get("bau") or p.get("light"): return False
         xi, yi = int(p["x"]), int(p["y"])
         if not (0 <= xi < n and 0 <= yi < n): return False
-        dd = dag[yi][xi]
-        raio = 5.0 if p["kind"].startswith("arvore") else 4.0
-        if dd > raio: return False
-        if p["kind"] == "juncos" and 0.9 <= dd <= 2.0 and all(math.dist((p["x"], p["y"]), j) > 4.5 for j in juncos_ok):
-            juncos_ok.append((p["x"], p["y"])); return False
-        return True
+        return d["terreno"][xi][yi] in "wr"
     for p in d["props"]:
         if p.get("invisivel") or limpa_rio(p): continue
         if p["kind"] == "ponte_pedra_ruina": continue   # sem arte: vira ponte de tábuas abaixo
@@ -178,6 +176,8 @@ def area_inicial():
         "escotilha_silo": [(97.0, 128.5)],
         "antena_radio": [(30.5, 80.5)],
     }
+    if d["size"] == 200:   # mapa novo da cidade: escritório e rastro no frigorífico (Abatedouro), não nas posições antigas
+        POS_OBJ.update({"escritorio_capataz": [(161.5, 78.5)], "rastro_arrasto": [(156.5, 80.5), (157.5, 82.5), (160.5, 81.5)]})
     VIS_OBJ = {"estandartes_caidos": "estandarte_rasgado", "pocas_amargas": "poca_toxica", "escotilha_silo": "tambores_radioativos",
                "antena_radio": "poste_telegrafo", "rastro_arrasto": "poca_sangue"}
     for oid, lst in POS_OBJ.items():
@@ -216,13 +216,15 @@ def area_inicial():
         ("sombra_gravada", 101.0, 125.5, 3, 10, "neutro", "beira_da_tempestade"),
         ("sombra_gravada", 106.0, 129.0, 3, 11, "neutro", "beira_da_tempestade"),
     ]
-    for mob, x, y, q, lv, temp, spot in EXTRA:
+    ja_spots = {sp["id"] for sp in d.get("spots", [])}
+    mapa_antigo = "acampamento_desertores" not in ja_spots   # só o mapa de 160 tem os apelidos; o novo tem os spots de verdade
+    for mob, x, y, q, lv, temp, spot in (EXTRA if mapa_antigo else []):
         pp = livre_perto(x, y)
         g = {"mob": mob, "pos": pp, "raio": 1.5, "qtd": q, "nivel": lv, "temperamento": temp, "spot": spot, "respawn_s": 14}
         if temp == "territorial": g["raio_territorio"] = 4
         spawns.append(g)
     # spots que as missões pedem e o mapa não tem: apelido para o spot existente mais perto
-    spot_alias = {"acampamento_desertores": "margem_das_viuvas", "marco_do_corte": "covas_rasas"}
+    spot_alias = {"acampamento_desertores": "margem_das_viuvas", "marco_do_corte": "covas_rasas"} if mapa_antigo else {}
     npcs = [{"id": p["id"], "pos": [p["x"], p["y"]], "dir": [1, 0]} for p in d["npcs"]]
     ids_npc = {p["id"] for p in d["npcs"]}
     for nid, ponto, off in (("isaura_radialista", "relogio_afogado", (1.8, 1.6)), ("corvina_atravessadora", "sotao_afogado", (1.6, 0.8))):
@@ -236,6 +238,13 @@ def area_inicial():
         x, y = (car["x"] + 1.2, car["y"] + 1.0) if car else (ds["x"] + 2, ds["y"])
         npcs.append({"id": "tobias_carrinho", "pos": livre_perto(x, y), "dir": [-1, 1], "descanso": ds["nome"]})
     cl = d["camera_limite"]
+    # ligação com a Mata do Granizo (Novo Éden, 0.8.3): a fresta da borda norte leva à mata
+    objetos.append({"kind": "portal", "pos": [87.5, 24.5], "para": "mata_do_granizo", "chegada": [72.5, 85.5],
+                    "nome": "Linha de Cinza · para a Mata do Granizo", "visual": "escada_subida"})
+    # ligação com Jerusalém e Monte Hermon (Arautos, 0.9.3): a estrada sai no caminho da banca da Corvina
+    objetos.append({"kind": "portal", "pos": [56.5, 126.5], "para": "jerusalem_hermon", "chegada": [101.5, 34.5],
+                    "nome": "Estrada dos Peregrinos · para Jerusalém", "visual": "escada_subida"})
+    luzes += mapa_biblioteca.rua(objetos, props, npcs, blk)   # Biblioteca Soterrada: lanterna, lintel e quarto da Nina
     m = {"id": "area_inicial", "nome": d["name"], "w": n, "h": n,
          "grade": ["".join("#" if blk[y][x] else "." for x in range(n)) for y in range(n)],
          "terreno": ["".join(ter[y]) for y in range(n)], "zona_grade": zg, "zonas": zonas, "amargo": amargo,
@@ -243,7 +252,7 @@ def area_inicial():
          "sons": d.get("sons_pontuais", []), "camera": [cl["x0"], cl["y0"], cl["x1"], cl["y1"]],
          "spawn": d["spawn"], "spawn_por_faccao": d["spawn_por_faccao"],
          "rio": {"centro": d["rio"]["centro"], "largura": d["rio"]["largura"]},
-         "ceu": {"escuro": 0.35, "cor": [0.78, 0.82, 0.74], "neblina": [0.55, 0.62, 0.48]}, "exterior": True}
+         "ceu": {"escuro": 0.1, "cor": [0.86, 0.88, 0.8], "neblina": [0.55, 0.62, 0.48]}, "exterior": True}
     salvar(m)
 
 # ====================================================================== masmorra
@@ -254,7 +263,7 @@ class Andar:
         s.blk = [[True] * w for _ in range(h)]
         s.props, s.luzes, s.objetos, s.spawns, s.npcs = [], [], [], [], []
         s.zona = zona
-        s.rng = random.Random(hash(id) & 0xffff)
+        s.rng = random.Random(zlib.crc32(id.encode()) & 0xffff)   # crc32: hash() de str muda a cada execução e os mapas das criptas saíam diferentes
         s.extra_blk = set()
 
     def sala(s, x0, y0, x1, y1, piso=None):
@@ -293,19 +302,34 @@ class Andar:
         return 0 <= x < s.w and 0 <= y < s.h and not s.blk[y][x]
 
     def paredes(s):
-        """Paredes só nas bordas de trás (lado de cima da tela): vazio em x-1 -> parede ao longo de Y (_b); vazio em y+1 -> ao longo de X (_a).
-        As bordas da frente ficam abertas para não esconder o personagem; o escuro do vazio fecha a sala."""
+        """Paredes de trás (lado de cima da tela) altas: vazio em x-1 -> parede ao longo de Y (_b); vazio em y+1 -> ao longo de X (_a).
+        Bordas da frente (baixo da tela) com a meia-parede _frente_*, na altura do joelho: fecha a sala sem esconder o personagem."""
+        def alta(sufixo, x, y):
+            v2 = s.parede + "_v2" + sufixo
+            k = v2 if v2 in KIT and (zlib.crc32(f"{s.id}{x},{y}".encode()) % 10) < 3 else s.parede + sufixo   # sem gastar s.rng: o resto do mapa não muda
+            s.prop(k, x + 0.5, y + 0.5)
+        def frente(sufixo, x, y):
+            k = s.parede + "_frente" + sufixo
+            if k in KIT: s.prop(k, x + 0.5, y + 0.5); s.props[-1]["frente"] = 1
         for y in range(s.h):
             for x in range(s.w):
                 if not s.blk[y][x]: continue
                 if s.livre(x + 1, y) and not s.livre(x, y - 1):
-                    s.prop(s.parede + "_b", x + 0.5, y + 0.5)
+                    alta("_b", x, y)
                 elif s.livre(x, y - 1) and not s.livre(x + 1, y):
-                    s.prop(s.parede + "_a", x + 0.5, y + 0.5)
+                    alta("_a", x, y)
                 elif s.livre(x + 1, y) and s.livre(x, y - 1):
-                    s.prop(s.parede + "_a", x + 0.5, y + 0.5)
+                    s.prop(s.parede + "_canto" if s.parede + "_canto" in KIT else s.parede + "_a", x + 0.5, y + 0.5)
                 elif s.livre(x + 1, y - 1) and not s.livre(x + 1, y) and not s.livre(x, y - 1):
-                    s.prop(s.parede + "_a", x + 0.5, y + 0.5)
+                    s.prop(s.parede + "_canto" if s.parede + "_canto" in KIT else s.parede + "_a", x + 0.5, y + 0.5)
+                if s.livre(x - 1, y) and not s.livre(x, y + 1):
+                    frente("_b", x, y)
+                elif s.livre(x, y + 1) and not s.livre(x - 1, y):
+                    frente("_a", x, y)
+                elif s.livre(x - 1, y) and s.livre(x, y + 1):
+                    frente("_canto", x, y)
+                elif s.livre(x - 1, y + 1) and not s.livre(x - 1, y) and not s.livre(x, y + 1):
+                    frente("_canto", x, y)
 
     def espalhar(s, kinds, n, area, chao=True, bloq=0, dist=1.5):
         x0, y0, x1, y1 = area
@@ -335,7 +359,7 @@ class Andar:
              "zona_grade": ["".join("A" if s.ter[y][x] != " " else "." for x in range(s.w)) for y in range(s.h)],
              "zonas": [s.zona], "npcs": s.npcs, "objetos": s.objetos, "spawns": s.spawns, "props": s.props, "luzes": s.luzes,
              "camera": [min(xs) - 4, min(ys) - 4, max(xs) + 5, max(ys) + 5], "spawn": spawn,
-             "ceu": ceu or {"escuro": 0.86, "cor": [0.5, 0.42, 0.4], "neblina": [0.1, 0.07, 0.06]}, "exterior": False}
+             "ceu": ceu or {"escuro": 0.61,"cor": [0.5, 0.42, 0.4], "neblina": [0.1, 0.07, 0.06]}, "exterior": False}
         if chefe: m["chefe"] = chefe
         salvar(m)
 
@@ -455,7 +479,7 @@ def ossario_carpideiras():
     a.luzes += [[52, 60, 0.8, 0.85, 1, 5], [12, 32, 1, 0.75, 0.4, 5]]
     a.paredes()
     a.exportar(chefe={"id": "irma_celeste", "pos": [cx + 3, cy - 3], "arena": {"centro": [cx, cy], "raio": r}, "porta": porta, "coristas": coristas},
-               ceu={"escuro": 0.9, "cor": [0.55, 0.5, 0.45], "neblina": [0.08, 0.07, 0.06]}, spawn=[12.5, 32.5])
+               ceu={"escuro": 0.65,"cor": [0.55, 0.5, 0.45], "neblina": [0.08, 0.07, 0.06]}, spawn=[12.5, 32.5])
 
 def camara_trombeta():
     a = Andar("camara_trombeta", "Câmara da Trombeta", 70, 70, "j", "parede_trombeta",
@@ -494,7 +518,15 @@ def camara_trombeta():
     a.paredes()
     a.exportar(chefe={"id": "zacarias_arauto", "pos": [cx + 3, cy - 3], "arena": {"centro": [cx, cy], "raio": r}, "porta": porta,
                       "trombeta": [cx + 5.5, cy - 5.0]},
-               ceu={"escuro": 0.84, "cor": [0.7, 0.62, 0.45], "neblina": [0.12, 0.1, 0.06]}, spawn=[12.5, 34.5])
+               ceu={"escuro": 0.59,"cor": [0.7, 0.62, 0.45], "neblina": [0.12, 0.1, 0.06]}, spawn=[12.5, 34.5])
 
 if __name__ == "__main__":
-    area_inicial(); porao_matadouro(); ossario_carpideiras(); camara_trombeta()
+    import sys
+    mapa_biblioteca.interior(G, OUT)   # Biblioteca Soterrada (mapa interior, pisos próprios)
+    if "cripta" not in sys.argv[1:]: area_inicial()   # "cripta": só os andares da cripta, sem mexer na área inicial
+    for f in (porao_matadouro, ossario_carpideiras, camara_trombeta):
+        pronto = f"{G}/data/design/mapas/cripta/{f.__name__}.json"   # layout 0.7.8 do Cenário (aprovado pelo Jefin), vem de design/mapas/cripta/
+        if os.path.exists(pronto):
+            m = json.load(open(pronto)); m.pop("salas", None); salvar(m)
+            print(m["id"], "(layout do Cenário)", m["w"], "x", m["h"], "props", len(m["props"]))
+        else: f()

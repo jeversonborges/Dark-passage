@@ -1,0 +1,17 @@
+{
+ "w": 362,
+ "h": 230,
+ "anchor": [
+  78,
+  187
+ ],
+ "emissivo": "esmeralda (olho)",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "estatua_thoth"
+}

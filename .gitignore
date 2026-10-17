@@ -3,3 +3,6 @@ __pycache__/
 .godot/
 game/builds/
 *.zip
+game/build/
+game/dist/
+game/server_data/

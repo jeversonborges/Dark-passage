@@ -1,0 +1,17 @@
+{
+ "w": 298,
+ "h": 190,
+ "anchor": [
+  65,
+  154
+ ],
+ "emissivo": "esmeralda (lua)",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "estatua_babuino"
+}

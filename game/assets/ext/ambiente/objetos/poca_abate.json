@@ -1,0 +1,17 @@
+{
+ "w": 120,
+ "h": 66,
+ "anchor": [
+  59,
+  30
+ ],
+ "bioma": "matadouro",
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poça de sangue do matadouro (decalque): parte fresca e brilhante no meio, borda velha e escura, respingos.",
+ "kind": "poca_abate"
+}

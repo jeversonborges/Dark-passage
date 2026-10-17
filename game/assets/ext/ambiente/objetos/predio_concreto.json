@@ -1,0 +1,16 @@
+{
+ "w": 1528,
+ "h": 1146,
+ "anchor": [
+  504,
+  823
+ ],
+ "emissivo": "janela acesa",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  8
+ ],
+ "descricao": "Bloco de apartamentos de concreto partido, meio enterrado na areia; sobreviventes     vivem no térreo com remendos de sucata e uma janela acesa.",
+ "kind": "predio_concreto"
+}

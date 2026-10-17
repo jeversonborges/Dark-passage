@@ -1,0 +1,16 @@
+{
+ "w": 362,
+ "h": 252,
+ "anchor": [
+  59,
+  222
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Escada caracol de ferro fundido que sobe à galeria: mastro, degraus vazados, balaústres e corrimão de     latão em espiral; some no escuro de cima.",
+ "kind": "escada_caracol"
+}

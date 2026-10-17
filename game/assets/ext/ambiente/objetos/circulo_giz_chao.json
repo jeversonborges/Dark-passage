@@ -1,0 +1,18 @@
+{
+ "w": 140,
+ "h": 76,
+ "anchor": [
+  70,
+  38
+ ],
+ "bioma": "torre",
+ "enfeite": true,
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Decalque de chão: círculo de escuta riscado a giz e tinta de válvula, a onda senoidal atravessando a trombeta no     meio, os números da contagem invertida em volta, tocos de vela e cera.",
+ "kind": "circulo_giz_chao"
+}

@@ -1,0 +1,19 @@
+{
+ "w": 750,
+ "h": 470,
+ "anchor": [
+  147,
+  392
+ ],
+ "emissivo": "esmeralda (a florzinha ou o fio da pena)",
+ "bioma": "amenti",
+ "senhor": 2,
+ "maos": "abertas",
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "(girada 283.75 graus)",
+ "kind": "trono_senhor_2"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 94,
+ "h": 58,
+ "anchor": [
+  34,
+  38
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Modelo de barca funerária de madeira pintada do enxoval: casco em lua, olho de Hórus na proa, remadores de     madeira sentados, o dono sob o dossel e a vela de linho enrolada; sobre um suporte baixo.",
+ "kind": "modelo_barca"
+}

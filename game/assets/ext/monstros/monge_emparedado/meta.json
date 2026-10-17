@@ -1,0 +1,115 @@
+{
+ "monstro": "monge_emparedado",
+ "frame_size": [
+  256,
+  256
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  128.0,
+  186.2
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 7,
+   "loop": true
+  },
+  "attack": {
+   "frames": 12,
+   "fps": 12,
+   "loop": false
+  },
+  "ambush": {
+   "frames": 16,
+   "fps": 12,
+   "loop": false
+  },
+  "pray": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "broken": {
+   "frames": 8,
+   "fps": 7,
+   "loop": true
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 11,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "monge_emparedado_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "monge_emparedado_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "monge_emparedado_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "ambush": {
+   "file": "monge_emparedado_ambush.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "pray": {
+   "file": "monge_emparedado_pray.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "broken": {
+   "file": "monge_emparedado_broken.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "monge_emparedado_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "monge_emparedado_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.9
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "w": 268,
+ "h": 182,
+ "anchor": [
+  19,
+  169
+ ],
+ "emissivo": "lampião a gás",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste de lampião a gás vitoriano, ferro batido, chama quente.",
+ "kind": "lampiao_gas"
+}

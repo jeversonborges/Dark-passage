@@ -1,0 +1,17 @@
+{
+ "w": 234,
+ "h": 240,
+ "anchor": [
+  116,
+  -46
+ ],
+ "bioma": "amenti",
+ "pendurado": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "",
+ "kind": "rocha_flutuante_2"
+}

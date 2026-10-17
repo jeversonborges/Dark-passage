@@ -1,0 +1,16 @@
+{
+ "w": 84,
+ "h": 52,
+ "anchor": [
+  29,
+  36
+ ],
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "pedra_gasta_amenti"
+}

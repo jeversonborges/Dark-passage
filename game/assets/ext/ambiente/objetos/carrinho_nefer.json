@@ -1,0 +1,18 @@
+{
+ "w": 240,
+ "h": 132,
+ "anchor": [
+  59,
+  83
+ ],
+ "emissivo": "fogo (lampião)",
+ "npc": "Nefer",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "O carrinho da aguadeira Nefer nas fogueiras: carroça de duas rodas puxada por um burrico, jarras d'água     amarradas, frascos de poção de faiança e a lamparina pendurada no varal.",
+ "kind": "carrinho_nefer"
+}

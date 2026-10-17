@@ -1,0 +1,17 @@
+{
+ "w": 184,
+ "h": 108,
+ "anchor": [
+  56,
+  84
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estante de coro de ferro batido com o hinário aberto na antífona do Juízo, partituras rasgadas no chão e uma     trombeta calada no banquinho do lado.",
+ "kind": "atril_partituras"
+}

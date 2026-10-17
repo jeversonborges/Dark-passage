@@ -1,0 +1,17 @@
+{
+ "w": 258,
+ "h": 176,
+ "anchor": [
+  48,
+  137
+ ],
+ "emissivo": "VU laranja",
+ "andar": 3,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Armário de gravadores de rolo da Central de Escuta: dois decks de fita com carretéis,     VU de luz laranja, porta de baixo aberta com caixas de fita, rolos empilhados em cima e     fita marrom escorrendo pela frente; cera de vela no tampo.",
+ "kind": "armario_fitas"
+}

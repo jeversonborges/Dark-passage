@@ -1,0 +1,15 @@
+{
+ "w": 160,
+ "h": 104,
+ "anchor": [
+  41,
+  85
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilarete da frente com bola de pedra.",
+ "kind": "parede_gotica_frente_canto"
+}

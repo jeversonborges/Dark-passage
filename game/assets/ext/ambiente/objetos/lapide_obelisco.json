@@ -1,0 +1,15 @@
+{
+ "w": 176,
+ "h": 118,
+ "anchor": [
+  26,
+  102
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Obelisco vitoriano baixo sobre base de cantaria.",
+ "kind": "lapide_obelisco"
+}

@@ -1,0 +1,45 @@
+{
+ "monstro": "o_que_nao_tem_rosto",
+ "frame_size": [
+  256,
+  256
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  128.0,
+  211.1
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 8,
+   "fps": 4,
+   "loop": true
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "o_que_nao_tem_rosto_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.75
+ }
+}

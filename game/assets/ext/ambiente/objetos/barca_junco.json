@@ -1,0 +1,17 @@
+{
+ "w": 246,
+ "h": 118,
+ "anchor": [
+  80,
+  75
+ ],
+ "nota": "linha d'água em z=0",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  1
+ ],
+ "descricao": "Barca de feixes de papiro amarrados (como nas pinturas das mastabas), pontas curvas, vara de impulsionar.",
+ "kind": "barca_junco"
+}

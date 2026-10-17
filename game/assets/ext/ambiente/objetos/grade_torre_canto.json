@@ -1,0 +1,15 @@
+{
+ "w": 304,
+ "h": 204,
+ "anchor": [
+  25,
+  188
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Montante da treliça no canto: perna de cantoneira pesada com emenda aparafusada e grampos de subida.",
+ "kind": "grade_torre_canto"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 238,
+ "h": 140,
+ "anchor": [
+  103,
+  83
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Penedos arredondados de granito da Primeira Catarata, com a crosta escura do deserto e o rosa por baixo.",
+ "kind": "rocha_granito"
+}

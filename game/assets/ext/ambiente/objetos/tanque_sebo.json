@@ -1,16 +1,18 @@
 {
- "w": 330,
- "h": 194,
+ "w": 322,
+ "h": 182,
  "anchor": [
-  101,
-  140
+  60,
+  149
  ],
- "luz": "quente",
- "categoria": "props",
+ "emissivo": "brasa da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
  "footprint_tiles": [
-  3,
-  3
+  2,
+  2
  ],
- "descricao": "Tanque de sebo do abatedouro: caldeirão de ferro com gordura borbulhando.",
+ "descricao": "Tacho de derreter sebo: caldeirão de chapa rebitada sobre fornalha de tijolo com a boca em brasa,     sebo amarelo grosso por cima, escumadeira e chaminé.",
  "kind": "tanque_sebo"
 }

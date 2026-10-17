@@ -1,0 +1,18 @@
+{
+ "w": 448,
+ "h": 260,
+ "anchor": [
+  151,
+  181
+ ],
+ "emissivo": "turquesa (cristal-guia)",
+ "npc": "Diaprepes",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Tenda da Embaixada de Thotme (atlantes de Diaprepes): lona branca com debrum de oricalco, varas de bronze,     uma ânfora com o selo do rei, o cristal-guia aceso em turquesa num tripé (a luz que a Redoma não manda aqui).",
+ "kind": "tenda_atlante"
+}

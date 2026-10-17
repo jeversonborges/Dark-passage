@@ -1,0 +1,17 @@
+{
+ "w": 592,
+ "h": 366,
+ "anchor": [
+  102,
+  324
+ ],
+ "emissivo": "lâmpada de válvula",
+ "portal": "elevador entre andares",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Gaiola de carga de ferro com porta pantográfica aberta, trilhos-guia e cabos subindo para o escuro,     guincho com motor e polia ao lado e lâmpada de válvula laranja. Portal de subir/descer entre andares.",
+ "kind": "elevador_torre"
+}

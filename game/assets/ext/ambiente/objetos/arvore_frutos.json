@@ -1,0 +1,17 @@
+{
+ "w": 700,
+ "h": 424,
+ "anchor": [
+  141,
+  347
+ ],
+ "emissivo": "frutos dourados",
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "arvore_frutos"
+}

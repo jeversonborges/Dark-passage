@@ -1,0 +1,16 @@
+{
+ "w": 810,
+ "h": 544,
+ "anchor": [
+  40,
+  519
+ ],
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "parede_glifos_amenti_canto"
+}

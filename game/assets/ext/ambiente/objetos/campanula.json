@@ -1,0 +1,17 @@
+{
+ "w": 190,
+ "h": 116,
+ "anchor": [
+  56,
+  83
+ ],
+ "emissivo": "folhas e seiva em ciano",
+ "bioma": "novo_eden",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "campanula"
+}

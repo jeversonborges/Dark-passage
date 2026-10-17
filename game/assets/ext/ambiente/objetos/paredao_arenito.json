@@ -1,0 +1,17 @@
+{
+ "w": 960,
+ "h": 538,
+ "anchor": [
+  274,
+  410
+ ],
+ "borda": true,
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Paredão de calcário e arenito do Vale dos Reis (borda alta): camadas roídas, saliências, tálus de lascas.",
+ "kind": "paredao_arenito"
+}

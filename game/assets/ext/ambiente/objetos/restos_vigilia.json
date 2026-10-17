@@ -1,0 +1,16 @@
+{
+ "w": 130,
+ "h": 78,
+ "anchor": [
+  51,
+  39
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Restos de um soldado da Vigília no chão da Vala: sobretudo de lona, chapéu de aba larga, sabre.",
+ "kind": "restos_vigilia"
+}
