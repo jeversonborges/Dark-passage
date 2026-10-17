@@ -220,31 +220,199 @@ def _(rng):
 # CULTISTA - magia de sangue (rubro), cinzas e carne
 # ======================================================================
 
-@effect('cult_sangria_projetil', 'cultista', (40, 20), 6, fps=16, loop=True, anchor=(32, 10),
-        desc='Sangria: orbe de sangue em voo com rastro (aponta para a direita).')
+def _helix(c, x0, x1, y, t, amp, k, ph, ramp='sangue', w=.55, a=1.5, glow=None):
+    """Fita em helice do x0 (cabeca) ao x1 (cauda); afina e abre para tras."""
+    n = 22; pts = []
+    for j in range(n):
+        u = j / (n - 1)
+        x = x0 + (x1 - x0) * u
+        pts.append((x, y + math.sin(u * k - TAU * t * 2 + ph) * amp * (.25 + u * .9)))
+    c.poly(ramp, pts, w, a, w1=.2, a1=.0, hard=True)
+    if glow: c.poly(glow, pts, 1.2, .35, w1=.4, a1=0)
+
+
+@effect('cult_basico_projetil', 'cultista', (72, 32), 8, fps=16, loop=True, anchor=(58, 16),
+        desc='Missil de sangue: ataque basico do cultista. Coracao rubro envolto em fitas de sangue, '
+             'runas orbitando e cinza na cauda (aponta para a direita).')
 def _(rng):
+    gotas = [(rng.uniform(0, 1), rng.uniform(-3, 3), rng.uniform(.6, 1.1)) for _ in range(7)]
+    cinzas = [(rng.uniform(0, 1), rng.uniform(-5, 5), rng.uniform(0, TAU)) for _ in range(9)]
     def f(c, t, i):
+        hx, hy = 58, 16
         ph = TAU * t
-        c.line('rubro', 4, 10, 32, 10, .3, .1, w1=3, a1=.9)
-        for k in range(5):
-            x = 30 - k * 5 - 3 * t * 5 % 5
-            c.blob('sangue', x, 10 + math.sin(ph + k) * 2, 1.2 - k * .18, 1.5, hard=True)
-        c.blob('rubro', 32, 10, 5 + .6 * math.sin(ph * 2), 1.0)
-        c.blob('sangue', 32, 10, 3, 1.6, hard=True)
-        c.blob('rubro', 31, 9, 1.4, 1.6)
+        # cauda de fumaca escura que rola para tras
+        for k in range(7):
+            u = (k / 7 + t) % 1
+            x = hx - 8 - u * 46
+            c.blob('fumaca', x, hy + math.sin(u * 5 + ph) * 2.5 * u, 2.5 + u * 4.5, .55 * (1 - u) ** .8, sy=.75)
+        # rastro de luz curto e fino (o cliente ainda soma o seu)
+        c.line('rubro', hx - 34, hy, hx - 2, hy, .25, .0, w1=2.4, a1=.75)
+        # duas fitas de sangue em helice, defasadas
+        _helix(c, hx - 3, hx - 44, hy, t, 7, 8, 0, w=.85, glow='rubro')
+        _helix(c, hx - 3, hx - 38, hy, t, 6, 8, math.pi, w=.7)
+        # gotas que se soltam da cauda e caem
+        for u0, oy, s in gotas:
+            u = (u0 + t) % 1
+            x = hx - 12 - u * 34
+            y = hy + oy + 9 * u * u
+            c.blob('sangue', x, y, s * (1 - u * .5), 1.4, hard=True)
+        # cinza acesa subindo
+        for u0, oy, a0 in cinzas:
+            u = (u0 + t * 1.3) % 1
+            x = hx - 10 - u * 40; y = hy + oy - 6 * u + math.sin(a0 + u * 9) * 1.5
+            c.blob('cinza', x, y, .5, 1.2 * (1 - u), hard=True)
+        # coracao: halo, casca de sangue, miolo quente
+        pul = .5 + .5 * math.sin(ph * 2)
+        c.blob('rubro', hx, hy, 9 + 1.2 * pul, .3)
+        c.blob('sangue', hx - 1, hy, 5, 1.6, hard=True, sy=.85)
+        c.ring('rubro', hx - 1, hy, 4.6, .5, .9 + .3 * pul, sy=.85, ang=(-1.6, 1.6))
+        c.blob('rubro', hx + .5, hy - .3, 2.4 + .4 * pul, 1.4)
+        c.blob('rubro', hx + 1, hy - .5, .9, 2.4)
+        c.line('rubro', hx + 2, hy, hx + 8, hy, 1.0, 1.0, w1=.1, a1=.3)
+        # 3 runas orbitando a cabeca (elipse que gira em volta do eixo do voo)
+        for k in range(3):
+            th = ph + TAU * k / 3
+            rx = hx - 3 + math.cos(th) * 3
+            ry = hy + math.sin(th) * 8.5
+            fr = .55 + .45 * math.cos(th)          # a runa da frente brilha mais
+            rune(c, 'rubro', rx, ry, 1.1, 40 + k, .8 + .8 * fr)
     return f
 
 
-@effect('cult_sangria_impacto', 'cultista', (56, 56), 10, fps=18,
-        desc='Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).')
+@effect('cult_sangria_projetil', 'cultista', (64, 32), 8, fps=18, loop=True, anchor=(48, 16),
+        desc='Sangria: uma gota do proprio sangue vira uma lamina crescente que voa girando, '
+             'pingando e deixando um rastro rubro (aponta para a direita).')
 def _(rng):
-    d = [(rng.uniform(0, TAU), rng.uniform(40, 90), rng.uniform(.7, 1.4)) for _ in range(18)]
+    gotas = [(rng.uniform(0, 1), rng.uniform(-6, 6), rng.uniform(.5, 1.)) for _ in range(6)]
     def f(c, t, i):
-        c.blob('rubro', 28, 28, 14 * (1 - t) ** 1.5, 1.5 * (1 - t) ** 2)
-        c.ring('rubro', 28, 28, 4 + 18 * ease_out(t), 1.2 * (1 - t), 1.2 * (1 - t), sy=.8)
-        for a, v, s in d:
-            x, y = ballistic((28, 28), (math.cos(a) * v, math.sin(a) * v * .7 - 20), t * .7, g=200, k=2)
-            c.blob('sangue', x, y, s, 1.5 * (1 - t ** 3), hard=True)
+        hx, hy = 48, 16
+        sq = math.cos(TAU * t * 2)                 # a lamina gira no proprio eixo: achata e abre
+        sy = .35 + .65 * abs(sq)
+        # rastro em leque atras da lamina
+        for k in range(5):
+            x = hx - 6 - k * 7
+            c.line('rubro', x, hy - 11 * sy * (1 - k * .15), x - 7, hy - 9 * sy * (1 - k * .15), .4, .6 * (1 - k / 5))
+            c.line('rubro', x, hy + 11 * sy * (1 - k * .15), x - 7, hy + 9 * sy * (1 - k * .15), .4, .6 * (1 - k / 5))
+        c.line('rubro', hx - 30, hy, hx - 4, hy, .3, 0, w1=3, a1=.5)
+        # corpo da lamina: crescente (convexo para a frente) de sangue com fio aceso
+        n = 26
+        for k in range(n):
+            u = k / (n - 1)
+            th = -1.25 + 2.5 * u
+            w = 2.6 * math.sin(math.pi * u) ** .7 + .3
+            x = hx - 6 + math.cos(th) * 10; y = hy + math.sin(th) * 13 * sy
+            c.blob('sangue', x - w * .4, y, w, 1.5, hard=True, sy=max(sy, .5))
+            c.blob('rubro', x + .6, y, .9 + w * .3, 1.1 * math.sin(math.pi * u) ** .5)
+        c.blob('rubro', hx + 3, hy, 5, .35)
+        for u0, oy, s in gotas:
+            u = (u0 + t) % 1
+            c.blob('sangue', hx - 8 - u * 30, hy + oy * sy + 8 * u * u, s * (1 - u * .4), 1.4, hard=True)
+    return f
+
+
+def _respingos(rng, n, vmin, vmax, up):
+    return [(rng.uniform(0, TAU), rng.uniform(vmin, vmax), rng.uniform(.6, 1.5), rng.uniform(-up, up)) for _ in range(n)]
+
+
+@effect('cult_missil_impacto', 'cultista', (96, 96), 14, fps=18, anchor=(48, 46),
+        desc='Missil de sangue: o coracao estoura num clarao rubro, uma coroa de sangue cai com peso, '
+             'um selo de runas pisca no chao e sobe cinza (impacto do ataque basico).')
+def _(rng):
+    gx, gy = 48, 46
+    chao = gy + 20                                  # pe do alvo (o cliente toca o impacto 40 px acima)
+    gotas = _respingos(rng, 34, 30, 140, 10)
+    raios = [(rng.uniform(0, TAU), rng.uniform(.7, 1.2)) for _ in range(9)]
+    cinzas = [(rng.uniform(-14, 14), rng.uniform(0, .4), rng.uniform(0, TAU)) for _ in range(14)]
+    poças = [(rng.uniform(-16, 16), rng.uniform(-3, 3), rng.uniform(1.2, 2.6)) for _ in range(7)]
+    def f(c, t, i):
+        # 1) clarao
+        k = (1 - t) ** 2.2
+        if t < .5:
+            c.blob('rubro', gx, gy, 18 * (.6 + t), 1.1 * k)
+            c.blob('rubro', gx, gy, 5 * (1 - t * 2), 2.2 * (1 - t * 2))
+            for th, L in raios:
+                r1 = 26 * L * ease_out(min(t / .25, 1))
+                c.line('rubro', gx + math.cos(th) * 4, gy + math.sin(th) * 3,
+                       gx + math.cos(th) * r1, gy + math.sin(th) * r1 * .7, 1.0 * k, 1.6 * k, w1=.1, a1=0)
+        # 2) anel de choque no ar e onda no chao
+        c.ring('rubro', gx, gy, 6 + 30 * ease_out(t, 3), .7 * (1 - t), .9 * (1 - min(t * 2.2, 1)) ** 1.5, sy=.75)
+        c.ring('rubro', gx, chao, 4 + 34 * ease_out(t, 2), 1.0 * (1 - t), 1.0 * (1 - t), sy=.38)
+        # 3) selo de runas no chao (aparece, pisca, apaga)
+        s = bell(t, .08, .9)
+        if s > 0:
+            fl = .75 + .25 * math.sin(i * 2.7)
+            rune_circle(c, 'rubro', gx, chao, 17, t, a=.9 * s * fl, sy=.42, n=7, spin=.8, seed=70)
+            star(c, 'rubro', gx, chao, 12, 5, a=.7 * s * fl, sy=.42, rot=t * .8)
+        # 4) fumaca escura saindo do estouro
+        for j in range(5):
+            th = TAU * j / 5 + .4
+            r = 6 + 14 * ease_out(t)
+            c.blob('fumaca', gx + math.cos(th) * r, gy + math.sin(th) * r * .6 - 6 * t, 5 + 6 * t, .7 * bell(t, 0, 1))
+        # 5) coroa de sangue: gotas com peso e rastro, que viram poca ao bater no chao
+        for th, v, sz, oy in gotas:
+            vx, vy = math.cos(th) * v, math.sin(th) * v * .55 - 55
+            p0 = ballistic((gx, gy + oy * .2), (vx, vy), t * .9, g=260, k=1.6)
+            p1 = ballistic((gx, gy + oy * .2), (vx, vy), max(t * .9 - .05, 0), g=260, k=1.6)
+            if p0[1] < chao + oy * .4:
+                c.line('sangue', *p1, *p0, sz * .35, 1.4, w1=sz * .8, hard=True)
+                c.blob('sangue', *p0, sz * .8, 1.5, hard=True)
+            else:
+                c.blob('sangue', p0[0], chao + oy * .4, sz * 1.3, 1.4 * (1 - ease_in(t, 4)), sy=.4, hard=True)
+        for x, y, r in poças:
+            g = ease_out(min(max((t - .3) / .4, 0), 1))
+            c.blob('sangue', gx + x, chao + y, r * g, 1.4 * (1 - ease_in(t, 5)), sy=.38, hard=True)
+        # 6) cinza acesa subindo depois do estouro
+        for x, d, ph in cinzas:
+            u = (t - .15 - d) / (.85 - d)
+            if 0 < u < 1:
+                c.blob('cinza', gx + x + math.sin(u * 7 + ph) * 2, gy - 4 - u * 34, .55, 1.3, hard=True)
+                if math.sin(ph * 3) > .2: c.blob('rubro', gx + x + math.sin(u * 7 + ph) * 2, gy - 4 - u * 34, .7, 1.2 * (1 - u))
+    return f
+
+
+@effect('cult_sangria_impacto', 'cultista', (80, 80), 12, fps=18, anchor=(40, 38),
+        desc='Sangria: a lamina abre um corte em X de sangue no alvo, que espirra e deixa o alvo sangrando '
+             '(usar status_sangramento).')
+def _(rng):
+    gx, gy = 40, 38
+    gotas = _respingos(rng, 30, 40, 110, 6)
+    def f(c, t, i):
+        k = (1 - t) ** 1.6
+        c.blob('rubro', gx, gy, 12 * (1 - t) ** 1.2, 1.2 * k)
+        # duas laminas cruzando em X: risco aceso + corte de sangue
+        for j, (a0, d) in enumerate(((-.75, 0), (.75, .1))):
+            u = ease_out(min(max((t - d) / .22, 0), 1))
+            if u <= 0: continue
+            L = 22 * u; ca, sa = math.cos(a0), math.sin(a0)
+            x0, y0, x1, y1 = gx - ca * L, gy - sa * L, gx + ca * L, gy + sa * L
+            fa = 1 - ease_in(max((t - d - .15) / .7, 0), 1.4)
+            c.line('sangue', x0, y0, gx, gy, .5, 1.4 * fa, w1=3.2, hard=True)
+            c.line('sangue', gx, gy, x1, y1, 3.2, 1.4 * fa, w1=.5, hard=True)
+            c.line('rubro', x0, y0, x1, y1, .25, 1.5 * fa, w1=.25)
+            c.blob('rubro', gx, gy, 3 * fa, .9 * fa)
+        c.ring('rubro', gx, gy, 5 + 20 * ease_out(t, 3), 1.1 * (1 - t), 1.1 * (1 - t), sy=.75)
+        for th, v, sz, oy in gotas:
+            x, y = ballistic((gx, gy), (math.cos(th) * v, math.sin(th) * v * .6 - 35), t * .75, g=230, k=1.8)
+            c.blob('sangue', x, y, sz * .9, 1.5 * (1 - t ** 3), hard=True)
+    return f
+
+
+@effect('cult_conjura_mao', 'cultista', (48, 48), 8, fps=20, anchor=(24, 24),
+        desc='Missil de sangue (disparo): o sangue e sugado para a mao do cultista e o coracao rubro nasce num estalo.')
+def _(rng):
+    fios = [(rng.uniform(0, TAU), rng.uniform(12, 20)) for _ in range(9)]
+    def f(c, t, i):
+        x, y = 24, 24
+        for th, r0 in fios:
+            u = ease_in(min(t / .55, 1), 1.6)
+            r = r0 * (1 - u)
+            if r > 1:
+                c.line('sangue', x + math.cos(th) * r, y + math.sin(th) * r * .8,
+                       x + math.cos(th) * (r + 4), y + math.sin(th) * (r + 4) * .8, .5, 1.4, hard=True)
+        g = bell(t, .35, 1)
+        c.blob('rubro', x, y, 9 * g, .9 * g)
+        c.blob('rubro', x, y, 2.5 * g, 2 * g)
+        c.ring('rubro', x, y, 3 + 13 * ease_out(max((t - .4) / .6, 0)), .8, 1.3 * g, sy=.8)
     return f
 
 

@@ -1,0 +1,21 @@
+{
+ "name": "cult_conjura_mao",
+ "cat": "cultista",
+ "frames": 8,
+ "fps": 20,
+ "loop": false,
+ "anchor": [
+  24,
+  24
+ ],
+ "layer": "frente",
+ "desc": "Missil de sangue (disparo): o sangue e sugado para a mao do cultista e o coracao rubro nasce num estalo.",
+ "char": null,
+ "title": "Missil de sangue (disparo)",
+ "resumo": "O sangue e sugado para a mao do cultista e o coracao rubro nasce num estalo.",
+ "frame_w": 48,
+ "frame_h": 48,
+ "cols": 8,
+ "rows": 1,
+ "sheet": "cult_conjura_mao.png"
+}

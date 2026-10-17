@@ -1,20 +1,20 @@
 {
  "name": "cult_sangria_impacto",
  "cat": "cultista",
- "frames": 10,
+ "frames": 12,
  "fps": 18,
  "loop": false,
  "anchor": [
-  28,
-  28
+  40,
+  38
  ],
  "layer": "frente",
- "desc": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
+ "desc": "Sangria: a lâmina abre um corte em X de sangue no alvo, que espirra e deixa o alvo sangrando (usar status_sangramento).",
  "char": null,
  "title": "Sangria (impacto)",
- "resumo": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
- "frame_w": 56,
- "frame_h": 56,
+ "resumo": "Sangria: a lâmina abre um corte em X de sangue no alvo, que espirra e deixa o alvo sangrando (usar status_sangramento).",
+ "frame_w": 80,
+ "frame_h": 80,
  "cols": 8,
  "rows": 2,
  "sheet": "cult_sangria_impacto.png"

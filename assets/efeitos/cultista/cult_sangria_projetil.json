@@ -1,21 +1,21 @@
 {
  "name": "cult_sangria_projetil",
  "cat": "cultista",
- "frames": 6,
- "fps": 16,
+ "frames": 8,
+ "fps": 18,
  "loop": true,
  "anchor": [
-  32,
-  10
+  48,
+  16
  ],
  "layer": "frente",
- "desc": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
+ "desc": "Sangria: uma gota do proprio sangue vira uma lâmina crescente que voa girando, pingando e deixando um rastro rubro (aponta para a direita).",
  "char": null,
  "title": "Sangria (projétil)",
- "resumo": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
- "frame_w": 40,
- "frame_h": 20,
- "cols": 6,
+ "resumo": "Sangria: uma gota do proprio sangue vira uma lâmina crescente que voa girando, pingando e deixando um rastro rubro (aponta para a direita).",
+ "frame_w": 64,
+ "frame_h": 32,
+ "cols": 8,
  "rows": 1,
  "sheet": "cult_sangria_projetil.png"
 }

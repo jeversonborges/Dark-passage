@@ -1012,6 +1012,27 @@
   "sheet": "combate/sangue_poca.png"
  },
  {
+  "name": "cult_basico_projetil",
+  "cat": "cultista",
+  "frames": 8,
+  "fps": 16,
+  "loop": true,
+  "anchor": [
+   58,
+   16
+  ],
+  "layer": "frente",
+  "desc": "Missil de sangue: ataque basico do cultista. Coracao rubro envolto em fitas de sangue, runas orbitando e cinza na cauda (aponta para a direita).",
+  "char": null,
+  "title": "Missil de sangue",
+  "resumo": "Ataque basico do cultista. Coracao rubro envolto em fitas de sangue, runas orbitando e cinza na cauda (aponta para a direita).",
+  "frame_w": 72,
+  "frame_h": 32,
+  "cols": 8,
+  "rows": 1,
+  "sheet": "cultista/cult_basico_projetil.png"
+ },
+ {
   "name": "cult_chuva_cinzas",
   "cat": "cultista",
   "frames": 16,
@@ -1031,6 +1052,48 @@
   "cols": 8,
   "rows": 2,
   "sheet": "cultista/cult_chuva_cinzas.png"
+ },
+ {
+  "name": "cult_conjura_mao",
+  "cat": "cultista",
+  "frames": 8,
+  "fps": 20,
+  "loop": false,
+  "anchor": [
+   24,
+   24
+  ],
+  "layer": "frente",
+  "desc": "Missil de sangue (disparo): o sangue e sugado para a mao do cultista e o coracao rubro nasce num estalo.",
+  "char": null,
+  "title": "Missil de sangue (disparo)",
+  "resumo": "O sangue e sugado para a mao do cultista e o coracao rubro nasce num estalo.",
+  "frame_w": 48,
+  "frame_h": 48,
+  "cols": 8,
+  "rows": 1,
+  "sheet": "cultista/cult_conjura_mao.png"
+ },
+ {
+  "name": "cult_missil_impacto",
+  "cat": "cultista",
+  "frames": 14,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   48,
+   46
+  ],
+  "layer": "frente",
+  "desc": "Missil de sangue: o coracao estoura num clarão rubro, uma coroa de sangue cai com peso, um selo de runas pisca no chão e sobe cinza (impacto do ataque basico).",
+  "char": null,
+  "title": "Missil de sangue",
+  "resumo": "O coracao estoura num clarão rubro, uma coroa de sangue cai com peso, um selo de runas pisca no chão e sobe cinza (impacto do ataque basico).",
+  "frame_w": 96,
+  "frame_h": 96,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "cultista/cult_missil_impacto.png"
  },
  {
   "name": "cult_pacto_rubro",
@@ -1077,20 +1140,20 @@
  {
   "name": "cult_sangria_impacto",
   "cat": "cultista",
-  "frames": 10,
+  "frames": 12,
   "fps": 18,
   "loop": false,
   "anchor": [
-   28,
-   28
+   40,
+   38
   ],
   "layer": "frente",
-  "desc": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
+  "desc": "Sangria: a lâmina abre um corte em X de sangue no alvo, que espirra e deixa o alvo sangrando (usar status_sangramento).",
   "char": null,
   "title": "Sangria (impacto)",
-  "resumo": "Sangria: orbe estoura em respingos e deixa o alvo sangrando (usar status_sangramento).",
-  "frame_w": 56,
-  "frame_h": 56,
+  "resumo": "Sangria: a lâmina abre um corte em X de sangue no alvo, que espirra e deixa o alvo sangrando (usar status_sangramento).",
+  "frame_w": 80,
+  "frame_h": 80,
   "cols": 8,
   "rows": 2,
   "sheet": "cultista/cult_sangria_impacto.png"
@@ -1098,21 +1161,21 @@
  {
   "name": "cult_sangria_projetil",
   "cat": "cultista",
-  "frames": 6,
-  "fps": 16,
+  "frames": 8,
+  "fps": 18,
   "loop": true,
   "anchor": [
-   32,
-   10
+   48,
+   16
   ],
   "layer": "frente",
-  "desc": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
+  "desc": "Sangria: uma gota do proprio sangue vira uma lâmina crescente que voa girando, pingando e deixando um rastro rubro (aponta para a direita).",
   "char": null,
   "title": "Sangria (projétil)",
-  "resumo": "Sangria: orbe de sangue em voo com rastro (aponta para a direita).",
-  "frame_w": 40,
-  "frame_h": 20,
-  "cols": 6,
+  "resumo": "Sangria: uma gota do proprio sangue vira uma lâmina crescente que voa girando, pingando e deixando um rastro rubro (aponta para a direita).",
+  "frame_w": 64,
+  "frame_h": 32,
+  "cols": 8,
   "rows": 1,
   "sheet": "cultista/cult_sangria_projetil.png"
  },

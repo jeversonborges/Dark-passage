@@ -1,0 +1,21 @@
+{
+ "name": "cult_missil_impacto",
+ "cat": "cultista",
+ "frames": 14,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  46
+ ],
+ "layer": "frente",
+ "desc": "Missil de sangue: o coracao estoura num clarão rubro, uma coroa de sangue cai com peso, um selo de runas pisca no chão e sobe cinza (impacto do ataque basico).",
+ "char": null,
+ "title": "Missil de sangue",
+ "resumo": "O coracao estoura num clarão rubro, uma coroa de sangue cai com peso, um selo de runas pisca no chão e sobe cinza (impacto do ataque basico).",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "cult_missil_impacto.png"
+}

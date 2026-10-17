@@ -1,0 +1,21 @@
+{
+ "name": "cult_basico_projetil",
+ "cat": "cultista",
+ "frames": 8,
+ "fps": 16,
+ "loop": true,
+ "anchor": [
+  58,
+  16
+ ],
+ "layer": "frente",
+ "desc": "Missil de sangue: ataque basico do cultista. Coracao rubro envolto em fitas de sangue, runas orbitando e cinza na cauda (aponta para a direita).",
+ "char": null,
+ "title": "Missil de sangue",
+ "resumo": "Ataque basico do cultista. Coracao rubro envolto em fitas de sangue, runas orbitando e cinza na cauda (aponta para a direita).",
+ "frame_w": 72,
+ "frame_h": 32,
+ "cols": 8,
+ "rows": 1,
+ "sheet": "cult_basico_projetil.png"
+}
