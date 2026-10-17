@@ -284,6 +284,7 @@ func _entrar_mundo(peer: int, idx: int) -> void:
 	por_jog[e.id] = peer
 	sim.adicionar_jogador(e, pos)
 	_chave_primarca(s["u"], e, sim)
+	_cetro_demiurgo(s["u"], e, sim)
 	e.flags["torre_aberta"] = true   # A Torre liberada para todos (0.8.6): a grade do mata_do_granizo pede esta flag
 	_enviar_mapa(peer, novo)
 	gm.entrou(peer)   # conta GM recebe a chave do painel (F8)
@@ -299,6 +300,16 @@ func _chave_primarca(usuario: String, e: Ent, sim: WorldSim) -> void:
 	e.flags["chave_primarca"] = true
 	Jogador.dar_item(sim, e, Itens.novo("chave_mestra_primarca"))
 	_gravar_contas()
+
+## Cetro do Demiurgo (0.9.4): uma única vez por personagem de conta GM (scripts/net/gm.gd), qualquer classe.
+## Quem deixou de ser GM perde o cetro ao entrar: ninguém além do administrador fica com ele.
+func _cetro_demiurgo(usuario: String, e: Ent, sim: WorldSim) -> void:
+	if gm.eh_conta_gm(usuario):
+		if e.flags.has("cetro_demiurgo"): return
+		if not Jogador.dar_item(sim, e, Itens.novo("cetro_do_demiurgo")): return   # mochila cheia: tenta na próxima entrada
+		e.flags["cetro_demiurgo"] = true
+		_gravar_contas()
+	elif Demiurgo.tirar(sim, e): _gravar_contas()
 
 func _enviar_mapa(peer: int, novo := false) -> void:
 	var s: Dictionary = sessoes[peer]

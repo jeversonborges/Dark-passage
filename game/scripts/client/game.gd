@@ -65,6 +65,7 @@ var musica_chefe := false
 var rede: Node = null      # conexão de rede (null = jogo solo, o mundo roda aqui mesmo)
 var mira_ctl: Node2D       # combate no controle (mira_controle.gd); só manda enquanto mira_ctl.ativo
 var agrak_cena: Node = null  # O Agrak (mapa com bloco "agrak"): falas, faixa, plateia, portões, Anel do Amargo
+var auras_dem := {}        # id -> folha demiurgo_aura em loop seguindo quem tem o Cetro do Demiurgo equipado
 
 # =================================================================== início
 func iniciar(classe: String, nome: String, salvo: Dictionary = {}) -> void:
@@ -217,7 +218,7 @@ func _limpar_visual() -> void:
 	for v in views.values(): v.queue_free()
 	for o in objs.values(): o.queue_free()
 	for c in itens_chao.values(): c.queue_free()
-	views.clear(); objs.clear(); itens_chao.clear(); props_altos.clear(); oclusores.clear(); recortes.clear()
+	views.clear(); objs.clear(); itens_chao.clear(); props_altos.clear(); oclusores.clear(); recortes.clear(); auras_dem.clear()
 	props_anel.clear(); rachas.clear()
 	for c in mundo.get_children(): c.queue_free()
 	for c in decal.get_children(): c.queue_free()
@@ -402,7 +403,8 @@ func _surgiu(id: int) -> void:
 	if e.tipo == "chefe":
 		chefe_view = v
 		v.set_meta("luz", luz.adicionar(v.position, Color(1.0, 0.62, 0.38), 5.5, 1.1, true))
-	if e.invisivel and e != jog: v.visible = false
+	if e.invisivel and e != jog and Demiurgo.tem(jog): v.modulate.a = 0.6   # Olho do Demiurgo: vê o invisível
+	elif e.invisivel and e != jog: v.visible = false
 	elif e.invisivel: v.modulate.a = 0.45   # GM invisível se vê translúcido
 	if e.aux.has("anim_entrada") and v.has_method("tocar"): v.tocar(str(e.aux["anim_entrada"]), 0.0)   # Vigilantes: rise / land
 	if e.kind == "nao_julgado" and mapa.get("exterior", false):
@@ -613,11 +615,11 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 		if fb: n.set_meta("feixe", fb)
 		audio.tocar(joia.get("som", "itens/joia_aplicar"), n.destino, -2.0)
 		return
-	if rar in ["raro", "excelente", "lendario", "conjunto"]:
-		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto"] else "item_feixe_raro"
+	if rar in ["raro", "excelente", "lendario", "conjunto", "demiurgico"]:
+		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto", "demiurgico"] else "item_feixe_raro"
 		var f = fx.folha(nome, n.destino, {"dura": 9999.0, "cor": n.cor.lightened(0.2)})
 		if f: n.set_meta("feixe", f)
-	audio.tocar("itens/drop_excelente" if rar in ["excelente", "lendario"] else ("itens/drop_metal" if not n.ouro else "itens/moedas"), n.destino, -4.0)
+	audio.tocar("itens/drop_excelente" if rar in ["excelente", "lendario", "demiurgico"] else ("itens/drop_metal" if not n.ouro else "itens/moedas"), n.destino, -4.0)
 
 func _item_chao_sumiu(id: int) -> void:
 	var n = itens_chao.get(id)
@@ -687,13 +689,15 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			var v = views.get(int(d["id"]))
 			if v:
 				v.visible = true
+				if v.modulate.a < 1.0 and Demiurgo.tem(jog): v.modulate.a = 1.0
 				var e: Ent = sim.ents.get(v.id)
 				if e: audio.tocar(_som_mob(e.kind, "alerta"), v.position, -6.0)
 				if e and e.aux.get("alfa", false):
 					v.tocar("howl", 1.0); audio.tocar("monstros/cao_uivo", v.position, -4.0)
 		"some":
 			var v = views.get(int(d["id"]))
-			if v: v.visible = false
+			if v and Demiurgo.tem(jog): v.modulate.a = 0.6   # Olho do Demiurgo: vê o invisível
+			elif v: v.visible = false
 		"anim":
 			var v = views.get(int(d["id"]))
 			if v: v.tocar(d["anim"], float(d.get("dur", 0.5)))
@@ -1089,6 +1093,7 @@ func _som_evento(d: Dictionary) -> void:
 		"zacarias_a_nota": "chefes/zacarias_a_nota", "zacarias_nota_interrompida": "chefes/zacarias_nota_interrompida",
 		"celeste_candelabro_apaga": "chefes/celeste_candelabro_apaga", "pegar": "ui/pegar_item", "chefe_fase": "combate/chefe_fase"}
 	if m.has(ev): audio.tocar(m[ev])
+	elif audio.sons.has(ev): audio.tocar(ev, Iso.to_screen(d["pos"]) if d.has("pos") else null)   # som pedido pelo nome (Cetro do Demiurgo)
 
 func _tremer(px: float, dur: float) -> void:
 	tremor_px = minf(8.0, maxf(tremor_px, px) * hud.mult_tremor)
@@ -1418,6 +1423,7 @@ func _process(dt: float) -> void:
 		cam.offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * tremor_px
 		if tremor <= 0.0: cam.offset = Vector2.ZERO; tremor_px = 0.0
 	fx.atualizar_luzes_projeteis()
+	_auras_demiurgo()
 	if chefe_view != null and is_instance_valid(chefe_view) and chefe_view.has_meta("luz"):
 		var lc = chefe_view.get_meta("luz")
 		if is_instance_valid(lc): lc.position = chefe_view.position
@@ -1441,6 +1447,23 @@ func _process(dt: float) -> void:
 	sobre.queue_redraw()
 	t_salvar += dt
 	if t_salvar > 30.0: _salvar()
+
+## Aura Demiúrgica: a folha demiurgo_aura em loop segue quem tem o Cetro equipado (todos veem) com o som posicional em loop.
+func _auras_demiurgo() -> void:
+	for id in views:
+		var e: Ent = sim.ents.get(id)
+		var v = views[id]
+		if e == null or e.tipo != "jogador" or str(e.aux.get("aura", "")) != "demiurgo" or v.morto: continue
+		if not auras_dem.has(id) or not is_instance_valid(auras_dem[id]):
+			var f = fx.folha("demiurgo_aura", v.position, {"segue": v, "dura": 1e9})
+			if f != null: auras_dem[id] = f
+		audio.loop_em("aura_%d" % id, "itens/cetro_aura", v.position, -4.0)
+	for id in auras_dem.keys():
+		var e2: Ent = sim.ents.get(id)
+		var v2 = views.get(id)
+		if v2 != null and is_instance_valid(v2) and not v2.morto and e2 != null and str(e2.aux.get("aura", "")) == "demiurgo": continue
+		if is_instance_valid(auras_dem[id]): auras_dem[id].queue_free()
+		auras_dem.erase(id)
 
 func _fade_props(vj) -> void:
 	if vj == null: return
@@ -1574,7 +1597,7 @@ func _desenhar_sobre() -> void:
 					elif e.arquetipo == "raro": cn = Color("#7fb8ff")
 					_nome(topo + Vector2(0, -8), "%s  %d" % [e.nome, e.nivel], cn, 12)
 			"jogador":
-				if str(e.aux.get("aura", "")) != "":   # aura de mistério resolvido: anel que respira no chão
+				if str(e.aux.get("aura", "")) != "" and str(e.aux["aura"]) != "demiurgo":   # aura de mistério resolvido: anel que respira no chão (a do Cetro é a folha demiurgo_aura)
 					var ra := Iso.elipse(0.62 + 0.04 * sin(t * 1.7))
 					Unidade._elipse(sobre, v.position, ra, Color(0.95, 0.82, 0.45, 0.28 + 0.12 * sin(t * 1.7)), false, 2.0)
 				var tit_j: String = e.aux.get("titulo", "")   # título de mistério resolvido (Biblioteca), embaixo do nome

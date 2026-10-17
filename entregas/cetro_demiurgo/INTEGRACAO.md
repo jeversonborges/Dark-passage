@@ -24,43 +24,36 @@ sem balanceamento de propósito: existe uma, é dele, e ninguém mais chega pert
 - Ícone: ainda não existe. Pela regra dos ícones, entrou na lista do Jefin (`entregas/arte_itens/LISTA.md`) com a
   referência `cetro_cabeca.png`. Até chegar, o ícone gerado do `gerar_json.py` serve de tapa-buraco só na conta dele.
 
-## Para a thread "Prévia jogável" (dona de game/)
-
-### 1. Entrega única, na conta do administrador (`servidor.gd`, ao lado de `_chave_primarca`)
-A conta ainda precisa ser confirmada pelo Jefin (abaixo está `"jefin"`). Qualquer classe, qualquer personagem novo
-dessa conta: ele recebe o cetro na primeira entrada.
-
-```gdscript
-## Cetro do Demiurgo: uma única vez por personagem da conta do administrador, qualquer classe.
-const CONTA_DEMIURGO := "jefin"
-func _cetro_demiurgo(usuario: String, e: Ent, sim: WorldSim) -> void:
-	if usuario != CONTA_DEMIURGO or e.flags.has("cetro_demiurgo"): return
-	e.flags["cetro_demiurgo"] = true
-	Jogador.dar_item(sim, e, Itens.novo("cetro_do_demiurgo"))
-	_gravar_contas()
-```
-Chamar onde `_chave_primarca(s["u"], e, sim)` é chamado. O wipe da 0.9.3 não atrapalha: a flag é por personagem.
-
-### 2. Vínculo e raridade
-`vinculado.conta`: mesma regra da Chave-Mestra (não vende, não troca, não larga; some do chão se cair por bug).
-A raridade lê `drops.json`, então cor e nome do feixe já saem certos; `cor_feixe` é um campo novo (o feixe de drop
-e o brilho do nome usam `cor_feixe` quando existe, senão `cor`).
-
-### 3. Efeitos únicos (`efeitos_unicos`, mesmo esquema da Chave-Mestra)
-| id | o que faz | onde |
-|---|---|---|
-| `verbo` | todo ataque básico atinge todos os inimigos num raio de 8 m com 100% do dano; toca `demiurgo_verbo` no chão e `cetro_golpe` | ataque básico |
-| `juizo_do_demiurgo` | 10% por golpe: inimigo comum morre na hora (`demiurgo_juizo` + `cetro_juizo`); chefe perde 10% da vida máxima | após o dano |
-| `como_em_cima_assim_embaixo` | devolve 100% de todo dano recebido ao agressor; imune a todos os status | ao receber dano / status |
-| `sopro_do_primeiro_dia` | +10% da vida máxima e do recurso por segundo | tick |
-| `mao_que_mede` | recarga de todas as skills -90% e custo zero | uso de skill |
-| `olho_do_demiurgo` | mapa inteiro revelado, vê invisíveis, mobs agressivos não puxam (só revidam) | cliente (mapa/minimapa) e IA dos mobs |
-| `aura_demiurgica` | `demiurgo_aura` no pé, visível para todos (sincronizar como `vis_aura`); aliados a 10 m +50% dano e +50% XP; inimigos a 10 m -50% dano | tick, raio 10 m |
-
-### 4. Arma visível e som
-- Camada de arma: `"visual": "item:cetro_do_demiurgo:haste"` segue o formato de `armas.py` (`montar("item:...")`).
-  Enquanto a camada não existe no jogo, nada a fazer.
-- `cetro_aura` é um loop posicional (bus ambiente) tocando no jogador enquanto o cetro está equipado.
+## Como foi integrado (0.9.4)
+- **Dados do jogo** (`game/data/design/`): `missoes/itens.json` e `skills-itens/itens.json` ganharam o item com
+  `"vinculado": true` (o bloco conta/vende/troca/larga ficou em `_vinculo_doc`; o texto de `efeito` continua sendo
+  o que o tooltip mostra, e é por ele ser texto que `Itens.bonus` registra o id em `bonus.efeitos`);
+  `combate/drops.json` ganhou a raridade `demiurgico` e `Defs.nome_raridade` mostra "Demiúrgico". Efeitos
+  (`demiurgo_*`) e sons (`itens/cetro_*`) copiados para `game/assets/ext/` e registrados em `efeitos.json` e
+  `audio.json` (`game/tools/manifest.py` regenera `data/ext/`). Arma visível em `assets/ext/armas/visuais.json`:
+  silhueta `cajado_osso` por enquanto, tinta ouro `#e6c25a`, brilho esmeralda `#9dffc8`, `brilho_proprio`; a
+  silhueta própria vinda do `.glb` fica para a camada de armas.
+- **Entrega** (`game/scripts/net/servidor.gd`, `_cetro_demiurgo`, ao lado de `_chave_primarca`): uma vez por
+  personagem de qualquer conta da lista de GMs (`gm.eh_conta_gm`: `/etc/darkpassage/gm.json` ou
+  `user://servidor/gm.json`; teste local `gm_contas=login`), qualquer classe, flag `cetro_demiurgo` no personagem.
+  Conta que deixou de ser GM perde o cetro ao entrar (`Demiurgo.tirar`: mochila, equipamento e armazém).
+- **Efeitos** (`game/scripts/sim/demiurgo.gd`; uma linha de gancho em cada ponto): Golpe, Verbo e Juízo em
+  `Jogador.ao_acertar` (o ataque básico marca `op.basico`); reflexo em `Jogador.ao_ser_atingido`; imunidade a status
+  em `WorldSim.aplicar_status`; Sopro em `Jogador._regen`; custo zero em `Jogador.custo` e recarga ×0,1 em
+  `_tentar_skill`; Olho na busca de alvo de `IA._ocioso` (o mob só revida); Aura em `Jogador.passo` (buffs
+  `aura_demiurgica` e `aura_demiurgica_fraqueza` renovados a cada 1 s, `mod("xp")` em `Jogador.ganhar_xp`, a
+  fraqueza dos monstros expira em `WorldSim._passo_ent`) e `aux.aura = "demiurgo"` enquanto está equipado
+  (`Regras.recalc_jogador`, sem apagar a aura da Biblioteca). Vinculado: `Jogador.vender` e `soltar_item` recusam
+  (`Itens.vinculado`); a troca já recusava.
+- **Cliente** (`game/scripts/client/game.gd`, `hud.gd`): `aux.aura == "demiurgo"` vira a folha `demiurgo_aura` em
+  loop seguindo a unidade (todos veem) mais o loop posicional `itens/cetro_aura`; `som_evento` aceita o nome do som
+  com posição (`itens/cetro_golpe`, `itens/cetro_juizo`); com o cetro, as unidades invisíveis aparecem a 60% e o
+  mapa (M) mostra todas as zonas como conhecidas (não há névoa de guerra); a raridade `demiurgico` entra no feixe
+  e no som de drop.
+- **Teste**: `cd game && /opt/godot/godot --headless --path . --script res://tools/teste_cetro.gd` (sem rede: dá e
+  equipa o cetro e confere dano, raridade, vínculo, imunidade, Sopro, custo/recarga, Verbo, reflexo, aura, Olho e
+  `gm.eh_conta_gm`).
+- Ainda sem ícone próprio: a mochila mostra o quadro na cor da raridade até a arte da lista do Jefin chegar.
 
 ## Regerar
 - Modelo e prévias: `cd tools/sprite-pipeline/personagens && /opt/bpy42/bin/python cetro_demiurgo.py -- <saida>`

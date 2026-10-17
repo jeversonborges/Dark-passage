@@ -10447,6 +10447,58 @@
     "32": "assets/icones/itens/32/leitura_juramento_duzentos.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/leitura_juramento_duzentos.png"
+  },
+  {
+   "id": "cetro_do_demiurgo",
+   "nome": "Cetro do Demiurgo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eu não vim para o Juízo. Eu vim ver se ficou bonito.",
+    "autor": "o Demiurgo"
+   },
+   "raridade": "demiurgico",
+   "slot": "arma",
+   "nivel": 1,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "cultista",
+    "demonio",
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "warlord"
+   ],
+   "faccao": null,
+   "dano": [
+    777,
+    999
+   ],
+   "intervalo": 1.0,
+   "defesa": 999,
+   "atributos": {
+    "for": 99,
+    "agi": 99,
+    "vit": 99,
+    "esp": 99,
+    "hp": 9999
+   },
+   "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
+   "vinculado": true,
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cetro_do_demiurgo.png",
+    "40": "assets/icones/itens/40/cetro_do_demiurgo.png",
+    "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png"
   }
  ]
 }

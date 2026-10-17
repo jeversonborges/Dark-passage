@@ -18,8 +18,8 @@ cp $P/design/mapas/agrak/agrak.json $G/data/mapas/agrak.json
 cp $P/design/pvp/agrak/npcs.json $D/pvp/agrak_npcs.json
 # itens, conjunto e loja da Arena (Defs junta sem sobrescrever)
 cp $P/design/pvp/agrak/itens_agrak.json $D/pvp/agrak_itens.json
-# personagens: só as folhas e o manifesto
-for c in $P/assets/personagens/*/; do [ -f $c/sprites.json ] || continue; n=$(basename $c); mkdir -p $E/personagens/$n
+# personagens: só as folhas e o manifesto (classes no primeiro nível; NPCs com modelo próprio em npcs/<id>/)
+for c in $P/assets/personagens/*/ $P/assets/personagens/npcs/*/; do [ -f $c/sprites.json ] || continue; n=$(basename $c); mkdir -p $E/personagens/$n
   cp $c/sprites.json $E/personagens/$n/
   for f in $(python3 -c "import json,sys;print(' '.join(v['file'] for v in json.load(open(sys.argv[1]))['anims'].values()))" $c/sprites.json); do cp $c/$f $E/personagens/$n/; done; done
 # monstros: folhas + meta
