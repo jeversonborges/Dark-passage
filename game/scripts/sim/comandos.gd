@@ -52,7 +52,7 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			Jogador.redistribuir(sim, e)
 		"voltar":   # teleporte de volta ao acampamento: grátis, só canaliza 3 s parado
 			Jogador.voltar_acampamento(sim, e)
-		"teleportar":   # menu de teleporte (V): id do destino de data/teleporte.json; custa 1 Lágrima Sanguínea
+		"teleportar":   # menu de teleporte (V): id do destino de data/teleporte.json; custa 3.000 de ouro
 			if _str(a, 0): Teleporte.pedir(sim, e, a[0])
 		"falar":   # chat: balão em cima do personagem e linha na janela de chat
 			if a.size() > 0 and a[0] is String and (a[0] as String).length() <= 400:

@@ -2,8 +2,7 @@
  "_doc": "Destinos do Menu de Teleporte (tecla V). Gerado por entregas/teleporte/gerar.py; não edite à mão.",
  "canal_s": 3.0,
  "custo": {
-  "item": "lagrima_sanguinea",
-  "qtd": 1
+  "ouro": 3000
  },
  "destinos": [
   {
@@ -21,8 +20,7 @@
    ],
    "nivel_min": 1,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -40,8 +38,7 @@
    ],
    "nivel_min": 2,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -59,8 +56,7 @@
    ],
    "nivel_min": 2,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -78,8 +74,7 @@
    ],
    "nivel_min": 3,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -97,8 +92,7 @@
    ],
    "nivel_min": 3,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -116,8 +110,7 @@
    ],
    "nivel_min": 4,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -135,8 +128,7 @@
    ],
    "nivel_min": 4,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -154,8 +146,7 @@
    ],
    "nivel_min": 5,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -173,8 +164,7 @@
    ],
    "nivel_min": 6,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -192,8 +182,7 @@
    ],
    "nivel_min": 7,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -211,8 +200,7 @@
    ],
    "nivel_min": 8,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -230,8 +218,7 @@
    ],
    "nivel_min": 9,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -249,8 +236,7 @@
    ],
    "nivel_min": 1,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -268,8 +254,7 @@
    ],
    "nivel_min": 1,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -287,8 +272,7 @@
    ],
    "nivel_min": 2,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -306,8 +290,7 @@
    ],
    "nivel_min": 2,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -325,8 +308,7 @@
    ],
    "nivel_min": 3,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -344,8 +326,7 @@
    ],
    "nivel_min": 4,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -363,8 +344,7 @@
    ],
    "nivel_min": 4,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -382,8 +362,7 @@
    ],
    "nivel_min": 4,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -401,8 +380,7 @@
    ],
    "nivel_min": 6,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -420,8 +398,7 @@
    ],
    "nivel_min": 9,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -430,8 +407,8 @@
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    61.5,
-    69.5
+    63.5,
+    61.5
    ],
    "nivel": [
     12,
@@ -439,18 +416,17 @@
    ],
    "nivel_min": 12,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    },
    "base": "Base da Enxertia"
   },
   {
-   "id": "linha_de_cinza",
-   "nome": "Linha de Cinza",
+   "id": "portao_oriente",
+   "nome": "Portão do Oriente",
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    70.5,
+    69.5,
     85.5
    ],
    "nivel": [
@@ -459,37 +435,53 @@
    ],
    "nivel_min": 12,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
-   "id": "bordas_queimadas",
-   "nome": "Bordas Queimadas",
+   "id": "havila",
+   "nome": "Havilá",
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    40.5,
-    70.5
+    81.5,
+    69.5
    ],
    "nivel": [
     12,
-    16
+    14
    ],
    "nivel_min": 12,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
-   "id": "lago_de_granizo",
-   "nome": "Lago de Granizo",
+   "id": "bordas_do_jardim",
+   "nome": "Bordas do Jardim",
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    54.5,
-    49.5
+    37.5,
+    74.5
+   ],
+   "nivel": [
+    13,
+    15
+   ],
+   "nivel_min": 13,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "lago_de_giom",
+   "nome": "Lago de Giom",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    62.5,
+    53.5
    ],
    "nivel": [
     15,
@@ -497,8 +489,7 @@
    ],
    "nivel_min": 15,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -507,7 +498,7 @@
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    46.5,
+    43.5,
     54.5
    ],
    "nivel": [
@@ -516,27 +507,25 @@
    ],
    "nivel_min": 16,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
-   "id": "fundo_da_mata",
-   "nome": "Fundo da Mata",
+   "id": "bosque_dos_enxertos",
+   "nome": "Bosque dos Enxertos",
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    58.5,
-    29.5
+    66.5,
+    28.5
    ],
    "nivel": [
     18,
-    22
+    21
    ],
    "nivel_min": 18,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
@@ -545,8 +534,8 @@
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    15.5,
-    9.5
+    13.5,
+    15.5
    ],
    "nivel": [
     20,
@@ -554,18 +543,17 @@
    ],
    "nivel_min": 20,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
    }
   },
   {
-   "id": "coracao_da_mata",
-   "nome": "Coração da Mata",
+   "id": "coracao_do_eden",
+   "nome": "Coração do Éden",
    "grupo": "Novo Éden",
    "mapa": "mata_do_granizo",
    "pos": [
-    62.5,
-    19.5
+    58.5,
+    16.5
    ],
    "nivel": [
     22,
@@ -573,8 +561,314 @@
    ],
    "nivel_min": 22,
    "custo": {
-    "item": "lagrima_sanguinea",
-    "qtd": 1
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "clareira_do_conhecimento",
+   "nome": "Clareira do Conhecimento",
+   "grupo": "Novo Éden",
+   "mapa": "mata_do_granizo",
+   "pos": [
+    63.5,
+    28.5
+   ],
+   "nivel": [
+    24,
+    27
+   ],
+   "nivel_min": 24,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "menfis",
+   "nome": "Mênfis Reerguida",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    132.5,
+    98.5
+   ],
+   "nivel": [
+    50,
+    50
+   ],
+   "nivel_min": 50,
+   "custo": {
+    "ouro": 3000
+   },
+   "base": "Cidade"
+  },
+  {
+   "id": "margem_papiro",
+   "nome": "Margem do Papiro",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    126.5,
+    150.5
+   ],
+   "nivel": [
+    50,
+    52
+   ],
+   "nivel_min": 50,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "campos_cheia",
+   "nome": "Campos da Cheia",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    150.5,
+    145.5
+   ],
+   "nivel": [
+    51,
+    53
+   ],
+   "nivel_min": 51,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "vila_artesaos",
+   "nome": "Vila dos Artesãos",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    83.5,
+    101.5
+   ],
+   "nivel": [
+    52,
+    55
+   ],
+   "nivel_min": 52,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "avenida_esfinges",
+   "nome": "Avenida das Esfinges",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    153.5,
+    88.5
+   ],
+   "nivel": [
+    53,
+    56
+   ],
+   "nivel_min": 53,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "sacara",
+   "nome": "Mastabas de Sacará",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    51.5,
+    86.5
+   ],
+   "nivel": [
+    55,
+    58
+   ],
+   "nivel_min": 55,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "karnak",
+   "nome": "Ipet-Isut, o Templo de Amon",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    172.5,
+    64.5
+   ],
+   "nivel": [
+    56,
+    59
+   ],
+   "nivel_min": 56,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "lago_sagrado",
+   "nome": "Lago Sagrado",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    158.5,
+    49.5
+   ],
+   "nivel": [
+    57,
+    60
+   ],
+   "nivel_min": 57,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "gize",
+   "nome": "Planalto de Gizé",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    58.5,
+    149.5
+   ],
+   "nivel": [
+    58,
+    63
+   ],
+   "nivel_min": 58,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "casa_vida",
+   "nome": "Casa da Vida",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    67.5,
+    71.5
+   ],
+   "nivel": [
+    59,
+    62
+   ],
+   "nivel_min": 59,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "faium",
+   "nome": "Oásis do Faium",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    44.5,
+    47.5
+   ],
+   "nivel": [
+    61,
+    65
+   ],
+   "nivel_min": 61,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "mar_areia",
+   "nome": "Mar de Areia",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    19.5,
+    111.5
+   ],
+   "nivel": [
+    63,
+    66
+   ],
+   "nivel_min": 63,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "hatshepsut",
+   "nome": "Terraços de Djeser-Djeseru",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    38.5,
+    171.5
+   ],
+   "nivel": [
+    64,
+    67
+   ],
+   "nivel_min": 64,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "catarata",
+   "nome": "Primeira Catarata",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    133.5,
+    23.5
+   ],
+   "nivel": [
+    66,
+    69
+   ],
+   "nivel_min": 66,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "vale_reis",
+   "nome": "Vale dos Reis",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    17.5,
+    180.5
+   ],
+   "nivel": [
+    67,
+    70
+   ],
+   "nivel_min": 67,
+   "custo": {
+    "ouro": 3000
+   }
+  },
+  {
+   "id": "necropole",
+   "nome": "Necrópole Proibida",
+   "grupo": "Egito, a Terra Negra",
+   "mapa": "egito",
+   "pos": [
+    26.5,
+    136.5
+   ],
+   "nivel": [
+    68,
+    70
+   ],
+   "nivel_min": 68,
+   "custo": {
+    "ouro": 3000
    }
   }
  ]

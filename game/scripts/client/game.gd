@@ -781,7 +781,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 		"xp": hud.xp(d)
 		"skill": hud.skill_usada(d)
 		"item_ganho": hud.item_ganho(d)
-		"ouro": hud.log_msg("+%d de ouro" % int(d["valor"]), Tema.COR_OURO)
+		"ouro": hud.log_msg("%s%d de ouro" % ["+" if int(d["valor"]) >= 0 else "−", absi(int(d["valor"]))], Tema.COR_OURO)
 		"aviso": hud.aviso(d.get("texto", ""))
 		"auto_cfg": janelas.auto_mudou()
 		"talentos": janelas.talentos_mudou(); janelas.atualizar()

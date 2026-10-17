@@ -28,7 +28,7 @@ func _ready() -> void:
 			roteiro = [[2.0, "preparar_menu", ""], [0.2, "janela", "inventario"], [0.2, "abrir_arca", ""], [1.0, "foto", "menu_1"],
 				[0.1, "tip_melhoria", ""], [0.5, "foto", "menu_2_tip"], [0.1, "tip_slot", ""], [0.5, "foto", "menu_3_slot"],
 				[0.1, "janela", "missoes"], [0.6, "foto", "menu_4_diario"], [0.3, "fim", ""]]
-		"teleporte":   # menu V: lista, tooltip, viagem paga e a lágrima gasta
+		"teleporte":   # menu V: lista, tooltip, viagem paga e o ouro cobrado
 			roteiro = [[2.5, "preparar_tp", ""], [0.2, "janela", "teleporte"], [0.8, "foto", "tp_1_menu"],
 				[0.1, "tip_tp", "rio_amargo"], [0.5, "foto", "tp_2_tip"], [0.1, "janela", "teleporte"],
 				[0.1, "tp", "rio_amargo"], [1.5, "foto", "tp_3_canal"], [3.5, "foto", "tp_4_chegou"],
@@ -114,7 +114,7 @@ func _process(dt: float) -> void:
 	passo += 1
 	match p[1]:
 		"foto":
-			print("pos ", p[2], " ", jogo.jog.pos, " mapa ", jogo.sim.mapa_id, " lagrimas ", Itens.contar(jogo.jog.inv, "lagrima_sanguinea"))
+			print("pos ", p[2], " ", jogo.jog.pos, " mapa ", jogo.sim.mapa_id, " ouro ", jogo.jog.ouro)
 			await RenderingServer.frame_post_draw
 			var img := get_viewport().get_texture().get_image()
 			img.save_png(pasta + "/" + p[2] + ".png")
@@ -210,9 +210,7 @@ func _process(dt: float) -> void:
 				get_tree().create_timer(2.6).timeout.connect(func(): Jogador.cmd_skill(jogo.sim, jogo.jog, 1, melhor.id, melhor.pos))
 		"preparar_tp":
 			jogo.jog.nivel = int(args.get("nivel", "14")); Regras.recalc_jogador(jogo.jog); jogo.jog.hp = jogo.jog.hp_max
-			var it := Itens.novo("lagrima_sanguinea"); it["qtd"] = int(args.get("lagrimas", "3"))
-			Jogador.dar_item(jogo.sim, jogo.jog, it)
-			print("lagrimas ", Itens.contar(jogo.jog.inv, "lagrima_sanguinea"))
+			jogo.jog.ouro = int(args.get("ouro", "10000"))
 		"tip_tp":
 			var j: Control = jogo.janelas.jan["teleporte"]
 			for b in j.find_children("*", "Button", true, false):
