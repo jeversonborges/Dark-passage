@@ -1,0 +1,26 @@
+DARK PASSAGE - Prévia v{VERSAO}
+
+JOGAR SOZINHO
+  Abra DarkPassage.exe e clique em "Jogar sozinho".
+
+JOGAR ONLINE
+  Crie a sua conta em https://darkpassage.com.br, depois clique em "Jogar online" e "Entrar".
+  A conta e os personagens ficam no servidor (darkpassage.com.br). A conexão é cifrada.
+  Se aparecer "Atualize o jogo", baixe a versão nova.
+
+JOGAR COM AMIGOS NA MESMA REDE (LAN)
+  1. No PC que vai ser o servidor: abra DarkPassage.exe e clique em "Hospedar partida na rede local".
+     Se o Windows perguntar sobre o Firewall, clique em "Permitir acesso" (redes privadas).
+     A tela mostra o IP deste PC (ex.: 192.168.0.10). Passe esse número para os amigos.
+  2. Nos outros PCs: "Entrar numa partida (IP)", digite o IP e clique em Conectar.
+  3. Todo mundo: "Criar conta" (usuário + senha) na primeira vez; depois é só "Entrar".
+     Cada conta guarda até 6 personagens. As contas ficam no PC de quem hospeda.
+  4. Quem hospeda também joga normalmente. Se ele fechar o jogo, a partida acaba para todos
+     (os personagens ficam salvos).
+
+  Porta usada: 7777 (UDP). Se não conectar, confira o IP e o Firewall do PC que hospeda.
+
+TECLAS
+  O jogo abre em tela cheia. F11 ou Alt+Enter alterna (também no menu Esc)
+  Clique anda/ataca · 1 a 6 habilidades (a de área libera no nível 5) · Z modo automático
+  Q/W poções · R volta para a base (grátis) · I mochila · C personagem · J missões · M mapa · H ajuda
