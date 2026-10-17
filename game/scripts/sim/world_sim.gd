@@ -279,7 +279,7 @@ func _criar_npc(n: Dictionary) -> void:
 	var d: Dictionary = Defs.NPCS.get(n["id"], {})
 	var e := _ent_base("npc", n["id"], Vector2(n["pos"][0], n["pos"][1]))
 	e.nome = d.get("nome", n["id"]); e.aux["titulo"] = d.get("titulo", "")
-	e.faccao = d.get("faccao", "")
+	e.faccao = str(d.get("faccao", "")) if d.get("faccao") != null else ""   # NPCs neutros do Egito vêm com faccao null
 	e.facing = Vector2(n.get("dir", [1, 0])[0], n.get("dir", [1, 0])[1])
 	e.alvejavel = false; e.raio = 0.4
 	e.aux["visual"] = d.get("classe_visual", "humano")
@@ -300,6 +300,8 @@ func _criar_objeto(o: Dictionary) -> void:
 			e.nome = d.get("nome", o["obj"])
 		"portal":
 			e.nome = o.get("nome", "Passagem")
+		"leitura":   # inscrição, estela, despacho (Atlântida, Amenti): o nome vai no título da janela
+			e.nome = o.get("nome", "Inscrição")
 		"pilha_de_mortos", "corista":
 			pass
 	emitir("surgiu", {"id": e.id})

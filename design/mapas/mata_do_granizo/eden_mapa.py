@@ -22,6 +22,7 @@ Andar, MOBS, MOTIVO, SPAWN_MATA, PORTA_TORRE, CHEGADA_DESERTO, ARVORE_MAE, PORTA
 CHEGADA_CATACUMBA_DENTRO, FOGO, SEIVA, LUME, ruido, dist_seg = G.CHEGADA_CATACUMBA_DENTRO, G.FOGO, G.SEIVA, G.LUME, G.ruido, G.dist_seg
 
 NASCENTE = [60.0, 71.0]
+FENDA_ATLANTIDA = [83.5, 34.5]   # chegada da volta de Atlântida: [83.5, 36.5]
 AMBAR = [1, .62, .22]
 PISOS_EDEN = {"e": "relva_eden", "m": "musgo_pedra", "g": "margem_rio", "j": "terra_jardim", "l": "musgo_lume",
               "z": "cinza", "f": "mata_morta", "t": "trilha_eden", "w": "margem_rio", "r": "margem_rio", "k": "cascalho"}
@@ -371,6 +372,10 @@ def mata():
     a.prop("braseiro_ferro", PORTA_TORRE[0] + 1.0, PORTA_TORRE[1] - 2.2, bloqueia=.4, luz=FOGO + [6])
     a.portal(PORTA_TORRE[0], PORTA_TORRE[1], "torre_1", [11.5, 25.5], "A Torre · elevador de carga", visual="portal_dungeon",
              requer_flag="torre_aberta", texto_trancado="A porta da Torre está acorrentada por dentro. Ainda não.")
+    # ---- A Fenda para Atlântida (nv 30-45; thread "Atlântida"): rasgo de luz fria no Coração do Éden
+    a.prop("fenda", FENDA_ATLANTIDA[0], FENDA_ATLANTIDA[1] - .4, bloqueia=0, luz=[.55, .9, 1.0, 7])
+    a.portal(FENDA_ATLANTIDA[0], FENDA_ATLANTIDA[1], "atlantida", [128.0, 122.5], "A Fenda · Atlântida (nv 30)", visual="fenda",
+             nivel_minimo=30, texto_trancado="A Fenda canta numa nota que ainda te derruba. Volte no nível 30.")
 
     # ---- fora dos spots: poucos pares neutros nos caminhos, com espaço para respirar
     for (i, j, mob, niv) in [(1, 2, "cervo_de_lume", 12), (1, 3, "corvo_de_brasa", 12), (2, 4, "javali_brasa", 14), (4, 13, "enxame_de_fagulhas", 16),

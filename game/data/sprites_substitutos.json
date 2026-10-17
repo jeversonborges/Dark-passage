@@ -437,5 +437,44 @@
   "usa": "baraquiel",
   "escala": 1.0,
   "fase3": "baraquiel_sinal_pleno"
+ },
+ "corista_do_cerco": {
+  "usa": "corista_de_osso",
+  "escala": 1.05,
+  "tint": "#e0c27a"
+ },
+ "sineiro_do_coro": {
+  "usa": "querubim_da_espada",
+  "escala": 1.08,
+  "tint": "#c89a5a"
+ },
+ "npc:iolanda_prumo": {
+  "usa": "iolanda_prumo"
+ },
+ "npc:cabo_nestor": {
+  "usa": "nestor_calco"
+ },
+ "npc:evemon_parado": {
+  "usa": "evemon_parado"
+ },
+ "npc:thotme": {
+  "usa": "thotme"
+ },
+ "npc:irma_sinesia": {
+  "usa": "irma_sinesia"
+ },
+ "npc:belzarim": {
+  "usa": "belzarim"
+ },
+ "npc:lider_dos_anjos": {
+  "usa": "lider_dos_anjos"
+ },
+ "npc:lider_dos_demonios": {
+  "usa": "lider_dos_demonios"
+ },
+ "npc:esfinge_amenti": {
+  "usa": "esfinge_de_hawara",
+  "escala": 0.7,
+  "fantasma": true
  }
 }

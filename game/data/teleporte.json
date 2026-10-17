@@ -870,6 +870,158 @@
    "custo": {
     "ouro": 3000
    }
+  },
+  {
+   "id": "campos_duas_colheitas",
+   "nome": "Campos de Duas Colheitas",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    130.5,
+    85.5
+   ],
+   "nivel": [
+    30,
+    32
+   ],
+   "nivel_min": 30,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "canais_retos",
+   "nome": "Os Canais Retos",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    75.5,
+    94.5
+   ],
+   "nivel": [
+    32,
+    35
+   ],
+   "nivel_min": 32,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "olival_dos_parados",
+   "nome": "Olival dos Parados",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    91.5,
+    130.5
+   ],
+   "nivel": [
+    34,
+    37
+   ],
+   "nivel_min": 34,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "prados_dos_elefantes",
+   "nome": "Prados dos Elefantes",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    50.5,
+    37.5
+   ],
+   "nivel": [
+    36,
+    39
+   ],
+   "nivel_min": 36,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "salao_dos_registros",
+   "nome": "Salão dos Registros",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    53.5,
+    108.5
+   ],
+   "nivel": [
+    38,
+    40
+   ],
+   "nivel_min": 38,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "cerco_da_coluna",
+   "nome": "Cerco da Coluna",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    41.5,
+    70.5
+   ],
+   "nivel": [
+    38,
+    41
+   ],
+   "nivel_min": 38,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "aneis_e_hipodromo",
+   "nome": "Os Anéis e o Hipódromo",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    103.5,
+    82.5
+   ],
+   "nivel": [
+    40,
+    43
+   ],
+   "nivel_min": 40,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
+  },
+  {
+   "id": "ilha_do_templo",
+   "nome": "Ilha do Templo",
+   "grupo": "Atlântida",
+   "mapa": "atlantida",
+   "pos": [
+    101.5,
+    67.5
+   ],
+   "nivel": [
+    42,
+    45
+   ],
+   "nivel_min": 42,
+   "custo": {
+    "item": "lagrima_sanguinea",
+    "qtd": 1
+   }
   }
  ]
 }
