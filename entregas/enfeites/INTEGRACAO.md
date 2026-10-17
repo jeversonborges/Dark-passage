@@ -3,18 +3,13 @@
 Thread "Enfeites para as áreas carentes" (pedido do Jefin em 17/10/2026: "criar mais props, pequenos enfeites, para as
 áreas mais carentes disso, que repetem muito; o matadouro só tem uma carne espetada" + "algo mais bonito").
 
-**Não entra na 0.9.3** (o Jefin pediu só para adiantar). Integrar na versão seguinte.
+**Entra na 0.9.3** (Jefin, 17/10 10:52: "Já tem prop pronto? Manda nessa").
 
 Prévias em `entregas/enfeites/previa/` (maquete e folha de cada bioma). Fontes em `assets/ambiente/fontes/enfeites.py`.
 
 ## Passos
 
-1. Copiar as 36 peças prontas para o kit e atualizar o manifesto:
-
-       cp entregas/enfeites/objetos/*.png entregas/enfeites/objetos/*.json assets/ambiente/objetos/
-       mkdir -p /tmp/claude-0/vazio && cd assets/ambiente/fontes && python3 publicar.py /tmp/claude-0/vazio
-
-   (com uma pasta de brutos vazia, o `publicar.py` só reconstrói o `manifest.json` a partir de todos os `.json` de `objetos/`.)
+1. Já feito: as 36 peças estão em `assets/ambiente/objetos/` e no `manifest.json` (cópia também em `entregas/enfeites/objetos/`).
 2. `cd game && bash tools/sync.sh`.
 3. Espalhar os enfeites nos mapas pelo gerador de cada área (nunca à mão): `design/mapas/cripta/gerar.py` (Porão,
    Câmara, Ossário, Catacumba), `design/mapas/egito/dungeons_egito.py` (Hawara, Coração) e o layout da área inicial
