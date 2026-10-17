@@ -1,0 +1,20 @@
+--- /mnt/project-files/game/scripts/sim/comandos.gd	2026-10-17 09:52:30.356950000 +0000
++++ novo/comandos.gd	2026-10-17 11:30:03.711685000 +0000
+@@ -3,7 +3,7 @@
+ ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
+ 
+ const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
+-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler"]
++	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet"]
+ 
+ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
+ 	if e == null or not nome in NOMES: return
+@@ -65,6 +65,8 @@
+ 			Biblioteca.estante_pessoal(sim, e)
+ 		"ler":   # ler um livro da Estante (ou de uma estante perto)
+ 			if _str(a, 0): Biblioteca.pedido_ler(sim, e, a[0])
++		"pet":   # barra do pet do Cultista: atacar, proteger, teleportar, agressivo, passivo
++			if _str(a, 0) and a[0] in ["atacar", "teleportar", "proteger", "agressivo", "passivo"]: Familiar.comando(sim, e, a[0])
+ 		"escolher":
+ 			if _int(a, 0): Missoes.escolher(sim, e, a[0])
+ 		"virar":

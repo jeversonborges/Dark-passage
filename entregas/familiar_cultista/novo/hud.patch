@@ -1,0 +1,122 @@
+--- /mnt/project-files/game/scripts/client/hud.gd	2026-10-17 11:30:10.689290000 +0000
++++ novo/hud.gd	2026-10-17 11:59:58.986567980 +0000
+@@ -54,6 +54,8 @@
+ var hover_cinto := -1
+ var hover_menu := -1
+ var pressionado := {}         # slot -> tempo do flash
++var pet_ui: Control           # barra do pet do Cultista (retrato, vida e 5 comandos), em cima da barra de skills
++var hover_pet := -1
+ var status_jog := {}          # s -> fim
+ 
+ const MENU := ["personagem", "mochila", "habilidades", "missoes", "mapa", "menu"]
+@@ -71,6 +73,7 @@
+ 	raiz.theme = Tema.tema_janelas()
+ 	add_child(raiz)
+ 	_montar_barra()
++	_montar_pet()
+ 	_montar_topo()
+ 	_montar_alvo()
+ 	_montar_minimapa()
+@@ -318,6 +321,93 @@
+ 		if nm == "personagem" and j.pontos > 0:
+ 			c.draw_circle(r.position + Vector2(31, 3), 4.0, Color(1.0, 0.75, 0.2, 0.7 + 0.3 * sin(t * 5.0)))
+ 
++# =================================================================== barra do pet (Cultista, 0.9.3)
++## Arte: pet_barra.png (pintada pelo Jefin; retrato, molduras, ícones e nomes já vêm nela). O código desenha por
++## cima a vida do familiar, o modo ativo, o hover e o retrato apagado enquanto ele volta do abismo.
++const PET_CMD := ["atacar", "proteger", "teleportar", "agressivo", "passivo"]
++const PET_NOME := {"atacar": "Atacar: o familiar vai no seu alvo", "proteger": "Proteger: ataca quem bater em você ou nele",
++	"teleportar": "Teleportar: o familiar volta para o seu lado", "agressivo": "Modo agressivo: ataca monstros perto de você",
++	"passivo": "Modo passivo: só segue, não ataca"}
++const PET_BOTAO := [Rect2(80, 8, 54, 49), Rect2(140, 8, 53, 49), Rect2(198, 8, 54, 49), Rect2(258, 8, 57, 49), Rect2(321, 8, 53, 49)]
++const PET_RETRATO := Rect2(15, 5, 54, 53)
++
++func _montar_pet() -> void:
++	pet_ui = _painel(_desenhar_pet)
++	pet_ui.size = Vector2(387, 63)
++	pet_ui.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
++	pet_ui.mouse_filter = Control.MOUSE_FILTER_STOP
++	pet_ui.entrada = _entrada_pet
++	pet_ui.mouse_exited.connect(func(): hover_pet = -1; esconder_tip())
++	pet_ui.visible = false
++	raiz.add_child(pet_ui)
++
++## O familiar do jogador (vivo ou voltando do abismo), procurado pelo dono: serve no solo e em rede.
++func _meu_pet() -> Ent:
++	var j := _jog()
++	if j == null or j.classe != "cultista": return null
++	for e: Ent in game.sim.ents.values():
++		if e.tipo == "invocacao" and e.dono == j.id and String(e.kind).begins_with("familiar_"): return e
++	return null
++
++func _posicionar_pet() -> void:
++	var j := _jog()
++	pet_ui.visible = j != null and j.classe == "cultista" and _meu_pet() != null
++	if not pet_ui.visible: return
++	var sobe := 48.0 if _n_slots() > 10 else 0.0   # com a fileira da evolução (Shift+1..5), a barra do pet sobe
++	pet_ui.offset_left = -640 + 185; pet_ui.offset_right = pet_ui.offset_left + 387
++	pet_ui.offset_top = -147 - sobe; pet_ui.offset_bottom = pet_ui.offset_top + 63
++
++func _entrada_pet(ev: InputEvent) -> void:
++	if ev is InputEventMouseMotion:
++		var h := -1
++		for i in PET_BOTAO.size(): if PET_BOTAO[i].has_point(ev.position): h = i
++		if h != hover_pet:
++			hover_pet = h
++			if h >= 0: mostrar_tip("[font_size=14]%s[/font_size]" % PET_NOME[PET_CMD[h]])
++			elif PET_RETRATO.has_point(ev.position): mostrar_tip(_tip_pet())
++			else: esconder_tip()
++	elif ev is InputEventMouseButton and ev.pressed and ev.button_index == MOUSE_BUTTON_LEFT:
++		if hover_pet >= 0:
++			game.audio.tocar("ui/clique", null, -6.0)
++			game.cmd("pet", [PET_CMD[hover_pet]])
++			pressionado["pet_%d" % hover_pet] = t + 0.18
++		pet_ui.accept_event()
++
++func _tip_pet() -> String:
++	var f := _meu_pet()
++	if f == null: return ""
++	var est := "voltando do abismo" if not f.vivo else "%d / %d de vida" % [ceili(f.hp), ceili(f.hp_max)]
++	return "[font_size=15][b]%s[/b][/font_size]\n[font_size=13]%s · cura 10%% do dano que você causa[/font_size]" % [f.nome, est]
++
++func _desenhar_pet(c: Painel) -> void:
++	var f := _meu_pet()
++	var j := _jog()
++	if f == null or j == null: return
++	var tex := Tema.ui("pet_barra")
++	if tex: c.draw_texture_rect(tex, Rect2(Vector2.ZERO, c.size), false)
++	# retrato apagado enquanto o familiar volta sozinho (30 s)
++	if not f.vivo:
++		c.draw_rect(PET_RETRATO, Color(0.02, 0.01, 0.01, 0.7))
++		_txt(c, PET_RETRATO.get_center() + Vector2(0, 4), "VOLTANDO", 7, Color("#c9a27a"), Tema.FONTE_PIXEL, 0, 2)
++	# vida do familiar no pé do retrato
++	var hr := Rect2(PET_RETRATO.position.x + 2, PET_RETRATO.end.y - 7, PET_RETRATO.size.x - 4, 5)
++	_barra(c, hr, f.frac_hp() if f.vivo else 0.0, Color("#b3261e") if f.frac_hp() > 0.3 else Color("#ff4a2a"))
++	# modo ativo: moldura de latão acesa; hover e clique clareiam o botão
++	var modo: String = j.aux.get("pet_modo", "proteger")
++	for i in PET_BOTAO.size():
++		var r: Rect2 = PET_BOTAO[i]
++		if PET_CMD[i] == modo:
++			var pulso := 0.75 + 0.25 * sin(t * 3.0)
++			c.draw_rect(r.grow(1.0), Color(0.98, 0.78, 0.32, 0.85 * pulso), false, 2.0)
++		if float(pressionado.get("pet_%d" % i, 0.0)) > t: c.draw_rect(r, Color(1.0, 0.85, 0.5, 0.22))
++		elif i == hover_pet: c.draw_rect(r, Color(1.0, 0.95, 0.8, 0.10))
++	if not f.vivo:
++		for i in [0, 2]: c.draw_rect(PET_BOTAO[i], Color(0, 0, 0, 0.45))   # Atacar e Teleportar esperam o familiar voltar
++	# o "AUTO" da barra fica embaixo desta; repete ao lado
++	if j.aux.get("auto", false):
++		var pulso2 := 0.65 + 0.35 * sin(t * 4.0)
++		_txt(c, Vector2(c.size.x + 34, 40), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso2), Tema.FONTE_TITULO, 0, 4)
++
+ ## Selo de latão no canto do slot: a skill está no modo automático (clique direito liga/desliga).
+ func _selo_auto(c: CanvasItem, r: Rect2) -> void:
+ 	var p := r.position + Vector2(44, 44)
+@@ -1501,6 +1591,8 @@
+ 		if canal_t > float(canal_d.get("dur", 1.0)) + 0.6: canal_d = {}
+ 	if morte_ui and morte_ui.visible: morte_ui.set_meta("t", float(morte_ui.get_meta("t")) + dt); morte_ui.queue_redraw()
+ 	if game.jog == null: return
++	_posicionar_pet()
++	if pet_ui.visible: pet_ui.queue_redraw()
+ 	barra.queue_redraw(); topo_esq.queue_redraw(); alvo_ui.queue_redraw(); minimapa.queue_redraw(); banner.queue_redraw(); canal_ui.queue_redraw()
+ 	if mapa_ui and mapa_ui.visible: mapa_ui.queue_redraw()
+ 	if Engine.get_process_frames() % 15 == 0: _atualizar_rastreador()
