@@ -1,5 +1,151 @@
 {
  "sons": {
+  "agrak/abel_resmungo": {
+   "desc": "Abel: resmungo rouco e baixo, debochando (timbre, as falas são texto)",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 3,
+   "arquivos": [
+    "sfx/agrak/abel_resmungo_1.ogg",
+    "sfx/agrak/abel_resmungo_2.ogg",
+    "sfx/agrak/abel_resmungo_3.ogg"
+   ],
+   "duracao_s": 1.14
+  },
+  "agrak/corrente_girando": {
+   "desc": "Pião do Golias: bola de ferro girando na corrente (10 s, uma volta a cada meio segundo)",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/corrente_girando.ogg"
+   ],
+   "duracao_s": 11.03
+  },
+  "agrak/golias_urro": {
+   "desc": "Golias, o Pião do Agrak: urro do gigante e três batidas no peito",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/golias_urro.ogg"
+   ],
+   "duracao_s": 5.04
+  },
+  "agrak/grade_sobe": {
+   "desc": "Grade do Portão dos Leões subindo: corrente na roldana, ferro rangendo e o baque lá em cima",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/grade_sobe.ogg"
+   ],
+   "duracao_s": 4.53
+  },
+  "agrak/guincho_corrente": {
+   "desc": "Portão do Gigante: guincho de corrente grossa puxado por manivela",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/guincho_corrente.ogg"
+   ],
+   "duracao_s": 4.93
+  },
+  "agrak/megafone": {
+   "desc": "Caim: berro no megafone de latão (timbre, as falas são texto)",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 3,
+   "arquivos": [
+    "sfx/agrak/megafone_1.ogg",
+    "sfx/agrak/megafone_2.ogg",
+    "sfx/agrak/megafone_3.ogg"
+   ],
+   "duracao_s": 2.67
+  },
+  "agrak/plateia_agrak": {
+   "desc": "Plateia em coro: \"A-GRAAAK!\"",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/plateia_agrak.ogg"
+   ],
+   "duracao_s": 3.12
+  },
+  "agrak/plateia_golias": {
+   "desc": "Plateia em coro: \"GO-LI-AS! GO-LI-AS!\" com os pés",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/plateia_golias.ogg"
+   ],
+   "duracao_s": 4.31
+  },
+  "agrak/plateia_urro": {
+   "desc": "Plateia do Agrak: urro (morte, fera solta, vitória)",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 3,
+   "arquivos": [
+    "sfx/agrak/plateia_urro_1.ogg",
+    "sfx/agrak/plateia_urro_2.ogg",
+    "sfx/agrak/plateia_urro_3.ogg"
+   ],
+   "duracao_s": 3.92
+  },
+  "agrak/plateia_vaia": {
+   "desc": "Plateia vaiando (tempo esgotado, ninguém venceu), com assobios",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/plateia_vaia.ogg"
+   ],
+   "duracao_s": 4.15
+  },
+  "agrak/rugido_dalila": {
+   "desc": "Dalila, a Leoa do Amargo: rugido curto e rápido",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/rugido_dalila.ogg"
+   ],
+   "duracao_s": 2.2
+  },
+  "agrak/rugido_morte": {
+   "desc": "Fera do Agrak caindo: gemido que afunda e o corpo batendo na areia",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/rugido_morte.ogg"
+   ],
+   "duracao_s": 2.73
+  },
+  "agrak/rugido_nabucodonosor": {
+   "desc": "Nabucodonosor, o Leão Velho: rugido longo, rouco, que treme",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/rugido_nabucodonosor.ogg"
+   ],
+   "duracao_s": 3.22
+  },
+  "agrak/rugido_sansao": {
+   "desc": "Sansão, o maior dos leões: rugido grave que enche o estádio",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/agrak/rugido_sansao.ogg"
+   ],
+   "duracao_s": 3.74
+  },
   "ambiente/abatedouro": {
    "desc": "Abatedouro Carnica: maquinas, chamines, ganchos balancando, gordura pingando, porcos ao longe",
    "bus": "ambiente",
@@ -19,6 +165,16 @@
     "ambiente/acampamento_vela.ogg"
    ],
    "duracao_s": 60.0
+  },
+  "ambiente/agrak_multidao": {
+   "desc": "Agrak: murmúrio da plateia esperando sangue, gritos soltos, metal da arquibancada e vento",
+   "bus": "sfx",
+   "loop": true,
+   "variacoes": 1,
+   "arquivos": [
+    "ambiente/agrak_multidao.ogg"
+   ],
+   "duracao_s": 29.0
   },
   "ambiente/bairro_afogado": {
    "desc": "Bairro Afogado: telhados saindo da areia, vento assobiando nas chamines, telhas e calhas batendo, radio esquecido num sotao",
@@ -2164,6 +2320,16 @@
     "musica/acampamento_vela.ogg"
    ],
    "duracao_s": 102.86
+  },
+  "musica/agrak_arena": {
+   "desc": "O Agrak (lutas): tambores de guerra, metal batido na arquibancada, baixo de metais e a plateia ao fundo",
+   "bus": "musica",
+   "loop": true,
+   "variacoes": 1,
+   "arquivos": [
+    "musica/agrak_arena.ogg"
+   ],
+   "duracao_s": 55.38
   },
   "musica/capela": {
    "desc": "Capela de Sao Lazaro (base dos Arautos): coral solene de orgao e coro, majestoso e corrompido",
