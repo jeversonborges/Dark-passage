@@ -16,10 +16,13 @@ mkdir -p build/windows build/servidor
 t0=$SECONDS
 "$GODOT" --headless --path . --export-release "Windows" build/windows/DarkPassage.exe
 echo "export Windows: $((SECONDS-t0)) s"
+if [ "${PARTES:-tudo}" = cliente ]; then echo "servidor: não exportado (só cliente)"
+else
 t0=$SECONDS
 "$GODOT" --headless --path . --export-pack "Servidor Linux" build/servidor/DarkPassage-servidor.pck
 echo "export servidor: $((SECONDS-t0)) s"
-ls -la build/windows build/servidor
-[ "$(stat -c %s build/windows/DarkPassage.exe)" -gt 50000000 ] || { echo "ERRO: exe pequeno demais"; exit 1; }
 [ -s build/servidor/DarkPassage-servidor.pck ] || { echo "ERRO: pck do servidor vazio"; exit 1; }
+fi
+ls -la build/windows
+[ "$(stat -c %s build/windows/DarkPassage.exe)" -gt 50000000 ] || { echo "ERRO: exe pequeno demais"; exit 1; }
 python3 "$R/tools/release/conferir_icone.py" build/windows/DarkPassage.exe assets/icone.ico || true
