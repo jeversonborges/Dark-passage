@@ -10,6 +10,7 @@ const MAPA := "cume_dos_vigilantes"
 var ev: Dictionary
 var instancias := {}           # "f<faixa>" -> [{id, jogadores:[ids]}] da subida atual
 var subida_atual := -1         # unix do início da janela em curso (-1 = fechada)
+var forcado := -1             # GM: início manual (unix); -1 = só a agenda
 var _ultimo_aviso := {}        # minuto -> unix da subida avisada
 
 func _init(p_ev: Dictionary) -> void:
@@ -28,6 +29,7 @@ func proximo_inicio(agora: int) -> int:
 		for h in ev["agenda"]["diario"]:
 			var u := dia0 + d * 86400 + _hm(h) - FUSO_S
 			if u >= agora and (melhor < 0 or u < melhor): melhor = u
+	if forcado >= agora and (melhor < 0 or forcado < melhor): melhor = forcado   # aberto à mão pelo GM
 	return melhor
 
 ## Início da janela em curso (se a entrada está aberta agora) ou -1.
