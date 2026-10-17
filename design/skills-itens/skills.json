@@ -444,8 +444,9 @@
     "familiar demoníaco permanente que anda com o Cultista",
     "ataca quem bater no mestre; nunca puxa briga sozinho",
     "racial: não ocupa slot de skill nem tecla",
-    "se o familiar morrer, volta sozinho em 30 s",
-    "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16)"
+    "invulnerável: não recebe dano e não morre",
+    "é dano (DPS): todas as formas batem em área",
+    "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16), Líder dos Demônios (60)"
    ],
    "descricao": "O livro acorrentado tem uma página que ninguém escreveu. Quem assina com sangue ganha um demônio de estimação, e o demônio cresce junto com a dívida.",
    "fx": "selo de cera rachando no chão + fuligem subindo; o familiar sai de dentro da fumaça",
@@ -459,7 +460,7 @@
       "nome": "Diabrete de Fuligem",
       "nivel": 1,
       "descricao": "Um diabinho do tamanho de um gato, de avental de couro queimado e óculos de soldador rachados. Cospe brasa em quem encosta no mestre e ri de tudo.",
-      "ataque": "Cuspe de Brasa: projétil de brasa que deixa queimadura leve",
+      "ataque": "Cuspe de Brasa: projétil de brasa que estoura em área de 1,5 tile",
       "fx": "cuspe laranja com fagulhas",
       "som": "risadinha + cuspe chiando"
      },
@@ -468,9 +469,8 @@
       "nome": "Algoz de Enxofre",
       "nivel": 6,
       "descricao": "O diabrete engordou de dívida. Agora é um carrasco do tamanho de um homem, capuz de couro, chifres serrados, corrente no pescoço e um cutelo de açougue. Puxa pela corrente quem ousou bater no mestre.",
-      "ataque": "Cutelo de Enxofre (corpo a corpo)",
-      "especial": "Puxão de Corrente: arrasta o agressor até ele e o provoca por 3 s",
-      "passiva": "Guarda-Costas: recebe 15% do dano que o mestre levaria",
+      "ataque": "Cutelo de Enxofre: golpe que acerta todos em 2 tiles do alvo",
+      "especial": "Puxão de Corrente: arrasta o agressor até ele e golpeia em área",
       "fx": "corrente com gancho em brasa + rastro de enxofre amarelo-sujo",
       "som": "corrente arrastando + grunhido"
      },
@@ -479,11 +479,20 @@
       "nome": "Tirano da Fornalha",
       "nivel": 16,
       "descricao": "Um couraçado da Legião Blasfema que perdeu o general e jurou ao Cultista. Quase três metros de placas rebitadas, chifres de carneiro, uma fornalha acesa no peito, pistão na perna e um canhão de brasa no lugar do braço.",
-      "ataque": "Punho de Fornalha (corpo a corpo, quebra postura)",
-      "especial": "Canhão de Brasa: tiro em área de 2 tiles que deixa o chão em chamas por 3 s; Rugido da Legião: provoca todos em 3 tiles",
-      "passiva": "Guarda-Costas: recebe 25% do dano que o mestre levaria",
+      "ataque": "Punho de Fornalha: soco que acerta todos em 2,5 tiles do alvo e quebra postura",
+      "especial": "Canhão de Brasa: tiro em área de 2 tiles; Rugido da Legião: onda de fogo em 3 tiles quando 2 ou mais inimigos batem no mestre",
       "fx": "tiro de brasa com fumaça preta + anel de fogo no chão; vapor saindo do pistão",
       "som": "rugido grave + escape de vapor + explosão abafada"
+     },
+     {
+      "id": "familiar_lider",
+      "nome": "Líder dos Demônios",
+      "nivel": 60,
+      "descricao": "A dívida ficou maior que o devedor. O próprio Líder dos Demônios responde ao Cultista agora, em tamanho que cabe ao lado dele: ferro negro e carne rachada de lava, chifres enormes e asas rasgadas. Anda com o mesmo desprezo de quem nunca obedeceu ninguém.",
+      "ataque": "Garra de Lava: crava a garra no chão e acerta todos em 3 tiles do alvo",
+      "especial": "Decreto do Lorde: explosão de lava em 4 tiles em volta do alvo",
+      "fx": "rachaduras de lava se abrindo no chão + brasas subindo",
+      "som": "impacto grave + rachar de pedra + chiado de lava"
      }
     ]
    },
@@ -2125,6 +2134,59 @@
     "64": "assets/icones/skills/64/tecnomancer_pulso_antidivino.png",
     "40": "assets/icones/skills/40/tecnomancer_pulso_antidivino.png",
     "32": "assets/icones/skills/32/tecnomancer_pulso_antidivino.png"
+   }
+  },
+  {
+   "id": "tecnomancer_rosario_voltaico",
+   "classe": "tecnomancer",
+   "nome": "Rosário Voltaico",
+   "tipo": "area",
+   "nivel": 16,
+   "custo": 34,
+   "recarga": 4.0,
+   "conjuracao": 0.35,
+   "alcance": 7,
+   "area": "salta até 6 alvos (3.5 tiles entre um e outro)",
+   "duracao": 0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP",
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "cadeia",
+    "alvos_max": 6,
+    "raio_salto_tiles": 3.5,
+    "origem": "alvo_do_mouse"
+   },
+   "dano": {
+    "mult": 1.6,
+    "queda_por_salto": 0.12,
+    "mult_por_alvo": [
+     1.6,
+     1.41,
+     1.24,
+     1.09,
+     0.96,
+     0.84
+    ]
+   },
+   "efeitos": [
+    "raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum",
+    "cada salto perde 12% do dano",
+    "15% de chance de paralisar 0.5 s",
+    "+15% de dano em invocações",
+    "pedido do Jefin (2026-10-11)"
+   ],
+   "descricao": "Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
+   "fx": "raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão",
+   "som": "estalo elétrico forte + estalos menores em cadeia, cada um um tom acima",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_rosario_voltaico.png",
+    "40": "assets/icones/skills/40/tecnomancer_rosario_voltaico.png",
+    "32": "assets/icones/skills/32/tecnomancer_rosario_voltaico.png"
    }
   },
   {

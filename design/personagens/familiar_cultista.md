@@ -3,6 +3,10 @@
 Pedido do Jefin: o Cultista ganha, como racial, um pet demônio que anda com ele o tempo todo, evolui nos
 níveis 1, 6 e 16, protege o mestre e ataca quando o mestre é atacado.
 
+- **0.9.3** (Jefin, 2026-10-17): o pet é **invulnerável**, é **DPS**, **todas as formas batem em área** e ganha a
+  4ª forma, o **Líder dos Demônios no nível 60** (`familiar_lider.py`, modelo de `lider_dos_demonios.py` em escala de
+  pet). Integração em `entregas/familiar_cultista/INTEGRACAO.md`.
+
 - **É racial, não skill** (Jefin, 2026-10-11): não ocupa slot nem tecla, e o Servo de Carne continua.
 - **Racial:** Pacto do Familiar (`cultista_familiar_pacto`, `tipo: racial`). Texto em
   `design/skills-itens/skills.json` (gerado por `fontes/skills_data.py`) e números em
@@ -15,7 +19,8 @@ níveis 1, 6 e 16, protege o mestre e ataca quando o mestre é atacado.
 |---|---|---|---|---|
 | Diabrete de Fuligem (`familiar_diabrete`) | 1 a 5 | 0,75 m | 160 px | cabeção, orelhas de morcego, asinhas rasgadas, rabo em S erguido |
 | Algoz de Enxofre (`familiar_algoz`) | 6 a 15 | 1,9 m | 256 px | curvado, capuz de carrasco com chifres serrados, cutelo enorme |
-| Tirano da Fornalha (`familiar_tirano`) | 16+ | 2,7 m | 352 px | chifres de carneiro, duas chaminés, canhão no braço direito, perna de pistão |
+| Tirano da Fornalha (`familiar_tirano`) | 16 a 59 | 2,7 m | 352 px | chifres de carneiro, duas chaminés, canhão no braço direito, perna de pistão |
+| Líder dos Demônios (`familiar_lider`) | 60+ | 3,3 m | 448 px | o lorde de Amenti em escala de pet: chifres enormes, asas rasgadas, lava nas rachaduras |
 
 Regras da Ferrugem Sagrada aplicadas: demônios vestidos (avental, capuz, saiote, tabardo), sujeira,
 latão e ferro enferrujado, **um só emissivo** (brasa laranja: olhos, boca, fornalha, cano do canhão),
@@ -47,7 +52,7 @@ Faltam special, evolve e spawn (o jogo pode trocar de forma direto e usar idle n
 | `attack` | ✓ 8q, cospe brasa | ✓ 10q, golpe de cutelo de cima | ✓ 10q, soco com a manopla | feito; o jogo cria o projétil do Diabrete |
 | `special` | – | 10q, Puxão de Corrente (corrente esticada, osso escondido fora dela, como o `pull` do Gancheiro) | 12q, Canhão de Brasa (recuo, vapor) + 10q Rugido | |
 | `hit` | ✓ 3q | ✓ 3q | ✓ 3q | feito |
-| `death` | ✓ 8q, ajoelha e tomba | ✓ 8q | ✓ 8q | feito; segurar o último quadro; volta em 30 s |
+| `death` | ✓ 8q, ajoelha e tomba | ✓ 8q | ✓ 8q | feito; só por segurança (o pet é invulnerável desde a 0.9.3) |
 | `evolve` | 12q | 12q | – | casulo de brasa e carne de 2 s; o jogo troca para a próxima forma no último quadro |
 | `spawn` | 8q, sai da fumaça do lacre | 8q | 8q | quando volta sozinho 30 s depois de morrer |
 
@@ -58,6 +63,6 @@ Sons para Som e música: risadinha do Diabrete, corrente arrastando, rugido grav
 ## Para a Prévia jogável (integração em `game/`)
 
 O familiar é uma racial (`cultista > racial` em `classes_base.json`), sem tecla: nasce com o Cultista,
-escolhe a forma pelo nível do dono (`formas[].nivel_dono`), só ataca quem bateu no dono ou nele
-(`alvo.prioridade`, nunca puxa neutro parado) e volta sozinho 30 s depois de morrer. O Servo de Carne
+escolhe a forma pelo nível do dono (`formas[].nivel_dono`), só ataca quem bateu no dono
+(`alvo.prioridade`, nunca puxa neutro parado), bate em área e é invulnerável (0.9.3). O Servo de Carne
 continua igual, então o Cultista pode ter os dois ao mesmo tempo.
