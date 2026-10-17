@@ -1,0 +1,1008 @@
+
+--- a/game/scripts/client/chao.gd	2026-10-16 14:10:07.739834702 +0000
++++ b/game/scripts/client/chao.gd	2026-10-16 14:34:04.266969441 +0000
+@@ -12,6 +12,7 @@
+ uniform vec4 cor_vazio : source_color = vec4(0.02, 0.018, 0.02, 1.0);
+ uniform float agua = -1.0;
+ uniform float lama = -1.0;
++uniform float abismo = 0.0;   // cume do Hermon: o vazio vira abismo com nevasca (0.9.x)
+ varying vec2 pm;
+ 
+ void vertex() { pm = VERTEX; }
+@@ -61,7 +62,13 @@
+ }
+ 
+ vec3 amostra(float l, vec2 t) {
+-	if (l > 254.0) return cor_vazio.rgb;
++	if (l > 254.0) {
++		if (abismo < 0.5) return cor_vazio.rgb;
++		// abismo: nevasca de cinza que corre lá embaixo, em duas camadas, sobre um fundo quase preto
++		float n1 = texture(ruido, t * 0.045 + vec2(TIME * 0.012, TIME * 0.004)).r;
++		float n2 = texture(ruido, t * 0.11 - vec2(TIME * 0.03, -TIME * 0.01)).g;
++		return vec3(0.018, 0.02, 0.026) + vec3(0.07, 0.075, 0.085) * smoothstep(0.35, 0.9, n1) + vec3(0.035, 0.037, 0.042) * smoothstep(0.5, 0.95, n2);
++	}
+ 	return texture(pisos, vec3(t * 0.25, l)).rgb;
+ }
+ 
+@@ -108,6 +115,8 @@
+ var w := 0
+ var h := 0
+ var _mat: ShaderMaterial
++var _mi: Image
++var _mt: ImageTexture
+ 
+ func montar(m: Dictionary) -> void:
+ 	mapa = m
+@@ -155,6 +164,7 @@
+ 			if prof > 0.0 and rio.size() > 1: ang = _correnteza(rio, Vector2(x + 0.5, y + 0.5))
+ 			mi.set_pixel(x, y, Color(l / 255.0, a, prof, ang))
+ 	var mt := ImageTexture.create_from_image(mi)
++	_mi = mi; _mt = mt
+ 	var ruido := FastNoiseLite.new()
+ 	ruido.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
+ 	ruido.frequency = 0.02
+@@ -180,6 +190,7 @@
+ 	_mat.set_shader_parameter("ruido", ImageTexture.create_from_image(ri))
+ 	_mat.set_shader_parameter("tam", Vector2(w, h))
+ 	_mat.set_shader_parameter("agua", float(nomes.find("agua_toxica")))
++	_mat.set_shader_parameter("abismo", 1.0 if m.has("hermon") else 0.0)
+ 	var ceu: Dictionary = m.get("ceu", {})
+ 	_mat.set_shader_parameter("cor_vazio", Color(0.012, 0.01, 0.012) if not m.get("exterior", false) else Color(0.05, 0.045, 0.04))
+ 	material = _mat
+@@ -206,3 +217,12 @@
+ 	var y0 := -16.0 * h
+ 	var y1 := 16.0 * w
+ 	draw_rect(Rect2(x0 - 64, y0 - 64, x1 - x0 + 128, y1 - y0 + 128), Color.WHITE)
++
++## Cume do Hermon: as células de um anel que caiu viram abismo (piso 255).
++func derrubar(celulas: Array) -> void:
++	if _mi == null: return
++	for c in celulas:
++		var px := _mi.get_pixel(int(c[0]), int(c[1]))
++		px.r = 1.0
++		_mi.set_pixel(int(c[0]), int(c[1]), px)
++	_mt.update(_mi)
+
+--- a/game/scripts/client/game.gd	2026-10-16 14:10:07.740031154 +0000
++++ b/game/scripts/client/game.gd	2026-10-16 18:05:42.481194342 +0000
+@@ -31,6 +31,8 @@
+ var objs := {}             # id -> ObjView (baús, portais, interativos)
+ var itens_chao := {}       # id -> ItemChao
+ var props_altos: Array = []
++var props_anel := {}          # cume do Hermon: anel -> [sprites] que caem com ele
++var rachas := {}              # anel -> [sprites de fenda] que acendem no aviso
+ var oclusores: Array = []          # [sprite, rect, kind] de todo prop de pé que pode esconder o jogador
+ var mascaras := {}                 # kind -> BitMap da arte (alfa), para testar oclusão por pixel
+ var silhueta := Sprite2D.new()     # o jogador desenhado por cima do cenário quando está escondido
+@@ -205,6 +207,7 @@
+ 	for o in objs.values(): o.queue_free()
+ 	for c in itens_chao.values(): c.queue_free()
+ 	views.clear(); objs.clear(); itens_chao.clear(); props_altos.clear(); oclusores.clear()
++	props_anel.clear(); rachas.clear()
+ 	for c in mundo.get_children(): c.queue_free()
+ 	for c in decal.get_children(): c.queue_free()
+ 	for c in fx.get_children(): c.queue_free()
+@@ -229,6 +232,8 @@
+ 		if not amb.has(k): continue
+ 		var s := _sprite_kit(k, Vector2(p["x"], p["y"]), p.get("espelho", 0) == 1)
+ 		if s == null: continue
++		if p.get("anel", "") != "" and p.get("anel") != null: props_anel[p["anel"]] = props_anel.get(p["anel"], []) + [s]
++		if p.has("racha"): rachas[p["racha"]] = rachas.get(p["racha"], []) + [s]
+ 		if p.get("chao", 0) == 1: decal.add_child(s)
+ 		elif p.get("frente", 0) == 1 or k.contains("_frente"): mundo.add_child(s)   # meia-parede da frente: baixa, nunca esconde o personagem
+ 		else:
+@@ -385,6 +390,7 @@
+ 		chefe_view = v
+ 		v.set_meta("luz", luz.adicionar(v.position, Color(1.0, 0.62, 0.38), 5.5, 1.1, true))
+ 	if e.invisivel: v.visible = false
++	if e.aux.has("anim_entrada") and v.has_method("tocar"): v.tocar(str(e.aux["anim_entrada"]), 0.0)   # Vigilantes: rise / land
+ 	if e.kind == "nao_julgado" and mapa.get("exterior", false):
+ 		fx.folha("naojulgado_brilho_noite", v.position, {"segue": v, "dura": 99999.0, "aditivo": true})
+ 
+@@ -616,6 +622,14 @@
+ 			if v and float(d.get("valor", 0)) >= 1.0 and not d.get("silencioso", false):
+ 				fx.numero(v.position + Vector2(0, -v.altura_px), int(d["valor"]), "cura", v.id)
+ 		"morreu": _morreu(d)
++		"hermon_aviso": _hermon_aviso(str(d["anel"]))
++		"hermon_anel_caiu": _hermon_caiu(str(d["anel"]))
++		"hermon_queda":
++			var vq = views.get(int(d["id"]))
++			if vq:
++				var tq := create_tween().set_parallel()
++				tq.tween_property(vq, "position:y", vq.position.y + 260.0, 0.9).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
++				tq.tween_property(vq, "modulate:a", 0.0, 0.9)
+ 		"telegrafo":
+ 			fx.telegrafo(d)
+ 			audio.tocar("combate/telegrafo_inicio", Iso.to_screen(d["origem"]), -6.0)
+@@ -1542,3 +1556,28 @@
+ 	var f := FileAccess.open(SAVE, FileAccess.READ)
+ 	var d = JSON.parse_string(f.get_as_text())
+ 	return d if d is Dictionary else {}
++
++# =================================================================== cume do Hermon (evento O Cume dos Vigilantes)
++## Aviso: as fendas do anel acendem na luz do juramento e pulsam; a terra treme.
++func _hermon_aviso(anel: String) -> void:
++	for s: Sprite2D in rachas.get(anel, []):
++		if not is_instance_valid(s): continue
++		var t := create_tween().set_loops(10)
++		t.tween_property(s, "modulate", Color(2.6, 1.9, 1.0), 0.5)
++		t.tween_property(s, "modulate", Color(1.5, 1.1, 0.7), 0.5)
++		luz.adicionar(s.position, Color(1.0, 0.8, 0.45), 1.6, 1.0, true)
++	_tremer(2, 1.0)
++
++## Queda: o chão do anel vira abismo e os props daquele anel despencam.
++func _hermon_caiu(anel: String) -> void:
++	for a in mapa.get("hermon", {}).get("aneis", []):
++		if a["id"] == anel: chao.derrubar(a["celulas"])
++	for s: Sprite2D in props_anel.get(anel, []) + rachas.get(anel, []):
++		if not is_instance_valid(s): continue
++		var t := create_tween().set_parallel()
++		t.tween_property(s, "position:y", s.position.y + 300.0, 1.4).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
++		t.tween_property(s, "modulate:a", 0.0, 1.4)
++		t.chain().tween_callback(s.queue_free)
++		props_altos = props_altos.filter(func(pr): return pr[0] != s)
++		oclusores = oclusores.filter(func(oc): return oc[0] != s)
++	_tremer(10, 0.8)
+
+--- a/game/scripts/client/unidade.gd	2026-10-16 14:10:07.740853942 +0000
++++ b/game/scripts/client/unidade.gd	2026-10-16 18:11:08.829360896 +0000
+@@ -89,6 +89,7 @@
+ 	if e.tipo == "jogador": kind = e.classe
+ 	elif e.tipo == "npc": kind = "npc:" + e.kind
+ 	elif e.tipo == "invocacao": kind = e.kind
++	elif e.tipo == "objeto" and Defs.SPR.has(str(e.aux.get("visual", ""))): kind = e.aux["visual"]   # estátua viva (Vigilante ajoelhado)
+ 	info = Defs.sprite(kind)
+ 	if e.tipo == "npc" and not Defs.SPR.has(kind):
+ 		var s: Dictionary = Defs.SPR_SUBST.get(kind, {})
+@@ -119,6 +120,9 @@
+ 	position = pos_vis
+ 	ult_pos = e.pos
+ 	dir = maxi(0, Iso.dir8(e.facing))
++	if e.tipo == "objeto":
++		anim_base = str(e.aux.get("anim", ""))
++		if e.kind == "estatua_vigilante": mat.set_shader_parameter("tinta", Color(1.5, 1.48, 1.5))   # coberto de cinza até o juramento
+ 	_definir_anim("idle")
+ 	_aplicar_frame()
+ 
+@@ -254,6 +258,7 @@
+ 	realce_t = lerpf(realce_t, alvo, 1.0 - exp(-dt * 14.0))
+ 	var chefe: bool = ent != null and ent.tipo == "chefe" and not morto
+ 	var base := 0.12 if ent != null and ent.tipo == "jogador" else (0.18 if chefe else 0.0)
++	if ent != null and "vigilante" in ent.kind: base = 0.45 if ent.tipo == "objeto" else 0.22   # Hermon: estátua de cinza / anjo caído legível na nevasca
+ 	mat.set_shader_parameter("realce", base + realce_t * 0.35)
+ 	var c := cor_anel if hover or not selecionado else cor_sel
+ 	c.a = c.a * realce_t
+
+--- a/game/scripts/net/evento_hermon.gd	1970-01-01 00:00:00.000000000 +0000
++++ b/game/scripts/net/evento_hermon.gd	2026-10-16 14:11:41.777602059 +0000
+@@ -0,0 +1,97 @@
++class_name EventoHermon
++extends RefCounted
++## Servidor: agenda do evento "O Cume dos Vigilantes", janela de entrada (5 min) e uso do Convite dos Vigilantes.
++## Só decide; quem move jogador e cria instância é o servidor.gd (ver LEIAME.md, "Integração").
++## Horário de Brasília = UTC-3 (sem horário de verão desde 2019).
++
++const FUSO_S := -3 * 3600
++const MAPA := "cume_dos_vigilantes"
++
++var ev: Dictionary
++var instancias := {}           # "f<faixa>" -> [{id, jogadores:[ids]}] da subida atual
++var subida_atual := -1         # unix do início da janela em curso (-1 = fechada)
++var _ultimo_aviso := {}        # minuto -> unix da subida avisada
++
++func _init(p_ev: Dictionary) -> void:
++	ev = p_ev
++
++static func _hm(s: String) -> int:
++	var p := s.split(":")
++	return int(p[0]) * 3600 + int(p[1]) * 60
++
++## Próximo início (unix, UTC) a partir de agora (inclusive).
++func proximo_inicio(agora: int) -> int:
++	var local := agora + FUSO_S
++	var dia0 := local - posmod(local, 86400)
++	var melhor := -1
++	for d in 2:
++		for h in ev["agenda"]["diario"]:
++			var u := dia0 + d * 86400 + _hm(h) - FUSO_S
++			if u >= agora and (melhor < 0 or u < melhor): melhor = u
++	return melhor
++
++## Início da janela em curso (se a entrada está aberta agora) ou -1.
++func janela_aberta(agora: int) -> int:
++	var ini := proximo_inicio(agora - int(ev["entrada"]["janela_s"]) + 1)
++	if ini >= 0 and ini <= agora and agora < ini + int(ev["entrada"]["janela_s"]): return ini
++	return -1
++
++func resta_entrada(agora: int) -> int:
++	var ini := janela_aberta(agora)
++	return ini + int(ev["entrada"]["janela_s"]) - agora if ini >= 0 else 0
++
++## Chamado a cada segundo pelo servidor: devolve os avisos de sistema a mandar para todos agora.
++func avisos(agora: int) -> Array:
++	var out: Array = []
++	var ini := proximo_inicio(agora)
++	for m in ev["avisos_min_antes"]:
++		var falta := ini - agora
++		if falta <= int(m) * 60 and falta > int(m) * 60 - 60 and _ultimo_aviso.get(m, -1) != ini:
++			_ultimo_aviso[m] = ini
++			out.append("O Hermon chama em %d min. Tenha um Convite dos Vigilantes na mochila." % int(m))
++	var ab := janela_aberta(agora)
++	if ab >= 0 and subida_atual != ab:
++		subida_atual = ab; instancias.clear()
++		out.append(ev["falas"]["abriu"])
++	elif ab < 0 and subida_atual >= 0:
++		subida_atual = -1
++	return out
++
++func faixa_de(nivel: int) -> int:
++	var fs: Array = ev["faixas"]
++	for i in fs.size():
++		if nivel >= int(fs[i]["niveis"][0]) and nivel <= int(fs[i]["niveis"][1]): return i
++	return -1
++
++func nivel_mob(faixa: int) -> int:
++	return int(ev["faixas"][faixa]["nivel_mob"])
++
++## O jogador clicou no convite. Devolve {ok, texto, gasta, instancia, faixa, nivel_mob, resta}.
++## onde: "mundo" | "dungeon" | "evento" | "chefe" (o servidor diz onde ele está).
++func usar_convite(nivel: int, agora: int, onde: String = "mundo", ja_dentro: bool = false) -> Dictionary:
++	if ja_dentro: return {"ok": false, "gasta": false, "texto": "Você já está no cume."}
++	var ab := janela_aberta(agora)
++	if ab < 0:
++		var falta := proximo_inicio(agora) - agora
++		return {"ok": false, "gasta": false, "texto": "O lacre não rompe. O Hermon chama de novo em %s." % _tempo(falta)}
++	if nivel < int(ev["entrada"]["nivel_min"]):
++		return {"ok": false, "gasta": false, "texto": "Só a partir do nível %d." % int(ev["entrada"]["nivel_min"])}
++	if onde != "mundo":
++		return {"ok": false, "gasta": false, "texto": "Saia da dungeon ou do evento antes de romper o lacre."}
++	var f := faixa_de(nivel)
++	var k := "f%d" % f
++	var lista: Array = instancias.get(k, [])
++	if lista.is_empty() or (lista[-1]["n"] as int) >= int(ev["entrada"]["max_por_cume"]):
++		lista.append({"id": "%s#%d-%d-%d" % [MAPA, ab, f, lista.size() + 1], "n": 0})
++		instancias[k] = lista
++	lista[-1]["n"] = int(lista[-1]["n"]) + 1
++	return {"ok": true, "gasta": true, "instancia": lista[-1]["id"], "faixa": f, "nivel_mob": nivel_mob(f),
++		"resta": ab + int(ev["entrada"]["janela_s"]) - agora, "texto": "O lacre se rompe. O vento te leva ao cume."}
++
++static func _tempo(s: int) -> String:
++	if s >= 3600: return "%dh%02d" % [s / 3600, (s % 3600) / 60]
++	return "%d min" % maxi(1, (s + 59) / 60)
++
++## Id do arquivo de mapa de uma instância ("cume_dos_vigilantes#<subida>-<faixa>-<n>" -> "cume_dos_vigilantes").
++static func mapa_base(id: String) -> String:
++	return id.get_slice("#", 0)
+
+--- a/game/scripts/net/servidor.gd	2026-10-16 14:10:07.741070967 +0000
++++ b/game/scripts/net/servidor.gd	2026-10-16 14:16:31.397057241 +0000
+@@ -33,9 +33,12 @@
+ var cadastros := {}         # ip -> [contas novas, início da janela (ms)]
+ const Troca := preload("res://scripts/net/troca.gd")
+ var troca = Troca.new(self) # troca de itens e ouro entre jogadores (scripts/net/troca.gd)
++var hermon: EventoHermon      # evento O Cume dos Vigilantes: agenda, entrada de 5 min e convite
++var t_hermon := 0.0
+ 
+ func _ready() -> void:
+ 	_carregar_contas()
++	hermon = EventoHermon.new(Defs.ler(HermonCtl.DADOS)["evento"])
+ 	print("[servidor] contas: ", "pelo site (%s)" % SITE_AUTENTICAR if contas_pelo_site else "neste servidor (%s)" % ARQ)
+ 
+ # =================================================================== contas
+@@ -308,6 +311,8 @@
+ 		movimentos.append([int(d.get("_para", -1)), str(d.get("mapa", "area_inicial")), d.get("pos", Vector2(-1, -1))])
+ 		return
+ 	if tipo == "mapa": return
++	if tipo == "usar_evento":
++		_usar_convite(d, mapa_id); return
+ 	if tipo == "chat":   # perto: mesmo mapa e perto; global: todos; pm: só o destinatário; grupo: membros do grupo
+ 		var dc = Sincro.limpo(d)
+ 		var canal := str(d.get("canal", "perto"))
+@@ -464,6 +469,10 @@
+ 	if n == 0: return
+ 	if not movimentos.is_empty(): _mover_jogadores()
+ 	_enviar_ticks()
++	t_hermon += dt
++	if t_hermon >= 1.0:
++		t_hermon = 0.0
++		for txt in hermon.avisos(int(Time.get_unix_time_from_system())): _sistema_todos(txt)
+ 	t_grupo += dt
+ 	if t_grupo >= 0.5:
+ 		t_grupo = 0.0
+@@ -543,3 +552,30 @@
+ 	if s["idx"] < 0 or s["idx"] >= lista.size(): return
+ 	lista[s["idx"]] = Jogador.salvar(s["jog"], mundos[s["mapa"]])
+ 	if gravar: _gravar_contas()
++
++# =================================================================== evento O Cume dos Vigilantes
++func _sistema_todos(txt: String) -> void:
++	for p in sessoes:
++		if sessoes[p]["jog"] != null: _para(p, "chat", {"canal": "sistema", "texto": txt})
++
++## O jogador clicou no Convite dos Vigilantes (Jogador.usar_item manda "usar_evento" para o servidor decidir).
++func _usar_convite(d: Dictionary, mapa_id: String) -> void:
++	var p = por_jog.get(int(d.get("_para", -1)))
++	if p == null or not sessoes.has(p): return
++	var e: Ent = sessoes[p]["jog"]
++	var sim: WorldSim = mundos.get(mapa_id)
++	if e == null or sim == null or str(d.get("uso", "")) != "evento:cume_vigilantes": return
++	var onde := "dungeon" if sim.chefe != null else ("evento" if sim.hermon != null else "mundo")
++	var r := hermon.usar_convite(e.nivel, int(Time.get_unix_time_from_system()), onde, sim.hermon != null)
++	if not r["ok"]:
++		_para(p, "aviso", {"texto": r["texto"]}); return
++	Itens.remover(e.inv, str(d.get("item", "convite_dos_vigilantes")), 1)
++	_para(p, "inventario", {})
++	e.aux["hermon_volta"] = {"mapa": mapa_id, "pos": [e.pos.x, e.pos.y]}
++	var cume := _mundo(r["instancia"])
++	cume.hermon.definir_nivel(int(r["nivel_mob"]))
++	cume.hermon.definir_espera(float(r["resta"]))
++	var ch: Array = cume.hermon.cfg["chegadas"]
++	var c: Array = ch[cume.hermon.participantes.size() % ch.size()]
++	_para(p, "aviso", {"texto": r["texto"]})
++	movimentos.append([e.id, r["instancia"], Vector2(c[0], c[1])])
+
+--- a/game/scripts/sim/hermon_ctl.gd	1970-01-01 00:00:00.000000000 +0000
++++ b/game/scripts/sim/hermon_ctl.gd	2026-10-16 18:15:15.992924685 +0000
+@@ -0,0 +1,337 @@
++class_name HermonCtl
++extends RefCounted
++## Evento "O Cume dos Vigilantes" (estilo Chaos Castle): roda dentro do WorldSim de uma instância do mapa
++## cume_dos_vigilantes. Números em data/design/pvp/hermon/dados.json; geometria em mapa["hermon"].
++## Fases: espera (entrada aberta, sem PvP, Vigilantes ajoelhados como estátuas) -> juramento (15 min de
++## sobrevivência, todos contra todos, os anéis do cume caem) -> fim (prêmios e todo mundo volta).
++
++const DADOS := "res://data/design/pvp/hermon/dados.json"
++
++var sim: WorldSim
++var cfg: Dictionary            # mapa["hermon"]
++var ev: Dictionary             # dados.json -> evento
++var nivel_mob := 30
++var estado := "espera"         # espera | juramento | fim | cancelado
++var espera_t := 300.0          # o servidor acerta com o tempo que falta da janela de entrada
++var t := 0.0                   # tempo de juramento
++var fim_t := 0.0
++var centro := Vector2.ZERO
++var abismo := {}               # Vector2i -> true (células que já caíram)
++var disco := {}                # Vector2i -> anel ("" = laje)
++var aneis: Array = []          # [{id, cai_em, celulas, avisado, caiu}]
++var estatuas: Array = []       # ids das estátuas (objetos) na espera
++var participantes := {}        # id do jogador -> {nome, pontos, ordem, vivo, saiu}
++var ordem := 0
++var vencedor := -1
++var _prox_check := 0.0
++
++func _init(p_sim: WorldSim, c: Dictionary, p_ev: Dictionary = {}) -> void:
++	sim = p_sim; cfg = c
++	var d: Dictionary = p_ev if not p_ev.is_empty() else Defs.ler(DADOS)
++	ev = d["evento"]
++	for k in d.get("mobs", {}):          # os Vigilantes e o convite entram no Defs na primeira instância
++		if not Defs.MOBS.has(k): Defs.MOBS[k] = d["mobs"][k]
++	for it in d.get("itens", []):
++		if not Defs.ITENS.has(it["id"]): Defs.ITENS[it["id"]] = it
++	centro = Vector2(cfg["centro"][0], cfg["centro"][1])
++	espera_t = float(ev["entrada"]["janela_s"])
++	for a in cfg["aneis"]:
++		var cels: Array = []
++		for c2 in a["celulas"]:
++			var v := Vector2i(int(c2[0]), int(c2[1]))
++			cels.append(v); disco[v] = a["id"]
++		aneis.append({"id": a["id"], "cai_em": float(a["cai_em"]), "celulas": cels, "avisado": false, "caiu": false})
++	_criar_estatuas()
++
++func definir_nivel(n: int) -> void:
++	nivel_mob = n
++
++## Servidor: segundos que faltam para a entrada fechar (a janela é global; a instância só conta).
++func definir_espera(seg: float) -> void:
++	espera_t = maxf(0.0, seg)
++
++# =================================================================== jogadores
++func entrou(j: Ent) -> void:
++	if estado != "espera":
++		return
++	ordem += 1
++	participantes[j.id] = {"nome": j.nome, "pontos": 0, "ordem": ordem, "vivo": true, "saiu": false, "fichas": 0}
++	j.lado_forcado = "hermon"          # na espera todos do mesmo lado: sem PvP
++	j.aux["hermon"] = true
++	sim.emitir_a(j, "hermon", {"fase": "espera", "resta": espera_t, "texto": ev["falas"]["abriu"]})
++
++## Desconectou ou saiu do mapa (vela de retorno, teleporte): conta como eliminado.
++func saiu(j: Ent) -> void:
++	if participantes.has(j.id) and participantes[j.id]["vivo"]:
++		participantes[j.id]["vivo"] = false; participantes[j.id]["saiu"] = true
++	j.lado_forcado = ""; j.aux.erase("hermon")
++
++func vivos() -> Array:
++	var out: Array = []
++	for id in participantes:
++		if not participantes[id]["vivo"]: continue
++		var j: Ent = sim.ents.get(id)
++		if j != null and j.vivo: out.append(j)
++	return out
++
++func vigilantes_vivos() -> int:
++	var n := 0
++	for e: Ent in sim.ents.values():
++		if e.tipo == "monstro" and e.vivo and e.aux.get("vigilante", false): n += 1
++	return n
++
++# =================================================================== passo
++func passo(dt: float) -> void:
++	match estado:
++		"espera":
++			espera_t -= dt
++			if espera_t <= 0.0: _fechar_entrada()
++		"juramento":
++			t += dt
++			_passo_aneis()
++			_passo_quedas()
++			_passo_lados()
++			_checar_fim()
++		"fim", "cancelado":
++			fim_t += dt
++
++func _fechar_entrada() -> void:
++	var js := vivos()
++	if js.size() < int(ev["entrada"]["min_para_comecar"]):
++		estado = "cancelado"
++		for j: Ent in js:
++			Jogador.dar_item(sim, j, Itens.novo(ev["entrada"]["item"], 1))
++			sim.emitir_a(j, "aviso", {"texto": "Ninguém mais subiu. O convite voltou para a sua mochila."})
++			_mandar_de_volta(j)
++		sim.emitir("hermon", {"fase": "cancelado"})
++		return
++	estado = "juramento"; t = 0.0
++	for j: Ent in js:
++		j.lado_forcado = "h_%d" % j.id     # cada um é o próprio lado
++	_acordar_vigilantes(js.size())
++	sim.emitir("hermon", {"fase": "juramento", "dur": float(ev["sobrevivencia"]["dur_s"]), "texto": ev["falas"]["comecou"],
++		"aneis": _aneis_info()})
++	sim.emitir("aviso", {"texto": ev["falas"]["fechou"]})
++
++func _aneis_info() -> Array:
++	var out: Array = []
++	for a in aneis: out.append({"id": a["id"], "cai_em": a["cai_em"]})
++	return out
++
++# =================================================================== Vigilantes
++func _criar_estatuas() -> void:
++	for v in cfg["vigilantes"]:
++		var p := Vector2(v["pos"][0], v["pos"][1])
++		var e := sim._ent_base("objeto", "estatua_vigilante", p)
++		e.alvejavel = false; e.raio = 0.45; e.nome = "Vigilante"
++		e.facing = Vector2(v["olha"][0], v["olha"][1])
++		e.aux = {"visual": "vigilante_jurado", "anim": "kneel", "anel": v.get("anel", "")}
++		estatuas.append(e.id)
++		sim.emitir("surgiu", {"id": e.id})
++
++func _sortear_tipo() -> String:
++	var r := sim.rng.randf()
++	var acc := 0.0
++	var mix: Dictionary = ev["vigilantes"]["mistura"]
++	for k in mix:
++		acc += float(mix[k])
++		if r <= acc: return k
++	return "vigilante_jurado"
++
++func _acordar_vigilantes(n_jog: int) -> void:
++	var vg: Dictionary = ev["vigilantes"]
++	var n := mini(int(vg["inicio_max"]), int(vg["inicio_base"]) + int(vg["inicio_por_jogador"]) * n_jog)
++	var i := 0
++	for sid in estatuas:
++		var s: Ent = sim.ents.get(sid)
++		if s == null: continue
++		var p := s.pos
++		var f := s.facing
++		sim.remover(sid)
++		if i < n:
++			var m := _criar_vigilante(_sortear_tipo(), p, "rise")
++			m.facing = f
++		i += 1
++	estatuas.clear()
++
++func _criar_vigilante(kind: String, p: Vector2, anim: String) -> Ent:
++	var m := sim.criar_mob(kind, p, nivel_mob)
++	m.aux["vigilante"] = true
++	m.aux["anim_entrada"] = anim                 # o cliente toca "rise" ou "land" ao surgir
++	m.casa = p; m.raio_coleira = 99.0; m.raio_vagar = 0.0
++	m.renasce_s = 1e9
++	m.ia_t = 1.2 if anim == "rise" else 1.0   # espera a animação de entrada antes de procurar alvo
++	return m
++
++func _reforco() -> void:
++	var r: Dictionary = ev["vigilantes"]["reforco_ao_cair_anel"]
++	var n := int(r["base"]) + vivos().size() / int(r["por_jogadores_vivos"])
++	n = mini(n, int(r["max_vivos"]) - vigilantes_vivos())
++	var livres: Array = []
++	for c in disco:
++		if not abismo.has(c) and sim.andavel(Vector2(c) + Vector2(0.5, 0.5)): livres.append(c)
++	if livres.is_empty(): return
++	for k in maxi(n, 0):
++		var c: Vector2i = livres[sim.rng.randi() % livres.size()]
++		_criar_vigilante(_sortear_tipo(), Vector2(c) + Vector2(0.5, 0.5), "land")
++	if n > 0: sim.emitir("aviso", {"texto": ev["falas"]["reforco"]})
++
++# =================================================================== anéis e quedas
++func _passo_aneis() -> void:
++	var aviso := float(ev["desmoronamento"]["aviso_s"])
++	for a in aneis:
++		if a["caiu"]: continue
++		if not a["avisado"] and t >= a["cai_em"] - aviso:
++			a["avisado"] = true
++			sim.emitir("hermon_aviso", {"anel": a["id"], "em": aviso})
++			sim.emitir("aviso", {"texto": ev["falas"]["aviso_anel"]})
++		if t >= a["cai_em"]:
++			_derrubar(a)
++
++func _derrubar(a: Dictionary) -> void:
++	a["caiu"] = true
++	var cels: Array = []
++	for c: Vector2i in a["celulas"]:
++		abismo[c] = true; cels.append([c.x, c.y])
++	sim.definir_bloqueio(cels, 1)
++	sim.emitir("hermon_anel_caiu", {"anel": a["id"]})
++	sim.emitir("aviso", {"texto": ev["falas"]["caiu_anel"]})
++	_passo_quedas()
++	_reforco()
++
++func no_abismo(p: Vector2) -> bool:
++	var c := Vector2i(floori(p.x), floori(p.y))
++	if abismo.has(c): return true
++	return not disco.has(c) and Vector2(c).distance_to(centro) > float(cfg["laje_raio"]) + 1.0
++
++## Todo vivo sobre o abismo cai; e na beira, um empurrão para fora também derruba.
++func _passo_quedas() -> void:
++	var beira := 0.7
++	for e: Ent in sim.ents.values().duplicate():
++		if not e.vivo or not (e.tipo in ["jogador", "monstro", "invocacao"]): continue
++		if e.tipo == "jogador" and not participantes.get(e.id, {}).get("vivo", false): continue   # já eliminado, de saída
++		var cai := no_abismo(e.pos)
++		if not cai and e.empurrao_t > 0.0 and e.empurrao.length() > 0.001:
++			cai = no_abismo(e.pos + e.empurrao.normalized() * beira)
++		if not cai and not e.deslocando.is_empty():
++			cai = no_abismo(e.deslocando["para"])
++		if cai: _cair(e)
++
++func _cair(e: Ent) -> void:
++	sim.emitir("hermon_queda", {"id": e.id, "pos": e.pos})
++	if e.tipo == "jogador":
++		sim.emitir("aviso", {"texto": ev["falas"]["queda"] % e.nome})
++	e.deslocando = {}; e.empurrao_t = 0.0
++	sim.matar(e, null)
++
++## Invocações (torretas, familiar) ficam do lado do dono.
++func _passo_lados() -> void:
++	for e: Ent in sim.ents.values():
++		if e.tipo == "invocacao":
++			var d: Ent = sim.ents.get(e.dono)
++			if d != null: e.lado_forcado = d.lado_forcado
++
++# =================================================================== mortes (chamado por WorldSim.matar)
++## Devolve true quando o evento cuidou da morte do jogador (sem penalidade, eliminado e mandado de volta).
++func ao_morrer(e: Ent, killer: Ent) -> bool:
++	var k := killer
++	if k != null and k.tipo == "invocacao": k = sim.ents.get(k.dono)
++	if e.tipo == "monstro" and e.aux.get("vigilante", false):
++		if k != null and k.tipo == "jogador" and participantes.has(k.id):
++			participantes[k.id]["pontos"] += int(ev["pontos"].get(e.kind, 1))
++		return false
++	if e.tipo != "jogador" or not participantes.has(e.id):
++		return false
++	participantes[e.id]["vivo"] = false
++	e.renascer_t = 1e9                   # não renasce no cume: volta para casa
++	if k != null and k.tipo == "jogador" and k != e and participantes.has(k.id):
++		participantes[k.id]["pontos"] += int(ev["pontos"]["jogador"])
++		var fp: Dictionary = ev["premios"].get("abate_pvp", {})
++		if int(fp.get("ficha_sangue", 0)) > 0 and int(participantes[k.id].get("fichas", 0)) < int(fp.get("max_por_evento", 3)):
++			participantes[k.id]["fichas"] = int(participantes[k.id].get("fichas", 0)) + int(fp["ficha_sangue"])
++			Jogador.dar_item(sim, k, Itens.novo("ficha_sangue", int(fp["ficha_sangue"])))
++			sim.emitir_a(k, "inventario", {})
++		sim.emitir("morte_pvp", {"de": k.id, "vitima": e.id})
++		sim.emitir("aviso", {"texto": ev["falas"]["abate_pvp"] % [k.nome, e.nome]})
++	sim.emitir_a(e, "hermon", {"fase": "eliminado", "texto": "O Hermon não te guardou. Sem perda de experiência."})
++	sim.atrasar(1.5, func(): _mandar_de_volta(e))
++	return true
++
++func _mandar_de_volta(j: Ent) -> void:
++	if not sim.ents.has(j.id): return
++	j.vivo = true; j.hp = j.hp_max; j.status.clear(); j.renascer_t = 0.0
++	j.lado_forcado = ""; j.aux.erase("hermon")
++	var volta: Dictionary = j.aux.get("hermon_volta", {})
++	var mapa: String = volta.get("mapa", "area_inicial")
++	var pos = volta.get("pos", Vector2(-1, -1))
++	if pos is Array: pos = Vector2(pos[0], pos[1])
++	sim.emitir_a(j, "trocar_mapa", {"mapa": mapa, "pos": pos})
++
++# =================================================================== fim e prêmios
++func _checar_fim() -> void:
++	var js := vivos()
++	var dur := float(ev["sobrevivencia"]["dur_s"])
++	if t >= dur or js.is_empty() or (js.size() == 1 and vigilantes_vivos() == 0):
++		_terminar(js)
++
++func classificar(js: Array) -> Array:
++	var l := js.duplicate()
++	l.sort_custom(func(a: Ent, b: Ent) -> bool:
++		var pa: Dictionary = participantes[a.id]; var pb: Dictionary = participantes[b.id]
++		if pa["pontos"] != pb["pontos"]: return pa["pontos"] > pb["pontos"]
++		if absf(a.frac_hp() - b.frac_hp()) > 0.0001: return a.frac_hp() > b.frac_hp()
++		return pa["ordem"] < pb["ordem"])
++	return l
++
++func _terminar(js: Array) -> void:
++	estado = "fim"
++	var pr: Dictionary = ev["premios"]
++	var ranking := classificar(js)
++	if ranking.is_empty():
++		sim.emitir("hermon", {"fase": "fim", "vencedor": -1, "texto": ev["fim"]["sem_ninguem"]})
++		return
++	var w: Ent = ranking[0]
++	vencedor = w.id
++	for j: Ent in ranking:
++		_premiar(j, pr["sobrevivente"])
++	w.aux["titulo_ganho"] = pr["testemunha"]["titulo"]
++	if int(pr["testemunha"].get("ficha_sangue", 0)) > 0:
++		Jogador.dar_item(sim, w, Itens.novo("ficha_sangue", int(pr["testemunha"]["ficha_sangue"])))
++	var arma := _arma_lendaria(w, pr["testemunha"])
++	var txt: String = ev["falas"]["vencedor"] % w.nome
++	if not arma.is_empty():
++		txt = ev["falas"]["vencedor_arma"] % [w.nome, Itens.nome(arma)]
++	else:
++		sim.emitir_a(w, "aviso", {"texto": pr["testemunha"]["sem_arma_fala"]})
++	sim.emitir("hermon", {"fase": "fim", "vencedor": w.id, "texto": txt, "arma": arma.get("id", ""), "placar": placar()})
++	for j: Ent in ranking:
++		sim.atrasar(8.0, func(): _mandar_de_volta(j))
++
++## Prêmio do vencedor (Jefin): 30% de chance de uma arma lendária da classe dele (pool lendario:hermon).
++func _arma_lendaria(w: Ent, p: Dictionary) -> Dictionary:
++	if sim.rng.randf() >= float(p["chance_arma_lendaria"]): return {}
++	var ids: Array = []
++	for id in Defs.ITENS:
++		var d: Dictionary = Defs.ITENS[id]
++		if p["pool"] in d.get("tags", []) and (not p.get("arma_da_classe", true) or w.classe in d.get("classes", [])): ids.append(id)
++	if ids.is_empty(): return {}
++	ids.sort()
++	var it := Itens.novo(ids[sim.rng.randi() % ids.size()])
++	it["raridade"] = "lendario"
++	Jogador.dar_item(sim, w, it)
++	return it
++
++func _premiar(j: Ent, p: Dictionary) -> void:
++	for id in ["lagrima_sanguinea", "lagrima_angelica", "ficha_sangue"]:
++		if int(p.get(id, 0)) > 0: Jogador.dar_item(sim, j, Itens.novo(id, int(p[id])))
++	var ouro := int(p.get("ouro_por_nivel_mob", 0)) * nivel_mob
++	if ouro > 0: Jogador.dar_item(sim, j, {"id": "_ouro", "qtd": ouro})
++	sim.emitir_a(j, "inventario", {})
++
++func placar() -> Array:
++	var out: Array = []
++	for id in participantes:
++		var p: Dictionary = participantes[id]
++		out.append({"id": id, "nome": p["nome"], "pontos": p["pontos"], "vivo": p["vivo"]})
++	out.sort_custom(func(a, b): return a["pontos"] > b["pontos"])
++	return out
+
+--- a/game/scripts/sim/ia.gd	2026-10-16 14:10:07.741600854 +0000
++++ b/game/scripts/sim/ia.gd	2026-10-16 14:10:33.622993076 +0000
+@@ -274,7 +274,7 @@
+ 	var acao := {"preparo": prep, "rec": rec, "alvo": aid, "def": at, "op": op, "dir": dir, "nome": id}
+ 	if at.has("conjuracao") and not at.has("preparo"): acao["conj"] = true
+ 	if at.has("telegrafo") and at["telegrafo"]["forma"] == "circulo":
+-		acao["ponto_tele"] = a.pos if id in ["brotar"] else e.pos
++		acao["ponto_tele"] = a.pos if id in ["brotar"] or at["telegrafo"].get("no_alvo", false) else e.pos
+ 	# especiais
+ 	if at.has("teleporte"):
+ 		var p := sim.celula_livre_perto(a.pos + Vector2.from_angle(sim.rng.randf() * TAU) * float(at["teleporte"]))
+
+--- a/game/scripts/sim/jogador.gd	2026-10-16 14:10:07.741751037 +0000
++++ b/game/scripts/sim/jogador.gd	2026-10-16 14:10:33.627118080 +0000
+@@ -1012,6 +1012,8 @@
+ 		sim.emitir_a(e, "texto", {"titulo": d.get("nome", ""), "texto": d.get("texto", d.get("descricao", d.get("lore", "")))}); return
+ 	if Itens.equipavel(it):
+ 		equipar(sim, e, uid, ""); return
++	if str(d.get("uso", "")).begins_with("evento:"):   # Convite dos Vigilantes: o servidor decide (EventoHermon)
++		sim.emitir_a(e, "usar_evento", {"uso": d["uso"], "uid": uid, "item": it["id"]}); return
+ 	var ef = d.get("efeito")
+ 	if not (ef is Dictionary):
+ 		sim.emitir_a(e, "aviso", {"texto": "Não dá para usar isto assim."}); return
+
+--- a/game/scripts/sim/world_sim.gd	2026-10-16 14:10:07.742174388 +0000
++++ b/game/scripts/sim/world_sim.gd	2026-10-16 14:10:33.618972412 +0000
+@@ -27,6 +27,7 @@
+ var spawns: Array = []
+ var jogador_id := -1
+ var chefe: ChefeCtl = null
++var hermon: HermonCtl = null       # evento O Cume dos Vigilantes (mapa com "hermon")
+ var dia := 0                        # para missões diárias (r01, r02)
+ var agenda: Array = []
+ var alvos_ia: Array = []            # jogador + invocações (recalculado a cada passo)              # [tempo, Callable]: golpes atrasados, fim de buff etc.
+@@ -81,10 +82,12 @@
+ 	emitir("surgiu", {"id": e.id})
+ 	Jogador._checar_zona(self, e)
+ 	Familiar.criar(self, e)   # o familiar do Cultista nasce com ele (racial, 0.8.9)
++	if hermon != null: hermon.entrou(e)
+ 
+ ## Servidor: tira o jogador deste mapa (trocou de mapa ou desconectou). Monstros esquecem dele.
+ func remover_jogador(e: Ent) -> void:
+ 	if not ents.has(e.id): return
++	if hermon != null: hermon.saiu(e)
+ 	for o: Ent in ents.values():
+ 		o.ameaca.erase(e.id)
+ 		if o.alvo == e.id: o.alvo = -1
+@@ -95,7 +98,7 @@
+ ## Cliente de rede: só a geometria do mapa (grade, zonas, caminhos). As entidades chegam do servidor.
+ func carregar_geometria(id: String) -> void:
+ 	ents.clear(); chao.clear(); spawns.clear(); agenda.clear()
+-	chefe = null
++	chefe = null; hermon = null
+ 	_ler_grade(id)
+ 
+ # =================================================================== mapa
+@@ -105,7 +108,7 @@
+ 	for k in ents.keys():
+ 		if k != jogador_id: emitir("sumiu", {"id": k})
+ 	ents.clear(); agenda.clear(); projeteis.clear(); areas.clear(); telegrafos.clear(); chao.clear(); spawns.clear()
+-	chefe = null
++	chefe = null; hermon = null
+ 	_ler_grade(id)
+ 	if jog != null: ents[jogador_id] = jog
+ 	# NPCs, objetos, baús, spawns, chefe
+@@ -114,10 +117,11 @@
+ 	if mapa.get("id", "") == "area_inicial": _ajustar_spawns_novato()
+ 	for s in mapa.get("spawns", []): _criar_spawn(s)
+ 	if mapa.has("chefe"): chefe = ChefeCtl.new(self, mapa["chefe"])
++	if mapa.has("hermon"): hermon = HermonCtl.new(self, mapa["hermon"])
+ 	emitir("mapa", {"id": id})
+ 
+ func _ler_grade(id: String) -> void:
+-	mapa = Defs.ler("res://data/mapas/%s.json" % id)
++	mapa = Defs.ler("res://data/mapas/%s.json" % id.get_slice("#", 0))   # "mapa#instância" usa o mesmo arquivo
+ 	mapa_id = id
+ 	w = int(mapa["w"]); h = int(mapa["h"])
+ 	bloq = PackedByteArray(); bloq.resize(w * h)
+@@ -399,6 +403,7 @@
+ 	_passo_chao(dt)
+ 	_passo_spawns(dt)
+ 	if chefe != null: chefe.passo(dt)
++	if hermon != null: hermon.passo(dt)
+ 
+ func _passo_ent(e: Ent, dt: float) -> void:
+ 	if not e.vivo:
+@@ -958,6 +963,7 @@
+ 	cancelar_acao(e)
+ 	e.caminho.clear(); e.status.clear(); e.deslocando = {}
+ 	emitir("morreu", {"id": e.id, "de": assassino.id if assassino else -1, "tipo": e.tipo, "chefe": e.tipo == "chefe"})
++	if hermon != null and hermon.ao_morrer(e, assassino): return   # morte no evento: sem penalidade, volta para casa
+ 	if e.tipo == "jogador":
+ 		Jogador.morreu(self, e)
+ 		return
+--- a/game/tools/teste_hermon.gd	1970-01-01 00:00:00.000000000 +0000
++++ b/game/tools/teste_hermon.gd	2026-10-16 18:15:15.997045619 +0000
+@@ -0,0 +1,227 @@
++extends SceneTree
++## Teste headless do evento "O Cume dos Vigilantes" (agenda, convite, espera, juramento, anéis, quedas, PvP, prêmios).
++## godot --headless --path . --script res://tools/teste_hermon.gd
++
++var falhas := 0
++var oks := 0
++var evs: Array = []
++
++func ok(cond: bool, txt: String) -> void:
++	if cond: oks += 1; print("  ok   ", txt)
++	else: falhas += 1; print("  FALHA ", txt)
++
++func _ev(t: String, d: Dictionary) -> void:
++	evs.append([t, d])
++
++func conta(t: String, f: Callable = Callable()) -> int:
++	var n := 0
++	for x in evs:
++		if x[0] == t and (not f.is_valid() or f.call(x[1])): n += 1
++	return n
++
++func rodar(sim: WorldSim, seg: float, f: Callable = Callable()) -> void:
++	for i in int(seg * 30):
++		if f.is_valid() and i % 6 == 0: f.call()
++		sim.passo(WorldSim.TICK)
++
++func unix(s: String) -> int:   # "AAAA-MM-DDTHH:MM:SS" em UTC
++	return Time.get_unix_time_from_datetime_string(s)
++
++func _init() -> void:
++	Defs.carregar()
++	var dados: Dictionary = Defs.ler(HermonCtl.DADOS)
++	var ev: Dictionary = dados["evento"]
++	teste_agenda(ev)
++	teste_espera_e_juramento()
++	teste_cancelado()
++	teste_clicar_convite()
++	teste_fim_por_tempo()
++	print("\nteste_hermon: %d ok, %d falhas" % [oks, falhas])
++	quit(1 if falhas > 0 else 0)
++
++# ------------------------------------------------------------------ agenda e convite (servidor)
++func teste_agenda(ev: Dictionary) -> void:
++	print("[agenda e convite]")
++	var a := EventoHermon.new(ev)
++	var t0 := unix("2026-10-16T15:00:00")          # 12:00 em Brasília
++	ok(a.proximo_inicio(t0) == unix("2026-10-16T22:00:00"), "próxima subida 19:00 de Brasília (22:00 UTC)")
++	ok(a.proximo_inicio(unix("2026-10-16T22:06:00")) == unix("2026-10-17T22:00:00"), "depois das 19h vai para as 19h do dia seguinte")
++	ok(a.janela_aberta(t0) < 0, "fora da janela às 12h")
++	var r := a.usar_convite(30, t0)
++	ok(not r["ok"] and not r["gasta"], "convite fora da janela não gasta: " + r["texto"])
++	var av := a.avisos(unix("2026-10-16T21:50:00"))
++	ok(av.size() == 1 and "10 min" in av[0], "aviso de 10 min")
++	ok(a.avisos(unix("2026-10-16T21:50:30")).is_empty(), "aviso não repete")
++	var ab := unix("2026-10-16T22:02:00")
++	ok(a.avisos(ab).has(ev["falas"]["abriu"]), "aviso de entrada aberta")
++	ok(a.janela_aberta(ab) == unix("2026-10-16T22:00:00") and a.resta_entrada(ab) == 180, "janela aberta, faltam 3 min")
++	ok(a.janela_aberta(unix("2026-10-16T22:05:00")) < 0, "janela fecha aos 5 min")
++	r = a.usar_convite(10, ab)
++	ok(not r["ok"] and not r["gasta"], "nível 10 não sobe")
++	r = a.usar_convite(30, ab, "dungeon")
++	ok(not r["ok"], "não sobe de dentro da dungeon")
++	var ids := {}
++	for i in 21:
++		r = a.usar_convite(30, ab)
++		ids[r["instancia"]] = ids.get(r["instancia"], 0) + 1
++	ok(r["ok"] and r["gasta"] and r["faixa"] == 0 and r["nivel_mob"] == 30, "nível 30 sobe na faixa 15-49 (mob 30)")
++	ok(ids.size() == 2 and ids.values().has(20) and ids.values().has(1), "21 jogadores = 2 cumes (20 + 1)")
++	r = a.usar_convite(120, ab)
++	ok(r["faixa"] == 2 and not ids.has(r["instancia"]), "nível 120 vai para outro cume (faixa 100-149)")
++	ok(EventoHermon.mapa_base(r["instancia"]) == "cume_dos_vigilantes", "instância usa o mesmo arquivo de mapa")
++
++# ------------------------------------------------------------------ instância completa
++func novo_cume(jogs: Array) -> Array:
++	evs.clear()
++	var sim := WorldSim.new(11)
++	sim.evento.connect(_ev)
++	sim.carregar_mapa("cume_dos_vigilantes#teste-0-1")
++	var ctl: HermonCtl = sim.hermon
++	ctl.definir_nivel(30)
++	var out: Array = []
++	var ch: Array = ctl.cfg["chegadas"]
++	for i in jogs.size():
++		var j := Jogador.criar(sim, jogs[i], "J%d" % i)
++		j.aux["hermon_volta"] = {"mapa": "area_inicial", "pos": [50, 50]}
++		j.nivel = 30; Regras.recalc_jogador(j); j.hp = j.hp_max   # faixa 15-49 contra Vigilantes nível 30
++		sim.adicionar_jogador(j, Vector2(ch[i * 3][0], ch[i * 3][1]))
++		out.append(j)
++	return [sim, ctl, out]
++
++func lutar(sim: WorldSim, j: Ent) -> void:
++	if not j.vivo or not j.acao.is_empty(): return
++	var m: Ent = null
++	for e: Ent in sim.ents.values():
++		if e.vivo and e.alvejavel and j.eh_inimigo_de(e) and (m == null or e.pos.distance_to(j.pos) < m.pos.distance_to(j.pos)): m = e
++	if m == null: return
++	if randf() < 0.3: Jogador.cmd_skill(sim, j, randi_range(0, 4), m.id, m.pos)
++	else: Jogador.cmd_atacar(sim, j, m.id)
++	if j.frac_hp() < 0.4: Jogador.cmd_pocao(sim, j, "vida")
++
++func teste_espera_e_juramento() -> void:
++	print("[espera e juramento, 4 jogadores]")
++	var r := novo_cume(["humano", "anjo", "demonio", "mutante"])
++	var sim: WorldSim = r[0]; var ctl: HermonCtl = r[1]; var js: Array = r[2]
++	ok(ctl != null and ctl.estado == "espera", "mapa com 'hermon' cria o controle em espera")
++	var est := 0
++	for e: Ent in sim.ents.values():
++		if e.kind == "estatua_vigilante": est += 1
++	ok(est == ctl.cfg["vigilantes"].size() and est >= 50, "%d Vigilantes ajoelhados (estátuas) na espera" % est)
++	ok(not js[0].eh_inimigo_de(js[1]), "sem PvP na espera")
++	ctl.definir_espera(2.0)
++	rodar(sim, 2.5)
++	ok(ctl.estado == "juramento", "entrada fechou: juramento começou")
++	ok(js[0].eh_inimigo_de(js[1]) and js[2].eh_inimigo_de(js[3]), "PvP ligado: cada um é o próprio lado")
++	ok(ctl.vigilantes_vivos() == 28, "20 + 2x4 = 28 Vigilantes levantaram (%d)" % ctl.vigilantes_vivos())
++	var est2 := 0
++	for e: Ent in sim.ents.values():
++		if e.kind == "estatua_vigilante": est2 += 1
++	ok(est2 == 0, "estátuas sumiram")
++	var tipos := {}
++	for e: Ent in sim.ents.values():
++		if e.aux.get("vigilante", false): tipos[e.kind] = tipos.get(e.kind, 0) + 1
++	ok(tipos.has("vigilante_jurado") and tipos.has("vigilante_ferreiro"), "mistura de Vigilantes: %s" % str(tipos))
++	# o Mutante fica parado no anel 1 (vai cair); os outros lutam
++	var parado: Ent = js[3]
++	var a1: Array = ctl.aneis[0]["celulas"]
++	var c1: Vector2i = a1[0]
++	for c: Vector2i in a1:
++		if Vector2(c).distance_to(ctl.centro) > 19.5 and sim.andavel(Vector2(c) + Vector2(.5, .5)): c1 = c; break
++	var xp_antes: int = parado.xp
++	rodar(sim, 178.0, func():
++		for k in 3:
++			lutar(sim, js[k]); js[k].invuln_t = 0.5   # os 3 lutam sem morrer (o teste é da mecânica dos anéis)
++		parado.pos = Vector2(c1) + Vector2(.5, .5); parado.invuln_t = 0.5; parado.caminho.clear())
++	ok(conta("hermon_aviso", func(d): return d["anel"] == "anel_1") == 1, "aviso do anel 1 aos 160 s")
++	ok(not ctl.aneis[0]["caiu"], "anel 1 ainda de pé aos 178 s")
++	rodar(sim, 4.0, func():
++		for k in 3: js[k].invuln_t = 0.5)
++	ok(ctl.estado == "juramento", "juramento segue depois da queda do anel 1 (%d vivos)" % ctl.vivos().size())
++	ok(conta("hermon_queda", func(d): return d["pos"].distance_to(ctl.centro) <= 17.0) == 0, "só caiu quem estava no anel 1 (raio > 17)")
++	ok(ctl.aneis[0]["caiu"] and sim.bloq[c1.y * sim.w + c1.x] == 1, "anel 1 caiu aos 180 s e virou abismo")
++	ok(conta("hermon_queda", func(d): return d["id"] == parado.id) == 1 and not ctl.participantes[parado.id]["vivo"], "quem estava no anel 1 caiu e foi eliminado")
++	ok(parado.xp >= xp_antes, "sem perda de XP no evento")
++	ok(conta("trocar_mapa", func(d): return d.get("_para") == parado.id and d["mapa"] == "area_inicial") == 1, "eliminado volta para onde estava")
++	var vg_borda := 0
++	for e: Ent in sim.ents.values():
++		if e.aux.get("vigilante", false) and e.vivo and ctl.no_abismo(e.pos): vg_borda += 1
++	ok(vg_borda == 0, "nenhum Vigilante vivo flutuando no abismo")
++	ok(conta("aviso", func(d): return d["texto"] == ctl.ev["falas"]["reforco"]) == 1, "reforço desceu do céu quando o anel caiu")
++	# empurrão na beira derruba
++	var vit: Ent = null
++	for e: Ent in sim.ents.values():
++		if e.kind == "vigilante_jurado" and e.vivo: vit = e; break
++	var beira := Vector2.ZERO
++	for c: Vector2i in ctl.aneis[1]["celulas"]:
++		var p := Vector2(c) + Vector2(.5, .5)
++		var fora := p + (p - ctl.centro).normalized() * 0.8
++		if sim.andavel(p) and ctl.no_abismo(fora): beira = p; break
++	vit.pos = beira; vit.deslocando = {}; vit.acao = {}
++	sim.empurrar(vit, ctl.centro, 30.0)
++	rodar(sim, 0.2)
++	ok(not vit.vivo, "empurrão na beira derrubou o Vigilante")
++	# abate PvP dá 3 pontos
++	var a: Ent = js[0]; var b: Ent = js[1]
++	var pa: int = ctl.participantes[a.id]["pontos"]
++	sim.matar(b, a)
++	ok(ctl.participantes[a.id]["pontos"] == pa + 3 and conta("morte_pvp") >= 1, "abate PvP: +3 pontos")
++	ok(Itens.contar(a.inv, "ficha_sangue") == 1, "abate PvP: +1 Ficha de Sangue na hora")
++	ctl.participantes[a.id]["fichas"] = 3
++	ctl.ao_morrer(b, a)
++	ok(Itens.contar(a.inv, "ficha_sangue") == 1, "no máximo 3 fichas por abate em um evento")
++	ok(b.renascer_t > 1000, "eliminado não renasce no cume")
++
++func teste_cancelado() -> void:
++	print("[cancelado com 1 jogador]")
++	var r := novo_cume(["cultista"])
++	var sim: WorldSim = r[0]; var ctl: HermonCtl = r[1]; var j: Ent = r[2][0]
++	ctl.definir_espera(1.0)
++	rodar(sim, 1.5)
++	ok(ctl.estado == "cancelado", "menos de 2: cancelado")
++	ok(Itens.contar(j.inv, "convite_dos_vigilantes") == 1, "convite devolvido")
++	ok(conta("trocar_mapa", func(d): return d.get("_para") == j.id) == 1, "mandado de volta")
++
++func teste_fim_por_tempo() -> void:
++	print("[fim aos 15 min com 2 sobreviventes]")
++	var r := novo_cume(["tecnomancer", "humano"])
++	var sim: WorldSim = r[0]; var ctl: HermonCtl = r[1]; var js: Array = r[2]
++	ctl.definir_espera(0.5)
++	rodar(sim, 1.0)
++	for e: Ent in sim.ents.values():
++		if e.aux.get("vigilante", false): e.alvejavel = false; e.raio_aggro = 0.0
++	ctl.participantes[js[1].id]["pontos"] = 5
++	for c in ctl.aneis: c["avisado"] = true; c["caiu"] = true   # sem quedas neste teste
++	var ouro0: int = js[1].ouro
++	ctl.t = 899.0
++	rodar(sim, 1.5, func():
++		for j: Ent in js: j.hp = j.hp_max)
++	ok(ctl.estado == "fim" and ctl.vencedor == js[1].id, "vence quem tem mais pontos")
++	ok(Itens.contar(js[1].inv, "lagrima_angelica") == 1 and js[1].ouro - ouro0 == 15 * 30, "vencedor também leva o prêmio de sobrevivente (1 Angélica + 450 de ouro)")
++	ok(Itens.contar(js[0].inv, "lagrima_angelica") == 1, "sobrevivente: 1 Angélica")
++	ok(Itens.contar(js[0].inv, "ficha_sangue") == 1 and Itens.contar(js[1].inv, "ficha_sangue") == 3, "fichas de PvP: sobrevivente 1, vencedor 3")
++	rodar(sim, 9.0)
++	ok(conta("trocar_mapa") == 2, "todos voltam depois da coroação")
++	# chance da arma lendária: 1000 vencedores do Humano, ~30% ganham a Escopeta do Juramento Quebrado
++	var ganhou := 0
++	var outra := false
++	for i in 1000:
++		var w := Jogador.criar(sim, "humano", "W")
++		var a := ctl._arma_lendaria(w, ctl.ev["premios"]["testemunha"])
++		if not a.is_empty():
++			ganhou += 1
++			if a["id"] != "escopeta_juramento_quebrado" or a["raridade"] != "lendario": outra = true
++	ok(ganhou >= 255 and ganhou <= 345, "arma lendária sai em ~30%% dos vencedores (%d de 1000)" % ganhou)
++	ok(not outra, "a arma é sempre a lendária da classe do vencedor")
++
++func teste_clicar_convite() -> void:
++	print("[clicar no convite]")
++	var r := novo_cume(["anjo"])
++	var sim: WorldSim = r[0]; var j: Ent = r[2][0]
++	Jogador.dar_item(sim, j, Itens.novo("convite_dos_vigilantes", 1))
++	var it: Dictionary = {}
++	for x in j.inv:
++		if x["id"] == "convite_dos_vigilantes": it = x
++	evs.clear()
++	Jogador.usar_item(sim, j, int(it["uid"]))
++	ok(conta("usar_evento", func(d): return d["uso"] == "evento:cume_vigilantes" and d["_para"] == j.id) == 1, "clicar no convite chama o servidor")
++	ok(Itens.contar(j.inv, "convite_dos_vigilantes") == 1, "o convite só é gasto quando o servidor aceita")
