@@ -79,7 +79,7 @@ static func _ocioso(sim: WorldSim, e: Ent, dt: float) -> void:
 	if e.ia_t <= 0.0 and not e.aux.get("neutro", false):
 		e.ia_t = 0.25
 		for o: Ent in sim.alvos_ia:
-			if _alvo_valido(sim, e, o) and e.pos.distance_to(o.pos) <= e.raio_aggro and sim.visao(e.pos, o.pos):
+			if not Demiurgo.tem(o) and _alvo_valido(sim, e, o) and e.pos.distance_to(o.pos) <= e.raio_aggro and sim.visao(e.pos, o.pos):   # Olho do Demiurgo: só revida
 				acordar(sim, e, o)
 				return
 	elif e.ia_t <= 0.0 and e.aux.has("territorio"):
@@ -88,7 +88,7 @@ static func _ocioso(sim: WorldSim, e: Ent, dt: float) -> void:
 		var t: Array = e.aux["territorio"]
 		var c := Vector2(float(t[0]), float(t[1]))
 		for o: Ent in sim.alvos_ia:
-			if o.pos.distance_to(c) <= float(t[2]) and _alvo_valido(sim, e, o) and sim.visao(e.pos, o.pos):
+			if not Demiurgo.tem(o) and o.pos.distance_to(c) <= float(t[2]) and _alvo_valido(sim, e, o) and sim.visao(e.pos, o.pos):
 				acordar(sim, e, o)
 				return
 	# patrulha ou vagar

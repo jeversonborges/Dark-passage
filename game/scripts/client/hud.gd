@@ -843,7 +843,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 	for i in somas:
 		if i >= zonas.size() or somas[i][1] < 6: continue
 		var p := _mundo_para_mini(somas[i][0] / float(somas[i][1]), cen, cm, k)
-		var conhecida: bool = j.vistas.has(zonas[i]["id"]) or zonas[i]["id"] == j.zona
+		var conhecida: bool = j.vistas.has(zonas[i]["id"]) or zonas[i]["id"] == j.zona or Demiurgo.tem(j)   # Olho do Demiurgo: o mapa inteiro
 		var niv = zonas[i].get("nivel")
 		_txt(c, p, zonas[i]["nome"], 15, Color("#f6e2a8") if conhecida else Color("#a49a86"), Tema.FONTE_TITULO, 0, 5)
 		if niv is Array: _txt(c, p + Vector2(0, 15), "nível %d–%d" % [int(niv[0]), int(niv[1])], 11, Color("#c8b890") if conhecida else Color("#8a8070"), Tema.FONTE_ITALICO, 0, 3)

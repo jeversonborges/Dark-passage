@@ -186,7 +186,7 @@ static func cor_raridade(r: String) -> Color:
 	return cor(rr.get("cor", "#b8afa0"))
 
 static func nome_raridade(r: String) -> String:
-	return {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia"}.get(r, r.capitalize())
+	return {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia", "demiurgico": "Demiúrgico"}.get(r, r.capitalize())
 
 ## Sprite de um tipo de unidade (classe, monstro, npc). Usa substituto quando a arte ainda não chegou.
 static func sprite(kind: String) -> Dictionary:
