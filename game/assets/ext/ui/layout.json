@@ -1,0 +1,39 @@
+{
+  "_doc": "Barra de HUD final (tema Deserto de Absinto). Coordenadas em px 1x, relativas ao canto superior esquerdo de barra_base.png (1280x150), que fica ancorada embaixo e centralizada. A pasta 2x tem as mesmas peças com o dobro de resolução para telas grandes.",
+  "base": {"arquivo": "barra_base.png", "tamanho": [1280, 150], "ancora": "inferior_centro"},
+  "extensao": {"arquivo": "barra_extensao.png", "tamanho": [512, 84], "y": 66, "repetir": "horizontal", "_doc": "preenche as laterais quando a janela tem mais de 1280 px de largura (stretch aspect=expand); fica atrás da base"},
+  "orbes": {
+    "pecas_em_ordem": ["orbe_fundo.png", "orbe_liquido_<cor>.png (recortado pela base)", "orbe_superficie.png (na linha do nível)", "orbe_vidro.png", "orbe_moldura_<vida|recurso>.png"],
+    "tamanho": [140, 140], "raio_vidro": 53, "liquido_y_topo": 17, "liquido_altura": 106,
+    "vida": {"centro": [78, 78], "liquido": "vida", "moldura": "vida"},
+    "recurso": {"centro": [1202, 78], "moldura": "recurso",
+      "liquido_por_classe": {"humano": "folego", "anjo": "graca", "cultista": "sangue", "mutante": "furia", "demonio": "brasa", "tecnomancer": "carga"},
+      "extras": {"neutro": "branco para tingir com modulate", "amargo": "verde do Amargo (envenenado, buffs)"}},
+    "texto_valor": {"offset_centro": [0, -2], "fonte": "fontes/cinzel-bold.woff2", "tamanho": 15, "cor": "#f6ead0", "contorno": 3},
+    "texto_nome": {"offset_centro": [0, 16], "fonte": "fontes/cinzel-bold.woff2", "tamanho": 8, "cor": "#d8c8a0", "espacamento": 2}
+  },
+  "xp": {"preenchimento": {"arquivo": "xp_preenchimento.png", "rect": [176, 75, 932, 8], "repetir": "horizontal"},
+         "ponta": {"arquivo": "xp_ponta.png", "tamanho": [12, 16], "y": 71, "_doc": "centralizar no fim do preenchimento"},
+         "vidro": {"arquivo": "xp_vidro.png", "pos": [170, 70], "por_cima": true},
+         "texto": {"centro": [640, 62], "fonte": "fontes/silkscreen.woff2", "tamanho": 7, "cor": "#e8ffb0"}},
+  "skills": {"quantidade": 10, "teclas": ["1","2","3","4","5","6","7","8","9","0"],
+             "slot": {"pos_primeiro": [222, 90], "passo_x": 54, "tamanho": 52},
+             "icone": {"offset": [6, 6], "tamanho": 40, "pasta": "assets/icones/skills/40/"},
+             "pecas_em_ordem": ["icone", "recarga (desenhada no código: setor escuro rgba(0,0,0,0.7) + número)", "slot_sombra.png", "slot_moldura.png | slot_hover.png | slot_ativo.png | slot_pressionado.png", "tecla_<n>.png"],
+             "tecla": {"offset": [-4, -5], "tamanho": [20, 18]},
+             "quantidade_texto": {"offset": [30, 34], "fonte": "fontes/silkscreen.woff2", "tamanho": 8}},
+  "cinto": {"teclas": ["Q","W","E","R"],
+            "slot": {"pos_primeiro": [792, 94], "passo_x": 52, "tamanho": 46},
+            "icone": {"offset": [5, 5], "tamanho": 36, "pasta": "assets/icones/itens/40/"},
+            "pecas_em_ordem": ["icone", "cinto_sombra.png", "cinto_moldura.png | cinto_hover.png | cinto_ativo.png", "tecla_<q|w|e|r>.png"],
+            "tecla": {"offset": [-4, -5]}, "quantidade_texto": {"offset": [28, 31]}},
+  "menu": {"botoes": ["personagem", "mochila", "habilidades", "missoes", "mapa", "menu"], "atalhos": ["C", "I", "K", "J", "M", "Esc"],
+           "pos_primeiro": [1023, 92], "passo": [36, 27], "colunas": 3, "tamanho": [34, 24],
+           "arquivo": "botao_<nome>_<normal|hover>.png"},
+  "info": {"rect": [162, 96, 48, 42], "_doc": "nível (Cinzel 16) e munição/recurso secundário (Silkscreen 7)"},
+  "nine_patch": {
+    "slot_moldura.png": {"margens": [8, 8, 8, 8]}, "slot_hover.png": {"margens": [8, 8, 8, 8]}, "slot_ativo.png": {"margens": [8, 8, 8, 8]},
+    "cinto_moldura.png": {"margens": [7, 7, 7, 7]},
+    "xp_vidro.png": {"margens": [12, 0, 12, 0], "_doc": "para outra largura de tubo; os anéis de 10% ficam esticados, então prefira a largura original"}
+  }
+}
