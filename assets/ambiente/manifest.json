@@ -72,6 +72,18 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "_amostra_trilha_eden": {
+   "atlas": "tiles/_amostra_trilha_eden.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "agua_canal": {
    "atlas": "tiles/agua_canal.png",
    "grade": [
@@ -446,6 +458,18 @@
   },
   "terra_jardim": {
    "atlas": "tiles/terra_jardim.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "trilha_eden": {
+   "atlas": "tiles/trilha_eden.png",
    "grade": [
     4,
     4
