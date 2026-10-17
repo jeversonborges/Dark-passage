@@ -4,7 +4,7 @@ class_name Sincro
 
 const PUB := ["tipo", "kind", "nome", "nivel", "pos", "facing", "raio", "vivo", "invisivel", "alvejavel", "escala",
 	"hp", "hp_max", "rec", "rec_max", "escudo", "postura", "postura_max", "estado", "arquetipo", "tags", "classe", "evolucao",
-	"faccao", "alvo", "dono", "vel", "res", "lado_forcado"]
+	"faccao", "alvo", "dono", "vel", "res", "lado_forcado", "vis"]
 const PRIV := ["xp", "pontos", "ouro", "municao", "folego", "inv", "equip", "armazem", "missoes", "flags", "vistas",
 	"stats", "dano_min", "dano_max", "defesa", "ar", "er", "critico", "crit_mult", "excelente", "vel_ataque", "intervalo",
 	"alcance", "roubo_vida", "no_lugar", "zona", "abates", "skills_slots", "pity_raro"]

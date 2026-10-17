@@ -351,7 +351,7 @@ func _aplicar_armas() -> void:
 	var vis: Dictionary = ent.vis if ent else {}
 	for slot in _armas:
 		var sp: Sprite2D = _armas[slot]
-		var q = _quadro_arma(vis.get(slot, {}), anim, dir, frame)
+		var q = _quadro_arma(vis.get(slot, {}), slot, anim, dir, frame)
 		if q == null:
 			sp.visible = false; continue
 		sp.visible = true
@@ -365,11 +365,23 @@ func _aplicar_armas() -> void:
 		mat_arma.set_shader_parameter("brilho", q["brilho"])
 		mat_arma.set_shader_parameter("forca_brilho", q["forca"])
 
+## Camada da mão para o item (ordem: silhueta do item, silhueta por personagem, padrão da classe; "" = mão vazia).
+func _silhueta_arma(v: Dictionary, slot: String) -> String:
+	var it: Dictionary = Defs.VISUAIS.get(str(v.get("id", "")), {})
+	if not it.is_empty():
+		var sil: Variant = it.get("silhueta")
+		if sil != null and FileAccess.file_exists("res://assets/ext/armas/%s/%s.json" % [_kind_armas, sil]): return str(sil)
+		var pp: Dictionary = it.get("por_personagem", {})
+		if pp.has(_kind_armas): return "" if pp[_kind_armas] == null else str(pp[_kind_armas])
+	if slot != "arma": return ""   # mão secundária sem item: vazia
+	var padrao: Variant = Defs.PADRAO.get(_kind_armas)
+	return "" if padrao == null else str(padrao)
+
 ## Quadro da camada da arma para a animação, direção e quadro atuais; null quando a arma está escondida.
-func _quadro_arma(v: Dictionary, nome: String, d: int, f: int):
-	if v.is_empty() or not Defs.VISUAIS.has(str(v.get("id", ""))): return null
-	var it: Dictionary = Defs.VISUAIS[str(v["id"])]
-	var sil := str(it.get("silhueta", ""))
+func _quadro_arma(v: Dictionary, slot: String, nome: String, d: int, f: int):
+	var sil := _silhueta_arma(v, slot)
+	if sil == "": return null
+	var it: Dictionary = Defs.VISUAIS.get(str(v.get("id", "")), {})
 	if not _camadas.has(sil):
 		var base := "res://assets/ext/armas/%s/%s" % [_kind_armas, sil]
 		_camadas[sil] = {} if not FileAccess.file_exists(base + ".json") else {"json": Defs.ler(base + ".json"), "tex": Tema.tex(base + ".png"), "mask": Tema.tex(base + "_mascara.png")}
