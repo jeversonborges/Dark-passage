@@ -3,6 +3,7 @@
 #   musgo_pedra    lajes velhas de pedra engolidas pelo musgo (Viveiro, caminhos, a Nascente)
 #   margem_rio     areia clara e seixos da beira dos quatro rios
 #   terra_jardim   terra escura revolvida dos canteiros da Enxertia
+#   trilha_eden    terra batida clara das estradinhas, com lajes chatas de passo (17/10: "para entender onde é estrada")
 import bpy, sys, os, json, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kit as K
@@ -71,12 +72,37 @@ def terra_jardim(nt, b, v, w, seed):
     L(nt, col, b.inputs["Base Color"]); b.inputs["Roughness"].default_value = .95
     bump(nt, b, math_(nt, 'ADD', math_(nt, 'MULTIPLY', n2.outputs["Fac"], .5), math_(nt, 'MULTIPLY', wv.outputs["Fac"], .5)), .6, .05)
 
-K.EXTRA_GROUND.update({"relva_eden": relva, "musgo_pedra": musgo_pedra, "margem_rio": margem, "terra_jardim": terra_jardim})
+def trilha(nt, b, v, w, seed):
+    # terra batida cor de palha, bem mais clara e quente que a relva: o olho acha o caminho de longe
+    n = noise(nt, v, w, 1.8, 8, .6, seed); n2 = noise(nt, v, w, 20, 4, .5, seed + 4)
+    r = ramp(nt, [(.3, (.2, .15, .095)), (.6, (.32, .25, .16)), (.85, (.44, .35, .23))]); L(nt, n.outputs["Fac"], r.inputs[0])
+    col = mix(nt, r.outputs[0], n2.outputs["Color"], .18, 'OVERLAY')
+    gv = voronoi(nt, v, w, 40, 'F1', seed + 3, 1.0)           # grão de areia e cascalho miúdo
+    gr = ramp(nt, [(0, (1, 1, 1)), (.25, (0, 0, 0))]); L(nt, gv.outputs["Distance"], gr.inputs[0])
+    col = mix(nt, col, mix(nt, (.08, .06, .04), (.34, .29, .2), gv.outputs["Color"]), math_(nt, 'MULTIPLY', gr.outputs[0], .5))
+    lv = voronoi(nt, v, w, 3.2, 'F1', seed + 7, .8)            # lajes chatas de passo, gastas, espalhadas
+    le = voronoi(nt, v, w, 3.2, 'DISTANCE_TO_EDGE', seed + 7, .8)
+    lr = ramp(nt, [(.08, (0, 0, 0)), (.13, (1, 1, 1))]); L(nt, le.outputs["Distance"], lr.inputs[0])
+    lsel = ramp(nt, [(.55, (0, 0, 0)), (.6, (1, 1, 1))]); L(nt, lv.outputs["Color"], lsel.inputs[0])
+    laje = math_(nt, 'MULTIPLY', lr.outputs[0], lsel.outputs[0])
+    lc = mix(nt, (.34, .3, .23), (.46, .41, .32), n2.outputs["Fac"])
+    col = mix(nt, col, lc, math_(nt, 'MULTIPLY', laje, .85))
+    rn = noise(nt, v, w, 2.6, 4, .5, seed + 11)                # sulcos de pés e rodas, mais escuros
+    rr = ramp(nt, [(.62, (0, 0, 0)), (.7, (1, 1, 1))]); L(nt, rn.outputs["Fac"], rr.inputs[0])
+    col = mix(nt, col, (.13, .095, .06), math_(nt, 'MULTIPLY', rr.outputs[0], .4))
+    tv = voronoi(nt, v, w, 11, 'F1', seed + 13)                # tufos raros de trevo que resistem ao pisoteio
+    tr = ramp(nt, [(0, (1, 1, 1)), (.12, (0, 0, 0))]); L(nt, tv.outputs["Distance"], tr.inputs[0])
+    tm = noise(nt, v, w, 1.7, 3, .5, seed + 15); tmr = ramp(nt, [(.6, (0, 0, 0)), (.66, (1, 1, 1))]); L(nt, tm.outputs["Fac"], tmr.inputs[0])
+    col = mix(nt, col, (.04, .09, .025), math_(nt, 'MULTIPLY', tr.outputs[0], tmr.outputs[0]))
+    L(nt, col, b.inputs["Base Color"]); b.inputs["Roughness"].default_value = .92
+    bump(nt, b, math_(nt, 'ADD', math_(nt, 'MULTIPLY', n2.outputs["Fac"], .3), math_(nt, 'MULTIPLY', laje, .5)), .5, .05)
+
+K.EXTRA_GROUND.update({"relva_eden": relva, "musgo_pedra": musgo_pedra, "margem_rio": margem, "terra_jardim": terra_jardim, "trilha_eden": trilha})
 
 if __name__ == "__main__":
     argv = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else sys.argv[1:]
     out = argv[0]; os.makedirs(out, exist_ok=True)
-    kinds = argv[1:] or ["relva_eden", "musgo_pedra", "margem_rio", "terra_jardim"]
+    kinds = argv[1:] or ["relva_eden", "musgo_pedra", "margem_rio", "terra_jardim", "trilha_eden"]
     Nn = 4; P = Nn*K.T
     for kind in kinds:
         sc = K.reset(); sc.render.film_transparent = False

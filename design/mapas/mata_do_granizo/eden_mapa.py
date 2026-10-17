@@ -24,9 +24,9 @@ CHEGADA_CATACUMBA_DENTRO, FOGO, SEIVA, LUME, ruido, dist_seg = G.CHEGADA_CATACUM
 NASCENTE = [60.0, 71.0]
 AMBAR = [1, .62, .22]
 PISOS_EDEN = {"e": "relva_eden", "m": "musgo_pedra", "g": "margem_rio", "j": "terra_jardim", "l": "musgo_lume",
-              "z": "cinza", "f": "mata_morta", "t": "terra", "w": "margem_rio", "r": "margem_rio", "k": "cascalho"}
+              "z": "cinza", "f": "mata_morta", "t": "trilha_eden", "w": "margem_rio", "r": "margem_rio", "k": "cascalho"}
 G.G.COR_PISO.update({"e": (52, 74, 40), "m": (62, 70, 54), "g": (104, 92, 70), "j": (46, 36, 26), "l": (40, 66, 60),
-                   "w": (40, 70, 86), "r": (70, 110, 120), "z": (40, 38, 36), "f": (58, 50, 40), "t": (82, 64, 46), "k": (72, 66, 58)})
+                   "w": (40, 70, 86), "r": (70, 110, 120), "z": (40, 38, 36), "f": (58, 50, 40), "t": (150, 120, 80), "k": (72, 66, 58)})
 
 ZONAS = [  # id, nome, seguro, nível, piso
     ("portao_oriente", "Portão do Oriente", False, [12, 13], "z"),
@@ -98,7 +98,7 @@ def mata():
                 a.blk[y][x] = False
                 zona_de[y][x] = bz
                 piso = ZONAS[bz][4]
-                if dc < 1.1 and best > .55: piso = "t"; trilha[y][x] = True
+                if dc < 1.4 and best > .3: piso = "t"; trilha[y][x] = True    # estradinha larga e contínua até perto do centro
                 a.ter[y][x] = piso
     # ---- os quatro rios, o lago e o poço de Havilá
     fundo, raso = set(), set()
@@ -148,6 +148,25 @@ def mata():
     def agua(x, y): return 0 <= x < W and 0 <= y < H and a.ter[y][x] in "rw"
     def livre3(x, y): return all(a.livre(x + dx, y + dy) and not agua(x + dx, y + dy) and (x + dx, y + dy) not in a.extra_blk for dx in (-1, 0, 1) for dy in (-1, 0, 1))
     def perto_prop(x, y, d): return any(math.dist((x, y), (p["x"], p["y"])) < d for p in a.props if not p.get("chao"))
+    # distância até a estradinha (17/10, Jefin: "deixa as estradas um pouco mais limpas, para entender onde é estrada")
+    def d_trilha(x, y, raio=4):
+        ix, iy = int(x), int(y); best = 99.0
+        for yy in range(max(0, iy - raio), min(H, iy + raio + 1)):
+            for xx in range(max(0, ix - raio), min(W, ix + raio + 1)):
+                if trilha[yy][xx]: best = min(best, math.hypot(xx + .5 - x, yy + .5 - y))
+        return best
+    # miudeza (flores, samambaia, pedra, tronco, junco...) nunca em cima do caminho nem colada na beira dele
+    MIUDEZA = {"tapete_flores": 2.0, "tapete_flores_2": 2.0, "tapete_flores_3": 2.0, "nenufares": 1.2, "nenufares_2": 1.2,
+               "samambaia": 1.6, "samambaia_2": 1.6, "samambaia_3": 1.6, "folha_larga": 1.6, "cogumelos_eden": 1.3, "cogumelos_palidos": 1.3,
+               "moita_florida": 2.0, "moita_florida_2": 2.0, "moita_florida_3": 2.0, "moita_lume": 1.8, "flor_lume": 1.5, "flor_lume_2": 1.5,
+               "pedra_coberta": 2.0, "pedra_coberta_2": 2.0, "pedra_coberta_3": 2.0, "pedras_rio": 1.4, "juncos_eden": 1.6,
+               "tronco_caido_eden": 2.6, "tronco_caido_eden_2": 2.6, "arbusto_seco": 1.6, "arbusto_seco_2": 1.6, "mato_seco": 1.5,
+               "pilha_carvao": 1.5, "toco_arvore": 1.5, "cratera_cinza": 2.2, "soldado_morto": 1.6}
+    _prop = a.prop
+    def prop_limpo(k, x, y, **kw):
+        if k in MIUDEZA and d_trilha(x, y) < MIUDEZA[k]: return
+        _prop(k, x, y, **kw)
+    a.prop = prop_limpo
 
     # ---- borda: a mata fecha o jardim (copas altas só atrás das clareiras, vegetação baixa na frente)
     alta_viva = ["arvore_eden", "arvore_eden_2", "arvore_eden_3", "arvore_eden", "figueira", "figueira_2", "arvore_eden_2"]
@@ -169,6 +188,7 @@ def mata():
             z = zv[0] if zv else 3
             # câmera: subir na tela = (x-1, y+1). Copa alta só onde não há chão aberto "abaixo" na tela (na frente)
             frente = any(0 <= x + k + d < W and 0 <= y - k < H and not a.blk[y - k][x + k + d] for k in range(1, 12) for d in (-1, 0, 1))
+            frente = frente or d_trilha(px, py, 5) < 4.5
             if z in QUEIMADAS: kinds = baixa_morta if frente else alta_morta
             elif z in LUMES: kinds = baixa_lume if frente else alta_lume
             else: kinds = baixa_viva if frente else alta_viva
@@ -237,6 +257,8 @@ def mata():
             t += 1
             x, y = rng.uniform(5, W - 5), rng.uniform(5, H - 5); ix, iy = int(x), int(y)
             if a.blk[iy][ix] or trilha[iy][ix] or a.ter[iy][ix] not in pisos: continue
+            if d_trilha(x, y) < 2.0: continue          # sorteia de novo longe da estradinha (a densidade fora dela não cai)
+            if not chao and any(math.dist((x, y), s_["pos"]) < 1.6 for s_ in a.spawns): continue   # nada em cima de um grupo do spot
             if zonas is not None and zona_de[iy][ix] not in zonas: continue
             if not spot_ok and em_spot(x, y, 1.5): continue
             if bloq and not livre3(ix, iy): continue
