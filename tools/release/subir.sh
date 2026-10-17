@@ -23,13 +23,19 @@ def lista(base):
             p = os.path.normpath(os.path.join(rel, f)); st = os.stat(os.path.join(d, f))
             out[p] = (st.st_size, int(st.st_mtime))
     return out
+# o clone tem mtime de checkout, então vale a hora da última sincronização (game/.sincronizado)
+marca = os.path.join(dst, ".sincronizado")
+ultima = int(open(marca).read().split()[0]) if os.path.exists(marca) else 0
+agora = int(__import__("time").time())
 a, b = lista(src), lista(dst)
-novos = [p for p in a if b.get(p) != a[p]]
+b.pop(".sincronizado", None)
+novos = [p for p in a if p not in b or b[p][0] != a[p][0] or a[p][1] >= ultima - 120]
 velhos = [p for p in b if p not in a]
 def cp(p):
     t = os.path.join(dst, p); os.makedirs(os.path.dirname(t), exist_ok=True); shutil.copy2(os.path.join(src, p), t)
 with ThreadPoolExecutor(64) as ex: list(ex.map(cp, novos))
 for p in velhos: os.remove(os.path.join(dst, p))
+open(marca, "w").write(f"{agora}\n")
 print(f"game/: {len(novos)} copiados, {len(velhos)} apagados")
 PY
 git add -A game
