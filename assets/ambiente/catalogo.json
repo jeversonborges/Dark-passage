@@ -1,0 +1,5814 @@
+{
+ "coliseu": [
+  {
+   "id": "corda_guarda_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Estacas com corda de guarda na beira do precipício (segmento de 1 tile)."
+  },
+  {
+   "id": "corda_guarda_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Estacas com corda de guarda na beira do precipício (segmento de 1 tile)."
+  },
+  {
+   "id": "arquibancada_agrak_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arquibancada do estádio enterrado: 4 degraus de concreto rachado com ferragem exposta e areia nos cantos."
+  },
+  {
+   "id": "arquibancada_agrak_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arquibancada do estádio enterrado: 4 degraus de concreto rachado com ferragem exposta e areia nos cantos."
+  },
+  {
+   "id": "arquibancada_agrak_v2_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variação: degrau quebrado, cadeiras de plástico derretidas e um holofote caído."
+  },
+  {
+   "id": "arquibancada_agrak_v2_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variação: degrau quebrado, cadeiras de plástico derretidas e um holofote caído."
+  },
+  {
+   "id": "arquibancada_caida_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arquibancada que desabou: rampa de areia escorrendo do alto dos degraus até o fosso, com lajes de degrau tombadas meio enterradas e ferragem para fora."
+  },
+  {
+   "id": "arquibancada_caida_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arquibancada que desabou: rampa de areia escorrendo do alto dos degraus até o fosso, com lajes de degrau tombadas meio enterradas e ferragem para fora."
+  },
+  {
+   "id": "faixa_campeao_2_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "faixa_campeao_2_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "faixa_campeao_3_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "faixa_campeao_3_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "faixa_campeao_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Faixa de pano rasgada com nome pintado (para pendurar no muro do fosso)."
+  },
+  {
+   "id": "faixa_campeao_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Faixa de pano rasgada com nome pintado (para pendurar no muro do fosso)."
+  },
+  {
+   "id": "plateia_a_0_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_0_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_1_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_1_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_2_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_2_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_3_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_a_3_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_0_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_0_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_1_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_1_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_2_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_2_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_3_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_b_3_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_0_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_0_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_1_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_1_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_2_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_2_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_3_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plateia_c_3_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "portao_grade_agrak_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Portão do fosso com grade de ferro baixada (fechado)."
+  },
+  {
+   "id": "portao_grade_agrak_aberto_a",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Mesmo portão com a grade erguida (aberto)."
+  },
+  {
+   "id": "portao_grade_agrak_aberto_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Mesmo portão com a grade erguida (aberto)."
+  },
+  {
+   "id": "portao_grade_agrak_b",
+   "bioma": "coliseu_agrak",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Portão do fosso com grade de ferro baixada (fechado)."
+  }
+ ],
+ "chefes_efeitos": [
+  {
+   "id": "anel_astral",
+   "bioma": "amenti",
+   "tiles": "8x8",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lasca_abismo",
+   "bioma": "amenti",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lasca_abismo_2",
+   "bioma": "amenti",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "plataforma_astral",
+   "bioma": "amenti",
+   "tiles": "7x7",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poeira_luz",
+   "bioma": "amenti",
+   "tiles": "7x7",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poeira_luz_2",
+   "bioma": "amenti",
+   "tiles": "6x6",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "vento_vazio",
+   "bioma": "amenti",
+   "tiles": "7x7",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "fenda",
+   "bioma": "atlantida",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "sintonizado_ajoelhado",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Cultista morto ajoelhado, rezando para a fenda: casaco de borracha, fones aparafusados no crânio, grade de alto-falante no lugar da boca, antenas de arame saindo da gola; o fio dos fones vai até um receptor de válvula aceso no chão à sua frente."
+  },
+  {
+   "id": "arena_carpideiras",
+   "bioma": "cripta",
+   "tiles": "6x6",
+   "categoria": "chefes",
+   "enfeite": false,
+   "descricao": "Chefe 2 (Ossário): trono de ossos das Carpideiras com mar de velas."
+  },
+  {
+   "id": "arena_trombeta",
+   "bioma": "cripta",
+   "tiles": "6x6",
+   "categoria": "chefes",
+   "enfeite": false,
+   "descricao": "Chefe 3: a Trombeta Calada, enorme trombeta de ferro e porcelana sobre altar, presa por correntes, com halo de ferro partido."
+  },
+  {
+   "id": "arena_vala",
+   "bioma": "cripta",
+   "tiles": "8x8",
+   "categoria": "chefes",
+   "enfeite": false,
+   "descricao": "Chefe 1: a Vala da Grande Batalha, fosso de cadáveres no porão do abatedouro, covil do Andras, o General Partido. Montes de mortos, estandartes rasgados e ganchos."
+  },
+  {
+   "id": "vagonete",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Vagonete basculante de ferro cheio de areia e lascas, nas rodinhas do trilho estreito."
+  },
+  {
+   "id": "arena_moedor",
+   "bioma": "matadouro",
+   "tiles": "3x3",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "O moedor de Benedito no fosso: moedor industrial de ferro fundido num pedestal de tijolo, funil cheio de restos, volante de manivela, boca de discos furados cuspindo carne moída num cocho, correntes e fornalha embaixo."
+  },
+  {
+   "id": "nevoa_fria",
+   "bioma": "matadouro",
+   "tiles": "4x4",
+   "categoria": "efeitos",
+   "enfeite": false,
+   "descricao": "Névoa fria rasteira da câmara fria (semitransparente): manchas azuladas de até meio metro que escorrem pelo chão."
+  },
+  {
+   "id": "vapor_chao",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "efeitos",
+   "enfeite": false,
+   "descricao": "Vapor subindo de um ralo ou caldeira (semitransparente), coluna quente que se desfaz a 2 m."
+  },
+  {
+   "id": "fenda_portadora",
+   "bioma": "torre",
+   "tiles": "6x6",
+   "categoria": "chefes",
+   "enfeite": false,
+   "descricao": "O Topo da Repetidora: a fenda aberta pelo sinal, um rasgo vertical no ar feito de estática violeta e linhas de varredura, com bordas de papel queimado e tela rasgada; lanças de sintonia do culto apontadas para ela e o chão chamuscado embaixo."
+  }
+ ],
+ "paredes": [
+  {
+   "id": "borda_astral_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "borda_astral_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "borda_astral_canto",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_canto",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_frente_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_frente_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_frente_canto",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_v2_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_glifos_amenti_v2_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_livro_amenti_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_livro_amenti_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_livro_amenti_v2_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_livro_amenti_v2_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_anubis_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_anubis_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_caes_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_caes_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_canto",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_frente_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_frente_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_frente_canto",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_grade_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_grade_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_nicho_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_nicho_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_v2_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_sombria_amenti_v2_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_2_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_2_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_3_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_3_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_a",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "penhasco_ilha_b",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tabua_esmeralda_parede",
+   "bioma": "amenti",
+   "tiles": "4x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "colunata_a",
+   "bioma": "atlantida",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "colunata_b",
+   "bioma": "atlantida",
+   "tiles": "2x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_bronze_a",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_bronze_b",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_estanho_a",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_estanho_b",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_oricalco_a",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muralha_oricalco_b",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pilar_leis",
+   "bioma": "atlantida",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "barricada_sacos_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "barricada_sacos_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "canos_parede",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cerca_arame_torta_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cerca_arame_torta_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cerca_chiqueiro_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cerca_chiqueiro_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estante_ossos_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Nicho de ossos encostado na parede de trás do Ossário: tíbias empilhadas e crânios em fileira."
+  },
+  {
+   "id": "estante_ossos_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Nicho de ossos encostado na parede de trás do Ossário: tíbias empilhadas e crânios em fileira."
+  },
+  {
+   "id": "guindaste_sucata",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Guindaste de sucata na beira do precipício, com gancho e corrente."
+  },
+  {
+   "id": "muro_contencao_areia_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro de contenção de tábuas e sacos segurando a duna (adro da capela)."
+  },
+  {
+   "id": "muro_contencao_areia_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro de contenção de tábuas e sacos segurando a duna (adro da capela)."
+  },
+  {
+   "id": "muro_fosso_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro do fosso (3 m, a mureta da arquibancada de baixo): concreto com faixa de propaganda desbotada, estacas e arame farpado no topo."
+  },
+  {
+   "id": "muro_fosso_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro do fosso (3 m, a mureta da arquibancada de baixo): concreto com faixa de propaganda desbotada, estacas e arame farpado no topo."
+  },
+  {
+   "id": "muro_fosso_canto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muro_fosso_frente_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Frente do fosso (lado da câmera): mureta quebrada na altura do joelho com estacas, para não tampar a luta."
+  },
+  {
+   "id": "muro_fosso_frente_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Frente do fosso (lado da câmera): mureta quebrada na altura do joelho com estacas, para não tampar a luta."
+  },
+  {
+   "id": "muro_fosso_frente_canto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muro_tijolo_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muro_tijolo_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muro_tijolo_quebrado_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "muro_tijolo_quebrado_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ossada_gigante",
+   "bioma": "base",
+   "tiles": "6x4",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Ossada de criatura gigante meio enterrada (Mar de Dunas)."
+  },
+  {
+   "id": "ossada_viajante",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Ossada de quem tentou atravessar a tempestade: esqueleto, mochila e cantil."
+  },
+  {
+   "id": "palicada_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Cerca do Acampamento da Vela: mourões, travessas, tábuas de alturas diferentes com fresta, chapa de zinco ondulada e arame farpado. Baixa (1,5 m) para o acampamento aparecer por cima."
+  },
+  {
+   "id": "palicada_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Cerca do Acampamento da Vela: mourões, travessas, tábuas de alturas diferentes com fresta, chapa de zinco ondulada e arame farpado. Baixa (1,5 m) para o acampamento aparecer por cima."
+  },
+  {
+   "id": "parede_gotica_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede gótica inglesa: tijolo escuro, embasamento, cordão e coroamento de cantaria, cunhal na emenda."
+  },
+  {
+   "id": "parede_gotica_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede gótica inglesa: tijolo escuro, embasamento, cordão e coroamento de cantaria, cunhal na emenda."
+  },
+  {
+   "id": "parede_gotica_canto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilar de canto em cantaria, com pináculo baixo."
+  },
+  {
+   "id": "parede_gotica_frente_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente: mureta de tijolo com capa de cantaria e grade de ferro batido com lanças (não tampa)."
+  },
+  {
+   "id": "parede_gotica_frente_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente: mureta de tijolo com capa de cantaria e grade de ferro batido com lanças (não tampa)."
+  },
+  {
+   "id": "parede_gotica_frente_canto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilarete da frente com bola de pedra."
+  },
+  {
+   "id": "parede_gotica_v2_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arco Tudor cego em cantaria com lampião a gás aceso (a luz da sala vem daqui)."
+  },
+  {
+   "id": "parede_gotica_v2_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Arco Tudor cego em cantaria com lampião a gás aceso (a luz da sala vem daqui)."
+  },
+  {
+   "id": "pilar_entulho",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pilar baixo de entulho (cobertura contra o Bote dos leões): blocos de concreto, ferragem e sacos."
+  },
+  {
+   "id": "pilar_porcelana",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ponte_madeira_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Segmento de ponte de tábuas sobre estacas (encaixe lado a lado ao longo do eixo)."
+  },
+  {
+   "id": "ponte_madeira_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Segmento de ponte de tábuas sobre estacas (encaixe lado a lado ao longo do eixo)."
+  },
+  {
+   "id": "ponte_rompida",
+   "bioma": "base",
+   "tiles": "3x6",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Ponte de tábuas rompida pendendo no abismo."
+  },
+  {
+   "id": "poste_telegrafo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Poste de telégrafo de madeira inclinado, com isoladores e fios caídos."
+  },
+  {
+   "id": "quadro_disjuntores",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Quadro de força de parede: painel de ardósia com chaves-faca de cobre sobre porcelana, fusíveis, amperímetros, barramento e cabos subindo e descendo. Uma chave está aberta."
+  },
+  {
+   "id": "telhado_no_abismo",
+   "bioma": "base",
+   "tiles": "5x5",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Telhado de casa da Cidade Velha visto lá embaixo no abismo (cenário da moldura)."
+  },
+  {
+   "id": "trilho_bonde_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Trilhos do bonde da linha 7 (segmento de 1 tile, enterrado na cinza)."
+  },
+  {
+   "id": "trilho_bonde_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Trilhos do bonde da linha 7 (segmento de 1 tile, enterrado na cinza)."
+  },
+  {
+   "id": "trilhos_no_abismo",
+   "bioma": "base",
+   "tiles": "3x4",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Fim da Linha 7: trilhos e dormentes pendurados sobre o precipício."
+  },
+  {
+   "id": "parede_biblioteca_a",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede de trás da sala de leitura: estante de imbuia embutida do chão à galeria, cheia de lombadas de couro e pano com filetes de ouro e etiquetas de tombo; por cima, a borda da galeria de ferro com corrimão de latão."
+  },
+  {
+   "id": "parede_biblioteca_b",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede de trás da sala de leitura: estante de imbuia embutida do chão à galeria, cheia de lombadas de couro e pano com filetes de ouro e etiquetas de tombo; por cima, a borda da galeria de ferro com corrimão de latão."
+  },
+  {
+   "id": "parede_biblioteca_canto",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilastra de canto: cantaria com base e capitel moldurados na altura da galeria e um castiçal de ferro com três velas, cera escorrida até o chão."
+  },
+  {
+   "id": "parede_biblioteca_frente_a",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente (~0,7 m): toco de cantaria quebrado e o pé da estante partida, com livros escorrendo para dentro da sala; nunca tapa o personagem."
+  },
+  {
+   "id": "parede_biblioteca_frente_b",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente (~0,7 m): toco de cantaria quebrado e o pé da estante partida, com livros escorrendo para dentro da sala; nunca tapa o personagem."
+  },
+  {
+   "id": "parede_biblioteca_frente_canto",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Toco da pilastra da frente: base moldurada inteira e o fuste quebrado, com lascas no chão."
+  },
+  {
+   "id": "parede_biblioteca_v2_a",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: estante saqueada pela areia, com vãos e livros tombados, areia escorrendo da galeria em filete e assentada nas tábuas; uma arandela de latão com vela acesa no montante."
+  },
+  {
+   "id": "parede_biblioteca_v2_b",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: estante saqueada pela areia, com vãos e livros tombados, areia escorrendo da galeria em filete e assentada nas tábuas; uma arandela de latão com vela acesa no montante."
+  },
+  {
+   "id": "parede_biblioteca_v3_a",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: trilho de latão com a escada de correr de imbuia encostada nas lombadas, etiquetas de classificação nas tábuas e um livro aberto esquecido num degrau."
+  },
+  {
+   "id": "parede_biblioteca_v3_b",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: trilho de latão com a escada de correr de imbuia encostada nas lombadas, etiquetas de classificação nas tábuas e um livro aberto esquecido num degrau."
+  },
+  {
+   "id": "vitral_biblioteca_a",
+   "bioma": "biblioteca",
+   "tiles": "3x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "O vitral da sala de leitura, que hoje fica na altura da rua: ogiva de cantaria com mainéis de ferro e cacos de vidro verde e âmbar acesos pelo Amargo lá fora. A metade de baixo quebrou e a areia do deserto escorre por ela para dentro da sala, num cone que desce até o assoalho (continua no prop duna_interna)."
+  },
+  {
+   "id": "vitral_biblioteca_b",
+   "bioma": "biblioteca",
+   "tiles": "3x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "O vitral da sala de leitura, que hoje fica na altura da rua: ogiva de cantaria com mainéis de ferro e cacos de vidro verde e âmbar acesos pelo Amargo lá fora. A metade de baixo quebrou e a areia do deserto escorre por ela para dentro da sala, num cone que desce até o assoalho (continua no prop duna_interna)."
+  },
+  {
+   "id": "parede_ossario_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Ossário das Carpideiras: nichos com crânios e ossos empilhados."
+  },
+  {
+   "id": "parede_ossario_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Ossário das Carpideiras: nichos com crânios e ossos empilhados."
+  },
+  {
+   "id": "parede_ossario_canto",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilar de canto do Ossário, com coluna de crânios."
+  },
+  {
+   "id": "parede_ossario_frente_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente do Ossário: pedra rachada com crânios assentados no topo."
+  },
+  {
+   "id": "parede_ossario_frente_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente do Ossário: pedra rachada com crânios assentados no topo."
+  },
+  {
+   "id": "parede_ossario_frente_canto",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_ossario_v2_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Ossário: arco de nicho com uma carpideira de ossos sentada, coberta de pano e cera de vela."
+  },
+  {
+   "id": "parede_ossario_v2_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Ossário: arco de nicho com uma carpideira de ossos sentada, coberta de pano e cera de vela."
+  },
+  {
+   "id": "parede_trombeta_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Câmara da Trombeta: pedra clara com placas de porcelana rachada e nervuras de ferro."
+  },
+  {
+   "id": "parede_trombeta_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Câmara da Trombeta: pedra clara com placas de porcelana rachada e nervuras de ferro."
+  },
+  {
+   "id": "parede_trombeta_canto",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilar de canto da Câmara, com cinta de latão."
+  },
+  {
+   "id": "parede_trombeta_frente_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente da Câmara: pedra clara, caco de porcelana e toco de nervura de ferro."
+  },
+  {
+   "id": "parede_trombeta_frente_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente da Câmara: pedra clara, caco de porcelana e toco de nervura de ferro."
+  },
+  {
+   "id": "parede_trombeta_frente_canto",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "parede_trombeta_v2_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Câmara: placa de porcelana com a trombeta em relevo de latão e tubo de órgão subindo pela parede."
+  },
+  {
+   "id": "parede_trombeta_v2_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Câmara: placa de porcelana com a trombeta em relevo de latão e tubo de órgão subindo pela parede."
+  },
+  {
+   "id": "muro_lama_a",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro de tijolo de lama do Nilo (cercas da cidade e dos templos): fiadas em onda, reboco de lama em manchas, capeamento arredondado, pé roído pela umidade da cheia. Segmento de 1 tile."
+  },
+  {
+   "id": "muro_lama_b",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Muro de tijolo de lama do Nilo (cercas da cidade e dos templos): fiadas em onda, reboco de lama em manchas, capeamento arredondado, pé roído pela umidade da cheia. Segmento de 1 tile."
+  },
+  {
+   "id": "faqueiro_parede",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Quadro de ferramentas do magarefe em pé: tábua grossa num cavalete de ferro com facas, cutelos, serrote e chaira pendurados, um amolador de couro e o rol de encomendas pregado."
+  },
+  {
+   "id": "parede_matadouro_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede de trás do Porão: azulejo branco rachado e encardido de sangue até meia altura, faixa cor de boi, tijolo de fuligem acima, viga I rebitada e canos."
+  },
+  {
+   "id": "parede_matadouro_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede de trás do Porão: azulejo branco rachado e encardido de sangue até meia altura, faixa cor de boi, tijolo de fuligem acima, viga I rebitada e canos."
+  },
+  {
+   "id": "parede_matadouro_canto",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilar de canto do Porão: tijolo com azulejo nas faces, cantoneiras rebitadas e capitel de ferro."
+  },
+  {
+   "id": "parede_matadouro_frente_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente (~0,6 m): tijolo quebrado, azulejo rachado na face, cano rompido e entulho; nunca tapa o personagem."
+  },
+  {
+   "id": "parede_matadouro_frente_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente (~0,6 m): tijolo quebrado, azulejo rachado na face, cano rompido e entulho; nunca tapa o personagem."
+  },
+  {
+   "id": "parede_matadouro_frente_canto",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Toco de pilar na quina da frente: tijolo quebrado com resto de azulejo e cantoneira torta."
+  },
+  {
+   "id": "parede_matadouro_v2_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: azulejo arrancado em mancha, mão de sangue arrastada, válvula, manômetro e gancho na parede."
+  },
+  {
+   "id": "parede_matadouro_v2_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: azulejo arrancado em mancha, mão de sangue arrastada, válvula, manômetro e gancho na parede."
+  },
+  {
+   "id": "parede_matadouro_v3_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: pilastra de chapa rebitada, quadro de ferramentas de desossa (facas, cutelo, serrote) e pano sujo."
+  },
+  {
+   "id": "parede_matadouro_v3_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Variante: pilastra de chapa rebitada, quadro de ferramentas de desossa (facas, cutelo, serrote) e pano sujo."
+  },
+  {
+   "id": "porta_camara_fria_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Porta de câmara fria na parede de trás: folha grossa forrada de zinco, dobradiças de ferro, trinco de alavanca, geada nas bordas e marcas de unha por dentro da porta entreaberta."
+  },
+  {
+   "id": "porta_camara_fria_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Porta de câmara fria na parede de trás: folha grossa forrada de zinco, dobradiças de ferro, trinco de alavanca, geada nas bordas e marcas de unha por dentro da porta entreaberta."
+  },
+  {
+   "id": "pilar_portao",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pilar_portao_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "grade_torre_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Lado de trás da plataforma aberta: treliça do mastro em aço vermelho e branco descascado, contraventamento em X, chapas rebitadas, cabos coaxiais e guarda-corpo."
+  },
+  {
+   "id": "grade_torre_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Lado de trás da plataforma aberta: treliça do mastro em aço vermelho e branco descascado, contraventamento em X, chapas rebitadas, cabos coaxiais e guarda-corpo."
+  },
+  {
+   "id": "grade_torre_canto",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Montante da treliça no canto: perna de cantoneira pesada com emenda aparafusada e grampos de subida."
+  },
+  {
+   "id": "grade_torre_frente_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Guarda-corpo baixo da frente da plataforma, amassado, sobre a viga de borda vermelha."
+  },
+  {
+   "id": "grade_torre_frente_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Guarda-corpo baixo da frente da plataforma, amassado, sobre a viga de borda vermelha."
+  },
+  {
+   "id": "grade_torre_frente_canto",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Poste do guarda-corpo na quina da frente, corrimãos tortos chegando dos dois lados."
+  },
+  {
+   "id": "grade_torre_v2_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Treliça com isolador de porcelana, chapa com a marca da Congregação amarrada com arame e fitas de pano, velas no rodapé."
+  },
+  {
+   "id": "grade_torre_v2_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Treliça com isolador de porcelana, chapa com a marca da Congregação amarrada com arame e fitas de pano, velas no rodapé."
+  },
+  {
+   "id": "parede_torre_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede interna da Repetidora: concreto de forma manchado, faixa verde institucional descascando, calha de cabos, eletrodutos e placa de ALTA TENSÃO."
+  },
+  {
+   "id": "parede_torre_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede interna da Repetidora: concreto de forma manchado, faixa verde institucional descascando, calha de cabos, eletrodutos e placa de ALTA TENSÃO."
+  },
+  {
+   "id": "parede_torre_canto",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Pilar de canto de concreto: faixa verde, prumada de cabos e faixas zebradas de perigo na base."
+  },
+  {
+   "id": "parede_torre_frente_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente: concreto quebrado na altura do joelho, ferragem retorcida e eletroduto rompido."
+  },
+  {
+   "id": "parede_torre_frente_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Meia-parede da frente: concreto quebrado na altura do joelho, ferragem retorcida e eletroduto rompido."
+  },
+  {
+   "id": "parede_torre_frente_canto",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Toco de pilar na quina da frente, com zebrado de perigo e ferragem aparente."
+  },
+  {
+   "id": "parede_torre_v2_a",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede da Repetidora tomada pela Congregação: marca da trombeta e da onda em tinta de válvula, prateleira de velas, folhas de escuta pregadas e o lema pintado."
+  },
+  {
+   "id": "parede_torre_v2_b",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "paredes",
+   "enfeite": false,
+   "descricao": "Parede da Repetidora tomada pela Congregação: marca da trombeta e da onda em tinta de válvula, prateleira de velas, folhas de escuta pregadas e o lema pintado."
+  },
+  {
+   "id": "torre_no_abismo",
+   "bioma": "torre",
+   "tiles": "3x3",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Torre de igreja da Cidade Velha emergindo do abismo (cenário da moldura)."
+  },
+  {
+   "id": "torre_vigia_enterrada",
+   "bioma": "torre",
+   "tiles": "4x4",
+   "categoria": "limites",
+   "enfeite": false,
+   "descricao": "Torre de vigia da Linha do Impasse engolida pela tempestade."
+  }
+ ],
+ "predios": [
+  {
+   "id": "base_ilha_26",
+   "bioma": "amenti",
+   "tiles": "7x7",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "base_ilha_28",
+   "bioma": "amenti",
+   "tiles": "7x7",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "base_ilha_30",
+   "bioma": "amenti",
+   "tiles": "8x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "base_ilha_32",
+   "bioma": "amenti",
+   "tiles": "8x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "base_ilha_36",
+   "bioma": "amenti",
+   "tiles": "9x9",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "flor_da_vida_ardente",
+   "bioma": "amenti",
+   "tiles": "12x12",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "porta_selada_amenti",
+   "bioma": "amenti",
+   "tiles": "9x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "portao_amenti_salao",
+   "bioma": "amenti",
+   "tiles": "19x6",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "trono_senhor_1",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 315.0 graus)"
+  },
+  {
+   "id": "trono_senhor_2",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 283.75 graus)"
+  },
+  {
+   "id": "trono_senhor_3",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 252.5 graus)"
+  },
+  {
+   "id": "trono_senhor_4",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 221.25 graus)"
+  },
+  {
+   "id": "trono_senhor_5",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 190.0 graus)"
+  },
+  {
+   "id": "trono_senhor_6",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 80.0 graus)"
+  },
+  {
+   "id": "trono_senhor_7",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 48.75 graus)"
+  },
+  {
+   "id": "trono_senhor_8",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 17.5 graus)"
+  },
+  {
+   "id": "trono_senhor_9",
+   "bioma": "amenti",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "(girada 346.25 graus)"
+  },
+  {
+   "id": "casa_atlante",
+   "bioma": "atlantida",
+   "tiles": "8x7",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "casa_atlante_2",
+   "bioma": "atlantida",
+   "tiles": "8x7",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "fontes_gemeas",
+   "bioma": "atlantida",
+   "tiles": "6x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ponte_canal",
+   "bioma": "atlantida",
+   "tiles": "9x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ponte_laje",
+   "bioma": "atlantida",
+   "tiles": "7x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ponte_longa",
+   "bioma": "atlantida",
+   "tiles": "12x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "portao_amenti",
+   "bioma": "atlantida",
+   "tiles": "10x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "rochedo",
+   "bioma": "atlantida",
+   "tiles": "6x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "rochedo_2",
+   "bioma": "atlantida",
+   "tiles": "6x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "templo_poseidon",
+   "bioma": "atlantida",
+   "tiles": "20x14",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "torre_portao",
+   "bioma": "atlantida",
+   "tiles": "4x6",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "trirreme",
+   "bioma": "atlantida",
+   "tiles": "14x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "barraco_sucata",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Barraco de sucata: chapas de zinco, portas velhas, placa de trânsito."
+  },
+  {
+   "id": "bonde_queimado",
+   "bioma": "base",
+   "tiles": "8x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Bonde da linha 7 tombado e queimado nos Campos de Cinza."
+  },
+  {
+   "id": "bonde_veleiro",
+   "bioma": "base",
+   "tiles": "10x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Bonde da linha 7 adaptado como bonde-veleiro: mastro, vela de lona remendada, rodas sobre os trilhos que aparecem na areia."
+  },
+  {
+   "id": "caixa_dagua_sucata",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Caixa d'água de sobreviventes: tanque de latão sobre estrutura de vigas, com filtro."
+  },
+  {
+   "id": "casa_coveiro",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pequeno mausoléu de família com porta de ferro e anjo de pedra sem cabeça."
+  },
+  {
+   "id": "casa_ruina",
+   "bioma": "base",
+   "tiles": "8x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Sobrado de tijolo com reboco caído, segundo andar desabado, janela acesa."
+  },
+  {
+   "id": "chamine_enterrada",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Chaminé de fábrica saindo da areia, com fumaça e escada de ferro."
+  },
+  {
+   "id": "cupula_estacao",
+   "bioma": "base",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Cúpula de vidro da estação de bonde, coração do Acampamento da Vela: costelas de ferro, vidraças acesas por dentro (velas da Vigília), remendos de lona, porta aberta voltada para quem chega e a lâmpada de arco no topo. Cabe em 5x5 tiles dentro da paliçada (a área inicial a põe atrás do acampamento)."
+  },
+  {
+   "id": "ermida_saulo",
+   "bioma": "base",
+   "tiles": "4x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Ermida do Saulo: nicho baixo de concreto debaixo da arquibancada, velas derretidas, esteira de palha, a Couraça do Agrak pendurada em ganchos e as seis armas encostadas. Luz dourada."
+  },
+  {
+   "id": "frigorifico_enterrado",
+   "bioma": "base",
+   "tiles": "14x12",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Abatedouro Carniça (frigorífico) enterrado até o segundo andar; entra-se pelas claraboias do telhado em serra."
+  },
+  {
+   "id": "lampada_arco",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Lâmpada de arco do Acampamento da Vela: mastro de ferro e latão com bobinas de tesla e um arco elétrico azul que afasta os mortos."
+  },
+  {
+   "id": "moinho_ruina",
+   "bioma": "base",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Moinho de vento de ferro parado, com pás rasgadas."
+  },
+  {
+   "id": "placar_camarote",
+   "bioma": "base",
+   "tiles": "6x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Placar enferrujado do estádio com o camarote de Caim e Abel em cima: SÃO LÁZARO 0 x 0, megafone, braseiros."
+  },
+  {
+   "id": "ponte_ferro_bonde",
+   "bioma": "base",
+   "tiles": "10x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Ponte de ferro treliçada da Linha 7 sobre o leito seco do rio."
+  },
+  {
+   "id": "portal_dungeon",
+   "bioma": "base",
+   "tiles": "4x2",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Portal de dungeon, véu rubro (Cripta da Trombeta Calada, A Torre)."
+  },
+  {
+   "id": "portal_dungeon_lume",
+   "bioma": "base",
+   "tiles": "4x2",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Portal de dungeon, véu ciano (Catacumba das Raízes, no Novo Éden)."
+  },
+  {
+   "id": "posto_odete",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Posto da Odete: barraca de sucata e lona junto ao bonde tombado, com balcão e lanterna."
+  },
+  {
+   "id": "predio_concreto",
+   "bioma": "base",
+   "tiles": "10x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Bloco de apartamentos de concreto partido, meio enterrado na areia; sobreviventes vivem no térreo com remendos de sucata e uma janela acesa."
+  },
+  {
+   "id": "predio_enterrado",
+   "bioma": "base",
+   "tiles": "10x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Prédio de São Lázaro enterrado até o quarto andar: os moradores vivem nos andares de cima e entram pelas janelas por pranchas e escadas de corda."
+  },
+  {
+   "id": "ruina_concreto",
+   "bioma": "base",
+   "tiles": "4x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Canto de parede de concreto com janela e vergalhões, meio soterrado."
+  },
+  {
+   "id": "tenda_demonio",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Tenda dos demônios: couro negro esticado em ossos, com brasa e correntes."
+  },
+  {
+   "id": "tenda_vigilia",
+   "bioma": "base",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Tenda de lona remendada do Acampamento da Vela."
+  },
+  {
+   "id": "entrada_cripta",
+   "bioma": "cripta",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Entrada do porão do Abatedouro que leva à Cripta da Trombeta Calada: alçapão de ferro arrombado, escada descendo, luz vermelha lá dentro."
+  },
+  {
+   "id": "casa_artesao",
+   "bioma": "egito",
+   "tiles": "3x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Casa da Vila dos Artesãos (Deir el-Medina): estreita, de tijolo caiado sujo sobre embasamento de pedra, porta com o batente pintado de vermelho, degraus descendo, forno de pão em cúpula no terraço."
+  },
+  {
+   "id": "casa_artesao_2",
+   "bioma": "egito",
+   "tiles": "3x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Casa da Vila dos Artesãos (variante) com o teto de vigas de palmeira meio desabado."
+  },
+  {
+   "id": "casa_da_vida",
+   "bioma": "egito",
+   "tiles": "12x8",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A Casa da Vida, biblioteca do templo, meio enterrada: pórtico de colunas papiriformes de botão fechado, o teto caído deixando ver por dentro as paredes de nichos cheias de rolos de papiro, mesas de escriba e o íbis de Thoth tombado; a duna engoliu a ala direita."
+  },
+  {
+   "id": "casa_reerguida",
+   "bioma": "egito",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Casa de Mênfis Reerguida: o térreo é de pedra de três mil anos, meio desenterrado (porta com o disco alado no lintel); em cima, o andar novo de tijolo de lama com reboco descascando, vigas de palmeira, janelinhas com grade, terraço com toldo e jarros, escada externa; a lamparina acesa na janela."
+  },
+  {
+   "id": "casa_reerguida_2",
+   "bioma": "egito",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Casa de Mênfis Reerguida (variante): escada de tijolo na frente até o terraço baixo e outra lateral até o alto."
+  },
+  {
+   "id": "casa_soterrada",
+   "bioma": "egito",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Casa ainda soterrada: só o terraço, o parapeito e a parte de cima das paredes saem da duna de areia clara; uma janela no nível da areia e a escada de mão que desce pelo buraco cavado até a porta."
+  },
+  {
+   "id": "entrada_tumba",
+   "bioma": "egito",
+   "tiles": "4x2",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Entrada de tumba do Vale dos Reis: escada cavada descendo até a porta retangular aberta no paredão de calcário, batentes alisados, lintel com o disco solar e a deusa Maat ajoelhada, entulho de lascas das escavações."
+  },
+  {
+   "id": "entrada_tumba_2",
+   "bioma": "egito",
+   "tiles": "4x2",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Entrada de tumba do Vale dos Reis já registrada pela escavação: grade de ferro com cadeado, tábuas de escora, o número da tumba pintado em ocre e cestos de entulho."
+  },
+  {
+   "id": "esfinge",
+   "bioma": "egito",
+   "tiles": "14x6",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A Grande Esfinge de Gizé, desenterrada pela cheia: cabeça com o nemes listrado (restos de pintura) e o nariz quebrado, corpo de leão roído em camadas, a Estela do Sonho de Tutmés IV entre as patas, andaime num flanco e a metade de baixo ainda no fosso de areia escavado, com escoras, escada e cestos."
+  },
+  {
+   "id": "mastaba",
+   "bioma": "egito",
+   "tiles": "6x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Mastaba de Sacará: banco de calcário em talude sobre o poço funerário, com a falsa-porta de nichos na face leste, a mesa de oferendas (hotep) na frente, relevos de portadores de oferendas e o poço aberto pela escavação."
+  },
+  {
+   "id": "paredao_arenito",
+   "bioma": "egito",
+   "tiles": "6x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Paredão de calcário e arenito do Vale dos Reis (borda alta): camadas roídas, saliências, tálus de lascas."
+  },
+  {
+   "id": "paredao_arenito_2",
+   "bioma": "egito",
+   "tiles": "6x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Paredão do Vale dos Reis, variante com um contraforte destacado e uma fenda escura (borda alta)."
+  },
+  {
+   "id": "pilono",
+   "bioma": "egito",
+   "tiles": "12x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Pilono de Ipet-Isut (Karnak): duas torres em talude com toro e cornija de cavetto, o portal com o disco solar alado, os nichos com os mastros de bandeira vazios (braçadeiras de bronze, um trapo) e o faraó golpeando os inimigos em relevo, com restos de pintura vermelha, amarela e azul."
+  },
+  {
+   "id": "pilono_ruina",
+   "bioma": "egito",
+   "tiles": "12x3",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Pilono em ruína: a torre da esquerda desabou pela metade, o lintel do portal caiu, entulho e areia na base."
+  },
+  {
+   "id": "piramide_degraus",
+   "bioma": "egito",
+   "tiles": "14x12",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A pirâmide de degraus de Djoser em Sacará (Imhotep): seis mastabas empilhadas em talude, de calcário miúdo, roídas pelo vento, com o entulho escorrendo dos degraus e a fachada leste do pátio do Heb-Sed na base."
+  },
+  {
+   "id": "piramide_miquerinos",
+   "bioma": "egito",
+   "tiles": "10x10",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A pirâmide de Miquerinos: a menor das três, com as fiadas de baixo ainda revestidas de granito rosa de Assuã (nunca alisado) e o grande rasgo vertical na face norte, cavado pelos que tentaram desmontá-la."
+  },
+  {
+   "id": "piramide_quefren",
+   "bioma": "egito",
+   "tiles": "16x16",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A pirâmide de Quéfren: mais íngreme, em degrau embaixo e com o revestimento liso de calcário de Tura ainda no topo (a única que guardou a pele), com a borda de baixo do revestimento quebrada e lajes soltas."
+  },
+  {
+   "id": "piramide_queops",
+   "bioma": "egito",
+   "tiles": "18x18",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A Grande Pirâmide de Quéops em escala de jogo: fiadas em degrau (o revestimento de Tura foi roubado), blocos gastos e quinas roídas; na face da frente, a entrada original sob as lajes em V, o rombo do califa (o túnel dos ladrões, hoje entrada da escavação), andaimes, escada, guincho e o entulho de quatro mil anos."
+  },
+  {
+   "id": "piramide_tijolo",
+   "bioma": "egito",
+   "tiles": "12x12",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A pirâmide de tijolo de Amenemés III em Hawara: tijolo de lama erodido num monte, restos do revestimento de calcário na base e, na face da frente, a porta escura com batente de pedra que desce ao Labirinto (dungeon)."
+  },
+  {
+   "id": "pombal",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pombal do Nilo: torre de tijolo de lama em tronco de cone caiada em faixas, cravejada de potes de barro deitados (as casas das pombas) e de varas de pouso."
+  },
+  {
+   "id": "tenda_atlante",
+   "bioma": "egito",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Tenda da Embaixada de Thotme (atlantes de Diaprepes): lona branca com debrum de oricalco, varas de bronze, uma ânfora com o selo do rei, o cristal-guia aceso em turquesa num tripé (a luz que a Redoma não manda aqui)."
+  },
+  {
+   "id": "tenda_coro",
+   "bioma": "egito",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Tenda do Coro (Cônego Barnabé): lona vinho remendada, estandarte com a trombeta de ouro, genuflexório, velas e a balança de bronze que querem usar no coração do Faraó."
+  },
+  {
+   "id": "tenda_escavacao",
+   "bioma": "egito",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Tenda do capataz Reis Abdu: lona de linho cru, mesa com o livro de ponto e a lamparina, caixotes de achados, pás, picaretas e cestos; a bandeira listrada da escavação."
+  },
+  {
+   "id": "tenda_hermetista",
+   "bioma": "egito",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Tenda da Casa de Hermes (o mago Djedi): lona cor de linho sujo, estandarte com o caduceu de Hermes, mesa com astrolábio, rolos e a balança, o tapete de junco onde Djedi senta; lamparina."
+  },
+  {
+   "id": "terracos_templo",
+   "bioma": "egito",
+   "tiles": "18x10",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "O templo de Hatshepsut em Deir el-Bahari: três terraços de calcário com colunatas de pilares quadrados, a rampa central subindo pelo meio, os pilares osiríacos no terraço de cima e a porta do santuário cavado na rocha; relevos da expedição a Punt com restos de cor nas paredes de arrimo."
+  },
+  {
+   "id": "tumba_sem_cartucho",
+   "bioma": "egito",
+   "tiles": "5x2",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A tumba sem cartucho (porta da Raid 'O Coração Endurecido'): porta selada com o reboco e o selo da necrópole (o chacal sobre os nove cativos) quebrados, o cartucho do lintel raspado a cinzel, e um brilho turquesa fraco saindo pela fenda: os glifos do Duat acesos lá dentro."
+  },
+  {
+   "id": "capela_enterrada",
+   "bioma": "sao_lazaro",
+   "tiles": "12x16",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Capela de São Lázaro enterrada até o coro: a rosácea vira a entrada e a nave brilha verde lá dentro."
+  },
+  {
+   "id": "torre_radio",
+   "bioma": "torre",
+   "tiles": "9x9",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "A Repetidora do Granizo: mastro de rádio de treliça vermelho e branco (23 m) sobre o prédio dos transmissores, com o portão de carga aceso pelo véu da dungeon (raid A Torre). A Congregação da Portadora pendurou cabos, válvulas e estandartes; a estática violeta escorre do topo; a luz de aviação ainda pisca."
+  },
+  {
+   "id": "torre_relogio_enterrada",
+   "bioma": "torre",
+   "tiles": "5x5",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Torre do relógio de São Lázaro enterrada: só o mostrador e o telhado saem da areia."
+  },
+  {
+   "id": "torre_sino",
+   "bioma": "torre",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Campanário de madeira e ferro com o sino rachado (Rua do Sino)."
+  },
+  {
+   "id": "torre_tombada",
+   "bioma": "torre",
+   "tiles": "6x6",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Resto de torre de concreto tombada e cravada na areia, em ângulo."
+  },
+  {
+   "id": "torre_vigia",
+   "bioma": "torre",
+   "tiles": "4x4",
+   "categoria": "predios",
+   "enfeite": false,
+   "descricao": "Torre de vigia de madeira e sucata com holofote."
+  }
+ ],
+ "arquitetura": [
+  {
+   "id": "coluna_amenti",
+   "bioma": "amenti",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "coluna_amenti_quebrada",
+   "bioma": "amenti",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "degraus_amenti",
+   "bioma": "amenti",
+   "tiles": "17x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "laje_pendurada",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "palco_lorde",
+   "bioma": "amenti",
+   "tiles": "6x6",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "palco_lorde_b",
+   "bioma": "amenti",
+   "tiles": "6x6",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "borda_domo",
+   "bioma": "atlantida",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "borda_domo_baixa",
+   "bioma": "atlantida",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "coluna_hermes",
+   "bioma": "atlantida",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "coluna_hermes_trincada",
+   "bioma": "atlantida",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "eclusa",
+   "bioma": "atlantida",
+   "tiles": "2x5",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "eclusa_y",
+   "bioma": "atlantida",
+   "tiles": "5x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "(girada: ao longo do eixo Y do mapa)"
+  },
+  {
+   "id": "ponte_laje_y",
+   "bioma": "atlantida",
+   "tiles": "3x7",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "(girada: ao longo do eixo Y do mapa)"
+  },
+  {
+   "id": "laje_rolada",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Laje redonda da entrada do sepulcro, rolada para o lado e encostada inclinada numa pedra."
+  },
+  {
+   "id": "viga_trelica",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Pedaço de treliça vermelha e branca caído na plataforma: um trecho reto e outro entortado na queda, barras arrancadas com pontas rasgadas, parafusos e um degrau de escada."
+  },
+  {
+   "id": "coluna_papiro",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Coluna do salão hipostilo de Karnak: fuste papiriforme coberto de hieróglifos com restos de azul, amarrações pintadas e o capitel de papiro aberto com as sépalas verdes e azuis; ábaco no alto."
+  },
+  {
+   "id": "coluna_papiro_quebrada",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Coluna papiriforme partida a meia altura, com os tambores e o capitel caídos ao lado."
+  },
+  {
+   "id": "coluna_tombada",
+   "bioma": "egito",
+   "tiles": "5x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Coluna tombada: os tambores rolaram um a um pela areia e o capitel de papiro ficou de lado, com o ábaco."
+  },
+  {
+   "id": "fornalha_abate",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Fornalha de queimar osso e carcaça: forno de tijolo com arco, boca de ferro aberta em fogo laranja, cinza de osso transbordando, atiçador e chaminé de chapa."
+  },
+  {
+   "id": "arco_eden",
+   "bioma": "novo_eden",
+   "tiles": "4x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "trelica_videira",
+   "bioma": "novo_eden",
+   "tiles": "3x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  }
+ ],
+ "portas": [
+  {
+   "id": "portal_egito",
+   "bioma": "amenti",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ponte_canal_y",
+   "bioma": "atlantida",
+   "tiles": "3x9",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "(girada: ao longo do eixo Y do mapa)"
+  },
+  {
+   "id": "ponte_longa_y",
+   "bioma": "atlantida",
+   "tiles": "3x12",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "(girada: ao longo do eixo Y do mapa)"
+  },
+  {
+   "id": "bateria_acumuladores",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Estante de acumuladores de vidro: placas de chumbo à vista, ácido turvo, pontes de cobre com crosta de sulfato e uma célula quebrada."
+  },
+  {
+   "id": "console_locutor",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Mesa de som do locutor: tampo inclinado de botões de baquelite e faders, ponte com dois VU acesos em laranja, microfone de braço, fones e velas derretidas sobre o painel."
+  },
+  {
+   "id": "escada_descida",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "forca_ponte",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "grade_ferro_batido_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Grade vitoriana de ferro batido (cerca túmulos), lanças e volutas, com hera seca."
+  },
+  {
+   "id": "grade_ferro_batido_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Grade vitoriana de ferro batido (cerca túmulos), lanças e volutas, com hera seca."
+  },
+  {
+   "id": "guincho_corrente",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Guincho do Portão do Gigante: tambor de corrente, engrenagens, manivela e trava."
+  },
+  {
+   "id": "jaula_leao",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Jaula de sucata do Portão dos Leões: chapas e barras soldadas, palha e ossos no chão."
+  },
+  {
+   "id": "mausoleu",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pequeno mausoléu de família com porta de ferro e anjo de pedra sem cabeça."
+  },
+  {
+   "id": "portao_ferro",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "portao_gigante_a",
+   "bioma": "base",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Portão do Gigante (leste): o maior, grade baixada, duas correntes grossas penduradas na verga."
+  },
+  {
+   "id": "portao_gigante_b",
+   "bioma": "base",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Portão do Gigante (leste): o maior, grade baixada, duas correntes grossas penduradas na verga."
+  },
+  {
+   "id": "escada_caracol",
+   "bioma": "biblioteca",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Escada caracol de ferro fundido que sobe à galeria: mastro, degraus vazados, balaústres e corrimão de latão em espiral; some no escuro de cima."
+  },
+  {
+   "id": "escada_corda_biblioteca",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Escada de corda que desce do óculo da cúpula até o assoalho (é por ela que se entra e se sai), com rolo de corda sobrando no chão e o feixe de luz de lá de cima cheio de poeira."
+  },
+  {
+   "id": "ficharia",
+   "bioma": "biblioteca",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Fichário de empréstimos: gaveteiro de carvalho com 24 gavetinhas de puxador e porta-etiqueta de latão, uma gaveta puxada cheia de fichas e fichas caídas no chão."
+  },
+  {
+   "id": "ponte_corda",
+   "bioma": "deserto_absinto",
+   "tiles": "9x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Ponte de corda da Ilha do Exilado: tábuas gastas e desencontradas (de bonde, caixote e banco de igreja) sobre dois cabos de cânhamo, corrimãos de corda presos em postes de tronco nas pontas, tirantes e espias amarradas em estacas; uma tábua falta e outra está rachada; o limo verde do Amargo agarrado nas estacas. Peça inteira de 6,4 m ao longo do eixo X do mapa (centro da ponte na âncora)."
+  },
+  {
+   "id": "sino_ponte",
+   "bioma": "deserto_absinto",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Sino de chamar a ponte: forca de troncos com um sino de bronze rachado (de capela afogada), a corda de puxar amarrada no poste e, no pé, o sarilho de madeira que arria a ponte de corda, com o cabo enrolado e a manivela."
+  },
+  {
+   "id": "andaime",
+   "bioma": "egito",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Andaime de varas amarradas da escavação, dois níveis de tábuas, escada e lampião pendurado."
+  },
+  {
+   "id": "ponte_barcas",
+   "bioma": "egito",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Segmento da Ponte de Barcas dos Engenheiros: dois barcos amarrados lado a lado com o tabuleiro de tábuas por cima, guarda-corpo de corda e cabos de aço amarrando ao próximo segmento. Repete ao longo do eixo X."
+  },
+  {
+   "id": "ponte_tabuas",
+   "bioma": "novo_eden",
+   "tiles": "3x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "elevador_torre",
+   "bioma": "torre",
+   "tiles": "3x3",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Gaiola de carga de ferro com porta pantográfica aberta, trilhos-guia e cabos subindo para o escuro, guincho com motor e polia ao lado e lâmpada de válvula laranja. Portal de subir/descer entre andares."
+  },
+  {
+   "id": "estandarte_portadora",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estandarte da Congregação da Portadora: lona suja pendurada numa travessa de antena, com a marca (onda senoidal atravessando uma trombeta) em tinta de válvula que brilha fraco. O mastro é um cano preso num balde de concreto cheio de cera."
+  }
+ ],
+ "decalques": [
+  {
+   "id": "andor_padroeiro",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Andor de São Lázaro pousado no chão no meio da Procissão Parada: varais ao longo de X, pano roxo, imagem do padroeiro com faixas de linho nos pulsos e pá na mão, velas e a data 1714 na base."
+  },
+  {
+   "id": "cabos_chao",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Cabos grossos de borracha serpenteando pelo chão, com emendas de latão e fita isolante."
+  },
+  {
+   "id": "circulo_ferro",
+   "bioma": "base",
+   "tiles": "7x7",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Círculo de Ferro: anel de trilho de bonde cravado na areia (raio 3,5 tiles), dormentes e grampos."
+  },
+  {
+   "id": "circulo_receptores",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Santuário da Congregação: rádios velhos em círculo virados para dentro, com as válvulas laranja acesas, velas entre eles e um microfone de pedestal no meio, ligado a todos por fios; cera derretida e fotos encostadas."
+  },
+  {
+   "id": "folhas_papeis",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lama_porcos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "linha_cal_a",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Linha de cal do antigo campo, apagada aos pedaços (1 tile)."
+  },
+  {
+   "id": "linha_cal_b",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Linha de cal do antigo campo, apagada aos pedaços (1 tile)."
+  },
+  {
+   "id": "linha_cal_meio",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Pedaço do círculo central do campo em cal."
+  },
+  {
+   "id": "ossos_espalhados",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "papel_perfurado",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Montes de fita de papel perfurado no chão da Central de Escuta: rolos inteiros desenrolados em laçadas, fitas soltas atravessando o piso e dois carretéis vazios."
+  },
+  {
+   "id": "penas_espalhadas",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poca_sangue",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poca_sangue_rastro",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poca_toxica",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ralo_ferro",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "ralo_ferro_chao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "rastro_arrasto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Rastro de arrasto: sulco largo de sangue velho e unhas na poeira, de alguém que se puxa pelos braços."
+  },
+  {
+   "id": "velas_chao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Velas de sebo coladas no chão em cera escorrida, de alturas diferentes."
+  },
+  {
+   "id": "vidro_estilhacos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "castical_chao",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Castiçal de chão de ferro, de três pés, com três velas acesas e cera escorrida até a base."
+  },
+  {
+   "id": "livros_chao",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Decalque: livros caídos, páginas soltas e fichas espalhadas no assoalho."
+  },
+  {
+   "id": "tapete_biblioteca",
+   "bioma": "biblioteca",
+   "tiles": "6x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Decalque: tapete persa vermelho-sangue puído, com a trama à mostra no meio e areia nas franjas."
+  },
+  {
+   "id": "lacres_cera_chao",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": true,
+   "descricao": "Decalque de chão: lacres de cera vermelha arrancados do peito dos Não-Julgados, tocos de vela, cera derramada e fitas com o selo, onde um deles se levantou."
+  },
+  {
+   "id": "sujeira_rodape_a",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Sujeira de rodapé no pé da parede de trás da cripta (chao=1)."
+  },
+  {
+   "id": "sujeira_rodape_b",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Sujeira de rodapé no pé da parede de trás da cripta (chao=1)."
+  },
+  {
+   "id": "sujeira_rodape_canto",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Sujeira de rodapé no pé da parede de trás da cripta (chao=1)."
+  },
+  {
+   "id": "lamparinas_chao",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Lamparinas de barro acesas no chão diante de um nicho (o fogo dos que ainda rezam aqui), uma tigela de óleo, pavios de linho e amuletos ankh e olho de Hórus deixados como ex-voto."
+  },
+  {
+   "id": "saqia",
+   "bioma": "egito",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Saqia: a roda d'água de alcatruzes movida por um boi que anda em círculo; a engrenagem horizontal de madeira gira a roda vertical cheia de potes de barro que sobem do canal e despejam na calha."
+  },
+  {
+   "id": "calha_sangue_a",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Calha de sangue no chão (decalque): canaleta de concreto com grelha de ferro e sangue escorrendo."
+  },
+  {
+   "id": "calha_sangue_b",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Calha de sangue no chão (decalque): canaleta de concreto com grelha de ferro e sangue escorrendo."
+  },
+  {
+   "id": "ossos_roidos",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Ossos roídos espalhados no chão da Vala (decalque): costelas, fêmures partidos, dentes, um maxilar."
+  },
+  {
+   "id": "poca_abate",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Poça de sangue do matadouro (decalque): parte fresca e brilhante no meio, borda velha e escura, respingos."
+  },
+  {
+   "id": "poca_abate_2",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Rastro de sangue arrastado (decalque): faixa larga que afina, com marcas de dedos."
+  },
+  {
+   "id": "ralo_sangue",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "Ralo redondo de ferro onde o sangue do chão converge, com riscos de sangue chegando de todo lado."
+  },
+  {
+   "id": "restos_carne_chao",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": true,
+   "descricao": "Decalque de chão: aparas de carne, nacos de gordura, um osso de joelho e sangue pisado com marcas de bota."
+  },
+  {
+   "id": "restos_legiao",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Restos espalhados no chão da Vala: um soldado da Legião meio comido, capacete com chifres e pique quebrado."
+  },
+  {
+   "id": "restos_vigilia",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Restos de um soldado da Vigília no chão da Vala: sobretudo de lona, chapéu de aba larga, sabre."
+  },
+  {
+   "id": "circulo_giz_chao",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": true,
+   "descricao": "Decalque de chão: círculo de escuta riscado a giz e tinta de válvula, a onda senoidal atravessando a trombeta no meio, os números da contagem invertida em volta, tocos de vela e cera."
+  },
+  {
+   "id": "simbolo_portadora",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "decalques",
+   "enfeite": false,
+   "descricao": "A marca da Congregação pintada no chão em tinta de válvula laranja que brilha fraco: onda senoidal atravessando uma trombeta, com respingos, a lata virada e o pincel."
+  }
+ ],
+ "vegetacao": [
+  {
+   "id": "cevada",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cevada_2",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cipreste",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cipreste_2",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "feixes_cevada",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lotus",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "mirto",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "oliveira",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "oliveira_2",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "oliveira_3",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "papiro",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tamareira",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tamareira_2",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arbusto_seco",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Arbusto seco e espinhento."
+  },
+  {
+   "id": "arbusto_seco_2",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_enforcados",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Árvore morta grande com cordas de enforcados (Ponte dos Enforcados / bosque)."
+  },
+  {
+   "id": "arvore_morta",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_morta_2",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Árvore morta torta, mais baixa e larga."
+  },
+  {
+   "id": "arvore_morta_grande",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Carvalho morto grande, com corvos."
+  },
+  {
+   "id": "cacto_seco",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cogumelos_palidos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Cogumelos pálidos que brilham verde fraco (Bosque das Viúvas)."
+  },
+  {
+   "id": "duna_areia",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Monte de areia redondo, com face de queda e ondulação de vento."
+  },
+  {
+   "id": "duna_areia_2",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Monte pequeno que o vento descobriu: costelas de bicho saindo da areia."
+  },
+  {
+   "id": "duna_ondulacao",
+   "bioma": "base",
+   "tiles": "4x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Duna baixa e comprida com crista viva; a base some no piso (Mar de Dunas e Estrada do Sul)."
+  },
+  {
+   "id": "duna_ondulacao_2",
+   "bioma": "base",
+   "tiles": "4x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Barcana: duna em meia-lua, com as pontas apontando para onde o vento vai."
+  },
+  {
+   "id": "duna_ondulacao_3",
+   "bioma": "base",
+   "tiles": "4x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Morrinho baixo e firme, com tufos de capim seco e seixos na base."
+  },
+  {
+   "id": "mato_seco",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Tufo de capim seco (espalhe vários pelo mapa)."
+  },
+  {
+   "id": "mato_seco_2",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "moita_cardo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Moita de cardo roxo, a única planta que gosta do Amargo."
+  },
+  {
+   "id": "planta_mutante",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Planta mutante carnuda com pústulas verdes brilhantes."
+  },
+  {
+   "id": "toco_arvore",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "coroa_flores_secas",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Coroa de flores de finados num tripé de arame: rosas e cravos secos quase pretos, folhagem de cipreste ressecada e a faixa de luto escrita a tinta dourada desbotada."
+  },
+  {
+   "id": "raizes_ossos",
+   "bioma": "cripta",
+   "tiles": "2x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Raízes grossas que furaram o piso da catacumba e saíram arrastando ossos e uma caveira presa no meio; lajes levantadas em volta e terra preta."
+  },
+  {
+   "id": "oficina_exilado",
+   "bioma": "deserto_absinto",
+   "tiles": "5x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Oficina de Pedro, o Exilado: telheiro de tábuas e troncos sobre um estrado, coberto com lona remendada de duas metades (a lona azul-noite da Vigília costurada ao pano rubro-negro do Coro), bancada com morsa, ferramentas na parede, livros amarrados com corda, bigorna num toco, retalho azul e rubro pregado na parede; o lampião de latão pendurado na viga da frente é a única luz."
+  },
+  {
+   "id": "trapiche_exilado",
+   "bioma": "deserto_absinto",
+   "tiles": "4x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Trapiche da ilha: tábuas desencontradas sobre estacas de tronco com limo verde do Amargo, uma canoa de casco remendado amarrada, remo, balde e um puçá secando."
+  },
+  {
+   "id": "acacia",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Acácia do deserto (a madeira dos barcos e dos sarcófagos): tronco torto, galhos abertos e a copa achatada em guarda-chuva, folhagem miúda verde-cinza e espinhos brancos."
+  },
+  {
+   "id": "barca_junco",
+   "bioma": "egito",
+   "tiles": "4x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Barca de feixes de papiro amarrados (como nas pinturas das mastabas), pontas curvas, vara de impulsionar."
+  },
+  {
+   "id": "campo_linho",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Canteiro de linho em flor sobre o lodo preto, em fileiras, flores azul-pálidas (o pano das múmias e dos vivos); um rego d'água no meio."
+  },
+  {
+   "id": "feixes_cevada_egito",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Medas de cevada amarradas no lodo da Terra Negra, prontas para o terreiro."
+  },
+  {
+   "id": "feluca",
+   "bioma": "egito",
+   "tiles": "6x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Feluca do Nilo (o barco do barqueiro Ahmose): casco de acácia escuro, a grande vela latina de linho remendado numa verga inclinada, leme de remo, cordame, jarros e uma esteira no fundo."
+  },
+  {
+   "id": "juncos_nilo",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Touceira de juncos e taboas da margem, verdes embaixo e secos na ponta, com espigas marrons."
+  },
+  {
+   "id": "lotus_azul",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Lótus azul (Nymphaea caerulea, a flor de Rá) na água: folhas redondas recortadas e flores azul-pálidas abertas. Decal sobre a água."
+  },
+  {
+   "id": "moita_papiro",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Moita de papiro do juncal do Nilo: hastes triangulares altas com umbelas abertas, sobre o lodo preto úmido."
+  },
+  {
+   "id": "moita_papiro_2",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Moita de papiro do juncal do Nilo: hastes triangulares altas com umbelas abertas, sobre o lodo preto úmido."
+  },
+  {
+   "id": "palmeira_dum",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Palmeira-dum (Hyphaene, a palmeira do Egito que se ramifica em Y): tronco que se divide duas vezes, coroas de folhas em leque e cachos de frutos marrons."
+  },
+  {
+   "id": "tamareira_nilo",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Tamareira da margem do Nilo: tronco curvo coberto das bases das folhas velhas (escamas em diamante), coroa cheia de folhas-pena com folíolos em V, folhas secas penduradas em saia e cachos de tâmaras alaranjadas."
+  },
+  {
+   "id": "tamareira_nilo_2",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Tamareira da margem do Nilo: tronco curvo coberto das bases das folhas velhas (escamas em diamante), coroa cheia de folhas-pena com folíolos em V, folhas secas penduradas em saia e cachos de tâmaras alaranjadas."
+  },
+  {
+   "id": "tamareira_nilo_3",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": "Tamareira da margem do Nilo: tronco curvo coberto das bases das folhas velhas (escamas em diamante), coroa cheia de folhas-pena com folíolos em V, folhas secas penduradas em saia e cachos de tâmaras alaranjadas."
+  },
+  {
+   "id": "arvore_conhecimento",
+   "bioma": "novo_eden",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_eden",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_eden_2",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_eden_3",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_frutos",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_frutos_2",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_jovem_lume",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_lume",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_lume_2",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arvore_mae",
+   "bioma": "novo_eden",
+   "tiles": "4x4",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cipo_lume",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cogumelos_eden",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "figueira",
+   "bioma": "novo_eden",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "figueira_2",
+   "bioma": "novo_eden",
+   "tiles": "3x3",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "flor_lume",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "flor_lume_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "folha_larga",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "juncos_eden",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "moita_florida",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "moita_florida_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "moita_florida_3",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "moita_lume",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "nenufares",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "nenufares_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "palmeira_lume",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "palmeira_lume_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pedra_coberta",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pedra_coberta_2",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pedra_coberta_3",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "salgueiro",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "salgueiro_2",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "samambaia",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "samambaia_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "samambaia_3",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tapete_flores",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tapete_flores_2",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tapete_flores_3",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tronco_caido_eden",
+   "bioma": "novo_eden",
+   "tiles": "3x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tronco_caido_eden_2",
+   "bioma": "novo_eden",
+   "tiles": "3x1",
+   "categoria": "vegetacao",
+   "enfeite": false,
+   "descricao": ""
+  }
+ ],
+ "rio": [
+  {
+   "id": "braseiro_frio",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poco",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "armario_fitas",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Armário de gravadores de rolo da Central de Escuta: dois decks de fita com carretéis, VU de luz laranja, porta de baixo aberta com caixas de fita, rolos empilhados em cima e fita marrom escorrendo pela frente; cera de vela no tampo."
+  },
+  {
+   "id": "barco_afundado",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "rio",
+   "enfeite": false,
+   "descricao": "Barco de pesca meio afundado na lama, com remo e rede."
+  },
+  {
+   "id": "juncos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "rio",
+   "enfeite": false,
+   "descricao": "Juncos e taboas de beira d'água."
+  },
+  {
+   "id": "pedras_rio",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "rio",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "roda_dagua",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Roda d'água parada no leito seco, com pás quebradas."
+  },
+  {
+   "id": "roda_dagua_bomba",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Roda d'água convertida em bomba a vapor pelos sobreviventes (puxa lama amarga)."
+  },
+  {
+   "id": "tronco_margem",
+   "bioma": "base",
+   "tiles": "3x1",
+   "categoria": "rio",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "genuflexorio",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Genuflexório de madeira escura com almofada de veludo puída, o terço de contas de osso pendendo e o missal aberto; a cera de anos de velas forma um monte na frente."
+  },
+  {
+   "id": "ossuario_caixa",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Caixas de ossuário empilhadas, com crânios pintados à moda velha (nome, data e uma coroa de folhas na testa), uma tampa aberta mostrando os ossos longos arrumados."
+  },
+  {
+   "id": "relicario",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Relicário gótico de latão sobre coluna de pedra: caixinha de vidro com pináculos, um osso de dedo num coxim de veludo, ex-votos de fita amarrados na base e duas velas acesas."
+  },
+  {
+   "id": "cais",
+   "bioma": "egito",
+   "tiles": "4x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cais de madeira das docas de Mênfis: tábuas gastas sobre estacas de palmeira, abitas de amarrar com corda, jarros e um cesto; o lodo preto agarrado nas estacas."
+  },
+  {
+   "id": "carrinho_nefer",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O carrinho da aguadeira Nefer nas fogueiras: carroça de duas rodas puxada por um burrico, jarras d'água amarradas, frascos de poção de faiança e a lamparina pendurada no varal."
+  },
+  {
+   "id": "guincho",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cábrea de três pernas sobre um poço de escavação, com sarilho de manivela, corda e o cesto de entulho subindo."
+  },
+  {
+   "id": "incensario_braco",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Incensário em forma de braço, de bronze verde: cabo de papiro com cabeça de falcão numa ponta e a mão aberta na outra segurando a taça com brasa; pousado num suporte de calcário, com as bolinhas de resina num prato."
+  },
+  {
+   "id": "modelo_barca",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Modelo de barca funerária de madeira pintada do enxoval: casco em lua, olho de Hórus na proa, remadores de madeira sentados, o dono sob o dossel e a vela de linho enrolada; sobre um suporte baixo."
+  },
+  {
+   "id": "poco_nilometro",
+   "bioma": "egito",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Nilômetro: poço quadrado de calcário com a escada descendo pelas paredes até a água do Nilo, a escala de côvados gravada na parede e o parapeito baixo com o nome do templo."
+  },
+  {
+   "id": "fonte_quatro_rios",
+   "bioma": "novo_eden",
+   "tiles": "5x5",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lintel_biblioteca",
+   "bioma": "sao_lazaro",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O poço de areia ao lado da lanterna: a areia abriu um funil e mostra, lá no fundo, o lintel de pedra da porta da Biblioteca com letras gravadas."
+  }
+ ],
+ "rochas": [
+  {
+   "id": "pedra_gasta_amenti",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pedra_gravada_amenti",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "rocha_flutuante",
+   "bioma": "amenti",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "rocha_flutuante_2",
+   "bioma": "amenti",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "janela_na_areia",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Janela de sobrado aparecendo na areia: entrada para as casas de baixo."
+  },
+  {
+   "id": "pulpito_externo",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Púlpito dos Arautos no adro, de pedra com estandarte e livro acorrentado."
+  },
+  {
+   "id": "sacos_areia",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "sepulcro_primeiro",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O Primeiro Sepulcro: afloramento de rocha com a entrada escavada (vão baixo e escuro), degrau varrido, trilho onde a laje rolou e uma vela no chão da entrada."
+  },
+  {
+   "id": "sumidouro",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O Sumidouro: funil de areia onde o rio some, com brilho verde no fundo."
+  },
+  {
+   "id": "toca_caes",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Toca da matilha: buraco na duna com ossos roídos e trapos."
+  },
+  {
+   "id": "duna_interna",
+   "bioma": "biblioteca",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "A duna que entrou pelo vitral e escorreu até o meio da sala: areia mansa sobre o assoalho, com livros meio enterrados, cacos verdes acesos e páginas soltas."
+  },
+  {
+   "id": "vala_aberta",
+   "bioma": "cripta",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Vala aberta pela maré de areia, com soldados da Grande Batalha aparecendo."
+  },
+  {
+   "id": "duna_alta",
+   "bioma": "egito",
+   "tiles": "6x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Duna alta de areia clara de calcário (borda): barcana com crista afiada em meia-lua, o lado do vento suave e ondulado atrás, a face de escorregamento íngreme virada para a frente, um bloco antigo meio engolido."
+  },
+  {
+   "id": "duna_alta_2",
+   "bioma": "egito",
+   "tiles": "6x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Duna alta de areia clara de calcário (borda): barcana com crista afiada em meia-lua, o lado do vento suave e ondulado atrás, a face de escorregamento íngreme virada para a frente, um bloco antigo meio engolido."
+  },
+  {
+   "id": "entulho",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "peneira_escavacao",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Peneira de escavação: caixilho de madeira com tela, apoiado em cavaletes, o monte de areia peneirada embaixo e os cacos separados numa bandeja."
+  },
+  {
+   "id": "rocha_granito",
+   "bioma": "egito",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Penedos arredondados de granito da Primeira Catarata, com a crosta escura do deserto e o rosa por baixo."
+  },
+  {
+   "id": "rocha_granito_2",
+   "bioma": "egito",
+   "tiles": "5x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Aglomerado grande de penedos de granito da catarata (borda sul), lisos de água e riscados de grafites antigos."
+  },
+  {
+   "id": "tempestade_areia",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Véu da tempestade de areia do Mar de Areia (borda oeste): cortina de poeira cor de calcário e cobre que sobe do chão e some no alto, com redemoinhos e o pé de areia carregada. Repete ao longo da borda."
+  },
+  {
+   "id": "pedra_amolar",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Esmeril de pedal: rebolo de arenito num cavalete de madeira, bacia de água ferruginosa embaixo, facas esperando a vez."
+  },
+  {
+   "id": "janela_nina",
+   "bioma": "sao_lazaro",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O quarto da Nina: uma janela de 5º andar na altura da areia, com a veneziana solta, um pano pendurado de cortina, a lata de fogo quase apagada na soleira (brasa ainda viva) e um cobertor lá dentro no escuro."
+  }
+ ],
+ "luz": [
+  {
+   "id": "armadilha_fogo",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "armadilha_fogo_parada",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tocha_verde",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "barreira_chefe",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Estaca de selo: poste de ferro baixo (1,3 m) com anel de runas em brasa, correntes caídas e brasa no pé. Repetida a cada ~1,5 tile em volta da arena, fecha o círculo sem tampar a luta."
+  },
+  {
+   "id": "barreira_chefe_2",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Variação: feixe de lanças cravadas e amarradas, com braseiro de ferro em cima."
+  },
+  {
+   "id": "braseiro_ferro",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "braseiro_holofote",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Holofote de estádio morto virado braseiro: poste de treliça, cabeça de lâmpadas quebradas com fogo dentro."
+  },
+  {
+   "id": "braseiro_sagrado",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Braseiro dos Arautos com chama branca."
+  },
+  {
+   "id": "candelabro_ossos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "capelinha_beira",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Capelinha de beira de estrada com santo sem rosto e velas."
+  },
+  {
+   "id": "farol_aviacao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Luz vermelha de aviação num segmento da treliça do mastro: a mesma que ninguém desligou e que pisca fora de ritmo. Conduíte e fita isolante descendo pela perna."
+  },
+  {
+   "id": "fogueira",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lampiao_gas",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Poste de lampião a gás vitoriano, ferro batido, chama quente."
+  },
+  {
+   "id": "lanterna_procissao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tonel_fogo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "vela_tumulo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "candelabro_ferro",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Candelabro de chão de ferro batido com três pés de garra, coroa de sete pontas e velas grossas derretendo, a cera escorrida em estalactites pelos braços."
+  },
+  {
+   "id": "lampiao_oleo",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Poste de madeira com a lamparina de óleo num braço de ferro: a luz quente das ruas e acampamentos."
+  },
+  {
+   "id": "lampada_pendurada",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Poste de ferro com braço e lâmpada de filamento numa gaiola de arame, pendurada num fio; luz amarela fraca."
+  },
+  {
+   "id": "lanterna_eden",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lanterna_biblioteca",
+   "bioma": "sao_lazaro",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "A lanterna da cúpula da Biblioteca Pública, a única coisa dela que sai da areia: oito colunetas de bronze com janelinhas de vidro (uma arrombada, por onde desce a escada de corda), domo de cobre verde com a esfera armilar no topo e o anel de cantaria da cúpula aparecendo na duna. Lá de dentro sobe luz de vela."
+  }
+ ],
+ "religioso": [
+  {
+   "id": "espelho_obsidiana",
+   "bioma": "amenti",
+   "tiles": "1x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estela_livro",
+   "bioma": "amenti",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estela_livro_acesa",
+   "bioma": "amenti",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "obelisco_glifos",
+   "bioma": "amenti",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "atlante_parado",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "atlante_parado_2",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "chifres_consagracao",
+   "bioma": "atlantida",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "diapasao_coro",
+   "bioma": "atlantida",
+   "tiles": "4x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estatua_atlas",
+   "bioma": "atlantida",
+   "tiles": "6x6",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estatua_babuino",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estatua_poseidon",
+   "bioma": "atlantida",
+   "tiles": "5x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estatua_thoth",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "obelisco_hermetico",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tabua_esmeralda",
+   "bioma": "atlantida",
+   "tiles": "4x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tripode",
+   "bioma": "atlantida",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "altar_microfone",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Altar da Congregação: gabinete de transmissor coberto com pano de luto e a marca pintada, microfone de fita no pedestal de latão, velas e rádios velhos deixados como oferenda."
+  },
+  {
+   "id": "anjo_porcelana_caido",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Estátua angelical de porcelana partida no chão, máscara rachada."
+  },
+  {
+   "id": "asa_anjo_caida",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Asa de anjo gigante caída na areia, penas sujas e tira de couro."
+  },
+  {
+   "id": "cova_aberta",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cruz_madeira",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estatua_anjo_quebrada",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estátua de anjo de pedra caída, asa partida, sobre pedestal."
+  },
+  {
+   "id": "lapide",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lapide_cruz_celta",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "lapide_cruz_vitoriana",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Cruz celta de pedra com liquen."
+  },
+  {
+   "id": "lapide_obelisco",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Obelisco vitoriano baixo sobre base de cantaria."
+  },
+  {
+   "id": "lapide_vitoriana",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Lápide vitoriana de topo redondo com cruz em relevo, tombada e com hera."
+  },
+  {
+   "id": "mar_de_lapides",
+   "bioma": "base",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cemitério de São Lázaro: lápides e cruzes que a duna cobre e descobre."
+  },
+  {
+   "id": "receptor_votivo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pequeno santuário da Congregação: rádio de válvula sobre um caixote coberto de pano, as válvulas acesas, velas, fotos dos que \"foram sintonizados\", flores secas e fones pendurados; a marca pintada no caixote."
+  },
+  {
+   "id": "sarcofago",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tumulo_aberto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tumulo_vitoriano",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Túmulo-arca em cantaria com tampa moldada, cercado por grade baixa de ferro batido."
+  },
+  {
+   "id": "globo_terrestre",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Globo terrestre de 1888 em pé de carvalho, com meridiano de latão; os continentes de antes do Impasse."
+  },
+  {
+   "id": "cruz_ferro_tombada",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cruz de túmulo de ferro batido com volutas e a plaquinha esmaltada do nome, tombada e meio torta sobre um monte de terra, uma guirlanda de arame com flores secas ainda presa."
+  },
+  {
+   "id": "ex_votos",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Sala dos milagres: tábua de promessas num cavalete com ex-votos de cera pendurados (cabeças, mãos, pernas, um coração), fotografias desbotadas, muletas encostadas e as velas de quem ainda pede."
+  },
+  {
+   "id": "sino_rachado",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Sino de bronze caído da torre e rachado, de boca para o lado, com o badalo arrancado, a trave quebrada e a corda podre; verdete por fora e cera pingada por cima (alguém acende velas para ele)."
+  },
+  {
+   "id": "trombetas_caladas",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Monte de trombetas de latão caladas: amassadas, as campanas entupidas de pano de luto, amarradas e lacradas com cera vermelha, como os Arautos fizeram com todas as que acharam depois que a sétima não tocou."
+  },
+  {
+   "id": "cabeca_farao",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cabeça de granito de um faraó caída da estátua: toucado nemes listrado com restos de azul e ouro, o nariz quebrado, a barba postiça partida, meio afundada no lodo e no calcário que caiu junto."
+  },
+  {
+   "id": "celeiro",
+   "bioma": "egito",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Celeiro de silos em cúpula (como nas maquetes dos túmulos): três colmeias de tijolo rebocado com a portinhola de cima para encher e a de baixo para tirar o grão, escada de mão e sacos."
+  },
+  {
+   "id": "escaravelho_coracao",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Escaravelho do coração de pedra verde, do tamanho de um cão, num pedestal de calcário: as asas entalhadas e, na base, o feitiço 30B (\"ó meu coração, não te levantes como testemunha contra mim\")."
+  },
+  {
+   "id": "esfinge_carneiro_estatua",
+   "bioma": "egito",
+   "tiles": "3x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Esfinge de carneiro da avenida de Karnak: corpo de leão, cabeça de carneiro de Amon e, entre as patas, a pequena estátua do faraó de pé protegido por ela. Calcário com pedaços faltando e rachaduras."
+  },
+  {
+   "id": "estatua_anubis",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Anúbis, o chacal deitado sobre o santuário (como o da tumba de Tutancâmon): madeira com resina preta, orelhas em pé, colar e faixas de ouro gasto; o santuário com cornija de cavetto e pilares djed e nós de Ísis."
+  },
+  {
+   "id": "estatua_sekhmet",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Sekhmet, a deusa leoa, sentada no trono: granito preto (das centenas que Amenhotep III pôs em Mut), disco solar com a uraeus, o ankh na mão; o polimento gasto deixa o grão cinza."
+  },
+  {
+   "id": "estela",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estela de calcário de topo arredondado: o disco alado no alto, o morto oferecendo a Osíris sentado, e as linhas do 'oferenda que o rei dá' com a tinta azul e vermelha quase apagada."
+  },
+  {
+   "id": "mesa_mumia",
+   "bioma": "egito",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Mesa de estudo da escavação com uma múmia deitada, metade desenfaixada, ferramentas, lupa, frascos, o caderno de notas e o lampião pendurado em cima."
+  },
+  {
+   "id": "mesa_oferendas",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Mesa de oferendas (hotep) de calcário com bica: pães cônicos e redondos, figos, um cacho de uva, um ganso depenado, flores de lótus murchas e a jarra de cerveja, tudo que os vivos ainda deixam para os mortos do Faium."
+  },
+  {
+   "id": "mumias_gato",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Três múmias de gato de Bubástis em pé, enfaixadas em losango com a cara pintada e as orelhas de linho, e a Bastet de bronze sentada com o filhote; uma caiu e abriu."
+  },
+  {
+   "id": "obelisco",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Obelisco de granito rosa de Assuã num pedestal: três colunas de hieróglifos em cada face com o cartucho do rei, pirâmide do topo que já foi coberta de electro (sobrou o verde do bronze)."
+  },
+  {
+   "id": "obelisco_inacabado",
+   "bioma": "egito",
+   "tiles": "10x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "O Obelisco Inacabado de Assuã: deitado na pedreira de granito, ainda preso à rocha, rachado de través; a trincheira de batida em volta, as bolas de dolerito dos cortadores e as marcas de ocre do capataz."
+  },
+  {
+   "id": "obelisco_tombado",
+   "bioma": "egito",
+   "tiles": "9x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Obelisco tombado e partido em três pedaços na areia, a ponta longe do pedestal vazio."
+  },
+  {
+   "id": "sarcofago_aberto",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Sarcófago de granito aberto pela escavação: a tampa empurrada de lado sobre calços de madeira, inscrições do Livro dos Mortos nas faces, a deusa Ísis de asas abertas na cabeceira; vazio."
+  },
+  {
+   "id": "ushabtis",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Caixa de ushabtis em forma de capela, pintada e de tampa caída: dezenas de servidores de faiança azul enfileirados (\"aqui estou\") e alguns tombados no chão, um partido ao meio."
+  },
+  {
+   "id": "banco_capela",
+   "bioma": "sao_lazaro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Banco de igreja quebrado, madeira escura."
+  },
+  {
+   "id": "radio_votivo",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Rádio de válvula em cima de um caixote, virado em altar da Congregação: o dial aceso na faixa morta, velas, um fone pendurado, a marca da onda pintada no caixote e oferendas (pilhas, um dente, um anel)."
+  }
+ ],
+ "ossos": [
+  {
+   "id": "corpo_lacrado",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Corpo lacrado em mortalha costurada com ferro (aguardando o Juízo)."
+  },
+  {
+   "id": "gaiola_suspensa",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Gaiola de ferro pendurada num poste, com ossos dentro."
+  },
+  {
+   "id": "monge_emparedado",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Nicho com um monge emparedado (as Carpideiras), parede meio aberta."
+  },
+  {
+   "id": "ossada_animal",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pilha_cranios",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "pilha_mortos",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pilha de mortos da Grande Batalha, alimento do Andras."
+  },
+  {
+   "id": "soldado_morto",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "colosso_sentado",
+   "bioma": "egito",
+   "tiles": "4x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Colosso sentado de quartzito (como os de Mênon): o rei no trono de bloco, mãos nos joelhos, nemes, rosto roído; nas laterais do trono, o Nilo do Norte e do Sul amarrando o papiro e o lótus (sema-tawy) em relevo gasto."
+  },
+  {
+   "id": "colosso_tombado",
+   "bioma": "egito",
+   "tiles": "6x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Ramessés caído (\"Ozymandias\"): no pedestal ficaram as duas pernas imensas partidas nos joelhos; perto, meio enterrado na areia, o rosto partido olha o céu com o lábio franzido de comando; o tronco rachado ao lado."
+  },
+  {
+   "id": "balanca_gancho",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Balança de gancho num tripé de vigas: mostrador de latão com ponteiro, pernil pendurado no prato e contrapeso de ferro."
+  },
+  {
+   "id": "bandeja_visceras",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Caixote virado de banco com uma bandeja de zinco amassada: coração, fígado, rins e tripa limpos para a salmoura."
+  },
+  {
+   "id": "caixote_ossos",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Caixote de ripas cheio de ossos de tutano para o caldo do cerco, uma caveira de chifres por cima e o carimbo do Carniça."
+  },
+  {
+   "id": "carrinho_carne",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Carroça de ferro do frigorífico: caçamba rebitada cheia de miúdos e pés de boi, rodas de ferro, alça torta."
+  },
+  {
+   "id": "caveira_boi",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cabeça de boi esfolada largada no chão: crânio com restos de carne, chifres longos, língua de fora e mandíbula solta."
+  },
+  {
+   "id": "ganchos_carne",
+   "bioma": "matadouro",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Trilho de ganchos da câmara fria: duas meias carcaças de boi e um porco aberto, correntes, sangue no chão."
+  },
+  {
+   "id": "ganchos_horror",
+   "bioma": "matadouro",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "O que Benedito trouxe do campo da Grande Batalha: um demônio da Legião esfolado, um anjo depenado e um boi."
+  },
+  {
+   "id": "ganchos_porcos",
+   "bioma": "matadouro",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Trilho com três porcos escaldados pendurados no balancim, barrigas abertas."
+  },
+  {
+   "id": "ganchos_vazios",
+   "bioma": "matadouro",
+   "tiles": "3x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Trilho de ganchos vazio: correntes balançando, ganchos sujos e um pedaço de carne esquecido."
+  },
+  {
+   "id": "pilha_de_mortos",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Pilha de Mortos da arena de Andras: soldados da Legião Blasfema e da Vigília amontoados, roídos até o osso, piques quebrados, capacetes com chifres e um sobretudo vermelho rasgado por cima. Andras come daqui."
+  }
+ ],
+ "maquinas": [
+  {
+   "id": "alto_falante_corneta",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Poste de ferro com cacho de alto-falantes de corneta voltados para todos os lados, fios enrolados no poste com fita e base de tambor cheio de concreto."
+  },
+  {
+   "id": "antena_dipolo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Antena dipolo alta num bloco de concreto: mastro galvanizado com estais, dipolo com isolador central de porcelana, uma yagi torta mais acima, cabo coaxial descendo e trapos do culto amarrados."
+  },
+  {
+   "id": "bobina_culto",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Bobina de Tesla da Congregação, montada sobre um caixote: espiral primária de tubo de cobre, secundária enrolada à mão, toroide de duto amassado remendado com fita, garrafas de Leyden, centelhador de latão e arcos laranja estalando até as hastes no chão."
+  },
+  {
+   "id": "caldeira_vapor",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "caldeirao_cardo",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Caldeirão com caldo de cardo roxo fervendo (alquimia da Vigília)."
+  },
+  {
+   "id": "cano_esgoto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Boca de cano de esgoto do abatedouro despejando lama vermelha no leito."
+  },
+  {
+   "id": "carretel_cabo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Carretel de madeira com cabo de força enrolado e a ponta caída no chão."
+  },
+  {
+   "id": "carrinho_tobias",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Carrinho de mão de sucata do Tobias, cheio de quinquilharias."
+  },
+  {
+   "id": "carroca_quebrada",
+   "bioma": "base",
+   "tiles": "2x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cratera_cinza",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cratera de bomba com estilhaços e uma bandeira da Vigília rasgada."
+  },
+  {
+   "id": "cratera_corte",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cratera de bomba com estilhaços e uma bandeira da Vigília rasgada."
+  },
+  {
+   "id": "estai_ancora",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Ancoragem de estai: bloco de concreto rachado e meio enterrado, chapa de âncora, dois esticadores, grampos e o cabo de aço subindo para fora do quadro rumo ao mastro."
+  },
+  {
+   "id": "gerador_diesel",
+   "bioma": "base",
+   "tiles": "4x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Grupo gerador a diesel: motor de seis cilindros sobre base de aço, volante grande exposto, gerador, radiador, escapamento enegrecido subindo e painel com luz de válvula. Pinga óleo."
+  },
+  {
+   "id": "moedor_vapor",
+   "bioma": "base",
+   "tiles": "6x6",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Porão do Matadouro: o grande moedor de carne a vapor (peça central de sala)."
+  },
+  {
+   "id": "osciloscopio",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Osciloscópio de válvula num carrinho de rodinhas: tela laranja com a senoide da faixa morta, ponteiras penduradas, bateria e rolo de cabo na prateleira de baixo."
+  },
+  {
+   "id": "painel_acustico",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Painéis acústicos de estúdio em pé: moldura de madeira, espuma de pirâmides amarelada, tecido rasgado pendendo e um painel tombado."
+  },
+  {
+   "id": "parabolica",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Parabólica grande e enferrujada na base giratória de concreto e aço, com o alimentador sobre três braços, painéis faltando, cabos descendo e fita do culto."
+  },
+  {
+   "id": "quadro_frequencias",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Quadro de frequências em pé: cortiça num cavalete de madeira, mapas com curvas de nível, gráficos de sinal, recados e fotos ligados por barbante vermelho; a faixa morta circulada em tinta de válvula; fones pendurados num prego e tocos de vela no aparador."
+  },
+  {
+   "id": "rack_valvulas",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Rack de transmissor virado órgão: fileiras de válvulas acesas em degraus como tubos de órgão, tubos de cobre subindo atrás, gabinete de grelhas embaixo e a marca da Congregação no frontão."
+  },
+  {
+   "id": "tambores_radioativos",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Tambores amarelos de lixo radioativo vazando brilho verde."
+  },
+  {
+   "id": "transformador",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Transformador a óleo: tanque cinza com aletas de radiador, três buchas de porcelana empilhadas, tanque de expansão, placa de perigo e vazamento de óleo."
+  },
+  {
+   "id": "trilho_retorcido",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Trilhos da Linha 7 arrancados e retorcidos para cima."
+  },
+  {
+   "id": "trono_sucata",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Trono de sucata dos demônios no telhado dos fundos da capela."
+  },
+  {
+   "id": "tubos_orgao",
+   "bioma": "base",
+   "tiles": "3x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Órgão da Câmara: tubos de latão tortos sobre caixa de madeira, alguns arrancados."
+  },
+  {
+   "id": "oficina_engenheiros",
+   "bioma": "egito",
+   "tiles": "5x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Oficina dos Engenheiros Hereges (Dalva Ferraz): bancada de sucata, o gerador de bobinas de cobre com manivela e cabos, e o protótipo da 'lâmpada de Dendera' copiado do relevo: o bulbo de vidro deitado com a serpente-filamento acesa por dentro, apoiado no pilar djed isolador. O bulbo é o único brilho."
+  },
+  {
+   "id": "trilho_vagonete",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Trilho de vagonete Decauville da escavação (bitola estreita) sobre dormentes de madeira na areia. Repete ao longo do eixo X."
+  },
+  {
+   "id": "vasos_canopicos",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Os quatro vasos canópicos de alabastro com as tampas dos Filhos de Hórus (Imseti homem, Hapi babuíno, Duamutef chacal, Qebehsenuef falcão), sobre a arca de madeira pintada."
+  },
+  {
+   "id": "caldeira_abate",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Caldeira a vapor do frigorífico: corpo de chapa rebitada deitado sobre berço de tijolo, fornalha com a porta entreaberta em brasa, domo de vapor, válvula de segurança, manômetro e canos de latão."
+  },
+  {
+   "id": "serra_vapor",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Serra de fita a vapor para osso: armação de ferro fundido em C, dois volantes com raios, fita dentada, mesa de chapa, pistão e cano de latão com manômetro; respingo de sangue e pó de osso."
+  },
+  {
+   "id": "tanque_salmoura",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Tina de salmoura de carvalho com aros de ferro: água turva com pernis boiando, crosta de sal na borda, remo de madeira e escadinha."
+  },
+  {
+   "id": "tanque_sebo",
+   "bioma": "matadouro",
+   "tiles": "2x2",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Tacho de derreter sebo: caldeirão de chapa rebitada sobre fornalha de tijolo com a boca em brasa, sebo amarelo grosso por cima, escumadeira e chaminé."
+  },
+  {
+   "id": "campanula",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "tanque_latao",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "bancada_solda",
+   "bioma": "torre",
+   "tiles": "2x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Bancada de radioamador: chassi de transmissor aberto cheio de válvulas e fios, ferro de solda no suporte, rolo de estanho, lupa com lâmpada e o caderno de frequências cheio de rabiscos."
+  },
+  {
+   "id": "caixa_valvulas",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Caixote de válvulas sobressalentes na palha, uma ainda acesa (ligada num fio solto), outras quebradas no chão com o vidro em cacos."
+  },
+  {
+   "id": "fitas_rolo",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Gravador de rolo da Rádio São Lázaro num caixote: os dois carretéis no tampo, a fita marrom correndo pelas cabeças e escorrendo em laços até o chão (as gravações da Noite Zero que a Congregação toca ao contrário); ao lado, uma pilha de carretéis e as caixas de papelão com o rótulo apagado."
+  },
+  {
+   "id": "microfone_caido",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "O microfone do sermão: microfone de fita de cápsula cromada num pedestal de ferro, de pé no meio de um anel de velas, a base presa com fita e arame, o cabo de borracha enrolado no chão e a marca da onda pintada no piso (é por ele que o Sacerdote da Portadora prega para os andares de baixo)."
+  },
+  {
+   "id": "pilha_fones",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Estaca dos fones: um poste de madeira com travessa onde a Congregação pendura os fones de ouvido dos que já não precisam deles, os fios balançando; embaixo, o monte dos que caíram, cera de vela e a marca da onda no poste."
+  },
+  {
+   "id": "pilha_radios",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Pilha de rádios de todos os tamanhos que a Congregação recolheu nas casas de São Lázaro, empilhados como um relicário: um só ainda acende o dial; velas e fones em volta."
+  },
+  {
+   "id": "totem_antena",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Totem da Congregação: poste de cano com antenas de arame dobrado em espiral, latas e colheres penduradas que tilintam, uma válvula acesa no topo como olho e fitas de pano com a onda pintada."
+  }
+ ],
+ "moveis": [
+  {
+   "id": "cadeira_ibis",
+   "bioma": "amenti",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "bancada_ferreiro",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Bigorna, forja pequena e ferramentas (NPC ferreiro do acampamento)."
+  },
+  {
+   "id": "banco_estudio",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Fileira de cadeiras de estúdio aparafusadas numa prancha como banco de igreja: vinil rachado, estrutura de tubo, genuflexório na frente e cera pingada."
+  },
+  {
+   "id": "cadeira_operador",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Cadeira giratória de operador com um operador morto, ainda de fones: cabeça caída no peito, um braço pendurado, o fio dos fones descendo até o chão. Assento rasgado."
+  },
+  {
+   "id": "mesa_acougue_rua",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "mesa_telegrafo",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Mesa de operador da Central de Escuta: manipulador Morse, sounder de latão, fones, registrador soltando fita de papel que escorre da mesa e se amontoa no chão; caderno de registro, cinzeiro, caneca e uma vela; receptor com uma válvula acesa."
+  },
+  {
+   "id": "varal_roupas",
+   "bioma": "base",
+   "tiles": "3x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "atril_livro",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Atril de latão em tripé sobre base de pedra, com o Livro de Horas grande aberto e a fita vermelha caída; faltam páginas no meio."
+  },
+  {
+   "id": "balcao_emprestimos",
+   "bioma": "biblioteca",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Balcão de empréstimos de Eulália: tampo de imbuia com frente almofadada, livro-registro aberto, carimbo e almofada de tinta, porta-fichas, candeeiro de vidro aceso e a placa SILÊNCIO."
+  },
+  {
+   "id": "cadeira_caida",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "A mesma cadeira, tombada de costas no assoalho."
+  },
+  {
+   "id": "cadeira_leitura",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cadeira de espaldar da sala de leitura, em carvalho, assento de veludo gasto até o pano."
+  },
+  {
+   "id": "estante_baixa",
+   "bioma": "biblioteca",
+   "tiles": "3x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estante solta de dupla face (1,6 m), de imbuia, com cinco prateleiras; os corredores do Arquivo."
+  },
+  {
+   "id": "estante_tombada",
+   "bioma": "biblioteca",
+   "tiles": "3x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estante solta que tombou na areia: o móvel deitado de lado, prateleiras à mostra e os livros esparramados."
+  },
+  {
+   "id": "mesa_leitura",
+   "bioma": "biblioteca",
+   "tiles": "5x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Mesa longa de leitura em carvalho, com trilho de veludo puído, três castiçais acesos, livros abertos, pilhas e um tinteiro; cera escorrida no tampo."
+  },
+  {
+   "id": "pilha_livros",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Duas pilhas de livros no assoalho, à espera de catalogação, com uma ficha enfiada."
+  },
+  {
+   "id": "pilha_livros_2",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Pilha alta tombada pela metade, livros escorregando para o chão e um aberto por cima."
+  },
+  {
+   "id": "atril_partituras",
+   "bioma": "cripta",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Estante de coro de ferro batido com o hinário aberto na antífona do Juízo, partituras rasgadas no chão e uma trombeta calada no banquinho do lado."
+  },
+  {
+   "id": "banca_mercado",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Banca do mercado de Mênfis: quadro de varas com toldo de linho listrado, mesa com cestos de tâmaras, cebolas, pão em cone, peixe seco pendurado, jarros e uma balança de bronze; lamparina acesa."
+  },
+  {
+   "id": "cadeira_ebano",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cadeira de ébano do enxoval com pés de leão e encosto de folha de ouro gasta, o banquinho dos pés e o apoio de cabeça de alabastro; o assento de junco trançado afundou."
+  },
+  {
+   "id": "cesto_papiros",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cesto de junco cheio de rolos de papiro atados com fita de linho, e um rolo aberto no chão com colunas de escrita hierática e uma vinheta vermelha (o Livro dos Mortos de alguém que não chegou a ser enterrado)."
+  },
+  {
+   "id": "estante_rolos",
+   "bioma": "egito",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Estante de nichos da Casa da Vida, de madeira de acácia escurecida, com rolos de papiro amarrados e jarros de guardar rolos; poeira e rolos caídos no chão."
+  },
+  {
+   "id": "harpa_arco",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Harpa de arco dos músicos do templo, de madeira com a cabeça de faraó entalhada no pé, cordas de tripa quase todas arrebentadas, e um sistro de bronze de Hathor largado ao lado."
+  },
+  {
+   "id": "mesa_escriba",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Mesa do escriba: banco baixo, a paleta de junco com os dois poços de tinta (preta e vermelha), o rolo aberto com colunas de texto, o pote d'água e o estojo de cálamos."
+  },
+  {
+   "id": "mesa_topografo",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Posto do topógrafo: teodolito de latão no tripé, mesa com a planta da necrópole presa por pedras, a mira graduada encostada."
+  },
+  {
+   "id": "cabide_avental",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cabideiro de ferro do magarefe: avental de couro duro de sangue, luvas de borracha, chapéu de feltro e as botas de cano alto largadas embaixo."
+  },
+  {
+   "id": "cepo_cutelo",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cepo de tronco de casca rachada com aro de ferro, topo de lenho talhado e encharcado, cutelo cravado de fio, um naco de costela e sangue escorrendo pela casca."
+  },
+  {
+   "id": "mesa_acougue",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Mesa de desossa: cepo grosso de madeira encharcada e cortada, pés de ferro, cutelos cravados, serrote de osso, pernil a meio desossar, cabeça de porco e balde de miúdos embaixo."
+  },
+  {
+   "id": "pernis_tripe",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Tripé de ferro com corrente e três pernis curando no sal, um deles já cinzento de bolor; bacia de sal por baixo."
+  },
+  {
+   "id": "varal_linguica",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Varal de defumar: cavaletes de madeira com uma vara de ferro, gomos de linguiça em laço e mantas de charque secando; pingos de gordura e serragem no chão."
+  },
+  {
+   "id": "cadeira_escuta",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Cadeira da Escuta: cadeira de dentista velha com correias de couro nos braços, capacete de fones aparafusado no encosto e o cabo que sobe para o teto; sangue seco no apoio de cabeça."
+  },
+  {
+   "id": "estante_pecas",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Estante de aço de almoxarifado: vidros de parafusos, rolos de fio de cobre, isoladores de porcelana, caixas de papelão encharcadas e um rádio desmontado; uma prateleira cedeu."
+  }
+ ],
+ "recipientes": [
+  {
+   "id": "anforas",
+   "bioma": "atlantida",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "barris",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "bau_chefe",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Baú de chefe: relicário de porcelana e ferro com correntes e brilho vermelho."
+  },
+  {
+   "id": "bau_chefe_aberto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "bau_comum",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Baú comum (madeira e ferro), fechado."
+  },
+  {
+   "id": "bau_comum_aberto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "bau_raro",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Baú raro: ferro preto, cantoneiras de latão, selo da trombeta e brilho dourado."
+  },
+  {
+   "id": "bau_raro_aberto",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "caixas",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "cocho",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "isoladores_pilha",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Pilha de isoladores de porcelana num palete: cadeias de disco marrons empilhadas, dois isoladores de pino brancos em pé, cacos quebrados e arame de amarrar."
+  },
+  {
+   "id": "pilha_carvao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Monte de carvão da caldeira, com pá."
+  },
+  {
+   "id": "sacos_sal",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Sacos de sal empilhados, um furado."
+  },
+  {
+   "id": "tambor_oleo",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Tambores de óleo diesel amassados, um tombado vazando, com estêncil apagado."
+  },
+  {
+   "id": "caixa_devolucao",
+   "bioma": "biblioteca",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Caixa de devolução de ferro rebitado, com fenda escura e placa de latão (DEVOLUÇÕES); areia no tampo."
+  },
+  {
+   "id": "caixotes_achados",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Caixotes de achados numerados com palha: estatuetas ushabti de faiança, cacos de ostraca, um vaso de alabastro."
+  },
+  {
+   "id": "cestos_graos",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Cestos de junco com grão (cevada e trigo emmer), um saco aberto, a medida de madeira e a pá."
+  },
+  {
+   "id": "jarros",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Aglomerado de jarros de barro do Nilo (água, cerveja, grão): ânforas de fundo pontudo encostadas, potes com tampa de barro, um quebrado."
+  },
+  {
+   "id": "shaduf",
+   "bioma": "egito",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Shaduf: o balde de couro na ponta da vara de balanço, o contrapeso de lodo seco na outra ponta, o cavalete de troncos sobre o barranco de lodo da margem."
+  },
+  {
+   "id": "vasos_alabastro",
+   "bioma": "egito",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Vasos de alabastro translúcido do enxoval: a taça em lótus, um vaso de unguento com tampa, uma jarra alta, e os cacos de um que caiu."
+  },
+  {
+   "id": "balde_miudos",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Dois baldes de chapa enferrujada: um cheio de miúdos até a borda, o outro tombado derramando tripa e sangue."
+  },
+  {
+   "id": "sacos_sal_abate",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Sacos de sal grosso de aniagem sobre estrado, carimbo desbotado, um rasgado derramando sal."
+  },
+  {
+   "id": "toneis_sebo",
+   "bioma": "matadouro",
+   "tiles": "2x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Tonéis de sebo e de banha: madeira com aros, sebo derramado endurecido, um deitado e aberto."
+  },
+  {
+   "id": "colmeia",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "baldes_incendio",
+   "bioma": "torre",
+   "tiles": "1x1",
+   "categoria": "enfeites",
+   "enfeite": true,
+   "descricao": "Suporte de baldes de incêndio do mirante: quatro baldes cônicos vermelhos (um caído), areia derramada, a pá e o machado de incêndio na placa, tudo descascado e com cera de vela."
+  }
+ ],
+ "sinais": [
+  {
+   "id": "espantalho_arame",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Espantalho de arame e trapos com máscara de gás."
+  },
+  {
+   "id": "estacas_cerca",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "estandarte_rasgado",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "mastro_topo",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "O último trecho da treliça do mastro, vermelho e branco descascado, subindo para fora do quadro, com escada de marinheiro e gaiola, cabos coaxiais presos à perna e a luz vermelha de aviação numa plataforma no alto."
+  },
+  {
+   "id": "placa_aviso",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "placa_radiacao",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "placa_rua_enterrada",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Placa esmaltada de rua de São Lázaro, só o topo para fora da areia."
+  },
+  {
+   "id": "poste_gas",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Poste a gás aceso, ferro fundido gótico."
+  },
+  {
+   "id": "poste_gas_quebrado",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "poste_mastro",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Poste a gás de São Lázaro saindo da areia como mastro de navio afundado."
+  },
+  {
+   "id": "poste_ninho",
+   "bioma": "base",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Poste com ninho de corvos (galhos, ossos e trapos) e corvos."
+  },
+  {
+   "id": "poste_ninho_gigante",
+   "bioma": "base",
+   "tiles": "3x3",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Torre de ferro com ninho gigante (algo grande mora aqui)."
+  },
+  {
+   "id": "poste_tombado",
+   "bioma": "base",
+   "tiles": "1x5",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Poste de concreto tombado com fios e isoladores."
+  },
+  {
+   "id": "estandarte_legiao",
+   "bioma": "matadouro",
+   "tiles": "1x1",
+   "categoria": "dungeon",
+   "enfeite": false,
+   "descricao": "Estandarte partido da Legião Blasfema cravado na pilha: haste quebrada, travessa com pontas de ferro, pano vermelho-sangue em farrapos com o bode bordado já sem forma."
+  },
+  {
+   "id": "placa_versiculo",
+   "bioma": "novo_eden",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  }
+ ],
+ "ferramentas": [
+  {
+   "id": "armadilha_lamina",
+   "bioma": "amenti",
+   "tiles": "2x4",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  },
+  {
+   "id": "arca_primarca",
+   "bioma": "base",
+   "tiles": "2x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Arca do Primarca: baú tecnomancer do Gustavo (armazém). Carvalho negro, cintas de ferro, volante de cofre, manômetros e cinco válvulas roxas no tampo."
+  },
+  {
+   "id": "elmo_espada_fincada",
+   "bioma": "base",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Espada fincada na areia com elmo pendurado: túmulo de soldado da Grande Batalha."
+  },
+  {
+   "id": "manequim_evolucao_a",
+   "bioma": "deserto_absinto",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Manequim dos Arautos na oficina do Exilado: armação de costura vestida com o que um Arauto pode virar no nível 50: sobretudo rubro-negro do Coro, ombreira de ferro negro com cravos de latão, corrente atravessada no peito, gorjal, máscara de gás de couro na cabeça e a auréola de latão partida espetada atrás numa haste."
+  },
+  {
+   "id": "manequim_evolucao_b",
+   "bioma": "deserto_absinto",
+   "tiles": "1x1",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": "Manequim da Vigília na oficina do Exilado: armação de costura vestida com o que um combatente da Vigília pode virar no nível 50: guarda-pó azul-noite remendado, peitoral de chapa rebitada sobre o casaco, bandoleira de couro com cartuchos de latão, lenço no pescoço, chapéu de aba larga na cabeça e a escopeta serrada encostada no tripé."
+  },
+  {
+   "id": "espada_flamejante",
+   "bioma": "novo_eden",
+   "tiles": "2x2",
+   "categoria": "props",
+   "enfeite": false,
+   "descricao": ""
+  }
+ ]
+}
