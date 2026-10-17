@@ -12,6 +12,7 @@ uniform vec2 tam;
 uniform vec4 cor_vazio : source_color = vec4(0.02, 0.018, 0.02, 1.0);
 uniform float agua = -1.0;
 uniform float lama = -1.0;
+uniform float abismo = 0.0;   // cume do Hermon: o vazio vira abismo com nevasca (0.9.x)
 varying vec2 pm;
 
 void vertex() { pm = VERTEX; }
@@ -38,15 +39,15 @@ vec3 agua_rio(vec3 leito, vec2 t, float prof, vec2 fl) {
 	float d1 = mix(texture(ruido, u0 * 2.7 + 0.21).g, texture(ruido, u1 * 2.7 + 0.53).g, mx);
 	vec2 inc = vec2(hx - h, hy - h) / e * 0.11 + (d1 - 0.5) * 0.25;
 	// cor: verde amargo escuro no fundo; no raso aparece um pouco do leito
-	vec3 fundo = vec3(0.028, 0.06, 0.052);
-	vec3 raso = vec3(0.085, 0.14, 0.11);
+	vec3 fundo = vec3(0.03, 0.085, 0.085);
+	vec3 raso = vec3(0.11, 0.21, 0.19);
 	vec3 c = mix(mix(leito * 0.5, raso, 0.6), fundo, smoothstep(0.3, 0.95, prof));
 	// luz vinda de cima-esquerda: lado da onda virado para ela clareia, o outro escurece
 	float lz = dot(inc, normalize(vec2(-0.6, -0.8)));
 	c *= 1.0 + clamp(lz, -0.4, 0.7) * 0.8;
 	// reflexo do céu nublado (mais forte onde a água está lisa)
 	float liso = 1.0 - clamp(length(inc) * 1.6, 0.0, 1.0);
-	c = mix(c, vec3(0.27, 0.34, 0.32), 0.2 + 0.2 * liso);
+	c = mix(c, vec3(0.42, 0.52, 0.5), 0.26 + 0.32 * liso);
 	// riscos compridos no sentido da corrente (filetes de luz)
 	vec2 lado = vec2(-fl.y, fl.x);
 	vec2 ur = vec2(dot(t, fl) * 0.05 - TIME * 0.06, dot(t, lado) * 0.34);
@@ -54,14 +55,20 @@ vec3 agua_rio(vec3 leito, vec2 t, float prof, vec2 fl) {
 	c += vec3(0.4, 0.5, 0.42) * smoothstep(0.64, 0.78, risco) * 0.07;
 	// cintilado discreto onde a crista pega luz
 	float cint = smoothstep(0.32, 0.5, lz) * smoothstep(0.55, 0.75, d1);
-	c += vec3(0.7, 0.82, 0.62) * cint * 0.34;
+	c += vec3(0.8, 0.92, 0.85) * cint * 0.5;
 	// o Amargo luminesce de leve à noite
 	c += vec3(0.008, 0.035, 0.016) * (0.6 + 0.4 * sin(TIME * 0.7 + t.x * 0.3 + t.y * 0.2));
 	return c;
 }
 
 vec3 amostra(float l, vec2 t) {
-	if (l > 254.0) return cor_vazio.rgb;
+	if (l > 254.0) {
+		if (abismo < 0.5) return cor_vazio.rgb;
+		// abismo: nevasca de cinza que corre lá embaixo, em duas camadas, sobre um fundo quase preto
+		float n1 = texture(ruido, t * 0.045 + vec2(TIME * 0.012, TIME * 0.004)).r;
+		float n2 = texture(ruido, t * 0.11 - vec2(TIME * 0.03, -TIME * 0.01)).g;
+		return vec3(0.018, 0.02, 0.026) + vec3(0.07, 0.075, 0.085) * smoothstep(0.35, 0.9, n1) + vec3(0.035, 0.037, 0.042) * smoothstep(0.5, 0.95, n2);
+	}
 	return texture(pisos, vec3(t * 0.25, l)).rgb;
 }
 
@@ -108,6 +115,8 @@ var mapa: Dictionary
 var w := 0
 var h := 0
 var _mat: ShaderMaterial
+var _mi: Image
+var _mt: ImageTexture
 
 func montar(m: Dictionary) -> void:
 	mapa = m
@@ -155,6 +164,7 @@ func montar(m: Dictionary) -> void:
 			if prof > 0.0 and rio.size() > 1: ang = _correnteza(rio, Vector2(x + 0.5, y + 0.5))
 			mi.set_pixel(x, y, Color(l / 255.0, a, prof, ang))
 	var mt := ImageTexture.create_from_image(mi)
+	_mi = mi; _mt = mt
 	var ruido := FastNoiseLite.new()
 	ruido.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	ruido.frequency = 0.02
@@ -180,6 +190,7 @@ func montar(m: Dictionary) -> void:
 	_mat.set_shader_parameter("ruido", ImageTexture.create_from_image(ri))
 	_mat.set_shader_parameter("tam", Vector2(w, h))
 	_mat.set_shader_parameter("agua", float(nomes.find("agua_toxica")))
+	_mat.set_shader_parameter("abismo", 1.0 if m.has("hermon") else 0.0)
 	var ceu: Dictionary = m.get("ceu", {})
 	_mat.set_shader_parameter("cor_vazio", Color(0.012, 0.01, 0.012) if not m.get("exterior", false) else Color(0.05, 0.045, 0.04))
 	material = _mat
@@ -206,3 +217,12 @@ func _draw() -> void:
 	var y0 := -16.0 * h
 	var y1 := 16.0 * w
 	draw_rect(Rect2(x0 - 64, y0 - 64, x1 - x0 + 128, y1 - y0 + 128), Color.WHITE)
+
+## Cume do Hermon: as células de um anel que caiu viram abismo (piso 255).
+func derrubar(celulas: Array) -> void:
+	if _mi == null: return
+	for c in celulas:
+		var px := _mi.get_pixel(int(c[0]), int(c[1]))
+		px.r = 1.0
+		_mi.set_pixel(int(c[0]), int(c[1]), px)
+	_mt.update(_mi)

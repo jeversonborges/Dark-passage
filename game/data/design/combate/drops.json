@@ -45,6 +45,14 @@
       "feixe": true,
       "peso_base": 10,
       "_doc": "itens unicos com nome e historia; so de chefe, elite, raro e Relicario"
+    },
+    "primordial": {
+      "nome_exibido": "Lendário",
+      "cor": "#a05cff",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 0,
+      "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
     }
   },
   "nivel_de_refino_no_drop": {
@@ -57,8 +65,67 @@
     },
     "bonus_por_nivel": 0.08
   },
+  "lagrimas": {
+    "_doc": "Joias de refino estilo Bless/Soul do MU (Jefin, 2026-10-15). Qualquer mob pode soltar, rolagem própria por abate, fora da tabela do mob. Chance da Angélica = curva(nível do mob); Sanguínea = curva x 0,5. Curva: 0,08% no nível 1 subindo em linha reta até 0,8% no nível 50; depois +0,004% por nível até o teto de 1,6%. Spots de farm multiplicam (melhora os spots). Chefes e baús seguem nas próprias tabelas (tag joia:refino) e rolam a curva também.",
+    "curva": {
+      "nivel_1": 0.0008,
+      "nivel_50": 0.008,
+      "por_nivel_acima_50": 4e-05,
+      "teto": 0.016
+    },
+    "itens": {
+      "lagrima_angelica": 1.0,
+      "lagrima_sanguinea": 0.5
+    },
+    "multiplicadores": {
+      "spot_de_farm": 1.25,
+      "elite": 3.0,
+      "chefe": 5.0,
+      "angelica_de_celestial": 2.0
+    },
+    "loot_pessoal": true,
+    "exemplos_por_abate": {
+      "nivel_1": "Angélica 0,08% / Sanguínea 0,04%",
+      "nivel_10": "0,21% / 0,11%",
+      "nivel_25": "0,43% / 0,22%",
+      "nivel_50": "0,80% / 0,40%",
+      "nivel_100": "1,00% / 0,50%"
+    },
+    "_farm": "Spot com 12 mobs e respawn de 14 s dá uns 500 abates por hora com o modo automático. Nível 5: ~0,9 Angélica/h; nível 20: ~2,3/h; nível 50: ~5/h (com o bônus de spot). Um +6 do zero pede 6 Angélicas; um +15 pede umas 20 Sanguíneas contando as falhas."
+  },
+  "refino_com_lagrimas": {
+    "_doc": "Substitui Lágrima de Anjo/Fragmento de Alma (saves antigos: lagrima_anjo vira lagrima_angelica, fragmento_alma vira lagrima_sanguinea). Feito no ferreiro. Cada + continua somando bonus_por_nivel (8%) no dano/defesa base.",
+    "maximo": 15,
+    "lagrima_angelica": {
+      "de": 0,
+      "ate": 6,
+      "chance": 1.0
+    },
+    "lagrima_sanguinea": {
+      "de": 6,
+      "ate": 15,
+      "chance_para": {
+        "+7": 0.75,
+        "+8": 0.7,
+        "+9": 0.65,
+        "+10": 0.55,
+        "+11": 0.5,
+        "+12": 0.45,
+        "+13": 0.4,
+        "+14": 0.35,
+        "+15": 0.3
+      }
+    },
+    "falha": {
+      "tentando_+7_a_+10": "perde 1 nível",
+      "tentando_+11_a_+15": "perde 2 níveis",
+      "piso": "nunca abaixo de +6 (no +6 só perde a lágrima)",
+      "quebra": false
+    },
+    "custo_ouro": "50 x nível alvo (o ferreiro cobra; o +15 custa 750)"
+  },
   "opcoes_de_item": {
-    "_doc": "Valores de referencia por opcao (faixa 1 = nivel 1-7, faixa 2 = nivel 7-13). A thread de itens escolhe quais opcoes cada tipo pode ter.",
+    "_doc": "Valores de referencia por opcao. Faixa 1 = nivel 1-7, 2 = 7-18, 3 = 19-35, 4 = 36-55, 5 = 56-75 (16/10/2026). A thread de itens escolhe quais opcoes cada tipo pode ter.",
     "dano_plano": {
       "faixa1": [
         1,
@@ -67,6 +134,18 @@
       "faixa2": [
         2,
         5
+      ],
+      "faixa3": [
+        4,
+        10
+      ],
+      "faixa4": [
+        6,
+        15
+      ],
+      "faixa5": [
+        9,
+        22
       ]
     },
     "defesa_plana": {
@@ -77,6 +156,18 @@
       "faixa2": [
         2,
         5
+      ],
+      "faixa3": [
+        4,
+        10
+      ],
+      "faixa4": [
+        6,
+        15
+      ],
+      "faixa5": [
+        9,
+        22
       ]
     },
     "hp_plano": {
@@ -87,6 +178,18 @@
       "faixa2": [
         15,
         35
+      ],
+      "faixa3": [
+        28,
+        66
+      ],
+      "faixa4": [
+        45,
+        105
+      ],
+      "faixa5": [
+        64,
+        150
       ]
     },
     "atributo": {
@@ -97,6 +200,18 @@
       "faixa2": [
         3,
         6
+      ],
+      "faixa3": [
+        6,
+        11
+      ],
+      "faixa4": [
+        9,
+        18
+      ],
+      "faixa5": [
+        13,
+        26
       ]
     },
     "critico": {
@@ -107,6 +222,18 @@
       "faixa2": [
         0.02,
         0.03
+      ],
+      "faixa3": [
+        0.025,
+        0.037
+      ],
+      "faixa4": [
+        0.03,
+        0.045
+      ],
+      "faixa5": [
+        0.035,
+        0.052
       ]
     },
     "velocidade_ataque": {
@@ -117,6 +244,18 @@
       "faixa2": [
         0.04,
         0.07
+      ],
+      "faixa3": [
+        0.05,
+        0.088
+      ],
+      "faixa4": [
+        0.06,
+        0.105
+      ],
+      "faixa5": [
+        0.07,
+        0.123
       ]
     },
     "roubo_de_vida": {
@@ -127,6 +266,18 @@
       "faixa2": [
         0.02,
         0.03
+      ],
+      "faixa3": [
+        0.025,
+        0.037
+      ],
+      "faixa4": [
+        0.03,
+        0.045
+      ],
+      "faixa5": [
+        0.035,
+        0.052
       ]
     },
     "res_elemento": {
@@ -137,6 +288,18 @@
       "faixa2": [
         0.08,
         0.15
+      ],
+      "faixa3": [
+        0.1,
+        0.188
+      ],
+      "faixa4": [
+        0.12,
+        0.225
+      ],
+      "faixa5": [
+        0.14,
+        0.263
       ]
     },
     "excelente_golpe": {
@@ -147,6 +310,18 @@
       "faixa2": [
         0.08,
         0.1
+      ],
+      "faixa3": [
+        0.1,
+        0.125
+      ],
+      "faixa4": [
+        0.12,
+        0.15
+      ],
+      "faixa5": [
+        0.14,
+        0.175
       ]
     },
     "excelente_dano": {
@@ -157,6 +332,18 @@
       "faixa2": [
         0.06,
         0.08
+      ],
+      "faixa3": [
+        0.075,
+        0.1
+      ],
+      "faixa4": [
+        0.09,
+        0.12
+      ],
+      "faixa5": [
+        0.105,
+        0.14
       ]
     },
     "excelente_reduz_dano": {
@@ -167,6 +354,18 @@
       "faixa2": [
         0.04,
         0.05
+      ],
+      "faixa3": [
+        0.05,
+        0.062
+      ],
+      "faixa4": [
+        0.06,
+        0.075
+      ],
+      "faixa5": [
+        0.07,
+        0.088
       ]
     },
     "excelente_ouro": {
@@ -177,13 +376,25 @@
       "faixa2": [
         0.3,
         0.4
+      ],
+      "faixa3": [
+        0.375,
+        0.5
+      ],
+      "faixa4": [
+        0.45,
+        0.6
+      ],
+      "faixa5": [
+        0.525,
+        0.7
       ]
     }
   },
   "regras": {
     "ouro_formula": "aleatorio(2*L, 5*L) * mult_arquetipo_xp",
     "ouro_chance": 0.55,
-    "item_faixa": "faixa1 se L_mob <= 7, faixa2 se L_mob >= 7 (no 7 sorteia meio a meio)",
+    "item_faixa": "faixa1 se L_mob <= 7; faixa2 de 7 a 18; faixa3 de 19 a 35; faixa4 de 36 a 55; faixa5 de 56 a 75 (no limite sorteia meio a meio). O item sorteado deve ter nivel entre L_mob-8 e L_mob+2 (16/10/2026).",
     "mob_muito_abaixo": "mob 6+ niveis abaixo do jogador nao solta equipamento, so ouro e consumivel",
     "pegar_item": "clique no item ou tecla Alt mostra nomes no chao; ouro e pego ao passar por cima",
     "dono_do_drop_s": 60,
@@ -266,7 +477,7 @@
         },
         {
           "tag": "lendario:capataz",
-          "peso": 4
+          "peso": 1.462
         },
         {
           "tag": "chave:bau_de_ferro",
@@ -279,9 +490,6 @@
       "item_chance": 1.0,
       "rolagens_garantidas": 2,
       "raridade_minima": "magico",
-      "garantido": [
-        "missao:coracao_de_cardo"
-      ],
       "rolagens": [
         {
           "tag": "equip:faixa1",
@@ -289,7 +497,7 @@
         },
         {
           "tag": "lendario:cardo",
-          "peso": 15
+          "peso": 3.542
         }
       ]
     },
@@ -336,11 +544,7 @@
         },
         {
           "tag": "equip:faixa2",
-          "peso": 50
-        },
-        {
-          "tag": "joia:refino",
-          "peso": 10
+          "peso": 60
         }
       ]
     },
@@ -370,11 +574,7 @@
         },
         {
           "tag": "equip:faixa2",
-          "peso": 55
-        },
-        {
-          "tag": "joia:refino",
-          "peso": 15
+          "peso": 70
         }
       ]
     },
@@ -382,9 +582,6 @@
       "rolagens_garantidas": 4,
       "raridade_minima": "magico",
       "ouro_mult": 25,
-      "garantido": [
-        "missao:veu_da_carpideira"
-      ],
       "rolagens": [
         {
           "tag": "equip:faixa2",
@@ -392,11 +589,11 @@
         },
         {
           "tag": "joia:refino",
-          "peso": 14
+          "peso": 7.478
         },
         {
           "tag": "lendario:celeste",
-          "peso": 8
+          "peso": 2.644
         }
       ],
       "reliquias_sugeridas": [
@@ -416,9 +613,6 @@
       "rolagens_garantidas": 5,
       "raridade_minima": "raro",
       "ouro_mult": 30,
-      "garantido": [
-        "missao:bocal_da_trombeta"
-      ],
       "rolagens": [
         {
           "tag": "equip:faixa2",
@@ -426,11 +620,11 @@
         },
         {
           "tag": "joia:refino",
-          "peso": 16
+          "peso": 7.304
         },
         {
           "tag": "lendario:zacarias",
-          "peso": 12
+          "peso": 2.453
         }
       ],
       "reliquias_sugeridas": [
@@ -455,9 +649,6 @@
       "rolagens_garantidas": 4,
       "raridade_minima": "magico",
       "ouro_mult": 25,
-      "garantido": [
-        "missao:estandarte_roido"
-      ],
       "rolagens": [
         {
           "tag": "equip:faixa2",
@@ -465,11 +656,11 @@
         },
         {
           "tag": "joia:refino",
-          "peso": 12
+          "peso": 7.652
         },
         {
           "tag": "lendario:general",
-          "peso": 8
+          "peso": 2.711
         }
       ],
       "reliquias_sugeridas": [
@@ -512,7 +703,8 @@
       ],
       "raridade_minima": "magico",
       "ouro_mult": 5,
-      "joia_refino_chance": 0.25
+      "joia_refino_chance": 0.25,
+      "joia_sanguinea_fracao": 0.15
     },
     "bau_faminto": {
       "onde": "cripta; 1 em cada 12 caixotes podres vira mimico",
@@ -534,5 +726,6 @@
       "ouro_mult": 15,
       "_doc": "momento de recompensa: a sala acende vela por vela antes do bau abrir"
     }
-  }
+  },
+  "_revisao_1610": "Revisao 16/10/2026: reliquia por abate passa a ~4,5% no Capataz, ~8% no Filho de Cardo e 11% a 14% nos chefes (era 11,5%, 28% e 28% a 47%); joia:refino nos chefes 8% por rolagem; tirados os itens garantidos que nao existiam (estandarte_roido, veu_da_carpideira, bocal_da_trombeta, coracao_de_cardo). Faixas 3 a 5 de opcoes criadas."
 }

@@ -1,4 +1,44 @@
 {
+ "abominacao": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/abominacao/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/abominacao/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/abominacao/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
  "anjo": {
   "frame": [
    192,
@@ -21,21 +61,283 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/personagens/anjo/idle.png",
-    "frames": 4,
-    "fps": 4,
+    "frames": 12,
+    "fps": 12,
     "loop": true
    },
    "walk": {
     "file": "res://assets/ext/personagens/anjo/walk.png",
     "frames": 12,
-    "fps": 15,
+    "fps": 16,
     "loop": true
    },
    "attack": {
     "file": "res://assets/ext/personagens/anjo/attack.png",
-    "frames": 12,
-    "fps": 18,
+    "frames": 16,
+    "fps": 24,
     "loop": false
+   }
+  }
+ },
+ "arcanjo": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/arcanjo/idle.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/arcanjo/walk.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/arcanjo/attack.png",
+    "frames": 16,
+    "fps": 24,
+    "loop": false
+   }
+  }
+ },
+ "arquimago": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/arquimago/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/arquimago/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/arquimago/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "belzarim": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/belzarim/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/belzarim/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "bento_atracador": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/bento_atracador/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/bento_atracador/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "cacador_de_anjos": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/cacador_de_anjos/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/cacador_de_anjos/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/cacador_de_anjos/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "ceifador": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/ceifador/idle.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/ceifador/walk.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/ceifador/attack.png",
+    "frames": 16,
+    "fps": 24,
+    "loop": false
+   }
+  }
+ },
+ "celina_vidraceira": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/celina_vidraceira/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/celina_vidraceira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -61,21 +363,55 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/personagens/cultista/idle.png",
+    "frames": 16,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/cultista/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/cultista/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
+ "damiao_sentinela": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/damiao_sentinela/idle.png",
     "frames": 4,
     "fps": 4,
     "loop": true
    },
    "walk": {
-    "file": "res://assets/ext/personagens/cultista/walk.png",
+    "file": "res://assets/ext/personagens/damiao_sentinela/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
-   },
-   "attack": {
-    "file": "res://assets/ext/personagens/cultista/attack.png",
-    "frames": 8,
-    "fps": 12,
-    "loop": false
    }
   }
  },
@@ -101,18 +437,172 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/personagens/demonio/idle.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/demonio/walk.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/demonio/attack.png",
+    "frames": 16,
+    "fps": 24,
+    "loop": false
+   }
+  }
+ },
+ "engenheiro_herege": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/engenheiro_herege/idle.png",
     "frames": 4,
     "fps": 4,
     "loop": true
    },
    "walk": {
-    "file": "res://assets/ext/personagens/demonio/walk.png",
+    "file": "res://assets/ext/personagens/engenheiro_herege/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
    },
    "attack": {
-    "file": "res://assets/ext/personagens/demonio/attack.png",
+    "file": "res://assets/ext/personagens/engenheiro_herege/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "evemon_parado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/evemon_parado/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/evemon_parado/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "gladiador": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/gladiador/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/gladiador/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/gladiador/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
+ "gustavo_primarca": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/gustavo_primarca/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/gustavo_primarca/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/gustavo_primarca/attack.png",
     "frames": 8,
     "fps": 12,
     "loop": false
@@ -177,6 +667,188 @@
    }
   }
  },
+ "iolanda_prumo": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/iolanda_prumo/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/iolanda_prumo/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "irma_sinesia": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/irma_sinesia/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/irma_sinesia/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "lindalva_parteira": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/lindalva_parteira/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/lindalva_parteira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "lorde_das_trevas": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/lorde_das_trevas/idle.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/lorde_das_trevas/walk.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/lorde_das_trevas/attack.png",
+    "frames": 16,
+    "fps": 24,
+    "loop": false
+   }
+  }
+ },
+ "mechanicus": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/mechanicus/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/mechanicus/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/mechanicus/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
  "mutante": {
   "frame": [
    192,
@@ -199,20 +871,356 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/personagens/mutante/idle.png",
+    "frames": 16,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/mutante/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/mutante/attack.png",
+    "frames": 14,
+    "fps": 21,
+    "loop": false
+   }
+  }
+ },
+ "nestor_calco": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/nestor_calco/idle.png",
     "frames": 4,
     "fps": 4,
     "loop": true
    },
    "walk": {
-    "file": "res://assets/ext/personagens/mutante/walk.png",
+    "file": "res://assets/ext/personagens/nestor_calco/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "pedro_penitente": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/pedro_penitente/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/pedro_penitente/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "pirralho_ferrolho": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/pirralho_ferrolho/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/pirralho_ferrolho/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "pistoleiro": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/pistoleiro/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/pistoleiro/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
    },
    "attack": {
-    "file": "res://assets/ext/personagens/mutante/attack.png",
+    "file": "res://assets/ext/personagens/pistoleiro/attack.png",
     "frames": 8,
     "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "previa_cultista_v3": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/previa_cultista_v3/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/previa_cultista_v3/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/previa_cultista_v3/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "previa_cultista_v4": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/previa_cultista_v4/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/previa_cultista_v4/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/previa_cultista_v4/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "profeta_do_amargo": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/profeta_do_amargo/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/profeta_do_amargo/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/profeta_do_amargo/attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   }
+  }
+ },
+ "saulo_penitente": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/saulo_penitente/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/saulo_penitente/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
+ "serafim": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   173.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/serafim/idle.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/serafim/walk.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/serafim/attack.png",
+    "frames": 16,
+    "fps": 24,
     "loop": false
    }
   }
@@ -239,21 +1247,163 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/personagens/tecnomancer/idle.png",
+    "frames": 16,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/tecnomancer/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/tecnomancer/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
+ "thotme": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/thotme/idle.png",
     "frames": 4,
     "fps": 4,
     "loop": true
    },
    "walk": {
-    "file": "res://assets/ext/personagens/tecnomancer/walk.png",
+    "file": "res://assets/ext/personagens/thotme/walk.png",
     "frames": 8,
     "fps": 10,
     "loop": true
+   }
+  }
+ },
+ "torreta_sentinela": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/torreta_sentinela/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
    },
    "attack": {
-    "file": "res://assets/ext/personagens/tecnomancer/attack.png",
+    "file": "res://assets/ext/personagens/torreta_sentinela/attack.png",
     "frames": 8,
     "fps": 12,
     "loop": false
+   }
+  }
+ },
+ "warlord": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/warlord/idle.png",
+    "frames": 16,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/warlord/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/warlord/attack.png",
+    "frames": 14,
+    "fps": 21,
+    "loop": false
+   }
+  }
+ },
+ "zulmira_faroleira": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   151.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/zulmira_faroleira/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/zulmira_faroleira/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
    }
   }
  },
@@ -279,8 +1429,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -291,25 +1441,96 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "heavy": {
     "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_heavy.png",
-    "frames": 14,
-    "fps": 12,
+    "frames": 16,
+    "fps": 14,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/acougueiro_oco/acougueiro_oco_death.png",
+    "frames": 14,
+    "fps": 13,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "ammit": {
+  "frame": [
+   448,
+   448
+  ],
+  "anchor": [
+   224.0,
+   279.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/ammit/ammit_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/ammit/ammit_walk.png",
     "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/ammit/ammit_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/ammit/ammit_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "devour": {
+    "file": "res://assets/ext/monstros/ammit/ammit_devour.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/ammit/ammit_roar.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/ammit/ammit_charge.png",
+    "frames": 8,
+    "fps": 13,
+    "loop": true
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/ammit/ammit_death.png",
+    "frames": 10,
     "fps": 10,
     "loop": false
    }
@@ -406,6 +1627,632 @@
     "file": "res://assets/ext/monstros/andras/andras_death.png",
     "frames": 12,
     "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "anubis_guardiao": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   233.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "shield": {
+    "file": "res://assets/ext/monstros/anubis_guardiao/anubis_guardiao_shield.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "anubis_pesador": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   275.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "mark": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_mark.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "slam": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_slam.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/anubis_pesador/anubis_pesador_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "anubis_sentinela": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   207.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/anubis_sentinela/anubis_sentinela_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/anubis_sentinela/anubis_sentinela_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/anubis_sentinela/anubis_sentinela_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/anubis_sentinela/anubis_sentinela_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/anubis_sentinela/anubis_sentinela_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "apofis": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   366.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/apofis/apofis_idle.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/apofis/apofis_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/apofis/apofis_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "bite": {
+    "file": "res://assets/ext/monstros/apofis/apofis_bite.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "gaze": {
+    "file": "res://assets/ext/monstros/apofis/apofis_gaze.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": false
+   },
+   "spit": {
+    "file": "res://assets/ext/monstros/apofis/apofis_spit.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/apofis/apofis_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/apofis/apofis_rise.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "submerge": {
+    "file": "res://assets/ext/monstros/apofis/apofis_submerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/apofis/apofis_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "arconte_de_luz": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   438.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/arconte_de_luz/arconte_de_luz_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/arconte_de_luz/arconte_de_luz_walk.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "baraquiel": {
+  "frame": [
+   576,
+   576
+  ],
+  "anchor": [
+   288.0,
+   440.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_attack.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_death.png",
+    "frames": 16,
+    "fps": 10,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_spin.png",
+    "frames": 12,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_lunge.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_cast.png",
+    "frames": 12,
+    "fps": 11,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_summon.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/baraquiel/baraquiel_roar.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "baraquiel_sinal_pleno": {
+  "frame": [
+   576,
+   576
+  ],
+  "anchor": [
+   288.0,
+   440.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_attack.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_death.png",
+    "frames": 16,
+    "fps": 10,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_spin.png",
+    "frames": 12,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_lunge.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_cast.png",
+    "frames": 12,
+    "fps": 11,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_summon.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/baraquiel_sinal_pleno/baraquiel_sinal_pleno_roar.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "bombardeiro_legiao": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   207.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_attack.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": false
+   },
+   "fire": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_fire.png",
+    "frames": 11,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_hit.png",
+    "frames": 5,
+    "fps": 14,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/bombardeiro_legiao/bombardeiro_legiao_death.png",
+    "frames": 14,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "caim_abel": {
+  "frame": [
+   448,
+   448
+  ],
+  "anchor": [
+   224.0,
+   287.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/caim_abel/caim_abel_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "anunciar": {
+    "file": "res://assets/ext/monstros/caim_abel/caim_abel_anunciar.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   },
+   "discutir": {
+    "file": "res://assets/ext/monstros/caim_abel/caim_abel_discutir.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "rir": {
+    "file": "res://assets/ext/monstros/caim_abel/caim_abel_rir.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "cao_da_barreira": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   162.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cao_da_barreira/cao_da_barreira_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cao_da_barreira/cao_da_barreira_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cao_da_barreira/cao_da_barreira_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cao_da_barreira/cao_da_barreira_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cao_da_barreira/cao_da_barreira_death.png",
+    "frames": 10,
+    "fps": 10,
     "loop": false
    }
   },
@@ -563,8 +2410,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -575,8 +2422,8 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "hook": {
@@ -599,14 +2446,14 @@
    },
    "hit": {
     "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/capataz_gancho/capataz_gancho_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    }
   },
@@ -634,8 +2481,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/carnical/carnical_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -646,20 +2493,20 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/carnical/carnical_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/carnical/carnical_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/carnical/carnical_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    }
   },
@@ -687,8 +2534,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -699,20 +2546,20 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/carnical_inchado/carnical_inchado_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    }
   },
@@ -843,6 +2690,124 @@
     "file": "res://assets/ext/monstros/carpideira_de_ossos_viuva/carpideira_de_ossos_viuva_death.png",
     "frames": 12,
     "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "cervo_de_lume": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   155.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "alert": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_alert.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cervo_de_lume/cervo_de_lume_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "cinocefalo": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   129.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_attack.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "howl": {
+    "file": "res://assets/ext/monstros/cinocefalo/cinocefalo_howl.png",
+    "frames": 12,
+    "fps": 9,
     "loop": false
    }
   },
@@ -1001,6 +2966,283 @@
   },
   "escala": 1.0
  },
+ "cria_de_apofis": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   241.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/cria_de_apofis/cria_de_apofis_idle.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/cria_de_apofis/cria_de_apofis_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/cria_de_apofis/cria_de_apofis_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/cria_de_apofis/cria_de_apofis_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/cria_de_apofis/cria_de_apofis_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "crocodilo_do_nilo": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   125.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/crocodilo_do_nilo/crocodilo_do_nilo_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/crocodilo_do_nilo/crocodilo_do_nilo_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/crocodilo_do_nilo/crocodilo_do_nilo_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/crocodilo_do_nilo/crocodilo_do_nilo_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/crocodilo_do_nilo/crocodilo_do_nilo_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "crocodilo_gigante": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   180.5
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/crocodilo_gigante/crocodilo_gigante_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/crocodilo_gigante/crocodilo_gigante_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/crocodilo_gigante/crocodilo_gigante_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/crocodilo_gigante/crocodilo_gigante_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/crocodilo_gigante/crocodilo_gigante_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "duamutef": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   232.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "aura": {
+    "file": "res://assets/ext/monstros/duamutef/duamutef_aura.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "eco_da_estatica": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/eco_da_estatica/eco_da_estatica_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/eco_da_estatica/eco_da_estatica_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/eco_da_estatica/eco_da_estatica_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/eco_da_estatica/eco_da_estatica_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/eco_da_estatica/eco_da_estatica_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "eco_da_trombeta": {
   "frame": [
    256,
@@ -1060,6 +3302,921 @@
    "death": {
     "file": "res://assets/ext/monstros/eco_da_trombeta/eco_da_trombeta_death.png",
     "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "elefante_de_atlas": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   353.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_walk.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_attack.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   },
+   "trumpet": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_trumpet.png",
+    "frames": 10,
+    "fps": 8,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_hit.png",
+    "frames": 3,
+    "fps": 10,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/elefante_de_atlas/elefante_de_atlas_death.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "escaravelho_carniceiro": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   113.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "burrow": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_burrow.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/escaravelho_carniceiro/escaravelho_carniceiro_emerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "escaravelho_rei": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   145.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "burrow": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_burrow.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/escaravelho_rei/escaravelho_rei_emerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "escaravelho_sagrado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   113.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "burrow": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_burrow.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/escaravelho_sagrado/escaravelho_sagrado_emerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "escorpiao_de_serket": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   187.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/escorpiao_de_serket/escorpiao_de_serket_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/escorpiao_de_serket/escorpiao_de_serket_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/escorpiao_de_serket/escorpiao_de_serket_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/escorpiao_de_serket/escorpiao_de_serket_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/escorpiao_de_serket/escorpiao_de_serket_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "escorpiao_negro": {
+  "frame": [
+   352,
+   352
+  ],
+  "anchor": [
+   176.0,
+   209.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/escorpiao_negro/escorpiao_negro_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/escorpiao_negro/escorpiao_negro_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/escorpiao_negro/escorpiao_negro_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/escorpiao_negro/escorpiao_negro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/escorpiao_negro/escorpiao_negro_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "esfinge_carneiro": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   241.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/esfinge_carneiro/esfinge_carneiro_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/esfinge_carneiro/esfinge_carneiro_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/esfinge_carneiro/esfinge_carneiro_attack.png",
+    "frames": 9,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/esfinge_carneiro/esfinge_carneiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/esfinge_carneiro/esfinge_carneiro_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "esfinge_de_hawara": {
+  "frame": [
+   640,
+   640
+  ],
+  "anchor": [
+   320.0,
+   419.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_idle.png",
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_attack.png",
+    "frames": 9,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   },
+   "riddle": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_riddle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "slam": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_slam.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   },
+   "wave": {
+    "file": "res://assets/ext/monstros/esfinge_de_hawara/esfinge_de_hawara_wave.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "familiar_algoz": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   183.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/familiar_algoz/familiar_algoz_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/familiar_algoz/familiar_algoz_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/familiar_algoz/familiar_algoz_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/familiar_algoz/familiar_algoz_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/familiar_algoz/familiar_algoz_death.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "familiar_diabrete": {
+  "frame": [
+   160,
+   160
+  ],
+  "anchor": [
+   80.0,
+   102.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/familiar_diabrete/familiar_diabrete_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/familiar_diabrete/familiar_diabrete_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/familiar_diabrete/familiar_diabrete_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/familiar_diabrete/familiar_diabrete_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/familiar_diabrete/familiar_diabrete_death.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "familiar_lider": {
+  "frame": [
+   448,
+   448
+  ],
+  "anchor": [
+   224.0,
+   332.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/familiar_lider/familiar_lider_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/familiar_lider/familiar_lider_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/familiar_lider/familiar_lider_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/familiar_lider/familiar_lider_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/familiar_lider/familiar_lider_death.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "familiar_tirano": {
+  "frame": [
+   352,
+   352
+  ],
+  "anchor": [
+   176.0,
+   253.6
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/familiar_tirano/familiar_tirano_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/familiar_tirano/familiar_tirano_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/familiar_tirano/familiar_tirano_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/familiar_tirano/familiar_tirano_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/familiar_tirano/familiar_tirano_death.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "farao_sem_nome": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   280.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "plague": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_plague.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_summon.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/farao_sem_nome/farao_sem_nome_roar.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "ferrabras_guarda_linhas": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   317.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_spin.png",
+    "frames": 14,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_lunge.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_cast.png",
+    "frames": 14,
+    "fps": 12,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_summon.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_roar.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/ferrabras_guarda_linhas/ferrabras_guarda_linhas_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "filho_da_serpente": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "hiss": {
+    "file": "res://assets/ext/monstros/filho_da_serpente/filho_da_serpente_hiss.png",
+    "frames": 10,
     "fps": 10,
     "loop": false
    }
@@ -1196,6 +4353,77 @@
   },
   "escala": 1.0
  },
+ "gadiro": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   336.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_idle.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_death.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_roar.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "coil": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_coil.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/gadiro/gadiro_cast.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "gancheiro": {
   "frame": [
    224,
@@ -1250,6 +4478,890 @@
     "file": "res://assets/ext/monstros/gancheiro/gancheiro_death.png",
     "frames": 8,
     "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "golias": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   311.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/golias/golias_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/golias/golias_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/golias/golias_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "spin_start": {
+    "file": "res://assets/ext/monstros/golias/golias_spin_start.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/golias/golias_spin.png",
+    "frames": 12,
+    "fps": 16,
+    "loop": true
+   },
+   "spin_end": {
+    "file": "res://assets/ext/monstros/golias/golias_spin_end.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/golias/golias_roar.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/golias/golias_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/golias/golias_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "guarda_fios": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   167.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/guarda_fios/guarda_fios_idle.png",
+    "frames": 12,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/guarda_fios/guarda_fios_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/guarda_fios/guarda_fios_attack.png",
+    "frames": 11,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/guarda_fios/guarda_fios_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/guarda_fios/guarda_fios_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "guardiao_da_aurora": {
+  "frame": [
+   640,
+   640
+  ],
+  "anchor": [
+   320.0,
+   527.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_attack.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_hit.png",
+    "frames": 4,
+    "fps": 11,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_death.png",
+    "frames": 12,
+    "fps": 9,
+    "loop": false
+   },
+   "julgamento": {
+    "file": "res://assets/ext/monstros/guardiao_da_aurora/guardiao_da_aurora_julgamento.png",
+    "frames": 12,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "guardiao_do_crepusculo": {
+  "frame": [
+   640,
+   640
+  ],
+  "anchor": [
+   320.0,
+   514.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_attack.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_hit.png",
+    "frames": 4,
+    "fps": 11,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_death.png",
+    "frames": 12,
+    "fps": 9,
+    "loop": false
+   },
+   "pesagem": {
+    "file": "res://assets/ext/monstros/guardiao_do_crepusculo/guardiao_do_crepusculo_pesagem.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "guardiao_falcao": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   223.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/guardiao_falcao/guardiao_falcao_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/guardiao_falcao/guardiao_falcao_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/guardiao_falcao/guardiao_falcao_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/guardiao_falcao/guardiao_falcao_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/guardiao_falcao/guardiao_falcao_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "guardiao_mumia": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "shield": {
+    "file": "res://assets/ext/monstros/guardiao_mumia/guardiao_mumia_shield.png",
+    "frames": 6,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "hapi": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   232.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/hapi/hapi_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/hapi/hapi_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/hapi/hapi_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/hapi/hapi_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/hapi/hapi_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/hapi/hapi_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "aura": {
+    "file": "res://assets/ext/monstros/hapi/hapi_aura.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "hoplita_de_oricalco": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_walk.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_attack.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "block": {
+    "file": "res://assets/ext/monstros/hoplita_de_oricalco/hoplita_de_oricalco_block.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "ibis_de_thoth": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   145.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_attack.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": false
+   },
+   "flap": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_flap.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/ibis_de_thoth/ibis_de_thoth_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "ibis_de_thoth_atl": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   145.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {},
+  "escala": 1.0
+ },
+ "imseti": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   232.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/imseti/imseti_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/imseti/imseti_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/imseti/imseti_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/imseti/imseti_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/imseti/imseti_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/imseti/imseti_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "aura": {
+    "file": "res://assets/ext/monstros/imseti/imseti_aura.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "inaudivel": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   248.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/inaudivel/inaudivel_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/inaudivel/inaudivel_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/inaudivel/inaudivel_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/inaudivel/inaudivel_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/inaudivel/inaudivel_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "irma_celeste": {
+  "frame": [
+   416,
+   416
+  ],
+  "anchor": [
+   208.0,
+   296.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_attack.png",
+    "frames": 14,
+    "fps": 14,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_summon.png",
+    "frames": 14,
+    "fps": 13,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_hit.png",
+    "frames": 5,
+    "fps": 14,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/irma_celeste/irma_celeste_death.png",
+    "frames": 16,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "jambres": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   234.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/jambres/jambres_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/jambres/jambres_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/jambres/jambres_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/jambres/jambres_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/jambres/jambres_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/jambres/jambres_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "staff_serpent": {
+    "file": "res://assets/ext/monstros/jambres/jambres_staff_serpent.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "resurrect": {
+    "file": "res://assets/ext/monstros/jambres/jambres_resurrect.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "janes": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   234.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/janes/janes_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/janes/janes_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/janes/janes_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/janes/janes_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/janes/janes_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/janes/janes_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "staff_serpent": {
+    "file": "res://assets/ext/monstros/janes/janes_staff_serpent.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "resurrect": {
+    "file": "res://assets/ext/monstros/janes/janes_resurrect.png",
+    "frames": 12,
+    "fps": 8,
     "loop": false
    }
   },
@@ -1361,6 +5473,467 @@
   },
   "escala": 1.0
  },
+ "leao_dalila": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   241.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "run": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_run.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_attack.png",
+    "frames": 9,
+    "fps": 13,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_roar.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/leao_dalila/leao_dalila_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "leao_nabucodonosor": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   241.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "run": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_run.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_attack.png",
+    "frames": 9,
+    "fps": 13,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_roar.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/leao_nabucodonosor/leao_nabucodonosor_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "leao_sansao": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   241.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "run": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_run.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_attack.png",
+    "frames": 9,
+    "fps": 13,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_roar.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/leao_sansao/leao_sansao_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "lider_dos_anjos": {
+  "frame": [
+   640,
+   640
+  ],
+  "anchor": [
+   320.0,
+   491.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/lider_dos_anjos/lider_dos_anjos_idle.png",
+    "frames": 12,
+    "fps": 6,
+    "loop": true
+   },
+   "talk": {
+    "file": "res://assets/ext/monstros/lider_dos_anjos/lider_dos_anjos_talk.png",
+    "frames": 14,
+    "fps": 8,
+    "loop": false
+   },
+   "point": {
+    "file": "res://assets/ext/monstros/lider_dos_anjos/lider_dos_anjos_point.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "lider_dos_demonios": {
+  "frame": [
+   640,
+   640
+  ],
+  "anchor": [
+   320.0,
+   486.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/lider_dos_demonios/lider_dos_demonios_idle.png",
+    "frames": 12,
+    "fps": 6,
+    "loop": true
+   },
+   "talk": {
+    "file": "res://assets/ext/monstros/lider_dos_demonios/lider_dos_demonios_talk.png",
+    "frames": 14,
+    "fps": 8,
+    "loop": false
+   },
+   "point": {
+    "file": "res://assets/ext/monstros/lider_dos_demonios/lider_dos_demonios_point.png",
+    "frames": 12,
+    "fps": 8,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "madre_brasilia": {
+  "frame": [
+   416,
+   416
+  ],
+  "anchor": [
+   208.0,
+   274.5
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_attack.png",
+    "frames": 11,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_spin.png",
+    "frames": 12,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_lunge.png",
+    "frames": 11,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_cast.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_summon.png",
+    "frames": 11,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/madre_brasilia/madre_brasilia_roar.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "malaquias_ouvinte_cego": {
+  "frame": [
+   448,
+   448
+  ],
+  "anchor": [
+   224.0,
+   304.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_idle.png",
+    "frames": 10,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_death.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_spin.png",
+    "frames": 12,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_lunge.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_cast.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_summon.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/malaquias_ouvinte_cego/malaquias_ouvinte_cego_roar.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "monge_emparedado": {
   "frame": [
    256,
@@ -1432,6 +6005,118 @@
   },
   "escala": 1.0
  },
+ "mumia_operaria": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   151.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/mumia_operaria/mumia_operaria_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/mumia_operaria/mumia_operaria_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/mumia_operaria/mumia_operaria_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/mumia_operaria/mumia_operaria_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/mumia_operaria/mumia_operaria_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "naja": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   118.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/naja/naja_idle.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/naja/naja_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/naja/naja_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/naja/naja_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/naja/naja_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "spit": {
+    "file": "res://assets/ext/monstros/naja/naja_spit.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "nao_julgado": {
   "frame": [
    192,
@@ -1454,8 +6139,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -1466,20 +6151,20 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/nao_julgado/nao_julgado_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    }
   },
@@ -1507,8 +6192,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -1519,19 +6204,208 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_attack.png",
-    "frames": 8,
-    "fps": 12,
+    "frames": 12,
+    "fps": 16,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_hit.png",
+    "frames": 5,
+    "fps": 14,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_death.png",
+    "frames": 14,
+    "fps": 13,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "o_que_nao_tem_rosto": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   211.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/o_que_nao_tem_rosto/o_que_nao_tem_rosto_idle.png",
+    "frames": 8,
+    "fps": 4,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "o_telegrafista": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   336.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_idle.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_walk.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_death.png",
+    "frames": 14,
+    "fps": 10,
+    "loop": false
+   },
+   "spin": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_spin.png",
+    "frames": 12,
+    "fps": 14,
+    "loop": false
+   },
+   "lunge": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_lunge.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_cast.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": true
+   },
+   "summon": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_summon.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/o_telegrafista/o_telegrafista_roar.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "petsuchos": {
+  "frame": [
+   448,
+   448
+  ],
+  "anchor": [
+   224.0,
+   251.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_hit.png",
     "frames": 3,
     "fps": 12,
     "loop": false
    },
    "death": {
-    "file": "res://assets/ext/monstros/nao_julgado_da_tempestade/nao_julgado_da_tempestade_death.png",
-    "frames": 8,
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "submerge": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_submerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_emerge.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_charge.png",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   "eat": {
+    "file": "res://assets/ext/monstros/petsuchos/petsuchos_eat.png",
+    "frames": 12,
     "fps": 10,
     "loop": false
    }
@@ -1609,6 +6483,124 @@
   },
   "escala": 1.0
  },
+ "qebehsenuef": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   232.1
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "aura": {
+    "file": "res://assets/ext/monstros/qebehsenuef/qebehsenuef_aura.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "querubim_da_espada": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/querubim_da_espada/querubim_da_espada_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/querubim_da_espada/querubim_da_espada_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/querubim_da_espada/querubim_da_espada_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/querubim_da_espada/querubim_da_espada_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/querubim_da_espada/querubim_da_espada_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "querubim_desfeito": {
   "frame": [
    288,
@@ -1674,6 +6666,708 @@
   },
   "escala": 1.0
  },
+ "receptaculo": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   136.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/receptaculo/receptaculo_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/receptaculo/receptaculo_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/receptaculo/receptaculo_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/receptaculo/receptaculo_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/receptaculo/receptaculo_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "receptaculo_inchado": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   161.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/receptaculo_inchado/receptaculo_inchado_idle.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/receptaculo_inchado/receptaculo_inchado_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/receptaculo_inchado/receptaculo_inchado_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/receptaculo_inchado/receptaculo_inchado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/receptaculo_inchado/receptaculo_inchado_death.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sacerdote_da_serpente": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "hiss": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_hiss.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/sacerdote_da_serpente/sacerdote_da_serpente_cast.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sacerdote_mumia": {
+  "frame": [
+   224,
+   224
+  ],
+  "anchor": [
+   112.0,
+   164.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_death.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/sacerdote_mumia/sacerdote_mumia_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sapo_sacristao": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   212.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_attack.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": false
+   },
+   "croak": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_croak.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sapo_sacristao/sapo_sacristao_death.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "saulo": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   253.0
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/saulo/saulo_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "abencoar": {
+    "file": "res://assets/ext/monstros/saulo/saulo_abencoar.png",
+    "frames": 10,
+    "fps": 9,
+    "loop": false
+   },
+   "rezar": {
+    "file": "res://assets/ext/monstros/saulo/saulo_rezar.png",
+    "frames": 6,
+    "fps": 8,
+    "loop": true
+   },
+   "rir": {
+    "file": "res://assets/ext/monstros/saulo/saulo_rir.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "sekhmet": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   269.6
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "roar": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_roar.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "leap": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_leap.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "breath": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_breath.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "frenzy": {
+    "file": "res://assets/ext/monstros/sekhmet/sekhmet_frenzy.png",
+    "frames": 8,
+    "fps": 14,
+    "loop": true
+   }
+  },
+  "escala": 1.0
+ },
+ "serket": {
+  "frame": [
+   576,
+   576
+  ],
+  "anchor": [
+   288.0,
+   350.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/serket/serket_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/serket/serket_walk.png",
+    "frames": 8,
+    "fps": 12,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/serket/serket_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/serket/serket_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/serket/serket_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   },
+   "sting": {
+    "file": "res://assets/ext/monstros/serket/serket_sting.png",
+    "frames": 12,
+    "fps": 11,
+    "loop": false
+   },
+   "burrow": {
+    "file": "res://assets/ext/monstros/serket/serket_burrow.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "emerge": {
+    "file": "res://assets/ext/monstros/serket/serket_emerge.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "cast": {
+    "file": "res://assets/ext/monstros/serket/serket_cast.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "serpente_do_eden": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   194.5
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/serpente_do_eden/serpente_do_eden_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/serpente_do_eden/serpente_do_eden_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/serpente_do_eden/serpente_do_eden_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/serpente_do_eden/serpente_do_eden_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/serpente_do_eden/serpente_do_eden_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sintonizado": {
+  "frame": [
+   192,
+   192
+  ],
+  "anchor": [
+   96.0,
+   145.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sintonizado/sintonizado_idle.png",
+    "frames": 12,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sintonizado/sintonizado_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sintonizado/sintonizado_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sintonizado/sintonizado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sintonizado/sintonizado_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sintonizado_locutor": {
+  "frame": [
+   208,
+   208
+  ],
+  "anchor": [
+   104.0,
+   158.3
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sintonizado_locutor/sintonizado_locutor_idle.png",
+    "frames": 12,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sintonizado_locutor/sintonizado_locutor_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sintonizado_locutor/sintonizado_locutor_attack.png",
+    "frames": 12,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sintonizado_locutor/sintonizado_locutor_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sintonizado_locutor/sintonizado_locutor_death.png",
+    "frames": 9,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "sobekita": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   223.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/sobekita/sobekita_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/sobekita/sobekita_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/sobekita/sobekita_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/sobekita/sobekita_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/sobekita/sobekita_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
  "soldado_caido": {
   "frame": [
    208,
@@ -1696,8 +7390,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -1708,20 +7402,20 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_attack.png",
-    "frames": 10,
-    "fps": 12,
+    "frames": 12,
+    "fps": 15,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/soldado_caido/soldado_caido_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    },
    "rise": {
@@ -1755,8 +7449,8 @@
   "anims": {
    "idle": {
     "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_idle.png",
-    "frames": 4,
-    "fps": 5,
+    "frames": 8,
+    "fps": 7,
     "loop": true
    },
    "walk": {
@@ -1767,25 +7461,539 @@
    },
    "attack": {
     "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_attack.png",
-    "frames": 10,
-    "fps": 12,
+    "frames": 12,
+    "fps": 15,
     "loop": false
    },
    "hit": {
     "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_hit.png",
-    "frames": 3,
-    "fps": 12,
+    "frames": 5,
+    "fps": 14,
     "loop": false
    },
    "death": {
     "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_death.png",
-    "frames": 8,
-    "fps": 10,
+    "frames": 14,
+    "fps": 13,
     "loop": false
    },
    "rise": {
     "file": "res://assets/ext/monstros/soldado_escudeiro/soldado_escudeiro_rise.png",
     "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "touro_de_poseidon": {
+  "frame": [
+   320,
+   320
+  ],
+  "anchor": [
+   160.0,
+   215.4
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "scrape": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_scrape.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_charge.png",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/touro_de_poseidon/touro_de_poseidon_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "touro_do_pilar": {
+  "frame": [
+   384,
+   384
+  ],
+  "anchor": [
+   192.0,
+   258.5
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_attack.png",
+    "frames": 9,
+    "fps": 12,
+    "loop": false
+   },
+   "scrape": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_scrape.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_charge.png",
+    "frames": 6,
+    "fps": 14,
+    "loop": true
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/touro_do_pilar/touro_do_pilar_death.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "vigia_de_oricalco": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/vigia_de_oricalco/vigia_de_oricalco_idle.png",
+    "frames": 8,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/vigia_de_oricalco/vigia_de_oricalco_walk.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/vigia_de_oricalco/vigia_de_oricalco_attack.png",
+    "frames": 10,
+    "fps": 11,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/vigia_de_oricalco/vigia_de_oricalco_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/vigia_de_oricalco/vigia_de_oricalco_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "vigilante_estrelado": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   207.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "kneel": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_kneel.png",
+    "frames": 2,
+    "fps": 2,
+    "loop": true
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_rise.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "land": {
+    "file": "res://assets/ext/monstros/vigilante_estrelado/vigilante_estrelado_land.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "vigilante_ferreiro": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   207.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "kneel": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_kneel.png",
+    "frames": 2,
+    "fps": 2,
+    "loop": true
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_rise.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "land": {
+    "file": "res://assets/ext/monstros/vigilante_ferreiro/vigilante_ferreiro_land.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "vigilante_jurado": {
+  "frame": [
+   288,
+   288
+  ],
+  "anchor": [
+   144.0,
+   207.7
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_idle.png",
+    "frames": 6,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_attack.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_hit.png",
+    "frames": 3,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_death.png",
+    "frames": 10,
+    "fps": 10,
+    "loop": false
+   },
+   "kneel": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_kneel.png",
+    "frames": 2,
+    "fps": 2,
+    "loop": true
+   },
+   "rise": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_rise.png",
+    "frames": 12,
+    "fps": 10,
+    "loop": false
+   },
+   "land": {
+    "file": "res://assets/ext/monstros/vigilante_jurado/vigilante_jurado_land.png",
+    "frames": 10,
+    "fps": 12,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "vitral_andante": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   186.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/vitral_andante/vitral_andante_idle.png",
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/vitral_andante/vitral_andante_walk.png",
+    "frames": 8,
+    "fps": 8,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/vitral_andante/vitral_andante_attack.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/vitral_andante/vitral_andante_hit.png",
+    "frames": 5,
+    "fps": 14,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/vitral_andante/vitral_andante_death.png",
+    "frames": 14,
+    "fps": 13,
+    "loop": false
+   }
+  },
+  "escala": 1.0
+ },
+ "zacarias": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   355.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_idle.png",
+    "frames": 8,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_attack.png",
+    "frames": 10,
+    "fps": 13,
+    "loop": false
+   },
+   "charge": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_charge.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   },
+   "release": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_release.png",
+    "frames": 10,
+    "fps": 14,
+    "loop": false
+   },
+   "hit": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_hit.png",
+    "frames": 4,
+    "fps": 12,
+    "loop": false
+   },
+   "death": {
+    "file": "res://assets/ext/monstros/zacarias/zacarias_death.png",
+    "frames": 14,
     "fps": 10,
     "loop": false
    }

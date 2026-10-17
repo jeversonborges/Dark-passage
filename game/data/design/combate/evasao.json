@@ -1,0 +1,180 @@
+{
+  "_doc": "EVASAO (Jefin, 2026-10-17, para a versao depois da 0.9.3): toda classe tem uma esquiva propria no BOTAO DIREITO do mouse (tecla alternativa: Espaco; controle: RT). O botao esquerdo continua andando e dando o ataque basico. Nao ocupa slot de skill, nao gasta recurso, libera no nivel 1. Duas cargas; cada carga volta sozinha em 10 s, uma de cada vez. Vai na direcao do mouse (no controle, na direcao do stick esquerdo; parado, para onde o personagem olha). Cancela o ataque ou a conjuracao em andamento e a canalizacao (bau, vela). Nao sai atordoado, derrubado, enraizado, com a postura quebrada, sentado no trono nem morto. Nunca atravessa parede (so passa por cima/por entre inimigos). Todas tem o mesmo peso: ~4 tiles e ~0,3 s de invulnerabilidade; quem anda menos ganha um toque (empurrao ou escudo). Distancias em tiles, tempos em segundos.",
+  "versao": "1.0",
+  "cargas": 2,
+  "recarga_por_carga_s": 10.0,
+  "intervalo_minimo_s": 0.15,
+  "tecla_mouse": "direito",
+  "tecla_teclado": "espaco",
+  "botao_controle": "rt",
+  "bloqueada_por_status": [
+    "atordoado",
+    "derrubado",
+    "enraizado",
+    "congelado",
+    "preso"
+  ],
+  "classes": {
+    "anjo": {
+      "id": "evasao_anjo",
+      "nome": "Revoada",
+      "estilo": "voo",
+      "descricao": "Abre as asas remendadas e plana por cima da briga, levantando penas sujas.",
+      "deslocamento": 4.5,
+      "duracao_s": 0.42,
+      "invulneravel_s": 0.32,
+      "altura_px": 34,
+      "anim": "evasao",
+      "vfx_origem": "evasao_anjo_revoada",
+      "vfx_rastro": "evasao_anjo_penas",
+      "som": "evasao/anjo_revoada",
+      "_peso": "anda mais (4,5) porque leva mais tempo no ar (0,42 s)"
+    },
+    "demonio": {
+      "id": "evasao_demonio",
+      "nome": "Passo de Enxofre",
+      "estilo": "teleporte",
+      "descricao": "Some num estalo de enxofre e reaparece alguns passos adiante, deixando a fumaça para trás.",
+      "deslocamento": 4.0,
+      "duracao_s": 0.16,
+      "invulneravel_s": 0.28,
+      "anim": "evasao",
+      "vfx_origem": "evasao_demonio_enxofre",
+      "vfx_destino": "evasao_demonio_enxofre",
+      "som": "evasao/demonio_enxofre",
+      "_peso": "instantaneo, mas a invulnerabilidade e a menor"
+    },
+    "cultista": {
+      "id": "evasao_cultista",
+      "nome": "Véu de Sangue",
+      "estilo": "nevoa",
+      "descricao": "O corpo se desfaz numa névoa rubra que escorre pelo chão e volta a ser carne mais adiante.",
+      "deslocamento": 4.0,
+      "duracao_s": 0.34,
+      "invulneravel_s": 0.34,
+      "anim": "evasao",
+      "vfx_origem": "evasao_cultista_veu",
+      "vfx_destino": "evasao_cultista_veu",
+      "vfx_rastro": "evasao_cultista_gotas",
+      "som": "evasao/cultista_veu",
+      "_peso": "invulneravel durante a viagem inteira, mas nao e instantanea"
+    },
+    "humano": {
+      "id": "evasao_humano",
+      "nome": "Cambalhota",
+      "estilo": "rolamento",
+      "descricao": "Rola de ombro no chão de areia, com a escopeta colada ao peito, e já levanta mirando.",
+      "deslocamento": 4.0,
+      "duracao_s": 0.36,
+      "invulneravel_s": 0.3,
+      "anim": "evasao",
+      "vfx_origem": "esquiva_poeira",
+      "vfx_rastro": "evasao_humano_rastro",
+      "som": "evasao/humano_cambalhota",
+      "_peso": "a referencia: 4 tiles, 0,3 s"
+    },
+    "mutante": {
+      "id": "evasao_mutante",
+      "nome": "Tranco",
+      "estilo": "tranco",
+      "descricao": "Arranca de ombro baixo; o que for pequeno no caminho é jogado para o lado.",
+      "deslocamento": 3.5,
+      "duracao_s": 0.32,
+      "invulneravel_s": 0.3,
+      "empurra_no_caminho": 1.2,
+      "empurra_largura": 0.9,
+      "empurra_nao_afeta": [
+        "chefe",
+        "elite",
+        "jogador"
+      ],
+      "anim": "evasao",
+      "vfx_origem": "evasao_mutante_tranco",
+      "som": "evasao/mutante_tranco",
+      "_peso": "anda menos (3,5), mas abre caminho empurrando mobs comuns (sem dano)"
+    },
+    "tecnomancer": {
+      "id": "evasao_tecnomancer",
+      "nome": "Propulsor a Vapor",
+      "estilo": "salto",
+      "descricao": "As botas de pistão cospem vapor e o Tecnomancer salta em arco, aterrissando num chiado de latão.",
+      "deslocamento": 4.0,
+      "duracao_s": 0.38,
+      "invulneravel_s": 0.32,
+      "altura_px": 28,
+      "anim": "evasao",
+      "vfx_origem": "evasao_tecnomancer_vapor",
+      "vfx_destino": "esquiva_poeira",
+      "som": "evasao/tecnomancer_vapor",
+      "_peso": "igual a Cambalhota, um pouco mais lenta no ar"
+    },
+    "warlord": {
+      "id": "evasao_warlord",
+      "nome": "Passo de Escudo",
+      "estilo": "escudo",
+      "descricao": "Um passo largo de lado com o escudo erguido; o primeiro golpe depois do passo bate no ferro.",
+      "deslocamento": 3.5,
+      "duracao_s": 0.3,
+      "invulneravel_s": 0.25,
+      "escudo_depois": {
+        "dano_recebido": -0.4,
+        "duracao_s": 0.6
+      },
+      "anim": "evasao",
+      "vfx_origem": "evasao_warlord_escudo",
+      "som": "evasao/warlord_escudo",
+      "_peso": "anda menos e fica menos tempo invulneravel, mas segura 40% do dano por 0,6 s depois"
+    }
+  },
+  "_doc_evolucoes": "As 12 evolucoes do nivel 50 herdam os numeros da classe base; mudam o nome, a cor do efeito e (quando houver folha propria) a animacao. vfx_cor tinge os efeitos da base.",
+  "evolucoes": {
+    "arcanjo": {
+      "nome": "Revoada da Guarda",
+      "vfx_cor": "#f0e2b0"
+    },
+    "serafim": {
+      "nome": "Asa de Brasa",
+      "vfx_cor": "#ffb070"
+    },
+    "lorde_das_trevas": {
+      "nome": "Passo do Trono",
+      "vfx_cor": "#ff7a50"
+    },
+    "ceifador": {
+      "nome": "Passo do Ceifador",
+      "vfx_cor": "#b0c8d0"
+    },
+    "arquimago": {
+      "nome": "Translação Rubra",
+      "vfx_cor": "#ff8a90"
+    },
+    "profeta_do_amargo": {
+      "nome": "Véu Amargo",
+      "vfx_cor": "#a8e070"
+    },
+    "pistoleiro": {
+      "nome": "Cambalhota do Pistoleiro",
+      "vfx_cor": "#ffe0a0"
+    },
+    "cacador_de_anjos": {
+      "nome": "Rolamento do Caçador",
+      "vfx_cor": "#d8d0c0"
+    },
+    "gladiador": {
+      "nome": "Tranco da Arena",
+      "vfx_cor": "#e8c090"
+    },
+    "abominacao": {
+      "nome": "Arrasto da Abominação",
+      "vfx_cor": "#a8d060"
+    },
+    "mechanicus": {
+      "nome": "Propulsor Mechanicus",
+      "vfx_cor": "#f0c070"
+    },
+    "engenheiro_herege": {
+      "nome": "Propulsor Herege",
+      "vfx_cor": "#a8f070"
+    }
+  }
+}

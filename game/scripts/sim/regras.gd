@@ -15,25 +15,36 @@ static func _attr_vals(e: Ent) -> Array:
 	return [float(e.stats["FOR"]), float(e.stats["AGI"]), float(e.stats["VIT"]), float(e.stats["ESP"])]
 
 ## Recalcula tudo que deriva de atributos + equipamento + buffs de um jogador.
+## O que aparece no desenho da arma: slot -> {id, ref}. Replicado no campo público vis, sem expor o equipamento inteiro.
+static func visual_armas(e: Ent) -> Dictionary:
+	var out := {}
+	for slot in ["arma", "segunda_mao"]:
+		var it: Dictionary = e.equip.get(slot, {})
+		if not it.is_empty(): out[slot] = {"id": str(it["id"]), "ref": int(it.get("refino", 0))}
+	return out
+
 static func recalc_jogador(e: Ent) -> void:
+	e.vis = visual_armas(e)
 	var c: Dictionary = Defs.CLASSES[e.classe]
 	var b := Itens.bonus(e.equip)
 	e.aux["bonus"] = b
 	var base_stats: Dictionary = e.stats
 	var st := {}
 	for k in NOMES_ATTR:
-		st[k] = float(base_stats[k]) + float(b[k]) + e.mod(k)
+		st[k] = float(base_stats[k]) + float(b[k]) + e.mod(k) + Evolucao.atributo(e, k)
 	e.aux["ef"] = st
 	var F: float = st["FOR"]; var A: float = st["AGI"]; var V: float = st["VIT"]; var E: float = st["ESP"]
 	var vals := [F, A, V, E]
 	var hp_old := e.frac_hp()
 	e.hp_max = float(c["hp"]["base"]) + float(c["hp"]["por_nivel"]) * e.nivel + float(c["hp"]["por_vit"]) * V + float(b["hp"])
-	e.hp_max *= 1.0 + e.mod("hp_pct")
+	e.hp_max *= (1.0 + e.mod("hp_pct")) * Evolucao.mult(e, "hp_mult")
 	if e.hp > 0.0: e.hp = minf(e.hp, e.hp_max)
 	var perfil: Array = PERFIS[c["perfil_dano"]]
 	var arma := Ent_arma(e)
 	var mn := Defs.expr(perfil[0], NOMES_ATTR, vals) + float(arma["min"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
 	var mx := Defs.expr(perfil[1], NOMES_ATTR, vals) + float(arma["max"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
+	var dm := Evolucao.mult(e, "dano_mult") * (Evolucao.mult(e, "dano_magico_mult") if c["perfil_dano"] == "magico" else 1.0)
+	mn *= dm; mx *= dm
 	e.dano_min = mn; e.dano_max = maxf(mx, mn)
 	if c["perfil_dano"] == "hibrido":
 		var sec: Dictionary = c["arma_secundaria"]
@@ -41,19 +52,20 @@ static func recalc_jogador(e: Ent) -> void:
 		var tmn := Defs.expr(pt[0], NOMES_ATTR, vals) + float(sec["min"]) + float(b["dano_plano"])
 		var tmx := Defs.expr(pt[1], NOMES_ATTR, vals) + float(sec["max"]) + float(b["dano_plano"])
 		e.aux["tiro"] = [tmn, maxf(tmx, tmn)]
-	e.defesa = V / 5.0 + A / 10.0 + float(b["defesa"])
+	e.defesa = (V / 5.0 + A / 10.0 + float(b["defesa"])) * Evolucao.mult(e, "defesa_mult")
 	var magico: bool = c["perfil_dano"] == "magico"
 	e.ar = e.nivel * 3.0 + ((E / 2.0 + A / 2.0) if magico else (A + F / 4.0))
 	e.er = e.nivel * 2.0 + A / 2.0
-	e.critico = minf(float(Defs.FORM["critico"]["chance_max"]), 0.05 + A * 0.0008 + float(b["critico"]) + e.mod("critico"))
-	e.crit_mult = float(Defs.FORM["critico"]["mult_por_classe"].get(e.classe, Defs.FORM["critico"]["mult"]))
+	e.critico = minf(float(Defs.FORM["critico"]["chance_max"]), 0.05 + A * 0.0008 + float(b["critico"]) + e.mod("critico") + Evolucao.soma(e, "critico"))
+	e.crit_mult = float(Defs.FORM["critico"]["mult_por_classe"].get(e.classe, Defs.FORM["critico"]["mult"])) * Evolucao.mult(e, "dano_critico_mult")
 	e.excelente = minf(0.25, float(b["excelente"]))
-	e.vel_ataque = minf(2.0, 1.0 + A * 0.004 + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque"))
+	e.vel_ataque = minf(2.0, (1.0 + A * 0.004 + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque")) * Evolucao.mult(e, "velocidade_ataque_mult"))
+	if e.mod("vel_ataque_fixa") > 0.0: e.vel_ataque = e.mod("vel_ataque_fixa")   # transformações (Forma Vingativa 2.3, Forma Colossal 0.45)
 	e.intervalo = float(arma["intervalo"]) / e.vel_ataque
-	e.alcance = float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])
+	e.alcance = (float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])) * Evolucao.mult(e, "alcance_mult")
 	e.elemento = c["elemento_ataque"]
 	e.postura_arma = float(arma.get("postura", 10))
-	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"])
+	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"]) + Evolucao.soma(e, "roubo_vida") + e.mod("roubo_vida")
 	e.res = b["res"].duplicate()
 	if e.classe == "mutante":
 		for r in Defs.FORM["vantagem_cruzada"]["mutante"]["resiste"]: e.res[r] = e.res.get(r, 0.0) + 0.3
@@ -65,6 +77,7 @@ static func recalc_jogador(e: Ent) -> void:
 		"mutante", "demonio": e.rec_max = 100.0
 		"humano": e.rec_max = float(rc["folego"]["max"])
 		"cultista": e.rec_max = 0.0
+	e.rec_max *= Evolucao.mult(e, "recurso_max_mult")
 	e.rec = minf(e.rec, e.rec_max)
 	if hp_old > 0.0 and e.hp <= 0.0: e.hp = e.hp_max * hp_old
 
@@ -151,6 +164,10 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 		if rng.randf() > ch:
 			r["errou"] = true
 			return r
+	# bloqueio das evoluções (Lorde das Trevas, Gladiador) e do Muro de Vela
+	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio"):
+		r["errou"] = true; r["bloqueio"] = true
+		return r
 	var faixa: Array = op.get("faixa", [atk.dano_min, atk.dano_max])
 	var bruto := rng.randf_range(float(faixa[0]), float(faixa[1])) * float(op.get("mult", 1.0)) + float(op.get("add", 0.0))
 	if atk.aux.get("bonus_prox_t", 0.0) > 0.0 and op.get("skill", "") != "arrancada":
@@ -159,7 +176,7 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	var crit_ch := atk.critico + float(op.get("crit_extra", 0.0))
 	if op.get("forca_crit", false) or rng.randf() < crit_ch:
 		r["crit"] = true; bruto *= atk.crit_mult
-	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct"))
+	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct")) * (1.0 - Evolucao.pen_defesa(atk, op))
 	if atk.excelente > 0.0 and rng.randf() < atk.excelente:
 		r["exc"] = true; bruto *= 1.2; def_ef *= 0.5
 		bruto *= 1.0 + float(atk.aux.get("bonus", {}).get("excelente_dano", 0.0))
@@ -170,6 +187,7 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	dano *= mult_nivel(alvo.nivel, atk.nivel) * mult_vantagem(atk, alvo)
 	for k in op.get("bonus_vs", {}):
 		if tem_tag(alvo, k): dano *= float(op["bonus_vs"][k])
+	dano *= Evolucao.mult_golpe(atk, alvo, op)
 	# buffs do atacante e debuffs do alvo
 	dano *= 1.0 + atk.mod("dano") + (atk.mod("dano_magico") if op.get("magico", false) else 0.0)
 	dano *= 1.0 + alvo.mod("dano_recebido")

@@ -94,7 +94,7 @@ static func linha_dir(dir: Vector2, n := 8) -> int:
 func nome_skill(skill: String) -> Array:
 	var p := skill.split("/")
 	if p.size() < 2: return []
-	var pref: String = {"anjo": "anjo_", "cultista": "cult_", "demonio": "dem_", "humano": "hum_", "mutante": "mut_", "tecnomancer": "tec_"}.get(p[0], "")
+	var pref: String = {"anjo": "anjo_", "cultista": "cult_", "demonio": "dem_", "humano": "hum_", "mutante": "mut_", "tecnomancer": "tec_", "warlord": "wl_"}.get(p[0], "")
 	var id: String = p[1]
 	# skills em área do nível 5 (v0.6): sem folha própria ainda, usam folhas existentes
 	var nivel5 := {"anjo_leque_juizo": ["anjo_leque_juizo_frente", "anjo_leque_juizo_tras"], "demonio_ceifa_infernal": ["hum_corte_largo_frente", "hum_corte_largo_tras"],
@@ -114,6 +114,7 @@ func nome_skill(skill: String) -> Array:
 
 # =================================================================== números de dano
 func numero(pos: Vector2, valor: int, estilo: String, id_alvo: int) -> void:
+	if not Ajustes.v("numeros"): return
 	var e: Dictionary = _estilos.get(estilo, _estilos.get("normal", {}))
 	var txt: String = e.get("texto", "{dano}")
 	txt = txt.replace("{dano}", str(valor)).replace("{valor}", str(valor))
@@ -157,9 +158,11 @@ func texto_flutuante(pos: Vector2, txt: String, cor: Color, tam := 15, dur := 1.
 	tw.chain().tween_callback(l.queue_free)
 
 ## Fala em balão sobre uma unidade (NPC, chefe, mímico).
-func fala(view: Node2D, txt: String, cor := Color("#f0e2c0"), dur := 3.5) -> void:
+func fala(view: Node2D, txt: String, cor := Color("#f0e2c0"), dur := 3.5, troca := false) -> void:
 	if view == null: return
+	if troca and view.has_meta("balao") and is_instance_valid(view.get_meta("balao")): view.get_meta("balao").queue_free()   # fala nova tira a anterior
 	var p := PanelContainer.new()
+	if troca: view.set_meta("balao", p)
 	var sb := Tema.caixa(Color(0.06, 0.05, 0.04, 0.86), Color(0.45, 0.36, 0.22), 1, 3)
 	sb.set_content_margin_all(6); sb.shadow_size = 4
 	p.add_theme_stylebox_override("panel", sb)
@@ -278,9 +281,9 @@ func telegrafo(d: Dictionary) -> void:
 	var dono: Ent = game.sim.ents.get(int(d.get("dono", -1)))
 	if dono != null and dono.tipo == "chefe":
 		tg.cor_borda = Color("#ff3a1c")
-	if dono != null and dono.kind == "zacarias_arauto":
+	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "zacarias_arauto":
 		tg.cor_borda = Color("#ffe08a"); tg.cor_fill = Color("#c89a2a")
-	if dono != null and dono.kind == "irma_celeste":
+	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "irma_celeste":
 		tg.cor_borda = Color("#cfe4ff"); tg.cor_fill = Color("#5a6a9a")
 	tg.z_index = -5
 	add_child(tg)

@@ -1,0 +1,141 @@
+{
+ "_doc": "NPCs e falas da Arena do Agrak (Prévia). O defs.gd junta isto aos de missoes/ sem sobrescrever. Falas de Caim e Abel e do Saulo: design/pvp/agrak/coliseu_e_narrador.md.",
+ "npcs": [
+  {
+   "id": "saulo",
+   "nome": "Saulo, o Penitente",
+   "titulo": "Penitente do Agrak",
+   "faccao": "neutro",
+   "classe_visual": "demonio",
+   "servicos": [
+    "loja"
+   ],
+   "dialogo": "dlg_saulo",
+   "visual": "saulo_penitente",
+   "aparencia": "Demônio alto, pele branca de giz, bigode e sobrancelhas longos, chifres com tampas de ouro, halo dourado fino atrás da cabeça.",
+   "personalidade": "Manso, brinca como um velho mestre, nunca levanta a voz."
+  },
+  {
+   "id": "caim_abel",
+   "nome": "Caim e Abel",
+   "titulo": "O Ogro de Duas Cabeças",
+   "faccao": "neutro",
+   "classe_visual": "ogro",
+   "servicos": [],
+   "dialogo": "dlg_caim_abel",
+   "visual": "ogro_duas_cabecas",
+   "aparencia": "Ogro de duas cabeças: Caim, grande, megafone de latão; Abel, menor, cartola com vela.",
+   "personalidade": "Caim berra os anúncios. Abel debocha e corrige o irmão."
+  }
+ ],
+ "dialogos": [
+  {
+   "id": "dlg_saulo",
+   "npc": "saulo",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "Sente, filho. Eu já matei mais gente do que esse estádio comporta. Hoje só vendo couro e reza.",
+     "opcoes": [
+      {
+       "texto": "Quero ver as peças do Agrak.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_saulo"
+        }
+       ]
+      },
+      {
+       "texto": "Neguei o Inferno? Como assim?",
+       "ir": "passado"
+      },
+      {
+       "texto": "Vou embora.",
+       "acoes": []
+      }
+     ]
+    },
+    "passado": {
+     "fala": "Neguei o Inferno três vezes numa noite. Ele não respondeu nenhuma. Foi assim que eu soube.",
+     "opcoes": [
+      {
+       "texto": "Quero ver as peças do Agrak.",
+       "acoes": [
+        {
+         "abrir_loja": "loja_saulo"
+        }
+       ]
+      },
+      {
+       "texto": "Obrigado, Saulo.",
+       "acoes": []
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "dlg_caim_abel",
+   "npc": "caim_abel",
+   "inicio": "raiz",
+   "nos": {
+    "raiz": {
+     "fala": "CAIM: Cem de ouro pra entrar na lista! ABEL: Ele ensaiou isso a semana toda. CAIM: E A SUA VIDA! ABEL: O ouro a gente devolve se não tiver luta. A vida, o Saulo.",
+     "opcoes": [
+      {
+       "texto": "Quero entrar no Agrak (100 de ouro, nível 25).",
+       "acoes": [
+        {
+         "agrak": "inscrever"
+        }
+       ]
+      },
+      {
+       "texto": "Quero sair da lista.",
+       "acoes": [
+        {
+         "agrak": "sair"
+        }
+       ]
+      },
+      {
+       "texto": "Só olhando.",
+       "acoes": []
+      }
+     ]
+    }
+   }
+  }
+ ],
+ "lojas": [
+  {
+   "id": "loja_saulo",
+   "npc": "saulo",
+   "nome": "Banca de Sangue do Agrak",
+   "moeda": "ficha_sangue",
+   "precos": {
+    "armadura": 4,
+    "arma": 10
+   },
+   "itens": [
+    "agrak_elmo",
+    "agrak_peito",
+    "agrak_luvas",
+    "agrak_calcas",
+    "agrak_botas",
+    "agrak_arma_anjo",
+    "agrak_arma_cultista",
+    "agrak_arma_demonio",
+    "agrak_arma_humano",
+    "agrak_arma_mutante",
+    "agrak_arma_tecnomancer"
+   ]
+  }
+ ],
+ "objetos": [
+  {
+   "id": "cartaz_agrak",
+   "nome": "Cartaz do Agrak"
+  }
+ ]
+}

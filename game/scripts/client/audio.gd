@@ -24,6 +24,8 @@ func _ready() -> void:
 	for i in 16:
 		var s := AudioStreamPlayer.new()
 		add_child(s); pool.append(s)
+	for p in [musica_a, musica_b]: p.bus = Ajustes.bus_de("musica")
+	for p in [amb_a, amb_b]: p.bus = Ajustes.bus_de("ambiente")
 
 func _stream(nome: String, idx := -1) -> AudioStream:
 	var s: Dictionary = sons.get(nome, {})
@@ -58,6 +60,7 @@ func tocar(nome: String, pos_tela = null, vol_db := 0.0, pitch_var := 0.05) -> v
 		if not q.playing: p = q; break
 	if p == null: p = pool[randi() % pool.size()]
 	p.stream = st
+	p.bus = Ajustes.bus_de(bus)
 	p.volume_db = db
 	p.pitch_scale = randf_range(1.0 - pitch_var, 1.0 + pitch_var)
 	p.play()

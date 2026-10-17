@@ -27,6 +27,7 @@ var chao := {}
 var spawns: Array = []
 var jogador_id := -1
 var chefe: ChefeCtl = null
+var hermon: HermonCtl = null       # evento O Cume dos Vigilantes (mapa com "hermon")
 var dia := 0                        # para missões diárias (r01, r02)
 var agenda: Array = []
 var alvos_ia: Array = []            # jogador + invocações (recalculado a cada passo)              # [tempo, Callable]: golpes atrasados, fim de buff etc.
@@ -80,10 +81,13 @@ func adicionar_jogador(e: Ent, pos: Vector2) -> void:
 	e.zona = ""
 	emitir("surgiu", {"id": e.id})
 	Jogador._checar_zona(self, e)
+	Familiar.criar(self, e)   # o familiar do Cultista nasce com ele (racial, 0.8.9)
+	if hermon != null: hermon.entrou(e)
 
 ## Servidor: tira o jogador deste mapa (trocou de mapa ou desconectou). Monstros esquecem dele.
 func remover_jogador(e: Ent) -> void:
 	if not ents.has(e.id): return
+	if hermon != null: hermon.saiu(e)
 	for o: Ent in ents.values():
 		o.ameaca.erase(e.id)
 		if o.alvo == e.id: o.alvo = -1
@@ -94,7 +98,7 @@ func remover_jogador(e: Ent) -> void:
 ## Cliente de rede: só a geometria do mapa (grade, zonas, caminhos). As entidades chegam do servidor.
 func carregar_geometria(id: String) -> void:
 	ents.clear(); chao.clear(); spawns.clear(); agenda.clear()
-	chefe = null
+	chefe = null; hermon = null
 	_ler_grade(id)
 
 # =================================================================== mapa
@@ -104,7 +108,7 @@ func carregar_mapa(id: String) -> void:
 	for k in ents.keys():
 		if k != jogador_id: emitir("sumiu", {"id": k})
 	ents.clear(); agenda.clear(); projeteis.clear(); areas.clear(); telegrafos.clear(); chao.clear(); spawns.clear()
-	chefe = null
+	chefe = null; hermon = null
 	_ler_grade(id)
 	if jog != null: ents[jogador_id] = jog
 	# NPCs, objetos, baús, spawns, chefe
@@ -113,10 +117,11 @@ func carregar_mapa(id: String) -> void:
 	if mapa.get("id", "") == "area_inicial": _ajustar_spawns_novato()
 	for s in mapa.get("spawns", []): _criar_spawn(s)
 	if mapa.has("chefe"): chefe = ChefeCtl.new(self, mapa["chefe"])
+	if mapa.has("hermon"): hermon = HermonCtl.new(self, mapa["hermon"])
 	emitir("mapa", {"id": id})
 
 func _ler_grade(id: String) -> void:
-	mapa = Defs.ler("res://data/mapas/%s.json" % id)
+	mapa = Defs.ler("res://data/mapas/%s.json" % id.get_slice("#", 0))   # "mapa#instância" usa o mesmo arquivo
 	mapa_id = id
 	w = int(mapa["w"]); h = int(mapa["h"])
 	bloq = PackedByteArray(); bloq.resize(w * h)
@@ -398,6 +403,7 @@ func passo(dt: float) -> void:
 	_passo_chao(dt)
 	_passo_spawns(dt)
 	if chefe != null: chefe.passo(dt)
+	if hermon != null: hermon.passo(dt)
 
 func _passo_ent(e: Ent, dt: float) -> void:
 	if not e.vivo:
@@ -405,6 +411,8 @@ func _passo_ent(e: Ent, dt: float) -> void:
 		if e.tipo == "jogador":
 			e.renascer_t -= dt
 			if e.renascer_t <= 0.0: Jogador.renascer(self, e)
+		elif e.tipo == "invocacao" and e.aux.get("familiar", false):
+			if e.morto_t >= Familiar.VOLTA_S: Familiar.renascer(self, e)   # o familiar volta sozinho (0.8.9)
 		elif e.tipo in ["monstro", "invocacao"] and e.morto_t > 6.0:
 			remover(e.id)
 		return
@@ -440,7 +448,7 @@ func _passo_ent(e: Ent, dt: float) -> void:
 	match e.tipo:
 		"jogador": Jogador.passo(self, e, dt)
 		"monstro": IA.passo(self, e, dt)
-		"invocacao": IA.passo_invocacao(self, e, dt)
+		"invocacao": Familiar.passo(self, e, dt) if e.aux.get("familiar", false) else IA.passo_invocacao(self, e, dt)
 		"chefe": pass   # o ChefeCtl move e decide
 
 # ------------------------------------------------------------------- movimento
@@ -766,10 +774,13 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 		return {}
 	if op.has("cura"):
 		curar(alvo, op["cura"], atk); return {}
+	if alvo.tipo == "jogador" and atk.id != alvo.id: alvo.aux["ultimo_agressor"] = atk.dono if atk.tipo == "invocacao" else atk.id   # quem bateu no dono (familiar, 0.8.9)
+	if alvo.aux.get("familiar", false): alvo.aux["ultimo_agressor"] = atk.id   # quem bateu no familiar (0.9.3)
 	var r := Regras.golpe(atk, alvo, op, rng)
 	atk.em_combate_t = 0.0; alvo.em_combate_t = 0.0
 	if r["errou"]:
 		emitir("dano", {"id": alvo.id, "de": atk.id, "valor": 0, "estilo": "errou"})
+		if r.get("bloqueio", false): Evolucao.bloqueou(self, alvo, atk)
 		return r
 	var dano: int = r["dano"]
 	if alvo.tipo == "jogador" and atk.tipo == "monstro": dano = maxi(1, roundi(dano * fator_novato(alvo)))
@@ -783,6 +794,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	elif r["exc"]: estilo = "excelente"
 	elif r["crit"]: estilo = "critico"
 	if alvo.tipo == "jogador": estilo = "jogador_recebe"
+	if alvo.tipo == "jogador": dano = roundi(Familiar.desviar(self, alvo, dano, atk))   # Guarda-Costas do familiar (0.8.9)
 	var absorvido := 0
 	if alvo.escudo > 0.0:
 		absorvido = mini(dano, int(alvo.escudo))
@@ -804,6 +816,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	if atk.classe == "demonio" and atk.nivel >= 12 and atk.frac_hp() < 0.3: rv += 0.1   # passiva Banquete
 	if atk.classe == "demonio" and atk.frac_hp() < 0.3 and atk.nivel >= 12: rv += 0.1
 	if rv > 0.0 and dano > 0: curar(atk, dano * rv, atk, true)
+	if atk.tipo == "jogador" and dano > 0: Familiar.ao_dono_bater(self, atk, dano)   # 10% do dano do Cultista cura o familiar (0.9.3)
 	# postura
 	var post: float = float(op.get("postura", atk.postura_arma if atk.tipo == "jogador" else 10.0))
 	if alvo.aux.get("agarrando", false): post *= 2.0
@@ -820,6 +833,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 		var dir: Vector2 = (alvo.pos - atk.pos).normalized()
 		if alvo.tipo != "chefe" and alvo.arquetipo != "elite": deslocar(alvo, atk.pos + dir * float(op["puxa_para"]), 0.2, {"tipo": "puxao"})
 	if op.has("ao_dano"): (op["ao_dano"] as Callable).call(alvo, dano)
+	if atk.tipo == "jogador" and atk.evolucao != "": Evolucao.apos_golpe(self, atk, alvo, op)
 	if alvo.hp <= 0.0:
 		matar(alvo, atk)
 	return r
@@ -832,6 +846,7 @@ func aplicar_dano_puro(alvo: Ent, valor: float, elem: String, atk: Ent, estilo: 
 	alvo.em_combate_t = 0.0
 	emitir("dano", {"id": alvo.id, "de": atk.id if atk else -1, "valor": v, "estilo": estilo if alvo.tipo != "jogador" or estilo != "normal" else "jogador_recebe",
 		"elem": elem, "hp": alvo.hp, "hp_max": alvo.hp_max})
+	if atk != null and atk.tipo == "jogador": Familiar.ao_dono_bater(self, atk, v)   # dano por tempo do Cultista também cura o familiar (0.9.3)
 	if alvo.tipo == "jogador": Jogador.ao_ser_atingido(self, alvo, atk, v, {})
 	if alvo.hp <= 0.0: matar(alvo, atk)
 
@@ -843,6 +858,7 @@ func curar(alvo: Ent, valor: float, de: Ent, silencioso: bool = false) -> void:
 	var antes := alvo.hp
 	alvo.hp = minf(alvo.hp_max, alvo.hp + v)
 	var ganho := alvo.hp - antes
+	if de != null and de.evolucao != "": Evolucao.sobrecura(self, alvo, de, v - ganho)
 	if ganho >= 1.0 and not silencioso:
 		emitir("cura", {"id": alvo.id, "valor": roundi(ganho)})
 	if de != null and de.tipo == "jogador" and de.classe == "anjo" and not silencioso:
@@ -953,6 +969,7 @@ func matar(e: Ent, assassino: Ent) -> void:
 	cancelar_acao(e)
 	e.caminho.clear(); e.status.clear(); e.deslocando = {}
 	emitir("morreu", {"id": e.id, "de": assassino.id if assassino else -1, "tipo": e.tipo, "chefe": e.tipo == "chefe"})
+	if hermon != null and hermon.ao_morrer(e, assassino): return   # morte no evento: sem penalidade, volta para casa
 	if e.tipo == "jogador":
 		Jogador.morreu(self, e)
 		return

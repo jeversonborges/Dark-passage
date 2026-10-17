@@ -63,9 +63,8 @@
   "tint": "#e8e4ff"
  },
  "zacarias_arauto": {
-  "usa": "anjo",
-  "escala": 1.6,
-  "tint": "#ffe2a0"
+  "usa": "zacarias",
+  "escala": 1.0
  },
  "corista": {
   "usa": "nao_julgado",
@@ -184,5 +183,259 @@
   "usa": "cultista",
   "escala": 0.95,
   "tint": "#d8d0e8"
+ },
+ "lobo_de_cinza": {
+  "usa": "cao_de_vala",
+  "escala": 1.2,
+  "tint": "#9a948c"
+ },
+ "corvo_de_brasa": {
+  "usa": "corvo_de_cinza",
+  "escala": 1.15,
+  "tint": "#e08a50"
+ },
+ "javali_brasa": {
+  "usa": "porco_pestilento",
+  "escala": 1.1,
+  "tint": "#c07040"
+ },
+ "enxame_de_fagulhas": {
+  "usa": "fogo_de_vela",
+  "escala": 0.9,
+  "tint": "#ff7a2a"
+ },
+ "legionario_desgarrado": {
+  "usa": "soldado_escudeiro",
+  "escala": 1.05,
+  "tint": "#b04a3a"
+ },
+ "incendiaria_da_comunhao": {
+  "usa": "carpideira_de_ossos_viuva",
+  "escala": 1.0,
+  "tint": "#e07a40"
+ },
+ "cao_de_brasa": {
+  "usa": "cao_de_vala_alfa",
+  "escala": 1.1,
+  "tint": "#ff6a3a"
+ },
+ "escudeiro_sem_hoste": {
+  "usa": "soldado_escudeiro",
+  "escala": 1.1,
+  "tint": "#e0d4b0"
+ },
+ "enxerto_errado": {
+  "usa": "filho_de_cardo",
+  "escala": 1.2,
+  "tint": "#8aa060"
+ },
+ "ent_de_cinza": {
+  "usa": "acougueiro_oco",
+  "escala": 1.6,
+  "tint": "#6a6058"
+ },
+ "corista_da_torre": {
+  "usa": "corista_de_osso",
+  "escala": 1.0,
+  "tint": "#c8a878"
+ },
+ "querubim_queimado": {
+  "usa": "querubim_desfeito",
+  "escala": 1.0,
+  "tint": "#d07840"
+ },
+ "centuriao_sem_bandeira": {
+  "usa": "capataz_gancho",
+  "escala": 1.2,
+  "tint": "#a03a2a"
+ },
+ "madre_brasilia": {
+  "usa": "madre_brasilia",
+  "escala": 1.0
+ },
+ "o_telegrafista": {
+  "usa": "o_telegrafista",
+  "escala": 1.0
+ },
+ "vitral_andante": {
+  "usa": "querubim_desfeito",
+  "escala": 1.25,
+  "tint": "#e0a040"
+ },
+ "sapo_sacristao": {
+  "usa": "porco_pestilento",
+  "escala": 1.4,
+  "tint": "#5a8a50"
+ },
+ "bombardeiro_legiao": {
+  "usa": "capataz_gancho",
+  "escala": 1.2,
+  "tint": "#8a3a2a"
+ },
+ "raiz_ossuda": {
+  "usa": "filho_de_cardo",
+  "escala": 1.15,
+  "tint": "#7fb8b0"
+ },
+ "enterrado_florido": {
+  "usa": "nao_julgado",
+  "escala": 1.08,
+  "tint": "#9cc8b0"
+ },
+ "envenenador_da_comunhao": {
+  "usa": "carpideira_de_ossos",
+  "escala": 1.0,
+  "tint": "#78c058"
+ },
+ "bento_fel": {
+  "usa": "acougueiro_oco",
+  "escala": 1.45,
+  "tint": "#7ab060"
+ },
+ "peregrino_ressecado": {
+  "usa": "carnical",
+  "escala": 1.0,
+  "tint": "#b8ae9c"
+ },
+ "abutre_do_hermon": {
+  "usa": "corvo_de_cinza",
+  "escala": 1.25,
+  "tint": "#cfc6b8"
+ },
+ "chacal_de_josafa": {
+  "usa": "cao_de_vala",
+  "escala": 1.05,
+  "tint": "#b08a5a"
+ },
+ "levantado_das_oliveiras": {
+  "usa": "nao_julgado",
+  "escala": 1.0,
+  "tint": "#c8c0b0"
+ },
+ "porco_de_gadara": {
+  "usa": "porco_pestilento",
+  "escala": 1.05,
+  "tint": "#a0524a"
+ },
+ "sineiro_infiltrado": {
+  "usa": "sangrador_apostata",
+  "escala": 1.0,
+  "tint": "#6f86a8"
+ },
+ "sapador_herege": {
+  "usa": "desertor_legiao",
+  "escala": 1.0,
+  "tint": "#7a8a96"
+ },
+ "vigilante_acorrentado": {
+  "usa": "sombra_gravada",
+  "escala": 1.1,
+  "tint": "#d8d4e8"
+ },
+ "fornalheiro_de_tofete": {
+  "usa": "acougueiro_oco",
+  "escala": 1.0,
+  "tint": "#c0583a"
+ },
+ "capataz_de_tofete": {
+  "usa": "capataz_gancho",
+  "escala": 1.1,
+  "tint": "#e06a3a"
+ },
+ "filho_do_hissopo": {
+  "usa": "filho_de_cardo",
+  "escala": 1.0,
+  "tint": "#8a9a70"
+ },
+ "verme_do_fosso": {
+  "usa": "larva_de_carne",
+  "escala": 1.0,
+  "tint": "#b89a7a"
+ },
+ "escravo_dos_gigantes": {
+  "usa": "gancheiro",
+  "escala": 1.0,
+  "tint": "#8c7c6a"
+ },
+ "nefilim_mirrado": {
+  "usa": "acougueiro_oco",
+  "escala": 1.15,
+  "tint": "#a89070"
+ },
+ "soldado_de_pedra": {
+  "usa": "soldado_caido",
+  "escala": 1.0,
+  "tint": "#9a9890"
+ },
+ "noiva_afogada": {
+  "usa": "carpideira_de_ossos",
+  "escala": 1.0,
+  "tint": "#8aa0a8"
+ },
+ "brasa_de_azazel": {
+  "usa": "fogo_de_vela",
+  "escala": 1.0,
+  "tint": "#ff8a3a"
+ },
+ "escriba_emparedado": {
+  "usa": "monge_emparedado",
+  "escala": 1.0,
+  "tint": "#b0a890"
+ },
+ "kokabiel_contador": {
+  "usa": "ultimo_operador",
+  "escala": 1.15,
+  "tint": "#c8c0ff"
+ },
+ "eco_do_juramento": {
+  "usa": "eco_da_trombeta",
+  "escala": 1.0,
+  "tint": "#e0d0ff"
+ },
+ "vigilante_desfeito": {
+  "usa": "querubim_desfeito",
+  "escala": 1.05,
+  "tint": "#c8b8e8"
+ },
+ "sintonizado": {
+  "usa": "sintonizado",
+  "escala": 1.0
+ },
+ "sintonizado_locutor": {
+  "usa": "sintonizado_locutor",
+  "escala": 1.0
+ },
+ "guarda_fios": {
+  "usa": "guarda_fios",
+  "escala": 1.0
+ },
+ "receptaculo": {
+  "usa": "receptaculo",
+  "escala": 1.0
+ },
+ "receptaculo_inchado": {
+  "usa": "receptaculo_inchado",
+  "escala": 1.0
+ },
+ "eco_da_estatica": {
+  "usa": "eco_da_estatica",
+  "escala": 1.0
+ },
+ "inaudivel": {
+  "usa": "inaudivel",
+  "escala": 1.0
+ },
+ "ferrabras_guarda_linhas": {
+  "usa": "ferrabras_guarda_linhas",
+  "escala": 1.0
+ },
+ "malaquias_ouvinte_cego": {
+  "usa": "malaquias_ouvinte_cego",
+  "escala": 1.0
+ },
+ "baraquiel": {
+  "usa": "baraquiel",
+  "escala": 1.0,
+  "fase3": "baraquiel_sinal_pleno"
  }
 }

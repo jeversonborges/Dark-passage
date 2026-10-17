@@ -6,6 +6,7 @@ const DESIGN := "res://data/design/"
 
 static var FORM := {}        # combate/formulas.json
 static var CLASSES := {}     # combate/classes_base.json -> classes
+static var EVOLUCOES := {}   # combate/evolucoes.json (nível 50, Pedro o Exilado)
 static var MOBS := {}        # combate/mobs.json -> mobs (+ textos de missoes/monstros.json)
 static var MOBS_BASE := {}   # combate/mobs.json inteiro (curva, arquetipos, ia)
 static var CHEFES := {}      # combate/chefes.json -> chefes
@@ -16,6 +17,7 @@ static var EFEITOS := {}     # combate/efeitos.json (status e postura)
 static var PROG := {}        # combate/progressao.json
 static var ITENS := {}       # skills-itens/itens.json por id
 static var ITENS_DOC := {}
+static var VISUAIS := {}     # assets/armas/visuais.json -> itens (silhueta, mão, tinta, brilho)
 static var POR_TAG := {}     # tag de drop -> [ids]
 static var SKILLS := {}      # "classe/id_combate" -> skill completa (texto + combate + ícone)
 static var NPCS := {}
@@ -27,6 +29,7 @@ static var BAUS_HIST := {}
 static var LOJAS := {}
 static var FERREIROS := {}
 static var LOCAIS := {}      # subzonas e andares por id
+static var REG_CHEFES := []  # chefes de dungeon (locais.json -> registro_chefes.lista), com nível e espelho
 static var MON_TXT := {}     # missoes/monstros.json por id
 static var SPR := {}         # data/ext/sprites.json
 static var SPR_SUBST := {}   # data/sprites_substitutos.json
@@ -51,6 +54,7 @@ static func carregar() -> void:
 	carregado = true
 	FORM = ler(DESIGN + "combate/formulas.json")
 	CLASSES = ler(DESIGN + "combate/classes_base.json")["classes"]
+	EVOLUCOES = ler(DESIGN + "combate/evolucoes.json")
 	MOBS_BASE = ler(DESIGN + "combate/mobs.json")
 	MOBS = MOBS_BASE["mobs"]
 	var ch: Dictionary = ler(DESIGN + "combate/chefes.json")
@@ -86,11 +90,13 @@ static func carregar() -> void:
 	for l in lj["lojas"]: LOJAS[l["id"]] = l
 	for l in lj.get("ferreiros", []): FERREIROS[l["npc"]] = l
 	var lc: Dictionary = ler(DESIGN + "missoes/locais.json")
+	REG_CHEFES = lc.get("registro_chefes", {}).get("lista", [])
 	for a in lc["areas"]:
 		for s in a["subzonas"]: LOCAIS[s["id"]] = s
 	for dg in lc["dungeons"]:
 		for s in dg["andares"]: LOCAIS[s["id"]] = s
 	for m in ler(DESIGN + "missoes/monstros.json")["monstros"]: MON_TXT[m["id"]] = m
+	if FileAccess.file_exists("res://assets/ext/armas/visuais.json"): VISUAIS = ler("res://assets/ext/armas/visuais.json").get("itens", {})
 	_extras_v06()
 	var sp: Dictionary = ler(DESIGN + "mapas/spots.json")
 	for s in sp.get("spots", []): SPOTS[s["id"]] = s
@@ -132,10 +138,39 @@ static func _extras_v06() -> void:
 		if not DIALOGOS.has(d["id"]): DIALOGOS[d["id"]] = d
 	for l in ex.get("lojas", []):
 		if not LOJAS.has(l["id"]): LOJAS[l["id"]] = l
+	for k in ex.get("chefes", {}):   # A Torre (mata_do_granizo, 0.8.3): chefes e drops ainda sem entrada no design
+		if not CHEFES.has(k): CHEFES[k] = ex["chefes"][k]
+	# O Agrak (entregas/agrak): Caim e Abel, o Saulo e a Banca de Sangue (sync.sh copia para pvp/agrak_npcs.json)
+	var pv: Dictionary = ler(DESIGN + "pvp/agrak_npcs.json")
+	for n in pv.get("npcs", []):
+		if not NPCS.has(n["id"]): NPCS[n["id"]] = n
+	for d in pv.get("dialogos", []):
+		if not DIALOGOS.has(d["id"]): DIALOGOS[d["id"]] = d
+	for l in pv.get("lojas", []):
+		if not LOJAS.has(l["id"]): LOJAS[l["id"]] = l
+	for o in pv.get("objetos", []):
+		if not OBJETOS.has(o["id"]): OBJETOS[o["id"]] = o
+	for k in ex.get("drops", {}):   # o Loot lê DROPS["tabelas"]: as tabelas daqui entram lá (Torre, Jerusalém)
+		if not DROPS["tabelas"].has(k): DROPS["tabelas"][k] = ex["drops"][k]
+
+## Roteiro de luta de um chefe: os do Fosso dos Vigilantes (Jerusalém) usam o de um chefe da Cripta ("mecanica_de").
+static func mecanica_chefe(kind: String) -> String:
+	return str(CHEFES.get(kind, {}).get("mecanica_de", kind))
+
+## Mapa de casa da facção: Arautos nascem em Jerusalém e Monte Hermon (0.9.3); a Vigília, no Deserto de Absinto.
+static func mapa_casa(faccao: String) -> String:
+	if faccao == "arautos" and FileAccess.file_exists("res://data/mapas/jerusalem_hermon.json"): return "jerusalem_hermon"
+	return "area_inicial"
+
+static func mapa_casa_classe(classe: String) -> String:
+	return mapa_casa("arautos" if CLASSES.get(classe, {}).get("faccao", "") == "arautos" else "vigilia")
+
+static func eh_mapa_casa(id: String) -> bool:
+	return id in ["area_inicial", "jerusalem_hermon"]
 
 ## Curva de XP (progressao.json v0.2: 75L² + 375L, 3x a v0.1 por causa dos spots e do modo automático).
 static func xp_para_proximo(n: int) -> int:
-	var x := 75.0 * n * n + 375.0 * n
+	var x := 105.0 * n * n + 525.0 * n   # 0,4 mais difícil que a curva antiga (revisão de balanceamento)
 	if n > 100: x *= 1.0 + (n - 100) / 50.0
 	return int(round(x))
 

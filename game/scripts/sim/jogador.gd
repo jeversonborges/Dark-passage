@@ -19,8 +19,7 @@ static func criar(sim: WorldSim, classe: String, nome: String, salvo: Dictionary
 	e.stats = c["atributos_iniciais"].duplicate()
 	for k in e.stats: e.stats[k] = float(e.stats[k])
 	e.raio = 0.35
-	e.skills_slots = []
-	for h in c["habilidades"]: e.skills_slots.append(h["id"])
+	Evolucao.montar_slots(e)
 	if salvo.is_empty():
 		var arma := _arma_inicial(classe)
 		if arma != "": e.equip["arma"] = Itens.novo(arma)
@@ -32,6 +31,7 @@ static func criar(sim: WorldSim, classe: String, nome: String, salvo: Dictionary
 		e.ouro = 30
 	else:
 		carregar(e, salvo)
+		Evolucao.montar_slots(e)
 	Regras.recalc_jogador(e)
 	e.hp = e.hp_max
 	if salvo.is_empty():
@@ -65,6 +65,7 @@ static func entrar(sim: WorldSim, e: Ent, mapa: String, pos: Vector2) -> void:
 	e.pos = pos
 	sim.carregar_mapa(mapa)
 	e.pos = sim.celula_livre_perto(pos)
+	Familiar.criar(sim, e)   # o familiar do Cultista nasce com ele (0.8.9); criar() não duplica
 	e.caminho.clear(); e.acao = {}; e.alvo = -1
 	sim.emitir("surgiu", {"id": e.id})
 	_checar_zona(sim, e)
@@ -81,6 +82,8 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 	for k in ["pocao"]:
 		if e.aux.has("cd_" + k): e.aux["cd_" + k] -= dt
 	if e.aux.get("bonus_prox_t", 0.0) > 0.0: e.aux["bonus_prox_t"] -= dt
+	if e.aux.get("imovel_t", 0.0) > 0.0: e.aux["imovel_t"] -= dt   # Trono da Legião: sentado no trono
+	Evolucao.passo(sim, e, dt)
 	for h in Defs.CLASSES[e.classe]["habilidades"]:
 		if h.has("cargas"):
 			var k: String = "cargas_" + h["id"]
@@ -98,7 +101,8 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 		e.aux["amargo_t"] = float(e.aux.get("amargo_t", 0.0)) + dt
 		if e.aux["amargo_t"] >= 1.0:
 			e.aux["amargo_t"] = 0.0
-			sim.aplicar_dano_puro(e, e.hp_max * 0.025 * (am - 6), "veneno", null, "dano_tempo")
+			var dv := e.hp_max * 0.025 * (am - 6) * (1.0 - Evolucao.soma(e, "resistencia_amargo"))   # Profeta do Amargo resiste
+			if dv > 0.0: sim.aplicar_dano_puro(e, dv, "veneno", null, "dano_tempo")
 	# canalização (baú, vela de retorno)
 	if not e.interagindo.is_empty():
 		e.interagindo["t"] += dt
@@ -108,7 +112,8 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 			sim.emitir("canal_fim", {"id": e.id, "ok": true})
 			(it["fim"] as Callable).call()
 		return
-	if e.aux.get("auto", false): _auto_pocoes(sim, e)
+	var auto_on: bool = e.aux.get("auto", false)
+	if auto_on or cfg_auto(e)["pocao_sempre"]: _auto_pocoes(sim, e, auto_on)
 	if not e.pronto():
 		return
 	if e.tem("provocado") and false: pass
@@ -190,13 +195,85 @@ static func alcance_basico(e: Ent) -> float:
 	return e.alcance
 
 # =================================================================== modo automático (tecla Z)
-## Ajudante de farm em spot (farm_auto.json): ataca o mais perto num raio de 6 em volta de onde foi ligado, usa a skill
-## em área com 2+ alvos, bebe poção sozinho. O jogador liga/desliga com o comando "auto"; clicar para andar ou atacar desliga.
+## Ajudante de farm em spot (farm_auto.json): caça no raio escolhido em volta de onde foi ligado, usa as skills que o
+## jogador marcou (clique direito no slot), junta os drops e bebe poção sozinho. Liga/desliga com o comando "auto";
+## clicar para andar ou atacar desliga. Shift+Z abre a janela de ajustes (comando "auto_cfg").
 ## Esta lógica nunca chama cmd_mover/cmd_atacar (que desligam o modo): mexe em e.alvo e no caminho direto.
+const AUTO_PADRAO := {"vida": AUTO_VIDA, "recurso": AUTO_RECURSO, "raio": AUTO_RAIO, "juntar": "tudo", "pocao_sempre": true, "area_min": 2}
+const AUTO_LIMITES := {"vida": [0.2, 0.8], "recurso": [0.1, 0.6], "raio": [3.0, 10.0], "area_min": [1, 3]}
+const AUTO_JUNTAR := ["tudo", "bons", "ouro", "nada"]
+
+## Ajustes do modo automático do personagem (vão no save). "skills" = ids marcados; sem nada marcado, vale a do nível 5.
+static func cfg_auto(e: Ent) -> Dictionary:
+	if not (e.aux.get("auto_cfg") is Dictionary): e.aux["auto_cfg"] = {}
+	var c: Dictionary = e.aux["auto_cfg"]
+	for k in AUTO_PADRAO:
+		if not c.has(k): c[k] = AUTO_PADRAO[k]
+	if not (c.get("skills") is Array):
+		c["skills"] = []
+		for h in Defs.CLASSES[e.classe]["habilidades"]:
+			if h.get("auto", false): c["skills"].append(h["id"])
+	return c
+
+static func skill_no_auto(e: Ent, slot: int) -> bool:
+	var h := skill_def(e, slot)
+	return not h.is_empty() and h["id"] in cfg_auto(e)["skills"]
+
+## Clique direito no slot: põe ou tira a skill do automático.
+static func cmd_auto_skill(sim: WorldSim, e: Ent, slot: int) -> void:
+	var h := skill_def(e, slot)
+	if h.is_empty(): return
+	var nome: String = Defs.skill(e.classe, h["id"]).get("nome", h["nome"])
+	if h.get("passiva", false):
+		sim.emitir_a(e, "aviso", {"texto": "%s é passiva: já está sempre ativa." % nome}); return
+	var lst: Array = cfg_auto(e)["skills"]
+	if h["id"] in lst:
+		lst.erase(h["id"])
+		sim.emitir_a(e, "aviso", {"texto": "%s saiu do automático." % nome})
+	else:
+		lst.append(h["id"])
+		sim.emitir_a(e, "aviso", {"texto": "%s no automático%s." % [nome, "" if e.nivel >= int(h["nivel"]) else " (quando liberar no nível %d)" % int(h["nivel"])]})
+	sim.emitir_a(e, "auto_cfg", {})
+
+## Janela de ajustes: cada valor é conferido aqui (vem da rede).
+static func cmd_auto_cfg(sim: WorldSim, e: Ent, chave: String, valor) -> void:
+	var c := cfg_auto(e)
+	match chave:
+		"vida", "recurso", "raio":
+			if not (valor is float or valor is int): return
+			var lim: Array = AUTO_LIMITES[chave]
+			c[chave] = clampf(float(valor), lim[0], lim[1])
+			if chave == "raio" and e.aux.has("auto_centro") and e.pos.distance_to(e.aux["auto_centro"]) > c["raio"]: e.aux["auto_centro"] = e.pos
+		"area_min":
+			if not (valor is int): return
+			c[chave] = clampi(valor, AUTO_LIMITES[chave][0], AUTO_LIMITES[chave][1])
+		"juntar":
+			if not (valor is String and valor in AUTO_JUNTAR): return
+			c[chave] = valor
+		"pocao_sempre":
+			if not (valor is bool): return
+			c[chave] = valor
+		_: return
+	sim.emitir_a(e, "auto_cfg", {})
+
+static func _cfg_do_save(e: Ent, s) -> void:
+	if not (s is Dictionary): return
+	var c := cfg_auto(e)
+	for k in ["vida", "recurso", "raio"]:
+		if s.get(k) is float or s.get(k) is int: c[k] = clampf(float(s[k]), AUTO_LIMITES[k][0], AUTO_LIMITES[k][1])
+	if s.get("area_min") is float or s.get("area_min") is int: c["area_min"] = clampi(int(s["area_min"]), 1, 3)
+	if s.get("juntar") in AUTO_JUNTAR: c["juntar"] = s["juntar"]
+	if s.get("pocao_sempre") is bool: c["pocao_sempre"] = s["pocao_sempre"]
+	if s.get("skills") is Array:
+		var ids: Array = []
+		for h in Defs.CLASSES[e.classe]["habilidades"]:
+			if h["id"] in s["skills"] and not h.get("passiva", false): ids.append(h["id"])
+		c["skills"] = ids
+
 static func desligar_auto(sim: WorldSim, e: Ent, motivo: String = "") -> void:
 	if not e.aux.get("auto", false): return
 	e.aux["auto"] = false
-	e.aux.erase("auto_centro"); e.aux.erase("auto_poupa"); e.aux.erase("auto_ocioso_t")
+	e.aux.erase("auto_centro"); e.aux.erase("auto_poupa"); e.aux.erase("auto_ocioso_t"); e.aux.erase("auto_nao_cabe")
 	if motivo != "": sim.emitir_a(e, "aviso", {"texto": motivo})
 	else: sim.emitir_a(e, "aviso", {"texto": "Modo automático desligado."})
 
@@ -205,75 +282,249 @@ static func _tem_algum(e: Ent, ids: Array) -> bool:
 		if Itens.contar(e.inv, id) > 0: return true
 	return false
 
-static func _auto_pocoes(sim: WorldSim, e: Ent) -> void:
+## Poção sozinha: no modo automático sempre; fora dele só em combate e se "pocao_sempre" estiver ligado.
+static func _auto_pocoes(sim: WorldSim, e: Ent, ligado: bool) -> void:
 	if not e.vivo: return
+	var c := cfg_auto(e)
 	if not _tem_algum(e, POCOES_VIDA):
-		desligar_auto(sim, e, "SEM POÇÕES DE VIDA: modo automático desligado."); return
+		if ligado and e.frac_hp() < 0.2: desligar_auto(sim, e, "SEM POÇÕES DE VIDA: modo automático desligado.")
+		elif ligado and not e.aux.get("auto_avisou_pocao", false):
+			e.aux["auto_avisou_pocao"] = true
+			sim.emitir_a(e, "aviso", {"texto": "Acabaram as poções de vida: o automático para se a vida cair a 20%."})
+	else: e.aux.erase("auto_avisou_pocao")
+	if not ligado and e.em_combate_t >= 5.0: return
+	# veneno (e o Amargo do Cultista não conta): antídoto sem recarga compartilhada
+	if e.tem("veneno") and e.em_combate_t < 5.0 and _tem_algum(e, ["antidoto_querosene", "agua_benta"]) and e.aux.get("auto_antidoto_t", 0.0) <= sim.tempo:
+		e.aux["auto_antidoto_t"] = sim.tempo + 3.0
+		cmd_pocao(sim, e, "antidoto")
 	if e.aux.get("cd_pocao", 0.0) > 0.0: return
-	if e.frac_hp() < AUTO_VIDA:
+	if e.frac_hp() < float(c["vida"]) and _tem_algum(e, POCOES_VIDA):
 		cmd_pocao(sim, e, "vida"); return
-	if e.rec_max > 0.0 and e.rec / e.rec_max < AUTO_RECURSO and e.em_combate_t < 5.0:
+	if e.rec_max > 0.0 and e.rec / e.rec_max < float(c["recurso"]) and e.em_combate_t < 5.0:
 		if _tem_algum(e, POCOES_RECURSO): cmd_pocao(sim, e, "recurso")
-		else: e.aux["auto_poupa"] = true   # sem elixir: só ataque básico até o recurso voltar a 50%
+		elif ligado: e.aux["auto_poupa"] = true   # sem elixir: só ataque básico até o recurso voltar a 50%
 
-## Slot da skill marcada "auto" (a do nível 5), ou -1.
+## Primeiro slot marcado para o automático, ou -1 (o HUD usa para o brilho).
 static func slot_auto(e: Ent) -> int:
 	for i in e.skills_slots.size():
-		var h := skill_def(e, i)
-		if h.get("auto", false): return i
+		if skill_no_auto(e, i): return i
 	return -1
 
 static func _auto_pode_skill(e: Ent, h: Dictionary) -> bool:
-	if h.is_empty() or e.nivel < int(h["nivel"]) or e.cds.has(h["id"]) or e.tem("silenciado"): return false
+	if h.is_empty() or h.get("passiva", false) or e.nivel < int(h["nivel"]) or e.cds.has(h["id"]) or e.tem("silenciado"): return false
 	var cst := custo(e, h)
-	if e.classe == "cultista": return e.frac_hp() >= float(h.get("nao_usa_abaixo_de_hp", 0.25)) and e.hp - cst >= 1.0
-	if e.aux.get("auto_poupa", false):
+	if e.classe == "cultista": return cst <= 0.0 or (e.frac_hp() >= float(h.get("nao_usa_abaixo_de_hp", 0.25)) and e.hp - cst >= 1.0)
+	if e.aux.get("auto_poupa", false) and cst > 0.0:
 		if e.rec / maxf(1.0, e.rec_max) < AUTO_RETOMA: return false
 		e.aux.erase("auto_poupa")
 	return e.rec >= cst
 
+## Papel de cada skill no automático, pela forma dela nos dados (classes_base.json). A ordem é a prioridade.
+const AUTO_ORDEM := ["cura", "buff", "invoca", "area", "volta", "alvo"]
+static func _papel_auto(h: Dictionary) -> String:
+	if h.has("forma"): return "area"
+	if h.has("buff") or h["id"] == "campo_forca": return "buff"
+	if h.has("invoca"): return "invoca"
+	var tipo := _tipo_skill(h)
+	if tipo == "alvo_aliado": return "cura"
+	if tipo == "proprio": return "volta"
+	return "alvo"
+
+## Tenta uma das skills marcadas contra o alvo do automático. true = soltou (ou começou a andar para soltar).
+static func _auto_skills(sim: WorldSim, e: Ent, alvo: Ent, c: Dictionary) -> bool:
+	if not e.buffer_skill.is_empty() or not e.pronto(): return false
+	var marcadas: Array = c["skills"]
+	if marcadas.is_empty(): return false
+	var dist := e.pos.distance_to(alvo.pos) - alvo.raio
+	for papel in AUTO_ORDEM:
+		for slot in e.skills_slots.size():
+			var h := skill_def(e, slot)
+			if h.is_empty() or not h["id"] in marcadas or _papel_auto(h) != papel or not _auto_pode_skill(e, h): continue
+			var ok := false
+			var alvo_id := alvo.id
+			match papel:
+				"cura":
+					ok = e.frac_hp() < 0.6; alvo_id = e.id
+				"buff":
+					ok = dist <= 5.0
+					for b in e.buffs:
+						if b["id"] == h["id"]: ok = false
+					if h["id"] == "campo_forca" and e.escudo > 0.0: ok = false
+				"invoca":
+					var n := 0
+					for o: Ent in sim.ents.values():
+						if o.tipo == "invocacao" and o.dono == e.id and o.kind == h["invoca"] and o.vivo: n += 1
+					ok = dist <= 6.0 and n < maxi(1, int(h.get("max", 1)))
+				"area":
+					var forma: String = h.get("forma", "circulo_em_volta")
+					var dir := (alvo.pos - e.pos).normalized() if alvo.pos != e.pos else e.facing
+					var centro := alvo.pos if forma == "circulo_no_mouse" else e.pos
+					if forma != "circulo_no_mouse" or e.pos.distance_to(alvo.pos) <= float(h.get("alcance", 0.0)):
+						ok = Habilidades.alvos_area5(sim, e, h, forma, centro, dir).size() >= int(c["area_min"])
+				"volta":
+					ok = dist <= float(h.get("area_raio", 2.5))
+				"alvo":
+					var alc := _alcance_skill(h)
+					ok = alc <= 0.0 or dist <= alc + 3.0   # um pouco fora do alcance: anda até lá (buffer)
+			if not ok: continue
+			if papel != "cura": e.alvo = alvo.id
+			if _tentar_skill(sim, e, slot, alvo_id, alvo.pos, true): return true
+			if not e.buffer_skill.is_empty(): return true
+	return false
+
+## Mob que já está brigando com outro jogador (fora do meu grupo) não é meu: o automático não rouba.
+static func _de_outro(sim: WorldSim, e: Ent, o: Ent) -> bool:
+	if o.alvo == -1 or o.alvo == e.id: return false
+	var dono := sim.valido(o.alvo)
+	if dono != null and dono.tipo == "invocacao": dono = sim.valido(dono.dono)
+	if dono == null or dono.tipo != "jogador" or dono == e: return false
+	var g := int(e.aux.get("grupo", -1))
+	return g < 0 or int(dono.aux.get("grupo", -1)) != g
+
+## Drop no chão que o automático pode juntar (filtro da janela; ouro sempre).
+static func _drop_para_juntar(sim: WorldSim, e: Ent, centro: Vector2, raio: float, modo: String) -> Dictionary:
+	var melhor := {}
+	var dmin := 1e9
+	var nao_cabe: Array = e.aux.get("auto_nao_cabe", [])
+	var dono_s := float(Defs.DROPS["regras"]["dono_do_drop_s"])
+	for c: Dictionary in sim.chao.values():
+		if c["pos"].distance_to(centro) > raio + 1.0 or c["id"] in nao_cabe: continue
+		if c["dono"] != e.id and c["t"] < dono_s: continue
+		var it: Dictionary = c["item"]
+		if it["id"] != "_ouro":
+			if modo == "ouro": continue
+			if modo == "bons" and str(it.get("raridade", "comum")) == "comum" and not it["id"] in POCOES_VIDA + POCOES_RECURSO: continue
+			var empilha := Itens.pilha(it) > 1 and e.inv.any(func(o): return o["id"] == it["id"])
+			if not empilha and Itens.achar_lugar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it).x < 0:
+				nao_cabe.append(c["id"]); e.aux["auto_nao_cabe"] = nao_cabe
+				sim.emitir_a(e, "aviso", {"texto": "Mochila cheia: o automático parou de juntar itens."})
+				continue
+		var d: float = c["pos"].distance_to(e.pos)
+		if d < dmin: dmin = d; melhor = c
+	return melhor
+
 static func _auto(sim: WorldSim, e: Ent, dt: float) -> void:
 	if not e.vivo: return
+	var c := cfg_auto(e)
+	var raio := float(c["raio"])
 	if not e.aux.has("auto_centro"): e.aux["auto_centro"] = e.pos
 	var centro: Vector2 = e.aux["auto_centro"]
 	# chefe ou elite por perto: desliga (não morrer sozinho)
 	var perto: Ent = null
 	var dmin := 1e9
-	for o: Ent in sim.inimigos_de(e, centro, AUTO_RAIO + 2.0):
+	for o: Ent in sim.inimigos_de(e, centro, raio + 2.0):
 		if o.invisivel or not o.alvejavel: continue
 		if o.tipo == "chefe" or o.arquetipo in ["elite", "raro"]:
 			desligar_auto(sim, e, "CHEFE! Modo automático desligado."); return
-		if o.pos.distance_to(centro) > AUTO_RAIO: continue
+		if o.pos.distance_to(centro) > raio or _de_outro(sim, e, o): continue
 		var d := o.pos.distance_to(e.pos)
+		if o.alvo == e.id: d -= 3.0   # quem já está me batendo vem primeiro
 		if d < dmin: dmin = d; perto = o
 	var atual := sim.valido(e.alvo)
-	if atual != null and atual.vivo and atual.pos.distance_to(centro) <= AUTO_RAIO + 1.0 and e.eh_inimigo_de(atual): perto = atual
+	if atual != null and atual.vivo and atual.pos.distance_to(centro) <= raio + 1.0 and e.eh_inimigo_de(atual): perto = atual
 	if perto == null:
 		e.alvo = -1
+		# sem briga: junta o que caiu no raio, depois volta ao centro
+		if c["juntar"] != "nada" and not e.aux.has("pegar"):
+			var drop := _drop_para_juntar(sim, e, centro, raio, c["juntar"])
+			if not drop.is_empty():
+				e.aux["pegar"] = drop["id"]; sim.ir_para(e, drop["pos"])
+				e.aux["auto_ocioso_t"] = 0.0
+				return
+		if e.aux.has("pegar"): return
 		e.aux["auto_ocioso_t"] = float(e.aux.get("auto_ocioso_t", 0.0)) + dt
 		if e.aux["auto_ocioso_t"] >= 3.0 and e.pos.distance_to(centro) > 1.5 and e.caminho.is_empty():
 			sim.ir_para(e, centro)
 		return
 	e.aux["auto_ocioso_t"] = 0.0
-	# skill em área com 2+ alvos
-	var slot := slot_auto(e)
-	if slot >= 0 and e.buffer_skill.is_empty():
-		var h := skill_def(e, slot)
-		if _auto_pode_skill(e, h):
-			var forma: String = h.get("forma", "circulo_em_volta")
-			var dir := (perto.pos - e.pos).normalized() if perto.pos != e.pos else e.facing
-			var c := perto.pos if forma == "circulo_no_mouse" else e.pos
-			var alc := float(h.get("alcance", 0.0))
-			if forma != "circulo_no_mouse" or e.pos.distance_to(perto.pos) <= alc:
-				if Habilidades.alvos_area5(sim, e, h, forma, c, dir).size() >= 2:
-					e.alvo = perto.id
-					if _tentar_skill(sim, e, slot, perto.id, perto.pos, true): return
-	# um alvo só: ataque básico (o laço do passo anda até o alcance)
+	e.aux.erase("pegar")
+	if _auto_skills(sim, e, perto, c): return
+	# nenhuma skill serve agora: ataque básico (o laço do passo anda até o alcance)
 	e.alvo = perto.id
+
+# =================================================================== árvore de talentos (tecla T)
+## A cada TALENTO_NIVEIS níveis o jogador ganha 1 ponto para pôr numa skill ativa já liberada. Cada ponto (até
+## TALENTO_MAX por skill) dá +TALENTO_DANO de dano/cura, +TALENTO_DURACAO de duração (buffs, escudos, invocações) e
+## -TALENTO_RECARGA de recarga. A regra entra num lugar só: talentos_em(e, h) devolve a cópia ajustada da skill.
+const TALENTO_NIVEIS := 5
+const TALENTO_MAX := 10
+const TALENTO_DANO := 0.06
+const TALENTO_DURACAO := 0.05
+const TALENTO_RECARGA := 0.03
+const TALENTO_OURO_POR_PONTO := 25   # esquecer talentos: preço por ponto gasto
+
+static func talentos(e: Ent) -> Dictionary:
+	if not (e.aux.get("talentos") is Dictionary): e.aux["talentos"] = {}
+	return e.aux["talentos"]
+
+static func talento(e: Ent, id: String) -> int:
+	return int(talentos(e).get(id, 0))
+
+static func talentos_gastos(e: Ent) -> int:
+	var n := 0
+	for k in talentos(e): n += int(talentos(e)[k])
+	return n
+
+static func talentos_livres(e: Ent) -> int:
+	return maxi(0, e.nivel / TALENTO_NIVEIS - talentos_gastos(e))
+
+const _CHAVES_DANO := ["mult", "mult_por_tick", "mult_por_projetil", "mult_por_golpe", "cura_mult", "cura_mult_por_tick"]
+## Skill com os talentos aplicados (cópia; os dados originais não mudam).
+static func talentos_em(e: Ent, h: Dictionary) -> Dictionary:
+	var r := talento(e, str(h.get("id", "")))
+	if r <= 0: return h
+	var c := h.duplicate(true)
+	for k in _CHAVES_DANO:
+		if c.has(k) and (c[k] is float or c[k] is int): c[k] = float(c[k]) * (1.0 + TALENTO_DANO * r)
+	if c.has("recarga"): c["recarga"] = float(c["recarga"]) * (1.0 - TALENTO_RECARGA * r)
+	if c.has("duracao") and (c["duracao"] is float or c["duracao"] is int): c["duracao"] = float(c["duracao"]) * (1.0 + TALENTO_DURACAO * r)
+	if c.get("buff") is Dictionary and c["buff"].has("duracao"): c["buff"]["duracao"] = float(c["buff"]["duracao"]) * (1.0 + TALENTO_DURACAO * r)
+	c["talento"] = r
+	return c
+
+static func cmd_talento(sim: WorldSim, e: Ent, id: String) -> void:
+	var h := {}
+	for x in Defs.CLASSES[e.classe]["habilidades"]:
+		if x["id"] == id: h = x
+	if h.is_empty() or h.get("passiva", false): return
+	var nome: String = Defs.skill(e.classe, id).get("nome", h["nome"])
+	if e.nivel < int(h["nivel"]):
+		sim.emitir_a(e, "aviso", {"texto": "%s libera no nível %d." % [nome, int(h["nivel"])]}); return
+	if talentos_livres(e) <= 0:
+		sim.emitir_a(e, "aviso", {"texto": "Sem pontos de talento: ganha 1 a cada %d níveis." % TALENTO_NIVEIS}); return
+	if talento(e, id) >= TALENTO_MAX:
+		sim.emitir_a(e, "aviso", {"texto": "%s já está no máximo." % nome}); return
+	talentos(e)[id] = talento(e, id) + 1
+	sim.emitir_a(e, "som_evento", {"ev": "nivel_sobe"})
+	sim.emitir_a(e, "aviso", {"texto": "%s %d/%d" % [nome, talento(e, id), TALENTO_MAX]})
+	sim.emitir_a(e, "talentos", {})
+
+static func cmd_esquecer_talentos(sim: WorldSim, e: Ent) -> void:
+	var gastos := talentos_gastos(e)
+	if gastos == 0: return
+	var preco := gastos * TALENTO_OURO_POR_PONTO
+	if e.ouro < preco:
+		sim.emitir_a(e, "aviso", {"texto": "Esquecer os talentos custa %d de ouro." % preco}); return
+	e.ouro -= preco
+	e.aux["talentos"] = {}
+	sim.emitir_a(e, "aviso", {"texto": "Talentos esquecidos: %d pontos de volta (%d de ouro)." % [gastos, preco]})
+	sim.emitir_a(e, "talentos", {})
+
+static func _talentos_do_save(e: Ent, s) -> void:
+	if not (s is Dictionary): return
+	var t := {}
+	for h in Defs.CLASSES[e.classe]["habilidades"]:
+		if s.has(h["id"]) and not h.get("passiva", false): t[h["id"]] = clampi(int(s[h["id"]]), 0, TALENTO_MAX)
+	e.aux["talentos"] = t
+	# save mexido à mão não passa do que o nível permite
+	while talentos_gastos(e) > e.nivel / TALENTO_NIVEIS:
+		for k in t.keys():
+			if t[k] > 0: t[k] -= 1; break
 
 # =================================================================== comandos
 static func cmd_mover(sim: WorldSim, e: Ent, p: Vector2) -> void:
 	if not e.vivo: return
+	if e.aux.get("imovel_t", 0.0) > 0.0: return
 	desligar_auto(sim, e)
 	e.alvo = -1; e.aux.erase("interagir"); e.aux.erase("pegar"); e.buffer_skill = {}
 	if not e.interagindo.is_empty(): cancelar_canal(sim, e)
@@ -305,7 +556,7 @@ static func cmd_pegar(sim: WorldSim, e: Ent, chao_id: int) -> void:
 static func cmd_ponto(sim: WorldSim, e: Ent, stat: String) -> void:
 	if e.pontos <= 0 or not e.stats.has(stat): return
 	e.pontos -= 1
-	e.stats[stat] = float(e.stats[stat]) + 1.0
+	e.stats[stat] = float(e.stats[stat]) + float(Defs.FORM["peso_por_ponto"])
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "stats", {"id": e.id})
 
@@ -339,6 +590,9 @@ static func ataque_basico(sim: WorldSim, e: Ent, al: Ent) -> void:
 			if corpo_a_corpo:
 				if e.pos.distance_to(a2.pos) - a2.raio <= alcance_basico(e) + 0.8:
 					sim.aplicar_golpe(e, a2, op)
+					if e.aux.has("area_basico"):   # Forma Colossal: o tentáculo varre tudo em volta do alvo
+						for o in sim.inimigos_de(e, a2.pos, float(e.aux["area_basico"])):
+							if o != a2: sim.aplicar_golpe(e, o, op.merged({"area": true, "sem_recurso": true}))
 			else:
 				if e.classe == "humano": e.municao -= 1
 				sim.lancar(e, {"vel": float(arma.get("projetil_vel", 12)) if float(arma.get("projetil_vel", 0)) > 0 else 12.0, "alvo": alvo_id, "vfx": "basico_" + e.classe}, op)
@@ -378,7 +632,7 @@ static func _basico_humano(sim: WorldSim, e: Ent, al: Ent, op: Dictionary) -> vo
 			"rec": maxf(0.05, iv * 0.55), "alvo": alvo_id, "anim": "shoot", "impacto": func():
 			e.municao -= 1
 			sim.emitir("vfx", {"nome": "disparo_cano", "de": e.id, "alvo": alvo_id})
-			sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": alvo_id, "vfx": "projetil_bala"}, op)
+			sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": alvo_id, "vfx": "projetil_bala", "perfura": e.aux.has("tiros_atravessam")}, op)
 		})
 	e.aux["arma_mao"] = "espada" if espada else "tiro"
 
@@ -386,7 +640,8 @@ static func _basico_humano(sim: WorldSim, e: Ent, al: Ent, op: Dictionary) -> vo
 static func skill_def(e: Ent, slot: int) -> Dictionary:
 	if slot < 0 or slot >= e.skills_slots.size(): return {}
 	var id: String = e.skills_slots[slot]
-	for h in Defs.CLASSES[e.classe]["habilidades"]:
+	if id == "": return {}
+	for h in Evolucao.habilidades(e):
 		if h["id"] == id: return h
 	return {}
 
@@ -401,7 +656,7 @@ static func _alcance_skill(h: Dictionary) -> float:
 
 ## Tenta soltar a habilidade agora. Se o alvo está longe, anda e guarda no buffer.
 static func _tentar_skill(sim: WorldSim, e: Ent, slot: int, alvo_id: int, ponto: Vector2, do_buffer: bool) -> bool:
-	var h := skill_def(e, slot)
+	var h := talentos_em(e, skill_def(e, slot))
 	if h.is_empty(): return true
 	if h.get("passiva", false):
 		sim.emitir_a(e, "aviso", {"texto": "%s é passiva: já está ativa." % h["nome"]}); return true
@@ -445,6 +700,7 @@ static func _tentar_skill(sim: WorldSim, e: Ent, slot: int, alvo_id: int, ponto:
 		if alc > 0.0 and e.pos.distance_to(ponto) > alc:
 			ponto = e.pos + (ponto - e.pos).normalized() * alc
 	# paga e solta
+	cst = Evolucao.custo(e, cst)   # Três Auréolas do Arquimago
 	if e.classe == "cultista": e.hp -= cst
 	else: e.rec -= cst
 	if h.has("cargas"):
@@ -461,6 +717,7 @@ static func _tentar_skill(sim: WorldSim, e: Ent, slot: int, alvo_id: int, ponto:
 	return true
 
 static func _tipo_skill(h: Dictionary) -> String:
+	if h.has("_evo"): return Evolucao.tipo(h)
 	match h["id"]:
 		"toque_graca", "nanoreparo": return "alvo_aliado"
 		"asas_ascensao", "rolamento", "arrancada", "chuva_cinzas", "armadilha_prata", "investida_bestial", "rajada": return "ponto"
@@ -495,11 +752,17 @@ static func ao_ser_atingido(sim: WorldSim, e: Ent, atk: Ent, dano: float, r: Dic
 			sim.aplicar_dano_puro(atk, dano * float(b["mods"]["reflete"]), "fogo", e, "normal")
 
 static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
+	Evolucao.abateu(sim, e, morto)
+	if e.mod("cura_por_abate") > 0.0: sim.curar(e, e.hp_max * e.mod("cura_por_abate"), e)   # Ave, Arena!
 	var xp := Regras.xp_mob(morto) * Regras.mod_xp_nivel(morto.nivel, e.nivel)
 	if morto.tipo == "chefe":
 		xp = (10.0 + 5.0 * morto.nivel) * (25.0 if not e.flags.has("venceu_" + morto.kind) else 8.0)
 		e.flags["venceu_" + morto.kind] = true
-	ganhar_xp(sim, e, int(round(xp)))
+	var grupo := membros_grupo(sim, e)
+	if grupo.size() > 1:   # grupo: a XP do abate vai para quem está perto (+10% por membro extra), dividida igualmente
+		var parte := int(round(xp * (1.0 + 0.1 * (grupo.size() - 1)) / grupo.size()))
+		for m: Ent in grupo: ganhar_xp(sim, m, parte)
+	else: ganhar_xp(sim, e, int(round(xp)))
 	e.abates[morto.kind] = e.abates.get(morto.kind, 0) + 1
 	Missoes.evento(sim, e, "matar", morto.kind)
 	# farmar_spot: qualquer monstro morto dentro do spot conta
@@ -526,9 +789,10 @@ static func ganhar_xp(sim: WorldSim, e: Ent, q: int, fonte: String = "") -> void
 		e.hp = e.hp_max
 		if e.classe in ["anjo", "tecnomancer", "humano"]: e.rec = e.rec_max
 		var nova := ""
-		for h in Defs.CLASSES[e.classe]["habilidades"]:
+		for h in Evolucao.habilidades(e):
 			if int(h["nivel"]) == e.nivel: nova = h["nome"]
 		sim.emitir("nivel", {"id": e.id, "nivel": e.nivel, "skill_nova": nova})
+		if e.nivel % TALENTO_NIVEIS == 0: sim.emitir_a(e, "aviso", {"texto": "Ponto de talento novo! Aperte T para usar."})
 
 # =================================================================== morte
 static func morreu(sim: WorldSim, e: Ent) -> void:
@@ -560,6 +824,7 @@ static func ponto_renascer(sim: WorldSim, e: Ent) -> Vector2:
 
 # =================================================================== interação com o mundo
 static func interagir(sim: WorldSim, e: Ent, o: Ent) -> void:
+	Biblioteca.tocar(sim, e, o)
 	match o.tipo:
 		"npc": Missoes.abrir(sim, e, o)
 		"objeto":
@@ -579,6 +844,15 @@ static func canalizar(sim: WorldSim, e: Ent, dur: float, texto: String, fim: Cal
 	e.caminho.clear()
 	sim.emitir("canal", {"id": e.id, "dur": dur, "texto": texto})
 
+## Teleporte de volta à base da facção (Vigília: São Lázaro; Arautos: Jerusalém): grátis, sem item. Fica parado 3 s.
+static func voltar_acampamento(sim: WorldSim, e: Ent) -> void:
+	if not e.vivo or e.interagindo.has("t"): return
+	canalizar(sim, e, 3.0, "Voltando ao acampamento", func(): _ir_para_casa(sim, e))
+
+static func _ir_para_casa(sim: WorldSim, e: Ent) -> void:
+	var casa := Defs.mapa_casa(e.faccao)
+	sim.emitir_a(e, "trocar_mapa", {"mapa": casa, "pos": ponto_renascer(sim, e) if sim.mapa_id == casa else Vector2(-1, -1)})
+
 static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
 	if b.aux.get("aberto", false):
 		sim.emitir_a(e, "aviso", {"texto": "Vazio."}); return
@@ -586,6 +860,7 @@ static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
 	if b.aux.has("visivel_se") and not Missoes.cond(e, b.aux["visivel_se"], ""): return
 	if b.aux.get("requer_chefe", "") != "" and (sim.chefe == null or sim.chefe.estado != "morto"):
 		sim.emitir_a(e, "aviso", {"texto": "Trancado por algo maior que uma fechadura."}); return
+	if b.aux.get("loot_de_grupo", false) and not ChefeEgito.pode_abrir_bau(sim, e, b): return
 	var trancado: bool = t == "bau_de_ferro" or b.aux.get("trancado", false)
 	var usou_gazua := false
 	if trancado:
@@ -614,7 +889,8 @@ static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
 			sim.criar_area({"pos": b.pos, "raio": 1.5, "dur": 4.0, "tick": 0.5, "tipo": "veneno",
 				"op": {"dano_frac": 0.03, "elemento": "veneno"}})
 			sim.emitir_a(e, "aviso", {"texto": "Uma nuvem verde sobe do caixote!"})
-		b.aux["aberto"] = true
+		b.aux["aberto"] = not b.aux.get("loot_de_grupo", false)   # baú de chefe do Egito: cada um abre a sua parte
+		if b.aux.get("loot_de_grupo", false): ChefeEgito.marcar_bau(e, b)
 		sim.emitir("bau", {"id": b.id, "aberto": true, "tipo": t})
 		Loot.abrir_bau(sim, b, e)
 		if b.aux.has("hist"): Missoes.evento(sim, e, "interagir", b.aux["hist"])
@@ -623,6 +899,12 @@ static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
 
 static func _objeto(sim: WorldSim, e: Ent, o: Ent) -> void:
 	var d: Dictionary = Defs.OBJETOS.get(o.aux["obj"], {})
+	if d.get("abre", "") == "estante":   # estante da Biblioteca: lista de livros (Biblioteca.abrir_estante)
+		Biblioteca.abrir_estante(sim, e, o); return
+	if d.has("texto_servidor") and not d.has("leva_para"):   # inscrição, fichário: o texto já veio por Biblioteca.tocar
+		Missoes.evento(sim, e, "interagir", o.aux["obj"]); return
+	if o.aux.get("obj", "") == "cartaz_agrak":   # Cartaz do Agrak: a inscrição é no servidor (o cliente manda)
+		sim.emitir_a(e, "agrak_pedido", {"a": "inscrever"}); return
 	if d.has("visivel_se") and not Missoes.cond(e, d["visivel_se"], ""):
 		sim.emitir_a(e, "aviso", {"texto": "Nada de útil agora."}); return
 	# objeto que chama um elite (escotilha do silo -> Último Operador) pode ser usado de novo se o elite não está mais vivo
@@ -636,6 +918,8 @@ static func _objeto(sim: WorldSim, e: Ent, o: Ent) -> void:
 	if d.has("requer_item"): precisa.append(d["requer_item"])
 	precisa.append_array(d.get("requer_itens", []))
 	var abre_porta := d.has("leva_para") and e.flags.has("aberto_" + o.aux["obj"])
+	if d.has("leva_para") and o.aux["obj"] in ["porta_camara", "porta_do_altar"]:   # pedido do Jefin: a Câmara do Zacarias (e o Altar, espelho dela) abre sem os lacres
+		precisa = precisa.filter(func(it): return Itens.contar(e.inv, it) > 0)
 	if not abre_porta:
 		for it in precisa:
 			if Itens.contar(e.inv, it) <= 0:
@@ -662,9 +946,48 @@ static func _objeto(sim: WorldSim, e: Ent, o: Ent) -> void:
 static func _portal(sim: WorldSim, e: Ent, o: Ent) -> void:
 	if o.aux.has("requer_flag") and not e.flags.has(o.aux["requer_flag"]):
 		sim.emitir_a(e, "aviso", {"texto": o.aux.get("texto_trancado", "Fechado.")}); return
+	if e.nivel < int(o.aux.get("nivel_minimo", 0)):   # Estrada do Sul (Jerusalém -> deserto): só no nível 12
+		sim.emitir_a(e, "aviso", {"texto": o.aux.get("texto_trancado", "Volte no nível %d." % int(o.aux["nivel_minimo"]))}); return
 	if sim.chefe != null and sim.chefe.porta_fechada():
 		sim.emitir_a(e, "aviso", {"texto": "A grade não se mexe enquanto o chefe estiver vivo."}); return
 	canalizar(sim, e, 0.6, o.nome, func(): _portal_para(sim, e, o.aux["para"], o.aux.get("chegada", [])))
+
+const CHAT_MAX := 120
+## Quem divide a XP com o matador: do mesmo grupo, vivo, no mesmo mapa e perto dele (ent.aux["grupo"] é posto pelo servidor).
+static func membros_grupo(sim: WorldSim, e: Ent) -> Array:
+	var gid: int = int(e.aux.get("grupo", -1))
+	if gid < 0: return [e]
+	var out: Array = []
+	for o: Ent in sim.ents.values():
+		if o.tipo == "jogador" and o.vivo and int(o.aux.get("grupo", -1)) == gid and o.pos.distance_to(e.pos) <= CHAT_PERTO:
+			out.append(o)
+	if not out.has(e): out.append(e)
+	return out
+
+## O que a janela de inspecionar mostra de outro jogador.
+static func inspecao(e: Ent) -> Dictionary:
+	var eq := {}
+	for slot in e.equip:
+		var it: Dictionary = e.equip[slot]
+		eq[slot] = {"nome": Itens.nome(it), "raridade": str(it.get("raridade", "comum"))}
+	return {"nome": e.nome, "classe": e.classe, "nivel": e.nivel, "hp": e.hp, "hp_max": e.hp_max, "stats": e.stats.duplicate(), "equip": eq}
+const CHAT_PERTO := 24.0   # tiles: alcance do canal "perto" (quem vê o balão)
+## Chat: limpa o texto, segura spam (até 4 falas a cada 5 s) e emite. Canais: "perto" (balão + quem está perto),
+## "global" (todo mundo online) e "pm" (só o destinatário; o servidor acha o nome em qualquer mapa).
+static func falar(sim: WorldSim, e: Ent, txt: String, canal := "perto", para := "") -> void:
+	var t := ""
+	for ch in txt.strip_edges():
+		if ch.unicode_at(0) >= 32: t += ch
+	t = t.strip_edges().left(CHAT_MAX)
+	para = para.strip_edges()
+	if t == "" or (canal == "pm" and para == "") or not canal in ["perto", "global", "pm", "grupo"]: return
+	var h: Array = e.aux.get("chat_h", [])
+	h = h.filter(func(x): return sim.tempo - float(x) < 5.0)
+	if h.size() >= 4:
+		sim.emitir_a(e, "aviso", {"texto": "Calma: espere um pouco para falar de novo."}); return
+	h.append(sim.tempo); e.aux["chat_h"] = h
+	if canal == "perto" or canal == "global": sim.emitir("fala", {"id": e.id, "texto": t, "chat": true})
+	sim.emitir("chat", {"id": e.id, "nome": e.nome, "classe": e.classe, "texto": t, "canal": canal, "para": para, "pos": e.pos})
 
 static func _portal_para(sim: WorldSim, e: Ent, mapa: String, chegada: Array) -> void:
 	var p := Vector2(chegada[0], chegada[1]) if chegada.size() == 2 else Vector2(-1, -1)
@@ -715,6 +1038,8 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 		sim.emitir_a(e, "texto", {"titulo": d.get("nome", ""), "texto": d.get("texto", d.get("descricao", d.get("lore", "")))}); return
 	if Itens.equipavel(it):
 		equipar(sim, e, uid, ""); return
+	if str(d.get("uso", "")).begins_with("evento:"):   # Convite dos Vigilantes: o servidor decide (EventoHermon)
+		sim.emitir_a(e, "usar_evento", {"uso": d["uso"], "uid": uid, "item": it["id"]}); return
 	var ef = d.get("efeito")
 	if not (ef is Dictionary):
 		sim.emitir_a(e, "aviso", {"texto": "Não dá para usar isto assim."}); return
@@ -744,8 +1069,7 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 			if Itens.ATTR.has(k): mods[Itens.ATTR[k]] = float(bf[k])
 		add_buff(sim, e, it["id"], float(bf.get("duracao_s", 300)), mods)
 	if ef.has("teleporta"):
-		canalizar(sim, e, float(ef.get("canalizar_s", 3)), "Vela de Retorno", func():
-			sim.emitir_a(e, "trocar_mapa", {"mapa": "area_inicial", "pos": ponto_renascer(sim, e) if sim.mapa_id == "area_inicial" else Vector2(-1, -1)}))
+		canalizar(sim, e, float(ef.get("canalizar_s", 3)), "Vela de Retorno", func(): _ir_para_casa(sim, e))
 	if ef.has("arremesso"):
 		var alvo := sim.valido(e.alvo)
 		var p: Vector2 = alvo.pos if alvo != null else e.pos + e.facing * 4.0
@@ -853,14 +1177,15 @@ static func estoque(e: Ent, loja_id: String) -> Array:
 	var l: Dictionary = Defs.LOJAS.get(loja_id, {})
 	var ids: Array = l.get("itens", []).duplicate()
 	# poção tem que ser fácil de comprar (farm_auto.json): todo vendedor tem o básico
-	if loja_id in ["loja_anselmo", "loja_lucio", "loja_malfas", "loja_tobias", "loja_cardo", "loja_corvina"]:
+	if loja_id in ["loja_anselmo", "loja_lucio", "loja_malfas", "loja_tobias", "loja_cardo", "loja_corvina",
+			"loja_hulda", "loja_zilpa", "loja_bartimeu", "loja_carrinho_bartimeu", "loja_zaqueu_cobrador"]:
 		for i in ESTOQUE_GERAL.get(e.faccao, ESTOQUE_GERAL["vigilia"]):
 			if not i in ids: ids.append(i)
-	if loja_id in ["loja_tobias", "loja_malfas"]:
+	if loja_id in ["loja_tobias", "loja_malfas", "loja_bartimeu", "loja_carrinho_bartimeu"]:
 		for i in ["cartuchos_sal", "virotes_prata", "balas_chumbo", "gazua"]:
 			if not i in ids: ids.append(i)
 	# armas e armaduras de nível baixo para a classe do jogador
-	if loja_id in ["loja_tobias", "loja_malfas"]:
+	if loja_id in ["loja_tobias", "loja_malfas", "loja_bartimeu", "loja_carrinho_bartimeu"]:
 		for id in Defs.POR_TAG.get("equip:faixa1", []):
 			var d: Dictionary = Defs.ITENS[id]
 			var cl = d.get("classes")
@@ -878,7 +1203,8 @@ static func abrir_servico(sim: WorldSim, e: Ent, s: Dictionary, npc: Ent) -> voi
 		"ferreiro":
 			d["titulo"] = "Forja de " + npc.nome.split(" ")[0]; d["fala"] = Defs.FERREIROS.get(npc.kind, {}).get("fala_ao_abrir", "")
 		"armazem":
-			d["titulo"] = "Armazém do Coveiro"; d["fala"] = "O que é guardado com os mortos não some."
+			var ar: Dictionary = Defs.NPCS.get(npc.kind, {}).get("armazem", {})   # Gustavo, o Primarca (0.8.3) traz o próprio título
+			d["titulo"] = ar.get("titulo", "Armazém do Coveiro"); d["fala"] = ar.get("fala", "O que é guardado com os mortos não some.")
 		"treinador":
 			d["titulo"] = "Treino com " + npc.nome; d["fala"] = "Mostre o que aprendeu. Depois esqueça e aprenda direito."
 	sim.emitir_a(e, "servico", d)
@@ -910,14 +1236,17 @@ static func vender(sim: WorldSim, e: Ent, uid: int) -> void:
 	sim.emitir_a(e, "ouro", {"valor": v})
 	sim.emitir_a(e, "inventario", {})
 
-## Refino com joia (Lágrima de Anjo +0..+6 100%; Fragmento de Alma +6..+9 55%, falha volta 1).
+## Refino com lágrimas (drops.json "refino_com_lagrimas"): Angélica +0..+6 sempre dá certo;
+## Sanguínea +6..+15 com chance caindo; falha tira 1 nível (2 do +11 em diante, nunca abaixo de +6). Nunca quebra.
 static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 	var it: Dictionary = e.equip.get(onde, {}) if onde != "mochila" else Itens.por_uid(e.inv, uid_item)
 	if it.is_empty() or not Itens.equipavel(it): return
+	var R: Dictionary = Defs.DROPS["refino_com_lagrimas"]
 	var r := int(it.get("refino", 0))
-	var joia := "lagrima_anjo" if r < 6 else "fragmento_alma"
-	if r >= 9:
-		sim.emitir_a(e, "aviso", {"texto": "Já está no +9."}); return
+	var maximo := int(R.get("maximo", 15))
+	if r >= maximo:
+		sim.emitir_a(e, "aviso", {"texto": "Já está no +%d." % maximo}); return
+	var joia := "lagrima_angelica" if r < int(R["lagrima_angelica"]["ate"]) else "lagrima_sanguinea"
 	if Itens.contar(e.inv, joia) <= 0:
 		sim.emitir_a(e, "aviso", {"texto": "Precisa de %s." % Defs.ITENS[joia]["nome"]}); return
 	var custo_ouro := 50 * (r + 1)
@@ -925,13 +1254,26 @@ static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 		sim.emitir_a(e, "aviso", {"texto": "O ferreiro cobra %d de ouro." % custo_ouro}); return
 	e.ouro -= custo_ouro
 	Itens.remover(e.inv, joia, 1)
-	var ok := joia == "lagrima_anjo" or sim.rng.randf() < 0.55
+	if r >= 10 and sim.rng.randf() < 0.15:   # acima do +10 o item pode quebrar (15%, Jefin 17/10): a lágrima e o ouro já foram
+		if onde == "mochila": e.inv.erase(it)
+		else: e.equip.erase(onde)
+		Regras.recalc_jogador(e)
+		sim.emitir_a(e, "aviso", {"texto": "%s quebrou ao passar do +10." % Itens.nome(it)})
+		sim.emitir_a(e, "som_evento", {"ev": "refino_falha"})
+		sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
+		return
+	var ok := joia == "lagrima_angelica" or sim.rng.randf() < chance_refino(r + 1)
 	if ok: it["refino"] = r + 1
-	elif r > 0: it["refino"] = r - 1
+	else: it["refino"] = maxi(mini(r, 6), r - (2 if r + 1 >= 11 else 1))
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "refino", {"ok": ok, "nivel": int(it["refino"]), "nome": Itens.nome(it)})
 	sim.emitir_a(e, "som_evento", {"ev": "refino_sucesso" if ok else "refino_falha"})
 	sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
+
+## Chance de chegar ao nível alvo (1.0 até o +6).
+static func chance_refino(alvo: int) -> float:
+	var t: Dictionary = Defs.DROPS["refino_com_lagrimas"]["lagrima_sanguinea"]["chance_para"]
+	return float(t.get("+%d" % alvo, 1.0))
 
 ## Treinador: redistribui os pontos de atributo (custa ouro).
 static func redistribuir(sim: WorldSim, e: Ent) -> void:
@@ -942,31 +1284,38 @@ static func redistribuir(sim: WorldSim, e: Ent) -> void:
 	var base: Dictionary = Defs.CLASSES[e.classe]["atributos_iniciais"]
 	var gasto := 0
 	for k in e.stats:
-		gasto += int(e.stats[k]) - int(base[k]); e.stats[k] = float(base[k])
+		gasto += roundi((float(e.stats[k]) - float(base[k])) / float(Defs.FORM["peso_por_ponto"])); e.stats[k] = float(base[k])
 	e.pontos += gasto
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "stats", {"id": e.id}); sim.emitir_a(e, "aviso", {"texto": "Pontos devolvidos: %d." % gasto})
 
 # =================================================================== save
 static func salvar(e: Ent, sim: WorldSim) -> Dictionary:
-	return {"v": 2, "classe": e.classe, "nome": e.nome, "nivel": e.nivel, "xp": e.xp, "pontos": e.pontos, "stats": e.stats,
+	return {"v": 2, "classe": e.classe, "evolucao": e.evolucao, "nome": e.nome, "nivel": e.nivel, "xp": e.xp, "pontos": e.pontos, "stats": e.stats,
 		"ouro": e.ouro, "municao": e.municao, "inv": e.inv, "equip": e.equip, "armazem": e.armazem, "missoes": e.missoes,
-		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if sim.mapa_id.begins_with("area") else "area_inicial",
-		"pos": [e.pos.x, e.pos.y] if sim.mapa_id.begins_with("area") else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid}
+		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if Defs.eh_mapa_casa(sim.mapa_id) else Defs.mapa_casa(e.faccao),
+		"pos": [e.pos.x, e.pos.y] if Defs.eh_mapa_casa(sim.mapa_id) else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
+		"auto": cfg_auto(e), "talentos": talentos(e)}
 
 static func carregar(e: Ent, s: Dictionary) -> void:
 	e.nivel = int(s.get("nivel", 1)); e.xp = int(s.get("xp", 0)); e.pontos = int(s.get("pontos", 0))
+	e.evolucao = str(s.get("evolucao", ""))
+	if e.evolucao != "" and Evolucao.defn(e.evolucao).get("classe_base", "") != e.classe: e.evolucao = ""   # save adulterado ou JSON mudou
 	for k in s.get("stats", {}): e.stats[k] = float(s["stats"][k])
 	e.ouro = int(s.get("ouro", 0)); e.municao = int(s.get("municao", 0))
 	e.inv = s.get("inv", []); e.equip = s.get("equip", {}); e.armazem = s.get("armazem", [])
 	for lst in [e.inv, e.armazem]:
 		for it in lst:
 			it["uid"] = int(it["uid"]); it["x"] = int(it.get("x", 0)); it["y"] = int(it.get("y", 0)); it["qtd"] = int(it.get("qtd", 1)); it["refino"] = int(it.get("refino", 0))
+			it["id"] = {"lagrima_anjo": "lagrima_angelica", "fragmento_alma": "lagrima_sanguinea"}.get(it["id"], it["id"])   # joias antigas (até a 0.8.x)
 	for k in e.equip:
 		e.equip[k]["uid"] = int(e.equip[k]["uid"]); e.equip[k]["refino"] = int(e.equip[k].get("refino", 0))
 	e.missoes = s.get("missoes", {}); e.flags = s.get("flags", {}); e.vistas = s.get("vistas", {})
+	Biblioteca.restaurar(e)
 	for mid in e.missoes:
 		var p: Array = e.missoes[mid].get("prog", [])
 		for i in p.size(): p[i] = int(p[i])
 	e.abates = s.get("abates", {}); e.pity_raro = int(s.get("pity", 0))
+	_cfg_do_save(e, s.get("auto"))
+	_talentos_do_save(e, s.get("talentos"))
 	Itens._uid = maxi(Itens._uid, int(s.get("uid", 1000)))

@@ -12,13 +12,32 @@ static func _op(e: Ent, h: Dictionary, extra: Dictionary = {}) -> Dictionary:
 	op.merge(extra, true)
 	return op
 
+## Corrente de Danação: varre uma faixa à frente do Demônio até o alcance; cada inimigo na faixa
+## leva o golpe e é puxado para perto dele (chefe e elite só levam o golpe).
+static func _corrente_em_linha(sim: WorldSim, e: Ent, h: Dictionary, mira: Vector2) -> void:
+	var dir := (mira - e.pos).normalized()
+	if dir == Vector2.ZERO: return
+	var perp := Vector2(-dir.y, dir.x)
+	var alcance := float(h["alcance"])
+	var meia_faixa := float(h.get("largura", 1.4))
+	for o in sim.inimigos_de(e, e.pos, alcance + 1.0):
+		var rel: Vector2 = o.pos - e.pos
+		var frente := rel.dot(dir)
+		if frente < 0.0 or frente > alcance: continue
+		if absf(rel.dot(perp)) > meia_faixa + o.raio: continue
+		var extra := {"vfx": "corrente"}
+		if o.tipo != "chefe" and o.arquetipo != "elite": extra["puxa_para"] = float(h["puxa_para"])
+		sim.aplicar_golpe(e, o, _op(e, h, extra))
+
 static func cura_valor(e: Ent, mult: float) -> float:
 	var esp: float = e.aux.get("ef", e.stats)["ESP"]
-	var v := (esp / 3.0 + e.nivel * 2.0) * mult
+	var v := (esp / 3.0 + e.nivel * 2.0) * mult * Evolucao.mult(e, "cura_mult")
 	if "pena_zacarias" in e.aux.get("bonus", {}).get("efeitos", []): v *= 1.12
 	return v
 
 static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> void:
+	if h.has("_evo"):
+		Evolucao.usar(sim, e, h, alvo, ponto); return
 	var id: String = h["id"]
 	var conj := float(h.get("conjuracao", 0.0))
 	var prep := maxf(conj, 0.18)
@@ -44,7 +63,7 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 			})
 		"corrente_danacao":
 			sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "alvo": aid, "skill": id, "impacto": func():
-				sim.lancar(e, {"vel": 16.0, "alvo": aid, "vfx": "corrente"}, _op(e, h, {"puxa_para": float(h["puxa_para"])}))
+				_corrente_em_linha(sim, e, h, alvo.pos if alvo != null else ponto)
 				sim.emitir("vfx", {"skill": vfx, "de": e.id, "alvo": aid})
 			})
 		"garra_abismo":
@@ -61,7 +80,7 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 							var a2 := sim.valido(aid)
 							if a2 != null and e.vivo and e.pos.distance_to(a2.pos) < 2.5: sim.aplicar_golpe(e, a2, op))
 			})
-		"arco_voltaico":
+		"arco_voltaico", "rosario_voltaico":
 			sim.iniciar_acao(e, {"preparo": prep, "rec": 0.25, "alvo": aid, "skill": id, "impacto": func():
 				var atual := sim.valido(aid)
 				var ja := []
@@ -72,6 +91,8 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 					ja.append(atual.id)
 					sim.emitir("raio", {"de": de, "para": atual.pos, "cor": "#9fd8ff"})
 					sim.aplicar_golpe(e, atual, _op(e, h, {"mult": mult, "sensacao": "raio"}))
+					if h.has("chance_paralisar") and atual.vivo and sim.rng.randf() < float(h["chance_paralisar"]):
+						sim.aplicar_status(atual, "atordoado", float(h["paralisar_s"]), e)
 					de = atual.pos
 					mult *= 1.0 - float(h["queda_por_salto"])
 					var prox: Ent = null
@@ -215,8 +236,11 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 		# ---------------------------------------------------------- invocações
 		"servo_carne", "torreta_sentinela":
 			var tipo_inv: String = h["invoca"]
-			for o in sim.ents.values():
-				if o.tipo == "invocacao" and o.dono == e.id and o.kind == tipo_inv: sim.matar(o, null)
+			# até "max" ao mesmo tempo (torreta: 2); passou disso, some a mais antiga
+			var minhas: Array = sim.ents.values().filter(func(o): return o.tipo == "invocacao" and o.dono == e.id and o.kind == tipo_inv and o.vivo)
+			minhas.sort_custom(func(a, b): return a.id < b.id)
+			while minhas.size() >= maxi(1, int(h.get("max", 1))):
+				sim.matar(minhas.pop_front(), null)
 			var d: Dictionary = Defs.CLASSES[e.classe]["invocacoes"][tipo_inv]
 			var inv := Ent.new()
 			inv.id = sim.novo_id(); inv.tipo = "invocacao"; inv.kind = tipo_inv; inv.dono = e.id

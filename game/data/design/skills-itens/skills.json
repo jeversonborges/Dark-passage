@@ -161,7 +161,7 @@
      "duracao": 2,
      "dano_por_s_mult": 0.15
     },
-    "chao_em_chamas_s": 3.0
+    "chao_em_chamas_s": 2.0
    },
    "efeitos": [
     "golpe de espada no alvo da frente",
@@ -190,7 +190,7 @@
     "auto": true,
     "sensacao": "area",
     "_doc": "skill em leque do nivel 5 (pedido do Jefin): e a usada pelo modo automatico. Ver farm_auto.json.",
-    "chao_em_chamas_s": 3.0,
+    "chao_em_chamas_s": 2.0,
     "queimadura": {
      "duracao": 2,
      "dano_por_s_mult": 0.15
@@ -419,6 +419,91 @@
     "64": "assets/icones/skills/64/cultista_sangria.png",
     "40": "assets/icones/skills/40/cultista_sangria.png",
     "32": "assets/icones/skills/32/cultista_sangria.png"
+   }
+  },
+  {
+   "id": "cultista_familiar_pacto",
+   "classe": "cultista",
+   "nome": "Pacto do Familiar",
+   "tipo": "racial",
+   "nivel": 1,
+   "custo": 0,
+   "recarga": 0,
+   "conjuracao": 0.0,
+   "alcance": 0,
+   "area": 0,
+   "duracao": 0,
+   "elemento": "fogo",
+   "escala": [
+    "ESP",
+    "VIT"
+   ],
+   "racial": true,
+   "slot": null,
+   "efeitos": [
+    "familiar demoníaco permanente que anda com o Cultista",
+    "ataca quem bater no mestre; nunca puxa briga sozinho",
+    "racial: não ocupa slot de skill nem tecla",
+    "muito resistente (3x vida e defesa) e cura 10% do dano que o mestre causa",
+    "se morrer, volta sozinho em 30 s",
+    "barra do pet: Atacar, Proteger, Teleportar, Modo agressivo, Modo passivo",
+    "é dano (DPS): todas as formas batem em área",
+    "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16), Líder dos Demônios (60)"
+   ],
+   "descricao": "O livro acorrentado tem uma página que ninguém escreveu. Quem assina com sangue ganha um demônio de estimação, e o demônio cresce junto com a dívida.",
+   "fx": "selo de cera rachando no chão + fuligem subindo; o familiar sai de dentro da fumaça",
+   "som": "risada curta e aguda + estalo de brasa",
+   "familiar": {
+    "dados_combate": "design/combate/classes_base.json > cultista > racial > familiar",
+    "plano_sprites": "design/personagens/familiar_cultista.md",
+    "formas": [
+     {
+      "id": "familiar_diabrete",
+      "nome": "Diabrete de Fuligem",
+      "nivel": 1,
+      "descricao": "Um diabinho do tamanho de um gato, de avental de couro queimado e óculos de soldador rachados. Cospe brasa em quem encosta no mestre e ri de tudo.",
+      "ataque": "Cuspe de Brasa: projétil de brasa que estoura em área de 1,5 tile",
+      "fx": "cuspe laranja com fagulhas",
+      "som": "risadinha + cuspe chiando"
+     },
+     {
+      "id": "familiar_algoz",
+      "nome": "Algoz de Enxofre",
+      "nivel": 6,
+      "descricao": "O diabrete engordou de dívida. Agora é um carrasco do tamanho de um homem, capuz de couro, chifres serrados, corrente no pescoço e um cutelo de açougue. Puxa pela corrente quem ousou bater no mestre.",
+      "ataque": "Cutelo de Enxofre: golpe que acerta todos em 2 tiles do alvo",
+      "especial": "Puxão de Corrente: arrasta o agressor até ele e golpeia em área",
+      "fx": "corrente com gancho em brasa + rastro de enxofre amarelo-sujo",
+      "som": "corrente arrastando + grunhido"
+     },
+     {
+      "id": "familiar_tirano",
+      "nome": "Tirano da Fornalha",
+      "nivel": 16,
+      "descricao": "Um couraçado da Legião Blasfema que perdeu o general e jurou ao Cultista. Quase três metros de placas rebitadas, chifres de carneiro, uma fornalha acesa no peito, pistão na perna e um canhão de brasa no lugar do braço.",
+      "ataque": "Punho de Fornalha: soco que acerta todos em 2,5 tiles do alvo e quebra postura",
+      "especial": "Canhão de Brasa: tiro em área de 2 tiles; Rugido da Legião: onda de fogo em 3 tiles quando 2 ou mais inimigos batem no mestre",
+      "fx": "tiro de brasa com fumaça preta + anel de fogo no chão; vapor saindo do pistão",
+      "som": "rugido grave + escape de vapor + explosão abafada"
+     },
+     {
+      "id": "familiar_lider",
+      "nome": "Líder dos Demônios",
+      "nivel": 60,
+      "descricao": "A dívida ficou maior que o devedor. O próprio Líder dos Demônios responde ao Cultista agora, em tamanho que cabe ao lado dele: ferro negro e carne rachada de lava, chifres enormes e asas rasgadas. Anda com o mesmo desprezo de quem nunca obedeceu ninguém.",
+      "ataque": "Garra de Lava: crava a garra no chão e acerta todos em 3 tiles do alvo",
+      "especial": "Decreto do Lorde: explosão de lava em 4 tiles em volta do alvo",
+      "fx": "rachaduras de lava se abrindo no chão + brasas subindo",
+      "som": "impacto grave + rachar de pedra + chiado de lava"
+     }
+    ]
+   },
+   "fonte_numeros": "design/combate/classes_base.json > cultista > racial",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/cultista_familiar_pacto.png",
+    "40": "assets/icones/skills/40/cultista_familiar_pacto.png",
+    "32": "assets/icones/skills/32/cultista_familiar_pacto.png"
    }
   },
   {
@@ -1415,7 +1500,7 @@
    "tipo": "area",
    "nivel": 3,
    "custo": 25,
-   "recarga": 6.0,
+   "recarga": 7.0,
    "conjuracao": 0.0,
    "alcance": 0,
    "area": 2,
@@ -1425,6 +1510,10 @@
     "FOR",
     "AGI"
    ],
+   "dano": {
+    "pct_arma": 110,
+    "base": 8
+   },
    "efeitos": [
     "gira a espada larga e corta 360° em volta (raio 2 tiles)",
     "empurra um pouco os inimigos atingidos",
@@ -1433,23 +1522,7 @@
    "descricao": "Quando cercam o caçador, ele planta os pés e gira o corpo inteiro. A espada larga corta em 360° e joga todo mundo para fora do círculo.",
    "fx": "anel de corte prateado girando em volta do personagem + faíscas e respingo de sangue nos atingidos",
    "som": "lâmina cortando o ar em giro + impacto pesado",
-   "combate": {
-    "id": "corte_largo",
-    "nome": "Corte Giratorio",
-    "nivel": 3,
-    "custo": 25,
-    "recarga": 6.0,
-    "mult": 1.4,
-    "arco_graus": 360,
-    "alcance": 0,
-    "postura": 35,
-    "empurrao": 1.0,
-    "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
-    "sensacao": "area",
-    "area_raio": 2.0,
-    "empurrao_a_partir_do_centro": true
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/humano_corte_largo.png",
@@ -1558,30 +1631,7 @@
    "descricao": "Não tem poder nenhum, só pernas e uma lâmina larga. Atravessa a fila de inimigos antes que eles entendam o que passou.",
    "fx": "rastro de silhueta escura + sobretudo esvoaçando + corte em cada alvo + poeira no início e no fim",
    "som": "passos rápidos + lâmina cortando em sequência",
-   "combate": {
-    "id": "arrancada",
-    "nome": "Arrancada",
-    "nivel": 6,
-    "custo": 20,
-    "recarga": 5.0,
-    "cargas": 2,
-    "deslocamento": 4,
-    "duracao_s": 0.18,
-    "invulneravel": 0.2,
-    "atravessa_inimigos": true,
-    "proximo_ataque_extra": 0.3,
-    "janela_bonus_s": 2.0,
-    "vai_para": "ponto sob o mouse",
-    "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
-    "sensacao": "investida",
-    "substitui": "rolamento",
-    "mult": 0.9,
-    "largura_corte": 1.2,
-    "acerta_cada_inimigo_uma_vez": true,
-    "postura": 20,
-    "empurrao_lateral": 0.5
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/humano_arrancada.png",
@@ -2051,6 +2101,64 @@
     "64": "assets/icones/skills/64/tecnomancer_pulso_antidivino.png",
     "40": "assets/icones/skills/40/tecnomancer_pulso_antidivino.png",
     "32": "assets/icones/skills/32/tecnomancer_pulso_antidivino.png"
+   }
+  },
+  {
+   "id": "tecnomancer_rosario_voltaico",
+   "classe": "tecnomancer",
+   "nome": "Rosário Voltaico",
+   "tipo": "area",
+   "nivel": 16,
+   "custo": 34,
+   "recarga": 4.0,
+   "conjuracao": 0.35,
+   "alcance": 7,
+   "area": "salta até 6 alvos (3.5 tiles entre um e outro)",
+   "duracao": 0,
+   "elemento": "eletrico",
+   "escala": [
+    "ESP",
+    "AGI"
+   ],
+   "formato_area": {
+    "forma": "cadeia",
+    "alvos_max": 6,
+    "raio_salto_tiles": 3.5,
+    "origem": "alvo_do_mouse"
+   },
+   "efeitos": [
+    "raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum",
+    "cada salto perde 12% do dano",
+    "15% de chance de paralisar 0.5 s",
+    "+15% de dano em invocações",
+    "pedido do Jefin (2026-10-11)"
+   ],
+   "descricao": "Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
+   "fx": "raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão",
+   "som": "estalo elétrico forte + estalos menores em cadeia, cada um um tom acima",
+   "combate": {
+    "id": "rosario_voltaico",
+    "nome": "Rosário Voltaico",
+    "nivel": 16,
+    "custo": 34,
+    "recarga": 4.0,
+    "mult": 1.6,
+    "saltos": 5,
+    "queda_por_salto": 0.12,
+    "raio_salto": 3.5,
+    "alcance": 7,
+    "elemento": "eletrico",
+    "postura": 14,
+    "chance_paralisar": 0.15,
+    "paralisar_s": 0.5,
+    "sensacao": "raio"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
+   "provisorio": true,
+   "icone": {
+    "64": "assets/icones/skills/64/tecnomancer_rosario_voltaico.png",
+    "40": "assets/icones/skills/40/tecnomancer_rosario_voltaico.png",
+    "32": "assets/icones/skills/32/tecnomancer_rosario_voltaico.png"
    }
   },
   {

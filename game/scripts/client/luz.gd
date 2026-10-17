@@ -25,7 +25,7 @@ var tremulas: Array = []     # [sprite, energia_base, fase]
 var _grad: Texture2D
 var cam_principal: Camera2D
 var t := 0.0
-const ESCALA := 0.5
+var ESCALA := 0.5   # Ajustes: 0.25 na luz leve
 
 func _ready() -> void:
 	vp.disable_3d = true

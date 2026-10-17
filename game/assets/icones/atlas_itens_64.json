@@ -1,0 +1,1154 @@
+{
+"espada_vigilia_rachada": [
+0,
+0,
+64,
+64
+],
+"escudo_porta_capela": [
+64,
+0,
+64,
+64
+],
+"lanca_procissao": [
+128,
+0,
+64,
+64
+],
+"espada_sineiro": [
+192,
+0,
+64,
+64
+],
+"adaga_ritual_cega": [
+256,
+0,
+64,
+64
+],
+"cajado_vertebras": [
+320,
+0,
+64,
+64
+],
+"grimorio_acorrentado": [
+384,
+0,
+64,
+64
+],
+"adaga_ossuario": [
+448,
+0,
+64,
+64
+],
+"machado_placa_transito": [
+512,
+0,
+64,
+64
+],
+"punhos_sucata": [
+576,
+0,
+64,
+64
+],
+"cutelo_matadouro": [
+640,
+0,
+64,
+64
+],
+"garras_ossario": [
+704,
+0,
+64,
+64
+],
+"foice_serrilhada": [
+768,
+0,
+64,
+64
+],
+"espada_serrilhada": [
+832,
+0,
+64,
+64
+],
+"corrente_gancho": [
+896,
+0,
+64,
+64
+],
+"foice_sepultura": [
+960,
+0,
+64,
+64
+],
+"besta_sucata": [
+0,
+64,
+64,
+64
+],
+"espada_larga_sucata": [
+64,
+64,
+64,
+64
+],
+"escopeta_cano_serrado": [
+128,
+64,
+64,
+64
+],
+"espada_larga_carrasco": [
+192,
+64,
+64,
+64
+],
+"montante_vigilia": [
+256,
+64,
+64,
+64
+],
+"escopeta_cano_duplo": [
+320,
+64,
+64,
+64
+],
+"mosquete_pederneira": [
+384,
+64,
+64,
+64
+],
+"besta_repeticao": [
+448,
+64,
+64,
+64
+],
+"cajado_antena_torto": [
+512,
+64,
+64,
+64
+],
+"luva_voltaica": [
+576,
+64,
+64,
+64
+],
+"pistola_raios": [
+640,
+64,
+64,
+64
+],
+"cajado_valvulas": [
+704,
+64,
+64,
+64
+],
+"batina_remendada_cabeca": [
+768,
+64,
+64,
+64
+],
+"batina_remendada_peito": [
+832,
+64,
+64,
+64
+],
+"batina_remendada_luvas": [
+896,
+64,
+64,
+64
+],
+"batina_remendada_calcas": [
+960,
+64,
+64,
+64
+],
+"batina_remendada_botas": [
+0,
+128,
+64,
+64
+],
+"couro_sobrevivente_cabeca": [
+64,
+128,
+64,
+64
+],
+"couro_sobrevivente_peito": [
+128,
+128,
+64,
+64
+],
+"couro_sobrevivente_luvas": [
+192,
+128,
+64,
+64
+],
+"couro_sobrevivente_calcas": [
+256,
+128,
+64,
+64
+],
+"couro_sobrevivente_botas": [
+320,
+128,
+64,
+64
+],
+"placas_sino_cabeca": [
+384,
+128,
+64,
+64
+],
+"placas_sino_peito": [
+448,
+128,
+64,
+64
+],
+"placas_sino_luvas": [
+512,
+128,
+64,
+64
+],
+"placas_sino_calcas": [
+576,
+128,
+64,
+64
+],
+"placas_sino_botas": [
+640,
+128,
+64,
+64
+],
+"coro_mudo_cabeca": [
+704,
+128,
+64,
+64
+],
+"coro_mudo_peito": [
+768,
+128,
+64,
+64
+],
+"coro_mudo_luvas": [
+832,
+128,
+64,
+64
+],
+"coro_mudo_calcas": [
+896,
+128,
+64,
+64
+],
+"coro_mudo_botas": [
+960,
+128,
+64,
+64
+],
+"couraca_acougueiro_oco_cabeca": [
+0,
+192,
+64,
+64
+],
+"couraca_acougueiro_oco_peito": [
+64,
+192,
+64,
+64
+],
+"couraca_acougueiro_oco_luvas": [
+128,
+192,
+64,
+64
+],
+"couraca_acougueiro_oco_calcas": [
+192,
+192,
+64,
+64
+],
+"couraca_acougueiro_oco_botas": [
+256,
+192,
+64,
+64
+],
+"juramento_quebrado_cabeca": [
+320,
+192,
+64,
+64
+],
+"juramento_quebrado_peito": [
+384,
+192,
+64,
+64
+],
+"juramento_quebrado_luvas": [
+448,
+192,
+64,
+64
+],
+"juramento_quebrado_calcas": [
+512,
+192,
+64,
+64
+],
+"juramento_quebrado_botas": [
+576,
+192,
+64,
+64
+],
+"anel_prego_caixao": [
+640,
+192,
+64,
+64
+],
+"colar_dentes": [
+704,
+192,
+64,
+64
+],
+"anel_ferro_cripta": [
+768,
+192,
+64,
+64
+],
+"rosario_ossos": [
+832,
+192,
+64,
+64
+],
+"aro_ferro_velho": [
+896,
+192,
+64,
+64
+],
+"alianca_cobre_silo": [
+960,
+192,
+64,
+64
+],
+"anel_couro_arreio": [
+0,
+256,
+64,
+64
+],
+"anel_osso_cintado": [
+64,
+256,
+64,
+64
+],
+"anel_coroa_espinhos": [
+128,
+256,
+64,
+64
+],
+"anel_luto_negro": [
+192,
+256,
+64,
+64
+],
+"anel_vento_absinto": [
+256,
+256,
+64,
+64
+],
+"alianca_ouro_enterrado": [
+320,
+256,
+64,
+64
+],
+"anel_runas_bobina": [
+384,
+256,
+64,
+64
+],
+"anel_nao_julgado": [
+448,
+256,
+64,
+64
+],
+"serpente_rio_amargo": [
+512,
+256,
+64,
+64
+],
+"sinete_bispo_violeta": [
+576,
+256,
+64,
+64
+],
+"anel_segunda_estrela": [
+640,
+256,
+64,
+64
+],
+"anel_cardeal_carmim": [
+704,
+256,
+64,
+64
+],
+"coracao_enxofre": [
+768,
+256,
+64,
+64
+],
+"garra_legiao_blasfema": [
+832,
+256,
+64,
+64
+],
+"tunica_saco_peregrino": [
+896,
+256,
+64,
+64
+],
+"gibao_batedor_vela": [
+960,
+256,
+64,
+64
+],
+"gibao_fivelas_bondeiro": [
+0,
+320,
+64,
+64
+],
+"tunica_margem_amarga": [
+64,
+320,
+64,
+64
+],
+"tunica_vigia_anil": [
+128,
+320,
+64,
+64
+],
+"habito_penitente_carmim": [
+192,
+320,
+64,
+64
+],
+"sobreveste_setimo_selo": [
+256,
+320,
+64,
+64
+],
+"alva_juizo_dourado": [
+320,
+320,
+64,
+64
+],
+"pocao_vida_p": [
+384,
+320,
+64,
+64
+],
+"pocao_vida_m": [
+448,
+320,
+64,
+64
+],
+"pocao_recurso_p": [
+512,
+320,
+64,
+64
+],
+"pocao_recurso_m": [
+576,
+320,
+64,
+64
+],
+"agua_benta": [
+640,
+320,
+64,
+64
+],
+"antidoto_querosene": [
+704,
+320,
+64,
+64
+],
+"vela_retorno": [
+768,
+320,
+64,
+64
+],
+"gazua": [
+832,
+320,
+64,
+64
+],
+"balas_chumbo": [
+896,
+320,
+64,
+64
+],
+"virotes_prata": [
+960,
+320,
+64,
+64
+],
+"cartuchos_sal": [
+0,
+384,
+64,
+64
+],
+"osso": [
+64,
+384,
+64,
+64
+],
+"couro_podre": [
+128,
+384,
+64,
+64
+],
+"sucata": [
+192,
+384,
+64,
+64
+],
+"cinza_de_alma": [
+256,
+384,
+64,
+64
+],
+"carne_estragada": [
+320,
+384,
+64,
+64
+],
+"pedra_benta": [
+384,
+384,
+64,
+64
+],
+"cera_de_vela": [
+448,
+384,
+64,
+64
+],
+"pena_suja": [
+512,
+384,
+64,
+64
+],
+"lagrima_anjo": [
+576,
+384,
+64,
+64
+],
+"fragmento_alma": [
+640,
+384,
+64,
+64
+],
+"coagulo_caos": [
+704,
+384,
+64,
+64
+],
+"engrenagem_viva": [
+768,
+384,
+64,
+64
+],
+"chave_bau_ferro": [
+832,
+384,
+64,
+64
+],
+"caixote_podre": [
+896,
+384,
+64,
+64
+],
+"bau_de_ferro": [
+960,
+384,
+64,
+64
+],
+"bau_faminto": [
+0,
+448,
+64,
+64
+],
+"relicario_da_trombeta": [
+64,
+448,
+64,
+64
+],
+"bobina_cobre": [
+128,
+448,
+64,
+64
+],
+"pena_querubim": [
+192,
+448,
+64,
+64
+],
+"dente_vala": [
+256,
+448,
+64,
+64
+],
+"raiz_cova": [
+320,
+448,
+64,
+64
+],
+"caldo_cardo": [
+384,
+448,
+64,
+64
+],
+"medalhinha_cardo": [
+448,
+448,
+64,
+64
+],
+"sebo_rancoso": [
+512,
+448,
+64,
+64
+],
+"ferro_velho": [
+576,
+448,
+64,
+64
+],
+"badalo_rachado": [
+640,
+448,
+64,
+64
+],
+"livro_obitos": [
+704,
+448,
+64,
+64
+],
+"chave_gancho": [
+768,
+448,
+64,
+64
+],
+"lacre_carne": [
+832,
+448,
+64,
+64
+],
+"lacre_lagrimas": [
+896,
+448,
+64,
+64
+],
+"bocal_trombeta": [
+960,
+448,
+64,
+64
+],
+"carta_lucio": [
+0,
+512,
+64,
+64
+],
+"mapa_rasgado": [
+64,
+512,
+64,
+64
+],
+"relicario_vazio": [
+128,
+512,
+64,
+64
+],
+"pa_simao": [
+192,
+512,
+64,
+64
+],
+"caixinha_musica": [
+256,
+512,
+64,
+64
+],
+"pao_duro": [
+320,
+512,
+64,
+64
+],
+"agua_doce": [
+384,
+512,
+64,
+64
+],
+"tonico_graxa": [
+448,
+512,
+64,
+64
+],
+"hostia_negra": [
+512,
+512,
+64,
+64
+],
+"vela_simao": [
+576,
+512,
+64,
+64
+],
+"agua_benta_polvora": [
+640,
+512,
+64,
+64
+],
+"caldo_cardo_comum": [
+704,
+512,
+64,
+64
+],
+"figo_anacleto": [
+768,
+512,
+64,
+64
+],
+"leitura_obitos": [
+832,
+512,
+64,
+64
+],
+"leitura_carta_lucio": [
+896,
+512,
+64,
+64
+],
+"leitura_mapa_tobias": [
+960,
+512,
+64,
+64
+],
+"leitura_anselmo": [
+0,
+576,
+64,
+64
+],
+"leitura_tabela_carnica": [
+64,
+576,
+64,
+64
+],
+"leitura_hino_carpideiras": [
+128,
+576,
+64,
+64
+],
+"leitura_confissao_anacleto": [
+192,
+576,
+64,
+64
+],
+"leitura_ordem_zacarias": [
+256,
+576,
+64,
+64
+],
+"faixa_vigilia": [
+320,
+576,
+64,
+64
+],
+"fita_juizo": [
+384,
+576,
+64,
+64
+],
+"escopeta_badalada": [
+448,
+576,
+64,
+64
+],
+"machado_bonde": [
+512,
+576,
+64,
+64
+],
+"cajado_lampiao": [
+576,
+576,
+64,
+64
+],
+"espada_escudeiro": [
+640,
+576,
+64,
+64
+],
+"foice_penhor": [
+704,
+576,
+64,
+64
+],
+"adaga_chaga": [
+768,
+576,
+64,
+64
+],
+"badalo_de_guerra": [
+832,
+576,
+64,
+64
+],
+"lenco_cardo": [
+896,
+576,
+64,
+64
+],
+"terco_lucio": [
+960,
+576,
+64,
+64
+],
+"selo_madre": [
+0,
+640,
+64,
+64
+],
+"dragonas_general": [
+64,
+640,
+64,
+64
+],
+"veu_carpideira": [
+128,
+640,
+64,
+64
+],
+"estilhaco_lacre": [
+192,
+640,
+64,
+64
+],
+"diapasao_reverso": [
+256,
+640,
+64,
+64
+],
+"pena_zacarias": [
+320,
+640,
+64,
+64
+],
+"etiqueta_branca": [
+384,
+640,
+64,
+64
+],
+"gancho_capataz": [
+448,
+640,
+64,
+64
+],
+"estandarte_legiao": [
+512,
+640,
+64,
+64
+],
+"bacula_femur": [
+576,
+640,
+64,
+64
+],
+"halo_incandescente": [
+640,
+640,
+64,
+64
+],
+"valvula_radio": [
+704,
+640,
+64,
+64
+],
+"pagina_ordem": [
+768,
+640,
+64,
+64
+],
+"amostra_amarga": [
+832,
+640,
+64,
+64
+],
+"fragmento_clarao": [
+896,
+640,
+64,
+64
+],
+"chave_lancamento": [
+960,
+640,
+64,
+64
+],
+"insignia_arrancada": [
+0,
+704,
+64,
+64
+],
+"carta_apostata": [
+64,
+704,
+64,
+64
+],
+"meia_dragona": [
+128,
+704,
+64,
+64
+],
+"leitura_ordem_lancamento": [
+192,
+704,
+64,
+64
+],
+"leitura_carta_apostata": [
+256,
+704,
+64,
+64
+],
+"contador_isaura": [
+320,
+704,
+64,
+64
+],
+"estilhaco_absinto": [
+384,
+704,
+64,
+64
+],
+"chave_segunda_estrela": [
+448,
+704,
+64,
+64
+],
+"divisa_legiao": [
+512,
+704,
+64,
+64
+],
+"placa_coveiro": [
+576,
+704,
+64,
+64
+],
+"folha_tombo": [
+640,
+704,
+64,
+64
+],
+"ultimo_tijolo": [
+704,
+704,
+64,
+64
+],
+"leitura_livro_tombo": [
+768,
+704,
+64,
+64
+],
+"faixas_betania": [
+832,
+704,
+64,
+64
+],
+"eco_do_nome": [
+896,
+704,
+64,
+64
+],
+"elmo_rafael": [
+960,
+704,
+64,
+64
+]
+}

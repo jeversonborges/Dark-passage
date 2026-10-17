@@ -296,6 +296,193 @@
             "invocacao"
           ]
         }
+      },
+      "racial": {
+        "id": "pacto_do_familiar",
+        "nome": "Pacto do Familiar",
+        "tipo": "racial",
+        "familiar": {
+          "_doc": "RACIAL do Cultista (Jefin, 2026-10-11): nao ocupa slot de skill nem tecla. Nasce com o Cultista, segue o dono a 1,5-2 tiles. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma. 0.9.3 (Jefin, 2026-10-17): papel de DPS, TODAS as formas batem em AREA (ataque.area_raio), 3x a vida e a defesa de antes (NAO e invulneravel), cura 10% do dano que o dono causa, volta sozinho 30 s depois de morrer e obedece a barra do pet (Atacar, Proteger, Teleportar, Modo agressivo, Modo passivo). Ultima forma: o Lider dos Demonios no nivel 60.",
+          "segue": {
+            "distancia_tiles": [
+              1.5,
+              2.0
+            ],
+            "teleporta_acima_de_tiles": 12,
+            "vel_mult_dono": 1.1
+          },
+          "alvo": {
+            "prioridade": [
+              "ultimo_que_bateu_no_dono",
+              "quem_bateu_no_familiar"
+            ],
+            "nao_ataca_neutro_parado": true,
+            "larga_alvo_se_dono_a_mais_de_tiles": 9
+          },
+          "formas": [
+            {
+              "id": "familiar_diabrete",
+              "nome": "Diabrete de Fuligem",
+              "nivel_dono": 1,
+              "altura_m": 0.75,
+              "hp": "max_hp_dono * 1.05",
+              "defesa": "defesa_dono * 1.5",
+              "dano": "dano_magico_dono * 0.45",
+              "intervalo": 1.1,
+              "alcance": 4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cuspe_de_brasa",
+                "nome": "Cuspe de Brasa",
+                "projetil_vel": 9,
+                "efeito": {
+                  "queimadura": {
+                    "duracao": 3.0,
+                    "dano_por_s_mult": 0.1
+                  }
+                },
+                "area_raio": 1.5
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_algoz",
+              "nome": "Algoz de Enxofre",
+              "nivel_dono": 6,
+              "altura_m": 1.9,
+              "hp": "max_hp_dono * 2.10",
+              "defesa": "defesa_dono * 2.4",
+              "dano": "dano_magico_dono * 0.60",
+              "intervalo": 1.3,
+              "alcance": 1.4,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "cutelo_de_enxofre",
+                "nome": "Cutelo de Enxofre",
+                "area_raio": 2.0
+              },
+              "especial": {
+                "id": "puxao_de_corrente",
+                "nome": "Puxão de Corrente",
+                "recarga": 10.0,
+                "alcance": 5,
+                "puxa_ate_familiar": true,
+                "_doc": "usa no inimigo que bateu no dono"
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_tirano",
+              "nome": "Tirano da Fornalha",
+              "nivel_dono": 16,
+              "altura_m": 2.7,
+              "hp": "max_hp_dono * 3.30",
+              "defesa": "defesa_dono * 3.6",
+              "dano": "dano_magico_dono * 0.75",
+              "intervalo": 1.5,
+              "alcance": 1.6,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "punho_de_fornalha",
+                "nome": "Punho de Fornalha",
+                "postura": 20,
+                "area_raio": 2.5
+              },
+              "especial": {
+                "id": "canhao_de_brasa",
+                "nome": "Canhão de Brasa",
+                "recarga": 12.0,
+                "alcance": 6,
+                "area_raio": 2.0,
+                "mult": 1.6,
+                "chao_em_chamas_s": 3.0
+              },
+              "especial_2": {
+                "id": "rugido_da_legiao",
+                "nome": "Rugido da Legião",
+                "recarga": 20.0,
+                "area_raio": 3.0,
+                "_doc": "quando 2 ou mais inimigos batem no dono",
+                "mult": 0.8
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ]
+            },
+            {
+              "id": "familiar_lider",
+              "nome": "Lider dos Demonios",
+              "nivel_dono": 60,
+              "altura_m": 3.3,
+              "hp": "max_hp_dono * 4.50",
+              "defesa": "defesa_dono * 4.5",
+              "dano": "dano_magico_dono * 1.00",
+              "intervalo": 1.6,
+              "alcance": 2.2,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "garra_de_lava",
+                "nome": "Garra de Lava",
+                "area_raio": 3.0,
+                "postura": 25
+              },
+              "especial": {
+                "id": "decreto_do_lorde",
+                "nome": "Decreto do Lorde",
+                "recarga": 10.0,
+                "alcance": 6,
+                "area_raio": 4.0,
+                "mult": 2.0,
+                "_doc": "aponta a garra para o chao: explosao de lava em volta do alvo"
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ],
+              "_doc": "Jefin 2026-10-17: a ultima evolucao e o Lider dos Demonios (modelo de lider_dos_demonios.py, em escala de pet)"
+            }
+          ],
+          "evolucao": {
+            "quando": "dono sobe para o nivel da forma",
+            "anim": "evolve",
+            "cura_total": true,
+            "_doc": "casulo de brasa e carne de 2 s; o familiar fica invulneravel durante a troca"
+          },
+          "papel": "dps",
+          "cura_por_dano_do_dono": 0.1,
+          "morte": {
+            "volta_sozinho_s": 30.0,
+            "anim_volta": "spawn"
+          },
+          "barra": {
+            "comandos": [
+              "atacar",
+              "proteger",
+              "teleportar",
+              "agressivo",
+              "passivo"
+            ],
+            "modo_padrao": "proteger",
+            "agressivo_raio_tiles": 6,
+            "teleporte_recarga_s": 5,
+            "_doc": "Proteger: ataca quem bate no dono ou no familiar. Agressivo: tambem ataca monstros a ate 6 tiles do dono. Passivo: nao ataca. Atacar: o alvo do dono, em qualquer modo. Teleportar: volta para o lado do dono."
+          }
+        }
       }
     },
     "mutante": {
@@ -558,12 +745,12 @@
     },
     "humano": {
       "faccao": "vigilia",
-      "papel": "hibrido: tiro a distancia + espada larga corpo a corpo (mudanca do Jefin, 2026-10-04)",
+      "papel": "tiro a distância com besta pesada; escopeta de cano serrado no tiro secundário (mudança do Jefin, 2026-10-16: sem espada larga)",
       "atributos_iniciais": {
-        "FOR": 28,
-        "AGI": 30,
-        "VIT": 20,
-        "ESP": 12
+        "FOR": 17,
+        "AGI": 18,
+        "VIT": 12,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 2,
@@ -579,14 +766,15 @@
       "perfil_dano": "hibrido",
       "elemento_ataque": "fisico",
       "arma_inicial": {
-        "nome": "Espada Larga de Sucata",
+        "nome": "Besta Pesada",
         "min": 6,
         "max": 10,
         "intervalo": 1.25,
         "postura": 18,
-        "tipo": "espada_larga",
-        "sensacao": "golpe_pesado",
-        "_doc": "golpe largo em arco 120 graus: acerta ate 2 inimigos colados, o segundo com 50%"
+        "tipo": "arma_de_fogo",
+        "projetil_vel": 16,
+        "sensacao": "tiro_pesado",
+        "_doc": "ataque básico com a besta pesada: dispara a distância (gasta 1 munição). Sem munição, vira um golpe de coronha curto."
       },
       "recurso": {
         "nome": "Municao + Folego",
@@ -618,7 +806,7 @@
         },
         {
           "id": "corte_largo",
-          "nome": "Corte Giratorio",
+          "nome": "Rajada de Escopeta",
           "nivel": 3,
           "custo": 25,
           "recarga": 6.0,
@@ -627,7 +815,7 @@
           "alcance": 0,
           "postura": 35,
           "empurrao": 1.0,
-          "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
+          "_doc": "mesmo peso do antigo Corte Giratório (custo 25, recarga 6, mult 1.4, raio 2). Escopeta em volta do corpo; sai a animação de giro.",
           "sensacao": "area",
           "area_raio": 2.0,
           "empurrao_a_partir_do_centro": true
@@ -658,7 +846,7 @@
         },
         {
           "id": "arrancada",
-          "nome": "Arrancada",
+          "nome": "Salto de Recuo",
           "nivel": 6,
           "custo": 20,
           "recarga": 5.0,
@@ -670,7 +858,7 @@
           "proximo_ataque_extra": 0.3,
           "janela_bonus_s": 2.0,
           "vai_para": "ponto sob o mouse",
-          "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
+          "_doc": "mesmo peso da antiga Arrancada (custo 20, recarga 5, 2 cargas, 4 tiles). Salto com 0.2s de invulnerabilidade e tiro de escopeta no caminho; o próximo tiro em 2s causa +30%.",
           "sensacao": "investida",
           "substitui": "rolamento",
           "mult": 0.9,
@@ -730,9 +918,9 @@
         }
       ],
       "perfil_hibrido": {
-        "_doc": "Ataque basico troca sozinho pela distancia ao alvo: ate 1.8 tiles golpeia com a espada larga (perfil corpo_a_corpo, FOR); mais longe atira (perfil distancia, AGI) gastando 1 municao. A troca leva 0.15s (animacao de sacar). Shift+clique forca o tiro mesmo de perto.",
-        "distancia_troca": 1.8,
-        "tempo_troca_s": 0.15,
+        "_doc": "sem espada: o básico sempre dispara; só sem munição ele dá o golpe de coronha (alcance curto).",
+        "distancia_troca": 0.0,
+        "tempo_troca_s": 0.0,
         "espada": "corpo_a_corpo",
         "tiro": "distancia"
       },
@@ -882,6 +1070,23 @@
           },
           "postura": 40,
           "sensacao": "area"
+        },
+        {
+          "id": "rosario_voltaico",
+          "nome": "Rosário Voltaico",
+          "nivel": 16,
+          "custo": 34,
+          "recarga": 4.0,
+          "mult": 1.6,
+          "saltos": 5,
+          "queda_por_salto": 0.12,
+          "raio_salto": 3.5,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "postura": 14,
+          "chance_paralisar": 0.15,
+          "paralisar_s": 0.5,
+          "sensacao": "raio"
         }
       ],
       "invocacoes": {
@@ -896,6 +1101,218 @@
           ]
         }
       }
+    },
+    "warlord": {
+      "faccao": "nenhuma",
+      "papel": "guerreiro de espada e escudo: tanque ofensivo de linha de frente",
+      "atributos_iniciais": {
+        "FOR": 18,
+        "AGI": 10,
+        "VIT": 17,
+        "ESP": 7
+      },
+      "build_sugerida_por_nivel": {
+        "FOR": 2,
+        "AGI": 0,
+        "VIT": 3,
+        "ESP": 0
+      },
+      "hp": {
+        "base": 135,
+        "por_nivel": 2.8,
+        "por_vit": 3.2
+      },
+      "perfil_dano": "corpo_a_corpo_pesado",
+      "elemento_ataque": "fisico",
+      "alcance_basico": 1.4,
+      "arma_inicial": {
+        "nome": "Espada Serrilhada Sem Bandeira",
+        "min": 6,
+        "max": 9,
+        "intervalo": 1.15,
+        "postura": 16
+      },
+      "escudo_inicial": {
+        "nome": "Escudo de Ferro Pintado",
+        "defesa": 8,
+        "bloqueio": 0.08
+      },
+      "recurso": {
+        "nome": "Ódio",
+        "max": 100,
+        "inicial": 0,
+        "ganho": {
+          "golpe_acertado": 4,
+          "golpe_recebido": 3,
+          "bloqueio": 6
+        },
+        "decai_por_s_fora_de_combate": 6,
+        "bonus": "cada 20 de Ódio = +3% de dano e +2% de defesa"
+      },
+      "habilidades": [
+        {
+          "id": "corte_do_eclipse",
+          "nome": "Corte do Eclipse",
+          "nivel": 1,
+          "custo": 0,
+          "gera": 14,
+          "recarga": 3.5,
+          "mult": 1.6,
+          "arco_graus": 120,
+          "alcance": 1.6,
+          "postura": 28,
+          "sensacao": "golpe_pesado",
+          "_doc": "golpe largo de espada em meia-lua; gera Ódio"
+        },
+        {
+          "id": "juramento_de_odio",
+          "nome": "Juramento de Ódio",
+          "nivel": 3,
+          "custo": 0,
+          "recarga": 18.0,
+          "buff": {
+            "dano": 0.2,
+            "dano_recebido": -0.1,
+            "duracao": 8.0
+          },
+          "gera": 30,
+          "sensacao": "buff",
+          "_doc": "ajoelha e crava a espada: anel vermelho; +20% de dano e -10% de dano recebido"
+        },
+        {
+          "id": "warlord_fenda_na_terra",
+          "nome": "Fenda na Terra",
+          "nivel": 5,
+          "custo": 18,
+          "recarga": 2.2,
+          "mult": 1.3,
+          "elemento": "fisico",
+          "preparo": 0.25,
+          "postura": 18,
+          "empurrao_px": 6,
+          "nunca_erra": true,
+          "auto": true,
+          "sensacao": "area",
+          "forma": "cone",
+          "cone_graus": 110,
+          "raio": 3.2,
+          "_doc": "skill em leque do nível 5 (regra do Jefin: é a do modo automático). Crava a espada e o chão racha em leque à frente."
+        },
+        {
+          "id": "investida_de_ferro",
+          "nome": "Investida de Ferro",
+          "nivel": 6,
+          "custo": 20,
+          "recarga": 10.0,
+          "mult": 1.4,
+          "deslocamento": 5,
+          "efeito": {
+            "atordoado": 1.0
+          },
+          "postura": 55,
+          "empurrao": 1.2,
+          "sensacao": "investida",
+          "_doc": "avança de escudo erguido atravessando a capa no vento"
+        },
+        {
+          "id": "marca_do_desprezo",
+          "nome": "Marca do Desprezo",
+          "nivel": 9,
+          "custo": 15,
+          "recarga": 12.0,
+          "area_raio": 4.0,
+          "efeito": {
+            "provocado": 4.0,
+            "marcado": 6.0
+          },
+          "dano_recebido_extra": 0.1,
+          "postura": 15,
+          "sensacao": "grito",
+          "_doc": "provoca tudo em volta e marca: o grupo bate 10% mais nos marcados"
+        },
+        {
+          "id": "muralha_de_escudo",
+          "nome": "Muralha de Escudo",
+          "nivel": 12,
+          "custo": 30,
+          "recarga": 20.0,
+          "buff": {
+            "dano_recebido": -0.4,
+            "reflete_frac": 0.2,
+            "duracao": 6.0,
+            "imune_derrubar": true
+          },
+          "sensacao": "buff",
+          "_doc": "finca o escudo: -40% de dano, devolve 20% e não cai"
+        },
+        {
+          "id": "redemoinho_de_aco",
+          "nome": "Redemoinho de Aço",
+          "nivel": 15,
+          "custo": 30,
+          "recarga": 8.0,
+          "mult_por_tick": 0.55,
+          "ticks": 4,
+          "intervalo_tick": 0.3,
+          "area_raio": 2.4,
+          "postura": 10,
+          "empurrao": 0.8,
+          "sensacao": "area",
+          "_doc": "gira com a espada, a capa rasgada abrindo como um leque"
+        },
+        {
+          "id": "coroa_de_ferro",
+          "nome": "Coroa de Ferro",
+          "nivel": 20,
+          "passiva": true,
+          "bonus": {
+            "defesa_por_inimigo_perto": 0.03,
+            "max_inimigos": 5
+          },
+          "_doc": "passiva: +3% de defesa por inimigo a até 3 m (até 5)"
+        },
+        {
+          "id": "estandarte_da_ruina",
+          "nome": "Estandarte da Ruína",
+          "nivel": 35,
+          "custo": 40,
+          "recarga": 45.0,
+          "invoca": "estandarte_da_ruina",
+          "duracao": 15.0,
+          "max": 1,
+          "aura": {
+            "raio": 5.0,
+            "aliados": {
+              "dano": 0.1,
+              "roubo_de_vida": 0.03
+            },
+            "inimigos": {
+              "dano": -0.1
+            }
+          },
+          "sensacao": "invocacao",
+          "_doc": "crava um estandarte rasgado: aura para o grupo e contra os inimigos"
+        },
+        {
+          "id": "eclipse_do_senhor_da_guerra",
+          "nome": "Eclipse do Senhor da Guerra",
+          "nivel": 50,
+          "custo": 100,
+          "recarga": 90.0,
+          "preparo": 0.8,
+          "mult": 4.5,
+          "area_raio": 4.0,
+          "efeito": {
+            "atordoado": 2.0
+          },
+          "elemento": "sombrio",
+          "postura": 120,
+          "consome_todo_odio": true,
+          "mult_por_10_odio": 0.25,
+          "sensacao": "golpe_pesado",
+          "_doc": "sol negro sobre a espada erguida; cai com toda a raiva acumulada"
+        }
+      ]
     }
   },
   "armas_por_faixa": {

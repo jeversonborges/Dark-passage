@@ -4,7 +4,7 @@ class_name Itens
 const MOCHILA_W := 12
 const MOCHILA_H := 6
 const ARMAZEM_W := 12
-const ARMAZEM_H := 8
+const ARMAZEM_H := 12
 const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2"]
 const NOME_SLOT := {"arma": "Arma", "segunda_mao": "2ª mão", "cabeca": "Cabeça", "peito": "Peito", "luvas": "Luvas",
 	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel"}
@@ -154,6 +154,13 @@ static func bonus(equip: Dictionary) -> Dictionary:
 			for k in at:
 				if ATTR.has(k): b[ATTR[k]] += float(at[k])
 				elif k == "hp": b["hp"] += float(at[k])
+		var bf = d.get("bonus_fixo")
+		if typeof(bf) == TYPE_DICTIONARY:
+			for k in bf:
+				if k == "res":
+					for el in bf["res"]: b["res"][el] = b["res"].get(el, 0.0) + float(bf["res"][el])
+				elif k == "defesa": b["defesa"] += float(bf[k]) * ref
+				elif b.has(k): b[k] += float(bf[k])
 		for o in it.get("opcoes", []):
 			match o["tipo"]:
 				"dano_plano": b["dano_plano"] += o["valor"]

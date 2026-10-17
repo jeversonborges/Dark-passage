@@ -32,6 +32,9 @@ func _ready() -> void:
 		print("[servidor] DARK PASSAGE v%s ouvindo na porta %s, até %s conexões, %s. IPs: %s" % [Rede.VERSAO, args.get("porta", Rede.PORTA),
 			args.get("max", 48), "cifrado (DTLS)" if tls else "sem criptografia (rede local)", ", ".join(rede.meus_ips())])
 		return
+	add_child(Controle.new())   # controle (Xbox/PlayStation): vale em todas as telas, ver scripts/client/controle.gd
+	Ajustes.aplicar_inicio()
+	add_child(Ajustes.Vigia.new())   # F10 abre as configurações; som em segundo plano
 	if args.has("classe") and not args.has("conectar"):
 		_comecar(args["classe"], "Teste", {})
 		return
@@ -121,6 +124,14 @@ func _comecar(classe: String, nome: String, salvo: Dictionary) -> void:
 		var ta: Node = load("res://tools/teste_andar.gd").new()
 		ta.jogo = jogo; ta.args = args
 		add_child(ta)
+	if args.has("teste_controle"):
+		var tc: Node = load("res://tools/teste_controle.gd").new()
+		tc.jogo = jogo; tc.args = args
+		add_child(tc)
+	if args.has("fotos_config"):
+		var tc: Node = load("res://tools/teste_config.gd").new()
+		tc.jogo = jogo; tc.dir = args["fotos_config"]
+		add_child(tc)
 	if args.has("fotos"):
 		var t: Node = load("res://tools/teste_visual.gd").new()
 		t.jogo = jogo; t.args = args
