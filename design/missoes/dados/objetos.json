@@ -380,8 +380,8 @@
       "id": "lanterna_da_biblioteca",
       "nome": "Lanterna da Cúpula",
       "subzona": "bairro_afogado",
-      "pendente": true,
       "portal_para": "biblioteca_soterrada",
+      "leva_para": "biblioteca_soterrada",
       "posicao_sugerida": "no Bairro Afogado, perto da igreja: só a lanterna de bronze e o topo da cúpula saem da areia; por uma das janelinhas desce a escada de corda",
       "texto_ao_usar": "Uma placa de bronze meio enterrada: BIBLIOTECA PÚBLICA DE SÃO LÁZARO · 1888 · SILÊNCIO. Por uma das janelinhas da lanterna desce uma escada de corda, e lá de baixo sobe cheiro de papel e de vela."
     },
@@ -415,7 +415,6 @@
       "id": "esconderijo_nina",
       "nome": "Quarto do 5º Andar",
       "subzona": "bairro_afogado",
-      "pendente": true,
       "posicao_sugerida": "no Bairro Afogado, uma janela de prédio na altura da areia com uma lata de fogo apagada e um pano pendurado",
       "texto_ao_usar": "Um quarto que já foi 5º andar e hoje é porão. Uma lata de fogo ainda morna. Embaixo de um cobertor, um caderno com páginas soltas."
     },
@@ -592,6 +591,13 @@
       "nome": "Trono de um Senhor dos Ciclos",
       "subzona": "salao_da_flor_da_vida",
       "texto_servidor": "trono_senhor_9"
+    },
+    {
+      "id": "escada_corda_biblioteca",
+      "nome": "Escada de Corda",
+      "subzona": "biblioteca_soterrada",
+      "leva_para": "area_inicial",
+      "texto_ao_usar": "A corda range. Lá em cima, pela janelinha da lanterna, o vento do Bairro Afogado."
     }
   ],
   "baus": [
