@@ -309,3 +309,11 @@ GRADE_FOLHA["caixote_podre"] = [1,1]
 
 # itens novos sem arte pintada própria usam a de uma peça parecida até o Jefin mandar a dele (um padrão só de ícone)
 ALIAS_ARTE = {"carta_de_simao": "carta_apostata"}
+
+# armaduras antigas pintadas pelo Jefin (folhas q3 e q4, 5x2 cada)
+ARTE_EXISTENTES["armaduras_antigas_1"] = ["batina_remendada_cabeca","couro_sobrevivente_cabeca","placas_sino_cabeca","coro_mudo_cabeca","couraca_acougueiro_oco_cabeca",
+    "juramento_quebrado_cabeca","batina_remendada_peito","couro_sobrevivente_peito","batina_remendada_calcas","couro_sobrevivente_calcas"]
+ARTE_EXISTENTES["armaduras_antigas_2"] = ["placas_sino_calcas","coro_mudo_calcas","placas_sino_peito","coro_mudo_peito","couraca_acougueiro_oco_peito",
+    "juramento_quebrado_peito","batina_remendada_botas","couro_sobrevivente_botas","placas_sino_botas","coro_mudo_botas"]
+GRADE_FOLHA["armaduras_antigas_1"] = [5,2]
+AUTO_FOLHA["armaduras_antigas_2"] = {"dilata": 0}   # linhas desalinhadas: corte pela silhueta

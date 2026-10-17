@@ -1789,17 +1789,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_leve",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
-    "indice": 2,
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 0,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "batedor_vela_cabeca"
+   }
   },
   {
    "id": "batina_remendada_peito",
@@ -1834,13 +1832,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_leve",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 4
-   },
-   "arte_de": "gibao_batedor_vela"
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 6,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "batina_remendada_luvas",
@@ -1917,17 +1917,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "calcas_leve",
    "arte": {
-    "folha": "assets/icones/fontes/calcas.png",
-    "indice": 2,
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 8,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "batedor_vela_calcas"
+   }
   },
   {
    "id": "batina_remendada_botas",
@@ -1962,17 +1960,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "botas_leve",
    "arte": {
-    "folha": "assets/icones/fontes/botas.png",
-    "indice": 2,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "batedor_vela_botas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 6,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "couro_sobrevivente_cabeca",
@@ -2008,17 +2002,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_medio",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
-    "indice": 0,
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 1,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "peregrino_cabeca"
+   }
   },
   {
    "id": "couro_sobrevivente_peito",
@@ -2054,13 +2046,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_medio",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 0
-   },
-   "arte_de": "tunica_saco_peregrino"
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 7,
+    "grade": [
+     5,
+     2
+    ]
+   }
   },
   {
    "id": "couro_sobrevivente_luvas",
@@ -2139,17 +2133,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "calcas_medio",
    "arte": {
-    "folha": "assets/icones/fontes/calcas.png",
-    "indice": 0,
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 9,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "peregrino_calcas"
+   }
   },
   {
    "id": "couro_sobrevivente_botas",
@@ -2185,17 +2177,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "botas_medio",
    "arte": {
-    "folha": "assets/icones/fontes/botas.png",
-    "indice": 0,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "peregrino_botas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 7,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "placas_sino_cabeca",
@@ -2230,17 +2218,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
     "indice": 2,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "batedor_vela_cabeca"
+   }
   },
   {
    "id": "placas_sino_peito",
@@ -2275,13 +2261,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 4
-   },
-   "arte_de": "gibao_batedor_vela"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 2,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "placas_sino_luvas",
@@ -2358,17 +2344,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "calcas_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/calcas.png",
-    "indice": 2,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "batedor_vela_calcas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 0,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "placas_sino_botas",
@@ -2403,17 +2385,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "botas_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/botas.png",
-    "indice": 2,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "batedor_vela_botas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 8,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "coro_mudo_cabeca",
@@ -2448,17 +2426,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_leve",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
     "indice": 3,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "penitente_carmim_cabeca"
+   }
   },
   {
    "id": "coro_mudo_peito",
@@ -2493,13 +2469,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_leve",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 2
-   },
-   "arte_de": "habito_penitente_carmim"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 3,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "coro_mudo_luvas",
@@ -2576,17 +2552,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "calcas_leve",
    "arte": {
-    "folha": "assets/icones/fontes/calcas.png",
-    "indice": 3,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "penitente_carmim_calcas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 1,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "coro_mudo_botas",
@@ -2621,17 +2593,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "botas_leve",
    "arte": {
-    "folha": "assets/icones/fontes/botas.png",
-    "indice": 3,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "penitente_carmim_botas"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 9,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "couraca_acougueiro_oco_cabeca",
@@ -2667,17 +2635,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_medio",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
     "indice": 4,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "vigia_anil_cabeca"
+   }
   },
   {
    "id": "couraca_acougueiro_oco_peito",
@@ -2713,13 +2679,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_medio",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 3
-   },
-   "arte_de": "tunica_vigia_anil"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 4,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "couraca_acougueiro_oco_luvas",
@@ -2801,14 +2767,12 @@
    "substituido_por_arte_pronta": true,
    "motivo_antigo": "calcas_medio",
    "arte": {
-    "folha": "assets/icones/fontes/calcas.png",
-    "indice": 4,
-    "grade": [
-     5,
-     2
-    ]
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 1,
+    "auto": 10,
+    "dilata": 0
    },
-   "arte_de": "vigia_anil_calcas"
+   "arte_de": "coro_mudo_calcas"
   },
   {
    "id": "couraca_acougueiro_oco_botas",
@@ -2847,14 +2811,12 @@
    "substituido_por_arte_pronta": true,
    "motivo_antigo": "botas_medio",
    "arte": {
-    "folha": "assets/icones/fontes/botas.png",
-    "indice": 4,
-    "grade": [
-     5,
-     2
-    ]
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 9,
+    "auto": 10,
+    "dilata": 0
    },
-   "arte_de": "vigia_anil_botas"
+   "arte_de": "coro_mudo_botas"
   },
   {
    "id": "juramento_quebrado_cabeca",
@@ -2889,17 +2851,15 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "elmo_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/capuzes.png",
-    "indice": 3,
+    "folha": "assets/icones/fontes/armaduras_antigas_1.png",
+    "indice": 5,
     "grade": [
      5,
      2
     ]
-   },
-   "arte_de": "penitente_carmim_cabeca"
+   }
   },
   {
    "id": "juramento_quebrado_peito",
@@ -2934,13 +2894,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "peito_pesado",
    "arte": {
-    "folha": "assets/icones/fontes/tunicas.png",
-    "indice": 2
-   },
-   "arte_de": "habito_penitente_carmim"
+    "folha": "assets/icones/fontes/armaduras_antigas_2.png",
+    "indice": 5,
+    "auto": 10,
+    "dilata": 0
+   }
   },
   {
    "id": "juramento_quebrado_luvas",
