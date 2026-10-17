@@ -125,11 +125,12 @@ for d in DL.values():
                 for k, v in a.items():
                     if k not in ACOES: err(f"{ctx}: ação desconhecida '{k}'")
                     if k in ("aceitar_missao", "concluir_missao", "falhar_missao", "cumprir_falar"): chk_ms(v, ctx)
-                    if k in ("dar_item", "remover_item"): chk_item(v["id"], ctx)
+                    if k in ("dar_item", "remover_item"): chk_item(v["id"] if isinstance(v, dict) else v, ctx)
                     if k in SERV and v not in SERV[k]: err(f"{ctx}: {k} '{v}' não existe em lojas.json")
     for nid in set(nos) - alcancados: err(f"{d['id']}: nó '{nid}' nunca é alcançado")
 
 for o in objs["objetos"] + objs["baus"]:
+    if "subzona" not in o and o.get("pendente"): continue
     if o["subzona"] not in sub: err(f"objeto {o['id']}: subzona '{o['subzona']}'")
     for it in o.get("fixo", []): chk_item(it["id"], f"objeto {o['id']}")
     for k in ("requer_item", "leitura"):

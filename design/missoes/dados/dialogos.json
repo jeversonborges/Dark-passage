@@ -6480,6 +6480,467 @@
           ]
         }
       }
+    },
+    {
+      "id": "dlg_eulalia",
+      "npc": "eulalia_prado",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_ativa": "bs01"
+              },
+              "texto": "Seis páginas do Livro de Horas. Pegadas pequenas. Fumaça no Bairro Afogado. Não precisa ser detetive, precisa ser rápido."
+            },
+            {
+              "se": {
+                "missao_pronta": "bs01"
+              },
+              "texto": "Deixe-me ver. (Ela vira as páginas devagar.) ...Isto não é o meu Livro de Horas."
+            },
+            {
+              "texto": "Biblioteca Pública de São Lázaro. Silêncio, por favor. Empréstimos no balcão, devoluções na caixa de ferro."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Que lugar é este?",
+              "ir": "lugar"
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "quem"
+            },
+            {
+              "texto": "O que é o Livro Branco?",
+              "ir": "branco"
+            },
+            {
+              "texto": "Aconteceu alguma coisa?",
+              "ir": "ocorrencia",
+              "se": {
+                "missao_disponivel": "bs01"
+              }
+            },
+            {
+              "texto": "Trouxe as páginas.",
+              "ir": "entrega",
+              "se": {
+                "missao_pronta": "bs01"
+              }
+            },
+            {
+              "texto": "(Ir ler.)"
+            }
+          ]
+        },
+        "lugar": {
+          "fala": "A sala de leitura. Era o quarto andar. A rua de hoje passa ali, no vitral. Temos quarenta e um mil volumes, menos os que a areia comeu, menos os que não voltaram. As fichas eu sei de cor.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "quem": {
+          "fala": "E. Prado, bibliotecária. (Ela toca o lacre de cera no peito, sem perceber.) Morri no Ano 3. Ninguém veio me julgar, então voltei ao trabalho. Alguém precisa.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "branco": {
+          "fala": "Ficha zero, zero, zero: obras que ninguém escreveu ainda. Apareceu na caixa de devolução, sem dono. Agora tem uma pilha deles, ninguém sabe de onde. Leve um. O regulamento diz: devolva escrito.",
+          "opcoes": [
+            {
+              "texto": "Quero um.",
+              "acoes": [
+                {
+                  "dar_item": "livro_branco"
+                }
+              ],
+              "se": {
+                "sem_flag": "pegou_livro_branco"
+              }
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "ocorrencia": {
+          "fala": "Alguém anda arrancando páginas do Livro de Horas do atril. Seis, desta vez. Vi pegadas pequenas na areia e um fio de fumaça para os lados do Bairro Afogado. Traga as páginas. Não precisa machucar ninguém.",
+          "opcoes": [
+            {
+              "texto": "Eu trago.",
+              "acoes": [
+                {
+                  "aceitar_missao": "bs01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "entrega": {
+          "fala": "Olhe a letra. É de mulher, mas não é a minha. É um caderno, não um livro de horas: receitas, contas, uma canção de ninar, 'hoje a Nina tossiu menos'. As minhas páginas os corvos comeram, achei os restos no telhado hoje cedo. (Ela fecha as folhas com cuidado.) Você tomou isto de uma criança. Devolva. Agora.",
+          "opcoes": [
+            {
+              "texto": "(Pegar as páginas de volta.)",
+              "acoes": [
+                {
+                  "concluir_missao": "bs01"
+                },
+                {
+                  "aceitar_missao": "bs02"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_nina",
+      "npc": "nina",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_ativa": "bs02"
+              },
+              "texto": "(Nina está sentada no escuro, abraçando os joelhos. A fogueira apagou.)"
+            },
+            {
+              "se": {
+                "missao_concluida": "bs02"
+              },
+              "texto": "(Nina remenda o caderno com linha de saco. Não olha para você.)"
+            },
+            {
+              "texto": "Que é? Aqui não tem nada pra roubar. Já roubaram."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "(Devolver as páginas.)",
+              "ir": "devolve",
+              "se": {
+                "missao_ativa": "bs02"
+              }
+            },
+            {
+              "texto": "(Ir embora.)"
+            }
+          ]
+        },
+        "devolve": {
+          "fala": "(Ela pega as páginas e confere uma por uma, com a ponta dos dedos, como se contasse dinheiro.) É da minha mãe. Eu leio uma por noite pra lembrar como ela falava. Ontem não deu pra ler, porque você levou. Ontem eu esqueci um pouco.",
+          "opcoes": [
+            {
+              "texto": "(Continuar.)",
+              "ir": "pergunta",
+              "acoes": [
+                {
+                  "concluir_missao": "bs02"
+                }
+              ]
+            }
+          ]
+        },
+        "pergunta": {
+          "fala": "(Ela fica olhando para você.) ...Você não tem nada pra dizer?",
+          "opcoes": [
+            {
+              "texto": "(Ir embora.)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_esfinge_amenti",
+      "npc": "esfinge_amenti",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "flag": "amenti_aberto"
+              },
+              "texto": "A casa de baixo já te ouviu. Desce, ou não desce. Eu não pergunto duas vezes."
+            },
+            {
+              "se": {
+                "flag": "esfinge_calada"
+              },
+              "texto": "(A pedra está fria. A Esfinge não responde hoje.)"
+            },
+            {
+              "se": {
+                "tem_item": "livro_de_thoth"
+              },
+              "texto": "Tu trazes o Livro de quem me pôs aqui. Então respondes. Três perguntas. Uma resposta errada, e eu me calo por um dia."
+            },
+            {
+              "texto": "Areia. Silêncio. Entre as patas, a pedra tem a forma de uma porta e nenhuma fechadura."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Pergunta.",
+              "ir": "p1",
+              "se": {
+                "tem_item": "livro_de_thoth"
+              }
+            },
+            {
+              "texto": "(Ir embora.)"
+            }
+          ]
+        },
+        "p1": {
+          "fala": "Primeira. O que está embaixo...",
+          "opcoes": [
+            {
+              "texto": "...é como o que está em cima.",
+              "ir": "p2"
+            },
+            {
+              "texto": "...é o que foi enterrado.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            },
+            {
+              "texto": "...é o inferno.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            }
+          ]
+        },
+        "p2": {
+          "fala": "Segunda. Os de Khem o chamaram Thoth. Os de além do mar o chamaram de outro nome. Quantas vezes grande?",
+          "opcoes": [
+            {
+              "texto": "Uma, e basta.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            },
+            {
+              "texto": "Três vezes grande.",
+              "ir": "p3"
+            },
+            {
+              "texto": "Sete, uma por coluna.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            }
+          ]
+        },
+        "p3": {
+          "fala": "Terceira. O Livro que trazes tem as páginas em branco. Quando a letra acende?",
+          "opcoes": [
+            {
+              "texto": "Quando a lua cheia bate nele.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            },
+            {
+              "texto": "Quando alguém lê em voz alta.",
+              "ir": "certo"
+            },
+            {
+              "texto": "Quando quem o escreveu voltar.",
+              "ir": "erro",
+              "acoes": [
+                {
+                  "definir_flag": "esfinge_calada"
+                }
+              ]
+            }
+          ]
+        },
+        "certo": {
+          "fala": "Então lê. A pedra desce. Quem desce não sobe pelo mesmo caminho, e a porta de baixo fecha atrás de quem passa. O que há no fundo, eu nunca vi. Só vi quem subiu de lá: um escriba de cabeça de íbis, coberto de areia do tempo, que passou por mim sem perguntar nada.",
+          "opcoes": [
+            {
+              "texto": "Descer.",
+              "acoes": [
+                {
+                  "definir_flag": "amenti_aberto"
+                }
+              ]
+            }
+          ]
+        },
+        "erro": {
+          "fala": "(A Esfinge se cala. A areia para de tremer.)",
+          "opcoes": [
+            {
+              "texto": "(Ir embora.)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_lider_dos_anjos",
+      "npc": "lider_dos_anjos",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "faccao": "arautos"
+              },
+              "texto": "Servo. Chegaste longe. Não te ajoelhes: aqui embaixo não há para quem."
+            },
+            {
+              "texto": "Uma vela. Desceu até aqui acesa. Que curioso."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "O que tem atrás do Portão?",
+              "ir": "portao"
+            },
+            {
+              "texto": "Por que vocês não lutam?",
+              "ir": "lutar"
+            },
+            {
+              "texto": "Quem decide o Juízo?",
+              "ir": "juizo"
+            },
+            {
+              "texto": "(Afastar-se.)"
+            }
+          ]
+        },
+        "portao": {
+          "fala": "O que sempre esteve. Eu já vi. Ele também diz que já viu. Um de nós mente, e eu não minto.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "lutar": {
+          "fala": "Porque o primeiro que levantar a mão perde. Isso está escrito no Portão, do lado de dentro.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "juizo": {
+          "fala": "Ninguém. Por isso esperamos. Quando alguém decidir, saberemos quem foi, porque estará do lado de lá.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_lider_dos_demonios",
+      "npc": "lider_dos_demonios",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "faccao": "arautos"
+              },
+              "texto": "Um dos nossos! Ou um dos dele. Daqui de cima vocês são todos do mesmo tamanho, inseto."
+            },
+            {
+              "texto": "Inseto. Desceu até aqui só para olhar para mim? Eu entendo. Olhe à vontade."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "O que tem atrás do Portão?",
+              "ir": "portao"
+            },
+            {
+              "texto": "Onde está o general da Legião?",
+              "ir": "general"
+            },
+            {
+              "texto": "Ele disse que nunca mente.",
+              "ir": "mente"
+            },
+            {
+              "texto": "(Afastar-se.)"
+            }
+          ]
+        },
+        "portao": {
+          "fala": "Tudo. Ou nada. Abre e me conta. Ah, não abre? Que pena. Nem para mim abre, e eu sou eu.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "general": {
+          "fala": "Do lado de lá. Ou do lado de cá, olhando pra você agora. Pergunte ao Perfeito: ele adora responder o que não sabe.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "mente": {
+          "fala": "E você acreditou? Ele disse isso a Thoth também. Thoth dobrou um continente para não precisar ouvir de novo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
     }
   ]
 }

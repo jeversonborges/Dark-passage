@@ -8685,6 +8685,90 @@
     "32": "assets/icones/itens/32/ficha_sangue.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/ficha_sangue.png"
+  },
+  {
+   "id": "carta_de_simao",
+   "nome": "Carta de Simão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/carta_de_simao.png",
+    "40": "assets/icones/itens/40/carta_de_simao.png",
+    "32": "assets/icones/itens/32/carta_de_simao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carta_de_simao.png"
+  },
+  {
+   "id": "livro_branco",
+   "nome": "Livro Branco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Leve um. Devolva escrito.",
+    "autor": "Regulamento da Biblioteca Pública de São Lázaro"
+   },
+   "tipo_missao": "livro",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/livro_branco.png",
+    "40": "assets/icones/itens/40/livro_branco.png",
+    "32": "assets/icones/itens/32/livro_branco.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/livro_branco.png"
+  },
+  {
+   "id": "paginas_arrancadas",
+   "nome": "Páginas Arrancadas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/paginas_arrancadas.png",
+    "40": "assets/icones/itens/40/paginas_arrancadas.png",
+    "32": "assets/icones/itens/32/paginas_arrancadas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/paginas_arrancadas.png"
+  },
+  {
+   "id": "pagina_solta",
+   "nome": "Página Solta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "livro",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/pagina_solta.png",
+    "40": "assets/icones/itens/40/pagina_solta.png",
+    "32": "assets/icones/itens/32/pagina_solta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pagina_solta.png"
   }
  ]
 }

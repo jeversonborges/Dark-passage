@@ -546,6 +546,74 @@
           "pontos": []
         }
       ]
+    },
+    {
+      "id": "biblioteca_soterrada",
+      "nome": "Biblioteca Soterrada de São Lázaro",
+      "tipo": "interior",
+      "nivel": null,
+      "mapa_pai": "sao_lazaro",
+      "entrada": {
+        "subzona": "bairro_afogado",
+        "ponto": "lanterna_da_biblioteca"
+      },
+      "descricao": "A Biblioteca Pública de São Lázaro (1888) afundou de pé. A rua de hoje passa na altura do vitral da sala de leitura: entra-se pela lanterna da cúpula, por uma escada de corda. Lá embaixo, oito paredes de livros, uma galeria de ferro e a areia que escorre pelo vitral quebrado. Eulália Prado ainda abre às oito.",
+      "musica_sugerida": "órgão de tubos quase sem ar, uma nota por vez; páginas virando; areia escorrendo; de vez em quando, muito longe, estática de rádio",
+      "regras": {
+        "seguro": true,
+        "sem_combate": true,
+        "sem_farm": true
+      },
+      "subzonas": [
+        {
+          "id": "biblioteca_soterrada",
+          "nome": "Biblioteca Soterrada",
+          "tipo": "interior",
+          "seguro": true,
+          "descricao": "Oito paredes de livros, galeria de ferro e a areia que escorre pelo vitral verde quebrado. Sala segura, sem combate.",
+          "ponto_entrada": "escada_de_corda"
+        }
+      ]
+    },
+    {
+      "id": "saloes_de_amenti",
+      "nome": "Salões de Amenti",
+      "tipo": "dungeon",
+      "nivel": null,
+      "descricao": "Debaixo da casa que Thoth ergueu em Khem. Quem desce não sobe pelo mesmo caminho. Não há missão, não há farm: há seis salas e um Portão que nunca abriu.",
+      "musica_sugerida": "drone grave quase inaudível, coro distante sem palavras, um sino de vidro a cada minuto",
+      "subzonas": [
+        {
+          "id": "vestibulo_do_livro",
+          "nome": "Vestíbulo do Livro",
+          "tipo": "dungeon"
+        },
+        {
+          "id": "salao_do_universo",
+          "nome": "O Salão do Universo",
+          "tipo": "dungeon"
+        },
+        {
+          "id": "o_vazio",
+          "nome": "O Vazio",
+          "tipo": "dungeon"
+        },
+        {
+          "id": "camaras_sombrias",
+          "nome": "As Câmaras Sombrias",
+          "tipo": "dungeon"
+        },
+        {
+          "id": "salao_da_flor_da_vida",
+          "nome": "O Salão da Flor da Vida",
+          "tipo": "dungeon"
+        },
+        {
+          "id": "antecamara_dos_portoes",
+          "nome": "A Antecâmara dos Portões",
+          "tipo": "dungeon"
+        }
+      ]
     }
   ],
   "dungeons": [

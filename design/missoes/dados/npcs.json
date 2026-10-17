@@ -646,6 +646,105 @@
         "Escolhe com calma. Um caminho a gente não desescolhe.",
         "Simão escreveu seu nome no livro? Então você já está pronto. Só não sabe ainda."
       ]
+    },
+    {
+      "id": "eulalia_prado",
+      "nome": "Eulália Prado",
+      "titulo": "A Bibliotecária",
+      "faccao": "neutro",
+      "classe_visual": "nao_julgado",
+      "visual_proprio": true,
+      "local": {
+        "subzona": "biblioteca_soterrada",
+        "ponto": "balcao_emprestimos"
+      },
+      "servicos": [
+        "biblioteca"
+      ],
+      "dialogo": "dlg_eulalia",
+      "aparencia": "Não-Julgada: mulher magra de uns cinquenta anos, pele cinza de cera, coque preso com dois lápis. Vestido de lã preto abotoado até o pescoço, mangas de proteção de cetim, óculos pendurados numa corrente (sem lentes). O lacre de cera da trombeta intacto no peito, por cima do crachá: BIBLIOTECA PÚBLICA · E. PRADO. Um carimbo de borracha sempre na mão.",
+      "personalidade": "Educada, exata, implacável com prazos. Fala baixo porque é biblioteca. Trata o fim do mundo como um atraso de devolução.",
+      "historia": "Bibliotecária desde 1949. Quando a areia subiu, carregou o catálogo de andar em andar. Morreu de febre do Amargo no Ano 3 e levantou para um Juízo que não veio; como ninguém a julgou, voltou ao trabalho. Era casada com Tomé, o radiotelegrafista que subiu na torre e não desceu.",
+      "falas_ambiente": [
+        "Silêncio, por favor. O fim do mundo também.",
+        "Devolução é na caixa de ferro. Não, não aceito areia como pagamento.",
+        "Quem achar páginas soltas por aí, traga. Toda página é de algum livro.",
+        "Abrimos às oito. Sempre abrimos às oito."
+      ]
+    },
+    {
+      "id": "nina",
+      "nome": "Nina",
+      "titulo": "",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "visual_proprio": true,
+      "local": {
+        "subzona": "bairro_afogado",
+        "ponto": "esconderijo_nina"
+      },
+      "servicos": [],
+      "dialogo": "dlg_nina",
+      "aparencia": "Menina de uns onze anos, cabelo raspado por causa dos piolhos, casaco de homem com as mangas enroladas cinco vezes, máscara de pano no pescoço. Mãos pretas de fuligem.",
+      "personalidade": "Desconfiada, rápida, orgulhosa. Não chora na frente de ninguém.",
+      "historia": "Mora num quarto de 5º andar que hoje é porão, no Bairro Afogado. A mãe morreu no inverno passado. Guarda o caderno da mãe e lê uma página por noite para não esquecer a voz dela."
+    },
+    {
+      "id": "esfinge_amenti",
+      "nome": "A Esfinge",
+      "titulo": "A que guarda a casa de baixo",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "visual_prop": "esfinge",
+      "local": {
+        "subzona": "gize",
+        "ponto": "patas_da_esfinge"
+      },
+      "servicos": [],
+      "dialogo": "dlg_esfinge_amenti",
+      "aparencia": "Não aparece. É a voz que sai da pedra entre as patas da Esfinge, grave, sem boca que se mexa. A areia em volta treme quando ela fala.",
+      "personalidade": "Paciente, exata, sem piedade. Faz três perguntas e não repete nenhuma.",
+      "historia": "Thoth a pôs ali quando desceu aos Salões de Amenti pela última vez. Ela não guarda tesouro: guarda a pergunta de quem quer descer."
+    },
+    {
+      "id": "lider_dos_anjos",
+      "nome": "O Perfeito",
+      "titulo": "Líder dos Anjos",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "antecamara_dos_portoes",
+        "ponto": "antecamara_estrado_oeste"
+      },
+      "servicos": [],
+      "dialogo": "dlg_lider_dos_anjos",
+      "aparencia": "Três vezes a altura de um homem. Armadura branca de placas com filigrana de ouro, elmo alto coroado de pontas, halo de luz atrás da cabeça, seis asas de penas brancas e uma espada com um sol na guarda, apoiada no estrado. Não pisca. Não respira.",
+      "personalidade": "A perfeição não sente, não perdoa, apenas existe. Fala pouco, em sentenças, e nunca responde a pergunta que foi feita.",
+      "historia": "Ele não é o primeiro; é o padrão. Tudo o que é celestial existe à sua imagem. Desceu a Amenti para julgar o que está atrás dos Portões e encontrou do outro lado do salão alguém que veio fazer o mesmo.",
+      "falas_ambiente": [
+        "Onde eu chego, o mundo se curva.",
+        "Você está atrasado. Todos estão."
+      ]
+    },
+    {
+      "id": "lider_dos_demonios",
+      "nome": "O Soberbo",
+      "titulo": "Líder dos Demônios",
+      "faccao": "arautos",
+      "classe_visual": "demonio",
+      "local": {
+        "subzona": "antecamara_dos_portoes",
+        "ponto": "antecamara_estrado_leste"
+      },
+      "servicos": [],
+      "dialogo": "dlg_lider_dos_demonios",
+      "aparencia": "Um colosso de carne e armadura negra rachada, com lava escorrendo pelas frestas. Chifres enormes curvados para trás e asas de morcego rasgadas, abertas de parede a parede. Olha para todos de cima, com o queixo erguido.",
+      "personalidade": "Arrogante e poderoso além da conta. Ri do Perfeito, ri de você, ri dos Portões. Nunca se levanta para ninguém.",
+      "historia": "O general da Legião Blasfema sumiu; este nunca precisou de general. Veio a Amenti porque o Perfeito veio, e não admite chegar depois.",
+      "falas_ambiente": [
+        "Ajoelha. Ou não. Tanto faz para mim.",
+        "Ele se acha o padrão. Eu sou a exceção."
+      ]
     }
   ]
 }

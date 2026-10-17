@@ -2823,6 +2823,35 @@
       "nome": "Carta de Simão",
       "tipo": "missao",
       "descricao": "Papel de embrulhar vela, dobrado em quatro. Três palavras: 'Pedro. Este venceu. Ensina.'"
+    },
+    {
+      "id": "livro_branco",
+      "nome": "Livro Branco",
+      "tipo": "livro",
+      "raridade": "comum",
+      "nivel": 1,
+      "vinculado": true,
+      "descricao": "Capa de pano cru, nenhuma letra dentro. Catalogado como 000: obras que ninguém escreveu ainda.",
+      "texto": "(Páginas em branco. Todas.)",
+      "citacao": {
+        "texto": "Leve um. Devolva escrito.",
+        "autor": "Regulamento da Biblioteca Pública de São Lázaro"
+      }
+    },
+    {
+      "id": "paginas_arrancadas",
+      "nome": "Páginas Arrancadas",
+      "tipo": "missao",
+      "raridade": "comum",
+      "descricao": "Seis folhas de caderno, letra de mulher, uma canção de ninar no verso da última."
+    },
+    {
+      "id": "pagina_solta",
+      "nome": "Página Solta",
+      "tipo": "livro",
+      "raridade": "comum",
+      "descricao": "Uma página caída de algum caderno. Ao ler, entra na sua Estante (diário, aba Biblioteca).",
+      "texto_servidor": true
     }
   ]
 }

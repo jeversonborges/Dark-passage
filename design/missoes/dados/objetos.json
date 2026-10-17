@@ -375,6 +375,223 @@
       "visivel_se": {
         "missao_ativa": "at_c02"
       }
+    },
+    {
+      "id": "lanterna_da_biblioteca",
+      "nome": "Lanterna da Cúpula",
+      "subzona": "bairro_afogado",
+      "pendente": true,
+      "portal_para": "biblioteca_soterrada",
+      "posicao_sugerida": "no Bairro Afogado, perto da igreja: só a lanterna de bronze e o topo da cúpula saem da areia; por uma das janelinhas desce a escada de corda",
+      "texto_ao_usar": "Uma placa de bronze meio enterrada: BIBLIOTECA PÚBLICA DE SÃO LÁZARO · 1888 · SILÊNCIO. Por uma das janelinhas da lanterna desce uma escada de corda, e lá de baixo sobe cheiro de papel e de vela."
+    },
+    {
+      "id": "estante_biblioteca",
+      "nome": "Estante",
+      "subzona": "biblioteca_soterrada",
+      "quantidade_no_mapa": 8,
+      "abre": "estante",
+      "texto_ao_usar": "Lombadas de couro, pano e papelão, em ordem que só Eulália entende."
+    },
+    {
+      "id": "atril_livro_de_horas",
+      "nome": "Atril",
+      "subzona": "biblioteca_soterrada",
+      "texto_ao_usar": "Um Livro de Horas grande, aberto. Faltam seis páginas no meio, arrancadas com a mão."
+    },
+    {
+      "id": "ficharia",
+      "nome": "Fichário de Empréstimos",
+      "subzona": "biblioteca_soterrada",
+      "texto_servidor": "ficharia"
+    },
+    {
+      "id": "caixa_devolucao",
+      "nome": "Caixa de Devolução",
+      "subzona": "biblioteca_soterrada",
+      "texto_ao_usar": "Uma caixa de ferro com uma fenda e uma placa de latão: DEVOLUÇÕES. Lá dentro, escuro e eco."
+    },
+    {
+      "id": "esconderijo_nina",
+      "nome": "Quarto do 5º Andar",
+      "subzona": "bairro_afogado",
+      "pendente": true,
+      "posicao_sugerida": "no Bairro Afogado, uma janela de prédio na altura da areia com uma lata de fogo apagada e um pano pendurado",
+      "texto_ao_usar": "Um quarto que já foi 5º andar e hoje é porão. Uma lata de fogo ainda morna. Embaixo de um cobertor, um caderno com páginas soltas."
+    },
+    {
+      "id": "inscricao_01",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_01",
+      "pendente": true,
+      "posicao_sugerida": "São Lázaro: no lintel da porta da Biblioteca, que hoje fica embaixo da areia, visível só de dentro do poço de areia ao lado da lanterna"
+    },
+    {
+      "id": "inscricao_02",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_02",
+      "pendente": true,
+      "posicao_sugerida": "Jerusalém / Monte Hermon: numa pedra solta no caminho de subida, virada para baixo do morro"
+    },
+    {
+      "id": "inscricao_03",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_03",
+      "pendente": true,
+      "posicao_sugerida": "Novo Éden: numa raiz da Árvore-Mãe, do lado que não queimou"
+    },
+    {
+      "id": "inscricao_04",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_04",
+      "pendente": true,
+      "posicao_sugerida": "A Torre: na base de ferro da antena, coberta de ferrugem"
+    },
+    {
+      "id": "inscricao_05",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_05",
+      "pendente": true,
+      "posicao_sugerida": "Atlântida: no chão do Salão dos Registros, entre duas colunas"
+    },
+    {
+      "id": "inscricao_06",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_06",
+      "pendente": true,
+      "posicao_sugerida": "Egito: numa parede da Casa da Vida, embaixo de um nicho vazio"
+    },
+    {
+      "id": "inscricao_07",
+      "nome": "Pedra Gravada",
+      "tipo": "inscricao",
+      "texto_servidor": "inscricao_07",
+      "pendente": true,
+      "posicao_sugerida": "Salões de Amenti: na Antecâmara dos Portões, perto da inscrição Dlauce"
+    },
+    {
+      "id": "pedra_entalhada_a",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "Novo Éden: ao pé da Árvore-Mãe",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_b",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "Atlântida: na entrada do Salão dos Registros",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_c",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "São Lázaro: no Cemitério, entre os Não-Julgados de pé",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_d",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "Monte Hermon: no cume, no ponto mais alto",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_e",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "Egito: em Gizé, entre as patas da Esfinge, ao lado do interativo das 3 perguntas",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_f",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "São Lázaro: na margem do Rio Amargo",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "pedra_entalhada_g",
+      "nome": "Degrau Entalhado",
+      "tipo": "pedra",
+      "pendente": true,
+      "posicao_sugerida": "A Torre: no pé da escada que sobe a antena",
+      "texto_ao_usar": "Um degrau entalhado numa pedra, gasto como se muita gente tivesse subido por ele. Não leva a lugar nenhum."
+    },
+    {
+      "id": "balanca_maat",
+      "nome": "Balança de Bronze",
+      "subzona": "casa_vida",
+      "pendente": true,
+      "posicao_sugerida": "Egito, Casa da Vida: no centro do pátio, sobre um pedestal",
+      "texto_ao_usar": "Uma balança de bronze. Num prato, uma pena. O outro está vazio, esperando. Na base: FALA À PENA."
+    },
+    {
+      "id": "trono_senhor_1",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_1"
+    },
+    {
+      "id": "trono_senhor_2",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_2"
+    },
+    {
+      "id": "trono_senhor_3",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_3"
+    },
+    {
+      "id": "trono_senhor_4",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_4"
+    },
+    {
+      "id": "trono_senhor_5",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_5"
+    },
+    {
+      "id": "trono_senhor_6",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_6"
+    },
+    {
+      "id": "trono_senhor_7",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_7"
+    },
+    {
+      "id": "trono_senhor_8",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_8"
+    },
+    {
+      "id": "trono_senhor_9",
+      "nome": "Trono de um Senhor dos Ciclos",
+      "subzona": "salao_da_flor_da_vida",
+      "texto_servidor": "trono_senhor_9"
     }
   ],
   "baus": [

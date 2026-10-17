@@ -3955,6 +3955,67 @@
       "flags": [
         "evolucao_50"
       ]
+    },
+    {
+      "id": "bs01",
+      "titulo": "Páginas Arrancadas",
+      "tipo": "secundaria",
+      "faccao": "neutro",
+      "nivel": 4,
+      "doador": "eulalia_prado",
+      "entrega": "eulalia_prado",
+      "requer": [],
+      "resumo": "Recupere as seis páginas arrancadas do Livro de Horas da biblioteca.",
+      "descricao": "FICHA DE OCORRÊNCIA · BIBLIOTECA PÚBLICA DE SÃO LÁZARO · ANO 31 DO IMPASSE\nSeis páginas arrancadas do Livro de Horas do atril, à noite, com a mão. Livro é a única coisa nesta cidade que não apodrece se ninguém mexer.\nPegadas pequenas na areia. Fumaça no Bairro Afogado. Traga as páginas de volta.\nNão precisa machucar ninguém. Precisa trazer as páginas.\n— E. Prado, bibliotecária",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "esconderijo_nina",
+          "subzona": "bairro_afogado",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "paginas_arrancadas",
+              "qtd": 6
+            }
+          ]
+        },
+        {
+          "tipo": "coletar",
+          "item": "paginas_arrancadas",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 900,
+        "ouro": 25
+      },
+      "texto_conclusao": "Eulália leu a primeira linha e parou. Não era o Livro de Horas. Era o caderno de uma mãe, com a letra cada vez mais torta no fim. As páginas da biblioteca, os corvos tinham comido."
+    },
+    {
+      "id": "bs02",
+      "titulo": "Devolva Escrito",
+      "tipo": "secundaria",
+      "faccao": "neutro",
+      "nivel": 4,
+      "doador": "eulalia_prado",
+      "entrega": "nina",
+      "requer": [
+        "bs01"
+      ],
+      "oculta": true,
+      "resumo": "Devolva o caderno à menina do Bairro Afogado.",
+      "descricao": "FICHA DE OCORRÊNCIA · ADENDO\nAs páginas não eram nossas. Eram de uma mãe que já morreu, e de uma filha que lê uma por noite.\nDevolva. Pessoalmente. Na mão.\n— E. Prado, bibliotecária",
+      "objetivos": [
+        {
+          "tipo": "falar",
+          "npc": "nina"
+        }
+      ],
+      "recompensas": {
+        "xp": 300
+      },
+      "texto_conclusao": "Você devolveu as páginas. Ela não agradeceu. Não tinha por quê."
     }
   ]
 }

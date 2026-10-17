@@ -1,0 +1,121 @@
+{
+  "versao": 1,
+  "nota": "Biblioteca Soterrada: livros abertos, estantes e drops. Textos sem entrada em livros vêm do servidor.",
+  "livros": {
+    "regulamento": {
+      "titulo": "Regulamento da Sala de Leitura",
+      "autor": "E. Prado, bibliotecária",
+      "data": "Ano 1 do Impasse",
+      "texto": "REGULAMENTO DA SALA DE LEITURA · REVISTO NO ANO 1 DO IMPASSE\n1. Silêncio. O fim do mundo também.\n2. Proibido fumar, acender fogueira ou queimar livros para se aquecer. Queime a cadeira.\n3. Empréstimo por quinze dias. Prazo do Juízo não conta como prazo.\n4. Anjos e demônios são bem-vindos, desde que limpem as asas e os cascos.\n5. Livro achado na rua é livro da biblioteca até prova em contrário.\n6. A biblioteca abre às oito. Sempre abre às oito.\n— E. Prado, bibliotecária"
+    },
+    "tabua_anacleto": {
+      "titulo": "Tábua de Esmeralda (cópia de Frei Anacleto, 1688)",
+      "autor": "Frei Anacleto",
+      "data": "1688",
+      "texto": "TÁBUA DE ESMERALDA DE HERMES TRISMEGISTO\n(trasladada do latim de Hortulano por Frei Anacleto, no ano do Senhor de 1688, cinco anos antes da parede)\n\nI · É verdade, sem mentira, certo e muito verdadeiro.\nII · O que está embaixo é como o que está em cima, e o que está em cima é como o que está embaixo, para fazer os milagres da coisa única.\nIII · Assim como todas as coisas vieram do Um, pela meditação do Um, todas nasceram desta coisa única por adaptação.\nIV · O Sol é seu pai, a Lua é sua mãe, o Vento a trouxe no ventre, a Terra é sua ama.\nV · O pai de todo o telesma do mundo está aqui. Sua força é inteira se for convertida em terra.\nVI · Separarás a terra do fogo, o sutil do espesso, docemente, com grande engenho.\nVII · Sobe da terra ao céu e desce de novo à terra, e recebe a força das coisas de cima e de baixo.\nVIII · Assim terás a glória do mundo inteiro, e toda a escuridão fugirá de ti.\nIX · Esta é a força forte de toda força, porque vencerá toda coisa sutil e penetrará toda coisa sólida.\nX · Assim foi criado o mundo.\nXI · Daqui sairão adaptações admiráveis, cujo modo é este.\nXII · Por isso fui chamado Hermes Trismegisto, tendo as três partes da filosofia do mundo inteiro.\nXIII · Está acabado o que eu disse da obra do Sol.\n\n(Embaixo, a lápis, outra letra:) Dizem que existem sete pedras com estas linhas pelo mundo. Nunca vi nenhuma. — E. P."
+    },
+    "sete_principios": {
+      "titulo": "Os Sete Princípios, anotado",
+      "autor": "Casa de Hermes, Mênfis",
+      "data": "sem data",
+      "texto": "OS SETE PRINCÍPIOS\n(cópia de estudo da Casa de Hermes; 'para a biblioteca afogada, que guarda o que nós perdemos' — Djedi)\n\nI · Mentalismo: o Todo é mente; o mundo é mental.\nII · Correspondência: o que está em cima é como o que está embaixo.\nIII · Vibração: nada está parado; tudo se move, tudo vibra.\nIV · Polaridade: tudo é duplo; os opostos são o mesmo em graus diferentes.\nV · Ritmo: tudo flui, para fora e para dentro; o pêndulo volta.\nVI · Causa e Efeito: toda causa tem seu efeito; o acaso é lei não reconhecida.\nVII · Gênero: tudo tem o seu princípio masculino e feminino.\n\nNota de Djedi, a pena de junco: 'O Impasse é o quinto princípio parado no meio do balanço. Pêndulo que não volta é pêndulo segurado. Alguém está segurando.'"
+    },
+    "escada_de_jaco": {
+      "titulo": "Sermão da Escada de Jacó",
+      "autor": "Frei Anacleto",
+      "data": "1690",
+      "texto": "SERMÃO DA ESCADA DE JACÓ\n(pregado aos noviços de São Lázaro, ano do Senhor de 1690; Frei Anacleto)\n\nJacó dormiu com a cabeça numa pedra e viu uma escada da terra ao céu, e anjos subindo e descendo por ela. Reparem, irmãos: subindo primeiro. Os anjos não desciam do céu para depois subir. Eles estavam aqui embaixo.\nA escada não é para Deus descer. Deus não precisa de escada. É para nós, que temos pés.\nCada degrau é um lugar. Não se pula degrau. Quem pula, cai, e cai para o degrau de onde saiu, que é o castigo mais humilde e mais justo que existe.\nE no alto não há trono. Há um homem ajoelhado, que é o jeito mais alto que um homem consegue ficar.\n— Fr. Anacleto, O.S.L."
+    },
+    "instrucoes_subida": {
+      "titulo": "Instruções para a Subida",
+      "autor": "anônimo",
+      "data": "sem data",
+      "texto": "INSTRUÇÕES PARA A SUBIDA\n(caderno sem capa, letra antiga; achado na estante 000)\n\nA alma sobe por sete portas e em cada uma deixa uma roupa.\nNa primeira deixa a pressa. Na segunda, o medo da água. Na terceira, a vergonha de ter raiz. Na quarta, a própria voz. Na quinta, a memória do que afundou. Na sexta, a mentira. Na sétima, o orgulho de ter chegado.\nNua, a alma chega embaixo, porque subir e descer, ali, é a mesma coisa.\nEmbaixo há uma porta que não tem fechadura, e gente sentada em volta de um fogo que não queima.\nNão sei o que há depois. Quem escreveu isto não voltou para contar, ou voltou e não quis."
+    },
+    "do_amargo_mercurio": {
+      "titulo": "Do Amargo como Mercúrio dos Filósofos",
+      "autor": "Mestre Absalão Rocha",
+      "data": "Ano 4 do Impasse",
+      "texto": "DO AMARGO COMO MERCÚRIO DOS FILÓSOFOS\n(tratado de Absalão Rocha, alquimista, ex-professor de química do Liceu; Ano 4 do Impasse)\n\nO vulgo chama de Amargo a poeira verde que veio com a estrela. Eu chamo de obra mal feita.\nOs antigos buscavam separar o sutil do espesso, docemente. Os homens do Silo separaram o átomo à força, numa noite. O que sobrou não é veneno: é mercúrio cru, sem casamento com o enxofre. Por isso brilha, por isso amarga, por isso não morre.\nTenho provas. Na beira do rio, a água amarga corrói tudo, menos o papel lido. Explique isso, Graxa.\nProposta: quem quiser curar o deserto não precisa de outra bomba. Precisa terminar a obra.\n— A. Rocha (que ninguém leu, e por isso escreve)"
+    }
+  },
+  "estantes": {
+    "estante_biblioteca": [
+      "regulamento",
+      "tabua_anacleto",
+      "sete_principios",
+      "escada_de_jaco",
+      "instrucoes_subida",
+      "do_amargo_mercurio",
+      "sete_degraus",
+      "quarenta_e_duas",
+      "cancao_moca"
+    ],
+    "_doc": "O que a estante oferece para ler. Os ids que estão em LIVROS são abertos; os outros vêm do servidor (texto_servidor)."
+  },
+  "drops": {
+    "paginas_soltas": [
+      {
+        "texto": "eulalia_diario_1",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "eulalia_diario_2",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "eulalia_diario_3",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "eulalia_diario_4",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "eulalia_diario_5",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "eulalia_diario_6",
+        "monstro": "nao_julgado",
+        "area": "sao_lazaro",
+        "chance": 0.012
+      },
+      {
+        "texto": "tome_diario_1",
+        "monstro": "*",
+        "area": "a_torre",
+        "chance": 0.01
+      },
+      {
+        "texto": "tome_diario_2",
+        "monstro": "*",
+        "area": "a_torre",
+        "chance": 0.01
+      },
+      {
+        "texto": "tome_diario_3",
+        "monstro": "*",
+        "area": "a_torre",
+        "chance": 0.01
+      },
+      {
+        "texto": "tome_diario_4",
+        "monstro": "*",
+        "area": "a_torre",
+        "chance": 0.01
+      }
+    ],
+    "regra": "Cada página cai no máximo uma vez por personagem (quem já leu não ganha de novo). A página vira o item pagina_solta com o texto_id; o texto vem do servidor quando o jogador lê."
+  }
+}
