@@ -1096,11 +1096,9 @@ func _unhandled_input(ev: InputEvent) -> void:
 	elif ev is InputEventKey and not ev.pressed and ev.keycode == KEY_ALT:
 		mostrar_nomes = false
 
+## Teleporte de volta ao acampamento: grátis, não gasta item.
 func usar_vela() -> void:
-	for it in jog.inv:
-		if it["id"] == "vela_retorno":
-			cmd("usar_item", [int(it["uid"])]); return
-	hud.aviso("Sem Vela de Retorno na mochila.")
+	cmd("voltar", [])
 
 func usar_skill(slot: int) -> void:
 	var alvo := hover_id

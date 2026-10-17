@@ -579,6 +579,12 @@ static func canalizar(sim: WorldSim, e: Ent, dur: float, texto: String, fim: Cal
 	e.caminho.clear()
 	sim.emitir("canal", {"id": e.id, "dur": dur, "texto": texto})
 
+## Teleporte de volta ao acampamento: grátis, sem item. Fica parado 3 s e sai da área.
+static func voltar_acampamento(sim: WorldSim, e: Ent) -> void:
+	if not e.vivo or e.interagindo.has("t"): return
+	canalizar(sim, e, 3.0, "Voltando ao acampamento", func():
+		sim.emitir_a(e, "trocar_mapa", {"mapa": "area_inicial", "pos": ponto_renascer(sim, e) if sim.mapa_id == "area_inicial" else Vector2(-1, -1)}))
+
 static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
 	if b.aux.get("aberto", false):
 		sim.emitir_a(e, "aviso", {"texto": "Vazio."}); return
