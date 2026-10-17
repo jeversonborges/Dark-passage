@@ -6,6 +6,7 @@ import math, random, zlib
 
 # id -> (raio de bloqueio, decalque de chão, luz [r, g, b, raio] ou None)
 VELA = [1, .55, .2, 3]
+VALV = [1, .5, .16, 3]
 INFO = {
     # matadouro
     "cepo_cutelo": (.5, 0, None), "balde_miudos": (.4, 0, None), "varal_linguica": (.8, 0, None), "cabide_avental": (.4, 0, None),
@@ -19,6 +20,10 @@ INFO = {
     "trombetas_caladas": (.4, 0, None), "relicario": (.4, 0, VELA), "candelabro_ferro": (.4, 0, VELA), "ex_votos": (.5, 0, VELA),
     "coroa_flores_secas": (.4, 0, None), "sino_rachado": (.6, 0, None), "atril_partituras": (.5, 0, None), "genuflexorio": (.4, 0, VELA),
     "ossuario_caixa": (.5, 0, None), "lacres_cera_chao": (0, 1, None), "raizes_ossos": (.7, 0, None), "cruz_ferro_tombada": (.4, 0, None),
+    # torre de rádio
+    "radio_votivo": (.5, 0, VALV), "pilha_fones": (.4, 0, VELA), "caixa_valvulas": (.4, 0, VALV), "fitas_rolo": (.5, 0, VALV),
+    "microfone_caido": (.5, 0, VELA), "bancada_solda": (.8, 0, VALV), "totem_antena": (.4, 0, VALV), "cadeira_escuta": (.5, 0, VALV),
+    "pilha_radios": (.5, 0, VALV), "circulo_giz_chao": (0, 1, VELA), "baldes_incendio": (.5, 0, None), "estante_pecas": (.5, 0, None),
 }
 
 def _salas(a):

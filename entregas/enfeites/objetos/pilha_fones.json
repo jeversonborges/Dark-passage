@@ -1,0 +1,19 @@
+{
+ "w": 142,
+ "h": 94,
+ "anchor": [
+  29,
+  77
+ ],
+ "emissivo": "vela",
+ "luz": "vela",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estaca dos fones: um poste de madeira com travessa onde a Congregação pendura os fones de ouvido dos que já não     precisam deles, os fios balançando; embaixo, o monte dos que caíram, cera de vela e a marca da onda no poste.",
+ "kind": "pilha_fones"
+}

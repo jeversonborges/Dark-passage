@@ -1,0 +1,19 @@
+{
+ "w": 190,
+ "h": 126,
+ "anchor": [
+  48,
+  97
+ ],
+ "emissivo": "vela",
+ "luz": "vela",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "O microfone do sermão: microfone de fita de cápsula cromada num pedestal de ferro, de pé no meio de um anel de     velas, a base presa com fita e arame, o cabo de borracha enrolado no chão e a marca da onda pintada no piso     (é por ele que o Sacerdote da Portadora prega para os andares de baixo).",
+ "kind": "microfone_caido"
+}

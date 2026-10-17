@@ -9,12 +9,16 @@ Prévias em `entregas/enfeites/previa/` (maquete e folha de cada bioma). Fontes 
 
 ## Passos (a Prévia só copia)
 
-1. Já feito: as 36 peças estão em `assets/ambiente/objetos/` e no `manifest.json` (cópia também em `entregas/enfeites/objetos/`).
+1. Já feito: as 48 peças (36 + 12 da Torre de rádio) estão em `assets/ambiente/objetos/` e no `manifest.json` (cópia também em `entregas/enfeites/objetos/`).
 2. Já feito: os enfeites foram espalhados pelos geradores (nada à mão), com `design/mapas/enfeites_mapa.py`
    (sala por sala, pé das paredes, longe de portais, baús, spawns, NPCs, água e da arena do chefe; nada empilhado).
    Mapas regerados, prontos para copiar para `game/data/mapas/`:
    - Cripta (53 enfeites): `design/mapas/cripta/porao_matadouro.json`, `ossario_carpideiras.json`, `camara_trombeta.json`
    - Egito (50 enfeites): `entregas/egito/mapas/hawara_1.json` a `hawara_3.json` e `coracao_1.json` a `coracao_6.json`
+   - Torre de rádio (38 enfeites): `design/mapas/a_torre/torre_1.json` a `torre_5.json`. Esses NÃO precisam de cópia
+     separada: o `entregas/torre_raid/integrar.py` (thread "Mecânica do raid da Torre") já copia os andares dessa
+     pasta. Ordem: aplicar a Torre como o LEIAME dela manda; os andares já saem com os enfeites. Conferido: só ganharam
+     props, luzes e o bloqueio dos enfeites; mobs, horda, portais, baús e `dados_torre.json` idênticos.
    ```
    cd /mnt/project-files
    cp design/mapas/cripta/{porao_matadouro,ossario_carpideiras,camara_trombeta}.json game/data/mapas/
@@ -43,7 +47,7 @@ Prévias em `entregas/enfeites/previa/` (maquete e folha de cada bioma). Fontes 
 - **Ossário das Carpideiras:** `ossuario_caixa`, `coroa_flores_secas`, `ex_votos`, `relicario`, `candelabro_ferro`.
 - **Catacumba das Raízes:** `raizes_ossos` (2x1), `cruz_ferro_tombada`, `coroa_flores_secas`, `lacres_cera_chao`.
 
-## As 36 peças
+## As peças (36 + 12 da Torre)
 
 | id | bioma | tiles | chão | o que é |
 |---|---|---|---|---|
@@ -83,12 +87,24 @@ Prévias em `entregas/enfeites/previa/` (maquete e folha de cada bioma). Fontes 
 | `lacres_cera_chao` | cripta | 1x1 | sim | Decalque de chão: lacres de cera vermelha arrancados do peito dos Não-Julgados, tocos de vela, cera derramada e     fitas com o selo, onde um deles se levantou. |
 | `raizes_ossos` | cripta | 2x1 |  | Raízes grossas que furaram o piso da catacumba e saíram arrastando ossos e uma caveira presa no meio; lajes     levantadas em volta e terra preta. |
 | `cruz_ferro_tombada` | cripta | 1x1 |  | Cruz de túmulo de ferro batido com volutas e a plaquinha esmaltada do nome, tombada e meio torta sobre um monte de     terra, uma guirlanda de arame com flores secas ainda presa. |
+| `radio_votivo` | torre | 1x1 |  | Rádio de válvula em cima de um caixote, virado em altar da Congregação: o dial aceso na faixa morta, velas, um fone pendurado, a marca da onda pintada no caixote e oferendas (pilhas, um dente, um anel). |
+| `pilha_fones` | torre | 1x1 |  | Estaca dos fones: um poste de madeira com travessa onde a Congregação pendura os fones de ouvido dos que já não precisam deles, os fios balançando; embaixo, o monte dos que caíram, cera de vela e a marca da onda no poste. |
+| `caixa_valvulas` | torre | 1x1 |  | Caixote de válvulas sobressalentes na palha, uma ainda acesa (ligada num fio solto), outras quebradas no chão com o vidro em cacos. |
+| `fitas_rolo` | torre | 1x1 |  | Gravador de rolo da Rádio São Lázaro num caixote: os dois carretéis no tampo, a fita marrom correndo pelas cabeças e escorrendo em laços até o chão (as gravações da Noite Zero que a Congregação toca ao contrário); ao lado, uma pilha de carretéis e as caixas de papelão com o rótulo apagado. |
+| `microfone_caido` | torre | 1x1 |  | O microfone do sermão: microfone de fita de cápsula cromada num pedestal de ferro, de pé no meio de um anel de velas, a base presa com fita e arame, o cabo de borracha enrolado no chão e a marca da onda pintada no piso (é por ele que o Sacerdote da Portadora prega para os andares de baixo). |
+| `bancada_solda` | torre | 2x1 |  | Bancada de radioamador: chassi de transmissor aberto cheio de válvulas e fios, ferro de solda no suporte, rolo de estanho, lupa com lâmpada e o caderno de frequências cheio de rabiscos. |
+| `totem_antena` | torre | 1x1 |  | Totem da Congregação: poste de cano com antenas de arame dobrado em espiral, latas e colheres penduradas que tilintam, uma válvula acesa no topo como olho e fitas de pano com a onda pintada. |
+| `cadeira_escuta` | torre | 1x1 |  | Cadeira da Escuta: cadeira de dentista velha com correias de couro nos braços, capacete de fones aparafusado no encosto e o cabo que sobe para o teto; sangue seco no apoio de cabeça. |
+| `pilha_radios` | torre | 1x1 |  | Pilha de rádios de todos os tamanhos que a Congregação recolheu nas casas de São Lázaro, empilhados como um relicário: um só ainda acende o dial; velas e fones em volta. |
+| `circulo_giz_chao` | torre | 1x1 | sim | Decalque de chão: círculo de escuta riscado a giz e tinta de válvula, a onda senoidal atravessando a trombeta no meio, os números da contagem invertida em volta, tocos de vela e cera. |
+| `baldes_incendio` | torre | 1x1 |  | Suporte de baldes de incêndio do mirante: quatro baldes cônicos vermelhos (um caído), areia derramada, a pá e o machado de incêndio na placa, tudo descascado e com cera de vela. |
+| `estante_pecas` | torre | 1x1 |  | Estante de aço de almoxarifado: vidros de parafusos, rolos de fio de cobre, isoladores de porcelana, caixas de papelão encharcadas e um rádio desmontado; uma prateleira cedeu. |
 
 ## Regerar
 
-    # bpy 4.2 (se /opt/bpy42 não existir: python3.11 -m pip install bpy==4.2.0 e troque por python3.11)
-    cd assets/ambiente/fontes && /opt/bpy42/bin/python render_assets.py -- /tmp/claude-0/enfeites_brutos <ids...>
+    # bpy 4.2 via pip: python3.11 -m pip install bpy==4.2.0
+    cd assets/ambiente/fontes && python3.11 render_assets.py -- /tmp/claude-0/enfeites_brutos <ids...>
     python3 publicar.py /tmp/claude-0/enfeites_brutos
 
-Novo enfeite: função com `@ef("id", "bioma")` em `enfeites.py` (biomas: matadouro, egito, cripta), usando os
+Novo enfeite: função com `@ef("id", "bioma")` em `enfeites.py` (biomas: matadouro, egito, cripta, torre), usando os
 materiais do kit da área. O `render_assets.py` já importa `enfeites`.

@@ -1,0 +1,19 @@
+{
+ "w": 122,
+ "h": 82,
+ "anchor": [
+  34,
+  59
+ ],
+ "emissivo": "dial do rádio",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Rádio de válvula em cima de um caixote, virado em altar da Congregação: o dial aceso na faixa morta, velas, um     fone pendurado, a marca da onda pintada no caixote e oferendas (pilhas, um dente, um anel).",
+ "kind": "radio_votivo"
+}

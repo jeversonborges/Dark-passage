@@ -1262,3 +1262,330 @@ def cruz_ferro_tombada():
     o = sphere(terra, (-.05, .2, 0), (.35, .7, .14), segs=16); displace(o, .03, .15, 5, 2)
     for k in range(8): sphere(flor_seca(k % 2, (.15, .1, .06)), (rr.uniform(-.3, .3), rr.uniform(-.4, .6), .1), (.02, .015, .006), segs=6)
     return {}
+
+# ================================================================ TORRE (A Repetidora do Granizo, raid de 5 andares)
+# Kit e materiais de torre_kit_base.py: concreto cinza-chumbo, aço vermelho descascado, cobre, baquelite, borracha.
+# Emissivo da Congregação da Portadora: laranja de válvula, um por peça, em pontos pequenos.
+def _tb():
+    import torre_kit_base as TB; return TB
+
+def radio_caixa(m, p, w=.42, d=.22, h=.3, rot=0.0, aceso=True, seed=0, cor=None):
+    """Rádio de válvula de mesa: gabinete de madeira ou baquelite com cantos arredondados, tela de pano no alto-falante,
+    o mostrador do dial (laranja se ligado) e dois botões."""
+    TB = _tb(); antes = set(bpy.data.objects); rr = rnd(seed)
+    cab = cor or (m["mad_e"] if seed % 2 else m["baq"])
+    o = box(cab, (0, 0, h/2), (w, d, h), bevel=.03)
+    tela = _c(("tela_radio", seed % 3), lambda: K.mat_cloth(f"tela_radio_{seed % 3}", ((.2, .16, .1), (.12, .1, .07), (.16, .09, .05))[seed % 3], 110.0 + seed % 3))
+    box(tela, (-w*.18, -d/2 - .002, h*.55), (w*.45, .004, h*.6), bevel=.004)
+    for k in range(4): box(cab, (-w*.18, -d/2 - .006, h*.3 + k*h*.13), (w*.48, .008, .012), bevel=.002)
+    dial = K.mat_emit("dial_aceso", (1, .42, .12), 6) if aceso else TB.mat_vidro("dial_apagado", (.4, .35, .25), 0, .1)
+    box(dial, (w*.25, -d/2 - .004, h*.62), (w*.32, .004, h*.2), bevel=.003)
+    box(m["latao"], (w*.25, -d/2 - .006, h*.62), (w*.36, .004, h*.24), bevel=.002)
+    box(MT.sombra(), (w*.25, -d/2 - .007, h*.62), (.003, .002, h*.18), bevel=0)
+    for k in range(2): cyl(m["baq"], (w*(.15 + k*.2), -d/2 - .012, h*.25), .022, .025, (90, 0, 0), 14)
+    return piv_de(antes, p, (0, 0, rot))
+
+def fone(m, p, rot=(0, 0, 0), s=1.0):
+    """Fone de ouvido de operador: dois auriculares de baquelite numa haste de mola, fio trançado."""
+    antes = set(bpy.data.objects)
+    for sx in (-1, 1):
+        cyl(m["baq"], (sx*.08*s, 0, 0), .035*s, .025*s, (0, 90, 0), 16)
+        cyl(m["latao"], (sx*.092*s, 0, 0), .02*s, .004, (0, 90, 0), 12)
+    pts = [(-.08*s + .16*s*t, 0, .02*s + .1*s*math.sin(math.pi*t)) for t in [i/8 for i in range(9)]]
+    tubo(m["ferro"], pts, [.004*s]*9, 6, 1, 0)
+    return piv_de(antes, p, [math.radians(a) for a in rot])
+
+@ef("radio_votivo", "torre", samples=56)
+def radio_votivo():
+    """Rádio de válvula em cima de um caixote, virado em altar da Congregação: o dial aceso na faixa morta, velas, um
+    fone pendurado, a marca da onda pintada no caixote e oferendas (pilhas, um dente, um anel)."""
+    TB = _tb(); m = TB.M(); rr = rnd(1101)
+    box(m["mad"], (0, 0, .25), (.6, .4, .5), bevel=.01)
+    for k in range(3): box(m["mad_e"], (0, -.201, .08 + k*.17), (.6, .006, .015), bevel=0)
+    TB.marca_culto((0, -.206, .27), .26, (90, 0, 0), 1.2)
+    radio_caixa(m, (0, .03, .5), .44, .24, .3, 0, True, 1)
+    point((0, -.3, .7), (1, .45, .14), 3, .05, "dial_luz")
+    for k, (x, y) in enumerate(((-.24, -.13), (.25, -.12), (.22, .14))): TB.vela(m, (x, y, .5), rr.uniform(.06, .12), k == 0, .8)
+    fone(m, (.31, -.05, .62), (90, 0, 80), 1.0)
+    tubo(m["bor"], [(.31, -.05, .55), (.33, -.1, .35), (.3, -.25, .02), (.1, -.35, .01)], [.005]*4, 6, 3, 0)
+    for k in range(3): cyl(m["latao"], (rr.uniform(-.25, .2), rr.uniform(-.17, -.08), .51), .012, .05, (90, 0, rr.uniform(0, 180)), 10)
+    sphere(osso((.6, .55, .45)), (-.08, -.15, .51), (.01, .008, .015), segs=6)
+    torus(m["latao"], (.06, -.16, .505), .012, .003)
+    for k in range(5): TB.vela(m, (rr.uniform(-.4, .4), rr.uniform(-.45, -.25), 0), rr.uniform(.03, .08), False, .8)
+    return {"emissivo": "dial do rádio", "luz": "valvula"}
+
+@ef("pilha_fones", "torre", samples=56)
+def pilha_fones():
+    """Estaca dos fones: um poste de madeira com travessa onde a Congregação pendura os fones de ouvido dos que já não
+    precisam deles, os fios balançando; embaixo, o monte dos que caíram, cera de vela e a marca da onda no poste."""
+    TB = _tb(); m = TB.M(); rr = rnd(1111)
+    along(m["mad_e"], (0, 0, 0), (0, 0, 1.25), .035, verts=8)
+    box(m["mad_e"], (0, 0, 1.05), (.7, .05, .05), bevel=.008)
+    box(m["mad"], (0, 0, .82), (.48, .04, .04), (0, 4, 0), bevel=.006)
+    TB.marca_culto((0, -.04, .55), .12, (90, 0, 0), 1.0)
+    for k, (x, z) in enumerate(((-.3, 1.05), (-.15, 1.05), (.12, 1.05), (.28, 1.05), (-.2, .82), (.05, .82), (.2, .82))):
+        zz = z - .06 - rr.uniform(0, .03)
+        fone(m, (x, -.03, zz), (90 + rr.uniform(-10, 10), 0, rr.uniform(-15, 15)), rr.uniform(.85, 1.0))
+        lg = rr.uniform(.15, .45)
+        tubo(m["bor"], [(x + .08, -.03, zz - .02), (x + .1 + rr.uniform(-.04, .04), -.05, zz - lg*.5), (x + .06, -.04, zz - lg)], [.004]*3, 6, k, 0)
+    for k in range(5):
+        fone(m, (rr.uniform(-.25, .25), rr.uniform(-.25, -.05), .03), (rr.uniform(-30, 30), rr.uniform(-20, 20), rr.uniform(0, 360)), .95)
+    for k in range(3):
+        pts = [(rr.uniform(-.35, .35), rr.uniform(-.35, .1), .008) for _ in range(4)]
+        tubo(m["bor"], pts, [.004]*4, 6, k, .1)
+    o = sphere(m["cera"], (.12, .1, .0), (.12, .1, .03), segs=12); displace(o, .01, .04, 3, 1)
+    TB.vela(m, (.12, .1, .02), .12, True, .8)
+    for k in range(3): TB.vela(m, (rr.uniform(-.2, .25), rr.uniform(.05, .2), 0), rr.uniform(.03, .07), False, .8)
+    return {"emissivo": "vela", "luz": "vela"}
+
+@ef("caixa_valvulas", "torre", samples=56)
+def caixa_valvulas():
+    """Caixote de válvulas sobressalentes na palha, uma ainda acesa (ligada num fio solto), outras quebradas no chão
+    com o vidro em cacos."""
+    TB = _tb(); m = TB.M(); rr = rnd(1121)
+    W, D, H = .5, .36, .26
+    for sy in (-1, 1): box(m["mad"], (0, sy*D/2, H/2), (W, .02, H), bevel=.005)
+    for sx in (-1, 1): box(m["mad"], (sx*W/2, 0, H/2), (.02, D, H), bevel=.005)
+    box(m["mad"], (0, 0, .01), (W, D, .02), bevel=.004)
+    TB.plano(TB.mat_decal("estencil_valv", 0, .6, .6) if False else m["preto"], (0, -D/2 - .012, H*.5), .25, .06, (90, 0, 0))
+    palha = _c("palha", lambda: K.mat_cloth("palha_ef", (.3, .24, .11), 111.0))
+    o = sphere(palha, (0, 0, H - .03), (W*.46, D*.44, .06), segs=14); displace(o, .02, .03, 2, 1)
+    for k in range(9):
+        x, y = -W/2 + .08 + (k % 3)*.16, -D/2 + .08 + (k//3)*.1
+        TB.valvula(m, (x, y, H - .1), .03, .15, k == 4)
+    for k in range(3):
+        x, y = rr.uniform(.3, .55), rr.uniform(-.4, -.15)
+        TB.valvula(m, (x, y, .0), .03, .15, False)
+    vid = TB.mat_vidro("vidro_valvula", (.75, .6, .45), 0, .06)
+    for k in range(14): rbox(vid, (rr.uniform(.1, .6), rr.uniform(-.45, -.1), .004), (rr.uniform(.01, .03), rr.uniform(.008, .02), .003), (0, 0, rr.uniform(0, 3)), 0)
+    tubo(m["cobre"], [(-.1, -.02, H + .02), (-.3, -.3, .3), (-.45, -.4, .02)], [.004]*3, 6, 5, 0)
+    point((-W/2 + .24, -D/2 + .18, H + .1), (1, .45, .14), 4, .03, "valv_luz")
+    return {"emissivo": "válvula acesa", "luz": "valvula"}
+
+@ef("fitas_rolo", "torre", samples=56)
+def fitas_rolo():
+    """Gravador de rolo da Rádio São Lázaro num caixote: os dois carretéis no tampo, a fita marrom correndo pelas
+    cabeças e escorrendo em laços até o chão (as gravações da Noite Zero que a Congregação toca ao contrário);
+    ao lado, uma pilha de carretéis e as caixas de papelão com o rótulo apagado."""
+    TB = _tb(); m = TB.M(); rr = rnd(1131)
+    fita = _c("fita_mag", lambda: K.mat_metal("fita_magnetica", (.05, .025, .012), 0, 112.0, .2))
+    def carretel(p, rot=(0, 0, 0), cheio=.8, r=.11):
+        antes = set(bpy.data.objects)
+        for sz in (-1, 1): cyl(m["galv"], (0, 0, sz*.008), r, .003, verts=28)
+        cyl(fita, (0, 0, 0), .03 + (r - .035)*cheio, .014, verts=28)
+        cyl(m["preto"], (0, 0, 0), .03, .02, verts=14)
+        for k in range(3): box(MT.sombra(), (math.cos(k*2.09)*r*.65, math.sin(k*2.09)*r*.65, .0105), (r*.5, r*.25, .002), (0, 0, math.degrees(k*2.09)), 0)
+        return piv_de(antes, p, [math.radians(a) for a in rot])
+    box(m["mad"], (0, 0, .2), (.6, .42, .4), bevel=.01)
+    for k in range(3): box(m["mad_e"], (0, -.211, .06 + k*.14), (.6, .006, .014), bevel=0)
+    H = .4
+    box(m["baq"], (0, 0, H + .07), (.52, .36, .14), bevel=.02)
+    box(m["galv"], (0, -.12, H + .141), (.5, .1, .004), bevel=.002)
+    for k in range(5): cyl(m["preto"], (-.16 + k*.08, -.15, H + .15), .016, .02, verts=12)
+    box(K.mat_emit("vu_aceso", (1, .42, .12), 5), (.17, -.181, H + .09), (.1, .004, .04), bevel=.002)
+    box(m["latao"], (.17, -.183, H + .09), (.12, .003, .055), bevel=.002)
+    carretel((-.14, .05, H + .16), (0, 0, 20), .9)
+    carretel((.14, .05, H + .16), (0, 0, 70), .25)
+    for x in (-.04, .0, .04): cyl(m["galv"], (x, -.07, H + .16), .01, .03, verts=10)
+    pts = [(-.14, -.06, H + .16), (0, -.08, H + .16), (.2, -.12, H + .15), (.3, -.19, H + .05), (.32, -.25, .25), (.28, -.3, .05),
+           (.18, -.42, .004), (.35, -.55, .004), (.5, -.4, .004), (.42, -.28, .004), (.55, -.2, .004)]
+    o = tubo(fita, pts, [.007]*len(pts), 4, 1, .02); o.scale.z = 1
+    for k in range(5): carretel((-.45 + rr.uniform(-.02, .02), -.2 + rr.uniform(-.02, .02), .012 + k*.022), (0, 0, rr.uniform(0, 90)), rr.uniform(.5, 1), .1)
+    carretel((-.42, .2, .1), (78, 0, 20), .6, .1)
+    cx = MT.solido("caixa_fita", (.2, .17, .12), 0, .8)
+    box(cx, (-.2, -.42, .02), (.22, .22, .04), (0, 0, 15), .004); box(cx, (-.18, -.43, .06), (.22, .22, .04), (0, 0, 32), .004)
+    point((.17, -.3, H + .15), (1, .45, .14), 2, .03, "vu_luz")
+    return {"emissivo": "VU do gravador", "luz": "valvula"}
+
+@ef("microfone_caido", "torre", samples=56)
+def microfone_caido():
+    """O microfone do sermão: microfone de fita de cápsula cromada num pedestal de ferro, de pé no meio de um anel de
+    velas, a base presa com fita e arame, o cabo de borracha enrolado no chão e a marca da onda pintada no piso
+    (é por ele que o Sacerdote da Portadora prega para os andares de baixo)."""
+    TB = _tb(); m = TB.M(); rr = rnd(1141)
+    for k in range(3):
+        a = math.radians(k*120 + 30)
+        along(m["ferro"], (0, 0, .35), (.32*math.cos(a), .32*math.sin(a), 0), .014, verts=6)
+        cyl(m["bor"], (.32*math.cos(a), .32*math.sin(a), .01), .025, .02, verts=10)
+    along(m["galv"], (0, 0, .33), (0, 0, 1.45), .014, verts=8)
+    cyl(m["ferro"], (0, 0, .36), .03, .06, verts=10)
+    cyl(m["latao"], (0, 0, .9), .022, .04, verts=10)
+    torus(m["ferro"], (0, 0, 1.52), .07, .007, (90, 0, 0))
+    o = sphere(m["galv"], (0, 0, 1.52), (.05, .035, .085), segs=18)
+    for k in range(9): box(MT.sombra(), (0, -.036, 1.45 + k*.017), (.07, .002, .004), bevel=0)
+    box(m["latao"], (0, -.037, 1.52), (.012, .003, .16), bevel=0)
+    tubo(m["bor"], [(0, .02, .4), (.02, .04, .2), (.05, .05, .02), (.3, .2, .008), (.45, -.05, .008), (.25, -.25, .008), (.05, -.12, .008), (.2, .05, .008), (.55, .2, .008)], [.007]*9, 6, 2, .03)
+    TB.marca_culto((0, 0, .003), .55, (0, 0, 0), 1.0)
+    for k in range(7):
+        a = math.radians(k*360/7 + 10)
+        TB.vela(m, (.62*math.cos(a), .62*math.sin(a), 0), rr.uniform(.04, .11), k == 2, .8)
+    return {"emissivo": "vela", "luz": "vela"}
+
+@ef("bancada_solda", "torre", fp=(2, 1), samples=56)
+def bancada_solda():
+    """Bancada de radioamador: chassi de transmissor aberto cheio de válvulas e fios, ferro de solda no suporte, rolo
+    de estanho, lupa com lâmpada e o caderno de frequências cheio de rabiscos."""
+    TB = _tb(); m = TB.M(); rr = rnd(1151)
+    W, D, H = 1.3, .6, .82
+    box(m["mad"], (0, 0, H - .025), (W, D, .05), bevel=.008)
+    for sx in (-1, 1):
+        for sy in (-1, 1): box(m["cinza"], (sx*(W/2 - .05), sy*(D/2 - .05), (H - .05)/2), (.05, .05, H - .05), bevel=.006)
+    box(m["cinza"], (0, 0, .15), (W - .1, D - .1, .02), bevel=.004)
+    for k in range(3): radio_caixa(m, (-.4 + k*.38, .05, .17), .3, .2, .2, rr.uniform(-.2, .2), False, 20 + k)
+    # chassi aberto
+    box(m["galv"], (-.15, .05, H + .03), (.5, .3, .06), bevel=.004)
+    for k in range(5): TB.valvula(m, (-.35 + k*.1, .12, H + .06), .022, .1, k == 2)
+    for k in range(10): tubo(rr.choice([m["cobre"], m["bor"], m["verm"]]), [(rr.uniform(-.38, .08), rr.uniform(-.05, .15), H + .065), (rr.uniform(-.38, .08), rr.uniform(-.05, .15), H + .09), (rr.uniform(-.38, .08), rr.uniform(-.05, .15), H + .065)], [.003]*3, 5, k, 0)
+    # ferro de solda
+    along(m["ferro"], (.25, -.1, H + .05), (.45, -.15, H + .06), .006, verts=6); along(m["mad_e"], (.45, -.15, H + .06), (.6, -.18, H + .065), .015, verts=8)
+    tubo(m["ferro"], [(.28, -.08, H), (.3, -.1, H + .05), (.36, -.12, H + .05)], [.003]*3, 4, 3, 0)
+    cyl(m["galv"], (.25, .15, H + .025), .04, .04, (90, 0, 0), 16)
+    # lupa com lâmpada de braço
+    tubo(m["preto"], [(.5, .2, H), (.5, .2, H + .3), (.35, .1, H + .45), (.2, .05, H + .35)], [.008]*4, 6, 4, 0)
+    torus(m["preto"], (.2, .05, H + .33), .07, .008, (60, 0, 20)); cyl(TB.mat_vidro("lupa", (.6, .6, .55), 0, .02), (.2, .05, H + .33), .065, .006, (60, 0, 20), 20)
+    # caderno
+    pap = _c("papel_cad", lambda: K.mat_cloth("papel_caderno", (.36, .32, .24), 113.0))
+    rbox(pap, (.25, -.2, H + .003), (.22, .16, .006), (0, 0, .2), .002)
+    for k in range(6): rbox(MT.solido("tinta_preta_pap", (.02, .016, .012), 0, .8), (.25, -.2 - .06 + k*.022, H + .007), (.16, .003, .001), (0, 0, .2), 0)
+    point((-.15, .1, H + .3), (1, .45, .14), 2.5, .03, "valv_luz")
+    return {"emissivo": "válvula acesa", "luz": "valvula"}
+
+@ef("totem_antena", "torre", samples=56)
+def totem_antena():
+    """Totem da Congregação: poste de cano com antenas de arame dobrado em espiral, latas e colheres penduradas que
+    tilintam, uma válvula acesa no topo como olho e fitas de pano com a onda pintada."""
+    TB = _tb(); m = TB.M(); rr = rnd(1161)
+    cyl(m["conc_p"], (0, 0, .08), .2, .16, verts=12)
+    along(m["ferrugem"], (0, 0, .1), (0, 0, 1.8), .025, verts=10)
+    for k in range(5):   # espirais de arame
+        z = .7 + k*.22; pts = []
+        for j in range(16):
+            a = j*.7 + k; r_ = .06 + j*.012
+            pts.append((math.cos(a)*r_, math.sin(a)*r_, z + j*.006))
+        tubo(m["cobre"], pts, [.004]*16, 5, k, 0)
+    for k in range(4):   # braços de antena
+        a = k*1.57 + .4; z = 1.35 + k*.08
+        along(m["galv"], (0, 0, z), (math.cos(a)*.45, math.sin(a)*.45, z + .2), .006, verts=5)
+    for k in range(8):   # latas e colheres penduradas
+        a = rr.uniform(0, 6.28); r_ = rr.uniform(.15, .4); z = rr.uniform(1.0, 1.5)
+        x, y = math.cos(a)*r_, math.sin(a)*r_
+        along(m["ferro"], (x, y, z + .2), (x, y, z), .002, verts=3)
+        if k % 2: cyl(m["galv"], (x, y, z - .04), .03, .08, verts=12)
+        else: rovo(m["galv"], (x, y, z - .03), (.012, .02, .035), (0, 0, a), 8)
+    TB.valvula(m, (0, 0, 1.8), .04, .18, True)
+    point((0, -.1, 2.0), (1, .45, .14), 5, .03, "valv_luz")
+    pn = _c("fita_onda", lambda: K.mat_cloth("fita_onda", (.2, .14, .08), 114.0))
+    for k in range(4):
+        a = k*1.57 + 1.1
+        o = tubo(pn, [(math.cos(a)*.03, math.sin(a)*.03, 1.6), (math.cos(a)*.1, math.sin(a)*.1, 1.3), (math.cos(a)*.12, math.sin(a)*.12, 1.0 + rr.uniform(-.1, .1))], [.025, .025, .02], 4, k, .1); o.scale = (1, 1, 1)
+    for k in range(4): TB.vela(m, (math.cos(k*1.57 + .8)*.3, math.sin(k*1.57 + .8)*.3, 0), rr.uniform(.05, .12), k == 0, .8)
+    return {"emissivo": "válvula do topo", "luz": "valvula"}
+
+@ef("cadeira_escuta", "torre", samples=56)
+def cadeira_escuta():
+    """Cadeira da Escuta: cadeira de dentista velha com correias de couro nos braços, capacete de fones aparafusado
+    no encosto e o cabo que sobe para o teto; sangue seco no apoio de cabeça."""
+    TB = _tb(); m = TB.M(); rr = rnd(1171)
+    cyl(m["ferro"], (0, 0, .03), .25, .06, verts=20); cyl(m["cinza"], (0, 0, .25), .06, .4, verts=14)
+    o = box(m["cinza"], (0, 0, .5), (.5, .5, .12), bevel=.04)
+    cur = _c("estofo", lambda: K.mat_cloth("estofo_verde", (.04, .06, .045), 115.0))
+    box(cur, (0, 0, .58), (.46, .46, .06), bevel=.03)
+    o = rbox(cur, (.0, .25, .95), (.46, .08, .7), (math.radians(-15), 0, 0), .04)
+    o = rbox(cur, (0, -.3, .45), (.4, .2, .06), (math.radians(40), 0, 0), .03)          # apoio das pernas
+    for sx in (-1, 1):
+        box(m["cinza"], (sx*.27, 0, .72), (.08, .45, .06), bevel=.02)
+        for k in range(2): torus(couro(5, (.06, .035, .02)), (sx*.27, -.08 + k*.15, .72), .05, .012, (0, 90, 0))
+    # capacete de fones
+    hz = 1.4
+    rovo(m["galv"], (0, .3, hz), (.13, .14, .1), (math.radians(-15), 0, 0), 16)
+    for sx in (-1, 1): cyl(m["baq"], (sx*.13, .3, hz - .07), .045, .03, (0, 90, 0), 16)
+    for k in range(6): sphere(m["ferro"], (rr.uniform(-.08, .08), .3 + rr.uniform(-.06, .06), hz + .07), (.01, .01, .01), segs=6)
+    sphere(sangue(True), (0, .27, 1.25), (.08, .03, .05), segs=10)
+    TB.poly_tubo(m["bor"], [(0, .32, hz + .08), (0, .3, hz + .5), (.1, .2, hz + 1.0)], .012)
+    TB.valvula(m, (.3, .25, .78), .025, .1, True)
+    point((.3, .15, 1.0), (1, .45, .14), 2.5, .03, "valv_luz")
+    return {"emissivo": "válvula do braço", "luz": "valvula"}
+
+@ef("pilha_radios", "torre", samples=56)
+def pilha_radios():
+    """Pilha de rádios de todos os tamanhos que a Congregação recolheu nas casas de São Lázaro, empilhados como um
+    relicário: um só ainda acende o dial; velas e fones em volta."""
+    TB = _tb(); m = TB.M(); rr = rnd(1181)
+    z = 0
+    for k, (w, d, h, x, y) in enumerate(((.55, .3, .35, 0, 0), (.45, .26, .3, -.03, .02), (.4, .22, .26, .04, 0), (.32, .2, .22, 0, .01), (.26, .16, .2, -.02, 0))):
+        radio_caixa(m, (x, y, z), w, d, h, rr.uniform(-.15, .15), k == 2, 30 + k)
+        z += h
+    radio_caixa(m, (.42, -.15, 0), .3, .2, .22, -.5, False, 36)
+    radio_caixa(m, (-.45, -.1, 0), .28, .18, .2, .4, False, 37)
+    point((0, -.4, .9), (1, .45, .14), 3, .05, "dial_luz")
+    for k in range(5): TB.vela(m, (rr.uniform(-.4, .4), rr.uniform(-.45, -.25), 0), rr.uniform(.05, .12), k == 0, .8)
+    fone(m, (.2, -.35, .02), (0, 0, 30), 1.0)
+    return {"emissivo": "dial do rádio", "luz": "valvula"}
+
+@ef("circulo_giz_chao", "torre", samples=40, chao=True)
+def circulo_giz_chao():
+    """Decalque de chão: círculo de escuta riscado a giz e tinta de válvula, a onda senoidal atravessando a trombeta no
+    meio, os números da contagem invertida em volta, tocos de vela e cera."""
+    TB = _tb(); m = TB.M(); rr = rnd(1191)
+    giz = MT.solido("giz", (.42, .4, .36), 0, .95); lj = MT.solido("tinta_valvula", (.35, .1, .02), 0, .8)
+    for R, w in ((.7, .012), (.62, .008)):
+        pts = [(math.cos(a)*R, math.sin(a)*R*.98, .002) for a in [i*2*math.pi/48 for i in range(49)]]
+        o = tubo(giz, pts, [w]*49, 4, 1, 0); o.scale.z = .2
+    pts = [(-.45 + i*.03, .12*math.sin(i*.42), .003) for i in range(31)]
+    o = tubo(lj, pts, [.012]*31, 4, 2, 0); o.scale.z = .2
+    o = tubo(lj, [(-.2, -.05, .003), (.1, -.08, .003), (.3, -.18, .003)], [.008, .02, .06], 6, 3, 0); o.scale.z = .1
+    for k in range(10):
+        a = k*2*math.pi/10
+        for j in range(2): rbox(giz, (math.cos(a)*.66 + j*.02, math.sin(a)*.66, .003), (.012, .04, .001), (0, 0, a), 0)
+    for k in range(7):
+        a = k*2*math.pi/7 + .2
+        TB.vela(m, (math.cos(a)*.78, math.sin(a)*.78, 0), rr.uniform(.02, .06), False, .7)
+    return {}
+
+@ef("baldes_incendio", "torre", samples=56)
+def baldes_incendio():
+    """Suporte de baldes de incêndio do mirante: quatro baldes cônicos vermelhos (um caído), areia derramada, a pá e o
+    machado de incêndio na placa, tudo descascado e com cera de vela."""
+    TB = _tb(); m = TB.M(); rr = rnd(1201)
+    for sx in (-1, 1): along(m["ferro"], (sx*.4, 0, 0), (sx*.4, 0, 1.3), .015, verts=6)
+    box(m["verm"], (0, .02, .9), (.9, .03, .6), bevel=.006)
+    TB.plano(TB.mat_decal("estencil_fogo", 0, .6, .6) if False else MT.solido("estencil_br", (.4, .38, .33), 0, .8), (0, -.0, 1.15), .4, .06, (90, 0, 0))
+    for k in range(3):
+        x = -.27 + k*.27
+        along(m["ferro"], (x, -.02, .78), (x, -.1, .78), .006, verts=4)
+        cyl(m["verm"], (x, -.15, .66), .1, .25, verts=18, r2=.05)
+        torus(m["verm"], (x, -.15, .79), .1, .01)
+    cyl(m["verm"], (.4, -.45, .1), .1, .25, (80, 0, 30), 18, r2=.05)
+    areia = _c("areia_balde", lambda: K.mat_stone("areia_balde", (.3, .22, .14), (.18, .13, .08), 6.0, 0, None, 1.0, 116.0))
+    o = sphere(areia, (.3, -.6, 0), (.25, .18, .05), segs=14); displace(o, .015, .05, 2, 1)
+    # machado na placa
+    along(m["mad"], (-.3, -.03, 1.05), (.15, -.03, 1.15), .016, verts=8)
+    box(m["verm"], (.18, -.03, 1.17), (.08, .01, .12), (0, -12, 0), .004)
+    tubo(m["ferro"], [(-.35, -.03, 1.05), (-.2, -.03, 1.0)], [.01]*2, 6, 2, 0)
+    for k in range(2): TB.vela(m, (rr.uniform(-.3, .2), rr.uniform(-.4, -.25), 0), rr.uniform(.04, .09), False, .7)
+    return {}
+
+@ef("estante_pecas", "torre", samples=56)
+def estante_pecas():
+    """Estante de aço de almoxarifado: vidros de parafusos, rolos de fio de cobre, isoladores de porcelana, caixas de
+    papelão encharcadas e um rádio desmontado; uma prateleira cedeu."""
+    TB = _tb(); m = TB.M(); rr = rnd(1211)
+    W, D, H = .9, .4, 1.6
+    for sx in (-1, 1):
+        for sy in (-1, 1): box(m["galv"], (sx*W/2, sy*D/2, H/2), (.035, .035, H), bevel=.003)
+    for k, z in enumerate((.12, .55, .95, 1.4)):
+        rot = (0, math.radians(6), 0) if k == 2 else (0, 0, 0)
+        o = rbox(m["galv"], (0, 0, z), (W, D, .02), rot, .003)
+    vid = TB.mat_vidro("vidro_pote", (.5, .5, .42), 0, .1)
+    for k in range(5):
+        x = -.35 + k*.17; cyl(vid, (x, -.05, .65), .045, .14, verts=14); cyl(m["ferro"], (x, -.05, .73), .047, .02, verts=14)
+        for j in range(6): sphere(m["ferrugem"], (x + rr.uniform(-.03, .03), -.05 + rr.uniform(-.03, .03), .58 + j*.015), (.012, .012, .008), segs=5)
+    for k in range(3): cyl(m["cobre"], (-.25 + k*.22, .02, 1.05), .08, .08, (90, 0, 0), 20); cyl(MT.sombra(), (-.25 + k*.22, -.02, 1.05), .03, .01, (90, 0, 0), 12)
+    for k in range(4):
+        x = -.3 + k*.18
+        cyl(m["porc"], (x, 0, 1.47), .05, .03, verts=14); cyl(m["porc"], (x, 0, 1.52), .04, .03, verts=14); cyl(m["porc"], (x, 0, 1.57), .03, .03, verts=14)
+    pap = _c("papelao", lambda: K.mat_cloth("papelao_molhado", (.18, .12, .07), 117.0))
+    for k in range(2): o = box(pap, (-.2 + k*.4, 0, .25), (.3, .3, .24), (0, 0, rr.uniform(-5, 5)), .02); ondula(o, .02, .08, k)
+    radio_caixa(m, (.45, -.45, 0), .3, .2, .2, .6, False, 40)
+    for k in range(10): sphere(m["ferrugem"], (rr.uniform(-.4, .4), rr.uniform(-.45, -.2), .005), (.01, .01, .005), segs=5)
+    return {}
