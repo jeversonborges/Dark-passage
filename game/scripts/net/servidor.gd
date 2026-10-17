@@ -306,8 +306,8 @@ func _chave_primarca(usuario: String, e: Ent, sim: WorldSim) -> void:
 func _cetro_demiurgo(usuario: String, e: Ent, sim: WorldSim) -> void:
 	if gm.eh_conta_gm(usuario):
 		if e.flags.has("cetro_demiurgo"): return
+		if not Jogador.dar_item(sim, e, Itens.novo("cetro_do_demiurgo")): return   # mochila cheia: tenta na próxima entrada
 		e.flags["cetro_demiurgo"] = true
-		Jogador.dar_item(sim, e, Itens.novo("cetro_do_demiurgo"))
 		_gravar_contas()
 	elif Demiurgo.tirar(sim, e): _gravar_contas()
 
