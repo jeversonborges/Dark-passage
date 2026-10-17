@@ -32,3 +32,31 @@ O Cultista ganhou a **racial Pacto do Familiar** (`cultista_familiar_pacto`, `ti
 um demônio permanente que anda com o Cultista, ataca quem bater no mestre e evolui com o nível dele (Diabrete de Fuligem no 1,
 Algoz de Enxofre no 6, Tirano da Fornalha no 16). Números em `classes_base.json > cultista > racial > familiar`;
 plano de sprites e prévia em `design/personagens/familiar_cultista.md`. Falta o ícone da racial (motivo novo em `tools/icones/`).
+
+## Anéis e túnicas padrão (2026-10-15, arte pronta do Jefin)
+O Jefin mandou a arte pintada de 16 anéis (8 simples, 8 com gema) e 8 túnicas: são os **itens padrão** do jogo, e a regra dele é
+**quanto mais bonito o item, mais atributos**. Folhas originais em `assets/icones/fontes/` (`aneis_simples.png`, `aneis_gemas.png`,
+`tunicas.png`, grade 4x2). Dados em `fontes/itens_data.py` (`ANEIS_SIMPLES`, `ANEIS_GEMAS`, `TUNICAS`).
+
+- Raridade **rolada** como as outras bases (comum a excelente, com as opções de `drops.json`), tags `equip:faixa1`/`faixa2` pelo nível.
+- Anéis simples: nível 1 a 11, 2 a 9 pontos de atributo. Anéis com gema: nível 7 a 15, 6 a 18 pontos, mais HP e um bônus fixo.
+  Túnicas: peito de pano para **todas as classes**, nível 1 a 15, defesa 1 a 9, atributos e HP crescentes. Item não muda o visual (só a arma).
+- Campos novos que o jogo precisa ler (`game/scripts/sim/`):
+  - `bonus_fixo`: somar em `Itens.bonus()` com as mesmas chaves do dicionário (`hp`, `defesa`, `dano_plano`, `critico`,
+    `velocidade_ataque`, `roubo_de_vida`, `reduz_dano`, `dano_magico_extra`, `ouro`, e `res: {elemento: valor}`).
+  - `peso_drop` (1,0 a 0,15): peso na escolha do item em `Loot.item_da_tag`; sem ele os 24 itens sem classe dominariam os drops.
+    Os mais bonitos caem menos. Itens sem o campo valem 1,0.
+  - `colecao` (`aneis_simples`, `aneis_gemas`, `tunicas`) e `arte` (folha e índice): só para ferramentas.
+- Ícones: `cd tools/icones && PYTHONPATH=. python3 arte_pronta.py` (só pillow e numpy). O `gerar_itens.py` pula esses itens.
+
+## Lote 2 da arte pronta (2026-10-16)
+Folhas novas em `assets/icones/fontes/`: `capuzes.png`, `calcas.png`, `botas.png` (5x2, mesmas 10 cores), `colares.png` (5x2),
+`espadas.png` (10x1, fronteiras em `CORTES_ESPADAS`) e `decreto_vampirico.png`. Dados no fim de `fontes/itens_data.py`.
+
+- **10 conjuntos de pano** (`CONJUNTOS_PANO`): capuz, calças e botas de cada cor; 8 casam com as túnicas (conjunto de 4 peças),
+  e 2 são só de 3 peças (Peles do Inverno de Cinza, Coroa do Regente Anil). Bônus de conjunto em `conjuntos[].bonus_conjunto_fixo`
+  (mesmas chaves de `bonus_fixo`, por número de peças).
+- **10 colares** (amuleto, nível 1 a 17) e **10 espadas** (Anjo, Demônio e Humano, nível 2 a 18). Quanto mais bonito, mais forte e mais raro.
+- **Decreto Vampírico**: grimório lendário do Cultista (2ª mão), sai do Zacarias (`lendario:zacarias`).
+- As bases antigas desenhadas por código de cabeça, peito, calças, botas, anel e amuleto ganharam `peso_drop: 0` (não caem mais;
+  continuam na loja e em inventários antigos).

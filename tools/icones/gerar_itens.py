@@ -17,7 +17,7 @@ DEFS = '<defs><filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><fe
 COR_RAR = {"magico":"#6f9fc9","raro":"#c99a3e","excelente":"#9cff3a","lendario":"#c8302a"}
 dados = json.load(open(f"{PF}/design/skills-itens/itens.json"))
 so = set(sys.argv[1:])
-itens = [i for i in dados["itens"] if not so or i["id"] in so]
+itens = [i for i in dados["itens"] if (not so or i["id"] in so) and i.get("motivo") != "arte_pronta"]   # arte pronta: arte_pronta.py
 shutil.rmtree(TMP, ignore_errors=True)
 for modo in ("icone", "grade"):
     os.makedirs(f"{TMP}/{modo}/svg")
@@ -30,11 +30,7 @@ for modo in ("icone", "grade"):
         open(f"{TMP}/{modo}/svg/{it['id']}.svg", "w").write(f'<svg xmlns="http://www.w3.org/2000/svg" width="{tam}" height="{tam}" viewBox="{vb}">{DEFS}{corpo}</svg>')
     subprocess.run(["node", f"{AQUI}/render.js", f"{TMP}/{modo}/svg", f"{TMP}/{modo}/png", "96" if modo == "grade" else "64"], check=True)
 
-def brilho(out, cor, tam):
-    a = np.asarray(out)
-    m = Image.fromarray(((a[..., 3] > 0) * 255).astype("uint8")).filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(max(1.2, tam / 24)))
-    halo = Image.new("RGBA", out.size, _hex(cor) + (0,)); halo.putalpha(m.point(lambda v: int(v * 0.8)))
-    return Image.alpha_composite(halo, out)
+from gerar_itens_brilho import brilho
 
 for d in ("64", "40", "32", "mochila", "mochila_2x"): os.makedirs(f"{PF}/assets/icones/itens/{d}", exist_ok=True)
 for it in itens:

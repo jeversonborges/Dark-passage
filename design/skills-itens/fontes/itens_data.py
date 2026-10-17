@@ -154,3 +154,170 @@ POOLS_LENDARIOS = {
   "lendario:celeste":  ["bacula_femur", "veu_carpideira"],
   "lendario:zacarias": ["halo_incandescente"],
 }
+
+# ---------- Arte pronta do Jefin (2026-10-15): anéis e túnicas, os itens PADRÃO do jogo ----------
+# A arte vem pintada (assets/icones/fontes/*.png, grade 4x2 lida da esquerda para a direita, de cima para baixo);
+# tools/icones/arte_pronta.py recorta cada peça e gera os ícones. Regra do Jefin: quanto mais bonito o item, mais atributos.
+# Raridade rolada como as outras bases (comum..excelente, opções extras de drops.json); a base já vem forte.
+# bonus_fixo usa as mesmas chaves de Itens.bonus() no jogo (dano_plano, defesa, hp, critico, velocidade_ataque,
+# roubo_de_vida, reduz_dano, dano_magico_extra, ouro, res:{elemento}). peso_drop: os mais bonitos caem menos.
+# Túnicas: armadura de peito de pano, todas as classes; o visual do personagem não muda (só a arma muda).
+ANEIS_SIMPLES = [  # (id, nome, nível, índice na folha, atributos, bonus_fixo, lore)
+ ("aro_ferro_velho", "Aro de Ferro Velho", 1, 0, {"vit":2}, {}, "Batido de um rebite de trilho. Todo mundo em São Lázaro começou com um destes."),
+ ("alianca_cobre_silo", "Aliança de Cobre do Silo", 2, 3, {"vit":2,"esp":1}, {}, "Fio de cobre tirado da fiação do Silo. Esquenta um pouco quando o contador estala."),
+ ("anel_couro_arreio", "Anel de Couro de Arreio", 3, 5, {"agi":3,"for":1}, {}, "Tira de arreio de bonde-veleiro amarrada num aro de lata. Segura firme como corda de vela."),
+ ("anel_osso_cintado", "Anel de Osso Cintado", 4, 7, {"vit":3,"esp":2}, {"hp":10}, "Falange de santo cintada com ferro, para não fugir de volta para o relicário."),
+ ("anel_coroa_espinhos", "Anel da Coroa de Espinhos", 6, 2, {"for":4,"vit":2}, {"dano_plano":1}, "Latão cortado em dentes, como a coroa do Cristo da capela. Machuca quem dá o soco também."),
+ ("anel_luto_negro", "Anel do Luto Negro", 7, 4, {"esp":4,"vit":3}, {"hp":15}, "Azeviche de viúva em aro de ferro. As carpideiras usavam um para cada morto que não levantou."),
+ ("anel_vento_absinto", "Anel do Vento de Absinto", 9, 1, {"agi":5,"esp":3}, {"critico":0.01}, "Prata gravada com o redemoinho que a tempestade faz quando passa pelo Rio Amargo."),
+ ("alianca_ouro_enterrado", "Aliança de Ouro Enterrado", 11, 6, {"for":3,"agi":2,"vit":2,"esp":2}, {"hp":20,"ouro":0.05}, "Achada no quarto andar de uma casa que hoje é porão. A rua de hoje é o telhado de ontem, e o ouro ficou lá embaixo."),
+]
+ANEIS_GEMAS = [
+ ("anel_runas_bobina", "Anel das Runas de Bobina", 7, 1, {"esp":4,"agi":2}, {"hp":15,"dano_magico_extra":2}, "As runas acendem em azul quando passa corrente. Os Tecnomancers dizem que é eletricidade; os padres dizem que não."),
+ ("anel_nao_julgado", "Anel do Não-Julgado", 8, 3, {"vit":5,"for":2}, {"hp":25,"reduz_dano":0.02}, "Obsidiana lacrada com uma caveira que ainda espera o Juízo. Quem usa também aprende a esperar."),
+ ("serpente_rio_amargo", "Serpente do Rio Amargo", 9, 4, {"agi":5,"vit":3}, {"hp":20,"res":{"veneno":0.1}}, "Escamas de bronze verdes do Amargo. Bebeu do rio e não morreu, e agora não solta o dedo."),
+ ("sinete_bispo_violeta", "Sinete do Bispo Violeta", 10, 7, {"esp":6,"vit":3}, {"hp":30,"res":{"sagrado":0.08}}, "Ametista de bispo em bronze velho. Lacrou as últimas indulgências vendidas antes da terceira trombeta."),
+ ("anel_segunda_estrela", "Anel da Segunda Estrela", 11, 5, {"esp":5,"agi":4,"vit":2}, {"hp":35,"critico":0.02}, "Uma safira presa numa estrela de quatro pontas. Dizem que aponta para o Silo, onde a outra estrela ainda dorme."),
+ ("anel_cardeal_carmim", "Anel do Cardeal Carmim", 12, 2, {"for":6,"vit":4}, {"hp":45,"roubo_de_vida":0.02}, "Ouro e rubi de cardeal. O cardeal benzeu a guerra; o anel lembra o gosto."),
+ ("coracao_enxofre", "Coração de Enxofre", 13, 0, {"for":7,"vit":5}, {"hp":55,"dano_plano":3,"res":{"fogo":0.1}}, "Um rubi que bate. Ferro de forja infernal cravado em volta para ele não sair correndo."),
+ ("garra_legiao_blasfema", "Garra da Legião Blasfema", 15, 6, {"for":8,"agi":5,"vit":5}, {"hp":70,"critico":0.03,"velocidade_ataque":0.03}, "Anel de oficial da Legião Blasfema. As garras seguram a gema como seguravam a tropa: até o general sumir."),
+]
+TUNICAS = [  # (id, nome, nível, índice, defesa, atributos, bonus_fixo, lore)
+ ("tunica_saco_peregrino", "Túnica de Saco do Peregrino", 1, 0, 1, {"vit":1}, {}, "Saco de farinha com buraco para a cabeça. Os peregrinos chegavam a São Lázaro vestindo isto e esperança."),
+ ("gibao_batedor_vela", "Gibão do Batedor da Vela", 3, 4, 2, {"agi":2,"vit":1}, {}, "Lona de vela de bonde, costurada em dupla. A bolsa na cintura sempre tem um cartucho e um pedaço de pão."),
+ ("gibao_fivelas_bondeiro", "Gibão de Fivelas do Bondeiro", 5, 1, 3, {"for":2,"vit":2}, {"hp":10}, "Os bondeiros se prendem ao mastro pelas fivelas quando a tempestade vira o bonde de lado."),
+ ("tunica_margem_amarga", "Túnica da Margem Amarga", 7, 6, 4, {"vit":3,"agi":2}, {"hp":20,"res":{"veneno":0.08}}, "Tingida com as folhas retorcidas da beira do rio. O verde não sai, nem fervendo."),
+ ("tunica_vigia_anil", "Túnica do Vigia Anil", 9, 3, 5, {"esp":3,"vit":3}, {"hp":30,"defesa":1}, "Anil e prata de quem ficava acordado na torre esperando o clarão. Viu o clarão. Continua acordado."),
+ ("habito_penitente_carmim", "Hábito do Penitente Carmim", 11, 2, 6, {"for":3,"vit":4}, {"hp":40,"roubo_de_vida":0.01}, "Vermelho de flagelante, com a cruz bordada a ouro. Cada ponto da costura foi uma reza; cada reza, uma chicotada."),
+ ("sobreveste_setimo_selo", "Sobreveste do Sétimo Selo", 13, 5, 7, {"esp":5,"vit":4}, {"hp":50,"dano_magico_extra":3}, "Preta e violeta, com a ametista do sétimo selo no peito. Quem a costurou não quis dizer o que ela abre."),
+ ("alva_juizo_dourado", "Alva do Juízo Dourado", 15, 7, 9, {"for":3,"agi":3,"vit":4,"esp":4}, {"hp":70,"reduz_dano":0.03}, "Veste branca de altar com o sol do Juízo bordado a ouro. Limpa demais para este mundo, e mesmo assim ninguém consegue sujá-la."),
+]
+
+# ---------- Arte pronta, lote 2 (Jefin, 2026-10-16): conjuntos de pano, colares, espadas e o Decreto Vampírico ----------
+# Capuzes, calças e botas vêm em 10 cores que casam com as túnicas: viram CONJUNTOS (túnica + capuz + calças + botas).
+# Índice na folha (5x2): 0 saco, 1 cinza, 2 creme, 3 vermelho, 4 azul, 5 verde, 6 branco, 7 roxo, 8 pele, 9 azul coroado.
+# (id do conjunto, nome do conjunto, nível, índice nas folhas 5x2, id da túnica ou None, base: defesa, atributos e hp de referência,
+#  nomes [capuz, calças, botas], bônus de 2 e 4 peças (ou 3 sem túnica), lore)
+CONJUNTOS_PANO = [
+ ("peregrino", "Trapos do Peregrino", 1, 0, "tunica_saco_peregrino", (1, {"vit":1}, 0), ["Capuz de Saco do Peregrino", "Calças Remendadas do Peregrino", "Botas de Trapo do Peregrino"],
+  {"2":{"hp":10}, "4":{"hp":25, "defesa":1}}, "Tudo o que um peregrino tinha quando chegou a São Lázaro, e quase tudo o que tinha quando foi embora."),
+ ("batedor_vela", "Lonas do Batedor da Vela", 3, 2, "gibao_batedor_vela", (2, {"agi":2,"vit":1}, 0), ["Capuz do Batedor da Vela", "Calças do Batedor da Vela", "Botas do Batedor da Vela"],
+  {"2":{"agi":2}, "4":{"agi":3, "critico":0.01}}, "Lona de vela de bonde. Os batedores andam na frente da caravana, onde a areia ainda não decidiu se vai engolir o trilho."),
+ ("bondeiro", "Fivelas do Bondeiro", 5, 1, "gibao_fivelas_bondeiro", (3, {"for":2,"vit":2}, 10), ["Capuz de Fivelas do Bondeiro", "Calças de Fivelas do Bondeiro", "Botas de Fivelas do Bondeiro"],
+  {"2":{"for":2}, "4":{"for":3, "dano_plano":2}}, "Cada fivela segura alguma coisa: o mastro, a carga, o colega que caiu."),
+ ("margem_amarga", "Folhas da Margem Amarga", 7, 5, "tunica_margem_amarga", (4, {"vit":3,"agi":2}, 20), ["Capuz da Margem Amarga", "Calças da Margem Amarga", "Botas da Margem Amarga"],
+  {"2":{"res":{"veneno":0.05}}, "4":{"res":{"veneno":0.1}, "hp":40}}, "Tingido nas margens do Rio Amargo, onde as folhas crescem tortas e não morrem."),
+ ("inverno_cinza", "Peles do Inverno de Cinza", 8, 8, None, (5, {"vit":4,"for":2}, 30), ["Capuz de Pele do Inverno de Cinza", "Calças de Pele do Inverno de Cinza", "Botas de Pele do Inverno de Cinza"],
+  {"2":{"vit":3}, "3":{"vit":4, "reduz_dano":0.02}}, "Depois do clarão veio o inverno de cinza. Quem sobreviveu aprendeu a costurar pele de qualquer coisa que tivesse pelo."),
+ ("vigia_anil", "Anil do Vigia", 9, 4, "tunica_vigia_anil", (5, {"esp":3,"vit":3}, 30), ["Capuz do Vigia Anil", "Calças do Vigia Anil", "Botas do Vigia Anil"],
+  {"2":{"esp":2}, "4":{"esp":4, "defesa":2}}, "Anil e prata das torres de vigia. Os vigias bordavam a lua para lembrar que a noite ainda tem fim."),
+ ("penitente_carmim", "Carmim do Penitente", 11, 3, "habito_penitente_carmim", (6, {"for":3,"vit":4}, 40), ["Capuz do Penitente Carmim", "Calças do Penitente Carmim", "Botas do Penitente Carmim"],
+  {"2":{"roubo_de_vida":0.01}, "4":{"roubo_de_vida":0.02, "for":4}}, "Vermelho de flagelante. A roda bordada é a roda do suplício, e quem veste lembra dela a cada passo."),
+ ("setimo_selo", "Violeta do Sétimo Selo", 13, 7, "sobreveste_setimo_selo", (7, {"esp":5,"vit":4}, 50), ["Capuz do Sétimo Selo", "Calças do Sétimo Selo", "Botas do Sétimo Selo"],
+  {"2":{"dano_magico_extra":2}, "4":{"dano_magico_extra":4, "esp":5}}, "A lua crescente e a ametista são o sétimo selo. Quando ele abrir, haverá silêncio no céu por meia hora."),
+ ("juizo_dourado", "Alva do Juízo Dourado", 15, 6, "alva_juizo_dourado", (9, {"for":3,"agi":3,"vit":4,"esp":4}, 70), ["Capuz do Juízo Dourado", "Calças do Juízo Dourado", "Botas do Juízo Dourado"],
+  {"2":{"hp":40}, "4":{"hp":80, "reduz_dano":0.03}}, "Branco de altar e ouro de custódia. Feito para o dia do Juízo, que começou e não terminou."),
+ ("regente_anil", "Coroa do Regente Anil", 17, 9, None, (10, {"esp":5,"vit":5,"agi":3}, 80), ["Capuz Coroado do Regente Anil", "Calças do Regente Anil", "Botas do Regente Anil"],
+  {"2":{"esp":4}, "3":{"esp":6, "critico":0.02, "hp":60}}, "Um vigia que sobreviveu tanto tempo na torre que a cidade enterrada passou a chamá-lo de rei. Ele nunca aceitou a coroa; costurou-a no capuz."),
+]
+FRACAO_PANO = {"cabeca": (0.5, 0.5, 0.4), "calcas": (0.65, 0.6, 0.5), "botas": (0.45, 0.45, 0.35)}   # defesa, atributos, hp em relação à túnica
+
+COLARES = [  # (id, nome, nível, índice na folha 5x2, atributos, bonus_fixo, lore)
+ ("medalha_peregrino", "Medalha do Peregrino", 1, 0, {"vit":2}, {}, "Couro trançado e uma medalha de cruz gasta de tanto ser apertada na mão."),
+ ("colar_presas_vala", "Colar de Presas da Vala", 3, 1, {"for":3}, {"dano_plano":1}, "Presas dos cães da Vala. Cada uma foi tirada de um que não vai voltar."),
+ ("gota_carmim_martirio", "Gota Carmim do Martírio", 5, 2, {"for":3,"vit":2}, {"hp":15}, "Um rubi em forma de gota, preso em espinhos. Diz a Madre que é sangue de mártir que endureceu."),
+ ("colar_raiz_amarga", "Colar da Raiz Amarga", 7, 7, {"vit":4,"agi":2}, {"hp":20,"res":{"veneno":0.08}}, "Raiz das margens do Rio Amargo, trançada em volta de uma esmeralda. Ainda brota folha nova toda semana."),
+ ("pingente_lua_anil", "Pingente da Lua Anil", 9, 6, {"esp":5,"agi":3}, {"hp":25,"critico":0.01}, "Safiras e uma lua crescente de prata. Os vigias diziam que a lua era o único farol que a bomba não apagou."),
+ ("sol_ambar", "Sol de Âmbar", 10, 3, {"esp":4,"vit":4}, {"hp":35,"res":{"sagrado":0.08}}, "Um sol de bronze com âmbar no centro. Esquenta a pele como o sol de antes, o que não queimava."),
+ ("estrela_espinhos_violeta", "Estrela de Espinhos Violeta", 11, 4, {"esp":6,"vit":3}, {"hp":35,"dano_magico_extra":3}, "Ametista cravada numa estrela de espinhos. Os cultistas dizem que ela escuta as orações e responde com dor."),
+ ("cranio_duque_chifrudo", "Crânio do Duque Chifrudo", 13, 5, {"for":7,"vit":4}, {"hp":45,"roubo_de_vida":0.02}, "O crânio de um duque da Legião Blasfema, ainda de olhos acesos. Ele não gosta de quem o carrega, e se vinga em quem bate em você."),
+ ("asas_querubim_caido", "Asas do Querubim Caído", 15, 8, {"esp":6,"agi":4,"vit":4}, {"hp":60,"reduz_dano":0.02}, "As asas de um querubim que caiu no deserto, presas a uma custódia de ouro. As penas ainda tentam bater."),
+ ("relicario_santo_acorrentado", "Relicário do Santo Acorrentado", 17, 9, {"for":5,"agi":5,"vit":5,"esp":5}, {"hp":80,"reduz_dano":0.03,"critico":0.02}, "Um santo que se levantou para o Juízo e foi acorrentado de volta ao relicário. A auréola ainda queima."),
+]
+
+ESPADAS = [  # (id, nome, nível, índice na folha 10x1, mult de dano, bonus_fixo, lore)
+ ("espada_ferro_sangrento", "Espada de Ferro Sangrento", 2, 0, 1.0, {}, "Ferro de trilho que nunca parou de sangrar ferrugem vermelha."),
+ ("espada_geada_atomica", "Espada da Geada Atômica", 4, 1, 1.03, {"res":{"fogo":0.05}}, "Forjada no inverno que veio depois do clarão. A lâmina ainda guarda o frio daquela noite."),
+ ("espada_vazio_violeta", "Espada do Vazio Violeta", 6, 2, 1.06, {"dano_magico_extra":2}, "O olho violeta no punho não reflete nada. Os cultistas pagam caro para olhar dentro dele."),
+ ("espada_custodia_solar", "Espada da Custódia Solar", 8, 3, 1.09, {"res":{"sagrado":0.08}}, "O punho é uma custódia de altar, com a hóstia trocada por um sol que não se apaga."),
+ ("espada_fornalha", "Espada da Fornalha", 10, 4, 1.12, {"dano_plano":2}, "Tirada da fornalha da Legião Blasfema ainda em brasa. Nunca esfriou."),
+ ("espada_amargo", "Espada do Amargo", 11, 5, 1.14, {"res":{"veneno":0.1}}, "Temperada nas águas do Rio Amargo. O verde corre por dentro da lâmina como veia."),
+ ("espada_bobina_viva", "Espada da Bobina Viva", 12, 6, 1.16, {"velocidade_ataque":0.04}, "Um Tecnomancer enrolou uma bobina na lâmina por aposta. A bobina ganhou."),
+ ("espada_firmamento_partido", "Espada do Firmamento Partido", 14, 7, 1.19, {"critico":0.02}, "Feita do pedaço de céu que rachou quando a terceira trombeta tocou. Dentro dela ainda tem estrelas."),
+ ("espada_eclipse_rubro", "Espada do Eclipse Rubro", 16, 8, 1.22, {"roubo_de_vida":0.02}, "O sol negro no punho é o eclipse que anunciou a guerra. A lâmina bebe até a luz."),
+ ("espada_juizo_acorrentado", "Espada do Juízo Acorrentado", 18, 9, 1.26, {"critico":0.03,"dano_plano":3}, "A espada que deveria encerrar o Juízo. Acorrentaram-na porque ninguém teve coragem de usá-la. Até agora."),
+]
+CLASSES_ESPADA = ["anjo", "demonio", "humano"]
+
+DECRETO_VAMPIRICO = dict(id="decreto_vampirico", nome="Decreto Vampírico", slot="segunda_mao", tipo="grimorio", classes=["cultista"], nivel=12,
+  raridade="lendario", grade=[2,2], atributos={"esp":8,"vit":4}, bonus_fixo={"hp":60,"roubo_de_vida":0.05,"dano_magico_extra":6},
+  efeito="Skills que custam HP devolvem 25% do custo quando acertam.",
+  lore="Um decreto lacrado com sangue e pregado com um punhal. Quem assinou nunca morreu, e cobra a assinatura de quem lê.",
+  arte={"folha":"assets/icones/fontes/decreto_vampirico.png","indice":0,"grade":[1,1]})
+CORTES_ESPADAS = [223, 407, 595, 817, 1005, 1211, 1396, 1634, 1884]   # as espadas têm larguras diferentes: fronteiras em px na folha
+
+# ---------- Arte pronta, lote 3 (Jefin, 2026-10-16): ícones pintados para os itens que já existiam ----------
+# Só troca o ícone; nome e status ficam como estão. Folhas armas_N.png na ordem do catálogo (entregas/arte_itens/catalogo).
+# "auto": a folha não segue grade fixa; arte_pronta.py acha as peças pela silhueta e lê da esquerda para a direita, por linha.
+ARTE_EXISTENTES = {
+ "armas_1": ["espada_vigilia_rachada", "adaga_ritual_cega", "espada_escudeiro", "adaga_chaga", "lanca_procissao", "cajado_vertebras", "espada_sineiro", "escudo_porta_capela"],
+ "armas_2": ["machado_placa_transito", "machado_bonde", "punhos_sucata", "cutelo_matadouro", "bacula_femur", "adaga_ossuario", "garras_ossario", "grimorio_acorrentado"],
+ "armas_3": ["foice_serrilhada", "besta_sucata", "foice_penhor", "espada_serrilhada", "gancho_capataz", "corrente_gancho", "estandarte_legiao", "foice_sepultura"],
+ "armas_4": ["espada_larga_sucata", "escopeta_cano_serrado", "escopeta_badalada", "escopeta_cano_duplo", "espada_larga_carrasco", "mosquete_pederneira", "montante_vigilia", "besta_repeticao"],
+ "armas_5": ["cajado_antena_torto", "cajado_lampiao", "luva_voltaica", "pistola_raios", "cajado_valvulas"],
+}
+ARTE_EXISTENTES["acessorios_1"] = ["badalo_de_guerra", "lenco_cardo", "terco_lucio", "contador_isaura", "divisa_legiao", "faixa_vigilia", "fita_juizo", "selo_madre",
+ "faixas_betania", "estilhaco_lacre", "diapasao_reverso", "pena_zacarias", "etiqueta_branca", "estilhaco_absinto", "chave_segunda_estrela", "faixa_de_linho_rafael",
+ "pena_que_ficou"]
+GRADE_FOLHA = {"acessorios_1": [8, 3]}   # folhas com peças coladas: grade fixa em vez de silhueta
+
+# ---------- Relíquias Sangrentas (Jefin, 2026-10-16): 10 armas lendárias dos chefes, arte em reliquias_sangrentas.png (5x2) ----------
+# (id, nome, classes, tipo, mãos, nível, índice, tag lendaria, grade, atributos, bonus_fixo, lore)
+RELIQUIAS_SANGRENTAS = [
+ ("lamina_primeiro_martir", "Lâmina do Primeiro Mártir", ["anjo","demonio","humano"], "espada", 1, 9, 0, "lendario:celeste", [1,3], {"for":6,"vit":4}, {"roubo_de_vida":0.03,"hp":40}, "A espada de quem morreu primeiro na Grande Batalha. O sangue dele nunca secou na lâmina, e ela não deixa o seu secar também."),
+ ("unha_carpideira", "Unha da Carpideira", ["cultista"], "adaga", 1, 10, 1, "lendario:celeste", [1,2], {"esp":7,"agi":3}, {"dano_magico_extra":4,"critico":0.03}, "Irmã Celeste arranhava os caixões até a unha virar lâmina. Ainda chora quando corta."),
+ ("raio_anunciacao", "Raio da Anunciação", ["anjo"], "espada", 1, 12, 2, "lendario:zacarias", [1,3], {"for":5,"esp":6,"vit":3}, {"res":{"sagrado":0.15},"dano_plano":4}, "O anjo que anunciou o fim trazia esta espada. O anúncio terminou; a luz na lâmina, não."),
+ ("meia_lua_andras", "Meia-Lua de Andras", ["demonio"], "foice", 2, 8, 3, "lendario:general", [2,4], {"for":7,"agi":3}, {"critico":0.04,"roubo_de_vida":0.02}, "A foice com que Andras ceifava as próprias tropas quando recuavam. Ele perdeu as pernas; ela não perdeu o fio."),
+ ("lanca_centuriao_calado", "Lança do Centurião Calado", ["anjo"], "lanca", 2, 11, 4, "lendario:zacarias", [1,4], {"for":6,"vit":5}, {"hp":60,"velocidade_ataque":0.04}, "O centurião que guardava a Trombeta Calada nunca disse uma palavra. A lança falava por ele."),
+ ("espinha_coro_mudo", "Espinha do Coro Mudo", ["cultista"], "cajado", 2, 10, 5, "lendario:celeste", [1,4], {"esp":8,"vit":3}, {"dano_magico_extra":6,"hp":30}, "A coluna do regente do coro, com o crânio ainda aberto no último grito que ninguém ouviu."),
+ ("porta_ossario", "Porta do Ossário", ["anjo"], "escudo", 1, 9, 6, "lendario:general", [2,2], {"vit":7,"for":2}, {"reduz_dano":0.05,"hp":50}, "A porta que fechava o ossário da cripta. Do lado de dentro, alguém ainda bate."),
+ ("badalo_de_carne", "Badalo de Carne", ["mutante"], "machado", 2, 8, 7, "lendario:general", [2,3], {"for":8,"vit":4}, {"dano_plano":4,"hp":40}, "O badalo do sino do abatedouro, cravado de ganchos. Cada golpe toca uma missa que ninguém pediu."),
+ ("alabarda_juramento", "Alabarda do Juramento Quebrado", ["mutante","demonio"], "lanca", 2, 11, 8, "lendario:zacarias", [1,4], {"for":7,"vit":5}, {"critico":0.03,"reduz_dano":0.02}, "Jurada para defender São Lázaro, entregue aos Arautos no mesmo dia. O rubi no centro ainda lembra das duas promessas."),
+ ("machado_ultimo_bonde", "Machado do Último Bonde", ["mutante"], "machado", 2, 7, 9, "lendario:capataz", [2,3], {"for":7,"vit":3}, {"dano_plano":3,"velocidade_ataque":0.03}, "A placa do último bonde que saiu de São Lázaro antes do clarão. Ninguém sabe onde ele chegou; a placa voltou sozinha."),
+]
+ARTE_EXISTENTES["armaduras_1"] = ["veu_carpideira", "halo_incandescente", "elmo_rafael", "batina_remendada_luvas", "couro_sobrevivente_luvas",
+ "placas_sino_luvas", "coro_mudo_luvas", "dragonas_general", "couraca_acougueiro_oco_luvas", "juramento_quebrado_luvas"]
+GRADE_FOLHA["armaduras_1"] = [5, 2]
+ARTE_EXISTENTES["consumiveis_1"] = ["pao_duro", "agua_doce", "tonico_graxa", "hostia_negra", "vela_simao", "agua_benta_polvora", "caldo_cardo_comum",
+ "figo_anacleto", "pocao_vida_p", "pocao_recurso_p", "antidoto_querosene", "balas_chumbo", "virotes_prata", "cartuchos_sal",
+ "pocao_vida_m", "pocao_recurso_m", "agua_benta", "vela_retorno", "gazua"]
+AUTO_FOLHA = {"consumiveis_1": {"dilata": 0}}   # ajuste da silhueta quando as peças quase se encostam
+ARTE_EXISTENTES["materiais_1"] = ["osso", "couro_podre", "sucata", "cinza_de_alma", "carne_estragada", "pedra_benta", "cera_de_vela", "pena_suja",
+ "coagulo_caos", "engrenagem_viva", "chave_bau_ferro", "bau_de_ferro", "bau_faminto", "relicario_da_trombeta"]   # o Caixote Podre não veio na folha
+ARTE_EXISTENTES["missao_1"] = ["bobina_cobre", "pena_querubim", "dente_vala", "raiz_cova", "caldo_cardo", "medalhinha_cardo", "sebo_rancoso", "ferro_velho",
+ "badalo_rachado", "livro_obitos", "chave_gancho", "lacre_carne", "lacre_lagrimas", "bocal_trombeta", "carta_lucio", "mapa_rasgado",
+ "relicario_vazio", "pa_simao", "caixinha_musica", "valvula_radio", "pagina_ordem", "amostra_amarga", "fragmento_clarao", "chave_lancamento",
+ "insignia_arrancada", "carta_apostata", "meia_dragona", "placa_coveiro", "folha_tombo", "ultimo_tijolo", "eco_do_nome", "livro_dos_vencidos"]
+GRADE_FOLHA["missao_1"] = [8, 4]
+ARTE_EXISTENTES["leituras_1"] = ["leitura_obitos", "leitura_carta_lucio", "leitura_mapa_tobias", "leitura_anselmo", "leitura_tabela_carnica",
+ "leitura_hino_carpideiras", "leitura_confissao_anacleto", "leitura_ordem_zacarias", "leitura_ordem_lancamento", "leitura_carta_apostata", "leitura_livro_tombo"]
+AUTO_FOLHA["leituras_1"] = {"dilata": 0}
+
+# Caixote Podre pintado pelo Jefin (peça única)
+ARTE_EXISTENTES["caixote_podre"] = ["caixote_podre"]
+GRADE_FOLHA["caixote_podre"] = [1,1]
+
+# itens novos sem arte pintada própria usam a de uma peça parecida até o Jefin mandar a dele (um padrão só de ícone)
+ALIAS_ARTE = {"carta_de_simao": "carta_apostata"}
+
+# armaduras antigas pintadas pelo Jefin (folhas q3 e q4, 5x2 cada)
+ARTE_EXISTENTES["armaduras_antigas_1"] = ["batina_remendada_cabeca","couro_sobrevivente_cabeca","placas_sino_cabeca","coro_mudo_cabeca","couraca_acougueiro_oco_cabeca",
+    "juramento_quebrado_cabeca","batina_remendada_peito","couro_sobrevivente_peito","batina_remendada_calcas","couro_sobrevivente_calcas"]
+ARTE_EXISTENTES["armaduras_antigas_2"] = ["placas_sino_calcas","coro_mudo_calcas","placas_sino_peito","coro_mudo_peito","couraca_acougueiro_oco_peito",
+    "juramento_quebrado_peito","batina_remendada_botas","couro_sobrevivente_botas","placas_sino_botas","coro_mudo_botas"]
+GRADE_FOLHA["armaduras_antigas_1"] = [5,2]
+AUTO_FOLHA["armaduras_antigas_2"] = {"dilata": 0}   # linhas desalinhadas: corte pela silhueta
+
+# anéis e colares antigos pintados pelo Jefin (folha q6, 4 peças numa linha)
+ARTE_EXISTENTES["acessorios_antigos"] = ["colar_dentes","rosario_ossos","anel_prego_caixao","anel_ferro_cripta"]
+AUTO_FOLHA["acessorios_antigos"] = {"dilata": 0}
