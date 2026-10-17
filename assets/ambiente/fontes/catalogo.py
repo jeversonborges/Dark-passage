@@ -149,7 +149,7 @@ def main():
     for slug, tit, *_ in TIPOS:
         n = len(grupos[slug]); total += n
         if n: md.append(f"- [{tit}](#{slug}) · {n} peças · prancha `catalogo/{slug}.png`")
-    md.insert(4, f"Total: **{total} peças** em {sum(1 for s in grupos if grupos[s])} tipos.")
+    md.insert(5, f"Total: **{total} peças** em {sum(1 for s in grupos if grupos[s])} tipos."); md.insert(5, "")
     for slug, tit, *_ in TIPOS:
         itens = sorted(grupos[slug], key=lambda it: (it["bioma"], it["id"]))
         if not itens: continue

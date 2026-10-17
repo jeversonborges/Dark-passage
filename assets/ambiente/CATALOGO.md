@@ -2,8 +2,9 @@
 
 Todos os objetos de cenário do jogo (`assets/ambiente/objetos/`), separados por tipo para reaproveitar em mapas novos.
 Gerado por `assets/ambiente/fontes/catalogo.py` (rode de novo depois de publicar peças novas). Cada tipo tem uma prancha
-Total: **722 peças** em 18 tipos.
 com as miniaturas em `assets/ambiente/catalogo/`. Os dados ficam em `assets/ambiente/catalogo.json`.
+
+Total: **722 peças** em 18 tipos.
 
 Reaproveitar: o id é o `k` do prop no mapa (`{"k": id, "x": .., "y": ..}`); `tiles` é a pegada no chão. Peças com
 `descricao` dizem o que são; as de bioma fechado (egito, amenti, torre...) seguem a paleta daquela área, então numa
