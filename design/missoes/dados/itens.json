@@ -2817,6 +2817,12 @@
         "autor": "Saulo, o Penitente"
       },
       "_doc": "cópia da Ficha de Sangue do Agrak (design/pvp/agrak/itens_agrak.json); se o Agrak já estiver no jogo, vale a de lá"
+    },
+    {
+      "id": "carta_de_simao",
+      "nome": "Carta de Simão",
+      "tipo": "missao",
+      "descricao": "Papel de embrulhar vela, dobrado em quatro. Três palavras: 'Pedro. Este venceu. Ensina.'"
     }
   ]
 }

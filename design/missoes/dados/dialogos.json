@@ -1717,6 +1717,18 @@
           ],
           "opcoes": [
             {
+              "texto": "Tem alguma carta para o Exilado?",
+              "se": {
+                "missao_disponivel": "ev01"
+              },
+              "acoes": [
+                {
+                  "aceitar_missao": "ev01"
+                }
+              ],
+              "ir": "ev01_simao"
+            },
+            {
               "texto": "Os lacres dos mortos estão todos inteiros. Por quê?",
               "ir": "lacres",
               "se": {
@@ -2140,6 +2152,14 @@
           "opcoes": [
             {
               "texto": "Até amanhã, Simão."
+            }
+          ]
+        },
+        "ev01_simao": {
+          "fala": "Pedro, o Exilado, fez a ponte para o que sobreviveu. Leva essa palavra. Ele não gosta de rodeio.",
+          "opcoes": [
+            {
+              "texto": "Vou até lá."
             }
           ]
         }
@@ -6196,6 +6216,265 @@
           "opcoes": [
             {
               "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_pedro_exilado",
+      "npc": "pedro_exilado",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Pedro acende o cajado-lampião e não se levanta. Há uma carta de Simão no ar, mesmo antes de você falar.",
+          "opcoes": [
+            {
+              "texto": "O coveiro me mandou. Esta é a carta.",
+              "se": {
+                "missao_ativa": "ev01"
+              },
+              "acoes": [
+                {
+                  "cumprir_falar": "ev01"
+                },
+                {
+                  "concluir_missao": "ev01"
+                }
+              ],
+              "ir": "ev01_fim"
+            },
+            {
+              "texto": "Estou pronto para escolher o meu caminho.",
+              "se": {
+                "missao_disponivel": "ev02"
+              },
+              "acoes": [
+                {
+                  "aceitar_missao": "ev02"
+                }
+              ],
+              "ir": "escolha"
+            },
+            {
+              "texto": "Estou pronto para escolher o meu caminho.",
+              "se": {
+                "missao_ativa": "ev02"
+              },
+              "ir": "escolha"
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "quem"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "quem": {
+          "fala": "Um velho que ensina quem sobreviveu. Os dois lados me mandaram embora. Nenhum parou de mandar gente.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "ev01_fim": {
+          "fala": "Ele lê três palavras, dobra o papel em quatro e enfia no bolso da bolsa de livros. 'Escolhe com calma. Um caminho a gente não desescolhe.'",
+          "opcoes": [
+            {
+              "texto": "Entendido."
+            }
+          ]
+        },
+        "escolha": {
+          "fala": "Os dois são fortes. Só um é seu.",
+          "opcoes": [
+            {
+              "texto": "Arcanjo",
+              "se": {
+                "classe": [
+                  "anjo"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "arcanjo"
+                }
+              ]
+            },
+            {
+              "texto": "Serafim",
+              "se": {
+                "classe": [
+                  "anjo"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "serafim"
+                }
+              ]
+            },
+            {
+              "texto": "Lorde das Trevas",
+              "se": {
+                "classe": [
+                  "demonio"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "lorde_das_trevas"
+                }
+              ]
+            },
+            {
+              "texto": "Ceifador",
+              "se": {
+                "classe": [
+                  "demonio"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "ceifador"
+                }
+              ]
+            },
+            {
+              "texto": "Arquimago",
+              "se": {
+                "classe": [
+                  "cultista"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "arquimago"
+                }
+              ]
+            },
+            {
+              "texto": "Profeta do Amargo",
+              "se": {
+                "classe": [
+                  "cultista"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "profeta_do_amargo"
+                }
+              ]
+            },
+            {
+              "texto": "Pistoleiro",
+              "se": {
+                "classe": [
+                  "humano"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "pistoleiro"
+                }
+              ]
+            },
+            {
+              "texto": "Caçador de Anjos",
+              "se": {
+                "classe": [
+                  "humano"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "cacador_de_anjos"
+                }
+              ]
+            },
+            {
+              "texto": "Gladiador",
+              "se": {
+                "classe": [
+                  "mutante"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "gladiador"
+                }
+              ]
+            },
+            {
+              "texto": "Abominação",
+              "se": {
+                "classe": [
+                  "mutante"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "abominacao"
+                }
+              ]
+            },
+            {
+              "texto": "Mechanicus",
+              "se": {
+                "classe": [
+                  "tecnomancer"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "mechanicus"
+                }
+              ]
+            },
+            {
+              "texto": "Engenheiro Herege",
+              "se": {
+                "classe": [
+                  "tecnomancer"
+                ],
+                "missao_ativa": "ev02"
+              },
+              "acoes": [
+                {
+                  "concluir_missao": "ev02",
+                  "escolha": "engenheiro_herege"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não. Voltar.",
               "ir": "raiz"
             }
           ]

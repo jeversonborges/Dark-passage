@@ -190,6 +190,17 @@
             "muro_sombras",
             "escotilha_silo"
           ]
+        },
+        {
+          "id": "ilha_do_exilado",
+          "nome": "Ilha do Exilado",
+          "tipo": "ilha",
+          "faccao": "neutro",
+          "seguro": true,
+          "descricao": "Ilhota no meio do Rio Amargo, ligada às margens por pontes de corda. Uma oficina de madeira e lona, e um velho que ensina quem sobreviveu.",
+          "pontos": [
+            "oficina_do_exilado"
+          ]
         }
       ],
       "regiao": "Deserto de Absinto",

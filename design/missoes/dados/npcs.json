@@ -621,6 +621,31 @@
       "aparencia": "Homem magro de colarinho sujo, com um caderno de capa de couro preso ao cinto e lápis atrás da orelha.",
       "personalidade": "Cordial demais, sempre sabe o preço de tudo. Não mente sobre números, só sobre o que acontece depois.",
       "historia": "Contador de paróquia que virou corretor de tudo que sobe o Hermon. Vende o convite dos Vigilantes para a Vigília e diz que não sabe quem o compra depois."
+    },
+    {
+      "id": "pedro_exilado",
+      "nome": "Pedro",
+      "titulo": "O Exilado",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "ilha_do_exilado",
+        "ponto": "oficina_do_exilado",
+        "_doc": "ilhota no meio do Rio Amargo, ligada às duas margens por pontes de corda; precisa entrar no mapa (Level design)"
+      },
+      "servicos": [
+        "ascensao_de_classe"
+      ],
+      "dialogo": "dlg_pedro_exilado",
+      "aparencia": "Homem de uns sessenta anos, largo e firme, barba grisalha trançada com anéis de latão. Usa um sobretudo costurado de dois: metade lona azul-noite da Vigília, metade tecido rubro-negro do Coro, unidos por uma costura grossa no meio do peito. Carrega um cajado-lampião com uma lente de farol e uma bolsa de livros amarrados com corda. Nos antebraços, os símbolos das duas facções foram riscados a faca, e ele nunca escondeu as cicatrizes.",
+      "personalidade": "Calmo, generoso, de humor seco. Escuta antes de falar e trata todo aprendiz igual, venha de que lado vier. Não dá ordens, dá escolhas. Ri alto, e é o único riso que se ouve no rio.",
+      "historia": "Foi mestre de armas e de ofícios dos dois lados do Impasse. Ensinou humanos a aguentar o Amargo no corpo e ensinou anjos e demônios a lutar sem o Coro, porque achava que quem sobrevive ao fim do mundo merece ficar mais forte, de qualquer lado. A Vigília o expulsou por treinar Arautos; o Coro, por treinar humanos. Ele não brigou com nenhum dos dois: atravessou o Rio Amargo, ergueu uma oficina numa ilhota que nenhum lado reclama e esperou. Os aprendizes vieram mesmo assim. É velho amigo de Simão: 'Ele escreve os vencidos. Eu ensino os que venceram.' Quando o Livro dos Vencidos chega ao nível 50, é a carta de Simão que abre a ponte da ilha.",
+      "falas_curtas": [
+        "Os dois lados me mandaram embora. Nenhum dos dois parou de mandar gente.",
+        "Força não tem bandeira. Quem decide a bandeira é você.",
+        "Escolhe com calma. Um caminho a gente não desescolhe.",
+        "Simão escreveu seu nome no livro? Então você já está pronto. Só não sabe ainda."
+      ]
     }
   ]
 }

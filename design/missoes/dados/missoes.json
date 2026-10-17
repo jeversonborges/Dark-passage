@@ -3858,6 +3858,103 @@
       },
       "texto_conclusao": "Thotme pôs o Livro de Thoth nas suas mãos. As páginas estavam em branco. \"Leia em voz alta, um dia, debaixo da casa que meu filho ergueu em Khem. Não hoje.\" Pela primeira vez em onze mil anos, a Coluna do Ritmo parou de balançar por um instante.",
       "ao_concluir_flag": "tem_livro_de_thoth"
+    },
+    {
+      "id": "ev01",
+      "titulo": "A Carta do Coveiro",
+      "tipo": "principal",
+      "linha": "A Ascensão",
+      "faccao": "ambas",
+      "nivel": 50,
+      "nivel_minimo": 50,
+      "doador": "simao_coveiro",
+      "entrega": "pedro_exilado",
+      "requer": [],
+      "resumo": "Com o Livro dos Vencidos cheio até o nível 50, leve a carta de Simão até Pedro, o Exilado, na ilha do Rio Amargo.",
+      "descricao": "Simão fecha o livro e escreve uma carta curta, com a letra de quem tem pressa nenhuma: 'Pedro. Este venceu. Ensina.' A ilha do Exilado fica no meio do Rio Amargo, e a ponte só baixa para quem traz a palavra do coveiro.",
+      "objetivos": [
+        {
+          "tipo": "chefes_dungeon",
+          "ate_nivel": 50
+        },
+        {
+          "tipo": "falar",
+          "npc": "pedro_exilado",
+          "etapa": 2
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "carta_de_simao",
+          "qtd": 1
+        }
+      ],
+      "ao_concluir_inicia": "ev02",
+      "recompensas": {
+        "xp": 120000,
+        "ouro": 1500
+      },
+      "flags": [
+        "conheceu_pedro_exilado"
+      ]
+    },
+    {
+      "id": "ev02",
+      "titulo": "Os Dois Caminhos",
+      "tipo": "principal",
+      "linha": "A Ascensão",
+      "faccao": "ambas",
+      "nivel": 50,
+      "nivel_minimo": 50,
+      "doador": "pedro_exilado",
+      "entrega": "pedro_exilado",
+      "requer": [
+        "ev01"
+      ],
+      "resumo": "Pedro mostra os dois caminhos da sua classe. Escolha um: ele não se desfaz.",
+      "descricao": "Na oficina do Exilado há dois manequins vestidos com o que você pode virar. Pedro acende o cajado-lampião e espera. 'Os dois são fortes. Só um é seu.'",
+      "objetivos": [
+        {
+          "tipo": "decidir",
+          "npc": "pedro_exilado"
+        }
+      ],
+      "escolhas_por_classe": {
+        "anjo": [
+          "arcanjo",
+          "serafim"
+        ],
+        "demonio": [
+          "lorde_das_trevas",
+          "ceifador"
+        ],
+        "cultista": [
+          "arquimago",
+          "profeta_do_amargo"
+        ],
+        "humano": [
+          "pistoleiro",
+          "cacador_de_anjos"
+        ],
+        "mutante": [
+          "gladiador",
+          "abominacao"
+        ],
+        "tecnomancer": [
+          "mechanicus",
+          "engenheiro_herege"
+        ]
+      },
+      "recompensas": {
+        "xp": 250000,
+        "ouro": 3000,
+        "_doc": "aplica a evolução escolhida (id em evolucoes.json) e libera as skills do nível 50; não mexe no estágio de classe da linha G (evolucao_classe 2 e 3 em 150/400)",
+        "aplica_evolucao": "escolhida"
+      },
+      "texto_conclusao": "Pedro amarrou no seu braço um anel de latão da barba dele. 'Agora some daqui. E volta quando o mundo tiver ficado pequeno pra você.'",
+      "flags": [
+        "evolucao_50"
+      ]
     }
   ]
 }

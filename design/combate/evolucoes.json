@@ -1,0 +1,1278 @@
+{
+  "_doc": "Evoluções de classe no nível 50 (estilo Ragnarok), rascunho v0.1 de 2026-10-16. Duas por classe; a escolha é feita numa missão de evolução no nível 50 e é definitiva. A evolução mantém todas as skills da classe base e soma 4 skills novas (níveis 50, 55, 60 e 70) e 1 passiva. Números no mesmo formato de design/combate/classes_base.json; conferir com simular.py antes de integrar. Sprites: tools/sprite-pipeline/personagens/evolucoes.py (render.py aceita o id como tipo).",
+  "versao": "0.1",
+  "nivel_evolucao": 50,
+  "missao": {
+    "_doc": "Jefin 16/10/2026: Pedro, o Exilado (homenagem ao Pedro) é o responsável pela ascensão de classe. O Livro dos Vencidos do Simão (linha G) continua sendo o requisito: ele registra os chefes e manda o jogador até o Pedro. As evoluções dos níveis 150 e 400 (g07, h01) seguem com o Simão por enquanto.",
+    "npc": {
+      "id": "pedro_exilado",
+      "nome": "Pedro",
+      "titulo": "O Exilado",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "ilha_do_exilado",
+        "ponto": "oficina_do_exilado",
+        "_doc": "ilhota no meio do Rio Amargo, ligada às duas margens por pontes de corda; precisa entrar no mapa (Level design)"
+      },
+      "servicos": [
+        "ascensao_de_classe"
+      ],
+      "dialogo": "dlg_pedro_exilado",
+      "aparencia": "Homem de uns sessenta anos, largo e firme, barba grisalha trançada com anéis de latão. Usa um sobretudo costurado de dois: metade lona azul-noite da Vigília, metade tecido rubro-negro do Coro, unidos por uma costura grossa no meio do peito. Carrega um cajado-lampião com uma lente de farol e uma bolsa de livros amarrados com corda. Nos antebraços, os símbolos das duas facções foram riscados a faca, e ele nunca escondeu as cicatrizes.",
+      "personalidade": "Calmo, generoso, de humor seco. Escuta antes de falar e trata todo aprendiz igual, venha de que lado vier. Não dá ordens, dá escolhas. Ri alto, e é o único riso que se ouve no rio.",
+      "historia": "Foi mestre de armas e de ofícios dos dois lados do Impasse. Ensinou humanos a aguentar o Amargo no corpo e ensinou anjos e demônios a lutar sem o Coro, porque achava que quem sobrevive ao fim do mundo merece ficar mais forte, de qualquer lado. A Vigília o expulsou por treinar Arautos; o Coro, por treinar humanos. Ele não brigou com nenhum dos dois: atravessou o Rio Amargo, ergueu uma oficina numa ilhota que nenhum lado reclama e esperou. Os aprendizes vieram mesmo assim. É velho amigo de Simão: 'Ele escreve os vencidos. Eu ensino os que venceram.' Quando o Livro dos Vencidos chega ao nível 50, é a carta de Simão que abre a ponte da ilha.",
+      "falas_curtas": [
+        "Os dois lados me mandaram embora. Nenhum dos dois parou de mandar gente.",
+        "Força não tem bandeira. Quem decide a bandeira é você.",
+        "Escolhe com calma. Um caminho a gente não desescolhe.",
+        "Simão escreveu seu nome no livro? Então você já está pronto. Só não sabe ainda."
+      ]
+    },
+    "missoes": [
+      {
+        "id": "a01",
+        "titulo": "A Carta do Coveiro",
+        "tipo": "principal",
+        "linha": "A Ascensão",
+        "faccao": "ambas",
+        "nivel": 50,
+        "nivel_minimo": 50,
+        "doador": "simao_coveiro",
+        "entrega": "pedro_exilado",
+        "requer": [
+          "g02"
+        ],
+        "resumo": "Com o Livro dos Vencidos cheio até o nível 50, leve a carta de Simão até Pedro, o Exilado, na ilha do Rio Amargo.",
+        "descricao": "Simão fecha o livro e escreve uma carta curta, com a letra de quem tem pressa nenhuma: 'Pedro. Este venceu. Ensina.' A ilha do Exilado fica no meio do Rio Amargo, e a ponte só baixa para quem traz a palavra do coveiro.",
+        "objetivos": [
+          {
+            "tipo": "chefes_dungeon",
+            "ate_nivel": 50
+          },
+          {
+            "tipo": "falar",
+            "npc": "pedro_exilado",
+            "etapa": 2
+          }
+        ],
+        "ao_aceitar_recebe": [
+          {
+            "id": "carta_de_simao",
+            "qtd": 1
+          }
+        ],
+        "ao_concluir_inicia": "a02",
+        "recompensas": {
+          "xp": 120000,
+          "ouro": 1500
+        },
+        "flags": [
+          "conheceu_pedro_exilado"
+        ]
+      },
+      {
+        "id": "a02",
+        "titulo": "Os Dois Caminhos",
+        "tipo": "principal",
+        "linha": "A Ascensão",
+        "faccao": "ambas",
+        "nivel": 50,
+        "nivel_minimo": 50,
+        "doador": "pedro_exilado",
+        "entrega": "pedro_exilado",
+        "requer": [
+          "a01"
+        ],
+        "resumo": "Pedro mostra os dois caminhos da sua classe. Escolha um: ele não se desfaz.",
+        "descricao": "Na oficina do Exilado há dois manequins vestidos com o que você pode virar. Pedro acende o cajado-lampião e espera. 'Os dois são fortes. Só um é seu.'",
+        "objetivos": [
+          {
+            "tipo": "decidir",
+            "npc": "pedro_exilado"
+          }
+        ],
+        "escolhas_por_classe": {
+          "anjo": [
+            "arcanjo",
+            "serafim"
+          ],
+          "demonio": [
+            "lorde_das_trevas",
+            "ceifador"
+          ],
+          "cultista": [
+            "arquimago",
+            "profeta_do_amargo"
+          ],
+          "humano": [
+            "pistoleiro",
+            "cacador_de_anjos"
+          ],
+          "mutante": [
+            "gladiador",
+            "abominacao"
+          ],
+          "tecnomancer": [
+            "mechanicus",
+            "engenheiro_herege"
+          ]
+        },
+        "recompensas": {
+          "xp": 250000,
+          "ouro": 3000,
+          "_doc": "aplica a evolução escolhida (id em evolucoes.json) e libera as skills do nível 50; não mexe no estágio de classe da linha G (evolucao_classe 2 e 3 em 150/400)",
+          "aplica_evolucao": "escolhida"
+        },
+        "texto_conclusao": "Pedro amarrou no seu braço um anel de latão da barba dele. 'Agora some daqui. E volta quando o mundo tiver ficado pequeno pra você.'",
+        "flags": [
+          "evolucao_50"
+        ]
+      }
+    ],
+    "itens": [
+      {
+        "id": "carta_de_simao",
+        "nome": "Carta de Simão",
+        "tipo": "missao",
+        "descricao": "Papel de embrulhar vela, dobrado em quatro. Três palavras: 'Pedro. Este venceu. Ensina.'"
+      }
+    ]
+  },
+  "bonus_ao_evoluir": {
+    "pontos_atributo_extra": 10,
+    "hp_mult": 1.15,
+    "recurso_max_mult": 1.2,
+    "_doc": "Bônus base de toda evolução, somado ao bônus próprio de cada caminho."
+  },
+  "desbloqueio_habilidades_niveis": [
+    50,
+    55,
+    60,
+    65,
+    70
+  ],
+  "evolucoes": {
+    "arcanjo": {
+      "classe_base": "anjo",
+      "nome": "Arcanjo",
+      "papel": "linha de frente que cura em aura",
+      "sprite": "arcanjo",
+      "bonus": {
+        "FOR": 6,
+        "VIT": 6,
+        "ESP": 0,
+        "AGI": 0,
+        "defesa_mult": 1.2,
+        "hp_mult": 1.1
+      },
+      "passiva": {
+        "id": "hoste_em_marcha",
+        "nome": "Hoste em Marcha",
+        "efeito": "aliados a 6 m recebem +8% de defesa e curam 1% do HP por segundo em combate"
+      },
+      "habilidades": [
+        {
+          "id": "montante_do_sol",
+          "nome": "Montante do Sol",
+          "nivel": 50,
+          "custo": 22,
+          "recarga": 6.0,
+          "mult": 3.2,
+          "elemento": "sagrado",
+          "forma": "cone",
+          "cone_graus": 120,
+          "raio": 3.0,
+          "postura": 45,
+          "cura_aliados_mult": 0.6,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "estandarte_da_hoste",
+          "nome": "Estandarte da Hoste",
+          "nivel": 55,
+          "custo": 35,
+          "recarga": 30.0,
+          "duracao": 12,
+          "area_raio": 6,
+          "buff": {
+            "dano_mult": 1.15,
+            "defesa_mult": 1.15
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "provocacao_celeste",
+          "nome": "Provocação Celeste",
+          "nivel": 60,
+          "custo": 15,
+          "recarga": 12.0,
+          "area_raio": 5,
+          "efeito": {
+            "provocar": 4.0
+          },
+          "reducao_dano": 0.25,
+          "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "sete_espadas_do_juizo",
+          "nome": "Sete Espadas do Juízo",
+          "custo": 70,
+          "recarga": 50.0,
+          "alcance": 10,
+          "area_raio": 6,
+          "mult": 4.0,
+          "golpes": 7,
+          "cura_aliados_por_golpe": 0.06,
+          "sensacao": "area",
+          "vfx": "arcanjo_sete_espadas",
+          "descricao": "Sete montantes de fogo sagrado caem do céu em círculo, um por vez, e a última cai no centro. Cada uma fere os inimigos e cura 6% do HP dos aliados por perto."
+        },
+        {
+          "id": "queda_do_arcanjo",
+          "nome": "Queda do Arcanjo",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 25.0,
+          "deslocamento": 7,
+          "mult": 4.5,
+          "area_raio": 3.5,
+          "elemento": "sagrado",
+          "efeito": {
+            "atordoar": 1.5
+          },
+          "sensacao": "area"
+        }
+      ]
+    },
+    "serafim": {
+      "classe_base": "anjo",
+      "nome": "Serafim",
+      "papel": "suporte puro: cura, escudo e ressurreição",
+      "sprite": "serafim",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 4,
+        "ESP": 10,
+        "AGI": 0,
+        "cura_mult": 1.3,
+        "recurso_regen_mult": 1.25
+      },
+      "passiva": {
+        "id": "seis_asas",
+        "nome": "Seis Asas",
+        "efeito": "curas acima do HP máximo viram escudo de luz (até 20% do HP do alvo, 6 s)"
+      },
+      "habilidades": [
+        {
+          "id": "fogo_que_nao_consome",
+          "nome": "Fogo Que Não Consome",
+          "nivel": 50,
+          "custo": 30,
+          "recarga": 8.0,
+          "cura_mult": 3.5,
+          "area_raio": 5,
+          "conjuracao": 0.6,
+          "sensacao": "cura"
+        },
+        {
+          "id": "rodas_de_olhos",
+          "nome": "Rodas de Olhos",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 18.0,
+          "duracao": 8,
+          "area_raio": 5,
+          "efeito": {
+            "revelar": 8.0,
+            "cegueira_inimigos": 2.0
+          },
+          "mult": 1.2,
+          "elemento": "sagrado",
+          "sensacao": "area"
+        },
+        {
+          "id": "escudo_do_trono",
+          "nome": "Escudo do Trono",
+          "nivel": 60,
+          "custo": 28,
+          "recarga": 20.0,
+          "alcance": 8,
+          "escudo_mult": 4.0,
+          "duracao": 6,
+          "sensacao": "buff"
+        },
+        {
+          "nivel": 65,
+          "id": "coro_dos_seis_ais",
+          "nome": "Coro dos Seis Ais",
+          "custo": 90,
+          "recarga": 120.0,
+          "area_raio": 10,
+          "ressuscita_todos": true,
+          "hp_ao_voltar": 0.6,
+          "invulneravel": 4.0,
+          "cura_total": true,
+          "sensacao": "buff",
+          "vfx": "serafim_coro",
+          "descricao": "As seis asas se abrem e um coro ensurdecedor ressuscita todos os aliados mortos por perto com 60% de HP, cura todos ao máximo e deixa o grupo invulnerável por 4 s."
+        },
+        {
+          "id": "levanta_te",
+          "nome": "Levanta-te",
+          "nivel": 70,
+          "custo": 60,
+          "recarga": 120.0,
+          "alcance": 6,
+          "conjuracao": 2.0,
+          "ressuscitar_hp": 0.4,
+          "sensacao": "cura"
+        }
+      ]
+    },
+    "lorde_das_trevas": {
+      "classe_base": "demonio",
+      "nome": "Lorde das Trevas",
+      "papel": "tanque de escudo e espadão",
+      "sprite": "lorde_das_trevas",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 10,
+        "ESP": 0,
+        "AGI": 0,
+        "defesa_mult": 1.3,
+        "hp_mult": 1.2,
+        "bloqueio": 0.15
+      },
+      "passiva": {
+        "id": "trono_vazio",
+        "nome": "O Trono Vazio",
+        "efeito": "cada inimigo a 4 m dá +3% de redução de dano (até 15%); bloqueios devolvem 20% do dano em brasa"
+      },
+      "habilidades": [
+        {
+          "id": "golpe_de_escudo",
+          "nome": "Golpe do Escudo-Torre",
+          "nivel": 50,
+          "custo": 18,
+          "recarga": 7.0,
+          "mult": 2.4,
+          "alcance": 1.6,
+          "efeito": {
+            "atordoar": 1.2,
+            "provocar": 3.0
+          },
+          "postura": 60,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "muralha_negra",
+          "nome": "Muralha Negra",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 24.0,
+          "duracao": 6,
+          "reducao_dano": 0.45,
+          "reflete": 0.2,
+          "sensacao": "buff"
+        },
+        {
+          "id": "grito_da_legiao",
+          "nome": "Grito da Legião Blasfema",
+          "nivel": 60,
+          "custo": 25,
+          "recarga": 15.0,
+          "area_raio": 6,
+          "efeito": {
+            "provocar": 5.0,
+            "medo_fracos": 2.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "trono_da_legiao",
+          "nome": "Trono da Legião",
+          "custo": 60,
+          "recarga": 60.0,
+          "duracao": 8,
+          "area_raio": 8,
+          "provoca_todos": true,
+          "reflete_dano": 0.5,
+          "imovel": true,
+          "reducao_dano": 0.6,
+          "sensacao": "buff",
+          "vfx": "lorde_trono",
+          "descricao": "Ele crava o espadão e se senta num trono de ossos da Legião Blasfema. Durante 8 s puxa a raiva de todos num raio de 8 m, não se move, toma 60% menos dano e devolve metade do que recebe."
+        },
+        {
+          "id": "espadao_do_general",
+          "nome": "Espadão do General",
+          "nivel": 70,
+          "custo": 40,
+          "recarga": 18.0,
+          "mult": 4.0,
+          "forma": "cone",
+          "cone_graus": 160,
+          "raio": 3.5,
+          "elemento": "fogo",
+          "chao_em_chamas_s": 4.0,
+          "postura": 70,
+          "sensacao": "area"
+        }
+      ]
+    },
+    "ceifador": {
+      "classe_base": "demonio",
+      "nome": "Ceifador",
+      "papel": "assassino de alvo único",
+      "sprite": "ceifador",
+      "bonus": {
+        "FOR": 6,
+        "VIT": 0,
+        "ESP": 0,
+        "AGI": 10,
+        "critico": 0.1,
+        "dano_critico_mult": 1.25,
+        "velocidade_ataque_mult": 1.1
+      },
+      "passiva": {
+        "id": "colheita",
+        "nome": "Colheita",
+        "efeito": "abaixo de 30% de HP o alvo recebe +25% de dano do Ceifador; matar renova Passo Sombrio"
+      },
+      "habilidades": [
+        {
+          "id": "ceifa_da_alma",
+          "nome": "Ceifa da Alma",
+          "nivel": 50,
+          "custo": 20,
+          "recarga": 5.0,
+          "mult": 3.6,
+          "alcance": 2.2,
+          "elemento": "trevas",
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.25
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "manto_de_sombra",
+          "nome": "Manto de Sombra",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 20.0,
+          "duracao": 5,
+          "efeito": {
+            "invisivel": 5.0
+          },
+          "primeiro_golpe_mult": 2.0,
+          "sensacao": "mobilidade"
+        },
+        {
+          "id": "marca_do_ceifador",
+          "nome": "Marca do Ceifador",
+          "nivel": 60,
+          "custo": 15,
+          "recarga": 14.0,
+          "alcance": 8,
+          "efeito": {
+            "marcado": 8.0
+          },
+          "dano_recebido_extra": 0.2,
+          "sensacao": "debuff"
+        },
+        {
+          "id": "espiritos_malignos",
+          "nome": "Espíritos Malignos",
+          "nivel": 65,
+          "custo": 35,
+          "recarga": 8.0,
+          "elemento": "trevas",
+          "alvo": "area_ao_redor",
+          "raio": 4.5,
+          "espiritos": 16,
+          "mult": 1.1,
+          "acertos_max_por_alvo": 2,
+          "sensacao": "area",
+          "vfx": "ceifador_espiritos_malignos",
+          "vfx_impacto": "ceifador_espirito_impacto",
+          "descricao": "Como a Evil Spirit do MU: 16 espíritos negros saem do Ceifador em espiral e voam para todos os lados, ferindo cada inimigo que atravessam (até 2 acertos por alvo)."
+        },
+        {
+          "id": "julgamento_antecipado",
+          "nome": "Julgamento Antecipado",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 30.0,
+          "mult": 6.0,
+          "alcance": 6,
+          "teleporte_atras": true,
+          "execucao_abaixo_hp": 0.15,
+          "sensacao": "golpe_pesado"
+        }
+      ]
+    },
+    "arquimago": {
+      "classe_base": "cultista",
+      "nome": "Arquimago",
+      "papel": "dano mágico em área (canhão de vidro)",
+      "sprite": "arquimago",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 2,
+        "ESP": 12,
+        "AGI": 2,
+        "dano_magico_mult": 1.25,
+        "conjuracao_mult": 0.85
+      },
+      "passiva": {
+        "id": "tres_aureolas",
+        "nome": "Três Auréolas",
+        "efeito": "a cada 3 magias a próxima não gasta HP e tem +40% de dano"
+      },
+      "habilidades": [
+        {
+          "id": "orbe_coracao",
+          "nome": "Coração Preso",
+          "nivel": 50,
+          "custo": 28,
+          "recarga": 4.0,
+          "mult": 3.0,
+          "alcance": 9,
+          "area_raio": 2.0,
+          "elemento": "sangue",
+          "conjuracao": 0.5,
+          "sensacao": "area"
+        },
+        {
+          "id": "grimorio_aberto",
+          "nome": "Grimório Aberto",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 22.0,
+          "duracao": 10,
+          "buff": {
+            "dano_magico_mult": 1.2,
+            "recarga_mult": 0.8
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "orbitas_de_sangue",
+          "nome": "Órbitas de Sangue",
+          "nivel": 60,
+          "custo": 24,
+          "recarga": 12.0,
+          "duracao": 6,
+          "area_raio": 2.5,
+          "mult_por_s": 0.9,
+          "elemento": "sangue",
+          "sensacao": "area"
+        },
+        {
+          "nivel": 65,
+          "id": "chuva_de_estrelas_rubras",
+          "nome": "Chuva de Estrelas Rubras",
+          "custo": 85,
+          "recarga": 45.0,
+          "alcance": 12,
+          "area_raio": 7,
+          "meteoros": 14,
+          "mult": 3.2,
+          "preparo": 1.2,
+          "queima": {
+            "dano_por_s_mult": 0.3,
+            "duracao": 4
+          },
+          "sensacao": "area",
+          "vfx": "arquimago_meteoros",
+          "descricao": "Rasga o céu e despeja 14 estrelas de sangue numa área de 7 m. Cada uma explode e deixa o chão queimando por 4 s."
+        },
+        {
+          "id": "setimo_versiculo",
+          "nome": "Sétimo Versículo",
+          "nivel": 70,
+          "custo": 70,
+          "recarga": 35.0,
+          "canalizacao": 2.0,
+          "mult": 7.0,
+          "alcance": 10,
+          "area_raio": 4.5,
+          "elemento": "sangue",
+          "sensacao": "area"
+        }
+      ]
+    },
+    "profeta_do_amargo": {
+      "classe_base": "cultista",
+      "nome": "Profeta do Amargo",
+      "papel": "dano contínuo de radiação e controle",
+      "sprite": "profeta_do_amargo",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 6,
+        "ESP": 8,
+        "AGI": 2,
+        "dano_continuo_mult": 1.35,
+        "resistencia_amargo": 0.5
+      },
+      "passiva": {
+        "id": "agua_amarga",
+        "nome": "Bebeu do Rio",
+        "efeito": "inimigos com Amargo curam 30% menos; cada acúmulo de Amargo dá ao Profeta 0,5% de HP por segundo"
+      },
+      "habilidades": [
+        {
+          "id": "turibulo_do_amargo",
+          "nome": "Turíbulo do Amargo",
+          "nivel": 50,
+          "custo": 20,
+          "recarga": 6.0,
+          "area_raio": 3.5,
+          "duracao": 6,
+          "acumulos_amargo": 2,
+          "mult_por_s": 0.6,
+          "elemento": "radiacao",
+          "sensacao": "area"
+        },
+        {
+          "id": "estilhaco_da_estrela",
+          "nome": "Estilhaço da Estrela",
+          "nivel": 55,
+          "custo": 26,
+          "recarga": 8.0,
+          "mult": 2.8,
+          "alcance": 9,
+          "elemento": "radiacao",
+          "atravessa": true,
+          "acumulos_amargo": 1,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "sermao_do_fim",
+          "nome": "Sermão do Fim",
+          "nivel": 60,
+          "custo": 30,
+          "recarga": 20.0,
+          "area_raio": 5,
+          "efeito": {
+            "medo": 2.5,
+            "lentidao": 4.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "enxame_da_podridao",
+          "nome": "Enxame da Podridão",
+          "custo": 55,
+          "recarga": 35.0,
+          "alcance": 10,
+          "duracao": 12,
+          "mult_por_s": 0.6,
+          "acumula_ate": 10,
+          "pula_ao_morrer": true,
+          "lentidao": 0.3,
+          "sensacao": "debuff",
+          "vfx": "profeta_enxame",
+          "descricao": "Um enxame de moscas e mariposas podres persegue o alvo por 12 s, acumulando podridão (até 10 vezes). Se o alvo morre, o enxame pula para o inimigo mais perto com tudo o que acumulou."
+        },
+        {
+          "id": "absinto_caiu",
+          "nome": "A Estrela Caiu",
+          "nivel": 70,
+          "custo": 60,
+          "recarga": 40.0,
+          "alcance": 10,
+          "preparo": 1.5,
+          "mult": 5.0,
+          "area_raio": 5.0,
+          "chao_amargo_s": 8.0,
+          "acumulos_amargo": 3,
+          "elemento": "radiacao",
+          "sensacao": "area"
+        }
+      ]
+    },
+    "pistoleiro": {
+      "classe_base": "humano",
+      "nome": "Pistoleiro",
+      "papel": "atirador: espingarda de dois canos e revólveres",
+      "sprite": "pistoleiro",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 2,
+        "ESP": 0,
+        "AGI": 12,
+        "alcance_mult": 1.2,
+        "velocidade_ataque_mult": 1.2,
+        "critico": 0.08
+      },
+      "passiva": {
+        "id": "balas_bentas",
+        "nome": "Balas Bentas",
+        "efeito": "tiros ignoram 15% da defesa e dão +30% de dano em alados (anjos, demônios voadores)"
+      },
+      "habilidades": [
+        {
+          "id": "dois_canos",
+          "nome": "Dois Canos",
+          "nivel": 50,
+          "custo": 12,
+          "recarga": 3.0,
+          "golpes": 6,
+          "mult": 0.75,
+          "alcance": 9,
+          "elemento": "fisico",
+          "sensacao": "rajada"
+        },
+        {
+          "id": "abanar_o_cao",
+          "nome": "Abanar o Cão",
+          "nivel": 55,
+          "custo": 22,
+          "recarga": 10.0,
+          "forma": "cone",
+          "cone_graus": 70,
+          "raio": 7,
+          "golpes": 6,
+          "mult": 0.9,
+          "sensacao": "area"
+        },
+        {
+          "id": "rifle_de_alavanca",
+          "nome": "Rifle de Alavanca",
+          "nivel": 60,
+          "custo": 25,
+          "recarga": 12.0,
+          "preparo": 1.0,
+          "mult": 4.5,
+          "alcance": 14,
+          "atravessa": true,
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "nivel": 65,
+          "id": "forma_vingativa",
+          "nome": "Forma Vingativa",
+          "custo": 60,
+          "recarga": 60.0,
+          "duracao": 15,
+          "transformacao": true,
+          "buff": {
+            "velocidade_ataque": 2.3,
+            "critico": 0.3,
+            "tiros_atravessam": true
+          },
+          "sensacao": "buff",
+          "vfx": "pistoleiro_forma_vingativa",
+          "descricao": "O atirador vira o Vingador: olhos em brasa, sobretudo em chamas e a espingarda incandescente. Por 15 s a velocidade de ataque vai para 2,3 ataques por segundo, ganha +30% de chance de crítico e os tiros atravessam inimigos."
+        },
+        {
+          "id": "meio_dia",
+          "nome": "Meio-Dia",
+          "nivel": 70,
+          "custo": 45,
+          "recarga": 35.0,
+          "duracao": 6,
+          "buff": {
+            "velocidade_ataque_mult": 1.6,
+            "critico": 0.25
+          },
+          "recarga_tiros_mult": 0.5,
+          "sensacao": "buff"
+        }
+      ],
+      "arma_principal": "espingarda"
+    },
+    "cacador_de_anjos": {
+      "classe_base": "humano",
+      "nome": "Caçador de Anjos",
+      "papel": "atirador de besta e arpão: derruba, prende e executa alados",
+      "sprite": "cacador_de_anjos",
+      "bonus": {
+        "FOR": 8,
+        "VIT": 4,
+        "ESP": 0,
+        "AGI": 4,
+        "dano_vs_alados_mult": 1.3,
+        "defesa_mult": 1.1
+      },
+      "passiva": {
+        "id": "trofeu",
+        "nome": "Troféu",
+        "efeito": "cada alvo morto marcado dá +2% de dano por 30 s (até 10 acúmulos)"
+      },
+      "habilidades": [
+        {
+          "id": "arpao_de_corrente",
+          "nome": "Arpão de Corrente",
+          "nivel": 50,
+          "custo": 18,
+          "recarga": 8.0,
+          "mult": 2.2,
+          "alcance": 8,
+          "puxar": true,
+          "efeito": {
+            "preso": 1.5,
+            "derrubar_voo": 4.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "rede_de_prata",
+          "nome": "Rede de Prata",
+          "nivel": 55,
+          "custo": 22,
+          "recarga": 16.0,
+          "alcance": 7,
+          "area_raio": 2.5,
+          "efeito": {
+            "enraizar": 3.0,
+            "silencio": 2.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "id": "virote_da_asa",
+          "nome": "Virote da Asa",
+          "nivel": 60,
+          "custo": 24,
+          "recarga": 9.0,
+          "mult": 3.4,
+          "alcance": 12,
+          "efeito": {
+            "lentidao": 3.0
+          },
+          "bonus_vs": {
+            "tag:alado": 1.5
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "nivel": 65,
+          "id": "chuva_de_virotes_benzidos",
+          "nome": "Chuva de Virotes Benzidos",
+          "custo": 65,
+          "recarga": 40.0,
+          "alcance": 14,
+          "area_raio": 6,
+          "virotes": 40,
+          "mult": 1.4,
+          "derruba_voadores": 3.0,
+          "dano_vs_alados_mult": 2.0,
+          "sensacao": "area",
+          "vfx": "cacador_chuva_virotes",
+          "descricao": "Atira uma salva de 40 virotes benzidos para o alto, que chovem numa área de 6 m. Quem voa cai no chão e fica preso por 3 s, e anjos e demônios tomam o dobro de dano."
+        },
+        {
+          "id": "noite_da_cacada",
+          "nome": "Noite da Caçada",
+          "nivel": 70,
+          "custo": 50,
+          "recarga": 40.0,
+          "duracao": 10,
+          "buff": {
+            "dano_mult": 1.3,
+            "velocidade_mult": 1.2
+          },
+          "revela_invisiveis": true,
+          "sensacao": "buff"
+        }
+      ],
+      "arma_principal": "besta"
+    },
+    "gladiador": {
+      "classe_base": "mutante",
+      "nome": "Gladiador",
+      "papel": "tanque de escudo e controle",
+      "sprite": "gladiador",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 10,
+        "ESP": 0,
+        "AGI": 2,
+        "defesa_mult": 1.35,
+        "bloqueio": 0.2,
+        "hp_mult": 1.15
+      },
+      "passiva": {
+        "id": "a_plateia",
+        "nome": "A Plateia",
+        "efeito": "cada bloqueio dá 5 de Fúria; com Fúria cheia o próximo golpe atordoa"
+      },
+      "habilidades": [
+        {
+          "id": "muro_de_vela",
+          "nome": "Muro de Vela",
+          "nivel": 50,
+          "custo": 15,
+          "recarga": 18.0,
+          "duracao": 5,
+          "bloqueio_frontal": 0.7,
+          "provocar_area_raio": 5,
+          "sensacao": "buff"
+        },
+        {
+          "id": "machado_do_carrasco",
+          "nome": "Machado do Carrasco",
+          "nivel": 55,
+          "custo": 25,
+          "recarga": 8.0,
+          "mult": 3.6,
+          "alcance": 1.8,
+          "postura": 70,
+          "efeito": {
+            "atordoar": 1.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "corrente_da_arena",
+          "nome": "Corrente da Arena",
+          "nivel": 60,
+          "custo": 20,
+          "recarga": 12.0,
+          "alcance": 6,
+          "puxar": true,
+          "efeito": {
+            "provocar": 4.0
+          },
+          "sensacao": "debuff"
+        },
+        {
+          "nivel": 65,
+          "id": "ave_arena",
+          "nome": "Ave, Arena!",
+          "custo": 60,
+          "recarga": 60.0,
+          "area_raio": 7,
+          "duracao": 10,
+          "ninguem_sai": true,
+          "dano_por_inimigo": 0.12,
+          "cura_por_abate": 0.15,
+          "sensacao": "buff",
+          "vfx": "gladiador_arena",
+          "descricao": "Grades de ferro sobem do chão e formam uma arena de 7 m por 10 s; ninguém entra nem sai. Ele ganha +12% de dano para cada inimigo preso e cura 15% do HP a cada abate, enquanto a plateia de mortos ruge."
+        },
+        {
+          "id": "campeao",
+          "nome": "Campeão",
+          "nivel": 70,
+          "custo": 40,
+          "recarga": 45.0,
+          "duracao": 10,
+          "reducao_dano": 0.35,
+          "regen_hp_por_s": 0.02,
+          "imune_controle": true,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "abominacao": {
+      "classe_base": "mutante",
+      "nome": "Abominação",
+      "papel": "berserker de dano em área",
+      "sprite": "abominacao",
+      "bonus": {
+        "FOR": 12,
+        "VIT": 4,
+        "ESP": 0,
+        "AGI": 0,
+        "dano_mult": 1.2,
+        "roubo_vida": 0.05,
+        "hp_mult": 1.1
+      },
+      "passiva": {
+        "id": "o_amargo_venceu",
+        "nome": "O Amargo Venceu",
+        "efeito": "abaixo de 50% de HP ganha +20% de dano e 5% de roubo de vida extra"
+      },
+      "habilidades": [
+        {
+          "id": "lamina_de_osso",
+          "nome": "Lâmina de Osso",
+          "nivel": 50,
+          "custo": 15,
+          "recarga": 4.0,
+          "mult": 3.0,
+          "forma": "cone",
+          "cone_graus": 140,
+          "raio": 2.5,
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.2
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "sacos_de_acido",
+          "nome": "Sacos de Ácido",
+          "nivel": 55,
+          "custo": 20,
+          "recarga": 14.0,
+          "area_raio": 4,
+          "mult": 2.0,
+          "elemento": "acido",
+          "efeito": {
+            "corroer_defesa": 0.2
+          },
+          "duracao": 6,
+          "sensacao": "area"
+        },
+        {
+          "id": "segundo_braco",
+          "nome": "O Segundo Braço",
+          "nivel": 60,
+          "custo": 22,
+          "recarga": 10.0,
+          "alcance": 4,
+          "puxar": true,
+          "mult": 2.2,
+          "efeito": {
+            "preso": 1.0
+          },
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "nivel": 65,
+          "id": "forma_colossal",
+          "nome": "Forma Colossal",
+          "custo": 80,
+          "recarga": 90.0,
+          "duracao": 20,
+          "transformacao": true,
+          "escala": 1.8,
+          "buff": {
+            "hp_mult": 3.0,
+            "dano_mult": 3.5,
+            "velocidade_ataque": 0.45,
+            "area_ataque_basico": 2.5,
+            "velocidade_mult": 0.8,
+            "imune_controle": true
+          },
+          "sensacao": "golpe_pesado",
+          "vfx": "abominacao_forma_colossal",
+          "descricao": "A carne se rompe e ele vira um monstro gigante de tentáculos por 20 s: HP triplicado e dano 3,5x, com cada golpe acertando tudo em 2,5 m. Em troca bate devagar (0,45 ataque por segundo), anda mais lento e não pode ser controlado."
+        },
+        {
+          "id": "frenesi_da_carne",
+          "nome": "Frenesi da Carne",
+          "nivel": 70,
+          "custo": 50,
+          "recarga": 45.0,
+          "duracao": 10,
+          "escala": 1.25,
+          "buff": {
+            "dano_mult": 1.4,
+            "velocidade_ataque_mult": 1.3
+          },
+          "custo_hp_por_s": 0.01,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "mechanicus": {
+      "classe_base": "tecnomancer",
+      "nome": "Mechanicus",
+      "papel": "suporte de reparo e invocações",
+      "sprite": "mechanicus",
+      "bonus": {
+        "FOR": 0,
+        "VIT": 4,
+        "ESP": 10,
+        "AGI": 2,
+        "invocacoes_mult": 1.3,
+        "cura_mult": 1.2
+      },
+      "passiva": {
+        "id": "liturgia_da_maquina",
+        "nome": "Liturgia da Máquina",
+        "efeito": "+1 torreta ativa; torretas e aliados perto do Mechanicus recebem 2% de reparo por segundo"
+      },
+      "habilidades": [
+        {
+          "id": "bracos_servos",
+          "nome": "Braços Servos",
+          "nivel": 50,
+          "custo": 25,
+          "recarga": 10.0,
+          "cura_mult": 2.5,
+          "alcance": 5,
+          "reparo_invocacoes_mult": 4.0,
+          "sensacao": "cura"
+        },
+        {
+          "id": "orgao_de_vapor",
+          "nome": "Órgão de Vapor",
+          "nivel": 55,
+          "custo": 30,
+          "recarga": 22.0,
+          "area_raio": 6,
+          "duracao": 8,
+          "buff": {
+            "velocidade_ataque_mult": 1.2,
+            "recurso_regen_mult": 1.5
+          },
+          "sensacao": "buff"
+        },
+        {
+          "id": "torreta_relicario",
+          "nome": "Torreta-Relicário",
+          "nivel": 60,
+          "custo": 40,
+          "recarga": 30.0,
+          "duracao": 25,
+          "invocacao": "torreta_relicario",
+          "cura_area_por_s_mult": 0.4,
+          "sensacao": "invocacao"
+        },
+        {
+          "nivel": 65,
+          "id": "legiao_de_servos",
+          "nome": "Legião de Servos",
+          "custo": 70,
+          "recarga": 60.0,
+          "duracao": 20,
+          "invoca": {
+            "cranio_servo": 4,
+            "torreta_relicario": 2
+          },
+          "sobrecarga": {
+            "cadencia_mult": 2.0,
+            "duracao": 8
+          },
+          "cura_por_s_aliados": 0.02,
+          "sensacao": "buff",
+          "vfx": "mechanicus_legiao",
+          "descricao": "Abre a mochila e solta 4 crânios-servos voadores, que atiram e consertam, e 2 torretas-relicário. Todas as invocações entram em sobrecarga, com cadência dobrada por 8 s, e os aliados por perto se reparam 2% por segundo."
+        },
+        {
+          "id": "engrenagem_sagrada",
+          "nome": "Engrenagem Sagrada",
+          "nivel": 70,
+          "custo": 55,
+          "recarga": 60.0,
+          "area_raio": 7,
+          "duracao": 6,
+          "escudo_mult": 3.0,
+          "imune_controle": true,
+          "sensacao": "buff"
+        }
+      ]
+    },
+    "engenheiro_herege": {
+      "classe_base": "tecnomancer",
+      "nome": "Engenheiro Herege",
+      "papel": "artilharia e dano em área",
+      "sprite": "engenheiro_herege",
+      "bonus": {
+        "FOR": 4,
+        "VIT": 4,
+        "ESP": 8,
+        "AGI": 0,
+        "dano_mult": 1.2,
+        "alcance_mult": 1.15,
+        "defesa_mult": 1.1
+      },
+      "passiva": {
+        "id": "sino_derretido",
+        "nome": "Sino Derretido",
+        "efeito": "dano em área atordoa por 0,3 s inimigos sagrados (anjos, Não-Julgados) e dá +20% de dano neles"
+      },
+      "habilidades": [
+        {
+          "id": "canhao_sino",
+          "nome": "Canhão-Sino",
+          "nivel": 50,
+          "custo": 25,
+          "recarga": 6.0,
+          "preparo": 0.6,
+          "mult": 3.4,
+          "alcance": 11,
+          "area_raio": 2.5,
+          "postura": 50,
+          "sensacao": "area"
+        },
+        {
+          "id": "martelo_de_bobina",
+          "nome": "Martelo de Bobina",
+          "nivel": 55,
+          "custo": 18,
+          "recarga": 7.0,
+          "mult": 2.6,
+          "alcance": 1.8,
+          "corrente_saltos": 3,
+          "elemento": "eletrico",
+          "sensacao": "golpe_pesado"
+        },
+        {
+          "id": "exoesqueleto",
+          "nome": "Exoesqueleto",
+          "nivel": 60,
+          "custo": 30,
+          "recarga": 30.0,
+          "duracao": 10,
+          "buff": {
+            "defesa_mult": 1.3,
+            "velocidade_mult": 1.15
+          },
+          "imune_empurrao": true,
+          "sensacao": "buff"
+        },
+        {
+          "id": "bomba_atomica",
+          "nome": "Bomba Atômica",
+          "nivel": 65,
+          "custo": 80,
+          "recarga": 60.0,
+          "alvo": "chao",
+          "alcance": 12,
+          "preparo": 1.0,
+          "voo": 0.9,
+          "elemento": "fogo",
+          "dano": {
+            "mult_centro": 9.0,
+            "raio_centro": 1.2,
+            "raio": 5.5,
+            "mult_borda": 1.5,
+            "queda": "linear"
+          },
+          "radiacao": {
+            "raio": 6.0,
+            "duracao": 8.0,
+            "dano_por_s_mult": 0.35,
+            "cura_recebida_mult": 0.7,
+            "acumula": false
+          },
+          "empurrao": {
+            "raio": 3.0,
+            "forca": 2.5
+          },
+          "postura": 120,
+          "sensacao": "area",
+          "vfx": "herege_bomba_explosao",
+          "vfx_projetil": "herege_bomba_arremesso",
+          "vfx_chao": "herege_radiacao",
+          "descricao": "Arremessa uma ogiva herege no chão. Quem está no centro (até 1,2 m) toma 900% de dano; o dano cai até 150% na borda (5,5 m). A área fica radioativa por 8 s: quem estiver perto toma 35%/s e recebe 30% menos cura."
+        },
+        {
+          "id": "dobre_de_finados",
+          "nome": "Dobre de Finados",
+          "nivel": 70,
+          "custo": 65,
+          "recarga": 45.0,
+          "canalizacao": 3.0,
+          "golpes": 6,
+          "mult": 2.5,
+          "alcance": 12,
+          "area_raio": 3.0,
+          "sensacao": "area"
+        }
+      ]
+    }
+  }
+}

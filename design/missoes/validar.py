@@ -95,7 +95,7 @@ for q in MS.values():
         if not any(f'"escolha": "{e["id"]}"' in json.dumps(DL[NPC[x]["dialogo"]], ensure_ascii=False) for x in entregas):
             err(f"{c}: escolha '{e['id']}' não aparece em diálogo")
 
-CONDS = {"missao_disponivel", "missao_ativa", "missao_pronta", "missao_concluida", "missao_nao_iniciada", "faccao", "flag", "sem_flag", "tem_item"}
+CONDS = {"missao_disponivel", "missao_ativa", "missao_pronta", "missao_concluida", "missao_nao_iniciada", "faccao", "flag", "sem_flag", "tem_item", "classe"}
 ACOES = {"aceitar_missao", "concluir_missao", "escolha", "falhar_missao", "cumprir_falar", "abrir_loja", "abrir_ferreiro",
          "abrir_armazem", "abrir_treinador", "dar_item", "remover_item", "definir_flag"}
 SERV = {"abrir_loja": {x["id"] for x in lojas["lojas"]}, "abrir_ferreiro": {x["id"] for x in lojas["ferreiros"]},
