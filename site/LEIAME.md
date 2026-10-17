@@ -17,7 +17,8 @@ fica desligada).
 | Caminho | O que é |
 |---|---|
 | `publico/index.html` | o site inteiro: HTML, CSS e JS num arquivo só |
-| `publico/img/` | recortes das artes do jogo (`assets/personagens`, `assets/ambiente`, `assets/monstros`) |
+| `publico/img/` | imagens geradas das artes do jogo por `tools/preparar_imagens.py` (cenas sem HUD, logo, tiras animadas dos personagens + `sprites.json`); `cripta.jpg` é a captura antiga |
+| `tools/preparar_imagens.py` | regera `publico/img/` lendo de `/mnt/project-files` (rode quando mudar personagem, área ou tela de carregamento) |
 | `servidor.js` | rotas estáticas, API de contas, limite de tentativas por IP |
 | `lib/contas.js` | banco de contas em JSON, senha em scrypt |
 | `tools/gerar_previa.py` | gera a versão publicada como Artifact (modo prévia, não grava conta) |

@@ -83,7 +83,7 @@ p{margin:0}
 
 /* ------------------------------------------------------------------ herói */
 .heroi{position:relative; overflow:hidden; border-bottom:1px solid rgba(106,58,34,.4)}
-.heroi img{
+.heroi img.fundo{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
   filter:saturate(.82) contrast(1.04) brightness(.95);
 }
@@ -91,7 +91,7 @@ p{margin:0}
   position:absolute; inset:0;
   background:
     radial-gradient(90% 70% at 22% 48%, rgba(255,122,26,.12), transparent 62%),
-    linear-gradient(100deg, rgba(7,6,6,.92) 10%, rgba(7,6,6,.6) 48%, rgba(7,6,6,.22) 100%),
+    linear-gradient(100deg, rgba(7,6,6,.86) 8%, rgba(7,6,6,.5) 44%, rgba(7,6,6,.12) 100%),
     linear-gradient(0deg, var(--breu) 1%, transparent 36%);
 }
 .heroi .env{position:relative; padding-block:clamp(70px,11vw,124px)}
@@ -233,6 +233,75 @@ footer{border-top:1px solid rgba(106,58,34,.4); background:var(--breu)}
 footer .env{padding-block:40px; display:flex; flex-wrap:wrap; gap:18px 36px; align-items:center; justify-content:space-between}
 footer p{font-size:14px; color:#6f675f}
 
+
+/* ------------------------------------------------------------------ 0.9: logo, sem bandeira, caminhos, jornada */
+.titulao img{width:min(520px,86vw); height:auto; filter:drop-shadow(0 10px 40px rgba(0,0,0,.85))}
+.titulao{background:none; -webkit-background-clip:border-box; background-clip:border-box; line-height:0; margin-left:-8px}
+.heroi img.fundo{object-position:50% 30%}
+.faccao.sem-bandeira{margin-top:clamp(20px,3vw,34px); flex-direction:row; align-items:center; gap:clamp(18px,3vw,34px)}
+.faccao.sem-bandeira::before{background:linear-gradient(90deg, #5a0f0b, #b8352a, transparent)}
+.faccao.sem-bandeira svg{flex:none}
+.faccao.sem-bandeira > div{display:flex; flex-direction:column; gap:10px; max-width:70ch}
+@media (max-width:620px){ .faccao.sem-bandeira{flex-direction:column; align-items:flex-start} }
+
+.classes{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+@media (max-width:520px){ .classes{grid-template-columns:1fr} }
+.palco{height:340px}
+.quadro{margin:0}
+.classe.warlord{grid-column:1/-1; display:grid; grid-template-columns:minmax(240px,1fr) 2fr}
+.classe.warlord .palco{height:auto; min-height:300px}
+.classe.warlord .corpo{border-top:0; border-left:1px solid rgba(106,58,34,.35); justify-content:center; padding:26px clamp(20px,3vw,36px)}
+@media (max-width:640px){ .classe.warlord{grid-template-columns:1fr} .classe.warlord .corpo{border-left:0; border-top:1px solid rgba(106,58,34,.35)} }
+.classe.warlord .palco{background:radial-gradient(60% 55% at 50% 92%, rgba(184,53,42,.2), transparent 70%), #0a0909}
+.sprite{
+  --w:100px; --h:200px; --n:1; --dur:1s;
+  width:var(--w); height:var(--h); margin-bottom:22px;
+  background-repeat:no-repeat; background-size:auto 100%;
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.9));
+  animation:parado var(--dur) steps(var(--n)) infinite;
+}
+@keyframes parado{ from{background-position:0 0} to{background-position:calc(var(--w) * var(--n) * -1) 0} }
+@media (prefers-reduced-motion:reduce){ .sprite{animation:none} }
+.tag.w{color:#d4584a}
+.classe .corpo{flex:1}
+.caminhos{display:flex; border-top:1px solid rgba(106,58,34,.35)}
+.caminhos button{
+  flex:1; min-width:0; padding:11px 4px; background:transparent; border:0; border-right:1px solid rgba(106,58,34,.3);
+  color:var(--cinza); cursor:pointer; font-family:var(--rotulo); font-weight:600; font-size:12.5px;
+  letter-spacing:.08em; text-transform:uppercase; line-height:1.2; transition:color .2s, background .2s;
+}
+.caminhos button:last-child{border-right:0}
+.caminhos button:hover{color:var(--osso)}
+.caminhos button[aria-selected="true"]{color:var(--osso); background:rgba(201,154,62,.08); box-shadow:inset 0 -2px 0 var(--ouro)}
+
+.nivel{font-family:var(--rotulo); font-weight:600; text-transform:uppercase; letter-spacing:.18em; font-size:12.5px; color:var(--acido); margin:0}
+.nivel.a{color:var(--ouro)} .nivel.v{color:#7fa6c4}
+.areas{display:flex; flex-direction:column; gap:clamp(40px,6vw,72px)}
+.area{display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(24px,4vw,52px); align-items:center}
+.area:nth-child(even){grid-template-columns:.9fr 1.1fr}
+.area:nth-child(even) .quadro{order:2}
+.area.alta .quadro{max-width:340px; justify-self:center; background:#050404}
+.area-txt{display:flex; flex-direction:column; gap:14px; min-width:0}
+.area-txt h3, .masmorra h3, .evento-txt h3{font-size:clamp(21px,2.4vw,26px); text-transform:none; letter-spacing:.03em; font-weight:700}
+.area-txt > p:not(.nivel):not(.cit){color:#bdb4a6}
+.documento.curto{padding-left:18px; gap:.6em; font-size:15.5px}
+@media (max-width:860px){
+  .area, .area:nth-child(even){grid-template-columns:1fr}
+  .area:nth-child(even) .quadro{order:0}
+}
+
+.masmorras{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:clamp(14px,2vw,22px); margin-top:clamp(28px,4vw,44px)}
+.masmorra{border:1px solid rgba(106,58,34,.4); background:linear-gradient(180deg,#141111,#090808); padding:22px 22px 18px; display:flex; flex-direction:column; gap:10px}
+.masmorra ol{margin:4px 0 0; padding-left:1.4em; font-size:15.5px; color:#bdb4a6; display:flex; flex-direction:column; gap:4px}
+.masmorra li::marker{color:var(--sangue); font-family:var(--display); font-weight:700}
+
+.eventos{display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,3vw,34px)}
+@media (max-width:820px){ .eventos{grid-template-columns:1fr} }
+.evento{border:1px solid rgba(106,58,34,.4); background:linear-gradient(180deg,#141111,#090808); display:flex; flex-direction:column}
+.evento .quadro{border:0; border-bottom:1px solid rgba(106,58,34,.4)}
+.evento-txt{padding:22px clamp(20px,3vw,28px) 26px; display:flex; flex-direction:column; gap:10px}
+.evento-txt > p:not(.nivel){color:#bdb4a6; font-size:16px}
+
 @media (prefers-reduced-motion:reduce){ *{transition:none !important} }
 </style>
 </head>
@@ -243,10 +312,10 @@ footer p{font-size:14px; color:#6f675f}
     <div class="marca">DARK<span>·</span>PASSAGE</div>
     <nav class="menu">
       <a href="#mundo" data-opcional>O mundo</a>
-      <a href="#trombetas" data-opcional>Trombetas</a>
       <a href="#faccoes" data-opcional>Facções</a>
       <a href="#classes">Classes</a>
-      <a href="#cripta" data-opcional>A cripta</a>
+      <a href="#jornada" data-opcional>Jornada</a>
+      <a href="#masmorras" data-opcional>Masmorras</a>
       <a href="#conta">Conta</a>
       <a href="#baixar">Baixar</a>
     </nav>
@@ -254,14 +323,14 @@ footer p{font-size:14px; color:#6f675f}
 </header>
 
 <div class="heroi">
-  <img src="img/cena_deserto.jpg" alt="Acampamento da Vela à noite, entre dunas e prédios soterrados do Deserto de Absinto">
+  <img class="fundo" src="img/heroi.jpg" alt="O Líder dos Anjos, o Warlord e o Líder dos Demônios diante de catedrais em ruínas, sob um eclipse vermelho">
   <div class="veu"></div>
   <div class="env">
     <div class="heroi-txt">
       <p class="rotulo">MMORPG isométrico · em desenvolvimento</p>
-      <h1 class="titulao">DARK<br>PASSAGE</h1>
+      <h1 class="titulao"><img src="img/logo.png" alt="Dark Passage" width="960" height="554"></h1>
       <p class="mote">O fim começou. O fim não termina.</p>
-      <p class="chamada">Ano 31 do Impasse. Deus ordenou o fim do mundo, e o homem disse não.</p>
+      <p class="chamada">Ano 31 do Impasse. Deus ordenou o fim do mundo, e o homem disse não. Sete classes, duas facções e um mercenário que cospe nas duas.</p>
       <div class="acoes">
         <a class="btn btn-forte" href="#conta">Criar conta</a>
         <a class="btn" href="#baixar">Baixar o jogo</a>
@@ -287,47 +356,25 @@ footer p{font-size:14px; color:#6f675f}
         <p class="mote">O fim começou. O fim não termina.</p>
       </blockquote>
       <figure class="quadro">
-        <img src="img/rua.jpg" alt="Rua em ruínas iluminada por fogueiras, com sobreviventes das seis classes">
-        <figcaption>Paróquia de São Lázaro · captura do jogo</figcaption>
+        <img src="img/sao_lazaro.jpg" alt="A igreja de São Lázaro à noite, com vitrais acesos em vermelho e fogueiras no adro" loading="lazy">
+        <figcaption>Igreja de São Lázaro · captura do jogo</figcaption>
       </figure>
     </div>
-  </div>
-</section>
 
-<section id="trombetas" class="fundo-breu">
-  <div class="env">
-    <div class="cab">
+    <div class="cab" id="trombetas" style="margin-top:var(--faixa)">
       <p class="rotulo">A guerra no mundo</p>
       <h2>As Sete Trombetas</h2>
-      <p class="sumido" style="max-width:62ch">Cada trombeta foi enterrada sob uma cidade e entregue a um arauto. Cada uma é uma frente da guerra. São Lázaro é só uma delas.</p>
+      <p class="sumido" style="max-width:62ch">Cada trombeta foi enterrada sob uma cidade e entregue a um arauto. Cada uma é uma frente da guerra.</p>
     </div>
     <div class="chefes trombetas">
-      <div class="chefe"><span class="andar">I · tocou</span><b>Granizo e fogo</b><p>Um terço das árvores queimou numa noite. As que ficaram de pé nunca mais deram folha.</p></div>
+      <div class="chefe"><span class="andar">I · tocou</span><b>Granizo e fogo</b><p>Um terço das árvores queimou numa noite. A mata que hoje chamam de Novo Éden queima por fora até agora e ninguém sabe por que continua viva.</p></div>
       <div class="chefe"><span class="andar">II · tocou</span><b>A montanha no mar</b><p>O litoral virou cinza flutuante. Quem vem de lá diz que o mar ainda fumega.</p></div>
       <div class="chefe"><span class="andar">III · tocou</span><b>Absinto</b><p>Dizem que a estrela caiu e amargou um terço das águas. A Rádio São Lázaro diz outra coisa, toda noite, às 03h11.</p></div>
-      <div class="chefe"><span class="andar">IV · tocou</span><b>O sol partido</b><p>Um terço da luz se apagou. O meio-dia virou crepúsculo, e uma geração nasceu sem ver o sol inteiro.</p></div>
-      <div class="chefe viva"><span class="andar">V · calada</span><b>São Lázaro</b><p>O poço do abismo abriu, e a Legião Blasfema subiu por ele. A trombeta deu meia nota e foi lacrada com chumbo. É aqui que você entra.</p></div>
+      <div class="chefe"><span class="andar">IV · tocou</span><b>O Sol Terço</b><p>Um terço da luz se apagou. No Egito o Nilo voltou e cobriu de lodo preto a areia que tinha enterrado tudo.</p></div>
+      <div class="chefe viva"><span class="andar">V · calada</span><b>São Lázaro</b><p>O poço do abismo abriu, e a Legião Blasfema subiu por ele. A trombeta deu meia nota e foi lacrada com chumbo. É aqui que a Vigília resiste.</p></div>
       <div class="chefe"><span class="andar">VI · ninguém sabe</span><b>O Eufrates</b><p>Peregrinos falam de quatro anjos soltos no Oriente e de um exército que não cabe no horizonte. Nenhum peregrino voltou para confirmar.</p></div>
-      <div class="chefe"><span class="andar">VII · perdida</span><b>A última</b><p>Nunca foi encontrada. O Juízo e a Vigília procuram. Quem achar a sétima decide o fim.</p></div>
+      <div class="chefe"><span class="andar">VII · perdida</span><b>A última</b><p>Nunca foi encontrada. O Juízo e a Vigília procuram. Há quem jure que ela nem é de metal. Quem achar a sétima decide o fim.</p></div>
     </div>
-  </div>
-</section>
-
-<section id="deserto" class="fundo-pedra">
-  <div class="env">
-    <div class="cab">
-      <p class="rotulo">Área inicial</p>
-      <h2>Deserto de Absinto</h2>
-    </div>
-    <blockquote class="documento">
-      <p class="doc-cab">Rádio São Lázaro · boletim das 03h11 · noite 11.214 do Impasse</p>
-      <p class="estatica">(estática)</p>
-      <p>Boa noite, ouvinte. O Amargo caiu de novo a tarde inteira, fino como farinha. Não bebam da chuva. A água do Rio Amargo continua verde e continua sendo a única que corre. Na beira dele ainda nasce alguma coisa.</p>
-      <p>A maré de areia andou três metros para o leste. A rua de hoje continua sendo o telhado de ontem: quem tiver parente no quarto andar, cave pela janela. O bonde da linha 7 sai com vento norte. Sem vento, ninguém sai.</p>
-      <p>Os mortos do cemitério continuam de pé, com o lacre de cera inteiro no peito. Não estão com pressa. Já foram chamados uma vez.</p>
-      <p>E ela continua no lugar. Repito: continua no lugar. Aqui é a Rádio São Lázaro. Boa noite.</p>
-      <p class="assinatura">— Isaura Valente</p>
-    </blockquote>
   </div>
 </section>
 
@@ -357,9 +404,9 @@ footer p{font-size:14px; color:#6f675f}
         <p>Três exércitos que o Céu obrigou a marchar juntos. O <strong>Coro</strong> dos anjos obedece. A <strong>Legião Blasfema</strong> cobra as ruínas prometidas e ainda grita por um general que sumiu. A <strong>Comunhão do Amargo</strong> bebe a água envenenada como sacramento e sabe que é descartável.</p>
         <p class="cit">E o Coro recebeu ordem de subir, e subiu. E a Legião, que não tinha asas, ficou para segurar a terra.<span>Versículo do Coro · Livro da Retirada</span></p>
         <ul>
+          <li>Classes: Anjo, Demônio e Cultista</li>
+          <li>Começa em Jerusalém, ao pé do Monte Hermon</li>
           <li>Objetivo: consumar o Apocalipse</li>
-          <li>Símbolo: trombeta partida em chamas brancas</li>
-          <li>Cores: branco osso, ouro sujo, vermelho sangue</li>
         </ul>
       </article>
       <article class="faccao vigilia">
@@ -378,123 +425,302 @@ footer p{font-size:14px; color:#6f675f}
         <p>Um povo que se recusou a morrer e virou exército por falta de opção. A <strong>Cerca</strong> segura o arame. Os <strong>Engenheiros Hereges</strong> mantêm a Vela acesa com cobre e blasfêmia. Os <strong>Sineiros</strong> derretem os sinos da paróquia e fazem bala.</p>
         <p class="cit">Daqui ninguém passa. Até hoje ninguém passou.<span>Despacho da Vela nº 0 · Capitã Odete Ferrolho</span></p>
         <ul>
+          <li>Classes: Humano, Mutante e Tecnomancer</li>
+          <li>Começa na cidade de São Lázaro, no Deserto de Absinto</li>
           <li>Objetivo: cancelar o Apocalipse</li>
-          <li>Símbolo: vela acesa dentro de uma engrenagem</li>
-          <li>Cores: azul aço, verde ácido, laranja brasa</li>
         </ul>
       </article>
     </div>
+    <article class="faccao sem-bandeira">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <g fill="none" stroke="#b8352a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M28 40l8-16 7 12 7-16 7 16 7-12 8 16z"/>
+          <path d="M28 40h44"/>
+          <path d="M50 46v42M42 54h16"/>
+          <path d="M50 46l-4 8h8z" opacity=".6"/>
+        </g>
+      </svg>
+      <div>
+        <h3>Sem bandeira: o Warlord</h3>
+        <p class="lema">“Nem Arauto. Nem Vigília. Apenas ódio.”</p>
+        <p>Para ele o mundo já terminou. Os Arautos pregam ordem, a Vigília abraça o caos, e ele cospe nos dois. Começa na Paróquia de São Lázaro, entra nas bases dos dois lados como mercenário e não jura por ninguém.</p>
+      </div>
+    </article>
   </div>
 </section>
 
 <section id="classes" class="fundo-pedra">
   <div class="env">
     <div class="cab">
-      <p class="rotulo">Seis classes · três papéis de cada lado</p>
+      <p class="rotulo">Sete classes · evolução no nível 50</p>
       <h2>Quem você vai ser no fim do mundo</h2>
+      <p class="sumido" style="max-width:62ch">No nível 50 cada classe escolhe um de dois caminhos, numa missão que começa com um exilado numa ilhota do Rio Amargo. A escolha é para sempre. Toque nos nomes para ver cada caminho.</p>
     </div>
-    <div class="classes">
-      <article class="classe">
-        <div class="palco"><img src="img/classe_anjo.png" alt="Anjo: asas de penas sujas, sobretudo-batina branco osso e halo de ferro quebrado"></div>
+    <div class="classes" id="lista-classes">
+
+      <article class="classe" data-classe="anjo">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
           <p class="tag a">Arautos · Suporte</p>
           <h3>Anjo</h3>
-          <p>Soldado frio da ordem divina. Cura os seus enquanto julga todo o resto.</p>
+          <p class="papel">Soldado frio da ordem divina. Cura os seus enquanto julga todo o resto.</p>
           <p class="cit">Eu não odeio você, homem. Eu só fui feito antes de você.<span>Arauto do Coro, a um prisioneiro</span></p>
-          <div class="ficha"><span>Graça</span><span>ESP · FOR</span></div>
+          <div class="ficha"><span>Graça</span><span>ESP · FOR</span><span>Voa</span></div>
+        </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Anjo">
+          <button role="tab" aria-selected="true" data-id="anjo">Anjo</button>
+          <button role="tab" aria-selected="false" data-id="arcanjo" data-papel="Linha de frente que cura em aura.">Arcanjo</button>
+          <button role="tab" aria-selected="false" data-id="serafim" data-papel="Suporte puro: cura, escudo de luz e ressurreição.">Serafim</button>
         </div>
       </article>
-      <article class="classe">
-        <div class="palco"><img src="img/classe_demonio.png" alt="Demônio: asas de morcego rasgadas, couro preto e rachaduras de brasa no peito"></div>
+
+      <article class="classe" data-classe="demonio">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
-          <p class="tag a">Arautos · Tanque</p>
+          <p class="tag a">Arautos · Tanque e assassino</p>
           <h3>Demônio</h3>
-          <p>Marcha ao lado dos anjos pela promessa das ruínas. Quanto mais bate, mais queima.</p>
+          <p class="papel">Marcha ao lado dos anjos pela promessa das ruínas. Quanto mais bate, mais queima.</p>
           <p class="cit">Prometeram-nos a Terra. Ninguém disse que viria cheia de gente.<span>Malfas</span></p>
-          <div class="ficha"><span>Brasa Infernal</span><span>FOR · VIT</span></div>
+          <div class="ficha"><span>Brasa Infernal</span><span>FOR · VIT</span><span>Voa</span></div>
+        </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Demônio">
+          <button role="tab" aria-selected="true" data-id="demonio">Demônio</button>
+          <button role="tab" aria-selected="false" data-id="lorde_das_trevas" data-papel="Tanque de escudo-torre e espadão.">Lorde das Trevas</button>
+          <button role="tab" aria-selected="false" data-id="ceifador" data-papel="Assassino de alvo único, feito de sombra.">Ceifador</button>
         </div>
       </article>
-      <article class="classe">
-        <div class="palco"><img src="img/classe_cultista.png" alt="Cultista: túnica vinho remendada, máscara de gás de osso e grimório acorrentado"></div>
+
+      <article class="classe" data-classe="cultista">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
           <p class="tag a">Arautos · Dano mágico</p>
           <h3>Cultista</h3>
-          <p>Humano que viu salvação no fim do mundo. Paga cada magia com o próprio sangue.</p>
+          <p class="papel">Humano que viu salvação no fim do mundo. Paga cada magia com o próprio sangue, e um cão do abismo anda ao lado dele.</p>
           <p class="cit">O Amargo arde na boca. Depois arde a alma. Depois não arde mais nada.<span>Madre Ivone das Chagas</span></p>
           <div class="ficha"><span>Sangue</span><span>ESP</span></div>
         </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Cultista">
+          <button role="tab" aria-selected="true" data-id="cultista">Cultista</button>
+          <button role="tab" aria-selected="false" data-id="arquimago" data-papel="Dano mágico em área. Canhão de vidro.">Arquimago</button>
+          <button role="tab" aria-selected="false" data-id="profeta_do_amargo" data-papel="Radiação contínua e controle. Halo da podridão e asas de mariposa.">Profeta do Amargo</button>
+        </div>
       </article>
-      <article class="classe">
-        <div class="palco"><img src="img/classe_humano.png" alt="Humano: chapéu de aba larga, sobretudo de couro, bandoleira e escopeta de cano duplo"></div>
+
+      <article class="classe" data-classe="humano">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
           <p class="tag v">Vigília · Dano à distância</p>
           <h3>Humano</h3>
-          <p>O povo comum que se recusou a morrer. Vive de pólvora, fôlego e água benta.</p>
+          <p class="papel">O povo comum que se recusou a morrer. Besta pesada, escopeta serrada, pólvora e água benta.</p>
           <p class="cit">Cada bala aqui já foi sino. Ainda toca quando sai.<span>Gaspar Bigorna, sineiro</span></p>
           <div class="ficha"><span>Munição · Fôlego</span><span>AGI</span></div>
         </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Humano">
+          <button role="tab" aria-selected="true" data-id="humano">Humano</button>
+          <button role="tab" aria-selected="false" data-id="pistoleiro" data-papel="Espingarda de dois canos e revólveres. Balas bentas.">Pistoleiro</button>
+          <button role="tab" aria-selected="false" data-id="cacador_de_anjos" data-papel="Besta e arpão: derruba, prende e executa o que tem asa.">Caçador de Anjos</button>
+        </div>
       </article>
-      <article class="classe">
-        <div class="palco"><img src="img/classe_mutante.png" alt="Mutante: braço gigante de placas soldadas, respirador e machado feito de placa de trânsito"></div>
+
+      <article class="classe" data-classe="mutante">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
           <p class="tag v">Vigília · Tanque</p>
           <h3>Mutante</h3>
-          <p>Deformado pelas pragas e chamado de abominação. Prova que a vida se adapta até ao fim.</p>
+          <p class="papel">Deformado pelas pragas e chamado de abominação. Prova que a vida se adapta até ao fim.</p>
           <p class="cit">Chamam meu filho de abominação. Ele ainda me chama de mãe.<span>Mãe Cardo</span></p>
           <div class="ficha"><span>Fúria</span><span>VIT · FOR</span></div>
         </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Mutante">
+          <button role="tab" aria-selected="true" data-id="mutante">Mutante</button>
+          <button role="tab" aria-selected="false" data-id="gladiador" data-papel="Tanque de escudo e controle. Vive para a plateia.">Gladiador</button>
+          <button role="tab" aria-selected="false" data-id="abominacao" data-papel="Berserker de dano em área. Cresce até virar colosso.">Abominação</button>
+        </div>
       </article>
-      <article class="classe">
-        <div class="palco"><img src="img/classe_tecnomancer.png" alt="Tecnomancer: caldeira nas costas com bobinas de tesla, braço mecânico e cajado com lanterna rúnica"></div>
+
+      <article class="classe" data-classe="tecnomancer">
+        <div class="palco"><div class="sprite" role="img"></div></div>
         <div class="corpo">
           <p class="tag v">Vigília · Suporte</p>
           <h3>Tecnomancer</h3>
-          <p>Cientista herege que soldou ocultismo em caldeira. Trabalha para calar as trombetas.</p>
+          <p class="papel">Cientista herege que soldou ocultismo em caldeira. Ergue torretas e trabalha para calar as trombetas.</p>
           <p class="cit">Se Ele não fala, alguém precisa interromper.<span>Doutor Anselmo Graxa, caderno da Vela</span></p>
           <div class="ficha"><span>Carga</span><span>ESP · AGI</span></div>
+        </div>
+        <div class="caminhos" role="tablist" aria-label="Evoluções do Tecnomancer">
+          <button role="tab" aria-selected="true" data-id="tecnomancer">Tecnomancer</button>
+          <button role="tab" aria-selected="false" data-id="mechanicus" data-papel="Reparo e invocações. Uma legião de torretas.">Mechanicus</button>
+          <button role="tab" aria-selected="false" data-id="engenheiro_herege" data-papel="Artilharia e dano em área. Sinos derretidos em bomba.">Engenheiro Herege</button>
+        </div>
+      </article>
+
+      <article class="classe warlord" data-classe="warlord">
+        <div class="palco"><div class="sprite" role="img"></div></div>
+        <div class="corpo">
+          <p class="tag w">Sem facção · Tanque ofensivo</p>
+          <h3>Warlord</h3>
+          <p class="papel">Cavaleiro de armadura negra espinhosa, coroa de pontas e capa vermelha rasgada. Espada serrilhada e escudo de ferro: dano pesado em arco, provocação e muralha.</p>
+          <p class="cit">O mundo acabou. Eu fiquei.<span>Gravado no escudo de um Warlord</span></p>
+          <div class="ficha"><span>Ódio</span><span>FOR · VIT</span><span>Mercenário</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="jornada" class="fundo-breu">
+  <div class="env">
+    <div class="cab">
+      <p class="rotulo">Do nível 1 ao 70</p>
+      <h2>A jornada pelo fim do mundo</h2>
+      <p class="sumido" style="max-width:62ch">Cada área é um lugar inteiro: um chão, um céu, uma família de monstros e gente com história. A maioria dos monstros só ataca se apanhar.</p>
+    </div>
+
+    <div class="areas">
+      <article class="area">
+        <figure class="quadro"><img src="img/sao_lazaro.jpg" alt="Cidade de São Lázaro à noite" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel v">Nível 1 a 12 · início da Vigília</p>
+          <h3>São Lázaro e o Deserto de Absinto</h3>
+          <p>A cidade está enterrada na areia até o quarto andar: a rua de hoje é o telhado de ontem. A igreja, a rádio, o abatedouro, o cemitério e o pátio dos bondes-veleiros. Do lado de fora, dunas radioativas e o Rio Amargo, a única água que ainda corre.</p>
+          <blockquote class="documento curto">
+            <p class="doc-cab">Rádio São Lázaro · boletim das 03h11</p>
+            <p>A água do Rio Amargo continua verde e continua sendo a única que corre. Os mortos do cemitério continuam de pé, com o lacre de cera inteiro no peito. E ela continua no lugar. Repito: continua no lugar.</p>
+            <p class="assinatura">— Isaura Valente</p>
+          </blockquote>
+        </div>
+      </article>
+
+      <article class="area">
+        <figure class="quadro"><img src="img/jerusalem.jpg" alt="Jerusalém em ruínas à noite, com fogueiras e o domo de pedra" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel a">Nível 1 a 12 · início dos Arautos</p>
+          <h3>Jerusalém e o Monte Hermon</h3>
+          <p>A cidade santa onde o Juízo começou, aberta pela Porta Dourada no primeiro toque. Pedra branca suja de cinza, oliveiras mortas, a Geena ardendo no vale e neve de cinza no cume do Hermon, onde os duzentos Vigilantes juraram descer juntos.</p>
+          <p class="cit">Daqui partiu a primeira nota. Daqui partirá a última.<span>Versículo do Coro</span></p>
+        </div>
+      </article>
+
+      <article class="area">
+        <figure class="quadro"><img src="img/novo_eden.jpg" alt="Mata escura com árvores de folhas luminosas e um portão de pedra" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel">Nível 12 a 30</p>
+          <h3>Novo Éden</h3>
+          <p>A mata da primeira trombeta. Queimou por fora numa noite e continua viva por dentro: folhas que brilham no escuro, lagos parados, cervos que não deviam existir. No canto norte, um mastro de rádio de 120 metros pisca fora de ritmo.</p>
+          <p class="cit">O que queima de pé, brota de pé.<span>Dito dos lenhadores da Vigília</span></p>
+        </div>
+      </article>
+
+      <article class="area alta">
+        <figure class="quadro"><img src="img/torre.jpg" alt="Torre de rádio de treliça vermelha com estática violeta no topo" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel">Raid · nível 12 a 30 · 5 andares</p>
+          <h3>A Torre, Repetidora do Granizo</h3>
+          <p>Foi por esta torre que passou a ordem que lançou a ogiva. Hoje é da Congregação da Portadora: radioamadores, desertores e cultistas que ligam os transmissores em potência máxima toda noite e varrem a faixa morta entre as estações. Algo responde.</p>
+          <p class="cit">A sétima trombeta não é de metal. É uma frequência. Quem a transmitir decide o fim.<span>Credo da Congregação</span></p>
+        </div>
+      </article>
+
+      <article class="area">
+        <figure class="quadro"><img src="img/atlantida.jpg" alt="Templo de colunas brancas cercado de canais, numa ilha isolada no escuro" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel">Nível 30 a 45</p>
+          <h3>Atlântida, a Planície Sob a Redoma</h3>
+          <p>Antes de 1962 houve outro Juízo, sobre uma só ilha. Ela afundou num dia e numa noite terrível, mas Thoth dobrou a Grande Planície para baixo do mundo, dentro de uma redoma. A meia nota de São Lázaro trincou a redoma, e agora uma fenda de luz verde se abre no meio da mata. Lá dentro o sol está se pondo há onze mil anos.</p>
+          <p class="cit">O que está embaixo é como o que está em cima.<span>Inscrição no pilar de oricalco</span></p>
+        </div>
+      </article>
+
+      <article class="area">
+        <figure class="quadro"><img src="img/egito.jpg" alt="Pirâmides, pilonos e colunas egípcias meio cobertas de areia, com palmeiras" loading="lazy"></figure>
+        <div class="area-txt">
+          <p class="nivel">Nível 50 a 70</p>
+          <h3>Egito, a Terra Negra</h3>
+          <p>A terra da quarta trombeta, sob o Sol Terço. Mênfis se reergueu em dois andares, o de lama é de agora e o de pedra é de antes. Ao pé da Esfinge, quatro acampamentos disputam a maior escavação do mundo. No fundo do Vale dos Reis fica a tumba sem nome do Faraó do Êxodo.</p>
+          <blockquote class="documento curto">
+            <p class="doc-cab">Relatório da Escavação · Engenheiros Hereges</p>
+            <p>Os magos de Hermes cavam atrás de um livro. O Coro cava atrás de um coração. Nós cavamos atrás de lâmpadas. Ninguém aqui cava para sair.</p>
+            <p class="assinatura">— Dalva Ferraz</p>
+          </blockquote>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section id="cripta" class="fundo-breu">
+<section id="masmorras" class="fundo-pedra">
   <div class="env">
     <div class="cab">
-      <p class="rotulo">Primeira masmorra</p>
-      <h2>Cripta da Trombeta Calada</h2>
+      <p class="rotulo">Masmorras e raids</p>
+      <h2>Lá embaixo ninguém cobre nada</h2>
     </div>
     <div class="dupla">
-      <div class="prosa">
-        <blockquote class="documento">
-          <p class="doc-cab">Caderno do Coveiro · página sem data</p>
-          <p>A entrada fica no porão do Abatedouro Carniça, atrás da porta dos ganchos. A chave anda no cinto do Capataz. Não peça.</p>
-          <p>Três andares para baixo, cada um mais velho que o de cima. No fundo de todos está a trombeta que devia ter soado. Eu cubro as covas de dia. Lá embaixo ninguém cobre nada.</p>
-          <p class="assinatura">— S.</p>
-        </blockquote>
-        <p class="sumido">Grupo pequeno, luz curta e um chefe por andar.</p>
-      </div>
+      <blockquote class="documento">
+        <p class="doc-cab">Caderno do Coveiro · página sem data</p>
+        <p>A entrada fica no porão do Abatedouro Carniça, atrás da porta dos ganchos. A chave anda no cinto do Capataz. Não peça.</p>
+        <p>Três andares para baixo, cada um mais velho que o de cima. No fundo de todos está a trombeta que devia ter soado. Eu cubro as covas de dia. Lá embaixo ninguém cobre nada.</p>
+        <p class="assinatura">— S.</p>
+      </blockquote>
       <figure class="quadro">
-        <img src="img/cripta.jpg" alt="Andras, o General Partido, arrastando-se pelo chão da cripta entre dois não-julgados">
+        <img src="img/cripta.jpg" alt="Andras, o General Partido, arrastando-se pelo chão da cripta entre dois não-julgados" loading="lazy">
         <figcaption>Andras, o General Partido · captura do jogo</figcaption>
       </figure>
     </div>
-    <div class="chefes">
-      <div class="chefe">
-        <span class="andar">1º andar</span>
-        <b>Andras, o General Partido</b>
-        <p><span class="fonte">Despacho da Vela · arquivo da Grande Batalha</span>O general inimigo ficou de pé nos trilhos. A Capitã Ferrolho não freou. Corpo não recuperado. Presumido destruído.</p>
-      </div>
-      <div class="chefe">
-        <span class="andar">2º andar</span>
-        <b>Irmã Celeste, a Carpideira</b>
-        <p><span class="fonte">Caderno do Coveiro</span>Desceu ao ossário para cantar até os mortos dormirem de novo. Cantou por anos. Os ossos aprenderam a letra.</p>
-      </div>
-      <div class="chefe">
-        <span class="andar">3º andar</span>
-        <b>Zacarias, o Arauto da Trombeta Calada</b>
-        <p><span class="fonte">Ordem encontrada no altar</span>Não abandonarás o posto até que a nota esteja completa. Não há outra ordem. <em>(abaixo, em letra tremida)</em> ninguém veio ninguém veio ninguém veio</p>
-      </div>
+    <div class="masmorras">
+      <article class="masmorra">
+        <p class="nivel v">Deserto de Absinto · grupo pequeno</p>
+        <h3>Cripta da Trombeta Calada</h3>
+        <ol><li>Andras, o General Partido</li><li>Irmã Celeste, a Carpideira</li><li>Zacarias, o Arauto da Trombeta Calada</li></ol>
+      </article>
+      <article class="masmorra">
+        <p class="nivel a">Monte Hermon · grupo pequeno</p>
+        <h3>Fosso dos Vigilantes</h3>
+        <ol><li>Ohya, nas Minas dos Gigantes</li><li>Naamá, no Salão das Noivas</li><li>Semyaza, no Altar do Juramento</li></ol>
+      </article>
+      <article class="masmorra">
+        <p class="nivel">Novo Éden · raid de 5 andares</p>
+        <h3>A Torre</h3>
+        <ol><li>Ferrabrás, o Guarda-Linhas</li><li>Madre Brasília, a Voz da Portadora</li><li>O Telegrafista</li><li>Malaquias, o Ouvinte Cego</li><li>Baraquiel, o Que Respondeu</li></ol>
+      </article>
+      <article class="masmorra">
+        <p class="nivel">Atlântida · chefe de área</p>
+        <h3>A Ilha do Templo</h3>
+        <ol><li>Gadiro, o gêmeo de Atlas, que abriu os portões de baixo</li></ol>
+      </article>
+      <article class="masmorra">
+        <p class="nivel">Egito · 1 a 5 jogadores · nível 50</p>
+        <h3>Labirinto de Hawara</h3>
+        <ol><li>Petsuchos, o crocodilo de ouro de Sobek</li><li>A Esfinge de Hawara</li><li>Serket, a deusa escorpião</li></ol>
+      </article>
+      <article class="masmorra">
+        <p class="nivel">Egito · raid de 5 a 10 · nível 60</p>
+        <h3>O Coração Endurecido</h3>
+        <ol><li>Sekhmet</li><li>Janes e Jambres</li><li>Os Quatro Filhos de Hórus</li><li>Apófis, no Rio do Duat</li><li>Anúbis, o Pesador</li><li>O Faraó Sem Nome e as dez pragas</li></ol>
+      </article>
+    </div>
+
+    <div class="cab" style="margin-top:var(--faixa)">
+      <p class="rotulo">Eventos</p>
+      <h2>Sangue com plateia</h2>
+    </div>
+    <div class="eventos">
+      <article class="evento">
+        <figure class="quadro"><img src="img/agrak.jpg" alt="Fosso de areia do coliseu cercado de arquibancadas, com leões e gladiadores" loading="lazy"></figure>
+        <div class="evento-txt">
+          <p class="nivel">PvP · arena</p>
+          <h3>O Agrak, o Grande Coliseu</h3>
+          <p>O antigo estádio de São Lázaro, cavado de volta da areia. Caim e Abel, o Ogro de Duas Cabeças, apresenta: três leões, depois o gigante Golias e a bola de ferro, depois só os sobreviventes. Um sai vivo e leva a Ficha de Sangue. Quem cai assiste do camarote dos derrotados.</p>
+        </div>
+      </article>
+      <article class="evento">
+        <figure class="quadro"><img src="img/hermon.jpg" alt="Cume do Monte Hermon em ruínas, com estátuas de cinza ajoelhadas" loading="lazy"></figure>
+        <div class="evento-txt">
+          <p class="nivel a">Todo dia às 19h · PvP ligado</p>
+          <h3>O Cume dos Vigilantes</h3>
+          <p>Toda noite o lacre do juramento estala. Os Vigilantes se levantam e o cume desmorona, anel por anel. Quinze minutos para continuar de pé enquanto o chão cai e os outros jogadores empurram. A Laje do Juramento, no centro, nunca cai.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -563,13 +789,13 @@ footer p{font-size:14px; color:#6f675f}
     <div class="baixar">
       <div class="cartao-dl">
         <dl>
-          <dt>Versão</dt><dd id="dl-versao">prévia 0.7.4</dd>
+          <dt>Versão</dt><dd id="dl-versao">prévia 0.9</dd>
           <dt>Launcher</dt><dd id="dl-launcher-tam">33 MB</dd>
           <dt>Sistema</dt><dd id="dl-sistema">Windows 10/11 64 bits</dd>
         </dl>
         <a class="btn btn-forte" id="dl-launcher" href="/downloads/DarkPassage-Launcher.zip" download>Baixar o launcher</a>
-        <p class="alt-dl">Prefere sem launcher? <a id="dl-link" href="/downloads/DarkPassage-v0.7.4-windows.zip" download>Baixe o jogo completo</a> (<span id="dl-tamanho">156 MB</span>, zip).</p>
-        <p class="hash">SHA-256 do jogo completo <span id="dl-sha">481562d2639c070c9cf51ecd964b078f1878a5470cb41b34a1447297276c7810</span></p>
+        <p class="alt-dl">Prefere sem launcher? <a id="dl-link" href="/downloads/" download>Baixe o jogo completo</a> (<span id="dl-tamanho">cerca de 190 MB</span>, zip).</p>
+        <p class="hash" id="dl-hash" hidden>SHA-256 do jogo completo <span id="dl-sha"></span></p>
       </div>
       <div class="prosa">
         <ol class="passos">
@@ -604,7 +830,7 @@ footer p{font-size:14px; color:#6f675f}
       document.getElementById('dl-versao').textContent = 'prévia ' + c.versao;
       document.getElementById('dl-tamanho').textContent = Math.round(c.tamanho / 1048576) + ' MB';
       if (c.sistema) document.getElementById('dl-sistema').textContent = c.sistema;
-      if (c.sha256) document.getElementById('dl-sha').textContent = c.sha256;
+      if (c.sha256) { document.getElementById('dl-sha').textContent = c.sha256; document.getElementById('dl-hash').hidden = false; }
       var l = c.launcher;
       if (l && l.arquivo) {
         document.getElementById('dl-launcher').href = '/downloads/' + encodeURIComponent(l.arquivo);
@@ -612,6 +838,41 @@ footer p{font-size:14px; color:#6f675f}
       }
     }).catch(function(){});
   }
+
+
+  // --------------------------------------------------------------- personagens (tiras geradas por tools/preparar_imagens.py)
+  var MEDIDAS = null;
+  function vestir(el, id){
+    var m = MEDIDAS && MEDIDAS[id];
+    if (!m) return;
+    el.style.setProperty('--w', m.w + 'px');
+    el.style.setProperty('--h', m.h + 'px');
+    el.style.setProperty('--n', m.n);
+    el.style.setProperty('--dur', (m.n / m.fps).toFixed(2) + 's');
+    el.style.backgroundImage = 'url(img/p_' + id + '.png)';
+  }
+  var cartoes = Array.prototype.slice.call(document.querySelectorAll('#lista-classes .classe'));
+  cartoes.forEach(function(c){
+    var sprite = c.querySelector('.sprite');
+    var papel = c.querySelector('.papel');
+    var titulo = c.querySelector('h3');
+    var original = {nome: titulo.textContent, papel: papel.textContent};
+    sprite.setAttribute('aria-label', original.nome);
+    var botoes = Array.prototype.slice.call(c.querySelectorAll('.caminhos button'));
+    botoes.forEach(function(b, i){
+      b.addEventListener('click', function(){
+        botoes.forEach(function(o){ o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
+        vestir(sprite, b.dataset.id);
+        titulo.textContent = i ? b.textContent : original.nome;
+        papel.textContent = i ? b.dataset.papel : original.papel;
+        sprite.setAttribute('aria-label', titulo.textContent);
+      });
+    });
+  });
+  fetch('img/sprites.json').then(function(r){ return r.json(); }).then(function(m){
+    MEDIDAS = m;
+    cartoes.forEach(function(c){ vestir(c.querySelector('.sprite'), c.dataset.classe); });
+  }).catch(function(){});
 
   // --------------------------------------------------------------- abas
   var abas = [
