@@ -3061,13 +3061,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "anel",
    "arte": {
-    "folha": "assets/icones/fontes/aneis_simples.png",
-    "indice": 7
-   },
-   "arte_de": "anel_osso_cintado"
+    "folha": "assets/icones/fontes/acessorios_antigos.png",
+    "indice": 2,
+    "auto": 4,
+    "dilata": 0
+   }
   },
   {
    "id": "colar_dentes",
@@ -3096,17 +3096,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "colar_dentes",
    "arte": {
-    "folha": "assets/icones/fontes/colares.png",
-    "indice": 1,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "colar_presas_vala"
+    "folha": "assets/icones/fontes/acessorios_antigos.png",
+    "indice": 0,
+    "auto": 4,
+    "dilata": 0
+   }
   },
   {
    "id": "anel_ferro_cripta",
@@ -3135,13 +3131,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/anel_ferro_cripta.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "anel",
    "arte": {
-    "folha": "assets/icones/fontes/aneis_simples.png",
-    "indice": 1
-   },
-   "arte_de": "anel_vento_absinto"
+    "folha": "assets/icones/fontes/acessorios_antigos.png",
+    "indice": 3,
+    "auto": 4,
+    "dilata": 0
+   }
   },
   {
    "id": "rosario_ossos",
@@ -3170,17 +3166,13 @@
    },
    "icone_mochila": "assets/icones/itens/mochila/rosario_ossos.png",
    "peso_drop": 0.0,
-   "substituido_por_arte_pronta": true,
    "motivo_antigo": "rosario",
    "arte": {
-    "folha": "assets/icones/fontes/colares.png",
-    "indice": 6,
-    "grade": [
-     5,
-     2
-    ]
-   },
-   "arte_de": "pingente_lua_anil"
+    "folha": "assets/icones/fontes/acessorios_antigos.png",
+    "indice": 1,
+    "auto": 4,
+    "dilata": 0
+   }
   },
   {
    "id": "aro_ferro_velho",

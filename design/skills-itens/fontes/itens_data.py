@@ -317,3 +317,7 @@ ARTE_EXISTENTES["armaduras_antigas_2"] = ["placas_sino_calcas","coro_mudo_calcas
     "juramento_quebrado_peito","batina_remendada_botas","couro_sobrevivente_botas","placas_sino_botas","coro_mudo_botas"]
 GRADE_FOLHA["armaduras_antigas_1"] = [5,2]
 AUTO_FOLHA["armaduras_antigas_2"] = {"dilata": 0}   # linhas desalinhadas: corte pela silhueta
+
+# anéis e colares antigos pintados pelo Jefin (folha q6, 4 peças numa linha)
+ARTE_EXISTENTES["acessorios_antigos"] = ["colar_dentes","rosario_ossos","anel_prego_caixao","anel_ferro_cripta"]
+AUTO_FOLHA["acessorios_antigos"] = {"dilata": 0}
