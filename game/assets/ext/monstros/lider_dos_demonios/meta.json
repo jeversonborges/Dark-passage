@@ -1,0 +1,65 @@
+{
+ "monstro": "lider_dos_demonios",
+ "frame_size": [
+  640,
+  640
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  320.0,
+  486.3
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 12,
+   "fps": 6,
+   "loop": true
+  },
+  "talk": {
+   "frames": 14,
+   "fps": 8,
+   "loop": false
+  },
+  "point": {
+   "frames": 12,
+   "fps": 8,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "lider_dos_demonios_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "talk": {
+   "file": "lider_dos_demonios_talk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "point": {
+   "file": "lider_dos_demonios_point.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 56,
+  "outline": "#0a0808",
+  "shadow_width_m": 2.4
+ }
+}

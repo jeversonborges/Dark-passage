@@ -1,0 +1,75 @@
+{
+ "monstro": "caim_abel",
+ "frame_size": [
+  448,
+  448
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  224.0,
+  287.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 8,
+   "fps": 6,
+   "loop": true
+  },
+  "anunciar": {
+   "frames": 10,
+   "fps": 9,
+   "loop": false
+  },
+  "discutir": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "rir": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "caim_abel_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "anunciar": {
+   "file": "caim_abel_anunciar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "discutir": {
+   "file": "caim_abel_discutir.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "rir": {
+   "file": "caim_abel_rir.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.2
+ }
+}

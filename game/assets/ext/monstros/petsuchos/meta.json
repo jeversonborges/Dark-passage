@@ -1,0 +1,125 @@
+{
+ "monstro": "petsuchos",
+ "frame_size": [
+  448,
+  448
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  224.0,
+  251.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 5,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "submerge": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "emerge": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "charge": {
+   "frames": 6,
+   "fps": 14,
+   "loop": true
+  },
+  "eat": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "petsuchos_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "petsuchos_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "petsuchos_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "petsuchos_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "petsuchos_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "submerge": {
+   "file": "petsuchos_submerge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "emerge": {
+   "file": "petsuchos_emerge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "charge": {
+   "file": "petsuchos_charge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "eat": {
+   "file": "petsuchos_eat.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 64,
+  "outline": "#0a0808",
+  "shadow_width_m": 2.0
+ }
+}

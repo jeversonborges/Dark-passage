@@ -1,0 +1,105 @@
+{
+ "monstro": "hapi",
+ "frame_size": [
+  320,
+  320
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  160.0,
+  232.1
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 9,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "cast": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "aura": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "hapi_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "hapi_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "hapi_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "hapi_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "hapi_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "hapi_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "aura": {
+   "file": "hapi_aura.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 46,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.8
+ }
+}

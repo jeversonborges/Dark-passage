@@ -1,0 +1,75 @@
+{
+ "monstro": "saulo",
+ "frame_size": [
+  384,
+  384
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  192.0,
+  253.0
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "abencoar": {
+   "frames": 10,
+   "fps": 9,
+   "loop": false
+  },
+  "rezar": {
+   "frames": 6,
+   "fps": 8,
+   "loop": true
+  },
+  "rir": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "saulo_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "abencoar": {
+   "file": "saulo_abencoar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "rezar": {
+   "file": "saulo_rezar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "rir": {
+   "file": "saulo_rir.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}

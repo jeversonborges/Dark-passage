@@ -1,0 +1,115 @@
+{
+ "monstro": "leao_sansao",
+ "frame_size": [
+  384,
+  384
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  192.0,
+  241.9
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "run": {
+   "frames": 8,
+   "fps": 14,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 13,
+   "loop": false
+  },
+  "leap": {
+   "frames": 12,
+   "fps": 12,
+   "loop": false
+  },
+  "roar": {
+   "frames": 10,
+   "fps": 9,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "leao_sansao_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "leao_sansao_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "run": {
+   "file": "leao_sansao_run.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "leao_sansao_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "leap": {
+   "file": "leao_sansao_leap.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "leao_sansao_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "leao_sansao_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "leao_sansao_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.2
+ }
+}

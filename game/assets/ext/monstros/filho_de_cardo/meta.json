@@ -1,0 +1,105 @@
+{
+ "monstro": "filho_de_cardo",
+ "frame_size": [
+  256,
+  256
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  128.0,
+  177.9
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 7,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "burrow": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "emerge": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 9,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "filho_de_cardo_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "filho_de_cardo_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "filho_de_cardo_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "burrow": {
+   "file": "filho_de_cardo_burrow.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "emerge": {
+   "file": "filho_de_cardo_emerge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "filho_de_cardo_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "filho_de_cardo_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 44,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}

@@ -1,0 +1,135 @@
+{
+ "monstro": "o_telegrafista",
+ "frame_size": [
+  512,
+  512
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  256.0,
+  336.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 12,
+   "fps": 10,
+   "loop": true
+  },
+  "walk": {
+   "frames": 10,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 14,
+   "fps": 10,
+   "loop": false
+  },
+  "spin": {
+   "frames": 12,
+   "fps": 14,
+   "loop": false
+  },
+  "lunge": {
+   "frames": 10,
+   "fps": 13,
+   "loop": false
+  },
+  "cast": {
+   "frames": 8,
+   "fps": 14,
+   "loop": true
+  },
+  "summon": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "o_telegrafista_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "o_telegrafista_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "o_telegrafista_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "o_telegrafista_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "o_telegrafista_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin": {
+   "file": "o_telegrafista_spin.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "lunge": {
+   "file": "o_telegrafista_lunge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "o_telegrafista_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "o_telegrafista_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "o_telegrafista_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 2.2
+ }
+}

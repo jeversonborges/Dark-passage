@@ -1,0 +1,135 @@
+{
+ "monstro": "malaquias_ouvinte_cego",
+ "frame_size": [
+  448,
+  448
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  224.0,
+  304.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 10,
+   "fps": 7,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 14,
+   "fps": 10,
+   "loop": false
+  },
+  "spin": {
+   "frames": 12,
+   "fps": 14,
+   "loop": false
+  },
+  "lunge": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "cast": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "summon": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "malaquias_ouvinte_cego_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "malaquias_ouvinte_cego_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "malaquias_ouvinte_cego_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "malaquias_ouvinte_cego_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "malaquias_ouvinte_cego_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin": {
+   "file": "malaquias_ouvinte_cego_spin.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "lunge": {
+   "file": "malaquias_ouvinte_cego_lunge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "malaquias_ouvinte_cego_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "malaquias_ouvinte_cego_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "malaquias_ouvinte_cego_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}

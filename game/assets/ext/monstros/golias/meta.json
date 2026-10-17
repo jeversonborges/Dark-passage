@@ -1,0 +1,125 @@
+{
+ "monstro": "golias",
+ "frame_size": [
+  512,
+  512
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  256.0,
+  311.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "spin_start": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "spin": {
+   "frames": 12,
+   "fps": 16,
+   "loop": true
+  },
+  "spin_end": {
+   "frames": 8,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "golias_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "golias_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "golias_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin_start": {
+   "file": "golias_spin_start.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin": {
+   "file": "golias_spin.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin_end": {
+   "file": "golias_spin_end.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "golias_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "golias_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "golias_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.4
+ }
+}

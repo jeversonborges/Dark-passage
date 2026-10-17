@@ -1,0 +1,115 @@
+{
+ "monstro": "janes",
+ "frame_size": [
+  320,
+  320
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  160.0,
+  234.8
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "cast": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "staff_serpent": {
+   "frames": 10,
+   "fps": 12,
+   "loop": false
+  },
+  "resurrect": {
+   "frames": 12,
+   "fps": 8,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "janes_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "janes_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "janes_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "janes_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "janes_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "janes_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "staff_serpent": {
+   "file": "janes_staff_serpent.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "resurrect": {
+   "file": "janes_resurrect.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 64,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.75
+ }
+}

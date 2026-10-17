@@ -1,0 +1,135 @@
+{
+ "monstro": "baraquiel",
+ "frame_size": [
+  576,
+  576
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  288.0,
+  440.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 13,
+   "loop": false
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 16,
+   "fps": 10,
+   "loop": false
+  },
+  "spin": {
+   "frames": 12,
+   "fps": 14,
+   "loop": false
+  },
+  "lunge": {
+   "frames": 10,
+   "fps": 13,
+   "loop": false
+  },
+  "cast": {
+   "frames": 12,
+   "fps": 11,
+   "loop": false
+  },
+  "summon": {
+   "frames": 12,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 14,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "baraquiel_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "baraquiel_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "baraquiel_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "baraquiel_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "baraquiel_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "spin": {
+   "file": "baraquiel_spin.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "lunge": {
+   "file": "baraquiel_lunge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "cast": {
+   "file": "baraquiel_cast.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "baraquiel_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "baraquiel_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 64,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.6
+ }
+}

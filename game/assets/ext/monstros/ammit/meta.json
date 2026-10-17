@@ -1,0 +1,115 @@
+{
+ "monstro": "ammit",
+ "frame_size": [
+  448,
+  448
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  224.0,
+  279.4
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 9,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "devour": {
+   "frames": 14,
+   "fps": 10,
+   "loop": false
+  },
+  "roar": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  },
+  "charge": {
+   "frames": 8,
+   "fps": 13,
+   "loop": true
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "ammit_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "ammit_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "ammit_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "ammit_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "devour": {
+   "file": "ammit_devour.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "roar": {
+   "file": "ammit_roar.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "charge": {
+   "file": "ammit_charge.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "ammit_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 46,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.9
+ }
+}

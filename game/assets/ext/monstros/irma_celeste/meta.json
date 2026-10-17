@@ -1,0 +1,95 @@
+{
+ "monstro": "irma_celeste",
+ "frame_size": [
+  416,
+  416
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  208.0,
+  296.7
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 8,
+   "loop": true
+  },
+  "attack": {
+   "frames": 14,
+   "fps": 14,
+   "loop": false
+  },
+  "summon": {
+   "frames": 14,
+   "fps": 13,
+   "loop": false
+  },
+  "hit": {
+   "frames": 5,
+   "fps": 14,
+   "loop": false
+  },
+  "death": {
+   "frames": 16,
+   "fps": 12,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "irma_celeste_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "irma_celeste_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "irma_celeste_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "summon": {
+   "file": "irma_celeste_summon.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "irma_celeste_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "irma_celeste_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 48,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.0
+ }
+}
