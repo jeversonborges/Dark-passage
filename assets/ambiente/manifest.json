@@ -12,6 +12,78 @@
   "luzes": "PNGs em luzes/ sao poças de luz 2:1 para somar (blend add ou PointLight2D)"
  },
  "pisos": {
+  "_amostra_margem_rio": {
+   "atlas": "tiles/_amostra_margem_rio.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "_amostra_musgo_lume": {
+   "atlas": "tiles/_amostra_musgo_lume.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "_amostra_musgo_pedra": {
+   "atlas": "tiles/_amostra_musgo_pedra.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "_amostra_relva_eden": {
+   "atlas": "tiles/_amostra_relva_eden.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "_amostra_terra_jardim": {
+   "atlas": "tiles/_amostra_terra_jardim.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "agua_canal": {
+   "atlas": "tiles/agua_canal.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "agua_toxica": {
    "atlas": "tiles/agua_toxica.png",
    "grade": [
@@ -72,6 +144,18 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "campo_cevada": {
+   "atlas": "tiles/campo_cevada.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "cascalho": {
    "atlas": "tiles/cascalho.png",
    "grade": [
@@ -120,6 +204,18 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "concreto_torre": {
+   "atlas": "tiles/concreto_torre.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "cripta": {
    "atlas": "tiles/cripta.png",
    "grade": [
@@ -144,8 +240,32 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "grade_metal": {
+   "atlas": "tiles/grade_metal.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "laje_capela": {
    "atlas": "tiles/laje_capela.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "laje_tricolor": {
+   "atlas": "tiles/laje_tricolor.png",
    "grade": [
     4,
     4
@@ -192,8 +312,56 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "margem_rio": {
+   "atlas": "tiles/margem_rio.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "marmore_templo": {
+   "atlas": "tiles/marmore_templo.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "mata_morta": {
    "atlas": "tiles/mata_morta.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "musgo_lume": {
+   "atlas": "tiles/musgo_lume.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "musgo_pedra": {
+   "atlas": "tiles/musgo_pedra.png",
    "grade": [
     4,
     4
@@ -216,8 +384,68 @@
    ],
    "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
   },
+  "piso_estudio": {
+   "atlas": "tiles/piso_estudio.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "relva_atlante": {
+   "atlas": "tiles/relva_atlante.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "relva_eden": {
+   "atlas": "tiles/relva_eden.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
   "terra": {
    "atlas": "tiles/terra.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "terra_fenda": {
+   "atlas": "tiles/terra_fenda.png",
+   "grade": [
+    4,
+    4
+   ],
+   "celula_px": [
+    64,
+    32
+   ],
+   "uso": "bloco periodico 4x4 sem emenda: tile (x,y) usa a celula (x mod 4, y mod 4)"
+  },
+  "terra_jardim": {
+   "atlas": "tiles/terra_jardim.png",
    "grade": [
     4,
     4
@@ -240,6 +468,62 @@
   "luzes/luz_vitral.png"
  ],
  "objetos": {
+  "altar_microfone": {
+   "png": "objetos/altar_microfone.png",
+   "w": 248,
+   "h": 160,
+   "anchor": [
+    60,
+    126
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
+  },
+  "alto_falante_corneta": {
+   "png": "objetos/alto_falante_corneta.png",
+   "w": 324,
+   "h": 200,
+   "anchor": [
+    48,
+    181
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "andor_padroeiro": {
+   "png": "objetos/andor_padroeiro.png",
+   "w": 260,
+   "h": 164,
+   "anchor": [
+    77,
+    123
+   ],
+   "footprint_tiles": [
+    3,
+    2
+   ],
+   "categoria": "props"
+  },
+  "anforas": {
+   "png": "objetos/anforas.png",
+   "w": 178,
+   "h": 110,
+   "anchor": [
+    70,
+    72
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
   "anjo_porcelana_caido": {
    "png": "objetos/anjo_porcelana_caido.png",
    "w": 160,
@@ -251,6 +535,20 @@
    "footprint_tiles": [
     2,
     2
+   ],
+   "categoria": "dungeon"
+  },
+  "antena_dipolo": {
+   "png": "objetos/antena_dipolo.png",
+   "w": 484,
+   "h": 328,
+   "anchor": [
+    48,
+    297
+   ],
+   "footprint_tiles": [
+    1,
+    1
    ],
    "categoria": "dungeon"
   },
@@ -281,6 +579,34 @@
     1
    ],
    "categoria": "vegetacao"
+  },
+  "arca_primarca": {
+   "png": "objetos/arca_primarca.png",
+   "w": 112,
+   "h": 116,
+   "anchor": [
+    56,
+    83
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "props"
+  },
+  "arco_eden": {
+   "png": "objetos/arco_eden.png",
+   "w": 728,
+   "h": 436,
+   "anchor": [
+    179,
+    352
+   ],
+   "footprint_tiles": [
+    4,
+    1
+   ],
+   "categoria": "props"
   },
   "arena_carpideiras": {
    "png": "objetos/arena_carpideiras.png",
@@ -324,6 +650,160 @@
    ],
    "categoria": "chefes"
   },
+  "armario_fitas": {
+   "png": "objetos/armario_fitas.png",
+   "w": 258,
+   "h": 176,
+   "anchor": [
+    48,
+    137
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "arquibancada_agrak_a": {
+   "png": "objetos/arquibancada_agrak_a.png",
+   "w": 412,
+   "h": 252,
+   "anchor": [
+    24,
+    236
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arquibancada_agrak_b": {
+   "png": "objetos/arquibancada_agrak_b.png",
+   "w": 308,
+   "h": 252,
+   "anchor": [
+    167,
+    236
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arquibancada_agrak_v2_a": {
+   "png": "objetos/arquibancada_agrak_v2_a.png",
+   "w": 418,
+   "h": 252,
+   "anchor": [
+    23,
+    236
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arquibancada_agrak_v2_b": {
+   "png": "objetos/arquibancada_agrak_v2_b.png",
+   "w": 318,
+   "h": 254,
+   "anchor": [
+    167,
+    240
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arquibancada_caida_a": {
+   "png": "objetos/arquibancada_caida_a.png",
+   "w": 478,
+   "h": 292,
+   "anchor": [
+    54,
+    257
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arquibancada_caida_b": {
+   "png": "objetos/arquibancada_caida_b.png",
+   "w": 466,
+   "h": 288,
+   "anchor": [
+    187,
+    257
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "arvore_conhecimento": {
+   "png": "objetos/arvore_conhecimento.png",
+   "w": 944,
+   "h": 572,
+   "anchor": [
+    263,
+    437
+   ],
+   "footprint_tiles": [
+    4,
+    4
+   ],
+   "categoria": "props"
+  },
+  "arvore_eden": {
+   "png": "objetos/arvore_eden.png",
+   "w": 874,
+   "h": 560,
+   "anchor": [
+    248,
+    452
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_eden_2": {
+   "png": "objetos/arvore_eden_2.png",
+   "w": 1064,
+   "h": 612,
+   "anchor": [
+    297,
+    492
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_eden_3": {
+   "png": "objetos/arvore_eden_3.png",
+   "w": 936,
+   "h": 600,
+   "anchor": [
+    255,
+    475
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
   "arvore_enforcados": {
    "png": "objetos/arvore_enforcados.png",
    "w": 640,
@@ -331,6 +811,90 @@
    "anchor": [
     204,
     306
+   ],
+   "footprint_tiles": [
+    4,
+    4
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_frutos": {
+   "png": "objetos/arvore_frutos.png",
+   "w": 700,
+   "h": 424,
+   "anchor": [
+    141,
+    347
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_frutos_2": {
+   "png": "objetos/arvore_frutos_2.png",
+   "w": 674,
+   "h": 384,
+   "anchor": [
+    133,
+    318
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_jovem_lume": {
+   "png": "objetos/arvore_jovem_lume.png",
+   "w": 588,
+   "h": 382,
+   "anchor": [
+    100,
+    330
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_lume": {
+   "png": "objetos/arvore_lume.png",
+   "w": 1428,
+   "h": 850,
+   "anchor": [
+    283,
+    783
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_lume_2": {
+   "png": "objetos/arvore_lume_2.png",
+   "w": 1674,
+   "h": 1072,
+   "anchor": [
+    269,
+    980
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "arvore_mae": {
+   "png": "objetos/arvore_mae.png",
+   "w": 1894,
+   "h": 1240,
+   "anchor": [
+    186,
+    1156
    ],
    "footprint_tiles": [
     4,
@@ -382,15 +946,43 @@
   },
   "asa_anjo_caida": {
    "png": "objetos/asa_anjo_caida.png",
-   "w": 228,
-   "h": 100,
+   "w": 280,
+   "h": 140,
    "anchor": [
     112,
-    51
+    76
    ],
    "footprint_tiles": [
     3,
     2
+   ],
+   "categoria": "props"
+  },
+  "atlante_parado": {
+   "png": "objetos/atlante_parado.png",
+   "w": 234,
+   "h": 150,
+   "anchor": [
+    45,
+    125
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "atlante_parado_2": {
+   "png": "objetos/atlante_parado_2.png",
+   "w": 212,
+   "h": 152,
+   "anchor": [
+    41,
+    129
+   ],
+   "footprint_tiles": [
+    1,
+    1
    ],
    "categoria": "props"
   },
@@ -407,6 +999,34 @@
     1
    ],
    "categoria": "props"
+  },
+  "banco_capela": {
+   "png": "objetos/banco_capela.png",
+   "w": 156,
+   "h": 98,
+   "anchor": [
+    38,
+    76
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "banco_estudio": {
+   "png": "objetos/banco_estudio.png",
+   "w": 194,
+   "h": 120,
+   "anchor": [
+    55,
+    88
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "barco_afundado": {
    "png": "objetos/barco_afundado.png",
@@ -435,6 +1055,34 @@
     4
    ],
    "categoria": "predios"
+  },
+  "barreira_chefe": {
+   "png": "objetos/barreira_chefe.png",
+   "w": 170,
+   "h": 106,
+   "anchor": [
+    41,
+    88
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "barreira_chefe_2": {
+   "png": "objetos/barreira_chefe_2.png",
+   "w": 142,
+   "h": 96,
+   "anchor": [
+    23,
+    79
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "barricada_sacos_a": {
    "png": "objetos/barricada_sacos_a.png",
@@ -477,6 +1125,20 @@
     1
    ],
    "categoria": "props"
+  },
+  "bateria_acumuladores": {
+   "png": "objetos/bateria_acumuladores.png",
+   "w": 208,
+   "h": 126,
+   "anchor": [
+    63,
+    93
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "bau_chefe": {
    "png": "objetos/bau_chefe.png",
@@ -562,6 +1224,20 @@
    ],
    "categoria": "props"
   },
+  "bobina_culto": {
+   "png": "objetos/bobina_culto.png",
+   "w": 280,
+   "h": 160,
+   "anchor": [
+    81,
+    118
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
+  },
   "bonde_queimado": {
    "png": "objetos/bonde_queimado.png",
    "w": 468,
@@ -590,6 +1266,34 @@
    ],
    "categoria": "predios"
   },
+  "borda_domo": {
+   "png": "objetos/borda_domo.png",
+   "w": 898,
+   "h": 588,
+   "anchor": [
+    122,
+    522
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "props"
+  },
+  "borda_domo_baixa": {
+   "png": "objetos/borda_domo_baixa.png",
+   "w": 300,
+   "h": 170,
+   "anchor": [
+    128,
+    112
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "props"
+  },
   "braseiro_ferro": {
    "png": "objetos/braseiro_ferro.png",
    "w": 152,
@@ -603,6 +1307,20 @@
     1
    ],
    "categoria": "dungeon"
+  },
+  "braseiro_holofote": {
+   "png": "objetos/braseiro_holofote.png",
+   "w": 280,
+   "h": 180,
+   "anchor": [
+    33,
+    163
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
   },
   "braseiro_sagrado": {
    "png": "objetos/braseiro_sagrado.png",
@@ -618,6 +1336,20 @@
    ],
    "categoria": "props"
   },
+  "cabos_chao": {
+   "png": "objetos/cabos_chao.png",
+   "w": 174,
+   "h": 94,
+   "anchor": [
+    86,
+    48
+   ],
+   "footprint_tiles": [
+    3,
+    2
+   ],
+   "categoria": "decalques"
+  },
   "cacto_seco": {
    "png": "objetos/cacto_seco.png",
    "w": 164,
@@ -631,6 +1363,20 @@
     1
    ],
    "categoria": "vegetacao"
+  },
+  "cadeira_operador": {
+   "png": "objetos/cadeira_operador.png",
+   "w": 156,
+   "h": 106,
+   "anchor": [
+    34,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "caixa_dagua_sucata": {
    "png": "objetos/caixa_dagua_sucata.png",
@@ -688,6 +1434,20 @@
    ],
    "categoria": "props"
   },
+  "campanula": {
+   "png": "objetos/campanula.png",
+   "w": 190,
+   "h": 116,
+   "anchor": [
+    56,
+    83
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
   "candelabro_ossos": {
    "png": "objetos/candelabro_ossos.png",
    "w": 180,
@@ -704,11 +1464,11 @@
   },
   "cano_esgoto": {
    "png": "objetos/cano_esgoto.png",
-   "w": 194,
-   "h": 104,
+   "w": 280,
+   "h": 154,
    "anchor": [
-    50,
-    81
+    85,
+    108
    ],
    "footprint_tiles": [
     1,
@@ -732,10 +1492,10 @@
   },
   "capela_enterrada": {
    "png": "objetos/capela_enterrada.png",
-   "w": 1364,
-   "h": 756,
+   "w": 1512,
+   "h": 782,
    "anchor": [
-    666,
+    772,
     430
    ],
    "footprint_tiles": [
@@ -757,6 +1517,34 @@
     2
    ],
    "categoria": "props"
+  },
+  "carretel_cabo": {
+   "png": "objetos/carretel_cabo.png",
+   "w": 142,
+   "h": 90,
+   "anchor": [
+    45,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "carrinho_carne": {
+   "png": "objetos/carrinho_carne.png",
+   "w": 144,
+   "h": 98,
+   "anchor": [
+    41,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "carrinho_tobias": {
    "png": "objetos/carrinho_tobias.png",
@@ -785,6 +1573,34 @@
     3
    ],
    "categoria": "props"
+  },
+  "casa_atlante": {
+   "png": "objetos/casa_atlante.png",
+   "w": 864,
+   "h": 454,
+   "anchor": [
+    256,
+    327
+   ],
+   "footprint_tiles": [
+    8,
+    7
+   ],
+   "categoria": "predios"
+  },
+  "casa_atlante_2": {
+   "png": "objetos/casa_atlante_2.png",
+   "w": 864,
+   "h": 564,
+   "anchor": [
+    250,
+    439
+   ],
+   "footprint_tiles": [
+    8,
+    7
+   ],
+   "categoria": "predios"
   },
   "casa_coveiro": {
    "png": "objetos/casa_coveiro.png",
@@ -870,12 +1686,40 @@
    ],
    "categoria": "paredes"
   },
+  "cevada": {
+   "png": "objetos/cevada.png",
+   "w": 234,
+   "h": 134,
+   "anchor": [
+    63,
+    98
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "cevada_2": {
+   "png": "objetos/cevada_2.png",
+   "w": 218,
+   "h": 128,
+   "anchor": [
+    54,
+    97
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
   "chamine_enterrada": {
    "png": "objetos/chamine_enterrada.png",
-   "w": 824,
-   "h": 486,
+   "w": 906,
+   "h": 526,
    "anchor": [
-    184,
+    266,
     389
    ],
    "footprint_tiles": [
@@ -883,6 +1727,90 @@
     3
    ],
    "categoria": "predios"
+  },
+  "chifres_consagracao": {
+   "png": "objetos/chifres_consagracao.png",
+   "w": 326,
+   "h": 198,
+   "anchor": [
+    121,
+    133
+   ],
+   "footprint_tiles": [
+    3,
+    2
+   ],
+   "categoria": "props"
+  },
+  "cipo_lume": {
+   "png": "objetos/cipo_lume.png",
+   "w": 380,
+   "h": 240,
+   "anchor": [
+    45,
+    209
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "cipreste": {
+   "png": "objetos/cipreste.png",
+   "w": 564,
+   "h": 370,
+   "anchor": [
+    52,
+    341
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "cipreste_2": {
+   "png": "objetos/cipreste_2.png",
+   "w": 462,
+   "h": 302,
+   "anchor": [
+    52,
+    274
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "circulo_ferro": {
+   "png": "objetos/circulo_ferro.png",
+   "w": 480,
+   "h": 246,
+   "anchor": [
+    237,
+    124
+   ],
+   "footprint_tiles": [
+    7,
+    7
+   ],
+   "categoria": "decalques"
+  },
+  "circulo_receptores": {
+   "png": "objetos/circulo_receptores.png",
+   "w": 158,
+   "h": 102,
+   "anchor": [
+    49,
+    73
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
   },
   "cocho": {
    "png": "objetos/cocho.png",
@@ -898,6 +1826,20 @@
    ],
    "categoria": "props"
   },
+  "cogumelos_eden": {
+   "png": "objetos/cogumelos_eden.png",
+   "w": 204,
+   "h": 128,
+   "anchor": [
+    60,
+    94
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "cogumelos_palidos": {
    "png": "objetos/cogumelos_palidos.png",
    "w": 94,
@@ -911,6 +1853,90 @@
     1
    ],
    "categoria": "vegetacao"
+  },
+  "colmeia": {
+   "png": "objetos/colmeia.png",
+   "w": 210,
+   "h": 120,
+   "anchor": [
+    40,
+    99
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "coluna_hermes": {
+   "png": "objetos/coluna_hermes.png",
+   "w": 956,
+   "h": 626,
+   "anchor": [
+    135,
+    555
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "props"
+  },
+  "coluna_hermes_trincada": {
+   "png": "objetos/coluna_hermes_trincada.png",
+   "w": 954,
+   "h": 620,
+   "anchor": [
+    136,
+    553
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "props"
+  },
+  "colunata_a": {
+   "png": "objetos/colunata_a.png",
+   "w": 464,
+   "h": 300,
+   "anchor": [
+    65,
+    262
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "colunata_b": {
+   "png": "objetos/colunata_b.png",
+   "w": 464,
+   "h": 300,
+   "anchor": [
+    65,
+    262
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "console_locutor": {
+   "png": "objetos/console_locutor.png",
+   "w": 236,
+   "h": 128,
+   "anchor": [
+    56,
+    97
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
   },
   "corda_guarda_a": {
    "png": "objetos/corda_guarda_a.png",
@@ -956,11 +1982,11 @@
   },
   "cova_aberta": {
    "png": "objetos/cova_aberta.png",
-   "w": 264,
-   "h": 124,
+   "w": 318,
+   "h": 152,
    "anchor": [
-    79,
-    80
+    133,
+    81
    ],
    "footprint_tiles": [
     1,
@@ -1012,25 +2038,53 @@
   },
   "cupula_estacao": {
    "png": "objetos/cupula_estacao.png",
-   "w": 1304,
-   "h": 658,
+   "w": 530,
+   "h": 298,
    "anchor": [
-    647,
-    362
+    212,
+    188
    ],
    "footprint_tiles": [
-    14,
-    14
+    5,
+    5
    ],
    "categoria": "predios"
   },
+  "diapasao_coro": {
+   "png": "objetos/diapasao_coro.png",
+   "w": 530,
+   "h": 330,
+   "anchor": [
+    143,
+    250
+   ],
+   "footprint_tiles": [
+    4,
+    2
+   ],
+   "categoria": "props"
+  },
   "duna_areia": {
    "png": "objetos/duna_areia.png",
-   "w": 312,
-   "h": 172,
+   "w": 386,
+   "h": 206,
+   "anchor": [
+    175,
+    127
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "vegetacao"
+  },
+  "duna_areia_2": {
+   "png": "objetos/duna_areia_2.png",
+   "w": 294,
+   "h": 160,
    "anchor": [
     131,
-    102
+    91
    ],
    "footprint_tiles": [
     3,
@@ -1040,11 +2094,11 @@
   },
   "duna_ondulacao": {
    "png": "objetos/duna_ondulacao.png",
-   "w": 384,
-   "h": 208,
+   "w": 608,
+   "h": 318,
    "anchor": [
-    166,
-    120
+    282,
+    177
    ],
    "footprint_tiles": [
     4,
@@ -1052,12 +2106,82 @@
    ],
    "categoria": "vegetacao"
   },
+  "duna_ondulacao_2": {
+   "png": "objetos/duna_ondulacao_2.png",
+   "w": 520,
+   "h": 276,
+   "anchor": [
+    242,
+    157
+   ],
+   "footprint_tiles": [
+    4,
+    3
+   ],
+   "categoria": "vegetacao"
+  },
+  "duna_ondulacao_3": {
+   "png": "objetos/duna_ondulacao_3.png",
+   "w": 438,
+   "h": 232,
+   "anchor": [
+    200,
+    111
+   ],
+   "footprint_tiles": [
+    4,
+    3
+   ],
+   "categoria": "vegetacao"
+  },
+  "eclusa": {
+   "png": "objetos/eclusa.png",
+   "w": 404,
+   "h": 232,
+   "anchor": [
+    99,
+    178
+   ],
+   "footprint_tiles": [
+    2,
+    5
+   ],
+   "categoria": "props"
+  },
+  "eclusa_y": {
+   "png": "objetos/eclusa_y.png",
+   "w": 404,
+   "h": 254,
+   "anchor": [
+    99,
+    201
+   ],
+   "footprint_tiles": [
+    5,
+    2
+   ],
+   "categoria": "props"
+  },
+  "elevador_torre": {
+   "png": "objetos/elevador_torre.png",
+   "w": 592,
+   "h": 366,
+   "anchor": [
+    102,
+    324
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "dungeon"
+  },
   "elmo_espada_fincada": {
    "png": "objetos/elmo_espada_fincada.png",
-   "w": 162,
-   "h": 104,
+   "w": 174,
+   "h": 108,
    "anchor": [
-    41,
+    53,
     78
    ],
    "footprint_tiles": [
@@ -1094,6 +2218,20 @@
    ],
    "categoria": "props"
   },
+  "ermida_pedro": {
+   "png": "objetos/ermida_pedro.png",
+   "w": 580,
+   "h": 354,
+   "anchor": [
+    73,
+    315
+   ],
+   "footprint_tiles": [
+    4,
+    3
+   ],
+   "categoria": "predios"
+  },
   "escada_descida": {
    "png": "objetos/escada_descida.png",
    "w": 238,
@@ -1107,6 +2245,20 @@
     3
    ],
    "categoria": "dungeon"
+  },
+  "espada_flamejante": {
+   "png": "objetos/espada_flamejante.png",
+   "w": 428,
+   "h": 280,
+   "anchor": [
+    86,
+    231
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
   },
   "espantalho_arame": {
    "png": "objetos/espantalho_arame.png",
@@ -1136,6 +2288,34 @@
    ],
    "categoria": "props"
   },
+  "estai_ancora": {
+   "png": "objetos/estai_ancora.png",
+   "w": 390,
+   "h": 308,
+   "anchor": [
+    32,
+    289
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "estandarte_portadora": {
+   "png": "objetos/estandarte_portadora.png",
+   "w": 348,
+   "h": 180,
+   "anchor": [
+    64,
+    169
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
   "estandarte_rasgado": {
    "png": "objetos/estandarte_rasgado.png",
    "w": 250,
@@ -1149,6 +2329,34 @@
     1
    ],
    "categoria": "props"
+  },
+  "estante_ossos_a": {
+   "png": "objetos/estante_ossos_a.png",
+   "w": 98,
+   "h": 64,
+   "anchor": [
+    25,
+    48
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "estante_ossos_b": {
+   "png": "objetos/estante_ossos_b.png",
+   "w": 106,
+   "h": 64,
+   "anchor": [
+    34,
+    48
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
   },
   "estatua_anjo_quebrada": {
    "png": "objetos/estatua_anjo_quebrada.png",
@@ -1164,6 +2372,258 @@
    ],
    "categoria": "props"
   },
+  "estatua_atlas": {
+   "png": "objetos/estatua_atlas.png",
+   "w": 950,
+   "h": 600,
+   "anchor": [
+    205,
+    493
+   ],
+   "footprint_tiles": [
+    6,
+    6
+   ],
+   "categoria": "props"
+  },
+  "estatua_babuino": {
+   "png": "objetos/estatua_babuino.png",
+   "w": 298,
+   "h": 190,
+   "anchor": [
+    65,
+    154
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "estatua_poseidon": {
+   "png": "objetos/estatua_poseidon.png",
+   "w": 582,
+   "h": 386,
+   "anchor": [
+    146,
+    308
+   ],
+   "footprint_tiles": [
+    5,
+    4
+   ],
+   "categoria": "props"
+  },
+  "estatua_thoth": {
+   "png": "objetos/estatua_thoth.png",
+   "w": 362,
+   "h": 230,
+   "anchor": [
+    78,
+    187
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "faixa_campeao_2_a": {
+   "png": "objetos/faixa_campeao_2_a.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    42,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "faixa_campeao_2_b": {
+   "png": "objetos/faixa_campeao_2_b.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    32,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "faixa_campeao_3_a": {
+   "png": "objetos/faixa_campeao_3_a.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    42,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "faixa_campeao_3_b": {
+   "png": "objetos/faixa_campeao_3_b.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    32,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "faixa_campeao_a": {
+   "png": "objetos/faixa_campeao_a.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    41,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "faixa_campeao_b": {
+   "png": "objetos/faixa_campeao_b.png",
+   "w": 280,
+   "h": 178,
+   "anchor": [
+    32,
+    159
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "farol_aviacao": {
+   "png": "objetos/farol_aviacao.png",
+   "w": 204,
+   "h": 144,
+   "anchor": [
+    34,
+    115
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "feixes_cevada": {
+   "png": "objetos/feixes_cevada.png",
+   "w": 238,
+   "h": 138,
+   "anchor": [
+    88,
+    93
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "fenda": {
+   "png": "objetos/fenda.png",
+   "w": 748,
+   "h": 444,
+   "anchor": [
+    226,
+    349
+   ],
+   "footprint_tiles": [
+    4,
+    3
+   ],
+   "categoria": "props"
+  },
+  "fenda_portadora": {
+   "png": "objetos/fenda_portadora.png",
+   "w": 590,
+   "h": 348,
+   "anchor": [
+    192,
+    248
+   ],
+   "footprint_tiles": [
+    6,
+    6
+   ],
+   "categoria": "chefes"
+  },
+  "figueira": {
+   "png": "objetos/figueira.png",
+   "w": 730,
+   "h": 448,
+   "anchor": [
+    216,
+    344
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "vegetacao"
+  },
+  "figueira_2": {
+   "png": "objetos/figueira_2.png",
+   "w": 788,
+   "h": 428,
+   "anchor": [
+    292,
+    308
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "vegetacao"
+  },
+  "flor_lume": {
+   "png": "objetos/flor_lume.png",
+   "w": 136,
+   "h": 92,
+   "anchor": [
+    37,
+    70
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "flor_lume_2": {
+   "png": "objetos/flor_lume_2.png",
+   "w": 122,
+   "h": 88,
+   "anchor": [
+    41,
+    67
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "fogueira": {
    "png": "objetos/fogueira.png",
    "w": 138,
@@ -1178,6 +2638,20 @@
    ],
    "categoria": "props"
   },
+  "folha_larga": {
+   "png": "objetos/folha_larga.png",
+   "w": 142,
+   "h": 92,
+   "anchor": [
+    48,
+    59
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "folhas_papeis": {
    "png": "objetos/folhas_papeis.png",
    "w": 96,
@@ -1191,6 +2665,34 @@
     1
    ],
    "categoria": "decalques"
+  },
+  "fonte_quatro_rios": {
+   "png": "objetos/fonte_quatro_rios.png",
+   "w": 604,
+   "h": 346,
+   "anchor": [
+    287,
+    199
+   ],
+   "footprint_tiles": [
+    5,
+    5
+   ],
+   "categoria": "props"
+  },
+  "fontes_gemeas": {
+   "png": "objetos/fontes_gemeas.png",
+   "w": 594,
+   "h": 302,
+   "anchor": [
+    196,
+    196
+   ],
+   "footprint_tiles": [
+    6,
+    4
+   ],
+   "categoria": "predios"
   },
   "forca_ponte": {
    "png": "objetos/forca_ponte.png",
@@ -1208,10 +2710,10 @@
   },
   "frigorifico_enterrado": {
    "png": "objetos/frigorifico_enterrado.png",
-   "w": 1262,
-   "h": 778,
+   "w": 1474,
+   "h": 806,
    "anchor": [
-    622,
+    692,
     482
    ],
    "footprint_tiles": [
@@ -1236,11 +2738,179 @@
   },
   "ganchos_carne": {
    "png": "objetos/ganchos_carne.png",
-   "w": 306,
-   "h": 196,
+   "w": 328,
+   "h": 208,
    "anchor": [
-    58,
-    163
+    63,
+    174
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "props"
+  },
+  "gerador_diesel": {
+   "png": "objetos/gerador_diesel.png",
+   "w": 300,
+   "h": 238,
+   "anchor": [
+    94,
+    170
+   ],
+   "footprint_tiles": [
+    4,
+    2
+   ],
+   "categoria": "dungeon"
+  },
+  "grade_ferro_batido_a": {
+   "png": "objetos/grade_ferro_batido_a.png",
+   "w": 140,
+   "h": 94,
+   "anchor": [
+    26,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "grade_ferro_batido_b": {
+   "png": "objetos/grade_ferro_batido_b.png",
+   "w": 140,
+   "h": 94,
+   "anchor": [
+    26,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "grade_torre_a": {
+   "png": "objetos/grade_torre_a.png",
+   "w": 302,
+   "h": 204,
+   "anchor": [
+    29,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_b": {
+   "png": "objetos/grade_torre_b.png",
+   "w": 294,
+   "h": 200,
+   "anchor": [
+    31,
+    182
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_canto": {
+   "png": "objetos/grade_torre_canto.png",
+   "w": 304,
+   "h": 204,
+   "anchor": [
+    25,
+    188
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_frente_a": {
+   "png": "objetos/grade_torre_frente_a.png",
+   "w": 132,
+   "h": 86,
+   "anchor": [
+    29,
+    68
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_frente_b": {
+   "png": "objetos/grade_torre_frente_b.png",
+   "w": 136,
+   "h": 86,
+   "anchor": [
+    29,
+    69
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_frente_canto": {
+   "png": "objetos/grade_torre_frente_canto.png",
+   "w": 130,
+   "h": 82,
+   "anchor": [
+    26,
+    68
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_v2_a": {
+   "png": "objetos/grade_torre_v2_a.png",
+   "w": 302,
+   "h": 204,
+   "anchor": [
+    29,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "grade_torre_v2_b": {
+   "png": "objetos/grade_torre_v2_b.png",
+   "w": 294,
+   "h": 200,
+   "anchor": [
+    31,
+    182
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "guincho_corrente": {
+   "png": "objetos/guincho_corrente.png",
+   "w": 216,
+   "h": 120,
+   "anchor": [
+    54,
+    88
    ],
    "footprint_tiles": [
     2,
@@ -1262,17 +2932,45 @@
    ],
    "categoria": "limites"
   },
-  "janela_na_areia": {
-   "png": "objetos/janela_na_areia.png",
-   "w": 344,
-   "h": 200,
+  "isoladores_pilha": {
+   "png": "objetos/isoladores_pilha.png",
+   "w": 112,
+   "h": 76,
    "anchor": [
-    128,
-    136
+    33,
+    55
    ],
    "footprint_tiles": [
     1,
     1
+   ],
+   "categoria": "dungeon"
+  },
+  "janela_na_areia": {
+   "png": "objetos/janela_na_areia.png",
+   "w": 366,
+   "h": 204,
+   "anchor": [
+    130,
+    94
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "jaula_leao": {
+   "png": "objetos/jaula_leao.png",
+   "w": 244,
+   "h": 150,
+   "anchor": [
+    61,
+    116
+   ],
+   "footprint_tiles": [
+    2,
+    2
    ],
    "categoria": "props"
   },
@@ -1289,6 +2987,34 @@
     1
    ],
    "categoria": "rio"
+  },
+  "juncos_eden": {
+   "png": "objetos/juncos_eden.png",
+   "w": 182,
+   "h": 126,
+   "anchor": [
+    34,
+    101
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "laje_rolada": {
+   "png": "objetos/laje_rolada.png",
+   "w": 168,
+   "h": 84,
+   "anchor": [
+    47,
+    69
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
   },
   "lama_porcos": {
    "png": "objetos/lama_porcos.png",
@@ -1317,6 +3043,34 @@
     4
    ],
    "categoria": "predios"
+  },
+  "lampiao_gas": {
+   "png": "objetos/lampiao_gas.png",
+   "w": 268,
+   "h": 182,
+   "anchor": [
+    19,
+    169
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "lanterna_eden": {
+   "png": "objetos/lanterna_eden.png",
+   "w": 264,
+   "h": 170,
+   "anchor": [
+    47,
+    138
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
   },
   "lanterna_procissao": {
    "png": "objetos/lanterna_procissao.png",
@@ -1360,19 +3114,131 @@
    ],
    "categoria": "props"
   },
+  "lapide_cruz_vitoriana": {
+   "png": "objetos/lapide_cruz_vitoriana.png",
+   "w": 114,
+   "h": 78,
+   "anchor": [
+    19,
+    64
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "lapide_obelisco": {
+   "png": "objetos/lapide_obelisco.png",
+   "w": 176,
+   "h": 118,
+   "anchor": [
+    26,
+    102
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "lapide_vitoriana": {
+   "png": "objetos/lapide_vitoriana.png",
+   "w": 138,
+   "h": 86,
+   "anchor": [
+    22,
+    73
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "linha_cal_a": {
+   "png": "objetos/linha_cal_a.png",
+   "w": 44,
+   "h": 28,
+   "anchor": [
+    18,
+    12
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "linha_cal_b": {
+   "png": "objetos/linha_cal_b.png",
+   "w": 42,
+   "h": 28,
+   "anchor": [
+    18,
+    15
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "linha_cal_meio": {
+   "png": "objetos/linha_cal_meio.png",
+   "w": 118,
+   "h": 72,
+   "anchor": [
+    60,
+    32
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "decalques"
+  },
+  "lotus": {
+   "png": "objetos/lotus.png",
+   "w": 144,
+   "h": 70,
+   "anchor": [
+    64,
+    38
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
   "mar_de_lapides": {
    "png": "objetos/mar_de_lapides.png",
-   "w": 266,
-   "h": 150,
+   "w": 382,
+   "h": 202,
    "anchor": [
-    122,
-    85
+    181,
+    108
    ],
    "footprint_tiles": [
     4,
     4
    ],
    "categoria": "props"
+  },
+  "mastro_topo": {
+   "png": "objetos/mastro_topo.png",
+   "w": 730,
+   "h": 434,
+   "anchor": [
+    79,
+    396
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "dungeon"
   },
   "mato_seco": {
    "png": "objetos/mato_seco.png",
@@ -1444,6 +3310,34 @@
    ],
    "categoria": "props"
   },
+  "mesa_telegrafo": {
+   "png": "objetos/mesa_telegrafo.png",
+   "w": 204,
+   "h": 108,
+   "anchor": [
+    61,
+    80
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "mirto": {
+   "png": "objetos/mirto.png",
+   "w": 218,
+   "h": 134,
+   "anchor": [
+    65,
+    96
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "moedor_vapor": {
    "png": "objetos/moedor_vapor.png",
    "w": 810,
@@ -1486,6 +3380,62 @@
    ],
    "categoria": "vegetacao"
   },
+  "moita_florida": {
+   "png": "objetos/moita_florida.png",
+   "w": 186,
+   "h": 114,
+   "anchor": [
+    56,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "moita_florida_2": {
+   "png": "objetos/moita_florida_2.png",
+   "w": 180,
+   "h": 106,
+   "anchor": [
+    73,
+    68
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "moita_florida_3": {
+   "png": "objetos/moita_florida_3.png",
+   "w": 152,
+   "h": 86,
+   "anchor": [
+    65,
+    56
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "moita_lume": {
+   "png": "objetos/moita_lume.png",
+   "w": 160,
+   "h": 112,
+   "anchor": [
+    63,
+    69
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "monge_emparedado": {
    "png": "objetos/monge_emparedado.png",
    "w": 286,
@@ -1500,13 +3450,97 @@
    ],
    "categoria": "dungeon"
   },
+  "muralha_bronze_a": {
+   "png": "objetos/muralha_bronze_a.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muralha_bronze_b": {
+   "png": "objetos/muralha_bronze_b.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muralha_estanho_a": {
+   "png": "objetos/muralha_estanho_a.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muralha_estanho_b": {
+   "png": "objetos/muralha_estanho_b.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muralha_oricalco_a": {
+   "png": "objetos/muralha_oricalco_a.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muralha_oricalco_b": {
+   "png": "objetos/muralha_oricalco_b.png",
+   "w": 220,
+   "h": 144,
+   "anchor": [
+    38,
+    121
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
   "muro_contencao_areia_a": {
    "png": "objetos/muro_contencao_areia_a.png",
-   "w": 208,
-   "h": 128,
+   "w": 244,
+   "h": 148,
    "anchor": [
-    34,
-    109
+    48,
+    121
    ],
    "footprint_tiles": [
     1,
@@ -1516,11 +3550,95 @@
   },
   "muro_contencao_areia_b": {
    "png": "objetos/muro_contencao_areia_b.png",
-   "w": 220,
-   "h": 128,
+   "w": 244,
+   "h": 148,
    "anchor": [
-    75,
-    108
+    92,
+    120
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_a": {
+   "png": "objetos/muro_fosso_a.png",
+   "w": 330,
+   "h": 222,
+   "anchor": [
+    27,
+    205
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_b": {
+   "png": "objetos/muro_fosso_b.png",
+   "w": 348,
+   "h": 222,
+   "anchor": [
+    36,
+    205
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_canto": {
+   "png": "objetos/muro_fosso_canto.png",
+   "w": 328,
+   "h": 220,
+   "anchor": [
+    35,
+    199
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_frente_a": {
+   "png": "objetos/muro_fosso_frente_a.png",
+   "w": 150,
+   "h": 106,
+   "anchor": [
+    34,
+    86
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_frente_b": {
+   "png": "objetos/muro_fosso_frente_b.png",
+   "w": 152,
+   "h": 100,
+   "anchor": [
+    28,
+    79
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "muro_fosso_frente_canto": {
+   "png": "objetos/muro_fosso_frente_canto.png",
+   "w": 142,
+   "h": 90,
+   "anchor": [
+    35,
+    69
    ],
    "footprint_tiles": [
     1,
@@ -1584,6 +3702,104 @@
    ],
    "categoria": "paredes"
   },
+  "nenufares": {
+   "png": "objetos/nenufares.png",
+   "w": 158,
+   "h": 100,
+   "anchor": [
+    69,
+    53
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "nenufares_2": {
+   "png": "objetos/nenufares_2.png",
+   "w": 170,
+   "h": 96,
+   "anchor": [
+    70,
+    58
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "obelisco_hermetico": {
+   "png": "objetos/obelisco_hermetico.png",
+   "w": 316,
+   "h": 208,
+   "anchor": [
+    47,
+    180
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "oliveira": {
+   "png": "objetos/oliveira.png",
+   "w": 536,
+   "h": 318,
+   "anchor": [
+    134,
+    246
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "oliveira_2": {
+   "png": "objetos/oliveira_2.png",
+   "w": 512,
+   "h": 252,
+   "anchor": [
+    152,
+    184
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "oliveira_3": {
+   "png": "objetos/oliveira_3.png",
+   "w": 548,
+   "h": 304,
+   "anchor": [
+    143,
+    244
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "osciloscopio": {
+   "png": "objetos/osciloscopio.png",
+   "w": 142,
+   "h": 104,
+   "anchor": [
+    26,
+    77
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
   "ossada_animal": {
    "png": "objetos/ossada_animal.png",
    "w": 108,
@@ -1600,11 +3816,11 @@
   },
   "ossada_gigante": {
    "png": "objetos/ossada_gigante.png",
-   "w": 650,
-   "h": 324,
+   "w": 842,
+   "h": 354,
    "anchor": [
-    290,
-    175
+    365,
+    203
    ],
    "footprint_tiles": [
     6,
@@ -1614,11 +3830,11 @@
   },
   "ossada_viajante": {
    "png": "objetos/ossada_viajante.png",
-   "w": 164,
-   "h": 84,
+   "w": 214,
+   "h": 116,
    "anchor": [
-    45,
-    55
+    65,
+    71
    ],
    "footprint_tiles": [
     2,
@@ -1640,13 +3856,27 @@
    ],
    "categoria": "decalques"
   },
+  "painel_acustico": {
+   "png": "objetos/painel_acustico.png",
+   "w": 238,
+   "h": 164,
+   "anchor": [
+    62,
+    126
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
   "palicada_a": {
    "png": "objetos/palicada_a.png",
-   "w": 266,
-   "h": 178,
+   "w": 200,
+   "h": 132,
    "anchor": [
-    30,
-    161
+    28,
+    114
    ],
    "footprint_tiles": [
     1,
@@ -1656,11 +3886,193 @@
   },
   "palicada_b": {
    "png": "objetos/palicada_b.png",
-   "w": 262,
-   "h": 176,
+   "w": 196,
+   "h": 132,
    "anchor": [
-    28,
-    157
+    26,
+    114
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "palmeira_lume": {
+   "png": "objetos/palmeira_lume.png",
+   "w": 812,
+   "h": 470,
+   "anchor": [
+    159,
+    400
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "palmeira_lume_2": {
+   "png": "objetos/palmeira_lume_2.png",
+   "w": 762,
+   "h": 414,
+   "anchor": [
+    242,
+    319
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "papel_perfurado": {
+   "png": "objetos/papel_perfurado.png",
+   "w": 112,
+   "h": 84,
+   "anchor": [
+    63,
+    40
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "papiro": {
+   "png": "objetos/papiro.png",
+   "w": 280,
+   "h": 156,
+   "anchor": [
+    64,
+    129
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "parabolica": {
+   "png": "objetos/parabolica.png",
+   "w": 388,
+   "h": 258,
+   "anchor": [
+    107,
+    200
+   ],
+   "footprint_tiles": [
+    3,
+    3
+   ],
+   "categoria": "dungeon"
+  },
+  "parede_gotica_a": {
+   "png": "objetos/parede_gotica_a.png",
+   "w": 330,
+   "h": 216,
+   "anchor": [
+    32,
+    197
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_b": {
+   "png": "objetos/parede_gotica_b.png",
+   "w": 334,
+   "h": 220,
+   "anchor": [
+    31,
+    200
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_canto": {
+   "png": "objetos/parede_gotica_canto.png",
+   "w": 370,
+   "h": 242,
+   "anchor": [
+    51,
+    213
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_frente_a": {
+   "png": "objetos/parede_gotica_frente_a.png",
+   "w": 152,
+   "h": 100,
+   "anchor": [
+    31,
+    81
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_frente_b": {
+   "png": "objetos/parede_gotica_frente_b.png",
+   "w": 158,
+   "h": 100,
+   "anchor": [
+    36,
+    81
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_frente_canto": {
+   "png": "objetos/parede_gotica_frente_canto.png",
+   "w": 160,
+   "h": 104,
+   "anchor": [
+    41,
+    85
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_v2_a": {
+   "png": "objetos/parede_gotica_v2_a.png",
+   "w": 322,
+   "h": 214,
+   "anchor": [
+    32,
+    194
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_gotica_v2_b": {
+   "png": "objetos/parede_gotica_v2_b.png",
+   "w": 324,
+   "h": 214,
+   "anchor": [
+    31,
+    194
    ],
    "footprint_tiles": [
     1,
@@ -1686,6 +4098,90 @@
    "png": "objetos/parede_matadouro_b.png",
    "w": 300,
    "h": 202,
+   "anchor": [
+    29,
+    184
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_canto": {
+   "png": "objetos/parede_matadouro_canto.png",
+   "w": 326,
+   "h": 214,
+   "anchor": [
+    35,
+    194
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_frente_a": {
+   "png": "objetos/parede_matadouro_frente_a.png",
+   "w": 106,
+   "h": 72,
+   "anchor": [
+    32,
+    50
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_frente_b": {
+   "png": "objetos/parede_matadouro_frente_b.png",
+   "w": 104,
+   "h": 68,
+   "anchor": [
+    28,
+    49
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_frente_canto": {
+   "png": "objetos/parede_matadouro_frente_canto.png",
+   "w": 126,
+   "h": 80,
+   "anchor": [
+    35,
+    59
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_v2_a": {
+   "png": "objetos/parede_matadouro_v2_a.png",
+   "w": 306,
+   "h": 200,
+   "anchor": [
+    32,
+    184
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_matadouro_v2_b": {
+   "png": "objetos/parede_matadouro_v2_b.png",
+   "w": 300,
+   "h": 200,
    "anchor": [
     29,
     184
@@ -1724,6 +4220,202 @@
    ],
    "categoria": "paredes"
   },
+  "parede_ossario_canto": {
+   "png": "objetos/parede_ossario_canto.png",
+   "w": 326,
+   "h": 214,
+   "anchor": [
+    35,
+    194
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_ossario_frente_a": {
+   "png": "objetos/parede_ossario_frente_a.png",
+   "w": 116,
+   "h": 82,
+   "anchor": [
+    35,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_ossario_frente_b": {
+   "png": "objetos/parede_ossario_frente_b.png",
+   "w": 110,
+   "h": 74,
+   "anchor": [
+    28,
+    53
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_ossario_frente_canto": {
+   "png": "objetos/parede_ossario_frente_canto.png",
+   "w": 132,
+   "h": 84,
+   "anchor": [
+    35,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_ossario_v2_a": {
+   "png": "objetos/parede_ossario_v2_a.png",
+   "w": 306,
+   "h": 202,
+   "anchor": [
+    29,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_ossario_v2_b": {
+   "png": "objetos/parede_ossario_v2_b.png",
+   "w": 304,
+   "h": 202,
+   "anchor": [
+    31,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_a": {
+   "png": "objetos/parede_torre_a.png",
+   "w": 314,
+   "h": 204,
+   "anchor": [
+    37,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_b": {
+   "png": "objetos/parede_torre_b.png",
+   "w": 308,
+   "h": 204,
+   "anchor": [
+    31,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_canto": {
+   "png": "objetos/parede_torre_canto.png",
+   "w": 316,
+   "h": 208,
+   "anchor": [
+    35,
+    187
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_frente_a": {
+   "png": "objetos/parede_torre_frente_a.png",
+   "w": 106,
+   "h": 68,
+   "anchor": [
+    32,
+    49
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_frente_b": {
+   "png": "objetos/parede_torre_frente_b.png",
+   "w": 118,
+   "h": 68,
+   "anchor": [
+    29,
+    49
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_frente_canto": {
+   "png": "objetos/parede_torre_frente_canto.png",
+   "w": 120,
+   "h": 80,
+   "anchor": [
+    29,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_v2_a": {
+   "png": "objetos/parede_torre_v2_a.png",
+   "w": 314,
+   "h": 204,
+   "anchor": [
+    37,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_torre_v2_b": {
+   "png": "objetos/parede_torre_v2_b.png",
+   "w": 308,
+   "h": 204,
+   "anchor": [
+    31,
+    185
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
   "parede_trombeta_a": {
    "png": "objetos/parede_trombeta_a.png",
    "w": 322,
@@ -1751,6 +4443,132 @@
     1
    ],
    "categoria": "paredes"
+  },
+  "parede_trombeta_canto": {
+   "png": "objetos/parede_trombeta_canto.png",
+   "w": 342,
+   "h": 226,
+   "anchor": [
+    35,
+    205
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_trombeta_frente_a": {
+   "png": "objetos/parede_trombeta_frente_a.png",
+   "w": 120,
+   "h": 72,
+   "anchor": [
+    39,
+    53
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_trombeta_frente_b": {
+   "png": "objetos/parede_trombeta_frente_b.png",
+   "w": 112,
+   "h": 76,
+   "anchor": [
+    29,
+    53
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_trombeta_frente_canto": {
+   "png": "objetos/parede_trombeta_frente_canto.png",
+   "w": 132,
+   "h": 84,
+   "anchor": [
+    35,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_trombeta_v2_a": {
+   "png": "objetos/parede_trombeta_v2_a.png",
+   "w": 322,
+   "h": 214,
+   "anchor": [
+    29,
+    196
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "parede_trombeta_v2_b": {
+   "png": "objetos/parede_trombeta_v2_b.png",
+   "w": 322,
+   "h": 214,
+   "anchor": [
+    31,
+    196
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "paredes"
+  },
+  "pedra_coberta": {
+   "png": "objetos/pedra_coberta.png",
+   "w": 278,
+   "h": 164,
+   "anchor": [
+    87,
+    117
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "pedra_coberta_2": {
+   "png": "objetos/pedra_coberta_2.png",
+   "w": 358,
+   "h": 210,
+   "anchor": [
+    111,
+    149
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "pedra_coberta_3": {
+   "png": "objetos/pedra_coberta_3.png",
+   "w": 198,
+   "h": 118,
+   "anchor": [
+    63,
+    83
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
   },
   "pedras_rio": {
    "png": "objetos/pedras_rio.png",
@@ -1780,6 +4598,34 @@
    ],
    "categoria": "decalques"
   },
+  "pilar_entulho": {
+   "png": "objetos/pilar_entulho.png",
+   "w": 208,
+   "h": 136,
+   "anchor": [
+    52,
+    107
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "pilar_leis": {
+   "png": "objetos/pilar_leis.png",
+   "w": 696,
+   "h": 446,
+   "anchor": [
+    142,
+    372
+   ],
+   "footprint_tiles": [
+    4,
+    4
+   ],
+   "categoria": "props"
+  },
   "pilar_porcelana": {
    "png": "objetos/pilar_porcelana.png",
    "w": 386,
@@ -1791,6 +4637,48 @@
    "footprint_tiles": [
     2,
     2
+   ],
+   "categoria": "dungeon"
+  },
+  "pilar_portao": {
+   "png": "objetos/pilar_portao.png",
+   "w": 708,
+   "h": 422,
+   "anchor": [
+    131,
+    372
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "pilar_portao_2": {
+   "png": "objetos/pilar_portao_2.png",
+   "w": 708,
+   "h": 422,
+   "anchor": [
+    131,
+    372
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "pilha_carvao": {
+   "png": "objetos/pilha_carvao.png",
+   "w": 144,
+   "h": 78,
+   "anchor": [
+    52,
+    48
+   ],
+   "footprint_tiles": [
+    1,
+    1
    ],
    "categoria": "dungeon"
   },
@@ -1852,17 +4740,45 @@
   },
   "placa_rua_enterrada": {
    "png": "objetos/placa_rua_enterrada.png",
-   "w": 212,
-   "h": 128,
+   "w": 228,
+   "h": 126,
    "anchor": [
-    50,
-    103
+    92,
+    69
    ],
    "footprint_tiles": [
     1,
     1
    ],
    "categoria": "props"
+  },
+  "placa_versiculo": {
+   "png": "objetos/placa_versiculo.png",
+   "w": 166,
+   "h": 104,
+   "anchor": [
+    46,
+    78
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "placar_camarote": {
+   "png": "objetos/placar_camarote.png",
+   "w": 696,
+   "h": 422,
+   "anchor": [
+    133,
+    363
+   ],
+   "footprint_tiles": [
+    6,
+    3
+   ],
+   "categoria": "predios"
   },
   "planta_mutante": {
    "png": "objetos/planta_mutante.png",
@@ -1877,6 +4793,342 @@
     1
    ],
    "categoria": "vegetacao"
+  },
+  "plateia_a_0_a": {
+   "png": "objetos/plateia_a_0_a.png",
+   "w": 498,
+   "h": 308,
+   "anchor": [
+    24,
+    293
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_0_b": {
+   "png": "objetos/plateia_a_0_b.png",
+   "w": 490,
+   "h": 308,
+   "anchor": [
+    167,
+    294
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_1_a": {
+   "png": "objetos/plateia_a_1_a.png",
+   "w": 502,
+   "h": 310,
+   "anchor": [
+    24,
+    296
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_1_b": {
+   "png": "objetos/plateia_a_1_b.png",
+   "w": 498,
+   "h": 312,
+   "anchor": [
+    170,
+    297
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_2_a": {
+   "png": "objetos/plateia_a_2_a.png",
+   "w": 518,
+   "h": 316,
+   "anchor": [
+    29,
+    300
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_2_b": {
+   "png": "objetos/plateia_a_2_b.png",
+   "w": 518,
+   "h": 316,
+   "anchor": [
+    180,
+    302
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_3_a": {
+   "png": "objetos/plateia_a_3_a.png",
+   "w": 526,
+   "h": 320,
+   "anchor": [
+    31,
+    305
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_a_3_b": {
+   "png": "objetos/plateia_a_3_b.png",
+   "w": 526,
+   "h": 320,
+   "anchor": [
+    183,
+    305
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_0_a": {
+   "png": "objetos/plateia_b_0_a.png",
+   "w": 510,
+   "h": 316,
+   "anchor": [
+    24,
+    301
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_0_b": {
+   "png": "objetos/plateia_b_0_b.png",
+   "w": 506,
+   "h": 318,
+   "anchor": [
+    170,
+    302
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_1_a": {
+   "png": "objetos/plateia_b_1_a.png",
+   "w": 516,
+   "h": 320,
+   "anchor": [
+    24,
+    305
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_1_b": {
+   "png": "objetos/plateia_b_1_b.png",
+   "w": 516,
+   "h": 322,
+   "anchor": [
+    173,
+    306
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_2_a": {
+   "png": "objetos/plateia_b_2_a.png",
+   "w": 534,
+   "h": 324,
+   "anchor": [
+    33,
+    308
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_2_b": {
+   "png": "objetos/plateia_b_2_b.png",
+   "w": 534,
+   "h": 324,
+   "anchor": [
+    184,
+    309
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_3_a": {
+   "png": "objetos/plateia_b_3_a.png",
+   "w": 536,
+   "h": 326,
+   "anchor": [
+    33,
+    309
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_b_3_b": {
+   "png": "objetos/plateia_b_3_b.png",
+   "w": 536,
+   "h": 326,
+   "anchor": [
+    184,
+    311
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_0_a": {
+   "png": "objetos/plateia_c_0_a.png",
+   "w": 508,
+   "h": 316,
+   "anchor": [
+    24,
+    300
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_0_b": {
+   "png": "objetos/plateia_c_0_b.png",
+   "w": 504,
+   "h": 316,
+   "anchor": [
+    172,
+    300
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_1_a": {
+   "png": "objetos/plateia_c_1_a.png",
+   "w": 516,
+   "h": 318,
+   "anchor": [
+    26,
+    304
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_1_b": {
+   "png": "objetos/plateia_c_1_b.png",
+   "w": 516,
+   "h": 318,
+   "anchor": [
+    177,
+    303
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_2_a": {
+   "png": "objetos/plateia_c_2_a.png",
+   "w": 538,
+   "h": 328,
+   "anchor": [
+    37,
+    310
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_2_b": {
+   "png": "objetos/plateia_c_2_b.png",
+   "w": 538,
+   "h": 328,
+   "anchor": [
+    188,
+    309
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_3_a": {
+   "png": "objetos/plateia_c_3_a.png",
+   "w": 526,
+   "h": 320,
+   "anchor": [
+    33,
+    304
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "plateia_c_3_b": {
+   "png": "objetos/plateia_c_3_b.png",
+   "w": 526,
+   "h": 320,
+   "anchor": [
+    184,
+    305
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
   },
   "poca_sangue": {
    "png": "objetos/poca_sangue.png",
@@ -1934,6 +5186,34 @@
    ],
    "categoria": "props"
   },
+  "ponte_canal": {
+   "png": "objetos/ponte_canal.png",
+   "w": 520,
+   "h": 292,
+   "anchor": [
+    193,
+    191
+   ],
+   "footprint_tiles": [
+    9,
+    3
+   ],
+   "categoria": "predios"
+  },
+  "ponte_canal_y": {
+   "png": "objetos/ponte_canal_y.png",
+   "w": 520,
+   "h": 292,
+   "anchor": [
+    193,
+    191
+   ],
+   "footprint_tiles": [
+    3,
+    9
+   ],
+   "categoria": "props"
+  },
   "ponte_ferro_bonde": {
    "png": "objetos/ponte_ferro_bonde.png",
    "w": 608,
@@ -1947,6 +5227,62 @@
     4
    ],
    "categoria": "predios"
+  },
+  "ponte_laje": {
+   "png": "objetos/ponte_laje.png",
+   "w": 386,
+   "h": 210,
+   "anchor": [
+    167,
+    122
+   ],
+   "footprint_tiles": [
+    7,
+    3
+   ],
+   "categoria": "predios"
+  },
+  "ponte_laje_y": {
+   "png": "objetos/ponte_laje_y.png",
+   "w": 386,
+   "h": 210,
+   "anchor": [
+    167,
+    122
+   ],
+   "footprint_tiles": [
+    3,
+    7
+   ],
+   "categoria": "props"
+  },
+  "ponte_longa": {
+   "png": "objetos/ponte_longa.png",
+   "w": 640,
+   "h": 364,
+   "anchor": [
+    248,
+    236
+   ],
+   "footprint_tiles": [
+    12,
+    3
+   ],
+   "categoria": "predios"
+  },
+  "ponte_longa_y": {
+   "png": "objetos/ponte_longa_y.png",
+   "w": 640,
+   "h": 364,
+   "anchor": [
+    248,
+    236
+   ],
+   "footprint_tiles": [
+    3,
+    12
+   ],
+   "categoria": "props"
   },
   "ponte_madeira_a": {
    "png": "objetos/ponte_madeira_a.png",
@@ -1990,6 +5326,62 @@
    ],
    "categoria": "limites"
   },
+  "ponte_tabuas": {
+   "png": "objetos/ponte_tabuas.png",
+   "w": 280,
+   "h": 160,
+   "anchor": [
+    104,
+    105
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "props"
+  },
+  "portal_dungeon": {
+   "png": "objetos/portal_dungeon.png",
+   "w": 600,
+   "h": 384,
+   "anchor": [
+    144,
+    309
+   ],
+   "footprint_tiles": [
+    4,
+    2
+   ],
+   "categoria": "predios"
+  },
+  "portal_dungeon_lume": {
+   "png": "objetos/portal_dungeon_lume.png",
+   "w": 600,
+   "h": 384,
+   "anchor": [
+    144,
+    309
+   ],
+   "footprint_tiles": [
+    4,
+    2
+   ],
+   "categoria": "predios"
+  },
+  "portao_amenti": {
+   "png": "objetos/portao_amenti.png",
+   "w": 1164,
+   "h": 716,
+   "anchor": [
+    266,
+    584
+   ],
+   "footprint_tiles": [
+    10,
+    5
+   ],
+   "categoria": "predios"
+  },
   "portao_ferro": {
    "png": "objetos/portao_ferro.png",
    "w": 364,
@@ -1997,6 +5389,90 @@
    "anchor": [
     67,
     192
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_gigante_a": {
+   "png": "objetos/portao_gigante_a.png",
+   "w": 486,
+   "h": 306,
+   "anchor": [
+    79,
+    263
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_gigante_b": {
+   "png": "objetos/portao_gigante_b.png",
+   "w": 486,
+   "h": 306,
+   "anchor": [
+    88,
+    263
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_grade_agrak_a": {
+   "png": "objetos/portao_grade_agrak_a.png",
+   "w": 388,
+   "h": 246,
+   "anchor": [
+    63,
+    211
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_grade_agrak_aberto_a": {
+   "png": "objetos/portao_grade_agrak_aberto_a.png",
+   "w": 388,
+   "h": 246,
+   "anchor": [
+    63,
+    211
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_grade_agrak_aberto_b": {
+   "png": "objetos/portao_grade_agrak_aberto_b.png",
+   "w": 388,
+   "h": 246,
+   "anchor": [
+    72,
+    211
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "portao_grade_agrak_b": {
+   "png": "objetos/portao_grade_agrak_b.png",
+   "w": 388,
+   "h": 246,
+   "anchor": [
+    72,
+    211
    ],
    "footprint_tiles": [
     2,
@@ -2034,11 +5510,11 @@
   },
   "poste_mastro": {
    "png": "objetos/poste_mastro.png",
-   "w": 138,
-   "h": 80,
+   "w": 190,
+   "h": 106,
    "anchor": [
-    60,
-    46
+    84,
+    60
    ],
    "footprint_tiles": [
     1,
@@ -2076,10 +5552,10 @@
   },
   "poste_telegrafo": {
    "png": "objetos/poste_telegrafo.png",
-   "w": 460,
-   "h": 292,
+   "w": 490,
+   "h": 306,
    "anchor": [
-    63,
+    92,
     256
    ],
    "footprint_tiles": [
@@ -2090,10 +5566,10 @@
   },
   "poste_tombado": {
    "png": "objetos/poste_tombado.png",
-   "w": 338,
-   "h": 184,
+   "w": 372,
+   "h": 198,
    "anchor": [
-    169,
+    201,
     94
    ],
    "footprint_tiles": [
@@ -2116,12 +5592,26 @@
    ],
    "categoria": "predios"
   },
+  "predio_concreto": {
+   "png": "objetos/predio_concreto.png",
+   "w": 1528,
+   "h": 1146,
+   "anchor": [
+    504,
+    823
+   ],
+   "footprint_tiles": [
+    10,
+    8
+   ],
+   "categoria": "predios"
+  },
   "predio_enterrado": {
    "png": "objetos/predio_enterrado.png",
-   "w": 1386,
-   "h": 902,
+   "w": 1424,
+   "h": 928,
    "anchor": [
-    430,
+    466,
     689
    ],
    "footprint_tiles": [
@@ -2143,6 +5633,48 @@
     2
    ],
    "categoria": "props"
+  },
+  "quadro_disjuntores": {
+   "png": "objetos/quadro_disjuntores.png",
+   "w": 308,
+   "h": 202,
+   "anchor": [
+    49,
+    171
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "quadro_frequencias": {
+   "png": "objetos/quadro_frequencias.png",
+   "w": 220,
+   "h": 140,
+   "anchor": [
+    45,
+    113
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "rack_valvulas": {
+   "png": "objetos/rack_valvulas.png",
+   "w": 304,
+   "h": 196,
+   "anchor": [
+    46,
+    169
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "ralo_ferro": {
    "png": "objetos/ralo_ferro.png",
@@ -2171,6 +5703,62 @@
     1
    ],
    "categoria": "decalques"
+  },
+  "rastro_arrasto": {
+   "png": "objetos/rastro_arrasto.png",
+   "w": 154,
+   "h": 84,
+   "anchor": [
+    79,
+    43
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "receptor_votivo": {
+   "png": "objetos/receptor_votivo.png",
+   "w": 130,
+   "h": 86,
+   "anchor": [
+    37,
+    62
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "rochedo": {
+   "png": "objetos/rochedo.png",
+   "w": 800,
+   "h": 552,
+   "anchor": [
+    210,
+    443
+   ],
+   "footprint_tiles": [
+    6,
+    5
+   ],
+   "categoria": "predios"
+  },
+  "rochedo_2": {
+   "png": "objetos/rochedo_2.png",
+   "w": 1014,
+   "h": 642,
+   "anchor": [
+    200,
+    534
+   ],
+   "footprint_tiles": [
+    6,
+    5
+   ],
+   "categoria": "predios"
   },
   "roda_dagua": {
    "png": "objetos/roda_dagua.png",
@@ -2202,10 +5790,10 @@
   },
   "ruina_concreto": {
    "png": "objetos/ruina_concreto.png",
-   "w": 590,
-   "h": 342,
+   "w": 720,
+   "h": 404,
    "anchor": [
-    232,
+    360,
     244
    ],
    "footprint_tiles": [
@@ -2228,6 +5816,90 @@
    ],
    "categoria": "props"
   },
+  "sacos_sal": {
+   "png": "objetos/sacos_sal.png",
+   "w": 110,
+   "h": 76,
+   "anchor": [
+    36,
+    48
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "salgueiro": {
+   "png": "objetos/salgueiro.png",
+   "w": 628,
+   "h": 370,
+   "anchor": [
+    122,
+    327
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "salgueiro_2": {
+   "png": "objetos/salgueiro_2.png",
+   "w": 582,
+   "h": 360,
+   "anchor": [
+    154,
+    305
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "vegetacao"
+  },
+  "samambaia": {
+   "png": "objetos/samambaia.png",
+   "w": 228,
+   "h": 132,
+   "anchor": [
+    85,
+    90
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "samambaia_2": {
+   "png": "objetos/samambaia_2.png",
+   "w": 270,
+   "h": 152,
+   "anchor": [
+    96,
+    100
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "samambaia_3": {
+   "png": "objetos/samambaia_3.png",
+   "w": 150,
+   "h": 110,
+   "anchor": [
+    57,
+    75
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "sarcofago": {
    "png": "objetos/sarcofago.png",
    "w": 222,
@@ -2238,6 +5910,48 @@
    ],
    "footprint_tiles": [
     2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
+  "sepulcro_primeiro": {
+   "png": "objetos/sepulcro_primeiro.png",
+   "w": 312,
+   "h": 184,
+   "anchor": [
+    82,
+    138
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "simbolo_portadora": {
+   "png": "objetos/simbolo_portadora.png",
+   "w": 138,
+   "h": 76,
+   "anchor": [
+    61,
+    38
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "sintonizado_ajoelhado": {
+   "png": "objetos/sintonizado_ajoelhado.png",
+   "w": 182,
+   "h": 116,
+   "anchor": [
+    41,
+    95
+   ],
+   "footprint_tiles": [
+    1,
     1
    ],
    "categoria": "dungeon"
@@ -2256,19 +5970,117 @@
    ],
    "categoria": "props"
   },
+  "sujeira_rodape_a": {
+   "png": "objetos/sujeira_rodape_a.png",
+   "w": 64,
+   "h": 32,
+   "anchor": [
+    32,
+    16
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "sujeira_rodape_b": {
+   "png": "objetos/sujeira_rodape_b.png",
+   "w": 64,
+   "h": 32,
+   "anchor": [
+    32,
+    16
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
+  "sujeira_rodape_canto": {
+   "png": "objetos/sujeira_rodape_canto.png",
+   "w": 64,
+   "h": 32,
+   "anchor": [
+    32,
+    16
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "decalques"
+  },
   "sumidouro": {
    "png": "objetos/sumidouro.png",
-   "w": 312,
-   "h": 164,
+   "w": 358,
+   "h": 188,
    "anchor": [
-    147,
-    87
+    170,
+    99
    ],
    "footprint_tiles": [
     4,
     4
    ],
    "categoria": "props"
+  },
+  "tabua_esmeralda": {
+   "png": "objetos/tabua_esmeralda.png",
+   "w": 460,
+   "h": 286,
+   "anchor": [
+    137,
+    213
+   ],
+   "footprint_tiles": [
+    4,
+    3
+   ],
+   "categoria": "props"
+  },
+  "tamareira": {
+   "png": "objetos/tamareira.png",
+   "w": 836,
+   "h": 512,
+   "anchor": [
+    198,
+    445
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "tamareira_2": {
+   "png": "objetos/tamareira_2.png",
+   "w": 770,
+   "h": 470,
+   "anchor": [
+    181,
+    392
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "tambor_oleo": {
+   "png": "objetos/tambor_oleo.png",
+   "w": 162,
+   "h": 118,
+   "anchor": [
+    49,
+    69
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
   },
   "tambores_radioativos": {
    "png": "objetos/tambores_radioativos.png",
@@ -2284,6 +6096,34 @@
    ],
    "categoria": "props"
   },
+  "tanque_latao": {
+   "png": "objetos/tanque_latao.png",
+   "w": 412,
+   "h": 250,
+   "anchor": [
+    102,
+    195
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "props"
+  },
+  "tanque_salmoura": {
+   "png": "objetos/tanque_salmoura.png",
+   "w": 190,
+   "h": 114,
+   "anchor": [
+    59,
+    81
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
+  },
   "tanque_sebo": {
    "png": "objetos/tanque_sebo.png",
    "w": 330,
@@ -2298,6 +6138,48 @@
    ],
    "categoria": "props"
   },
+  "tapete_flores": {
+   "png": "objetos/tapete_flores.png",
+   "w": 176,
+   "h": 98,
+   "anchor": [
+    90,
+    54
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "tapete_flores_2": {
+   "png": "objetos/tapete_flores_2.png",
+   "w": 184,
+   "h": 92,
+   "anchor": [
+    88,
+    49
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "tapete_flores_3": {
+   "png": "objetos/tapete_flores_3.png",
+   "w": 158,
+   "h": 82,
+   "anchor": [
+    81,
+    49
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "telhado_no_abismo": {
    "png": "objetos/telhado_no_abismo.png",
    "w": 352,
@@ -2311,6 +6193,20 @@
     5
    ],
    "categoria": "limites"
+  },
+  "templo_poseidon": {
+   "png": "objetos/templo_poseidon.png",
+   "w": 1790,
+   "h": 1044,
+   "anchor": [
+    603,
+    734
+   ],
+   "footprint_tiles": [
+    20,
+    14
+   ],
+   "categoria": "predios"
   },
   "tenda_demonio": {
    "png": "objetos/tenda_demonio.png",
@@ -2342,11 +6238,11 @@
   },
   "toca_caes": {
    "png": "objetos/toca_caes.png",
-   "w": 266,
-   "h": 152,
+   "w": 392,
+   "h": 216,
    "anchor": [
-    83,
-    105
+    148,
+    138
    ],
    "footprint_tiles": [
     3,
@@ -2396,12 +6292,40 @@
    ],
    "categoria": "limites"
   },
+  "torre_portao": {
+   "png": "objetos/torre_portao.png",
+   "w": 902,
+   "h": 570,
+   "anchor": [
+    160,
+    488
+   ],
+   "footprint_tiles": [
+    4,
+    6
+   ],
+   "categoria": "props"
+  },
+  "torre_radio": {
+   "png": "objetos/torre_radio.png",
+   "w": 1264,
+   "h": 2030,
+   "anchor": [
+    585,
+    1733
+   ],
+   "footprint_tiles": [
+    9,
+    9
+   ],
+   "categoria": "predios"
+  },
   "torre_relogio_enterrada": {
    "png": "objetos/torre_relogio_enterrada.png",
-   "w": 814,
-   "h": 486,
+   "w": 836,
+   "h": 494,
    "anchor": [
-    220,
+    240,
     375
    ],
    "footprint_tiles": [
@@ -2412,10 +6336,10 @@
   },
   "torre_sino": {
    "png": "objetos/torre_sino.png",
-   "w": 602,
-   "h": 362,
+   "w": 616,
+   "h": 372,
    "anchor": [
-    190,
+    204,
     269
    ],
    "footprint_tiles": [
@@ -2426,10 +6350,10 @@
   },
   "torre_tombada": {
    "png": "objetos/torre_tombada.png",
-   "w": 1358,
-   "h": 728,
+   "w": 1482,
+   "h": 788,
    "anchor": [
-    271,
+    396,
     587
    ],
    "footprint_tiles": [
@@ -2465,6 +6389,34 @@
     4
    ],
    "categoria": "limites"
+  },
+  "transformador": {
+   "png": "objetos/transformador.png",
+   "w": 274,
+   "h": 166,
+   "anchor": [
+    71,
+    134
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
+  },
+  "trelica_videira": {
+   "png": "objetos/trelica_videira.png",
+   "w": 326,
+   "h": 206,
+   "anchor": [
+    101,
+    144
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "props"
   },
   "trilho_bonde_a": {
    "png": "objetos/trilho_bonde_a.png",
@@ -2522,6 +6474,62 @@
    ],
    "categoria": "limites"
   },
+  "tripode": {
+   "png": "objetos/tripode.png",
+   "w": 186,
+   "h": 120,
+   "anchor": [
+    44,
+    94
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "props"
+  },
+  "trirreme": {
+   "png": "objetos/trirreme.png",
+   "w": 742,
+   "h": 454,
+   "anchor": [
+    249,
+    321
+   ],
+   "footprint_tiles": [
+    14,
+    4
+   ],
+   "categoria": "predios"
+  },
+  "tronco_caido_eden": {
+   "png": "objetos/tronco_caido_eden.png",
+   "w": 300,
+   "h": 192,
+   "anchor": [
+    126,
+    137
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
+  "tronco_caido_eden_2": {
+   "png": "objetos/tronco_caido_eden_2.png",
+   "w": 286,
+   "h": 174,
+   "anchor": [
+    123,
+    119
+   ],
+   "footprint_tiles": [
+    3,
+    1
+   ],
+   "categoria": "vegetacao"
+  },
   "tronco_margem": {
    "png": "objetos/tronco_margem.png",
    "w": 186,
@@ -2550,6 +6558,20 @@
    ],
    "categoria": "props"
   },
+  "tubos_orgao": {
+   "png": "objetos/tubos_orgao.png",
+   "w": 410,
+   "h": 274,
+   "anchor": [
+    58,
+    237
+   ],
+   "footprint_tiles": [
+    3,
+    2
+   ],
+   "categoria": "dungeon"
+  },
   "tumulo_aberto": {
    "png": "objetos/tumulo_aberto.png",
    "w": 206,
@@ -2564,13 +6586,27 @@
    ],
    "categoria": "props"
   },
+  "tumulo_vitoriano": {
+   "png": "objetos/tumulo_vitoriano.png",
+   "w": 204,
+   "h": 120,
+   "anchor": [
+    70,
+    81
+   ],
+   "footprint_tiles": [
+    2,
+    1
+   ],
+   "categoria": "dungeon"
+  },
   "vala_aberta": {
    "png": "objetos/vala_aberta.png",
-   "w": 258,
-   "h": 138,
+   "w": 466,
+   "h": 242,
    "anchor": [
-    123,
-    73
+    224,
+    127
    ],
    "footprint_tiles": [
     3,
@@ -2606,6 +6642,20 @@
    ],
    "categoria": "props"
   },
+  "velas_chao": {
+   "png": "objetos/velas_chao.png",
+   "w": 70,
+   "h": 48,
+   "anchor": [
+    29,
+    30
+   ],
+   "footprint_tiles": [
+    1,
+    1
+   ],
+   "categoria": "dungeon"
+  },
   "vidro_estilhacos": {
    "png": "objetos/vidro_estilhacos.png",
    "w": 100,
@@ -2619,6 +6669,20 @@
     1
    ],
    "categoria": "decalques"
+  },
+  "viga_trelica": {
+   "png": "objetos/viga_trelica.png",
+   "w": 180,
+   "h": 86,
+   "anchor": [
+    59,
+    52
+   ],
+   "footprint_tiles": [
+    2,
+    2
+   ],
+   "categoria": "dungeon"
   }
  },
  "bordas": {

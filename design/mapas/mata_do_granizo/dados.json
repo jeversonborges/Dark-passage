@@ -1,0 +1,1407 @@
+{
+ "_doc": "Mata do Granizo + A Torre (pedido do Jefin 11/10/2026). mobs: formato de game/data/v06_extra.json (base = id de design/combate/mobs.json). sprites: formato de game/data/sprites_substitutos.json (recolor estilo MU até a arte própria). chefes: formato de design/combate/chefes.json. drops: formato das tabelas de design/combate/drops.json (faixa2 até existir faixa3). Gerado por gerar.py.",
+ "mobs": {
+  "lobo_de_cinza": {
+   "nome": "Lobo de Cinza",
+   "base": "cao_de_vala",
+   "niveis": [
+    12,
+    14
+   ],
+   "ajuste": {
+    "hp": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "renascimento_s": 14
+  },
+  "corvo_de_brasa": {
+   "nome": "Corvo de Brasa",
+   "base": "corvo_de_cinza",
+   "niveis": [
+    12,
+    15
+   ],
+   "ajuste": {
+    "dano": 1.1
+   },
+   "tags": [
+    "animal",
+    "voador"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "javali_brasa": {
+   "nome": "Javali-Brasa",
+   "base": "porco_pestilento",
+   "niveis": [
+    13,
+    16
+   ],
+   "ajuste": {
+    "hp": 1.2
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": 0.4
+   },
+   "renascimento_s": 14
+  },
+  "enxame_de_fagulhas": {
+   "nome": "Enxame de Fagulhas",
+   "base": "fogo_de_vela",
+   "niveis": [
+    15,
+    17
+   ],
+   "ajuste": {},
+   "tags": [
+    "espectro"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.8,
+    "gelo": -0.5
+   },
+   "renascimento_s": 14
+  },
+  "legionario_desgarrado": {
+   "nome": "Legionário Desgarrado",
+   "base": "soldado_caido",
+   "niveis": [
+    16,
+    18
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.1
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.4,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "incendiaria_da_comunhao": {
+   "nome": "Incendiária da Comunhão",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    16,
+    18
+   ],
+   "ajuste": {
+    "dano": 1.15
+   },
+   "tags": [
+    "humano"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "cao_de_brasa": {
+   "nome": "Cão de Brasa da Legião",
+   "base": "cao_de_vala",
+   "niveis": [
+    17,
+    20
+   ],
+   "ajuste": {
+    "hp": 1.15,
+    "dano": 1.15
+   },
+   "tags": [
+    "animal",
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.6
+   },
+   "renascimento_s": 14
+  },
+  "escudeiro_sem_hoste": {
+   "nome": "Escudeiro sem Hoste",
+   "base": "soldado_caido",
+   "niveis": [
+    18,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.35
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "sagrado": 0.5,
+    "fogo": -0.2
+   },
+   "renascimento_s": 14
+  },
+  "enxerto_errado": {
+   "nome": "Enxerto Errado",
+   "base": "monge_emparedado",
+   "niveis": [
+    18,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "mov": 0.8
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "fogo": -0.5,
+    "veneno": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "ent_de_cinza": {
+   "nome": "Ent-de-Cinza",
+   "base": "capataz_gancho",
+   "niveis": [
+    21,
+    22
+   ],
+   "ajuste": {
+    "hp": 1.6
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "elite_mata",
+   "res": {
+    "fogo": -0.4,
+    "fisico": 0.2
+   },
+   "renascimento_s": 300,
+   "arquetipo": "elite"
+  },
+  "corista_da_torre": {
+   "nome": "Corista da Torre",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    24,
+    26
+   ],
+   "ajuste": {
+    "hp": 1.2
+   },
+   "tags": [
+    "celestial",
+    "espectro"
+   ],
+   "drop": "torre_horda",
+   "renascimento_s": 14
+  },
+  "querubim_queimado": {
+   "nome": "Querubim Queimado",
+   "base": "querubim_desfeito",
+   "niveis": [
+    26,
+    28
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.1
+   },
+   "tags": [
+    "celestial",
+    "voador"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "fogo": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "centuriao_sem_bandeira": {
+   "nome": "Centurião sem Bandeira",
+   "base": "acougueiro_oco",
+   "niveis": [
+    27,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.4,
+    "dano": 1.2
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "torre_horda",
+   "res": {
+    "fogo": 0.5,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "vitral_andante": {
+   "nome": "Vitral Andante",
+   "base": "querubim_desfeito",
+   "niveis": [
+    22,
+    25
+   ],
+   "ajuste": {
+    "hp": 1.3
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "sagrado": 0.5,
+    "fisico": -0.2
+   },
+   "renascimento_s": 14
+  },
+  "sapo_sacristao": {
+   "nome": "Sapo-Sacristão",
+   "base": "porco_pestilento",
+   "niveis": [
+    25,
+    28
+   ],
+   "ajuste": {
+    "hp": 1.45,
+    "dano": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "veneno": 0.5
+   },
+   "renascimento_s": 14
+  },
+  "bombardeiro_legiao": {
+   "nome": "Bombardeiro da Legião",
+   "base": "gancheiro",
+   "niveis": [
+    28,
+    30
+   ],
+   "ajuste": {
+    "hp": 1.5,
+    "dano": 1.25
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "fogo": 0.5,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "cervo_de_lume": {
+   "nome": "Cervo de Lume",
+   "base": "cao_de_vala",
+   "niveis": [
+    12,
+    14
+   ],
+   "ajuste": {
+    "hp": 1.15,
+    "dano": 0.9,
+    "mov": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "mata_animal",
+   "res": {
+    "sagrado": 0.2
+   },
+   "renascimento_s": 14
+  },
+  "querubim_da_espada": {
+   "nome": "Querubim da Espada",
+   "base": "soldado_caido",
+   "niveis": [
+    18,
+    22
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "dano": 1.15
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "sagrado": 0.5,
+    "fogo": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "serpente_do_eden": {
+   "nome": "Serpente do Éden",
+   "base": "cao_de_vala",
+   "niveis": [
+    24,
+    27
+   ],
+   "ajuste": {
+    "hp": 1.35,
+    "dano": 1.25
+   },
+   "tags": [
+    "animal",
+    "demonio"
+   ],
+   "drop": "mata_arauto",
+   "res": {
+    "veneno": 0.7,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "a_serpente": {
+   "nome": "A Serpente",
+   "base": "cao_de_vala",
+   "niveis": [
+    27,
+    27
+   ],
+   "ajuste": {
+    "hp": 2.2,
+    "dano": 1.5
+   },
+   "tags": [
+    "animal",
+    "demonio"
+   ],
+   "drop": "elite_mata",
+   "res": {
+    "veneno": 0.8,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 300,
+   "arquetipo": "elite"
+  },
+  "raiz_ossuda": {
+   "nome": "Raiz Ossuda",
+   "base": "filho_de_cardo",
+   "niveis": [
+    18,
+    20
+   ],
+   "ajuste": {
+    "hp": 1.25
+   },
+   "tags": [
+    "planta"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.4,
+    "fogo": -0.4
+   },
+   "renascimento_s": 14
+  },
+  "enterrado_florido": {
+   "nome": "Enterrado Florido",
+   "base": "nao_julgado",
+   "niveis": [
+    19,
+    21
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "dano": 1.1
+   },
+   "tags": [
+    "morto_vivo",
+    "planta"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "envenenador_da_comunhao": {
+   "nome": "Envenenador da Comunhão",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    20,
+    22
+   ],
+   "ajuste": {
+    "dano": 1.2
+   },
+   "tags": [
+    "humano"
+   ],
+   "drop": "catacumba",
+   "res": {
+    "veneno": 0.6
+   },
+   "renascimento_s": 14
+  }
+ },
+ "sprites": {
+  "lobo_de_cinza": {
+   "usa": "cao_de_vala",
+   "escala": 1.2,
+   "tint": "#9a948c"
+  },
+  "corvo_de_brasa": {
+   "usa": "corvo_de_cinza",
+   "escala": 1.15,
+   "tint": "#e08a50"
+  },
+  "javali_brasa": {
+   "usa": "porco_pestilento",
+   "escala": 1.1,
+   "tint": "#c07040"
+  },
+  "enxame_de_fagulhas": {
+   "usa": "fogo_de_vela",
+   "escala": 0.9,
+   "tint": "#ff7a2a"
+  },
+  "legionario_desgarrado": {
+   "usa": "soldado_escudeiro",
+   "escala": 1.05,
+   "tint": "#b04a3a"
+  },
+  "incendiaria_da_comunhao": {
+   "usa": "carpideira_de_ossos_viuva",
+   "escala": 1.0,
+   "tint": "#e07a40"
+  },
+  "cao_de_brasa": {
+   "usa": "cao_de_vala_alfa",
+   "escala": 1.1,
+   "tint": "#ff6a3a"
+  },
+  "escudeiro_sem_hoste": {
+   "usa": "soldado_escudeiro",
+   "escala": 1.1,
+   "tint": "#e0d4b0"
+  },
+  "enxerto_errado": {
+   "usa": "filho_de_cardo",
+   "escala": 1.2,
+   "tint": "#8aa060"
+  },
+  "ent_de_cinza": {
+   "usa": "acougueiro_oco",
+   "escala": 1.6,
+   "tint": "#6a6058"
+  },
+  "corista_da_torre": {
+   "usa": "corista_de_osso",
+   "escala": 1.0,
+   "tint": "#c8a878"
+  },
+  "querubim_queimado": {
+   "usa": "querubim_desfeito",
+   "escala": 1.0,
+   "tint": "#d07840"
+  },
+  "centuriao_sem_bandeira": {
+   "usa": "capataz_gancho",
+   "escala": 1.2,
+   "tint": "#a03a2a"
+  },
+  "vitral_andante": {
+   "usa": "vitral_andante",
+   "escala": 1.0
+  },
+  "sapo_sacristao": {
+   "usa": "sapo_sacristao",
+   "escala": 1.0
+  },
+  "bombardeiro_legiao": {
+   "usa": "bombardeiro_legiao",
+   "escala": 1.0
+  },
+  "cervo_de_lume": {
+   "usa": "cervo_de_lume",
+   "escala": 1.0
+  },
+  "querubim_da_espada": {
+   "usa": "querubim_da_espada",
+   "escala": 1.0
+  },
+  "serpente_do_eden": {
+   "usa": "serpente_do_eden",
+   "escala": 1.0
+  },
+  "a_serpente": {
+   "usa": "serpente_do_eden",
+   "escala": 1.6,
+   "tint": "#c8ffb0"
+  },
+  "raiz_ossuda": {
+   "usa": "filho_de_cardo",
+   "escala": 1.15,
+   "tint": "#7fb8b0"
+  },
+  "enterrado_florido": {
+   "usa": "nao_julgado",
+   "escala": 1.08,
+   "tint": "#9cc8b0"
+  },
+  "envenenador_da_comunhao": {
+   "usa": "carpideira_de_ossos",
+   "escala": 1.0,
+   "tint": "#78c058"
+  },
+  "bento_fel": {
+   "usa": "acougueiro_oco",
+   "escala": 1.45,
+   "tint": "#7ab060"
+  },
+  "centuriao_ferrabras": {
+   "usa": "capataz_gancho",
+   "escala": 1.5,
+   "tint": "#c04a30"
+  },
+  "madre_brasilia": {
+   "usa": "cultista",
+   "escala": 1.4,
+   "tint": "#ff9050"
+  },
+  "o_telegrafista": {
+   "usa": "monge_emparedado",
+   "escala": 1.45,
+   "tint": "#9ab8c8"
+  },
+  "malaquias_escudeiro_cego": {
+   "usa": "anjo",
+   "escala": 1.5,
+   "tint": "#b8aa90"
+  },
+  "baraquiel_arauto_do_granizo": {
+   "usa": "anjo",
+   "escala": 1.75,
+   "tint": "#ff7050"
+  }
+ },
+ "chefes": {
+  "centuriao_ferrabras": {
+   "nome": "Centurião Ferrabrás",
+   "andar": 1,
+   "nivel": 15,
+   "tags": [
+    "demonio",
+    "infernal"
+   ],
+   "hp": 5250,
+   "defesa": 34,
+   "dano_base": 42,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 450,
+   "res": {
+    "fogo": 0.4,
+    "sagrado": -0.3
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Centurião da Legião Blasfema que perdeu a bandeira na Batalha do Impasse; acorrentou a gaiola de carga e cobra pedágio em carne.",
+   "fala_entrada": "Quem acorrentou o elevador fui eu. Quer subir? Paga o pedágio.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "A Corrente",
+     "ataques": [
+      {
+       "id": "golpe_de_corrente",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.9
+      },
+      {
+       "id": "giro_de_corrente",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 3.2
+       },
+       "recarga": 8
+      },
+      {
+       "id": "arrasto",
+       "nome": "Puxão de Corrente",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.2
+       },
+       "deslocamento": 5,
+       "recarga": 10
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Soltem os Cães",
+     "ataques": [
+      {
+       "id": "giro_de_corrente",
+       "recarga": 6
+      },
+      {
+       "id": "chamar_caes",
+       "invoca": {
+        "cao_de_brasa": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_1"
+  },
+  "madre_brasilia": {
+   "nome": "Madre Brasília da Comunhão",
+   "andar": 2,
+   "nivel": 19,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 6650,
+   "defesa": 42,
+   "dano_base": 50,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 490,
+   "res": {
+    "fogo": 0.6,
+    "gelo": -0.3
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Madre da Comunhão do Amargo que queima o banco de sementes da Enxertia, uma por uma, como oração.",
+   "fala_entrada": "Cada semente que vocês plantam eu queimo como incenso. O cheiro sobe direto para o Coro.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Incenso",
+     "ataques": [
+      {
+       "id": "pavio",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.6
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Sopro de Incenso",
+       "mult": 1.3,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 4.5,
+        "angulo": 60
+       },
+       "ticks": 3,
+       "intervalo_tick": 0.4,
+       "recarga": 9
+      },
+      {
+       "id": "semente_ardente",
+       "mult": 1.4,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.6
+       },
+       "rastro_fogo": {
+        "duracao": 4
+       },
+       "recarga": 7
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Tudo Vira Cinza",
+     "ataques": [
+      {
+       "id": "semente_ardente",
+       "recarga": 5
+      },
+      {
+       "id": "chamar_incendiarias",
+       "invoca": {
+        "incendiaria_da_comunhao": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_2"
+  },
+  "o_telegrafista": {
+   "nome": "O Telegrafista",
+   "andar": 3,
+   "nivel": 23,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 8050,
+   "defesa": 50,
+   "dano_base": 58,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 530,
+   "res": {
+    "eletrico": 0.6,
+    "fisico": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Cultista que tomou o rádio de vigia da torre e transmite o versículo da 1ª trombeta em loop há onze mil noites; responde à Rádio São Lázaro.",
+   "fala_entrada": "...--- ...--- Ouvinte: o fogo vem. O fogo vem. O fogo vem.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "Ponto e Traço",
+     "ataques": [
+      {
+       "id": "chave_de_telegrafo",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.6
+      },
+      {
+       "id": "linha_de_telegrafo",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.0
+       },
+       "recarga": 7
+      },
+      {
+       "id": "estatica",
+       "mult": 1.2,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5,
+        "angulo": 80
+       },
+       "efeito": {
+        "silenciado": 2
+       },
+       "recarga": 10
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Versículo em Loop",
+     "ataques": [
+      {
+       "id": "linha_de_telegrafo",
+       "recarga": 5
+      },
+      {
+       "id": "chamar_coristas",
+       "invoca": {
+        "corista_da_torre": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_3"
+  },
+  "malaquias_escudeiro_cego": {
+   "nome": "Malaquias, o Escudeiro Cego",
+   "andar": 4,
+   "nivel": 27,
+   "tags": [
+    "celestial",
+    "anjo"
+   ],
+   "hp": 9450,
+   "defesa": 58,
+   "dano_base": 66,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 570,
+   "res": {
+    "sagrado": 0.6,
+    "fogo": 0.2,
+    "trevas": -0.3
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "Escudeiro do Coro deixado de vigia no mirante de incêndio; olhou para a mata queimando até cegar e ainda guarda a escada do topo.",
+   "fala_entrada": "Trinta e um anos olhando o fogo daqui de cima. Fiquei cego. Mas o seu passo eu ouço.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "O Mirante",
+     "ataques": [
+      {
+       "id": "escudo_de_vigia",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.9
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "Olhar que Arde",
+       "mult": 1.6,
+       "preparo": 1.6,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.8
+       },
+       "recarga": 8
+      },
+      {
+       "id": "investida_de_escudo",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.6
+       },
+       "recarga": 9
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "Ele Não Vê, Ele Ouve",
+     "ataques": [
+      {
+       "id": "marca_do_juizo",
+       "recarga": 5
+      },
+      {
+       "id": "chamar_querubins",
+       "invoca": {
+        "querubim_queimado": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_4"
+  },
+  "baraquiel_arauto_do_granizo": {
+   "nome": "Baraquiel, o Arauto do Granizo",
+   "andar": 5,
+   "nivel": 30,
+   "tags": [
+    "celestial",
+    "anjo"
+   ],
+   "hp": 12000,
+   "defesa": 64,
+   "dano_base": 72,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 600,
+   "res": {
+    "sagrado": 0.6,
+    "fogo": 0.5,
+    "gelo": 0.3
+   },
+   "duracao_alvo_s": 170,
+   "furia_tempo_s": 360,
+   "dungeon": "a_torre",
+   "conceito": "O anjo que tocou a 1ª trombeta sobre a mata. Ficou no topo da Torre depois da Retirada, alimentando o braseiro para chamar o granizo outra vez sobre o que o Desertor do Coro replanta.",
+   "fala_entrada": "Eu toquei a primeira. Um terço das árvores queimou. Ele plantou de novo? Então eu toco de novo.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "A Primeira Nota",
+     "ataques": [
+      {
+       "id": "lamina_de_granizo",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.0
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Lança de Granizo",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 8,
+        "largura": 1.2
+       },
+       "recarga": 7
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Granizo e Fogo",
+       "mult": 1.2,
+       "quantidade": 4,
+       "intervalo": 0.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 9
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "Misturado com Sangue",
+     "ataques": [
+      {
+       "id": "lanca_do_juizo",
+       "dupla": true,
+       "angulo_entre": 35,
+       "recarga": 6
+      },
+      {
+       "id": "pranto_que_cai",
+       "quantidade": 6
+      },
+      {
+       "id": "chamar_escudeiros",
+       "invoca": {
+        "escudeiro_sem_hoste": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "Um Terço das Árvores",
+     "ataques": [
+      {
+       "id": "marca_do_juizo",
+       "nome": "Nota Final",
+       "mult": 2.0,
+       "preparo": 1.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.4
+       },
+       "recarga": 8
+      },
+      {
+       "id": "pranto_que_cai",
+       "quantidade": 8,
+       "recarga": 7
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_torre_5"
+  },
+  "bento_fel": {
+   "nome": "Bento Fel, o Coveiro do Amargo",
+   "andar": 1,
+   "nivel": 22,
+   "tags": [
+    "humano",
+    "cultista"
+   ],
+   "hp": 7700,
+   "defesa": 48,
+   "dano_base": 56,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 520,
+   "res": {
+    "veneno": 0.6,
+    "fogo": -0.2
+   },
+   "duracao_alvo_s": 150,
+   "furia_tempo_s": 360,
+   "dungeon": "catacumba_das_raizes",
+   "conceito": "Coveiro da Comunhão do Amargo que inveja o dom de Simão: cava por baixo da Árvore-Mãe e derrama Amargo na raiz-mestra para matá-la de dentro.",
+   "fala_entrada": "Ele enterra, a coisa brota. Eu desenterro, a coisa morre. Alguém tem de fazer o serviço ao contrário.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.5
+     ],
+     "nome": "A Pá",
+     "ataques": [
+      {
+       "id": "golpe_de_pa",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 1.8
+      },
+      {
+       "id": "arrasto",
+       "nome": "Pá que Puxa",
+       "mult": 1.3,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 6,
+        "largura": 1.2
+       },
+       "deslocamento": 4,
+       "recarga": 9
+      },
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Jorro de Amargo",
+       "mult": 1.2,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 4.5,
+        "angulo": 60
+       },
+       "ticks": 3,
+       "intervalo_tick": 0.4,
+       "recarga": 8
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.5,
+      0.0
+     ],
+     "nome": "A Raiz Grita",
+     "ataques": [
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Terra",
+       "mult": 1.1,
+       "quantidade": 5,
+       "intervalo": 0.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 8
+      },
+      {
+       "id": "chamar_raizes",
+       "invoca": {
+        "raiz_ossuda": 2
+       },
+       "uma_vez": true
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_catacumba"
+  }
+ },
+ "drops": {
+  "mata_animal": {
+   "item_chance": 0.16,
+   "rolagens": [
+    {
+     "tag": "material:pena_suja",
+     "peso": 35
+    },
+    {
+     "tag": "equip:faixa2",
+     "peso": 55
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 10
+    }
+   ]
+  },
+  "mata_arauto": {
+   "item_chance": 0.2,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "elite_mata": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 8,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "torre_horda": {
+   "item_chance": 0.22,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "catacumba": {
+   "item_chance": 0.22,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "chefe_catacumba": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 18,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 80
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 20
+    }
+   ]
+  },
+  "chefe_torre_1": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 20,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 74
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    }
+   ]
+  },
+  "chefe_torre_2": {
+   "rolagens_garantidas": 3,
+   "raridade_minima": "raro",
+   "ouro_mult": 25,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 72
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    }
+   ]
+  },
+  "chefe_torre_3": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "raro",
+   "ouro_mult": 30,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 70
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    }
+   ]
+  },
+  "chefe_torre_4": {
+   "rolagens_garantidas": 4,
+   "raridade_minima": "raro",
+   "ouro_mult": 35,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 68
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    },
+    {
+     "tag": "lendario:zacarias",
+     "peso": 12
+    }
+   ]
+  },
+  "chefe_torre_5": {
+   "rolagens_garantidas": 5,
+   "raridade_minima": "raro",
+   "ouro_mult": 40,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 66
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    },
+    {
+     "tag": "lendario:zacarias",
+     "peso": 14
+    }
+   ]
+  }
+ },
+ "ligacao_area_inicial": {
+  "_doc": "Objeto a acrescentar em area_inicial.json (fresta aberta na borda norte, x 81-92, y 23-24).",
+  "objeto": {
+   "kind": "portal",
+   "pos": [
+    87.5,
+    24.5
+   ],
+   "para": "torre_1",
+   "chegada": [
+    11.5,
+    25.5
+   ],
+   "nome": "A Torre · elevador de carga",
+   "visual": "escada_descida"
+  },
+  "props": [
+   {
+    "k": "torre_vigia",
+    "x": 85.5,
+    "y": 22.0,
+    "decor_moldura": true
+   },
+   {
+    "k": "braseiro_ferro",
+    "x": 90.0,
+    "y": 24.0
+   }
+  ],
+  "luzes": [
+   [
+    90.0,
+    24.0,
+    1,
+    0.45,
+    0.15,
+    6
+   ]
+  ]
+ },
+ "nomes_mapa_hud": {
+  "mata_do_granizo": "Novo Éden (nv 12-30)",
+  "catacumba_das_raizes": "Catacumba das Raízes (chefe nv 22)",
+  "torre_1": "A Torre · 1º andar (chefe nv 15)",
+  "torre_2": "A Torre · 2º andar (chefe nv 19)",
+  "torre_3": "A Torre · 3º andar (chefe nv 23)",
+  "torre_4": "A Torre · 4º andar (chefe nv 27)",
+  "torre_5": "A Torre · 5º andar (chefe nv 30)"
+ }
+}

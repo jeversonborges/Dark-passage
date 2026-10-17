@@ -155,7 +155,12 @@ class Rig:
         act = bpy.data.actions.new(name); act.use_fake_user = True
         arm.animation_data.action = act
         for i, p in enumerate(frames): self.set_pose(p, i + 1)
-        for fc in act.fcurves:
+        fcs = list(getattr(act, "fcurves", []))
+        if not fcs:  # Blender 5: ações em camadas
+            for layer in act.layers:
+                for strip in layer.strips:
+                    for cb in strip.channelbags: fcs += list(cb.fcurves)
+        for fc in fcs:
             for k in fc.keyframe_points: k.interpolation = 'CONSTANT'
         return act
 

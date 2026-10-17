@@ -1,0 +1,16 @@
+{
+ "w": 166,
+ "h": 104,
+ "anchor": [
+  46,
+  78
+ ],
+ "bioma": "novo_eden",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "placa_versiculo"
+}

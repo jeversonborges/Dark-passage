@@ -1,0 +1,16 @@
+{
+ "w": 730,
+ "h": 448,
+ "anchor": [
+  216,
+  344
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "figueira"
+}

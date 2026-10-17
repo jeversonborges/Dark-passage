@@ -1,0 +1,18 @@
+{
+ "w": 604,
+ "h": 346,
+ "anchor": [
+  287,
+  199
+ ],
+ "emissivo": "água limpa (ciano)",
+ "bioma": "novo_eden",
+ "marco": "nascente",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "",
+ "kind": "fonte_quatro_rios"
+}

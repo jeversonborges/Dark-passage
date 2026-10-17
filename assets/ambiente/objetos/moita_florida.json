@@ -1,0 +1,16 @@
+{
+ "w": 186,
+ "h": 114,
+ "anchor": [
+  56,
+  77
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "moita_florida"
+}
