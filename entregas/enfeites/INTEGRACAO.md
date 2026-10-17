@@ -7,18 +7,29 @@ Thread "Enfeites para as áreas carentes" (pedido do Jefin em 17/10/2026: "criar
 
 Prévias em `entregas/enfeites/previa/` (maquete e folha de cada bioma). Fontes em `assets/ambiente/fontes/enfeites.py`.
 
-## Passos
+## Passos (a Prévia só copia)
 
 1. Já feito: as 36 peças estão em `assets/ambiente/objetos/` e no `manifest.json` (cópia também em `entregas/enfeites/objetos/`).
-2. `cd game && bash tools/sync.sh`.
-3. Espalhar os enfeites nos mapas pelo gerador de cada área (nunca à mão): `design/mapas/cripta/gerar.py` (Porão,
-   Câmara, Ossário, Catacumba), `design/mapas/egito/dungeons_egito.py` (Hawara, Coração) e o layout da área inicial
-   (Abatedouro Carniça). Regra de ouro do Jefin: nada empilhado, cada sala com um motivo. Sugestão abaixo.
-4. Os que têm `chao: true` são decalques (desenhar por baixo dos atores, sem bloqueio).
-5. Fogo: os enfeites com vela, brasa ou lamparina trazem `"luz"` no json (`vela`, `fogo`): pôr uma luz pequena
-   quente `[1, 0.55, 0.2]` com raio ~2 no mesmo ponto (o cliente já faz tremer a luz amarela).
+2. Já feito: os enfeites foram espalhados pelos geradores (nada à mão), com `design/mapas/enfeites_mapa.py`
+   (sala por sala, pé das paredes, longe de portais, baús, spawns, NPCs, água e da arena do chefe; nada empilhado).
+   Mapas regerados, prontos para copiar para `game/data/mapas/`:
+   - Cripta (53 enfeites): `design/mapas/cripta/porao_matadouro.json`, `ossario_carpideiras.json`, `camara_trombeta.json`
+   - Egito (50 enfeites): `entregas/egito/mapas/hawara_1.json` a `hawara_3.json` e `coracao_1.json` a `coracao_6.json`
+   ```
+   cd /mnt/project-files
+   cp design/mapas/cripta/{porao_matadouro,ossario_carpideiras,camara_trombeta}.json game/data/mapas/
+   cp entregas/egito/mapas/{hawara_1,hawara_2,hawara_3,coracao_1,coracao_2,coracao_3,coracao_4,coracao_5,coracao_6}.json game/data/mapas/
+   cd game && bash tools/sync.sh
+   ```
+   Fora os enfeites (props com `k` novo e luzes de vela), nada mudou: antes de pôr os enfeites conferi que os geradores
+   reproduziam byte a byte os JSON do jogo (Egito) ou só diferiam em `salas`/`pisos` (cripta: `pisos` agora também lista
+   `h`/`V` do kit Câmara Fria, e o `frei_anacleto` que a Prévia pôs no Ossário entrou no gerador, mesma posição).
+3. Os que têm `chao: true` são decalques (desenhar por baixo dos atores, sem bloqueio). Os de vela/lamparina já vêm
+   com luz quente pequena em `luzes`.
+4. Para mexer: o plano de cada mapa está no fim de cada andar em `cripta/gerar.py` (`enfeitar(a, [...])`) e no
+   dicionário `ENFEITES` de `egito/dungeons_egito.py`; rode `python3 gerar.py` (cripta) ou `python3 gerar.py hawara|raid` (egito).
 
-## Onde usar (sugestão por sala, 2 a 4 enfeites por sala, longe das portas)
+## Onde foram (e sugestão para os mapas que ainda não têm)
 
 - **Porão do Matadouro:** açougue e câmara fria: `cepo_cutelo`, `bandeja_visceras`, `faqueiro_parede`, `balanca_gancho`,
   `cabide_avental` (perto da porta da câmara fria); salgadeira: `pernis_tripe`, `varal_linguica`, `balde_miudos`;
