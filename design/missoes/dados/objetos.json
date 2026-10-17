@@ -198,6 +198,183 @@
       "visivel_se": {
         "missao_ativa": "f05"
       }
+    },
+    {
+      "id": "marco_de_cheia",
+      "nome": "Nilômetro de Mênfis",
+      "subzona": "menfis",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Uma escada de pedra que desce até a água, com marcas de cheia gravadas em cada degrau. A marca mais alta, de três mil anos, está seca. A de agora está dois degraus acima dela."
+    },
+    {
+      "id": "selo_da_nomarca",
+      "nome": "Estaca de Dízimo",
+      "subzona": "campos_cheia",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "Uma estaca de acácia com uma placa de barro: o selo da Nomarca e o nome de quem cava este pedaço. Você aperta o selo novo no barro molhado.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_k02"
+        ]
+      }
+    },
+    {
+      "id": "quadricula_da_escavacao",
+      "nome": "Quadrícula da Escavação",
+      "subzona": "gize",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "Um quadrado de cordas e estacas. Na peneira, cacos, ossos de peixe e uma conta de faiança turquesa que acende quando você sopra a areia.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_k07"
+        ]
+      }
+    },
+    {
+      "id": "estela_do_sonho",
+      "nome": "Estela do Sonho",
+      "subzona": "gize",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Entre as patas da Esfinge, a estela de granito de Tutmés IV: o príncipe dormiu à sombra da Esfinge, e ela prometeu que ele seria rei se tirasse a areia de cima dela. A areia saiu sozinha desta vez. Alguém riscou embaixo: 'E agora, quem vai ser rei?' E outra mão, mais nova: 'Khem não morreu. Dormiu sob a redoma.'"
+    },
+    {
+      "id": "nicho_de_rolos",
+      "nome": "Nicho de Rolos",
+      "subzona": "casa_vida",
+      "quantidade_no_mapa": 4,
+      "texto_ao_usar": "Um nicho na parede com rolos de papiro em estojos de couro. A maioria virou pó. Um ainda abre: um catálogo da biblioteca, com uma linha riscada: 'Livro de Thoth: devolvido ao rio'.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_l02"
+        ]
+      }
+    },
+    {
+      "id": "ka_de_setne",
+      "nome": "O Ka de Setne Khamuas",
+      "subzona": "casa_vida",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Uma estátua de granito de um príncipe sentado com um rolo no colo. Quando você chega perto, os olhos de faiança acendem e uma voz cansada pergunta: 'Você também veio pelo Livro?'"
+    },
+    {
+      "id": "camara_de_thoth",
+      "nome": "A Pata da Esfinge",
+      "subzona": "gize",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Sob a pata direita da Esfinge, uma laje com um íbis gravado e uma ranhura do tamanho de uma lasca de esmeralda. A pedra está morna, como se alguém do outro lado tivesse acabado de encostar. Sob o íbis, a areia escreveu sozinha, em letras ainda frescas: 'Eu voltei pelas areias do tempo. Pelo éter e pela luz, tudo se reconcilia.'",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_l05"
+        ]
+      }
+    },
+    {
+      "id": "coluna_do_ritmo_eco",
+      "nome": "Cristal que Vibra",
+      "subzona": "escavacao",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Um cristal verde do tamanho de uma criança, preso num andaime atlante. Zune no ritmo de um coração. A cada três batidas, uma batida falha."
+    },
+    {
+      "id": "relevo_de_dendera",
+      "nome": "Relevo das Lâmpadas",
+      "subzona": "karnak",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "Um relevo desbotado: um bulbo comprido saindo de uma flor de lótus, uma serpente ondulando dentro dele, e um pilar djed com braços segurando a ponta. Dalva ia gostar de ver isto.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_v01"
+        ]
+      }
+    },
+    {
+      "id": "balanca_de_pedra",
+      "nome": "Balança do Templo",
+      "subzona": "karnak",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Uma balança de granito do tamanho de um homem, com pratos de bronze verde. Num prato, uma pena de pedra. O outro está vazio e desce devagar quando você chega perto."
+    },
+    {
+      "id": "oferenda_a_sobek",
+      "nome": "Mesa de Oferenda de Sobek",
+      "subzona": "faium",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Uma mesa de pedra com marcas de dente na borda. Você deixa a carne que trouxe. Da água, algo grande sobe, olha e não come. Está esperando o deus comer primeiro."
+    },
+    {
+      "id": "praga_de_sangue",
+      "nome": "O Nilo Virando Sangue",
+      "subzona": "margem_papiro",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "A água na margem está vermelha e grossa. Os peixes boiam de barriga para cima. Você enche o frasco de Djedi e a água continua vermelha dentro dele.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_n01"
+        ]
+      }
+    },
+    {
+      "id": "porta_marcada",
+      "nome": "Porta com Sangue no Lintel",
+      "subzona": "menfis",
+      "quantidade_no_mapa": 3,
+      "texto_ao_usar": "Alguém passou sangue de cordeiro no lintel e nos dois umbrais desta porta, com um ramo de hissopo. A família lá dentro não abre. Você ouve alguém rezando em hebraico.",
+      "visivel_se": {
+        "missao_ativa": [
+          "eg_n02"
+        ]
+      }
+    },
+    {
+      "id": "cartucho_raspado",
+      "nome": "Cartucho Raspado",
+      "subzona": "vale_reis",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Na porta da tumba, um cartucho real raspado a cinzel até a pedra ficar lisa. Os sacerdotes apagaram o nome. Mas a pedra lembra: quando você encosta a mão, ela bate, uma vez, como um coração."
+    },
+    {
+      "id": "estela_herodoto",
+      "nome": "Estela do Viajante",
+      "subzona": "hawara_1",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Uma estela grega no meio das egípcias, riscada por um viajante que esteve aqui há dois mil e quinhentos anos.",
+      "leitura": "leitura_estela_herodoto"
+    },
+    {
+      "id": "rolo_dos_magos",
+      "nome": "Rolo dos Magos",
+      "subzona": "coracao_2",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Um rolo deixado aberto num banco de pedra, como se alguém tivesse parado de ler no meio.",
+      "leitura": "leitura_rolo_magos"
+    },
+    {
+      "id": "confissao_negativa",
+      "nome": "A Confissão Negativa",
+      "subzona": "coracao_5",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Quarenta e dois juízes na parede, e embaixo de cada um a frase que o morto precisava dizer.",
+      "leitura": "leitura_confissao"
+    },
+    {
+      "id": "coluna_do_ritmo",
+      "nome": "Coluna do Ritmo (trincada)",
+      "subzona": "posto_da_fenda",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Você encosta o prumo de latão na trinca. O fio não para quieto: balança para fora e para dentro, sempre na mesma medida. Do outro lado da trinca, bem longe, alguém responde com o mesmo balanço.",
+      "visivel_se": {
+        "missao_ativa": "at_v03"
+      }
+    },
+    {
+      "id": "tabua_de_esmeralda_obj",
+      "nome": "A Tábua de Esmeralda",
+      "subzona": "salao_dos_registros",
+      "quantidade_no_mapa": 1,
+      "texto_ao_usar": "Você passa a pena de íbis por cima das letras. Elas acendem uma por uma e uma voz de dentro da pedra lê junto com você: \"o que está embaixo é como o que está em cima\". A última linha não acende. Embaixo dela, alguém raspou o nome de Gadiro.",
+      "visivel_se": {
+        "missao_ativa": "at_c02"
+      }
     }
   ],
   "baus": [
@@ -320,6 +497,84 @@
       ],
       "tabela": "bau_dungeon_raro",
       "texto_ao_abrir": "As correntes caem sozinhas. A tampa empurra de dentro para fora. Não estava vazio."
+    },
+    {
+      "id": "bau_petsuchos",
+      "nome": "Tesouro de Petsuchos",
+      "subzona": "hawara_1",
+      "tipo": "chefe",
+      "tabela": "chefe_hawara_1",
+      "texto_ao_abrir": "Brincos, pulseiras e ossos de cabra, tudo misturado no lodo."
+    },
+    {
+      "id": "bau_esfinge",
+      "nome": "Arca dos Doze Pátios",
+      "subzona": "hawara_2",
+      "tipo": "chefe",
+      "tabela": "chefe_hawara_2",
+      "texto_ao_abrir": "A tampa tem doze glifos. Abre com qualquer um."
+    },
+    {
+      "id": "bau_serket",
+      "nome": "Sarcófago de Amenemés",
+      "subzona": "hawara_3",
+      "tipo": "chefe",
+      "tabela": "chefe_hawara_3",
+      "texto_ao_abrir": "O rei não está aqui. O tesouro está."
+    },
+    {
+      "id": "bau_sekhmet",
+      "nome": "Oferendas de Sekhmet",
+      "subzona": "coracao_1",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_1",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
+    },
+    {
+      "id": "bau_janes",
+      "nome": "Oferendas de Janes e Jambres",
+      "subzona": "coracao_2",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_2",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
+    },
+    {
+      "id": "bau_imseti",
+      "nome": "Oferendas de Os Quatro Filhos de Hórus",
+      "subzona": "coracao_3",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_3",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
+    },
+    {
+      "id": "bau_apofis",
+      "nome": "Oferendas de Apófis",
+      "subzona": "coracao_4",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_4",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
+    },
+    {
+      "id": "bau_anubis_pesador",
+      "nome": "Oferendas de Anúbis",
+      "subzona": "coracao_5",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_5",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
+    },
+    {
+      "id": "bau_farao_sem_nome",
+      "nome": "Oferendas de O Faraó Sem Nome",
+      "subzona": "coracao_6",
+      "tipo": "chefe",
+      "tabela": "chefe_coracao_6",
+      "loot_de_grupo": true,
+      "texto_ao_abrir": "Cada um do grupo acha a sua parte, como se a tumba soubesse quantos vieram."
     }
   ],
   "tabelas_sugeridas": [

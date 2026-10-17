@@ -3142,6 +3142,3029 @@
           ]
         }
       }
+    },
+    {
+      "id": "dlg_tuya_nomarca",
+      "npc": "tuya_nomarca",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "A rua de cima é nossa. A de baixo é dos avós. Prática e cobradora.",
+          "opcoes": [
+            {
+              "texto": "A Terra Negra?",
+              "ir": "eg_k01_oferta",
+              "se": {
+                "missao_disponivel": "eg_k01"
+              }
+            },
+            {
+              "texto": "Sobre a terra negra.",
+              "ir": "eg_k01_fim",
+              "se": {
+                "missao_pronta": "eg_k01"
+              }
+            },
+            {
+              "texto": "O Dízimo da Nomarca?",
+              "ir": "eg_k02_oferta",
+              "se": {
+                "missao_disponivel": "eg_k02"
+              }
+            },
+            {
+              "texto": "Sobre o dízimo da nomarca.",
+              "ir": "eg_k02_fim",
+              "se": {
+                "missao_pronta": "eg_k02"
+              }
+            },
+            {
+              "texto": "Os Campos que Voltaram?",
+              "ir": "eg_k04_oferta",
+              "se": {
+                "missao_disponivel": "eg_k04"
+              }
+            },
+            {
+              "texto": "Sobre os campos que voltaram.",
+              "ir": "eg_k04_fim",
+              "se": {
+                "missao_pronta": "eg_k04"
+              }
+            },
+            {
+              "texto": "A Avenida de Amon?",
+              "ir": "eg_k09_oferta",
+              "se": {
+                "missao_disponivel": "eg_k09"
+              }
+            },
+            {
+              "texto": "Sobre a avenida de amon.",
+              "ir": "eg_k09_fim",
+              "se": {
+                "missao_pronta": "eg_k09"
+              }
+            },
+            {
+              "texto": "Turno em Karnak?",
+              "ir": "eg_r03_oferta",
+              "se": {
+                "missao_disponivel": "eg_r03"
+              }
+            },
+            {
+              "texto": "Sobre turno em karnak.",
+              "ir": "eg_r03_fim",
+              "se": {
+                "missao_pronta": "eg_r03"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_k01_oferta": {
+          "fala": "Chegou pela Linha 7? Então chegou com fome e sem saber onde pisa. O Nilo voltou, forasteiro. Desça o nilômetro e veja até onde. Depois procure Ahmose nas docas.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k01_fim": {
+          "fala": "Viu a marca? Dois degraus acima dos avós. Bem-vindo à Terra Negra.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k02_oferta": {
+          "fala": "Tem gente cavando nos meus campos sem selo. E tem crocodilo deitado no meu linho. Resolva os dois.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k02_fim": {
+          "fala": "Três selos. Oito crocodilos. Você sabe contar, gosto disso.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k04_oferta": {
+          "fala": "Khepri rola o sol, eles dizem. Esses aí estão rolando a minha lavoura.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k04_fim": {
+          "fala": "Dez escaravelhos. Os velhos vão rezar por eles. Eu vou plantar.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k04"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k09_oferta": {
+          "fala": "Eu preciso da estrada para Karnak. As esfinges acham que ela é delas.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k09"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k09_fim": {
+          "fala": "A estrada é minha de novo. As esfinges vão se acostumar.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k09"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r03_oferta": {
+          "fala": "O salão hipostilo tem guarda nova. Morta. Tire.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r03_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r03"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "A avó dela morava em Mit Rahina, em cima das ruínas de Mênfis. Quando o Nilo voltou e baixou, Tuya foi a primeira a cavar a casa da avó com as mãos e achou embaixo a casa de alguém de três mil anos atrás. Hoje toda Mênfis mora em dois andares: o de lama é de agora, o de pedra é de antes. Ela cobra dízimo de todo mundo que cava no planalto, porque 'a terra é preta e a terra é minha'.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_hapu_mercador",
+      "npc": "hapu_mercador",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Escaravelho de verdade! Bom, quase. Simpático demais.",
+          "opcoes": [
+            {
+              "texto": "Quero ver o que você tem.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_hapu"
+                }
+              ]
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Comprava e vendia antiguidade falsa para turista antes do Juízo. Agora vende antiguidade verdadeira para quem quiser e pão para quem precisa, e diz que o lucro é o mesmo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_nefer_aguadeira",
+      "npc": "nefer_aguadeira",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Água do Nilo fervida três vezes! Rápida, desbocada, conhece cada fogueira da Terra Negra.",
+          "opcoes": [
+            {
+              "texto": "O Juncal do Papiro?",
+              "ir": "eg_k03_oferta",
+              "se": {
+                "missao_disponivel": "eg_k03"
+              }
+            },
+            {
+              "texto": "Sobre o juncal do papiro.",
+              "ir": "eg_k03_fim",
+              "se": {
+                "missao_pronta": "eg_k03"
+              }
+            },
+            {
+              "texto": "Turno no Juncal?",
+              "ir": "eg_r01_oferta",
+              "se": {
+                "missao_disponivel": "eg_r01"
+              }
+            },
+            {
+              "texto": "Sobre turno no juncal.",
+              "ir": "eg_r01_fim",
+              "se": {
+                "missao_pronta": "eg_r01"
+              }
+            },
+            {
+              "texto": "Quero ver o que você tem.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_nefer"
+                }
+              ]
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_k03_oferta": {
+          "fala": "Pena de íbis vale mais que água, acredita? Os escribas molham no ocre e escrevem. Me traz seis.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k03_fim": {
+          "fala": "Seis penas! Uma é minha.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k03"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r01_oferta": {
+          "fala": "Juncal cheio de novo. Limpa um pouco, que eu levo água para quem fica.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r01_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r01"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Filha de barqueiro. Quando a escavação cresceu, percebeu que ninguém levava água para quem fica o dia inteiro no spot. Hoje tem um carrinho em cada fogueira e um irmão diferente em cada um ('todos se chamam Nefer, é mais fácil').",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_nefer_carrinho",
+      "npc": "nefer_carrinho",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Água! Mirra! Pra quem fica no spot o dia inteiro, eu trago o carrinho até a fogueira.",
+          "opcoes": [
+            {
+              "texto": "Mostra o que tem.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_carrinho_nefer"
+                }
+              ]
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_besankh_ferreiro",
+      "npc": "besankh_ferreiro",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bronze antigo é mole. Paciência. Calado e caprichoso.",
+          "opcoes": [
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Era cantor de casamento em Gizé. O Amargo deixou o corpo dele largo e a voz rouca; ele trocou a música pelo martelo. Derrete estátuas sem cabeça, nunca as que ainda têm rosto.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_ahmose_barqueiro",
+      "npc": "ahmose_barqueiro",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Três moedas para o outro lado. Fala devagar, como o rio.",
+          "opcoes": [
+            {
+              "texto": "Do Outro Lado do Rio?",
+              "ir": "eg_k05_oferta",
+              "se": {
+                "missao_disponivel": "eg_k05"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_k05_oferta": {
+          "fala": "Quer cavar? Então vai para o lado dos mortos. Três moedas na feluca, ou vai a pé pela ponte. Procure o Abdu.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k05"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "O avô dele dizia que crocodilo é o Nilo com fome. Ahmose atravessa a feluca da margem dos vivos para a margem dos mortos por três moedas e diz que é a mesma viagem que os faraós faziam, só que de volta.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_meritre_barqueira",
+      "npc": "meritre_barqueira",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Mênfis? Três moedas. Pouca conversa, muita pressa.",
+          "opcoes": [
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Filha de Ahmose. Faz a volta da escavação para Mênfis e cobra o mesmo que o pai, mas rema mais rápido.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_reis_abdu",
+      "npc": "reis_abdu",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Quadrícula por quadrícula! Capataz de escavação à moda antiga.",
+          "opcoes": [
+            {
+              "texto": "Sobre do outro lado do rio.",
+              "ir": "eg_k05_fim",
+              "se": {
+                "missao_pronta": "eg_k05"
+              }
+            },
+            {
+              "texto": "Os Quatro Acampamentos?",
+              "ir": "eg_k06_oferta",
+              "se": {
+                "missao_disponivel": "eg_k06"
+              }
+            },
+            {
+              "texto": "Sobre os quatro acampamentos.",
+              "ir": "eg_k06_fim",
+              "se": {
+                "missao_pronta": "eg_k06"
+              }
+            },
+            {
+              "texto": "A Quadrícula?",
+              "ir": "eg_k07_oferta",
+              "se": {
+                "missao_disponivel": "eg_k07"
+              }
+            },
+            {
+              "texto": "Sobre a quadrícula.",
+              "ir": "eg_k07_fim",
+              "se": {
+                "missao_pronta": "eg_k07"
+              }
+            },
+            {
+              "texto": "Turno da Noite em Deir el-Medina?",
+              "ir": "eg_k08_oferta",
+              "se": {
+                "missao_disponivel": "eg_k08"
+              }
+            },
+            {
+              "texto": "Sobre turno da noite em deir el-medina.",
+              "ir": "eg_k08_fim",
+              "se": {
+                "missao_pronta": "eg_k08"
+              }
+            },
+            {
+              "texto": "Turno na Vila?",
+              "ir": "eg_r02_oferta",
+              "se": {
+                "missao_disponivel": "eg_r02"
+              }
+            },
+            {
+              "texto": "Sobre turno na vila.",
+              "ir": "eg_r02_fim",
+              "se": {
+                "missao_pronta": "eg_r02"
+              }
+            },
+            {
+              "texto": "Turno em Gizé?",
+              "ir": "eg_r04_oferta",
+              "se": {
+                "missao_disponivel": "eg_r04"
+              }
+            },
+            {
+              "texto": "Sobre turno em gizé.",
+              "ir": "eg_r04_fim",
+              "se": {
+                "missao_pronta": "eg_r04"
+              }
+            },
+            {
+              "texto": "Turno no Vale?",
+              "ir": "eg_r06_oferta",
+              "se": {
+                "missao_disponivel": "eg_r06"
+              }
+            },
+            {
+              "texto": "Sobre turno no vale.",
+              "ir": "eg_r06_fim",
+              "se": {
+                "missao_pronta": "eg_r06"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_k05_fim": {
+          "fala": "Abdu anotou o seu nome no caderno, embaixo de uma lista de mortos que voltaram ao trabalho.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k05"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k06_oferta": {
+          "fala": "Quatro acampamentos e todos querem o mesmo buraco. Vai conhecer os quatro. Quem sabe você descobre o que eles procuram, porque para mim não contam.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k06"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k06_fim": {
+          "fala": "E então? Quem paga mais? Não responda, eu já sei.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k06"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k07_oferta": {
+          "fala": "Os mortos estão me tirando os clientes. Cavam de graça, cavam errado. Me ajude a cavar direito.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k07"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k07_fim": {
+          "fala": "Três quadrículas, oito mortos. Isso sim é um turno.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k07"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_k08_oferta": {
+          "fala": "Os mortos da Vila têm turno, acredita? Lista de faltas e tudo. Traga as listas.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_k08"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_k08_fim": {
+          "fala": "Quatro cacos. Olha isto: nenhum falta desde o Ano 31.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_k08"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r02_oferta": {
+          "fala": "Os mortos da Vila voltaram ao turno. Você também.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r02_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r04_oferta": {
+          "fala": "Quadrícula por quadrícula, escorpião por escorpião.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r04_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r04"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r06_oferta": {
+          "fala": "O Vale paga em dobro. Porque morre em dobro.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r06"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r06_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r06"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "A família dele foi 'reis' (capataz de escavação) por cinco gerações, desde os ingleses. Quando a areia desceu do planalto, ele já estava lá com cem homens e uma lista de preços. Vende braços para os quatro acampamentos e jura que não toma partido. Toma: o de quem paga mais.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_djedi_mago",
+      "npc": "djedi_mago",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "O que está embaixo é como o que está em cima. Paciente, sorridente, infinitamente teimoso.",
+          "opcoes": [
+            {
+              "texto": "Os Doze Pátios?",
+              "ir": "eg_h03_oferta",
+              "se": {
+                "missao_disponivel": "eg_h03"
+              }
+            },
+            {
+              "texto": "Sobre os doze pátios.",
+              "ir": "eg_h03_fim",
+              "se": {
+                "missao_pronta": "eg_h03"
+              }
+            },
+            {
+              "texto": "O Velho de Cento e Dez Anos?",
+              "ir": "eg_l01_oferta",
+              "se": {
+                "missao_disponivel": "eg_l01"
+              }
+            },
+            {
+              "texto": "Sobre o velho de cento e dez anos.",
+              "ir": "eg_l01_fim",
+              "se": {
+                "missao_pronta": "eg_l01"
+              }
+            },
+            {
+              "texto": "Os Rolos da Casa da Vida?",
+              "ir": "eg_l02_oferta",
+              "se": {
+                "missao_disponivel": "eg_l02"
+              }
+            },
+            {
+              "texto": "Sobre os rolos da casa da vida.",
+              "ir": "eg_l02_fim",
+              "se": {
+                "missao_pronta": "eg_l02"
+              }
+            },
+            {
+              "texto": "O Ka de Setne?",
+              "ir": "eg_l03_oferta",
+              "se": {
+                "missao_disponivel": "eg_l03"
+              }
+            },
+            {
+              "texto": "Sobre o ka de setne.",
+              "ir": "eg_l03_fim",
+              "se": {
+                "missao_pronta": "eg_l03"
+              }
+            },
+            {
+              "texto": "Embaixo da Pata?",
+              "ir": "eg_l04_oferta",
+              "se": {
+                "missao_disponivel": "eg_l04"
+              }
+            },
+            {
+              "texto": "Sobre embaixo da pata.",
+              "ir": "eg_l04_fim",
+              "se": {
+                "missao_pronta": "eg_l04"
+              }
+            },
+            {
+              "texto": "A Câmara de Thoth?",
+              "ir": "eg_l05_oferta",
+              "se": {
+                "missao_disponivel": "eg_l05"
+              }
+            },
+            {
+              "texto": "Sobre a câmara de thoth.",
+              "ir": "eg_l05_fim",
+              "se": {
+                "missao_pronta": "eg_l05"
+              }
+            },
+            {
+              "texto": "As Pragas Recomeçam?",
+              "ir": "eg_n01_oferta",
+              "se": {
+                "missao_disponivel": "eg_n01"
+              }
+            },
+            {
+              "texto": "Sobre as pragas recomeçam.",
+              "ir": "eg_n01_fim",
+              "se": {
+                "missao_pronta": "eg_n01"
+              }
+            },
+            {
+              "texto": "As Portas Marcadas?",
+              "ir": "eg_n02_oferta",
+              "se": {
+                "missao_disponivel": "eg_n02"
+              }
+            },
+            {
+              "texto": "Sobre as portas marcadas.",
+              "ir": "eg_n02_fim",
+              "se": {
+                "missao_pronta": "eg_n02"
+              }
+            },
+            {
+              "texto": "A Tumba Sem Cartucho?",
+              "ir": "eg_n03_oferta",
+              "se": {
+                "missao_disponivel": "eg_n03"
+              }
+            },
+            {
+              "texto": "Sobre a tumba sem cartucho.",
+              "ir": "eg_n03_fim",
+              "se": {
+                "missao_pronta": "eg_n03"
+              }
+            },
+            {
+              "texto": "A Leoa que Bebeu o Sangue?",
+              "ir": "eg_n04_oferta",
+              "se": {
+                "missao_disponivel": "eg_n04"
+              }
+            },
+            {
+              "texto": "Sobre a leoa que bebeu o sangue.",
+              "ir": "eg_n04_fim",
+              "se": {
+                "missao_pronta": "eg_n04"
+              }
+            },
+            {
+              "texto": "Os Magos de Faraó?",
+              "ir": "eg_n05_oferta",
+              "se": {
+                "missao_disponivel": "eg_n05"
+              }
+            },
+            {
+              "texto": "Sobre os magos de faraó.",
+              "ir": "eg_n05_fim",
+              "se": {
+                "missao_pronta": "eg_n05"
+              }
+            },
+            {
+              "texto": "Os Quatro Filhos de Hórus?",
+              "ir": "eg_n06_oferta",
+              "se": {
+                "missao_disponivel": "eg_n06"
+              }
+            },
+            {
+              "texto": "Sobre os quatro filhos de hórus.",
+              "ir": "eg_n06_fim",
+              "se": {
+                "missao_pronta": "eg_n06"
+              }
+            },
+            {
+              "texto": "A Serpente Sem Fim?",
+              "ir": "eg_n07_oferta",
+              "se": {
+                "missao_disponivel": "eg_n07"
+              }
+            },
+            {
+              "texto": "Sobre a serpente sem fim.",
+              "ir": "eg_n07_fim",
+              "se": {
+                "missao_pronta": "eg_n07"
+              }
+            },
+            {
+              "texto": "O Pesador?",
+              "ir": "eg_n08_oferta",
+              "se": {
+                "missao_disponivel": "eg_n08"
+              }
+            },
+            {
+              "texto": "Sobre o pesador.",
+              "ir": "eg_n08_fim",
+              "se": {
+                "missao_pronta": "eg_n08"
+              }
+            },
+            {
+              "texto": "O Faraó Sem Nome?",
+              "ir": "eg_n09_oferta",
+              "se": {
+                "missao_disponivel": "eg_n09"
+              }
+            },
+            {
+              "texto": "Sobre o faraó sem nome.",
+              "ir": "eg_n09_fim",
+              "se": {
+                "missao_pronta": "eg_n09"
+              }
+            },
+            {
+              "texto": "O Que Fazer com um Coração?",
+              "ir": "eg_n10_oferta",
+              "se": {
+                "missao_disponivel": "eg_n10"
+              }
+            },
+            {
+              "texto": "Sobre o que fazer com um coração.",
+              "ir": "eg_n10_fim",
+              "se": {
+                "missao_pronta": "eg_n10"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_h03_oferta": {
+          "fala": "Você vai passar pelos Doze Pátios? Então vai encontrar a Esfinge. Eu quero o glifo do peito dela.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_h03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_h03_fim": {
+          "fala": "O glifo! Ele mudou de novo. Ótimo.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_h03"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_l01_oferta": {
+          "fala": "Quer saber o que procuramos aqui? Comece pela Esfinge. Leia o que está entre as patas dela.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l01_fim": {
+          "fala": "Leu? Agora você sabe tanto quanto Tutmés. Pouco, mas é um começo.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_l02_oferta": {
+          "fala": "Os rolos da Casa da Vida viraram pó, quase todos. O catálogo, não. Catálogo nunca vira pó.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l02_fim": {
+          "fala": "Devolvido ao rio... claro. Setne Khamuas.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_l03_oferta": {
+          "fala": "Um príncipe morto vai te dar a resposta que eu procuro há cento e dez anos. Ou mais.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l03_fim": {
+          "fala": "Embaixo da pata direita. Eu sabia. Eu sempre soube.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l03"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_l04_oferta": {
+          "fala": "Os escorpiões do planalto guardam lascas verdes como se fossem ovos. Eu preciso delas.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l04_fim": {
+          "fala": "Cinco. E uma delas canta. É essa.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l04"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_l05_oferta": {
+          "fala": "Chegou a hora. Embaixo da pata está o Salão dos Registros, onde Thoth guardou o que trouxe da Atlântida.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l05"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l05_fim": {
+          "fala": "Não abriu? Não precisava abrir. Precisava responder.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l05"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n01_oferta": {
+          "fala": "As pragas recomeçaram, uma por mês, na ordem do Êxodo. A primeira voltou.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n01_fim": {
+          "fala": "Bate como um coração. Isto não é aviso.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n02_oferta": {
+          "fala": "Depois das trevas vem a décima. Mênfis já sabe.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n02_fim": {
+          "fala": "A décima praga é a morte dos primogênitos. Do mundo inteiro.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n03_oferta": {
+          "fala": "Ninguém entra no Coração Endurecido sem que o coração saiba quem é. Leve gente. Leve muita gente.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n03_fim": {
+          "fala": "Bateu na sua mão? Então você pode entrar. Que Thoth anote.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n03"
+                },
+                {
+                  "definir_flag": "sintonia_coracao"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n04_oferta": {
+          "fala": "Rá mandou Sekhmet acabar com a humanidade e a deteve com sete mil jarras de cerveja ocre. O rito do Faraó a acordou no primeiro portão. Quebre as jarras perto dela quando a Sede subir.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n04_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n04"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n05_oferta": {
+          "fala": "Janes e Jambres imitaram Moisés até a terceira praga. Eles imitam um ao outro: derrube os dois juntos, ou um levanta o outro. Separe-os.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n05"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n05_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n05"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n06_oferta": {
+          "fala": "Os quatro guardiões dos vasos canópicos lutam dois de cada vez. Cada um que cai derrama o vaso dele no chão: escolha onde e em que ordem.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n06"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n06_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n06"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n07_oferta": {
+          "fala": "Na sétima hora da noite, Apófis ataca a barca de Rá. Mantenha a Lanterna de Rá acesa com as brasas da proa e, quando os olhos acenderem, vire de costas.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n07"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n07_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n07"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n08_oferta": {
+          "fala": "Anúbis vai pesar vocês: metade Coração, metade Pena, cada um no seu prato. Equilibrem a balança. Segurem Ammit longe dos caídos.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n08"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n08_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n08"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n09_oferta": {
+          "fala": "O Faraó lança as pragas na ordem do Êxodo. Na décima, o Anjo Destruidor passa: fiquem sob as portas com sangue no lintel, até três por porta.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n09"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n09_fim": {
+          "fala": "Voltou. Nem todo mundo volta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n09"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_n10_oferta": {
+          "fala": "Chegou a hora, e ela é sua. Eu sou velho demais para escolher pelo mundo.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_n10"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_n10_fim": {
+          "fala": "Escolha. O coração está batendo mais rápido.",
+          "opcoes": [
+            {
+              "texto": "Entregar o coração ao Coro para ser pesado.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n10",
+                  "escolha": "pesar"
+                }
+              ]
+            },
+            {
+              "texto": "Entregar o coração à Dalva para ser quebrado.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n10",
+                  "escolha": "quebrar"
+                }
+              ]
+            },
+            {
+              "texto": "Devolver o coração ao Nilo, com Djedi.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_n10",
+                  "escolha": "devolver"
+                }
+              ]
+            },
+            {
+              "texto": "Preciso pensar."
+            }
+          ]
+        },
+        "historia": {
+          "fala": "O Papiro Westcar conta que o mago Djedi, de cento e dez anos, sabia o número das câmaras secretas do santuário de Thoth, que o rei Quéops procurava para a sua pirâmide. Este Djedi diz que é ele, e que tinha cento e dez anos quando o Juízo travou em 1962: não conseguiu fazer cento e onze. Procura o Salão dos Registros, onde Thoth guardou o que trouxe de Atlântida.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_diaprepes_atlante",
+      "npc": "diaprepes_atlante",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Aqui o sol é preto. Lá embaixo nem sol temos. Educado, triste, deslocado.",
+          "opcoes": [
+            {
+              "texto": "O Atlante que Subiu?",
+              "ir": "eg_l06_oferta",
+              "se": {
+                "missao_disponivel": "eg_l06"
+              }
+            },
+            {
+              "texto": "Sobre o atlante que subiu.",
+              "ir": "eg_l06_fim",
+              "se": {
+                "missao_pronta": "eg_l06"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_l06_oferta": {
+          "fala": "Vim de tão longe buscar alguém que talvez não esteja mais aqui.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_l06"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_l06_fim": {
+          "fala": "Ele subiu. E deixou a chave para nós. Então a Coluna tem jeito.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_l06"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Platão dá o nome Diaprepes a um dos dez reis de Atlântida. Este é descendente dele, embaixador da Redoma de Thotme, que atravessou a Fenda atrás do filho do seu guardião: Thoth, que fugiu para Khem há doze mil anos. Veio buscá-lo para segurar a Coluna do Ritmo, que trinca. Não sabe que Thoth subiu.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_dalva_ferraz",
+      "npc": "dalva_ferraz",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bulbo, filamento, isolador. Está desenhado na parede! Rápida, entusiasmada, mal-educada sem querer.",
+          "opcoes": [
+            {
+              "texto": "O Relevo?",
+              "ir": "eg_v01_oferta",
+              "se": {
+                "missao_disponivel": "eg_v01"
+              }
+            },
+            {
+              "texto": "Sobre o relevo.",
+              "ir": "eg_v01_fim",
+              "se": {
+                "missao_pronta": "eg_v01"
+              }
+            },
+            {
+              "texto": "O Filamento-Serpente?",
+              "ir": "eg_v02_oferta",
+              "se": {
+                "missao_disponivel": "eg_v02"
+              }
+            },
+            {
+              "texto": "Sobre o filamento-serpente.",
+              "ir": "eg_v02_fim",
+              "se": {
+                "missao_pronta": "eg_v02"
+              }
+            },
+            {
+              "texto": "O Pilar Djed?",
+              "ir": "eg_v03_oferta",
+              "se": {
+                "missao_disponivel": "eg_v03"
+              }
+            },
+            {
+              "texto": "Sobre o pilar djed.",
+              "ir": "eg_v03_fim",
+              "se": {
+                "missao_pronta": "eg_v03"
+              }
+            },
+            {
+              "texto": "Luz sem Fogo?",
+              "ir": "eg_v04_oferta",
+              "se": {
+                "missao_disponivel": "eg_v04"
+              }
+            },
+            {
+              "texto": "Sobre luz sem fogo.",
+              "ir": "eg_v04_fim",
+              "se": {
+                "missao_pronta": "eg_v04"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_v01_oferta": {
+          "fala": "Os antigos tinham luz sem fogo. Eu tenho certeza. Preciso das cópias dos relevos de Karnak.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_v01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_v01_fim": {
+          "fala": "Bulbo, filamento, isolador. Não é deus. É engenharia.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_v01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_v02_oferta": {
+          "fala": "Veneno de naja conduz? Só tem um jeito de saber.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_v02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_v02_fim": {
+          "fala": "FAISCOU! Faiscou verde!",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_v02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_v03_oferta": {
+          "fala": "Preciso do isolador. Os guardiões da calçada têm. Eles são agressivos, vá com gente.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_v03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_v03_fim": {
+          "fala": "É um isolador! Olha, olha!",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_v03"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_v04_oferta": {
+          "fala": "Uma lâmpada inteira. Se eu tiver uma, a Vigília nunca mais fica no escuro.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_v04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_v04_fim": {
+          "fala": "Luz sem fogo. Gustavo ia chorar.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_v04"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Engenheira Herege, discípula de Gustavo, o Primarca. Veio ao Egito atrás das Lâmpadas de Dendera: no templo de Hathor há um relevo com um bulbo, um filamento em forma de serpente e um pilar djed como isolador. 'Os antigos tinham luz sem fogo. Se eu achar a pilha, a Vela acende sem pavio.'",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_conego_barnabe",
+      "npc": "conego_barnabe",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Um coração, uma pena. É simples. Erudito, gentil, convicto até o fim.",
+          "opcoes": [
+            {
+              "texto": "A Balança do Templo?",
+              "ir": "eg_a01_oferta",
+              "se": {
+                "missao_disponivel": "eg_a01"
+              }
+            },
+            {
+              "texto": "Sobre a balança do templo.",
+              "ir": "eg_a01_fim",
+              "se": {
+                "missao_pronta": "eg_a01"
+              }
+            },
+            {
+              "texto": "O Peso de uma Pena?",
+              "ir": "eg_a02_oferta",
+              "se": {
+                "missao_disponivel": "eg_a02"
+              }
+            },
+            {
+              "texto": "Sobre o peso de uma pena.",
+              "ir": "eg_a02_fim",
+              "se": {
+                "missao_pronta": "eg_a02"
+              }
+            },
+            {
+              "texto": "Os Corações nos Vasos?",
+              "ir": "eg_a03_oferta",
+              "se": {
+                "missao_disponivel": "eg_a03"
+              }
+            },
+            {
+              "texto": "Sobre os corações nos vasos.",
+              "ir": "eg_a03_fim",
+              "se": {
+                "missao_pronta": "eg_a03"
+              }
+            },
+            {
+              "texto": "Coração de Granito?",
+              "ir": "eg_a04_oferta",
+              "se": {
+                "missao_disponivel": "eg_a04"
+              }
+            },
+            {
+              "texto": "Sobre coração de granito.",
+              "ir": "eg_a04_fim",
+              "se": {
+                "missao_pronta": "eg_a04"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_a01_oferta": {
+          "fala": "Uma balança que pesa sozinha, filho. Vá ver. Eu já sou velho para escada de templo.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_a01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_a01_fim": {
+          "fala": "Desceu? Bendito seja. Ela ainda pesa.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_a01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_a02_oferta": {
+          "fala": "Para pesar um coração, filho, primeiro é preciso uma pena que não minta.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_a02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_a02_fim": {
+          "fala": "Quatro penas. Uma delas pesa exatamente o que deveria.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_a02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_a03_oferta": {
+          "fala": "Quatro vasos, quatro filhos de Hórus. O coração fica fora. Quero entender por quê.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_a03"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_a03_fim": {
+          "fala": "Fígado. Pulmão. Estômago. Intestino. Nunca o coração.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_a03"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_a04_oferta": {
+          "fala": "Deus endureceu aquele coração. Nós vamos amolecer.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_a04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_a04_fim": {
+          "fala": "Ele bateu, filho. O coração bateu na minha mão.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_a04"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "O Coro o mandou ao Egito com uma tese: o Juízo travou porque alguém no mundo tem o coração endurecido contra Deus, como Faraó. Se o coração do Faraó Sem Nome for pesado na balança de Anúbis e cair, o Juízo destrava. Barnabé acredita nisso com o mesmo carinho com que acredita em tudo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_senebtisi_sacerdotisa",
+      "npc": "senebtisi_sacerdotisa",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Ele come. É isso que deuses fazem. Serena e assustadora.",
+          "opcoes": [
+            {
+              "texto": "Os Crocodilos de Ouro?",
+              "ir": "eg_h01_oferta",
+              "se": {
+                "missao_disponivel": "eg_h01"
+              }
+            },
+            {
+              "texto": "Sobre os crocodilos de ouro.",
+              "ir": "eg_h01_fim",
+              "se": {
+                "missao_pronta": "eg_h01"
+              }
+            },
+            {
+              "texto": "O Deus que Come?",
+              "ir": "eg_h02_oferta",
+              "se": {
+                "missao_disponivel": "eg_h02"
+              }
+            },
+            {
+              "texto": "Sobre o deus que come.",
+              "ir": "eg_h02_fim",
+              "se": {
+                "missao_pronta": "eg_h02"
+              }
+            },
+            {
+              "texto": "A Que Faz a Garganta Respirar?",
+              "ir": "eg_h04_oferta",
+              "se": {
+                "missao_disponivel": "eg_h04"
+              }
+            },
+            {
+              "texto": "Sobre a que faz a garganta respirar.",
+              "ir": "eg_h04_fim",
+              "se": {
+                "missao_pronta": "eg_h04"
+              }
+            },
+            {
+              "texto": "Turno no Faium?",
+              "ir": "eg_r05_oferta",
+              "se": {
+                "missao_disponivel": "eg_r05"
+              }
+            },
+            {
+              "texto": "Sobre turno no faium.",
+              "ir": "eg_r05_fim",
+              "se": {
+                "missao_pronta": "eg_r05"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "eg_h01_oferta": {
+          "fala": "Você vai descer ao Labirinto? Então primeiro alimente o deus. Se ele comer, talvez não coma você.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_h01"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_h01_fim": {
+          "fala": "Ele não comeu. Então ele está com fome de outra coisa.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_h01"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_h02_oferta": {
+          "fala": "Petsuchos ficou lá embaixo quando a cheia encheu o Labirinto. A fome cresceu com a água. Faça ele descansar.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_h02"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_h02_fim": {
+          "fala": "Você trouxe o brinco. Então ele dorme.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_h02"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_h04_oferta": {
+          "fala": "No fundo do Labirinto, Serket guarda o rei que o construiu. Ninguém desce sem passar por ela.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_h04"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_h04_fim": {
+          "fala": "O ferrão. Cuidado com a ponta.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_h04"
+                }
+              ]
+            }
+          ]
+        },
+        "eg_r05_oferta": {
+          "fala": "O lago tem filhos demais. Alguns precisam descansar.",
+          "opcoes": [
+            {
+              "texto": "Deixa comigo.",
+              "acoes": [
+                {
+                  "aceitar_missao": "eg_r05"
+                }
+              ]
+            },
+            {
+              "texto": "Agora não."
+            }
+          ]
+        },
+        "eg_r05_fim": {
+          "fala": "Diária feita. Volte amanhã.",
+          "opcoes": [
+            {
+              "texto": "Feito.",
+              "acoes": [
+                {
+                  "concluir_missao": "eg_r05"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Heródoto viu os sacerdotes de Crocodilópolis enfeitarem o crocodilo sagrado com brincos de ouro e pulseiras nas patas da frente. Senebtisi é a última dessa casa. Quando a cheia encheu o Labirinto de Hawara, Petsuchos ficou lá embaixo, e a fome dele cresceu com a água.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_iolanda",
+      "npc": "iolanda_prumo",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "at_v03"
+              },
+              "texto": "Medida anotada. Agora só falta entender. Isso costuma levar uma vida. A minha está acabando de tanto olhar para esta trinca."
+            },
+            {
+              "se": {
+                "missao_disponivel": "at_v01"
+              },
+              "texto": "Recruta da Fenda. Bem-vindo à única tarde de onze mil anos. Não toque nos parados, não beba água de fonte quente e não confie em nada que não enferruja."
+            },
+            {
+              "texto": "Fala. Estou medindo."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Do que o Posto precisa?",
+              "ir": "v01_oferta",
+              "se": {
+                "missao_disponivel": "at_v01"
+              }
+            },
+            {
+              "texto": "A carne chegou.",
+              "ir": "v01_fim",
+              "se": {
+                "missao_pronta": "at_v01"
+              }
+            },
+            {
+              "texto": "Mais serviço?",
+              "ir": "v02_oferta",
+              "se": {
+                "missao_disponivel": "at_v02"
+              }
+            },
+            {
+              "texto": "As engrenagens estão aqui.",
+              "ir": "v02_fim",
+              "se": {
+                "missao_pronta": "at_v02"
+              }
+            },
+            {
+              "texto": "O que mais precisa medir?",
+              "ir": "v03_oferta",
+              "se": {
+                "missao_disponivel": "at_v03"
+              }
+            },
+            {
+              "texto": "Medi a trinca e vi o sino.",
+              "ir": "v03_fim",
+              "se": {
+                "missao_pronta": "at_v03"
+              }
+            },
+            {
+              "texto": "O que é este lugar?",
+              "ir": "historia"
+            },
+            {
+              "texto": "Até depois."
+            }
+          ]
+        },
+        "v01_oferta": {
+          "fala": "Seis touros, seis íbis. Carne para o Posto. Escolha os que estão longe da Fenda: os que estão perto já aprenderam a nossa cara.",
+          "opcoes": [
+            {
+              "texto": "Vou caçar.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_v01"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "v01_fim": {
+          "fala": "Carne limpa. Vou escrever isso três vezes no despacho para a Odete acreditar.",
+          "opcoes": [
+            {
+              "texto": "Bom apetite.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_v01"
+                }
+              ]
+            }
+          ]
+        },
+        "v02_oferta": {
+          "fala": "Os Vigias cuidam dos canais sem ninguém mandar. Quero uma engrenagem de cada. Oito. Eles se defendem, então leve curativo.",
+          "opcoes": [
+            {
+              "texto": "Trago as oito.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_v02"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "v02_fim": {
+          "fala": "Olhe isso. Giram sozinhas. Todas para o mesmo lado. Para o lado da trinca.",
+          "opcoes": [
+            {
+              "texto": "Isso é bom ou ruim?",
+              "acoes": [
+                {
+                  "concluir_missao": "at_v02"
+                }
+              ]
+            }
+          ]
+        },
+        "v03_oferta": {
+          "fala": "Leve o meu prumo até a Coluna do Ritmo e me diga como ele balança. Depois vá ao Cerco ver o sino do Coro. Se der, faça os coristas cantarem mais baixo.",
+          "opcoes": [
+            {
+              "texto": "Vou medir.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_v03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "v03_fim": {
+          "fala": "Para fora e para dentro, na mesma medida. Respiração. Esta coluna respira, e a trinca é por onde ela tosse. Vá ver o rei parado no olival. Ele mexeu os olhos quando você passou ontem.",
+          "opcoes": [
+            {
+              "texto": "Vou.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_v03"
+                }
+              ]
+            }
+          ]
+        },
+        "historia": {
+          "fala": "Uma redoma que é o céu de cabeça para baixo. O Juízo desce, dá de cara com o próprio reflexo e volta. Thoth fez isso com sete colunas e uma frase. Eu tenho giz, cobre e o Anselmo. Me dá uns cem anos.",
+          "opcoes": [
+            {
+              "texto": "E se a gente fizer uma sobre a Vela?",
+              "ir": "historia_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "historia_2": {
+          "fala": "Aí o Juízo desce na Vela, vê o próprio rosto e volta para cima de outro lugar. Alguém sempre paga a redoma. Até hoje ninguém me disse quem pagou esta.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_nestor",
+      "npc": "cabo_nestor",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "texto": "Parado aí. Ah, é da Vigília. Desculpa. Aqui tudo que chega parece com alguma coisa que não é."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Ronda de hoje?",
+              "ir": "r01_oferta",
+              "se": {
+                "missao_disponivel": "at_r01"
+              }
+            },
+            {
+              "texto": "Ronda feita.",
+              "ir": "r01_fim",
+              "se": {
+                "missao_pronta": "at_r01"
+              }
+            },
+            {
+              "texto": "Por que seu relógio está parado?",
+              "ir": "relogio"
+            },
+            {
+              "texto": "Até mais, cabo."
+            }
+          ]
+        },
+        "r01_oferta": {
+          "fala": "Oito touros, oito íbis, perto da Fenda. Todo dia alguém atravessa achando que é o paraíso e todo dia um touro discorda.",
+          "opcoes": [
+            {
+              "texto": "Eu faço a ronda.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_r01"
+                }
+              ]
+            },
+            {
+              "texto": "Hoje não."
+            }
+          ]
+        },
+        "r01_fim": {
+          "fala": "Fenda limpa. Vou riscar no poste. Aqui o dia não acaba, então eu risco quando canso.",
+          "opcoes": [
+            {
+              "texto": "Descansa, cabo.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_r01"
+                }
+              ]
+            }
+          ]
+        },
+        "relogio": {
+          "fala": "Parou às 17h40 quando eu passei. O de todo mundo parou. O meu coração parou junto, eu acho, porque eu não envelheço. A Capitã manda carta mandando eu voltar. Eu volto quando a porta tiver alguém do outro lado também.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_evemon",
+      "npc": "evemon_parado",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "at_c04"
+              },
+              "texto": "...meu irmão... calou?... então... posso... descer os braços..."
+            },
+            {
+              "texto": "...você... respira... depressa..."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Quem é você?",
+              "ir": "quem"
+            },
+            {
+              "texto": "Você me chamou?",
+              "ir": "c01_oferta",
+              "se": {
+                "missao_nao_iniciada": "at_c01"
+              }
+            },
+            {
+              "texto": "(Esperar em silêncio.)"
+            }
+          ]
+        },
+        "quem": {
+          "fala": "...Evêmon... quarto dos dez... filho de Clito... eu vi Gadiro... abrir a porta de baixo... não contei a tempo...",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "c01_oferta": {
+          "fala": "...o velho... no salão dos registros... ele sabe o resto... vá... eu gastei o fôlego... do século...",
+          "opcoes": [
+            {
+              "texto": "Eu vou falar com ele.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_c01"
+                }
+              ]
+            },
+            {
+              "texto": "Mais tarde."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_thotme",
+      "npc": "thotme",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "missao_concluida": "at_c04"
+              },
+              "texto": "O Livro está contigo. Não me perguntes o que há debaixo da casa do meu filho. Eu guardei a porta de cima. A de baixo nunca me deixaram ver."
+            },
+            {
+              "se": {
+                "missao_pronta": "at_c01"
+              },
+              "texto": "O rei parado mandou-te? Ele ainda respira? Então ainda dá tempo."
+            },
+            {
+              "texto": "Aluno. Senta. Não, não há onde sentar. Fica de pé, então, e escuta."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "O rei parado me mandou.",
+              "ir": "c01_fim",
+              "se": {
+                "missao_pronta": "at_c01"
+              }
+            },
+            {
+              "texto": "O que eu preciso aprender?",
+              "ir": "c02_oferta",
+              "se": {
+                "missao_disponivel": "at_c02"
+              }
+            },
+            {
+              "texto": "Li a Tábua com a pena.",
+              "ir": "c02_fim",
+              "se": {
+                "missao_pronta": "at_c02"
+              }
+            },
+            {
+              "texto": "E agora?",
+              "ir": "c03_oferta",
+              "se": {
+                "missao_disponivel": "at_c03"
+              }
+            },
+            {
+              "texto": "Cheguei ao Pilar.",
+              "ir": "c03_fim",
+              "se": {
+                "missao_pronta": "at_c03"
+              }
+            },
+            {
+              "texto": "Estou pronto para Gadiro.",
+              "ir": "c04_oferta",
+              "se": {
+                "missao_disponivel": "at_c04"
+              }
+            },
+            {
+              "texto": "Gadiro caiu.",
+              "ir": "c04_fim",
+              "se": {
+                "missao_pronta": "at_c04"
+              }
+            },
+            {
+              "texto": "Seu filho vai voltar?",
+              "ir": "volta",
+              "se": {
+                "missao_concluida": "at_c04"
+              }
+            },
+            {
+              "texto": "O que é Khem para Atlântida?",
+              "ir": "khem",
+              "se": {
+                "missao_concluida": "at_c02"
+              }
+            },
+            {
+              "texto": "Quem é você?",
+              "ir": "quem"
+            },
+            {
+              "texto": "O que é a Redoma?",
+              "ir": "redoma"
+            },
+            {
+              "texto": "Adeus, mestre."
+            }
+          ]
+        },
+        "c01_fim": {
+          "fala": "Evêmon gastou um século para te mandar aqui. Não desperdices.",
+          "opcoes": [
+            {
+              "texto": "Não vou.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_c01"
+                }
+              ]
+            }
+          ]
+        },
+        "c02_oferta": {
+          "fala": "A Tábua não se lê com os olhos. Traz-me oito penas dos meus íbis e passa uma delas sobre as letras. O que acender é teu.",
+          "opcoes": [
+            {
+              "texto": "Trarei as penas.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_c02"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "c02_fim": {
+          "fala": "A última linha não acendeu. Meu filho escreveu o fim. Quem raspou foi o rei que abriu a porta.",
+          "opcoes": [
+            {
+              "texto": "Gadiro.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_c02"
+                }
+              ]
+            }
+          ]
+        },
+        "c03_oferta": {
+          "fala": "Os Irmãos da Escuridão tomaram o templo. Atravessa a ponte e não olhes para trás: atrás de ti, a ponte também é deles.",
+          "opcoes": [
+            {
+              "texto": "Eu atravesso.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_c03"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "c03_fim": {
+          "fala": "Uma letra no pé do Pilar. Agora ele sabe que vens.",
+          "opcoes": [
+            {
+              "texto": "Que saiba.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_c03"
+                }
+              ]
+            }
+          ]
+        },
+        "c04_oferta": {
+          "fala": "Termina o que meu filho não pôde. Depois eu te dou o Livro. Saberás o que fazer com ele, ou não.",
+          "opcoes": [
+            {
+              "texto": "Vou ao Pilar.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_c04"
+                }
+              ]
+            },
+            {
+              "texto": "Ainda não."
+            }
+          ]
+        },
+        "c04_fim": {
+          "fala": "Toma. O Livro de Thoth. Páginas em branco até alguém ler em voz alta debaixo da casa que meu filho ergueu em Khem. Não hoje.",
+          "opcoes": [
+            {
+              "texto": "Obrigado, mestre.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_c04"
+                },
+                {
+                  "definir_flag": "tem_livro_de_thoth"
+                }
+              ]
+            }
+          ]
+        },
+        "khem": {
+          "fala": "Khem era a nossa colônia, a terra negra do outro lado do mar. Meu filho levou para lá os registros, os escribas e a ciência das colunas. As pirâmides são redomas de pedra: pequenas, mas do mesmo princípio. Quando o vosso céu caiu e o vosso fogo subiu, o Juízo bateu nas faces delas e encontrou só o próprio rosto. O fogo também. Khem dormiu debaixo da areia, mas não morreu.",
+          "opcoes": [
+            {
+              "texto": "Então o Egito foi salvo como Atlântida.",
+              "ir": "khem_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "khem_2": {
+          "fala": "Salvo, não. Guardado. Salvo é quando acorda.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "volta": {
+          "fala": "Ele já voltou. Pelas areias do tempo, pelo caminho de baixo de Khem, pelos salões onde não entra morto. Por que achas que a Fenda abriu, que o vosso Éden floresceu, que a areia de Khem devolveu os templos? Não foi acaso. O acaso é o nome da lei que não se conhece.",
+          "opcoes": [
+            {
+              "texto": "E o que ele quer?",
+              "ir": "volta_2"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "volta_2": {
+          "fala": "O que quis da primeira vez: que o Juízo encontre só o próprio rosto e volte. Ele diz que pelo éter e pela luz tudo vai se reconciliar, anjo com homem, demônio com anjo, e que não haverá mais guerra. Eu sou pai dele. Acredito. Os do sino não acreditam. Os do caixote apostam contra. Desce e pergunta a ele tu mesmo.",
+          "opcoes": [
+            {
+              "texto": "Descer onde?",
+              "ir": "volta_3"
+            },
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "volta_3": {
+          "fala": "Debaixo da casa que ele ergueu em Khem. Entre as patas de quem pergunta. Leva o Livro. Responde certo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "quem": {
+          "fala": "Thotme, guardião do grande templo. Meu filho chamou-se Thoth. Os gregos chamaram-no Hermes, o Três Vezes Grande. Ele foi para Khem com os registros. Eu fiquei com as colunas. Um de nós tinha de segurar o céu.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "redoma": {
+          "fala": "O que está embaixo é como o que está em cima. Meu filho dobrou a planície para baixo do mundo e pôs sobre ela o reflexo do céu. O Juízo desceu, encontrou só o próprio rosto e voltou. Isso foi o primeiro não. O vosso é o segundo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_sinesia",
+      "npc": "irma_sinesia",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "se": {
+                "faccao": "vigilia"
+              },
+              "texto": "Uma vela. Que bonito. Apague-se longe do meu sino."
+            },
+            {
+              "texto": "Irmão. Escuta. Não, não a mim. O sino. Escuta o que ele quase diz."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Como posso servir ao Coro?",
+              "ir": "a01_oferta",
+              "se": {
+                "missao_disponivel": "at_a01"
+              }
+            },
+            {
+              "texto": "O metal está calado.",
+              "ir": "a01_fim",
+              "se": {
+                "missao_pronta": "at_a01"
+              }
+            },
+            {
+              "texto": "Por que seus ouvidos sangram?",
+              "ir": "ouvido"
+            },
+            {
+              "texto": "Que a nota termine."
+            }
+          ]
+        },
+        "a01_oferta": {
+          "fala": "Os servos de metal vêm tirar o sino da Coluna. Os babuínos do escriba atiram pedras nos sineiros. Cala-os, irmão, para que a nota de São Lázaro encontre o fim.",
+          "opcoes": [
+            {
+              "texto": "Eu calo o metal.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_a01"
+                }
+              ]
+            },
+            {
+              "texto": "Depois."
+            }
+          ]
+        },
+        "a01_fim": {
+          "fala": "Mais perto. Quase. Quase. Ouviste? Não? Tu não estavas lá na noite em que ela parou.",
+          "opcoes": [
+            {
+              "texto": "Que a nota termine.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_a01"
+                }
+              ]
+            }
+          ]
+        },
+        "ouvido": {
+          "fala": "Eu cantei na quinta trombeta. A nota parou no meio, e o resto da nota ficou aqui dentro. Ela não termina. Quando a Coluna desafinar, a nota termina, e eu durmo.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_belzarim",
+      "npc": "belzarim",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "texto": "Freguês! Senta. Não no caixote, que é meu. Quer apostar? Todo mundo aqui aposta, só que alguns apostam a alma."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Trabalho para a Legião?",
+              "ir": "a02_oferta",
+              "se": {
+                "missao_disponivel": "at_a02"
+              }
+            },
+            {
+              "texto": "Trouxe as lascas do sino.",
+              "ir": "a02_fim",
+              "se": {
+                "missao_pronta": "at_a02"
+              }
+            },
+            {
+              "texto": "Thoth diz que não haverá mais guerra.",
+              "ir": "paz",
+              "se": {
+                "missao_concluida": "at_c04"
+              }
+            },
+            {
+              "texto": "Que aposta é essa?",
+              "ir": "aposta"
+            },
+            {
+              "texto": "Até mais, tesoureiro."
+            }
+          ]
+        },
+        "paz": {
+          "fala": "Paz! Que palavra cara. Anotei. Aposta aberta: dez mil almas que dura menos que a última. Quer entrar? Não? Pena. Você parece de quem acredita.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        },
+        "a02_oferta": {
+          "fala": "Seis lascas daquele sino. Os coristas não vão gostar. Os coristas não precisam saber. Eu pago em ouro, e ouro aqui dentro brilha mais, você reparou?",
+          "opcoes": [
+            {
+              "texto": "Fechado.",
+              "acoes": [
+                {
+                  "aceitar_missao": "at_a02"
+                }
+              ]
+            },
+            {
+              "texto": "Não traio o Coro."
+            }
+          ]
+        },
+        "a02_fim": {
+          "fala": "Seis. Anotado. O sino agora soa meio tom abaixo. Ninguém no Coro tem ouvido para isso. Menos a Sinésia. Coitada.",
+          "opcoes": [
+            {
+              "texto": "Pague.",
+              "acoes": [
+                {
+                  "concluir_missao": "at_a02"
+                }
+              ]
+            }
+          ]
+        },
+        "aposta": {
+          "fala": "Malfas apostou que o sino não derruba a Coluna. O Abdiel apostou que derruba, só que ele não sabe que apostou. Eu seguro o dinheiro. Quem segura o dinheiro decide o resultado. Isso é teologia, freguês.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
     }
   ]
 }

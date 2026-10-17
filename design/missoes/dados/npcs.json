@@ -233,6 +233,378 @@
       "aparencia": "Mulher jovem de capa de penas pretas costuradas em couro, metade do rosto pintada de branco osso e metade sem pintura, um olho de vidro verde. Mora num sótão afogado em que se entra por uma janela na duna.",
       "personalidade": "Simpática, curiosa, sem lealdade nenhuma. Cobra por tudo e não mente nunca: vende a verdade inteira para os dois lados.",
       "historia": "Foi cultista na Capela até perceber que segredo vale mais que fé. Hoje compra e vende informação entre a Capela e o Acampamento da Vela. Foi ela quem espalhou, dos dois lados, que o general da Legião Blasfema sumiu, e cobrou caro das duas vezes."
+    },
+    {
+      "id": "tuya_nomarca",
+      "nome": "Tuya",
+      "titulo": "Nomarca de Mênfis Reerguida",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "menfis",
+        "ponto": "praca"
+      },
+      "servicos": [],
+      "dialogo": "dlg_tuya_nomarca",
+      "aparencia": "Mulher de uns quarenta anos, alta, cabeça raspada sob um lenço de linho sujo de lodo, sobretudo de couro curtido sobre uma túnica plissada. No peito, um peitoral de contas de faiança remendado com arame; uma única conta turquesa ainda acende.",
+      "personalidade": "Prática e cobradora. Fala como quem manda numa cidade que ela mesma desenterrou. Respeita quem cava e despreza quem só olha.",
+      "historia": "A avó dela morava em Mit Rahina, em cima das ruínas de Mênfis. Quando o Nilo voltou e baixou, Tuya foi a primeira a cavar a casa da avó com as mãos e achou embaixo a casa de alguém de três mil anos atrás. Hoje toda Mênfis mora em dois andares: o de lama é de agora, o de pedra é de antes. Ela cobra dízimo de todo mundo que cava no planalto, porque 'a terra é preta e a terra é minha'.",
+      "falas_ambiente": [
+        "A rua de cima é nossa. A de baixo é dos avós.",
+        "Quem cava paga. Quem não cava, carrega.",
+        "O Nilo voltou. Agradeça a quem quiser, mas pague a mim."
+      ]
+    },
+    {
+      "id": "hapu_mercador",
+      "nome": "Hapu",
+      "titulo": "Mercador das Docas",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "menfis",
+        "ponto": "mercado"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_hapu",
+      "dialogo": "dlg_hapu_mercador",
+      "aparencia": "Homem gordo de barba trançada, avental de couro cheio de bolsos, óculos de solda pendurados no pescoço. Vende de tudo numa banca coberta de papiro encerado.",
+      "personalidade": "Simpático demais. Pechincha até com a própria sombra.",
+      "historia": "Comprava e vendia antiguidade falsa para turista antes do Juízo. Agora vende antiguidade verdadeira para quem quiser e pão para quem precisa, e diz que o lucro é o mesmo.",
+      "falas_ambiente": [
+        "Escaravelho de verdade! Bom, quase.",
+        "Pão de cevada, cerveja, mirra. O resto se discute."
+      ]
+    },
+    {
+      "id": "nefer_aguadeira",
+      "nome": "Nefer",
+      "titulo": "a Aguadeira",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "menfis",
+        "ponto": "docas"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_nefer",
+      "dialogo": "dlg_nefer_aguadeira",
+      "aparencia": "Moça magra de uns vinte anos, cabelo trançado com fios de cobre, braços cobertos de cicatrizes de corda. Carrega dois potes de barro numa vara sobre os ombros.",
+      "personalidade": "Rápida, desbocada, conhece cada fogueira da Terra Negra. Ri alto e conta o troco duas vezes.",
+      "historia": "Filha de barqueiro. Quando a escavação cresceu, percebeu que ninguém levava água para quem fica o dia inteiro no spot. Hoje tem um carrinho em cada fogueira e um irmão diferente em cada um ('todos se chamam Nefer, é mais fácil').",
+      "falas_ambiente": [
+        "Água do Nilo fervida três vezes!",
+        "Mirra boa fecha ferida e espanta mosca."
+      ]
+    },
+    {
+      "id": "nefer_carrinho",
+      "nome": "Nefer",
+      "titulo": "Carrinho da Aguadeira",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "fogueiras"
+      },
+      "servicos": [
+        "loja"
+      ],
+      "loja": "loja_carrinho_nefer",
+      "dialogo": "dlg_nefer_carrinho",
+      "aparencia": "Um dos 'irmãos' da Nefer, todos de trança com fio de cobre, empurrando um carrinho de potes de barro e unguentos.",
+      "personalidade": "Rápido, cansado, sempre com troco.",
+      "historia": "Leva água e mirra de fogueira em fogueira para quem caça nos spots.",
+      "falas_ambiente": [
+        "Água! Mirra! Cerveja ocre!"
+      ]
+    },
+    {
+      "id": "besankh_ferreiro",
+      "nome": "Besankh",
+      "titulo": "Fundidor de Bronze",
+      "faccao": null,
+      "classe_visual": "mutante",
+      "local": {
+        "subzona": "menfis",
+        "ponto": "ferreiro"
+      },
+      "servicos": [
+        "ferreiro"
+      ],
+      "dialogo": "dlg_besankh_ferreiro",
+      "aparencia": "Mutante enorme de pele cinza-esverdeada, um braço mais grosso que o outro, avental de couro queimado. Trabalha o bronze das estátuas derretidas num forno de tijolo de lama.",
+      "personalidade": "Calado e caprichoso. Fala com o metal antes de bater.",
+      "historia": "Era cantor de casamento em Gizé. O Amargo deixou o corpo dele largo e a voz rouca; ele trocou a música pelo martelo. Derrete estátuas sem cabeça, nunca as que ainda têm rosto.",
+      "falas_ambiente": [
+        "Bronze antigo é mole. Paciência.",
+        "Esta tinha rosto. Esta eu não derreto."
+      ]
+    },
+    {
+      "id": "ahmose_barqueiro",
+      "nome": "Ahmose",
+      "titulo": "Barqueiro das Docas de Mênfis",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "menfis",
+        "ponto": "docas"
+      },
+      "servicos": [],
+      "dialogo": "dlg_ahmose_barqueiro",
+      "aparencia": "Velho magro e queimado de sol, saiote de linho, chapéu de palha furado, remo comprido de madeira de acácia. Uma tatuagem do olho de Hórus no ombro.",
+      "personalidade": "Fala devagar, como o rio. Sabe todas as histórias e não acredita em nenhuma.",
+      "historia": "O avô dele dizia que crocodilo é o Nilo com fome. Ahmose atravessa a feluca da margem dos vivos para a margem dos mortos por três moedas e diz que é a mesma viagem que os faraós faziam, só que de volta.",
+      "falas_ambiente": [
+        "Três moedas para o outro lado.",
+        "Do lado de lá enterram. Do lado de cá esquecem."
+      ]
+    },
+    {
+      "id": "meritre_barqueira",
+      "nome": "Meritre",
+      "titulo": "Barqueira da Escavação",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "docas_escavacao"
+      },
+      "servicos": [],
+      "dialogo": "dlg_meritre_barqueira",
+      "aparencia": "Mulher forte de meia-idade, braços de remadora, véu de linho contra a areia, um amuleto de escaravelho no pescoço.",
+      "personalidade": "Pouca conversa, muita pressa.",
+      "historia": "Filha de Ahmose. Faz a volta da escavação para Mênfis e cobra o mesmo que o pai, mas rema mais rápido.",
+      "falas_ambiente": [
+        "Mênfis? Três moedas.",
+        "Meu pai rema devagar porque gosta de falar."
+      ]
+    },
+    {
+      "id": "reis_abdu",
+      "nome": "Abdu",
+      "titulo": "o Reis da Escavação",
+      "faccao": null,
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "tenda_reis"
+      },
+      "servicos": [],
+      "dialogo": "dlg_reis_abdu",
+      "aparencia": "Homem baixo e largo, galabia listrada amarrada na cintura, bengala de capataz com ponta de latão, um caderno de contas preso no cinto por uma corrente.",
+      "personalidade": "Capataz de escavação à moda antiga. Grita, conta, paga em dia. Leal a quem paga e só enquanto paga.",
+      "historia": "A família dele foi 'reis' (capataz de escavação) por cinco gerações, desde os ingleses. Quando a areia desceu do planalto, ele já estava lá com cem homens e uma lista de preços. Vende braços para os quatro acampamentos e jura que não toma partido. Toma: o de quem paga mais.",
+      "falas_ambiente": [
+        "Quadrícula por quadrícula!",
+        "Achou? Anota. Não achou? Cava.",
+        "Os mortos trabalham de graça. Por isso estão me tirando os clientes."
+      ]
+    },
+    {
+      "id": "djedi_mago",
+      "nome": "Djedi",
+      "titulo": "Mago da Casa de Hermes",
+      "faccao": null,
+      "classe_visual": "cultista",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "tenda_hermetista"
+      },
+      "servicos": [],
+      "dialogo": "dlg_djedi_mago",
+      "aparencia": "Velhíssimo, magro como um caniço, pele de papiro, barba branca até o cinto trançada com fios de ouro. Túnica de linho e um sobretudo de couro de hermetista coberto de símbolos costurados. Um olho de faiança no lugar do esquerdo, aceso em turquesa.",
+      "personalidade": "Paciente, sorridente, infinitamente teimoso. Fala por enigmas e explica os enigmas. Come cem pães e bebe um jarro de cerveja por dia, como no papiro.",
+      "historia": "O Papiro Westcar conta que o mago Djedi, de cento e dez anos, sabia o número das câmaras secretas do santuário de Thoth, que o rei Quéops procurava para a sua pirâmide. Este Djedi diz que é ele, e que tinha cento e dez anos quando o Juízo travou em 1962: não conseguiu fazer cento e onze. Procura o Salão dos Registros, onde Thoth guardou o que trouxe de Atlântida. (Segredo: ele sabe onde fica desde sempre. Espera alguém digno de entrar.)",
+      "falas_ambiente": [
+        "O que está embaixo é como o que está em cima.",
+        "Cento e dez anos. Ainda.",
+        "A Esfinge olha para o leste. O que ela guarda está a oeste."
+      ]
+    },
+    {
+      "id": "diaprepes_atlante",
+      "nome": "Diaprepes",
+      "titulo": "Embaixador de Thotme",
+      "faccao": null,
+      "classe_visual": "tecnomancer",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "tenda_atlante"
+      },
+      "servicos": [],
+      "dialogo": "dlg_diaprepes_atlante",
+      "aparencia": "Homem alto de pele cor de bronze e olhos verdes demais, túnica azul-mar sob uma armadura leve de oricalco riscada, um cristal esverdeado preso no peito que zune baixinho. Respira com uma máscara de filtro quando o vento traz areia.",
+      "personalidade": "Educado, triste, deslocado. Pergunta tudo duas vezes, porque nada aqui funciona como em casa.",
+      "historia": "Platão dá o nome Diaprepes a um dos dez reis de Atlântida. Este é descendente dele, embaixador da Redoma de Thotme, que atravessou a Fenda atrás do filho do seu guardião: Thoth, que fugiu para Khem há doze mil anos. Veio buscá-lo para segurar a Coluna do Ritmo, que trinca. Não sabe que Thoth subiu.",
+      "falas_ambiente": [
+        "Aqui o sol é preto. Lá embaixo nem sol temos.",
+        "A Coluna trinca. Eu ouço daqui."
+      ]
+    },
+    {
+      "id": "dalva_ferraz",
+      "nome": "Dalva Ferraz",
+      "titulo": "Engenheira Herege",
+      "faccao": "vigilia",
+      "classe_visual": "tecnomancer",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "oficina_engenheiros"
+      },
+      "servicos": [],
+      "dialogo": "dlg_dalva_ferraz",
+      "aparencia": "Mulher de uns trinta e cinco anos, cabelo curto grisalho, macacão de lona cheio de bolsos, óculos de solda na testa, mãos pretas de graxa. Uma pilha de cobre e zinco presa no cinto, sempre faiscando.",
+      "personalidade": "Rápida, entusiasmada, mal-educada sem querer. Desenha enquanto fala. Não acredita em deus nenhum e respeita todos os engenheiros, até os mortos.",
+      "historia": "Engenheira Herege, discípula de Gustavo, o Primarca. Veio ao Egito atrás das Lâmpadas de Dendera: no templo de Hathor há um relevo com um bulbo, um filamento em forma de serpente e um pilar djed como isolador. 'Os antigos tinham luz sem fogo. Se eu achar a pilha, a Vela acende sem pavio.'",
+      "falas_ambiente": [
+        "Bulbo, filamento, isolador. Está desenhado na parede!",
+        "Não é deus. É engenharia.",
+        "Ninguém toca na minha pilha."
+      ]
+    },
+    {
+      "id": "conego_barnabe",
+      "nome": "Barnabé",
+      "titulo": "Cônego do Coro",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "escavacao",
+        "ponto": "tenda_coro"
+      },
+      "servicos": [],
+      "dialogo": "dlg_conego_barnabe",
+      "aparencia": "Anjo de meia-idade, gordo, asas cinzentas cobertas de pó, batina roxa desbotada sob um sobretudo de couro com fivelas de latão. Carrega uma balança de bronze pequena presa ao cinto, que ele equilibra com os dedos quando pensa.",
+      "personalidade": "Erudito, gentil, convicto até o fim. Fala baixo das coisas mais terríveis.",
+      "historia": "O Coro o mandou ao Egito com uma tese: o Juízo travou porque alguém no mundo tem o coração endurecido contra Deus, como Faraó. Se o coração do Faraó Sem Nome for pesado na balança de Anúbis e cair, o Juízo destrava. Barnabé acredita nisso com o mesmo carinho com que acredita em tudo.",
+      "falas_ambiente": [
+        "Um coração, uma pena. É simples.",
+        "Deus endureceu. Nós vamos amolecer.",
+        "Tudo pesa. Até o que não deveria."
+      ]
+    },
+    {
+      "id": "senebtisi_sacerdotisa",
+      "nome": "Senebtisi",
+      "titulo": "Sacerdotisa de Sobek",
+      "faccao": null,
+      "classe_visual": "cultista",
+      "local": {
+        "subzona": "faium",
+        "ponto": "crocodilopolis"
+      },
+      "servicos": [],
+      "dialogo": "dlg_senebtisi_sacerdotisa",
+      "aparencia": "Mulher idosa de cabeça raspada, pele marcada de escamas desenhadas a carvão, manto de couro de crocodilo, braceletes de bronze com brincos de ouro pendurados.",
+      "personalidade": "Serena e assustadora. Fala dos crocodilos como de filhos.",
+      "historia": "Heródoto viu os sacerdotes de Crocodilópolis enfeitarem o crocodilo sagrado com brincos de ouro e pulseiras nas patas da frente. Senebtisi é a última dessa casa. Quando a cheia encheu o Labirinto de Hawara, Petsuchos ficou lá embaixo, e a fome dele cresceu com a água.",
+      "falas_ambiente": [
+        "Ele come. É isso que deuses fazem.",
+        "Ouro na orelha, água na boca."
+      ]
+    },
+    {
+      "id": "iolanda_prumo",
+      "nome": "Iolanda Prumo",
+      "titulo": "Engenheira Herege, chefe do Posto da Fenda",
+      "faccao": "vigilia",
+      "classe_visual": "tecnomancer",
+      "local": {
+        "subzona": "posto_da_fenda",
+        "ponto": "bancada_iolanda"
+      },
+      "servicos": [],
+      "dialogo": "dlg_iolanda",
+      "aparencia": "Mulher de quarenta anos, alta e ossuda, avental de couro cheio de bolsos, óculos de solda com uma lente esmeralda que ela mesma raspou de uma Coluna. Fio de prumo de latão no pescoço, no lugar de cruz. Giz nas unhas.",
+      "personalidade": "Mede tudo antes de acreditar. Fala em números e em ferramentas, ri pouco e sempre na hora errada. Tem medo de uma coisa só: de entender a Redoma e descobrir que não dá para copiar.",
+      "historia": "Era desenhista de pontes da prefeitura de São Lázaro. Na noite da meia nota, a ponte que ela tinha calculado aguentou o bonde da Odete e nenhuma outra aguentou. Anselmo a chamou para a Vela no dia seguinte. Foi a primeira dos Engenheiros Hereges a passar a Fenda e a primeira a voltar. Escreveu na Coluna do Ritmo, a giz, a hora em que ela trincou. Quer levar uma redoma para a Vela. Ainda não sabe o preço."
+    },
+    {
+      "id": "cabo_nestor",
+      "nome": "Nestor Calço",
+      "titulo": "Cabo da Cerca, guarda da Fenda",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "posto_da_fenda",
+        "ponto": "guarita_fenda"
+      },
+      "servicos": [],
+      "dialogo": "dlg_nestor",
+      "aparencia": "Rapaz de vinte e poucos anos com sobretudo de cabo grande demais, escopeta de cano curto e um relógio de bolso parado pendurado no peito como medalha. Queimadura de sol que não sai, num lugar onde o sol nunca se põe.",
+      "personalidade": "Conversador, supersticioso, leal até a burrice. Conta histórias que ninguém pediu. Não dorme de costas para a Fenda.",
+      "historia": "Era um dos catorze que passaram a Fenda com a Iolanda. Ficou de guarda na volta e nunca mais saiu. Diz que do lado de cá o relógio parou às 17h40 e o coração dele também, e que é por isso que não envelhece. A Capitã Odete manda carta toda semana mandando ele voltar. Ele responde que alguém tem de vigiar a porta dos dois lados."
+    },
+    {
+      "id": "evemon_parado",
+      "nome": "Evêmon, o Rei Parado",
+      "titulo": "Um dos dez reis de Atlântida",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "visual_prop": "atlante_parado",
+      "local": {
+        "subzona": "olival_dos_parados",
+        "ponto": "rei_parado"
+      },
+      "servicos": [],
+      "dialogo": "dlg_evemon",
+      "aparencia": "Um dos Parados, mais alto que os outros, com o diadema de oricalco por baixo do pó. Os braços erguidos para o céu. Quando alguém chega perto, os olhos se mexem; a boca, quase nada.",
+      "personalidade": "Lento, solene, cansado de esperar. Fala uma frase por vez, como quem gasta um fôlego que precisa durar um século.",
+      "historia": "Platão o lista entre os dez reis, filhos de Poseidon e de Clito (Crítias 114b). Estava no olival quando Thoth fechou a Redoma e ficou parado no meio de uma oração. Viu o irmão Gadiro abrir a porta de baixo. Não contou a ninguém a tempo. Respira uma vez por século e gasta o fôlego pedindo que alguém termine o que ele não terminou."
+    },
+    {
+      "id": "thotme",
+      "nome": "Thotme",
+      "titulo": "Guardião do Grande Templo, pai de Thoth",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "salao_dos_registros",
+        "ponto": "nicho_thotme"
+      },
+      "servicos": [],
+      "dialogo": "dlg_thotme",
+      "aparencia": "Velho sacerdote de linho branco e cabeça raspada, com o íbis bordado no peito. É transparente nas bordas, como uma figura de vitral vista contra a luz, e a luz que passa por ele é verde. Não deixa sombra no chão.",
+      "personalidade": "Gentil e terrível. Pergunta mais do que responde. Trata todo mundo como aluno e ninguém como filho.",
+      "historia": "Na Tábua de Esmeralda, Thoth se diz filho de Thotme, guardião do grande templo. Quando Thoth fugiu para Khem levando os registros, Thotme ficou para guardar as sete Colunas. Já não é bem um homem: é o que sobra de alguém que segura um céu de pé por onze mil anos. Guarda o Livro do filho e só o entrega a quem terminar o que Gadiro começou."
+    },
+    {
+      "id": "irma_sinesia",
+      "nome": "Irmã Sinésia, a Afinadora",
+      "titulo": "Corista do Coro, mestra do Diapasão",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "tenda_do_diapasao",
+        "ponto": "tenda_sinesia"
+      },
+      "servicos": [],
+      "dialogo": "dlg_sinesia",
+      "aparencia": "Anjo de asas cinzentas presas às costas com correias de couro para não abrirem. Sobretudo branco encardido, máscara de gás de latão pendurada no pescoço e um diapasão de bronze do tamanho de um braço no cinto. Os ouvidos sangram um fio fino.",
+      "personalidade": "Fanática, paciente, quase doce. Escuta antes de falar e fala como quem canta. Não perdoa nota errada.",
+      "historia": "Cantou na quinta trombeta, em São Lázaro, e ouviu a nota parar no meio. Desde então ouve o resto da nota na cabeça, e o resto não termina. Quando o Coro achou a ilha que disse não, Abdiel mandou o sino de bronze e mandou Sinésia junto. Ela acredita que, quando a Coluna da Vibração cantar fora do tom, a nota de São Lázaro termina, e ela finalmente dorme."
+    },
+    {
+      "id": "belzarim",
+      "nome": "Belzarim, o Apostador",
+      "titulo": "Tesoureiro da Legião Blasfema",
+      "faccao": "arautos",
+      "classe_visual": "demonio",
+      "local": {
+        "subzona": "tenda_do_diapasao",
+        "ponto": "caixote_belzarim"
+      },
+      "servicos": [],
+      "dialogo": "dlg_belzarim",
+      "aparencia": "Demônio baixo e gordo de chifres serrados, colete de veludo puído sobre a pele vermelha, óculos de um aro só e um livro-caixa amarrado ao punho por uma corrente. Senta num caixote de munição como quem senta num trono.",
+      "personalidade": "Simpático, venal, debochado. Zomba da liturgia do Coro na cara deles e anota tudo. Paga as dívidas, cobra em dobro.",
+      "historia": "Contava as almas da Legião Blasfema antes de o general sumir. Sem general, contar almas virou contar apostas. Veio para a Atlântida porque Malfas apostou que o sino não derruba a Coluna, e Belzarim é quem segura o dinheiro. Ajuda os Arautos que pagam bem e ajuda o sino a falhar quando ninguém está olhando."
     }
   ]
 }

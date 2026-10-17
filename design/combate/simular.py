@@ -17,7 +17,8 @@ def stats(cls, L):
 def player(cls, L):
     c = C[cls]; a = stats(cls, L); F, A, V, E = a["FOR"], a["AGI"], a["VIT"], a["ESP"]
     p = c["perfil_dano"]
-    mn, mx = {"corpo_a_corpo": (F/6, F/4), "corpo_a_corpo_agil": (F/6 + A/10, F/4 + A/10),
+    mn, mx = {"corpo_a_corpo": (F/6, F/4), "corpo_a_corpo_agil": (F/6 + A/10, F/4 + A/10), 
+              "corpo_a_corpo_pesado": (F/6, F/4),  # provisório: mesma faixa da espada até a thread de Combate fechar os números
               "distancia": (A/7 + F/14, A/4 + F/8), "magico": (E/9, E/4),
               "sagrado": (E/10 + F/12, E/5 + F/8),
               "hibrido": ((F/6 + A/7 + F/14) / 2, (F/4 + A/4 + F/8) / 2)}[p]  # metade espada, metade tiro
@@ -50,7 +51,7 @@ def mob(L, arq="normal", aj=None):
     return dict(hp=hp, dmg=dmg, deff=deff, interval=m["intervalo"], ar=L*4 + 10, er=L*3 + 5)
 
 # ganho medio de dano usando habilidades em rotacao vs so ataque basico (inclui DoT, invocacoes, Furia, Brasa)
-ROTS = {"anjo": 1.25, "cultista": 1.55, "mutante": 1.45, "demonio": 1.4, "humano": 1.35, "tecnomancer": 1.5}
+ROTS = {"anjo": 1.25, "cultista": 1.55, "mutante": 1.45, "demonio": 1.4, "humano": 1.35, "tecnomancer": 1.5, "warlord": 1.4}
 
 def per_hit(p, L, tdeff, tL):
     raw = p["avg"] * (1 + p["crit"] * (p["cm"] - 1))
