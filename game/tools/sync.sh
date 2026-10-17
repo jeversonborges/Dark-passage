@@ -64,6 +64,7 @@ cp $P/entregas/egito/mapas/*.json $G/data/mapas/   # Egito: 3 andares do Hawara,
 cp $P/design/mapas/atlantida/atlantida.json $D/mapas/atlantida.json   # Atlântida de Thoth (16/10)
 cp $P/design/mapas/atlantida/dados.json $D/mapas/atlantida_dados.json
 echo "sync ok"; du -sh $E/* $D
+PROJETO=$P python3 $G/tools/integrar_atlantida.py   # Atlântida + Salões de Amenti, Fenda no Éden e Esfinge no Egito (0.9.4)
 python3 $G/tools/pisos.py
 python3 $G/tools/manifest.py
 python3 $G/tools/mapa.py

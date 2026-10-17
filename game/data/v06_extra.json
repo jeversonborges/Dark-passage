@@ -3506,6 +3506,371 @@
    },
    "renascimento_s": 0,
    "arquetipo": "elite"
+  },
+  "touro_de_poseidon": {
+   "nome": "Touro de Poseidon",
+   "base": "porco_pestilento",
+   "niveis": [
+    30,
+    37
+   ],
+   "ajuste": {
+    "hp": 1.3,
+    "dano": 1.1
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "atl_animal",
+   "res": {
+    "fisico": 0.1
+   },
+   "renascimento_s": 14
+  },
+  "ibis_de_thoth_atl": {
+   "nome": "Íbis de Thoth",
+   "base": "corvo_de_cinza",
+   "niveis": [
+    30,
+    40
+   ],
+   "ajuste": {
+    "hp": 1.1
+   },
+   "tags": [
+    "animal",
+    "voador"
+   ],
+   "drop": "atl_animal",
+   "res": {
+    "sagrado": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "vigia_de_oricalco": {
+   "nome": "Vigia de Oricalco",
+   "base": "soldado_caido",
+   "niveis": [
+    31,
+    43
+   ],
+   "ajuste": {
+    "hp": 1.35
+   },
+   "tags": [
+    "constructo"
+   ],
+   "drop": "atl_guardiao",
+   "res": {
+    "fisico": 0.25,
+    "eletrico": -0.4
+   },
+   "renascimento_s": 14
+  },
+  "cinocefalo": {
+   "nome": "Cinocéfalo",
+   "base": "gancheiro",
+   "niveis": [
+    34,
+    40
+   ],
+   "ajuste": {
+    "dano": 1.15
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "atl_guardiao",
+   "res": {
+    "sagrado": 0.3
+   },
+   "renascimento_s": 14
+  },
+  "elefante_de_atlas": {
+   "nome": "Elefante de Atlas",
+   "base": "porco_pestilento",
+   "niveis": [
+    36,
+    39
+   ],
+   "ajuste": {
+    "hp": 1.9,
+    "dano": 1.2,
+    "mov": 0.85
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "atl_animal",
+   "res": {
+    "fisico": 0.2
+   },
+   "renascimento_s": 14
+  },
+  "corista_do_cerco": {
+   "nome": "Corista do Cerco",
+   "base": "eco_da_trombeta",
+   "niveis": [
+    38,
+    41
+   ],
+   "ajuste": {
+    "hp": 1.25
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "atl_coro",
+   "res": {
+    "sagrado": 0.5,
+    "trevas": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "sineiro_do_coro": {
+   "nome": "Sineiro do Coro",
+   "base": "soldado_caido",
+   "niveis": [
+    38,
+    41
+   ],
+   "ajuste": {
+    "hp": 1.4,
+    "dano": 1.2
+   },
+   "tags": [
+    "celestial"
+   ],
+   "drop": "atl_coro",
+   "res": {
+    "sagrado": 0.5,
+    "trevas": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "hoplita_de_oricalco": {
+   "nome": "Hoplita de Oricalco",
+   "base": "soldado_caido",
+   "niveis": [
+    40,
+    43
+   ],
+   "ajuste": {
+    "hp": 1.55,
+    "dano": 1.2
+   },
+   "tags": [
+    "constructo"
+   ],
+   "drop": "atl_guardiao",
+   "res": {
+    "fisico": 0.3,
+    "eletrico": -0.4
+   },
+   "renascimento_s": 14
+  },
+  "filho_da_serpente": {
+   "nome": "Filho da Serpente",
+   "base": "soldado_caido",
+   "niveis": [
+    42,
+    45
+   ],
+   "ajuste": {
+    "hp": 1.45,
+    "dano": 1.3
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "atl_serpente",
+   "res": {
+    "veneno": 0.6,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "sacerdote_da_serpente": {
+   "nome": "Sacerdote da Serpente",
+   "base": "carpideira_de_ossos",
+   "niveis": [
+    42,
+    45
+   ],
+   "ajuste": {
+    "hp": 1.2,
+    "dano": 1.35
+   },
+   "tags": [
+    "demonio"
+   ],
+   "drop": "atl_serpente",
+   "res": {
+    "veneno": 0.6,
+    "sagrado": -0.3
+   },
+   "renascimento_s": 14
+  },
+  "touro_do_pilar": {
+   "nome": "O Touro do Pilar",
+   "base": "porco_pestilento",
+   "niveis": [
+    42,
+    42
+   ],
+   "ajuste": {
+    "hp": 3.0,
+    "dano": 1.5
+   },
+   "tags": [
+    "animal"
+   ],
+   "drop": "elite_atl",
+   "res": {
+    "fisico": 0.2
+   },
+   "renascimento_s": 300,
+   "arquetipo": "elite"
+  },
+  "guardiao_da_aurora": {
+   "nome": "O Guardião da Aurora",
+   "base": "anubis_guardiao",
+   "niveis": [
+    150,
+    150
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "guardiao",
+    "sagrado",
+    "astral"
+   ],
+   "res": {
+    "sagrado": 0.6,
+    "fisico": 0.3
+   },
+   "renascimento_s": 3600,
+   "grupo": [
+    1,
+    1
+   ],
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 3.0,
+    "raio_coleira": 8
+   },
+   "motivo": "guarda o Portão do lado da luz; não se mexe para quem não o toca"
+  },
+  "guardiao_do_crepusculo": {
+   "nome": "O Guardião do Crepúsculo",
+   "base": "anubis_guardiao",
+   "niveis": [
+    150,
+    150
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "guardiao",
+    "chacal",
+    "sombra"
+   ],
+   "res": {
+    "sombra": 0.6,
+    "fisico": 0.3
+   },
+   "renascimento_s": 3600,
+   "grupo": [
+    1,
+    1
+   ],
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 3.0,
+    "raio_coleira": 8
+   },
+   "motivo": "pesa o coração de quem chega ao Portão; não se mexe para quem não o toca"
+  },
+  "arconte_de_luz": {
+   "nome": "Arconte de Luz",
+   "base": "anubis_sentinela",
+   "niveis": [
+    150,
+    150
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "astral"
+   ],
+   "res": {
+    "sagrado": 0.8,
+    "fisico": 0.5
+   },
+   "renascimento_s": 3600,
+   "grupo": [
+    1,
+    1
+   ],
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 2.0,
+    "raio_coleira": 10
+   },
+   "motivo": "passa pelo Salão do Universo como passa pelo céu, sem ver ninguém"
+  },
+  "o_que_nao_tem_rosto": {
+   "nome": "O Que Não Tem Rosto",
+   "base": "anubis_sentinela",
+   "niveis": [
+    150,
+    150
+   ],
+   "arquetipo": "elite",
+   "tags": [
+    "astral",
+    "sombra"
+   ],
+   "res": {
+    "sombra": 0.8,
+    "fisico": 0.5
+   },
+   "renascimento_s": 3600,
+   "grupo": [
+    1,
+    1
+   ],
+   "velocidade_mov": 0.01,
+   "ia": {
+    "padrao": "guarda",
+    "raio_aggro": 1.5,
+    "raio_coleira": 1
+   },
+   "motivo": "está no meio do Vazio desde antes do Vazio"
+  },
+  "cao_da_barreira": {
+   "nome": "Cão da Barreira",
+   "base": "anubis_sentinela",
+   "niveis": [
+    145,
+    145
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "chacal",
+    "sombra"
+   ],
+   "res": {
+    "sombra": 0.4
+   },
+   "renascimento_s": 1800,
+   "grupo": [
+    2,
+    3
+   ],
+   "ia": {
+    "padrao": "matilha",
+    "raio_aggro": 5.0
+   },
+   "motivo": "guardam a Barreira; só andam em ângulos"
   }
  },
  "npcs": [
@@ -6389,6 +6754,144 @@
     }
    ],
    "drop": "chefe_torre_5"
+  },
+  "gadiro": {
+   "nome": "Gadiro, o Rei Que Abriu a Porta",
+   "andar": 1,
+   "nivel": 45,
+   "tags": [
+    "demonio",
+    "humano"
+   ],
+   "hp": 18000,
+   "defesa": 94,
+   "dano_base": 102,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 750,
+   "res": {
+    "veneno": 0.6,
+    "sagrado": -0.3,
+    "fisico": 0.1
+   },
+   "duracao_alvo_s": 170,
+   "furia_tempo_s": 360,
+   "dungeon": "atlantida",
+   "conceito": "Gêmeo de Atlas e rei da ponta da ilha voltada para Gades (Crítias 114b). Abriu os portões de baixo e chamou os Irmãos da Escuridão; a Serpente que ele chamou se fundiu a ele, e ele está enrolado no Pilar das Leis há onze mil anos.",
+   "fala_entrada": "Meu irmão escreveu as leis no pilar. Eu li o que estava escrito embaixo.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "O Gêmeo de Atlas",
+     "ataques": [
+      {
+       "id": "golpe_de_tridente",
+       "nome": "Tridente Partido",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.0
+      },
+      {
+       "id": "arrasto",
+       "nome": "Laço da Cauda",
+       "mult": 1.4,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 7,
+        "largura": 1.2
+       },
+       "deslocamento": 5,
+       "recarga": 9
+      },
+      {
+       "id": "giro_da_serpente",
+       "nome": "Abraço da Serpente",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 3.4
+       },
+       "recarga": 8
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "A Porta de Baixo",
+     "ataques": [
+      {
+       "id": "vomito_de_brasa",
+       "nome": "Peçonha",
+       "mult": 1.2,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 5,
+        "angulo": 60
+       },
+       "ticks": 3,
+       "intervalo_tick": 0.4,
+       "recarga": 8
+      },
+      {
+       "id": "chamar_irmaos",
+       "invoca": {
+        "filho_da_serpente": 2
+       },
+       "uma_vez": true
+      },
+      {
+       "id": "arrasto",
+       "recarga": 7
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "Num Só Dia e Numa Noite",
+     "ataques": [
+      {
+       "id": "pranto_que_cai",
+       "nome": "O Mar Que Cai",
+       "mult": 1.3,
+       "quantidade": 7,
+       "intervalo": 0.45,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.6
+       },
+       "recarga": 7
+      },
+      {
+       "id": "marca_do_juizo",
+       "nome": "A Lei Quebrada",
+       "mult": 2.0,
+       "preparo": 1.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.4
+       },
+       "recarga": 9
+      }
+     ]
+    }
+   ],
+   "drop": "chefe_gadiro"
   }
  },
  "drops": {
@@ -7133,6 +7636,96 @@
      "peso": 24
     }
    ]
+  },
+  "atl_animal": {
+   "item_chance": 0.18,
+   "rolagens": [
+    {
+     "tag": "material:pena_suja",
+     "peso": 25
+    },
+    {
+     "tag": "equip:faixa2",
+     "peso": 60
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 15
+    }
+   ]
+  },
+  "atl_guardiao": {
+   "item_chance": 0.22,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "atl_coro": {
+   "item_chance": 0.24,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 76
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 24
+    }
+   ]
+  },
+  "atl_serpente": {
+   "item_chance": 0.26,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 74
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 26
+    }
+   ]
+  },
+  "elite_atl": {
+   "rolagens_garantidas": 2,
+   "raridade_minima": "magico",
+   "ouro_mult": 10,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 78
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 22
+    }
+   ]
+  },
+  "chefe_gadiro": {
+   "rolagens_garantidas": 5,
+   "raridade_minima": "raro",
+   "ouro_mult": 45,
+   "rolagens": [
+    {
+     "tag": "equip:faixa2",
+     "peso": 70
+    },
+    {
+     "tag": "joia:refino",
+     "peso": 18
+    },
+    {
+     "tag": "lendario:zacarias",
+     "peso": 12
+    }
+   ]
   }
  },
  "nomes_mapa_hud": {
@@ -7145,6 +7738,8 @@
   "jerusalem_hermon": "Jerusalém e Monte Hermon (nv 1-12)",
   "minas_dos_gigantes": "Fosso dos Vigilantes · Minas dos Gigantes (chefe nv 8)",
   "salao_das_noivas": "Fosso dos Vigilantes · Salão das Noivas (chefe nv 10)",
-  "altar_do_juramento": "Fosso dos Vigilantes · Altar do Juramento (chefe nv 12)"
+  "altar_do_juramento": "Fosso dos Vigilantes · Altar do Juramento (chefe nv 12)",
+  "atlantida": "Atlântida (nv 30-45)",
+  "saloes_de_amenti": "Os Salões de Amenti"
  }
 }

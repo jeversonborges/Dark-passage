@@ -300,6 +300,8 @@ func _criar_objeto(o: Dictionary) -> void:
 			e.nome = d.get("nome", o["obj"])
 		"portal":
 			e.nome = o.get("nome", "Passagem")
+		"leitura":   # inscrição, estela, despacho (Atlântida, Amenti): o nome vai no título da janela
+			e.nome = o.get("nome", "Inscrição")
 		"pilha_de_mortos", "corista":
 			pass
 	emitir("surgiu", {"id": e.id})
