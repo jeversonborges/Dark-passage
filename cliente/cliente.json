@@ -1,10 +1,11 @@
 {
-  "versao": "0.9.1",
-  "arquivo": "DarkPassage-v0.9.1-windows.zip",
-  "tamanho": 193575343,
-  "sha256": "c20aa3a2ac458c5fc4523004df6107d856f72cd0fea2ba85069d0d04661d5652",
+  "versao": "0.9.3",
+  "arquivo": "DarkPassage-v0.9.3-windows.zip",
+  "tamanho": 543300248,
+  "sha256": "7f7c5fe8b3ada471aae83b623d631e9f87bf3a3a7342a85005b50d372b7c6def",
+  "executavel": "DarkPassage.exe",
   "sistema": "Windows 10/11 64 bits",
-  "data": "2026-10-15",
+  "data": "2026-10-17",
   "launcher": {
     "arquivo": "DarkPassage-Launcher.zip",
     "tamanho": 34775377,
