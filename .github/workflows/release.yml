@@ -38,7 +38,6 @@ jobs:
           if [ "${GITHUB_REF_TYPE}" = tag ]; then V="${GITHUB_REF_NAME#v}"; D=producao
           else V="${{ inputs.versao }}"; D="${{ inputs.destino }}"; fi
           echo "versao=$V" >> "$GITHUB_OUTPUT"; echo "destino=$D" >> "$GITHUB_OUTPUT"
-          set -o pipefail
           echo "### DARK PASSAGE $V → $D" >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/checkout@v4
@@ -72,6 +71,7 @@ jobs:
         run: bash tools/release/exportar.sh "${{ steps.v.outputs.versao }}"
 
       - name: Publicar
+        shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" "${{ inputs.partes || 'tudo' }}" | tee -a publicar.log
