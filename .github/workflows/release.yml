@@ -1,0 +1,76 @@
+name: Release
+# Exporta cliente Windows + servidor Linux numa máquina limpa e publica (cliente primeiro, servidor depois).
+# Tag vX.Y.Z = produção (downloads + servidor). Manual (workflow_dispatch) = teste por padrão.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      versao:
+        description: 'Versão (ex.: 0.9.4), igual à VERSAO de game/scripts/net/rede.gd'
+        required: true
+      destino:
+        description: 'teste = downloads-teste/servidor-teste; producao = downloads/servidor (a VPS puxa sozinha)'
+        type: choice
+        options: [teste, producao]
+        default: teste
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Versão e destino
+        id: v
+        run: |
+          if [ "${GITHUB_REF_TYPE}" = tag ]; then V="${GITHUB_REF_NAME#v}"; D=producao
+          else V="${{ inputs.versao }}"; D="${{ inputs.destino }}"; fi
+          echo "versao=$V" >> "$GITHUB_OUTPUT"; echo "destino=$D" >> "$GITHUB_OUTPUT"
+          echo "### DARK PASSAGE $V → $D" >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            game
+            tools/release
+
+      - name: Cache do Godot 4.4.1
+        id: godot
+        uses: actions/cache@v4
+        with:
+          path: |
+            /opt/godot
+            ~/.local/share/godot/export_templates
+          key: godot-4.4.1-stable
+
+      - name: Instalar Godot
+        if: steps.godot.outputs.cache-hit != 'true'
+        run: sudo mkdir -p /opt/godot && sudo chown "$USER" /opt/godot && bash game/tools/instalar_godot.sh
+
+      - name: Cache do import (.godot)
+        uses: actions/cache@v4
+        with:
+          path: game/.godot
+          key: godot-import-${{ github.sha }}
+          restore-keys: godot-import-
+
+      - name: Exportar
+        run: bash tools/release/exportar.sh "${{ steps.v.outputs.versao }}"
+
+      - name: Publicar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" | tee -a publicar.log
+
+      - name: Resumo
+        if: always()
+        run: |
+          { echo '```'; cat publicar.log 2>/dev/null | tail -40; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
