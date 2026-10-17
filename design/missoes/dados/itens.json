@@ -1113,6 +1113,109 @@
         "texto": "Eu o usei para segurar o Céu por três segundos. Use para segurar o que precisar.",
         "autor": "Simão"
       }
+    },
+    {
+      "id": "cetro_do_demiurgo",
+      "nome": "Cetro do Demiurgo",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "raridade": "demiurgico",
+      "classe": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "nivel": 1,
+      "dano": [
+        777,
+        999
+      ],
+      "atributos": {
+        "dano": [
+          777,
+          999
+        ],
+        "for": 99,
+        "agi": 99,
+        "vit": 99,
+        "esp": 99,
+        "hp": 9999,
+        "defesa": 999
+      },
+      "visual": "item:cetro_do_demiurgo:haste",
+      "_balanceamento": "2026-10-17: arma do administrador, fora do balanceamento de propósito (pedido do Jefin: 'absolutamente superior, nenhuma arma é igual'). Só existe uma, vinculada à conta dele; nunca cai, nunca se vende, nunca entra em troca nem em sorteio. 'dano' no topo porque o jogo só lê dali.",
+      "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
+      "efeitos_unicos": [
+        {
+          "id": "verbo",
+          "raio_m": 8.0,
+          "mult": 1.0,
+          "elemento": "demiurgico"
+        },
+        {
+          "id": "juizo_do_demiurgo",
+          "chance": 0.1,
+          "executa_comuns": true,
+          "chefes_pct_hp_max": 0.1
+        },
+        {
+          "id": "como_em_cima_assim_embaixo",
+          "reflete": 1.0,
+          "imune_status": true
+        },
+        {
+          "id": "sopro_do_primeiro_dia",
+          "hp_pct_s": 0.1,
+          "recurso_pct_s": 0.1
+        },
+        {
+          "id": "mao_que_mede",
+          "recarga": 0.9,
+          "custo_zero": true
+        },
+        {
+          "id": "olho_do_demiurgo",
+          "revela_mapa": true,
+          "ve_invisivel": true,
+          "aggro": "so_revida"
+        },
+        {
+          "id": "aura_demiurgica",
+          "raio_m": 10.0,
+          "aliados_dano": 0.5,
+          "aliados_xp": 0.5,
+          "inimigos_dano": -0.5,
+          "vfx": "demiurgo_aura",
+          "visivel_para_todos": true
+        }
+      ],
+      "vfx": {
+        "aura": "demiurgo_aura",
+        "golpe": "demiurgo_golpe",
+        "verbo": "demiurgo_verbo",
+        "juizo": "demiurgo_juizo"
+      },
+      "sfx": {
+        "golpe": "itens/cetro_golpe",
+        "juizo": "itens/cetro_juizo",
+        "aura": "itens/cetro_aura"
+      },
+      "vinculado": {
+        "conta": "jefin",
+        "vende": false,
+        "troca": false,
+        "larga": false
+      },
+      "descricao": "TÁBUA QUE NÃO ESTÁ EM NENHUMA BIBLIOTECA. O que está em cima é como o que está embaixo. Antes da trombeta, antes da Vela, antes da Capela, alguém mediu este mundo com uma vara, e a vara é esta. Sete garras de ouro seguram a esmeralda que acendeu o primeiro dia; os três anéis giram sem que ninguém os toque, porque medem o que ainda não aconteceu. O prumo pendurado na coroa aponta para o centro da terra em qualquer lugar: quem o segura nunca está perdido, porque foi ele quem desenhou o caminho. Deus mandou acabar o mundo. Os homens travaram o fim. O Demiurgo apenas olha, apoiado no cetro, e às vezes decide. — ninguém copiou esta tábua; ela estava escrita quando a biblioteca foi construída",
+      "citacao": {
+        "texto": "Eu não vim para o Juízo. Eu vim ver se ficou bonito.",
+        "autor": "o Demiurgo"
+      },
+      "numeros_fixos": true
     }
   ]
 }

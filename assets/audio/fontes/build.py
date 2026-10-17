@@ -14,7 +14,7 @@ from multiprocessing import Pool
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 OUT = os.path.dirname(HERE)  # assets/audio
-MODULOS = ['sfx_combate', 'sfx_mundo', 'sfx_skills', 'sfx_monstros', 'sfx_chefes', 'sfx_andras', 'ambiente', 'ambiente_deserto', 'musica', 'musica_andras', 'musica_deserto']
+MODULOS = ['sfx_combate', 'sfx_mundo', 'sfx_skills', 'sfx_monstros', 'sfx_chefes', 'sfx_andras', 'ambiente', 'ambiente_deserto', 'musica', 'musica_andras', 'musica_deserto', 'sfx_demiurgo']
 
 
 def load():

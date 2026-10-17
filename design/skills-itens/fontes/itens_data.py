@@ -113,7 +113,7 @@ CHAVES_BAUS = [
 ]
 
 # ---------- Itens da thread Missões: só completamos o que faltava ----------
-RARIDADE_MISSAO = {"comum":"comum","magico":"magico","raro":"raro","unico":"lendario"}
+RARIDADE_MISSAO = {"comum":"comum","magico":"magico","raro":"raro","unico":"lendario","demiurgico":"demiurgico"}
 # motivo, tint, emissivo, grade, tag de drop (quando existe), slot normalizado
 MISSOES = {
  "bobina_cobre":("bobina","cobre",None,[1,1]), "pena_querubim":("pena","prata",None,[1,2]), "dente_vala":("dente","osso",None,[1,1]),

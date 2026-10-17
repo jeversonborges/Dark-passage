@@ -1,0 +1,21 @@
+{
+ "name": "demiurgo_aura",
+ "cat": "itens",
+ "frames": 24,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  64,
+  132
+ ],
+ "layer": "frente",
+ "desc": "Aura Demiurgica: três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
+ "char": "qualquer",
+ "title": "Aura Demiurgica",
+ "resumo": "Três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
+ "frame_w": 128,
+ "frame_h": 144,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "demiurgo_aura.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "demiurgo_juizo",
+ "cat": "itens",
+ "frames": 18,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  56,
+  220
+ ],
+ "layer": "frente",
+ "desc": "Juízo do Demiurgo: coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
+ "char": null,
+ "title": "Juízo do Demiurgo",
+ "resumo": "Coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
+ "frame_w": 112,
+ "frame_h": 232,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "demiurgo_juizo.png"
+}

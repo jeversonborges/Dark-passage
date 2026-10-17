@@ -45,6 +45,15 @@
       "feixe": true,
       "peso_base": 10,
       "_doc": "itens unicos com nome e historia; so de chefe, elite, raro e Relicario"
+    },
+    "demiurgico": {
+      "nome_exibido": "Demiúrgico",
+      "cor": "#f4ffe9",
+      "cor_feixe": "#9dffc8",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 0,
+      "_doc": "branco-esmeralda; acima do Lendário. Só o Cetro do Demiurgo, a arma do administrador (Jefin), vinculada à conta. Nunca sai no sorteio de drop e nenhuma outra arma pode ter esta raridade."
     }
   },
   "nivel_de_refino_no_drop": {
