@@ -1,0 +1,372 @@
+diff -ruN a/scripts/sim/evolucao.gd b/scripts/sim/evolucao.gd
+--- a/scripts/sim/evolucao.gd	2026-10-17 05:20:26.265420833 +0000
++++ b/scripts/sim/evolucao.gd	2026-10-17 05:20:26.496449427 +0000
+@@ -225,6 +225,9 @@
+ 			sim.criar_area({"pos": e.pos, "raio": float(h.get("area_raio", 7)), "dur": dur, "tick": 99.0, "dono": e.id, "tipo": "arena"})
+ 		var quem: Array = [e]
+ 		if h.has("area_raio") and not h.has("provoca_todos"): quem = sim.aliados_de(e, e.pos, float(h["area_raio"]))
++		if h.get("ressuscita_todos", false):   # Coro dos Seis Ais: levanta os aliados mortos por perto
++			for m: Ent in mortos_perto(sim, e, e.pos, float(h.get("area_raio", 10))):
++				ressuscitar(sim, m, float(h.get("hp_ao_voltar", 0.6))); quem.append(m)
+ 		if not e in quem: quem.append(e)
+ 		var bdur := dur if dur > 0.0 else 6.0
+ 		for a: Ent in quem:
+@@ -262,10 +265,19 @@
+ 		_vfx(sim, e, h, {"pos": e.pos, "fica": bdur})
+ 		return
+ 	# ------------------------------------------------ cura e ressurreição
+-	if h.has("ressuscitar_hp"):
++	if h.has("ressuscitar_hp"):   # Levanta-te: o aliado morto mais perto do cursor; sem morto, cura o alvo
+ 		var a2: Ent = alvo if alvo != null else e
+-		sim.curar(a2, a2.hp_max * float(h["ressuscitar_hp"]), e)
+-		_vfx(sim, e, h, {"alvo": a2.id})
++		var cand := mortos_perto(sim, e, e.pos, float(h.get("alcance", 6)) + 1.0)
++		cand.sort_custom(func(x, y): return x.pos.distance_to(ponto) < y.pos.distance_to(ponto))
++		var morto: Ent = cand[0] if cand.size() > 0 else null
++		sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "skill": id, "conj": true, "impacto": func():
++			if morto != null and not morto.vivo:
++				ressuscitar(sim, morto, float(h["ressuscitar_hp"]))
++				_vfx(sim, e, h, {"alvo": morto.id})
++			elif a2.vivo:
++				sim.curar(a2, a2.hp_max * float(h["ressuscitar_hp"]), e)
++				_vfx(sim, e, h, {"alvo": a2.id})
++		})
+ 		return
+ 	if h.has("cura_mult") and not h.has("mult"):
+ 		var quem2: Array = [alvo if alvo != null else e]
+@@ -443,3 +455,136 @@
+ 	if dist: sim.lancar(e, {"vel": 20.0, "alvo": aid, "vfx": "bala", "perfura": h.get("atravessa", false)}, _op(e, h, ex))
+ 	else: sim.aplicar_golpe(e, a, _op(e, h, ex))
+ 	if h.has("dano_recebido_extra"): _status_em(sim, e, a, h)
++
++
++# =================================================================== passivas (uma por caminho, "passiva" no JSON)
++static func passiva(e: Ent) -> String:
++	return de(e).get("passiva", {}).get("id", "") if e.evolucao != "" else ""
++
++## Buff sem aviso ao cliente (passivas renovadas a cada segundo).
++static func _buff_quieto(e: Ent, id: String, dur: float, mods: Dictionary) -> void:
++	for b in e.buffs:
++		if b["id"] == id:
++			b["t"] = dur
++			if b["mods"] != mods:
++				b["mods"] = mods
++				if e.tipo == "jogador": Regras.recalc_jogador(e)
++			return
++	e.buffs.append({"id": id, "t": dur, "dur": dur, "mods": mods})
++	if e.tipo == "jogador": Regras.recalc_jogador(e)
++
++static func _sagrado(a: Ent) -> bool:
++	return a.classe == "anjo" or a.kind.begins_with("nao_julgado") or "sagrado" in a.tags
++
++static func _alado(a: Ent) -> bool:
++	return "alado" in a.tags or a.classe in ["anjo", "demonio"]
++
++## Chamado todo passo do jogador; as auras rodam 1 vez por segundo.
++static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
++	if e.evolucao == "" or not e.vivo: return
++	e.aux["evo_t"] = float(e.aux.get("evo_t", 0.0)) + dt
++	if e.aux["evo_t"] < 1.0: return
++	e.aux["evo_t"] = 0.0
++	match passiva(e):
++		"hoste_em_marcha":   # aliados a 6 m: +8% de defesa e 1% de HP/s em combate
++			if e.em_combate_t < 5.0:
++				for a: Ent in sim.aliados_de(e, e.pos, 6.0):
++					if a.tipo in ["jogador", "invocacao"]:
++						_buff_quieto(a, "hoste_em_marcha", 1.6, {"defesa_pct": 0.08})
++						sim.curar(a, a.hp_max * 0.01, e, true)
++		"trono_vazio":   # +3% de redução por inimigo a 4 m, até 15%
++			var n := sim.inimigos_de(e, e.pos, 4.0).size()
++			if n > 0: _buff_quieto(e, "trono_vazio", 1.6, {"dano_recebido": -minf(0.15, 0.03 * n)})
++		"agua_amarga":   # alvos com Amargo curam 30% menos; cada acúmulo cura o Profeta 0,5%/s
++			var st: Dictionary = e.aux.get("amargo_alvos", {})
++			var tot := 0
++			for id in st.keys():
++				var a := sim.valido(id)
++				if a == null or float(st[id]["ate"]) < sim.tempo: st.erase(id); continue
++				tot += int(st[id]["n"])
++				sim.aplicar_status(a, "cura_reduzida", 1.5, e)
++			if tot > 0: sim.curar(e, e.hp_max * 0.005 * tot, e, true)
++		"o_amargo_venceu":   # abaixo de 50%: +20% de dano e 5% de roubo de vida
++			if e.frac_hp() < 0.5: _buff_quieto(e, "o_amargo_venceu", 1.6, {"dano": 0.2, "roubo_vida": 0.05})
++		"liturgia_da_maquina":   # 2%/s nas invocações dele e nos aliados a 6 m
++			for o: Ent in sim.ents.values():
++				if o.vivo and ((o.tipo == "invocacao" and o.dono == e.id) or (o.tipo == "jogador" and o.lado() == e.lado() and o.pos.distance_to(e.pos) <= 6.0)):
++					sim.curar(o, o.hp_max * 0.02, e, true)
++
++## Defesa do alvo que o golpe ignora (Balas Bentas).
++static func pen_defesa(atk: Ent, op: Dictionary) -> float:
++	return 0.15 if passiva(atk) == "balas_bentas" and not op.get("magico", false) else 0.0
++
++## Multiplicador de dano das passivas do atacante.
++static func mult_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> float:
++	match passiva(atk):
++		"colheita": return 1.25 if alvo.frac_hp() < 0.3 else 1.0
++		"balas_bentas": return 1.3 if _alado(alvo) else 1.0
++		"sino_derretido": return 1.2 if op.get("area", false) and _sagrado(alvo) else 1.0
++	return 1.0
++
++## Depois de um golpe que acertou (efeitos de controle e marcas das passivas).
++static func apos_golpe(sim: WorldSim, atk: Ent, alvo: Ent, op: Dictionary) -> void:
++	if not alvo.vivo: return
++	match passiva(atk):
++		"sino_derretido":
++			if op.get("area", false) and _sagrado(alvo): sim.aplicar_status(alvo, "atordoado", 0.3, atk)
++		"a_plateia":   # Fúria cheia: o próximo golpe atordoa (gasta metade da Fúria)
++			if atk.rec >= atk.rec_max and not op.get("sem_recurso", false):
++				sim.aplicar_status(alvo, "atordoado", 1.0, atk); atk.rec -= atk.rec_max * 0.5
++		"agua_amarga":
++			for h in de(atk).get("habilidades", []):
++				if h["id"] == op.get("skill", "") and h.has("acumulos_amargo"):
++					var st: Dictionary = atk.aux.get("amargo_alvos", {})
++					var cur: Dictionary = st.get(alvo.id, {"n": 0})
++					st[alvo.id] = {"n": mini(10, int(cur["n"]) + int(h["acumulos_amargo"])), "ate": sim.tempo + 8.0}
++					atk.aux["amargo_alvos"] = st
++
++## O jogador bloqueou um golpe (bloqueio do caminho ou Muro de Vela).
++static func bloqueou(sim: WorldSim, e: Ent, atk: Ent) -> void:
++	match passiva(e):
++		"trono_vazio":
++			if atk != null and atk.vivo: sim.aplicar_dano_puro(atk, atk.dano_medio() * 0.2, "fogo", e, "normal")
++		"a_plateia":
++			e.rec = minf(e.rec_max, e.rec + 5.0)
++
++## Cura que passa do HP máximo vira escudo (Seis Asas).
++static func sobrecura(sim: WorldSim, alvo: Ent, de_quem: Ent, sobra: float) -> void:
++	if passiva(de_quem) != "seis_asas" or sobra < 1.0: return
++	alvo.escudo = minf(alvo.hp_max * 0.2, alvo.escudo + sobra); alvo.escudo_t = 6.0
++	sim.emitir("escudo", {"id": alvo.id, "valor": alvo.escudo, "t": 6.0})
++
++## Custo de uma skill depois das passivas (Três Auréolas: a cada 3 magias, a próxima sai de graça e com +40%).
++static func custo(e: Ent, cst: float) -> float:
++	if passiva(e) != "tres_aureolas" or cst <= 0.0: return cst
++	var n := int(e.aux.get("aureolas", 0)) + 1
++	if n > 3:
++		e.aux["aureolas"] = 0
++		e.aux["bonus_prox"] = 0.4; e.aux["bonus_prox_t"] = 4.0
++		return 0.0
++	e.aux["aureolas"] = n
++	return cst
++
++static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
++	match passiva(e):
++		"colheita": e.cds.erase("passo_sombrio")
++		"trofeu":   # alvo marcado (preso, lento ou marcado pelo Caçador) vira troféu: +2% de dano por 30 s, até 10
++			if morto.tem("marcado") or morto.tem("lento") or morto.tem("enraizado"):
++				var n := 1
++				for b in e.buffs:
++					if b["id"] == "trofeu": n = mini(10, int(roundf(float(b["mods"].get("dano", 0.0)) / 0.02)) + 1)
++				Jogador.add_buff(sim, e, "trofeu", 30.0, {"dano": 0.02 * n})
++
++# =================================================================== ressurreição (Coro dos Seis Ais, Levanta-te)
++static func mortos_perto(sim: WorldSim, e: Ent, p: Vector2, r: float) -> Array:
++	var out: Array = []
++	for o: Ent in sim.ents.values():
++		if o.tipo == "jogador" and not o.vivo and o.lado() == e.lado() and o.pos.distance_to(p) <= r: out.append(o)
++	return out
++
++static func ressuscitar(sim: WorldSim, a: Ent, frac: float) -> void:
++	if a.vivo: return
++	a.vivo = true; a.renascer_t = 0.0
++	a.hp = maxf(1.0, a.hp_max * frac); a.invuln_t = maxf(a.invuln_t, 2.0)
++	a.acao = {}; a.caminho.clear()
++	sim.emitir("reviveu", {"id": a.id, "no_lugar": true})
+diff -ruN a/scripts/sim/jogador.gd b/scripts/sim/jogador.gd
+--- a/scripts/sim/jogador.gd	2026-10-17 05:20:26.270185482 +0000
++++ b/scripts/sim/jogador.gd	2026-10-17 05:20:26.497373993 +0000
+@@ -83,6 +83,7 @@
+ 		if e.aux.has("cd_" + k): e.aux["cd_" + k] -= dt
+ 	if e.aux.get("bonus_prox_t", 0.0) > 0.0: e.aux["bonus_prox_t"] -= dt
+ 	if e.aux.get("imovel_t", 0.0) > 0.0: e.aux["imovel_t"] -= dt   # Trono da Legião: sentado no trono
++	Evolucao.passo(sim, e, dt)
+ 	for h in Defs.CLASSES[e.classe]["habilidades"]:
+ 		if h.has("cargas"):
+ 			var k: String = "cargas_" + h["id"]
+@@ -699,6 +700,7 @@
+ 		if alc > 0.0 and e.pos.distance_to(ponto) > alc:
+ 			ponto = e.pos + (ponto - e.pos).normalized() * alc
+ 	# paga e solta
++	cst = Evolucao.custo(e, cst)   # Três Auréolas do Arquimago
+ 	if e.classe == "cultista": e.hp -= cst
+ 	else: e.rec -= cst
+ 	if h.has("cargas"):
+@@ -750,6 +752,7 @@
+ 			sim.aplicar_dano_puro(atk, dano * float(b["mods"]["reflete"]), "fogo", e, "normal")
+ 
+ static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
++	Evolucao.abateu(sim, e, morto)
+ 	if e.mod("cura_por_abate") > 0.0: sim.curar(e, e.hp_max * e.mod("cura_por_abate"), e)   # Ave, Arena!
+ 	var xp := Regras.xp_mob(morto) * Regras.mod_xp_nivel(morto.nivel, e.nivel)
+ 	if morto.tipo == "chefe":
+diff -ruN a/scripts/sim/regras.gd b/scripts/sim/regras.gd
+--- a/scripts/sim/regras.gd	2026-10-17 05:20:26.273531190 +0000
++++ b/scripts/sim/regras.gd	2026-10-17 05:20:26.497737413 +0000
+@@ -56,7 +56,7 @@
+ 	e.alcance = (float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])) * Evolucao.mult(e, "alcance_mult")
+ 	e.elemento = c["elemento_ataque"]
+ 	e.postura_arma = float(arma.get("postura", 10))
+-	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"]) + Evolucao.soma(e, "roubo_vida")
++	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"]) + Evolucao.soma(e, "roubo_vida") + e.mod("roubo_vida")
+ 	e.res = b["res"].duplicate()
+ 	if e.classe == "mutante":
+ 		for r in Defs.FORM["vantagem_cruzada"]["mutante"]["resiste"]: e.res[r] = e.res.get(r, 0.0) + 0.3
+@@ -157,7 +157,7 @@
+ 			return r
+ 	# bloqueio das evoluções (Lorde das Trevas, Gladiador) e do Muro de Vela
+ 	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio"):
+-		r["errou"] = true
++		r["errou"] = true; r["bloqueio"] = true
+ 		return r
+ 	var faixa: Array = op.get("faixa", [atk.dano_min, atk.dano_max])
+ 	var bruto := rng.randf_range(float(faixa[0]), float(faixa[1])) * float(op.get("mult", 1.0)) + float(op.get("add", 0.0))
+@@ -167,7 +167,7 @@
+ 	var crit_ch := atk.critico + float(op.get("crit_extra", 0.0))
+ 	if op.get("forca_crit", false) or rng.randf() < crit_ch:
+ 		r["crit"] = true; bruto *= atk.crit_mult
+-	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct"))
++	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct")) * (1.0 - Evolucao.pen_defesa(atk, op))
+ 	if atk.excelente > 0.0 and rng.randf() < atk.excelente:
+ 		r["exc"] = true; bruto *= 1.2; def_ef *= 0.5
+ 		bruto *= 1.0 + float(atk.aux.get("bonus", {}).get("excelente_dano", 0.0))
+@@ -178,6 +178,7 @@
+ 	dano *= mult_nivel(alvo.nivel, atk.nivel) * mult_vantagem(atk, alvo)
+ 	for k in op.get("bonus_vs", {}):
+ 		if tem_tag(alvo, k): dano *= float(op["bonus_vs"][k])
++	dano *= Evolucao.mult_golpe(atk, alvo, op)
+ 	# buffs do atacante e debuffs do alvo
+ 	dano *= 1.0 + atk.mod("dano") + (atk.mod("dano_magico") if op.get("magico", false) else 0.0)
+ 	dano *= 1.0 + alvo.mod("dano_recebido")
+diff -ruN a/scripts/sim/world_sim.gd b/scripts/sim/world_sim.gd
+--- a/scripts/sim/world_sim.gd	2026-10-17 05:20:26.274447205 +0000
++++ b/scripts/sim/world_sim.gd	2026-10-17 05:20:26.497232473 +0000
+@@ -774,6 +774,7 @@
+ 	atk.em_combate_t = 0.0; alvo.em_combate_t = 0.0
+ 	if r["errou"]:
+ 		emitir("dano", {"id": alvo.id, "de": atk.id, "valor": 0, "estilo": "errou"})
++		if r.get("bloqueio", false): Evolucao.bloqueou(self, alvo, atk)
+ 		return r
+ 	var dano: int = r["dano"]
+ 	if alvo.tipo == "jogador" and atk.tipo == "monstro": dano = maxi(1, roundi(dano * fator_novato(alvo)))
+@@ -825,6 +826,7 @@
+ 		var dir: Vector2 = (alvo.pos - atk.pos).normalized()
+ 		if alvo.tipo != "chefe" and alvo.arquetipo != "elite": deslocar(alvo, atk.pos + dir * float(op["puxa_para"]), 0.2, {"tipo": "puxao"})
+ 	if op.has("ao_dano"): (op["ao_dano"] as Callable).call(alvo, dano)
++	if atk.tipo == "jogador" and atk.evolucao != "": Evolucao.apos_golpe(self, atk, alvo, op)
+ 	if alvo.hp <= 0.0:
+ 		matar(alvo, atk)
+ 	return r
+@@ -848,6 +850,7 @@
+ 	var antes := alvo.hp
+ 	alvo.hp = minf(alvo.hp_max, alvo.hp + v)
+ 	var ganho := alvo.hp - antes
++	if de != null and de.evolucao != "": Evolucao.sobrecura(self, alvo, de, v - ganho)
+ 	if ganho >= 1.0 and not silencioso:
+ 		emitir("cura", {"id": alvo.id, "valor": roundi(ganho)})
+ 	if de != null and de.tipo == "jogador" and de.classe == "anjo" and not silencioso:
+diff -ruN a/tools/teste_evolucao.gd b/tools/teste_evolucao.gd
+--- a/tools/teste_evolucao.gd	2026-10-17 05:20:26.484732253 +0000
++++ b/tools/teste_evolucao.gd	2026-10-17 05:20:26.500312416 +0000
+@@ -59,6 +59,7 @@
+ 	for classe in ["anjo", "demonio", "cultista", "humano", "mutante", "tecnomancer"]:
+ 		for caminho_idx in 2:
+ 			_testar(classe, caminho_idx)
++	_testar_passivas()
+ 	print("eventos: ", cont)
+ 	print("avisos: ", avisos)
+ 	print("RESULTADO: ", "OK" if falhas == 0 else "%d falha(s)" % falhas)
+@@ -210,3 +211,95 @@
+ 				if not sim.andavel(p + q) or sim.zona_segura(p + q): ok = false
+ 			if ok: return p
+ 	return perto
++
++## Cria um jogador já evoluído no nível 70, num campo aberto do mapa.
++func _evoluido(sim: WorldSim, classe: String, evo: String, pos: Vector2) -> Ent:
++	var j := Jogador.criar(sim, classe, "P_" + evo)
++	sim.adicionar_jogador(j, pos)
++	subir(sim, j, 70)
++	if not Evolucao.aplicar(sim, j, evo): falha("passivas: não evoluiu " + evo)
++	j.pos = pos
++	return j
++
++func _testar_passivas() -> void:
++	var sim := WorldSim.new(21)
++	sim.evento.connect(_ev)
++	var j0 := Jogador.criar(sim, "anjo", "Mapa")
++	Jogador.entrar(sim, j0, "area_inicial", Vector2(44.5, 44))
++	var campo := _campo_aberto(sim, j0.pos)
++	sim.remover_jogador(j0)
++	for o: Ent in sim.ents.values():
++		if o.tipo == "monstro" and o.pos.distance_to(campo) < 30.0: sim.remover(o.id)
++	# ------------------------------------------------ Serafim: Seis Asas, Coro dos Seis Ais e Levanta-te
++	var sera := _evoluido(sim, "anjo", "serafim", campo)
++	var aliado := _evoluido(sim, "anjo", "arcanjo", campo + Vector2(1.5, 0))
++	sera.hp = sera.hp_max; sera.escudo = 0.0
++	sim.curar(sera, 200.0, sera)
++	if sera.escudo <= 0.0: falha("Seis Asas: a sobra da cura não virou escudo")
++	if sera.escudo > sera.hp_max * 0.2 + 0.1: falha("Seis Asas: escudo passou de 20%")
++	sim.matar(aliado, null)
++	if aliado.vivo: falha("aliado não morreu"); return
++	sera.rec = sera.rec_max; sera.cds.clear()
++	Jogador.cmd_skill(sim, sera, Evolucao.SLOT_EVO + 3, -1, sera.pos)   # Coro dos Seis Ais
++	rodar(sim, 1.0)
++	if not aliado.vivo: falha("Coro dos Seis Ais não levantou o aliado")
++	elif aliado.frac_hp() < 0.59: falha("Coro dos Seis Ais: voltou com %.0f%%" % (aliado.frac_hp() * 100))
++	print("Coro dos Seis Ais: aliado vivo=%s hp=%.0f%%" % [aliado.vivo, aliado.frac_hp() * 100])
++	rodar(sim, 4.5)
++	sim.matar(aliado, null)
++	sera.rec = sera.rec_max; sera.cds.clear()
++	Jogador.cmd_skill(sim, sera, Evolucao.SLOT_EVO + 4, -1, aliado.pos)   # Levanta-te (2 s de conjuração)
++	rodar(sim, 3.0)
++	if not aliado.vivo: falha("Levanta-te não levantou o aliado")
++	print("Levanta-te: aliado vivo=%s hp=%.0f%%" % [aliado.vivo, aliado.frac_hp() * 100])
++	if aliado.vivo and absf(aliado.frac_hp() - 0.4) > 0.05 and aliado.frac_hp() < 0.35: falha("Levanta-te: hp %.0f%%" % (aliado.frac_hp() * 100))
++	# ------------------------------------------------ Arcanjo: Hoste em Marcha dá defesa aos aliados em combate
++	aliado.em_combate_t = 0.0; sera.em_combate_t = 0.0
++	var def0 := sera.defesa * (1.0 + sera.mod("defesa_pct"))
++	rodar(sim, 1.2)
++	if not sera.buffs.any(func(b): return b["id"] == "hoste_em_marcha"): falha("Hoste em Marcha não chegou no aliado")
++	sim.remover_jogador(sera); sim.remover_jogador(aliado)
++	# ------------------------------------------------ Lorde das Trevas: redução por inimigo perto
++	var lorde := _evoluido(sim, "demonio", "lorde_das_trevas", campo)
++	for k in 3:
++		var m := sim.criar_mob(Defs.MOBS.keys()[0], campo + Vector2(1.0 + k * 0.5, 1.0), 70)
++		m.dano_min = 0.0; m.dano_max = 0.0; m.hp_max = 1e7; m.hp = 1e7
++	rodar(sim, 1.2)
++	var red := 0.0
++	for b in lorde.buffs:
++		if b["id"] == "trono_vazio": red = -float(b["mods"]["dano_recebido"])
++	if absf(red - 0.09) > 0.031: falha("Trono Vazio: redução %.2f com 3 inimigos" % red)
++	print("Trono Vazio: redução %.0f%%" % (red * 100))
++	sim.remover_jogador(lorde)
++	# ------------------------------------------------ Abominação: abaixo de 50% ganha dano e roubo de vida
++	var abo := _evoluido(sim, "mutante", "abominacao", campo)
++	var rv0 := abo.roubo_vida
++	abo.hp = abo.hp_max * 0.2; abo.em_combate_t = 0.0
++	rodar(sim, 1.2)
++	if not abo.buffs.any(func(b): return b["id"] == "o_amargo_venceu"): falha("O Amargo Venceu não ligou abaixo de 50%")
++	if abo.roubo_vida < rv0 + 0.049: falha("O Amargo Venceu: roubo de vida %.2f -> %.2f" % [rv0, abo.roubo_vida])
++	sim.remover_jogador(abo)
++	# ------------------------------------------------ Arquimago: a 4ª magia sai de graça
++	var arq := _evoluido(sim, "cultista", "arquimago", campo)
++	var custos: Array = []
++	for i in 4:
++		custos.append(Evolucao.custo(arq, 10.0))
++	if custos != [10.0, 10.0, 10.0, 0.0]: falha("Três Auréolas: custos " + str(custos))
++	if float(arq.aux.get("bonus_prox", 0.0)) < 0.39: falha("Três Auréolas: sem +40% na magia grátis")
++	sim.remover_jogador(arq)
++	# ------------------------------------------------ Ceifador: matar renova o Passo Sombrio
++	var cei := _evoluido(sim, "demonio", "ceifador", campo)
++	cei.cds["passo_sombrio"] = 8.0
++	var vit := sim.criar_mob(Defs.MOBS.keys()[0], campo + Vector2(1.0, 0), 10)
++	Evolucao.abateu(sim, cei, vit)
++	if cei.cds.has("passo_sombrio"): falha("Colheita não renovou o Passo Sombrio")
++	var fraco := sim.criar_mob(Defs.MOBS.keys()[0], campo + Vector2(1.0, 0), 10)
++	fraco.hp = fraco.hp_max * 0.2
++	if absf(Evolucao.mult_golpe(cei, fraco, {}) - 1.25) > 0.001: falha("Colheita: sem +25% abaixo de 30%")
++	sim.remover_jogador(cei)
++	# ------------------------------------------------ Pistoleiro: alados e defesa ignorada
++	var pis := _evoluido(sim, "humano", "pistoleiro", campo)
++	var anjo_alvo := Jogador.criar(sim, "anjo", "Alvo")
++	if absf(Evolucao.mult_golpe(pis, anjo_alvo, {}) - 1.3) > 0.001: falha("Balas Bentas: sem +30% em alado")
++	if absf(Evolucao.pen_defesa(pis, {}) - 0.15) > 0.001: falha("Balas Bentas: não ignora 15% da defesa")
++	print("passivas testadas: Seis Asas, Coro, Levanta-te, Hoste, Trono Vazio, Amargo Venceu, Três Auréolas, Colheita, Balas Bentas")

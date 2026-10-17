@@ -48,10 +48,31 @@ Para aplicar: `cd /mnt/project-files/game && patch -p1 < ../entregas/evolucoes/p
   `sino_ponte` e `trapiche_exilado`. A fonte é `assets/ambiente/fontes/exilado.py`.
 - Prévia: `entregas/evolucoes/previa/ilha_exilado.png`.
 
+## Segundo patch: passivas e ressurreição (`evolucao_passivas.patch`)
+
+Aplica por cima do primeiro, que já está em `game/`: `cd /mnt/project-files/game && patch -p1 < ../entregas/evolucoes/patch_jogo/evolucao_passivas.patch`.
+
+- **As 12 passivas no servidor:**
+  - Hoste em Marcha;
+  - Seis Asas (cura que passa do HP máximo vira escudo de até 20%);
+  - Trono Vazio (redução de dano por inimigo perto e devolução em brasa ao bloquear);
+  - Colheita (+25% abaixo de 30% de HP e Passo Sombrio renovado ao matar);
+  - Três Auréolas (a 4ª magia sai de graça e com +40%);
+  - Bebeu do Rio (acúmulos de Amargo cortam a cura do alvo e curam o Profeta);
+  - Balas Bentas;
+  - Troféu;
+  - A Plateia (bloqueio dá Fúria; com Fúria cheia, o golpe atordoa);
+  - O Amargo Venceu;
+  - Liturgia da Máquina (reparo de 2%/s);
+  - Sino Derretido.
+- **Ressurreição.** O Coro dos Seis Ais levanta no lugar os aliados mortos a até 10 m. O Levanta-te levanta o morto mais
+  perto do cursor depois de 2 s de conjuração e, sem morto por perto, cura o alvo. O evento `reviveu` que o cliente já trata
+  é o mesmo.
+- O `teste_evolucao.gd` ganhou a parte das passivas e da ressurreição, e o resultado continua `RESULTADO: OK`.
+
 ## Ainda de fora (texto do JSON sem regra no servidor)
 
-- Passivas dos 12 caminhos.
-- "Ressuscita aliados mortos" do Coro e do Levanta-te: hoje eles só curam.
+- O "+1 torreta ativa" da Liturgia da Máquina.
 - O enxame que pula para outro alvo quando o primeiro morre.
 - O "ninguém sai" da arena do Gladiador.
 - Os números não passaram pelo `simular.py`.
