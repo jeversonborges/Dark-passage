@@ -14,6 +14,11 @@ on:
         type: choice
         options: [teste, producao]
         default: teste
+      partes:
+        description: 'tudo = cliente e depois servidor; cliente = só o cliente'
+        type: choice
+        options: [tudo, cliente]
+        default: tudo
 
 permissions:
   contents: write
@@ -33,6 +38,7 @@ jobs:
           if [ "${GITHUB_REF_TYPE}" = tag ]; then V="${GITHUB_REF_NAME#v}"; D=producao
           else V="${{ inputs.versao }}"; D="${{ inputs.destino }}"; fi
           echo "versao=$V" >> "$GITHUB_OUTPUT"; echo "destino=$D" >> "$GITHUB_OUTPUT"
+          set -o pipefail
           echo "### DARK PASSAGE $V → $D" >> "$GITHUB_STEP_SUMMARY"
 
       - uses: actions/checkout@v4
@@ -68,7 +74,7 @@ jobs:
       - name: Publicar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" | tee -a publicar.log
+        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" "${{ inputs.partes || 'tudo' }}" | tee -a publicar.log
 
       - name: Resumo
         if: always()
