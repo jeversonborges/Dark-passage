@@ -1,5 +1,5 @@
 {
- "_doc": "Monstros que ainda não têm folha própria usam a folha de outro com tinta e escala. Quando a thread de Monstros entregar a folha (assets/monstros/<kind>), o jogo usa a original sozinho.",
+ "_doc": "Monstros que ainda não têm folha própria usam a folha de outro com tinta e escala. Quando a thread de Monstros entregar a folha (assets/monstros/<kind>), o jogo usa a original sozinho. NPCs: \"npc:<id>\" aponta para a pasta do modelo próprio (assets/personagens/npcs/<id>); réplicas das cidades usam o mesmo \"usa\" com nome próprio; \"sons\" = {loop, quadros{anim{quadro: som}}} para a forja do ferreiro.",
  "_padrao": {
   "usa": "carnical"
  },
@@ -87,57 +87,160 @@
   "tint": "#9ad0ff"
  },
  "npc:capita_odete": {
-  "usa": "humano",
-  "tint": "#a9c0e0"
+  "usa": "capita_odete"
  },
  "npc:doutor_anselmo": {
-  "usa": "tecnomancer",
-  "escala": 1.05,
-  "tint": "#d0c0a0"
+  "usa": "doutor_anselmo"
  },
  "npc:mae_cardo": {
-  "usa": "mutante",
-  "escala": 0.85,
-  "tint": "#c8d8a0"
+  "usa": "mae_cardo"
  },
  "npc:tobias_pavio": {
-  "usa": "humano",
-  "escala": 0.72,
-  "tint": "#e8d0b0"
+  "usa": "tobias_pavio"
  },
  "npc:gaspar_bigorna": {
-  "usa": "mutante",
-  "escala": 1.15,
-  "tint": "#e0a080"
+  "usa": "gaspar_bigorna",
+  "sons": {
+   "loop": "ambiente/forja",
+   "quadros": {
+    "idle": {
+     "3": "itens/forja_martelo"
+    }
+   }
+  }
  },
- "npc:madre_ivone": {
-  "usa": "cultista",
-  "escala": 1.05,
-  "tint": "#e0b0b8"
- },
- "npc:comandante_abdiel": {
-  "usa": "anjo",
-  "escala": 1.3
- },
- "npc:malfas": {
-  "usa": "demonio",
-  "escala": 0.95,
-  "tint": "#ffc0a0"
- },
- "npc:irmao_lucio": {
-  "usa": "cultista",
-  "escala": 0.9
+ "npc:zaqueu_vendedor": {
+  "usa": "zaqueu_vendedor"
  },
  "npc:simao_coveiro": {
-  "usa": "humano",
-  "escala": 1.1,
-  "tint": "#a8a8a0"
+  "usa": "simao_coveiro"
+ },
+ "npc:isaura_radialista": {
+  "usa": "isaura_radialista"
+ },
+ "npc:corvina_atravessadora": {
+  "usa": "corvina_atravessadora"
+ },
+ "npc:nina": {
+  "usa": "nina"
+ },
+ "npc:eulalia_prado": {
+  "usa": "eulalia_prado"
  },
  "npc:frei_anacleto": {
-  "usa": "cultista",
-  "escala": 1.0,
-  "tint": "#90ffb0",
+  "usa": "frei_anacleto",
   "fantasma": true
+ },
+ "npc:madre_ivone": {
+  "usa": "madre_ivone"
+ },
+ "npc:comandante_abdiel": {
+  "usa": "comandante_abdiel"
+ },
+ "npc:malfas": {
+  "usa": "malfas"
+ },
+ "npc:irmao_lucio": {
+  "usa": "irmao_lucio"
+ },
+ "npc:tuya_nomarca": {
+  "usa": "tuya_nomarca"
+ },
+ "npc:hapu_mercador": {
+  "usa": "hapu_mercador"
+ },
+ "npc:nefer_aguadeira": {
+  "usa": "nefer_aguadeira"
+ },
+ "npc:besankh_ferreiro": {
+  "usa": "besankh_ferreiro",
+  "sons": {
+   "loop": "ambiente/forja",
+   "quadros": {
+    "idle": {
+     "3": "itens/forja_martelo"
+    }
+   }
+  }
+ },
+ "npc:ahmose_barqueiro": {
+  "usa": "ahmose_barqueiro"
+ },
+ "npc:meritre_barqueira": {
+  "usa": "meritre_barqueira"
+ },
+ "npc:reis_abdu": {
+  "usa": "reis_abdu"
+ },
+ "npc:djedi_mago": {
+  "usa": "djedi_mago"
+ },
+ "npc:diaprepes_atlante": {
+  "usa": "diaprepes_atlante"
+ },
+ "npc:dalva_ferraz": {
+  "usa": "dalva_ferraz"
+ },
+ "npc:conego_barnabe": {
+  "usa": "conego_barnabe"
+ },
+ "npc:senebtisi_sacerdotisa": {
+  "usa": "senebtisi_sacerdotisa"
+ },
+ "npc:sariel_porta": {
+  "usa": "sariel_porta"
+ },
+ "npc:hulda_escada": {
+  "usa": "hulda_escada"
+ },
+ "npc:henoc_escriba": {
+  "usa": "henoc_escriba"
+ },
+ "npc:rispa_vigilia": {
+  "usa": "rispa_vigilia"
+ },
+ "npc:jael_escuta": {
+  "usa": "jael_escuta"
+ },
+ "npc:joana_enxertadeira": {
+  "usa": "joana_enxertadeira"
+ },
+ "npc:tadeu_vigia": {
+  "usa": "tadeu_vigia"
+ },
+ "npc:rute_abelheira": {
+  "usa": "rute_abelheira"
+ },
+ "npc:tobias_carrinho": {
+  "usa": "tobias_pavio"
+ },
+ "npc:nefer_carrinho": {
+  "usa": "nefer_aguadeira"
+ },
+ "npc:tubal_malho": {
+  "usa": "gaspar_bigorna",
+  "sons": {
+   "loop": "ambiente/forja",
+   "quadros": {
+    "idle": {
+     "3": "itens/forja_martelo"
+    }
+   }
+  }
+ },
+ "npc:bartimeu_brasas": {
+  "usa": "tobias_pavio",
+  "tint": "#d4c8ba"
+ },
+ "npc:bartimeu_carrinho": {
+  "usa": "tobias_pavio",
+  "tint": "#d4c8ba"
+ },
+ "npc:zilpa_hissopo": {
+  "usa": "mae_cardo"
+ },
+ "npc:zaqueu_cobrador": {
+  "usa": "zaqueu_vendedor"
  },
  "desertor_legiao": {
   "usa": "soldado_caido",
@@ -168,21 +271,6 @@
   "usa": "carnical",
   "escala": 1.2,
   "tint": "#b8c890"
- },
- "npc:tobias_carrinho": {
-  "usa": "humano",
-  "escala": 0.72,
-  "tint": "#e8d0b0"
- },
- "npc:isaura_radialista": {
-  "usa": "humano",
-  "escala": 0.95,
-  "tint": "#b8c8a0"
- },
- "npc:corvina_atravessadora": {
-  "usa": "cultista",
-  "escala": 0.95,
-  "tint": "#d8d0e8"
  },
  "lobo_de_cinza": {
   "usa": "cao_de_vala",
