@@ -1,7 +1,7 @@
 extends SceneTree
 const Unidade := preload("res://scripts/client/unidade.gd")
 ## Portão de release: falha (saída 1) se algum portal aponta para mapa inexistente ou vazio,
-## ou se alguma skill fica sem ícone, ou se algum item de mão principal fica sem camada (a Abominação só tem corpo; itens de segunda mão podem ficar sem).
+## ou se alguma skill fica sem ícone que não esteja pendente em data/icones_pendentes.json (a arte é pintada pelo Jefin), ou se algum item de mão principal fica sem camada (a Abominação só tem corpo; itens de segunda mão podem ficar sem).
 
 func _init() -> void:
 	Defs.carregar()
@@ -31,11 +31,14 @@ func _init() -> void:
 			if sil == "" or not FileAccess.file_exists("res://assets/ext/armas/%s/%s.json" % [kind, sil]):
 				print("FALHA: %s com %s sem camada na mão" % [kind, item_id]); falhas += 1
 	var sem_icone := 0
+	var pendentes: Array = Defs.ler("res://data/icones_pendentes.json")
 	for chave in Defs.SKILLS:
 		var classe := str(chave).get_slice("/", 0)
 		var sid := str(chave).get_slice("/", 1)
 		var k := sid if sid.begins_with(classe + "_") else classe + "_" + sid
-		if not Defs.ICONES.get("skills_40", {}).has(k): sem_icone += 1; print("FALHA: skill sem ícone: %s" % k)
+		if Defs.ICONES.get("skills_40", {}).has(k): continue
+		if k in pendentes: print("AVISO: skill sem ícone (pendente na LISTA.md): %s" % k)
+		else: sem_icone += 1; print("FALHA: skill sem ícone: %s" % k)
 	falhas += sem_icone
 	print("teste_release: %s (%d mapas, %d portais verificados)" % ["OK" if falhas == 0 else "%d falha(s)" % falhas, mapas.size(), portais])
 	quit(falhas)

@@ -408,6 +408,8 @@ func _surgiu(id: int) -> void:
 	if e.kind == "nao_julgado" and mapa.get("exterior", false):
 		fx.folha("naojulgado_brilho_noite", v.position, {"segue": v, "dura": 99999.0, "aditivo": true})
 
+const VISUAIS_ESTRADA := ["torre_portao", "pilar_portao", "placa_aviso", "placa_rua_enterrada", "placa_versiculo", "obelisco"]
+
 func _criar_obj(e: Ent) -> void:
 	var o := ObjView.new()
 	o.ent = e
@@ -415,7 +417,10 @@ func _criar_obj(e: Ent) -> void:
 	var k := ""
 	match e.kind:
 		"bau": k = e.aux.get("visual", "bau_comum")
-		"portal": k = e.aux.get("visual", "") if str(e.aux.get("visual", "")).begins_with("portal_dungeon") else "escada_descida"   # entrada de dungeon: arco de véu (0.8.4)
+		"portal":
+			# entrada de dungeon: arco de véu (0.8.4); estrada entre mapas: o marco do kit (design/mapas/mundo/fontes/ligacoes.py)
+			var vis := str(e.aux.get("visual", ""))
+			k = vis if vis.begins_with("portal_dungeon") or vis in VISUAIS_ESTRADA else "escada_descida"
 		"pilha_de_mortos": k = "pilha_cranios"
 		"cadaver_fresco": k = "ossos_espalhados"
 		"interativo":
