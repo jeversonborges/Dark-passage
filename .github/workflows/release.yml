@@ -1,6 +1,7 @@
 name: Release
 # Exporta cliente Windows + servidor Linux numa máquina limpa e publica (cliente primeiro, servidor depois).
-# Tag vX.Y.Z = produção (downloads + servidor). Manual (workflow_dispatch) = teste por padrão.
+# Tag vX.Y.Z = produção, só o cliente (downloads). O servidor a Prévia exporta e publica na sessão dela
+# (o .pck precisa de server_data/, que não vai para o repositório). Manual (workflow_dispatch) = teste por padrão.
 on:
   push:
     tags: ['v*']
@@ -15,10 +16,10 @@ on:
         options: [teste, producao]
         default: teste
       partes:
-        description: 'tudo = cliente e depois servidor; cliente = só o cliente'
+        description: 'cliente = só downloads; tudo = cliente e depois servidor (servidor SEM os mistérios: só para teste)'
         type: choice
-        options: [tudo, cliente]
-        default: tudo
+        options: [cliente, tudo]
+        default: cliente
 
 permissions:
   contents: write
@@ -37,6 +38,9 @@ jobs:
         run: |
           if [ "${GITHUB_REF_TYPE}" = tag ]; then V="${GITHUB_REF_NAME#v}"; D=producao
           else V="${{ inputs.versao }}"; D="${{ inputs.destino }}"; fi
+          P="${{ inputs.partes }}"; [ -n "$P" ] || P=cliente
+          [ "$D" = producao ] && P=cliente   # produção nunca publica o servidor por aqui
+          echo "partes=$P" >> "$GITHUB_OUTPUT"
           echo "versao=$V" >> "$GITHUB_OUTPUT"; echo "destino=$D" >> "$GITHUB_OUTPUT"
           echo "### DARK PASSAGE $V → $D" >> "$GITHUB_STEP_SUMMARY"
 
@@ -67,14 +71,22 @@ jobs:
           key: godot-import-${{ github.sha }}
           restore-keys: godot-import-
 
+      - name: Teste headless antes do export (game/tools/teste_release.gd, se existir)
+        run: |
+          [ -f game/tools/teste_release.gd ] || { echo "sem teste_release.gd"; exit 0; }
+          /opt/godot/godot --headless --path game --import > /dev/null 2>&1 || true
+          timeout 600 /opt/godot/godot --headless --path game -s tools/teste_release.gd
+
       - name: Exportar
+        env:
+          PARTES: ${{ steps.v.outputs.partes }}
         run: bash tools/release/exportar.sh "${{ steps.v.outputs.versao }}"
 
       - name: Publicar
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" "${{ inputs.partes || 'tudo' }}" | tee -a publicar.log
+        run: bash tools/release/publicar.sh "${{ steps.v.outputs.versao }}" "${{ steps.v.outputs.destino }}" "${{ steps.v.outputs.partes }}" | tee -a publicar.log
 
       - name: Resumo
         if: always()

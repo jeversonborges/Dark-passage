@@ -22,10 +22,10 @@ bash "$R/tools/release/empacotar.sh" "$V" "$W/pub" "$W/launcher_atual.json"
 git checkout -q --orphan dl && git --work-tree=pub add -A . && git --work-tree=pub commit -q -m "Cliente Windows v$V"
 git push -f origin "dl:refs/heads/$DL"
 echo "cliente publicado em $DL: $(git rev-parse --short HEAD)"
-# 2) servidor
+# 2) servidor (só no teste; em produção o servidor é da Prévia)
+[ "$PARTES" = cliente ] && { echo "servidor não publicado (só cliente)"; exit 0; }
 NOVO=$(sha256sum "$R/game/build/servidor/DarkPassage-servidor.pck" | cut -c1-16)
 git fetch -q --depth 1 origin servidor && echo "pck novo $NOVO | pck em produção $(git show FETCH_HEAD:servidor/DarkPassage-servidor.pck | sha256sum | cut -c1-16)"
-[ "$PARTES" = cliente ] && { echo "servidor não publicado (partes=cliente)"; exit 0; }
 if git fetch -q --depth 1 origin "$SV" 2>/dev/null; then BASE=FETCH_HEAD; else git fetch -q --depth 1 origin servidor; BASE=FETCH_HEAD; fi
 git checkout -q -B sv "$BASE"
 cp "$R/game/build/servidor/DarkPassage-servidor.pck" servidor/DarkPassage-servidor.pck
