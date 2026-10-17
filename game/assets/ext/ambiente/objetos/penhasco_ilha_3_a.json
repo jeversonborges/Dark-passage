@@ -1,0 +1,18 @@
+{
+ "w": 146,
+ "h": 242,
+ "anchor": [
+  46,
+  54
+ ],
+ "bioma": "amenti",
+ "pendurado": true,
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "",
+ "kind": "penhasco_ilha_3_a"
+}

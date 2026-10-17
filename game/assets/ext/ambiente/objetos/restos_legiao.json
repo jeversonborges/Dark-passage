@@ -1,0 +1,16 @@
+{
+ "w": 124,
+ "h": 64,
+ "anchor": [
+  67,
+  33
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Restos espalhados no chão da Vala: um soldado da Legião meio comido, capacete com chifres e pique quebrado.",
+ "kind": "restos_legiao"
+}

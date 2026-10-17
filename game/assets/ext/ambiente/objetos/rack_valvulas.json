@@ -1,0 +1,16 @@
+{
+ "w": 304,
+ "h": 196,
+ "anchor": [
+  46,
+  169
+ ],
+ "emissivo": "válvulas",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Rack de transmissor virado órgão: fileiras de válvulas acesas em degraus como tubos de órgão,     tubos de cobre subindo atrás, gabinete de grelhas embaixo e a marca da Congregação no frontão.",
+ "kind": "rack_valvulas"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 568,
+ "h": 296,
+ "anchor": [
+  281,
+  166
+ ],
+ "nota": "o poço de acesso é um furo no chão",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Casa ainda soterrada: só o terraço, o parapeito e a parte de cima das paredes saem da duna de areia clara; uma     janela no nível da areia e a escada de mão que desce pelo buraco cavado até a porta.",
+ "kind": "casa_soterrada"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 322,
+ "h": 214,
+ "anchor": [
+  29,
+  196
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Câmara da Trombeta: pedra clara com placas de porcelana rachada e nervuras de ferro.",
+ "kind": "parede_trombeta_a"
+}

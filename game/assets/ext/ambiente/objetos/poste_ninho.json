@@ -1,0 +1,15 @@
+{
+ "w": 352,
+ "h": 224,
+ "anchor": [
+  36,
+  211
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Poste com ninho de corvos (galhos, ossos e trapos) e corvos.",
+ "kind": "poste_ninho"
+}

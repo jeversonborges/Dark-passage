@@ -1,0 +1,17 @@
+{
+ "w": 314,
+ "h": 204,
+ "anchor": [
+  60,
+  170
+ ],
+ "emissivo": "luz quente (o sol de fora)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "portal_egito"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 588,
+ "h": 382,
+ "anchor": [
+  69,
+  343
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Escada de corda que desce do óculo da cúpula até o assoalho (é por ela que se entra e se sai), com rolo de     corda sobrando no chão e o feixe de luz de lá de cima cheio de poeira.",
+ "kind": "escada_corda_biblioteca"
+}

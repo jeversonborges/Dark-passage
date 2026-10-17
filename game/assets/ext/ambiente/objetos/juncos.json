@@ -1,0 +1,15 @@
+{
+ "w": 144,
+ "h": 96,
+ "anchor": [
+  38,
+  76
+ ],
+ "categoria": "rio",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Juncos e taboas de beira d'água.",
+ "kind": "juncos"
+}

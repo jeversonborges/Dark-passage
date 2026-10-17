@@ -1,0 +1,16 @@
+{
+ "w": 946,
+ "h": 592,
+ "anchor": [
+  222,
+  475
+ ],
+ "emissivo": "janela",
+ "categoria": "predios",
+ "footprint_tiles": [
+  8,
+  8
+ ],
+ "descricao": "Sobrado de tijolo com reboco caído, segundo andar desabado, janela acesa.",
+ "kind": "casa_ruina"
+}

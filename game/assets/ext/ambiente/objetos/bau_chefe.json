@@ -1,0 +1,17 @@
+{
+ "w": 128,
+ "h": 80,
+ "anchor": [
+  38,
+  57
+ ],
+ "estado": "fechado",
+ "emissivo": "runas vermelhas",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Baú de chefe: relicário de porcelana e ferro com correntes e brilho vermelho.",
+ "kind": "bau_chefe"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 82,
+ "h": 56,
+ "anchor": [
+  31,
+  36
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "A mesma cadeira, tombada de costas no assoalho.",
+ "kind": "cadeira_caida"
+}

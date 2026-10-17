@@ -1,0 +1,19 @@
+{
+ "w": 568,
+ "h": 328,
+ "anchor": [
+  210,
+  227
+ ],
+ "emissivo": "turquesa (o Duat lá dentro)",
+ "lore": "tumba_sem_cartucho",
+ "entrada_raid": "coracao_endurecido",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  2
+ ],
+ "descricao": "A tumba sem cartucho (porta da Raid 'O Coração Endurecido'): porta selada com o reboco e o selo da necrópole     (o chacal sobre os nove cativos) quebrados, o cartucho do lintel raspado a cinzel, e um brilho turquesa fraco     saindo pela fenda: os glifos do Duat acesos lá dentro.",
+ "kind": "tumba_sem_cartucho"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 260,
+ "h": 164,
+ "anchor": [
+  77,
+  123
+ ],
+ "emissivo": "velas",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Andor de São Lázaro pousado no chão no meio da Procissão Parada: varais ao longo de X, pano roxo,     imagem do padroeiro com faixas de linho nos pulsos e pá na mão, velas e a data 1714 na base.",
+ "kind": "andor_padroeiro"
+}

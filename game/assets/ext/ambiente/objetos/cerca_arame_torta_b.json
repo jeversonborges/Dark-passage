@@ -1,0 +1,16 @@
+{
+ "w": 130,
+ "h": 86,
+ "anchor": [
+  24,
+  66
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "cerca_arame_torta_b"
+}

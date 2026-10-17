@@ -1,0 +1,18 @@
+{
+ "w": 546,
+ "h": 306,
+ "anchor": [
+  119,
+  224
+ ],
+ "emissivo": "esmeralda",
+ "bioma": "amenti",
+ "sobreposicao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "",
+ "kind": "poeira_luz_2"
+}

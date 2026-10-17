@@ -1,0 +1,18 @@
+{
+ "w": 440,
+ "h": 254,
+ "anchor": [
+  151,
+  175
+ ],
+ "emissivo": "velas",
+ "npc": "Cônego Barnabé",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Tenda do Coro (Cônego Barnabé): lona vinho remendada, estandarte com a trombeta de ouro, genuflexório, velas e     a balança de bronze que querem usar no coração do Faraó.",
+ "kind": "tenda_coro"
+}

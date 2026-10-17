@@ -1,0 +1,17 @@
+{
+ "w": 656,
+ "h": 430,
+ "anchor": [
+  206,
+  314
+ ],
+ "emissivo": "fogo (lamparina)",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Casa de Mênfis Reerguida: o térreo é de pedra de três mil anos, meio desenterrado (porta com o disco alado no     lintel); em cima, o andar novo de tijolo de lama com reboco descascando, vigas de palmeira, janelinhas com grade,     terraço com toldo e jarros, escada externa; a lamparina acesa na janela.",
+ "kind": "casa_reerguida"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 366,
+ "h": 204,
+ "anchor": [
+  130,
+  94
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Janela de sobrado aparecendo na areia: entrada para as casas de baixo.",
+ "kind": "janela_na_areia"
+}

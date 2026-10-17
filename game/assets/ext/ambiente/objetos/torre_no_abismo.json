@@ -1,0 +1,15 @@
+{
+ "w": 592,
+ "h": 512,
+ "anchor": [
+  124,
+  298
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Torre de igreja da Cidade Velha emergindo do abismo (cenário da moldura).",
+ "kind": "torre_no_abismo"
+}

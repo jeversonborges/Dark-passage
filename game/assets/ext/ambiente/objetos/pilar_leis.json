@@ -1,0 +1,17 @@
+{
+ "w": 696,
+ "h": 446,
+ "anchor": [
+  142,
+  372
+ ],
+ "bioma": "atlantida",
+ "lore": "pilar_das_leis",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "",
+ "kind": "pilar_leis"
+}

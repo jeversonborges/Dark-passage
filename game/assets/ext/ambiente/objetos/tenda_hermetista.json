@@ -1,0 +1,18 @@
+{
+ "w": 440,
+ "h": 254,
+ "anchor": [
+  151,
+  175
+ ],
+ "emissivo": "fogo (lamparina)",
+ "npc": "Djedi",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Tenda da Casa de Hermes (o mago Djedi): lona cor de linho sujo, estandarte com o caduceu de Hermes, mesa com     astrolábio, rolos e a balança, o tapete de junco onde Djedi senta; lamparina.",
+ "kind": "tenda_hermetista"
+}

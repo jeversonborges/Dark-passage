@@ -1,0 +1,16 @@
+{
+ "w": 696,
+ "h": 422,
+ "anchor": [
+  133,
+  363
+ ],
+ "emissivo": "braseiros do camarote",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  3
+ ],
+ "descricao": "Placar enferrujado do estádio com o camarote de Caim e Abel em cima: SÃO LÁZARO 0 x 0, megafone, braseiros.",
+ "kind": "placar_camarote"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 220,
+ "h": 140,
+ "anchor": [
+  45,
+  113
+ ],
+ "emissivo": "tinta de válvula (círculo na faixa morta)",
+ "andar": 3,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Quadro de frequências em pé: cortiça num cavalete de madeira, mapas com curvas de     nível, gráficos de sinal, recados e fotos ligados por barbante vermelho; a faixa morta     circulada em tinta de válvula; fones pendurados num prego e tocos de vela no aparador.",
+ "kind": "quadro_frequencias"
+}

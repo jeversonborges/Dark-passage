@@ -1,0 +1,15 @@
+{
+ "w": 720,
+ "h": 404,
+ "anchor": [
+  360,
+  244
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Canto de parede de concreto com janela e vergalhões, meio soterrado.",
+ "kind": "ruina_concreto"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 216,
+ "h": 120,
+ "anchor": [
+  54,
+  88
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Guincho do Portão do Gigante: tambor de corrente, engrenagens, manivela e trava.",
+ "kind": "guincho_corrente"
+}

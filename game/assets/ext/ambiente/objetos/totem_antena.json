@@ -1,0 +1,19 @@
+{
+ "w": 210,
+ "h": 140,
+ "anchor": [
+  33,
+  121
+ ],
+ "emissivo": "válvula do topo",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Totem da Congregação: poste de cano com antenas de arame dobrado em espiral, latas e colheres penduradas que     tilintam, uma válvula acesa no topo como olho e fitas de pano com a onda pintada.",
+ "kind": "totem_antena"
+}

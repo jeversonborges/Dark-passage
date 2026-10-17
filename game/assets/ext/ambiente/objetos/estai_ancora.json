@@ -1,0 +1,17 @@
+{
+ "w": 390,
+ "h": 308,
+ "anchor": [
+  32,
+  289
+ ],
+ "andar": 4,
+ "uso": "o cabo sobe para fora do quadro rumo ao mastro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Ancoragem de estai: bloco de concreto rachado e meio enterrado, chapa de âncora,     dois esticadores, grampos e o cabo de aço subindo para fora do quadro rumo ao mastro.",
+ "kind": "estai_ancora"
+}

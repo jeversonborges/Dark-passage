@@ -1,0 +1,16 @@
+{
+ "w": 228,
+ "h": 142,
+ "anchor": [
+  68,
+  108
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Serra de fita a vapor para osso: armação de ferro fundido em C, dois volantes com raios, fita dentada,     mesa de chapa, pistão e cano de latão com manômetro; respingo de sangue e pó de osso.",
+ "kind": "serra_vapor"
+}

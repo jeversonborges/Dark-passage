@@ -1,0 +1,15 @@
+{
+ "w": 888,
+ "h": 548,
+ "anchor": [
+  257,
+  415
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  4
+ ],
+ "descricao": "Bonde da linha 7 adaptado como bonde-veleiro: mastro, vela de lona remendada,     rodas sobre os trilhos que aparecem na areia.",
+ "kind": "bonde_veleiro"
+}

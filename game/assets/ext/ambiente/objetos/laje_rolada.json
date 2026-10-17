@@ -1,0 +1,15 @@
+{
+ "w": 168,
+ "h": 84,
+ "anchor": [
+  47,
+  69
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Laje redonda da entrada do sepulcro, rolada para o lado e encostada inclinada numa pedra.",
+ "kind": "laje_rolada"
+}

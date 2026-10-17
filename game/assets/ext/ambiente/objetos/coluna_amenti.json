@@ -1,0 +1,17 @@
+{
+ "w": 852,
+ "h": 544,
+ "anchor": [
+  106,
+  496
+ ],
+ "emissivo": "esmeralda (escrita)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "coluna_amenti"
+}

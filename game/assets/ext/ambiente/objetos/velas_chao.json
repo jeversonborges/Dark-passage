@@ -1,0 +1,17 @@
+{
+ "w": 70,
+ "h": 48,
+ "anchor": [
+  29,
+  30
+ ],
+ "emissivo": "chamas das velas",
+ "luz": "vela",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Velas de sebo coladas no chão em cera escorrida, de alturas diferentes.",
+ "kind": "velas_chao"
+}

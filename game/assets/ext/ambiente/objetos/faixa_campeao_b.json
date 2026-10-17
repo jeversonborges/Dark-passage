@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 178,
+ "anchor": [
+  32,
+  159
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Faixa de pano rasgada com nome pintado (para pendurar no muro do fosso).",
+ "kind": "faixa_campeao_b"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 302,
+ "h": 190,
+ "anchor": [
+  60,
+  155
+ ],
+ "semitransparente": true,
+ "bioma": "matadouro",
+ "categoria": "efeitos",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Vapor subindo de um ralo ou caldeira (semitransparente), coluna quente que se desfaz a 2 m.",
+ "kind": "vapor_chao"
+}

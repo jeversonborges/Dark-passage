@@ -1,0 +1,16 @@
+{
+ "w": 582,
+ "h": 360,
+ "anchor": [
+  154,
+  305
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "salgueiro_2"
+}

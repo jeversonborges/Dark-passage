@@ -1,0 +1,19 @@
+{
+ "w": 188,
+ "h": 124,
+ "anchor": [
+  39,
+  99
+ ],
+ "emissivo": "chama das velas",
+ "luz": "vela",
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Sala dos milagres: tábua de promessas num cavalete com ex-votos de cera pendurados (cabeças, mãos, pernas, um     coração), fotografias desbotadas, muletas encostadas e as velas de quem ainda pede.",
+ "kind": "ex_votos"
+}

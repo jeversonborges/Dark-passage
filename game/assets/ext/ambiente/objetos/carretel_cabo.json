@@ -1,0 +1,15 @@
+{
+ "w": 142,
+ "h": 90,
+ "anchor": [
+  45,
+  62
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Carretel de madeira com cabo de força enrolado e a ponta caída no chão.",
+ "kind": "carretel_cabo"
+}

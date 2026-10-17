@@ -1,0 +1,15 @@
+{
+ "w": 326,
+ "h": 214,
+ "anchor": [
+  35,
+  194
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilar de canto do Ossário, com coluna de crânios.",
+ "kind": "parede_ossario_canto"
+}

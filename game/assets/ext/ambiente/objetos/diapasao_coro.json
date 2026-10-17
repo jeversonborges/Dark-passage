@@ -1,0 +1,17 @@
+{
+ "w": 530,
+ "h": 330,
+ "anchor": [
+  143,
+  250
+ ],
+ "emissivo": "velas",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "",
+ "kind": "diapasao_coro"
+}

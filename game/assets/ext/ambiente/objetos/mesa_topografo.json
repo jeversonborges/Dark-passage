@@ -1,0 +1,16 @@
+{
+ "w": 212,
+ "h": 158,
+ "anchor": [
+  77,
+  122
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Posto do topógrafo: teodolito de latão no tripé, mesa com a planta da necrópole presa por pedras, a mira     graduada encostada.",
+ "kind": "mesa_topografo"
+}

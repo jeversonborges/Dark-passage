@@ -1,0 +1,15 @@
+{
+ "w": 608,
+ "h": 318,
+ "anchor": [
+  282,
+  177
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Duna baixa e comprida com crista viva; a base some no piso (Mar de Dunas e Estrada do Sul).",
+ "kind": "duna_ondulacao"
+}

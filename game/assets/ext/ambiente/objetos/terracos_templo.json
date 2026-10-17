@@ -1,0 +1,17 @@
+{
+ "w": 1158,
+ "h": 646,
+ "anchor": [
+  503,
+  388
+ ],
+ "lore": "terracos_de_hatshepsut",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  18,
+  10
+ ],
+ "descricao": "O templo de Hatshepsut em Deir el-Bahari: três terraços de calcário com colunatas de pilares quadrados, a rampa     central subindo pelo meio, os pilares osiríacos no terraço de cima e a porta do santuário cavado na rocha;     relevos da expedição a Punt com restos de cor nas paredes de arrimo.",
+ "kind": "terracos_templo"
+}

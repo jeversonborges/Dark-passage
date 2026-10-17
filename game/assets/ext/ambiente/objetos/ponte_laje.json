@@ -1,0 +1,17 @@
+{
+ "w": 386,
+ "h": 210,
+ "anchor": [
+  167,
+  122
+ ],
+ "bioma": "atlantida",
+ "no_chao": true,
+ "categoria": "predios",
+ "footprint_tiles": [
+  7,
+  3
+ ],
+ "descricao": "",
+ "kind": "ponte_laje"
+}

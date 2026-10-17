@@ -1,0 +1,16 @@
+{
+ "w": 150,
+ "h": 112,
+ "anchor": [
+  56,
+  62
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Sacos de sal grosso de aniagem sobre estrado, carimbo desbotado, um rasgado derramando sal.",
+ "kind": "sacos_sal_abate"
+}

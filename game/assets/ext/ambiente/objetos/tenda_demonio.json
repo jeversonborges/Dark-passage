@@ -1,0 +1,15 @@
+{
+ "w": 416,
+ "h": 246,
+ "anchor": [
+  142,
+  170
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Tenda dos demônios: couro negro esticado em ossos, com brasa e correntes.",
+ "kind": "tenda_demonio"
+}

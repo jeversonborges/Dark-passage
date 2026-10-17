@@ -1,0 +1,16 @@
+{
+ "w": 800,
+ "h": 552,
+ "anchor": [
+  210,
+  443
+ ],
+ "bioma": "atlantida",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  5
+ ],
+ "descricao": "",
+ "kind": "rochedo"
+}

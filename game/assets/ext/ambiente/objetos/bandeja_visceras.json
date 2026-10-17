@@ -1,0 +1,17 @@
+{
+ "w": 100,
+ "h": 72,
+ "anchor": [
+  30,
+  49
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixote virado de banco com uma bandeja de zinco amassada: coração, fígado, rins e tripa limpos para a salmoura.",
+ "kind": "bandeja_visceras"
+}

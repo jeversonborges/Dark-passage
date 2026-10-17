@@ -1,0 +1,19 @@
+{
+ "w": 142,
+ "h": 90,
+ "anchor": [
+  34,
+  70
+ ],
+ "emissivo": "chama das velas",
+ "luz": "vela",
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Genuflexório de madeira escura com almofada de veludo puída, o terço de contas de osso pendendo e o missal     aberto; a cera de anos de velas forma um monte na frente.",
+ "kind": "genuflexorio"
+}

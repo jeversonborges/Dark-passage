@@ -1,0 +1,19 @@
+{
+ "w": 96,
+ "h": 62,
+ "anchor": [
+  45,
+  34
+ ],
+ "emissivo": "válvula acesa",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixote de válvulas sobressalentes na palha, uma ainda acesa (ligada num fio solto), outras quebradas no chão     com o vidro em cacos.",
+ "kind": "caixa_valvulas"
+}

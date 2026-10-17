@@ -1,0 +1,18 @@
+{
+ "w": 118,
+ "h": 94,
+ "anchor": [
+  32,
+  75
+ ],
+ "emissivo": "azul de estrela",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "borda_astral_b"
+}

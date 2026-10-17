@@ -1,0 +1,16 @@
+{
+ "w": 158,
+ "h": 96,
+ "anchor": [
+  38,
+  74
+ ],
+ "estado": "aberto",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "bau_chefe_aberto"
+}

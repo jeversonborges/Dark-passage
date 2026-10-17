@@ -1,0 +1,16 @@
+{
+ "w": 308,
+ "h": 204,
+ "anchor": [
+  31,
+  185
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Parede interna da Repetidora: concreto de forma manchado, faixa verde institucional descascando,     calha de cabos, eletrodutos e placa de ALTA TENSÃO.",
+ "kind": "parede_torre_b"
+}

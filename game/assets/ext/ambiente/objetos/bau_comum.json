@@ -1,0 +1,16 @@
+{
+ "w": 126,
+ "h": 80,
+ "anchor": [
+  36,
+  57
+ ],
+ "estado": "fechado",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Baú comum (madeira e ferro), fechado.",
+ "kind": "bau_comum"
+}

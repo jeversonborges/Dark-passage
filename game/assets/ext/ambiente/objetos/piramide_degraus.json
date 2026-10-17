@@ -1,0 +1,17 @@
+{
+ "w": 1272,
+ "h": 708,
+ "anchor": [
+  470,
+  477
+ ],
+ "lore": "piramide_de_djoser",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  14,
+  12
+ ],
+ "descricao": "A pirâmide de degraus de Djoser em Sacará (Imhotep): seis mastabas empilhadas em talude, de calcário miúdo,     roídas pelo vento, com o entulho escorrendo dos degraus e a fachada leste do pátio do Heb-Sed na base.",
+ "kind": "piramide_degraus"
+}

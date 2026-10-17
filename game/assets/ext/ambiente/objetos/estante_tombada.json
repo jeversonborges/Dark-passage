@@ -1,0 +1,16 @@
+{
+ "w": 316,
+ "h": 178,
+ "anchor": [
+  129,
+  110
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Estante solta que tombou na areia: o móvel deitado de lado, prateleiras à mostra e os livros esparramados.",
+ "kind": "estante_tombada"
+}

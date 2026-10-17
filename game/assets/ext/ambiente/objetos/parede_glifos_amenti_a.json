@@ -1,0 +1,18 @@
+{
+ "w": 808,
+ "h": 540,
+ "anchor": [
+  38,
+  519
+ ],
+ "emissivo": "esmeralda (sulco)",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "",
+ "kind": "parede_glifos_amenti_a"
+}

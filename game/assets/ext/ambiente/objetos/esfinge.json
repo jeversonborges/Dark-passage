@@ -1,0 +1,19 @@
+{
+ "w": 800,
+ "h": 440,
+ "anchor": [
+  355,
+  258
+ ],
+ "emissivo": "fogo (lampião)",
+ "lore": "a_grande_esfinge",
+ "nota": "fosso aberto: o sprite mostra o buraco; o fundo fica 1 m abaixo do chão",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  14,
+  6
+ ],
+ "descricao": "A Grande Esfinge de Gizé, desenterrada pela cheia: cabeça com o nemes listrado (restos de pintura) e o nariz     quebrado, corpo de leão roído em camadas, a Estela do Sonho de Tutmés IV entre as patas, andaime num flanco e a     metade de baixo ainda no fosso de areia escavado, com escoras, escada e cestos.",
+ "kind": "esfinge"
+}

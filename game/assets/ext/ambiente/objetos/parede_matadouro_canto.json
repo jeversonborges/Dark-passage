@@ -1,0 +1,16 @@
+{
+ "w": 322,
+ "h": 210,
+ "anchor": [
+  36,
+  190
+ ],
+ "bioma": "matadouro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilar de canto do Porão: tijolo com azulejo nas faces, cantoneiras rebitadas e capitel de ferro.",
+ "kind": "parede_matadouro_canto"
+}

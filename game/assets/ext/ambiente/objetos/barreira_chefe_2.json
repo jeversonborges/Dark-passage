@@ -1,0 +1,16 @@
+{
+ "w": 142,
+ "h": 96,
+ "anchor": [
+  23,
+  79
+ ],
+ "emissivo": "fogo e runas no chão",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Variação: feixe de lanças cravadas e amarradas, com braseiro de ferro em cima.",
+ "kind": "barreira_chefe_2"
+}

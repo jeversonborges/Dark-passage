@@ -1,0 +1,15 @@
+{
+ "w": 438,
+ "h": 232,
+ "anchor": [
+  200,
+  111
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  4,
+  3
+ ],
+ "descricao": "Morrinho baixo e firme, com tufos de capim seco e seixos na base.",
+ "kind": "duna_ondulacao_3"
+}

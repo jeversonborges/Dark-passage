@@ -1,0 +1,16 @@
+{
+ "w": 486,
+ "h": 306,
+ "anchor": [
+  88,
+  263
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Portão do Gigante (leste): o maior, grade baixada, duas correntes grossas penduradas na verga.",
+ "kind": "portao_gigante_b"
+}

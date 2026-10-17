@@ -1,0 +1,15 @@
+{
+ "w": 194,
+ "h": 120,
+ "anchor": [
+  55,
+  88
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Fileira de cadeiras de estúdio aparafusadas numa prancha como banco de igreja: vinil rachado,     estrutura de tubo, genuflexório na frente e cera pingada.",
+ "kind": "banco_estudio"
+}

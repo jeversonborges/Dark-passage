@@ -1,0 +1,18 @@
+{
+ "w": 268,
+ "h": 148,
+ "anchor": [
+  119,
+  82
+ ],
+ "chao": true,
+ "nota": "o poço é um furo no chão: só aparece o parapeito acima do nível do mapa",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Nilômetro: poço quadrado de calcário com a escada descendo pelas paredes até a água do Nilo, a escala de     côvados gravada na parede e o parapeito baixo com o nome do templo.",
+ "kind": "poco_nilometro"
+}

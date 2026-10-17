@@ -1,0 +1,16 @@
+{
+ "w": 108,
+ "h": 76,
+ "anchor": [
+  35,
+  46
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Mesa do escriba: banco baixo, a paleta de junco com os dois poços de tinta (preta e vermelha), o rolo aberto     com colunas de texto, o pote d'água e o estojo de cálamos.",
+ "kind": "mesa_escriba"
+}

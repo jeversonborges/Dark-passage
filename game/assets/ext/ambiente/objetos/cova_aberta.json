@@ -1,0 +1,15 @@
+{
+ "w": 318,
+ "h": 152,
+ "anchor": [
+  133,
+  81
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "cova_aberta"
+}

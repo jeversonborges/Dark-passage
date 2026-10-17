@@ -1,0 +1,18 @@
+{
+ "w": 488,
+ "h": 284,
+ "anchor": [
+  169,
+  195
+ ],
+ "emissivo": "turquesa (o bulbo de Dendera)",
+ "npc": "Dalva Ferraz",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  4
+ ],
+ "descricao": "Oficina dos Engenheiros Hereges (Dalva Ferraz): bancada de sucata, o gerador de bobinas de cobre com manivela     e cabos, e o protótipo da 'lâmpada de Dendera' copiado do relevo: o bulbo de vidro deitado com a serpente-filamento     acesa por dentro, apoiado no pilar djed isolador. O bulbo é o único brilho.",
+ "kind": "oficina_engenheiros"
+}

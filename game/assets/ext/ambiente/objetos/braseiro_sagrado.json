@@ -1,0 +1,16 @@
+{
+ "w": 162,
+ "h": 102,
+ "anchor": [
+  33,
+  85
+ ],
+ "luz": "sagrada",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Braseiro dos Arautos com chama branca.",
+ "kind": "braseiro_sagrado"
+}

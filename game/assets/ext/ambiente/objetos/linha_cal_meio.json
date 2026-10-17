@@ -1,0 +1,15 @@
+{
+ "w": 118,
+ "h": 72,
+ "anchor": [
+  60,
+  32
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Pedaço do círculo central do campo em cal.",
+ "kind": "linha_cal_meio"
+}

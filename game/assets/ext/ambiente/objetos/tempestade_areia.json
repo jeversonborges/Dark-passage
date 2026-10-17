@@ -1,0 +1,17 @@
+{
+ "w": 756,
+ "h": 474,
+ "anchor": [
+  102,
+  431
+ ],
+ "borda": true,
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Véu da tempestade de areia do Mar de Areia (borda oeste): cortina de poeira cor de calcário e cobre que sobe     do chão e some no alto, com redemoinhos e o pé de areia carregada. Repete ao longo da borda.",
+ "kind": "tempestade_areia"
+}

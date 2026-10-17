@@ -1,0 +1,16 @@
+{
+ "w": 272,
+ "h": 166,
+ "anchor": [
+  66,
+  131
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "Estante solta de dupla face (1,6 m), de imbuia, com cinco prateleiras; os corredores do Arquivo.",
+ "kind": "estante_baixa"
+}

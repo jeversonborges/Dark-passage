@@ -1,0 +1,17 @@
+{
+ "w": 340,
+ "h": 218,
+ "anchor": [
+  50,
+  192
+ ],
+ "bioma": "matadouro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Porta de câmara fria na parede de trás: folha grossa forrada de zinco, dobradiças de ferro, trinco de alavanca,     geada nas bordas e marcas de unha por dentro da porta entreaberta.",
+ "kind": "porta_camara_fria_a"
+}

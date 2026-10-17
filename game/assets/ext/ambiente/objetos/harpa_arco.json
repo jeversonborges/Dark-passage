@@ -1,0 +1,17 @@
+{
+ "w": 98,
+ "h": 74,
+ "anchor": [
+  21,
+  47
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Harpa de arco dos músicos do templo, de madeira com a cabeça de faraó entalhada no pé, cordas de tripa quase     todas arrebentadas, e um sistro de bronze de Hathor largado ao lado.",
+ "kind": "harpa_arco"
+}

@@ -1,0 +1,18 @@
+{
+ "w": 476,
+ "h": 318,
+ "anchor": [
+  34,
+  297
+ ],
+ "emissivo": "nenhum",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "",
+ "kind": "parede_sombria_amenti_a"
+}

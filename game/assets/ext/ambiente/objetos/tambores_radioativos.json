@@ -1,0 +1,17 @@
+{
+ "w": 198,
+ "h": 94,
+ "anchor": [
+  66,
+  66
+ ],
+ "emissivo": "verde tóxico",
+ "luz": "radiacao",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Tambores amarelos de lixo radioativo vazando brilho verde.",
+ "kind": "tambores_radioativos"
+}

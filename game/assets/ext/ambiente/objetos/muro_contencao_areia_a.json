@@ -1,0 +1,16 @@
+{
+ "w": 244,
+ "h": 148,
+ "anchor": [
+  48,
+  121
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Muro de contenção de tábuas e sacos segurando a duna (adro da capela).",
+ "kind": "muro_contencao_areia_a"
+}

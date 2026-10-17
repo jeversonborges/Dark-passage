@@ -1,0 +1,18 @@
+{
+ "w": 274,
+ "h": 170,
+ "anchor": [
+  16,
+  158
+ ],
+ "emissivo": "lâmpada amarela",
+ "luz": "lampada",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste de ferro com braço e lâmpada de filamento numa gaiola de arame, pendurada num fio; luz amarela fraca.",
+ "kind": "lampada_pendurada"
+}

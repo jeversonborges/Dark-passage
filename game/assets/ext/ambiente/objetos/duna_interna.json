@@ -1,0 +1,16 @@
+{
+ "w": 358,
+ "h": 196,
+ "anchor": [
+  151,
+  116
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "A duna que entrou pelo vitral e escorreu até o meio da sala: areia mansa sobre o assoalho, com livros meio     enterrados, cacos verdes acesos e páginas soltas.",
+ "kind": "duna_interna"
+}

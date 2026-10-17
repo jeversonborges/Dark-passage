@@ -1,0 +1,15 @@
+{
+ "w": 556,
+ "h": 330,
+ "anchor": [
+  169,
+  249
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Guindaste de sucata na beira do precipício, com gancho e corrente.",
+ "kind": "guindaste_sucata"
+}

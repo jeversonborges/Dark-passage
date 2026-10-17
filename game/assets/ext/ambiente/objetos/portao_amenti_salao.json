@@ -1,0 +1,20 @@
+{
+ "w": 1950,
+ "h": 1184,
+ "anchor": [
+  432,
+  964
+ ],
+ "emissivo": "esmeralda (escrita, Flor da Vida e a emenda)",
+ "bioma": "amenti",
+ "lore": "portao_de_amenti",
+ "estrado_altura_m": 0.88,
+ "frente_do_estrado_y_m": -2.6,
+ "categoria": "predios",
+ "footprint_tiles": [
+  19,
+  6
+ ],
+ "descricao": "",
+ "kind": "portao_amenti_salao"
+}

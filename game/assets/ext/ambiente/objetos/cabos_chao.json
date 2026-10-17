@@ -1,0 +1,15 @@
+{
+ "w": 174,
+ "h": 94,
+ "anchor": [
+  86,
+  48
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Cabos grossos de borracha serpenteando pelo chão, com emendas de latão e fita isolante.",
+ "kind": "cabos_chao"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 108,
+ "h": 66,
+ "anchor": [
+  30,
+  47
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "ossada_animal"
+}

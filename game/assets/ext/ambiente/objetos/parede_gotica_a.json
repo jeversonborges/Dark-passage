@@ -1,0 +1,16 @@
+{
+ "w": 330,
+ "h": 216,
+ "anchor": [
+  32,
+  197
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Parede gótica inglesa: tijolo escuro, embasamento, cordão e coroamento de cantaria, cunhal na emenda.",
+ "kind": "parede_gotica_a"
+}

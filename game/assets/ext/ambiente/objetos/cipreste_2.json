@@ -1,0 +1,16 @@
+{
+ "w": 462,
+ "h": 302,
+ "anchor": [
+  52,
+  274
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "cipreste_2"
+}

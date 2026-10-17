@@ -1,0 +1,16 @@
+{
+ "w": 864,
+ "h": 454,
+ "anchor": [
+  256,
+  327
+ ],
+ "bioma": "atlantida",
+ "categoria": "predios",
+ "footprint_tiles": [
+  8,
+  7
+ ],
+ "descricao": "",
+ "kind": "casa_atlante"
+}

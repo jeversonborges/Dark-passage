@@ -1,0 +1,16 @@
+{
+ "w": 98,
+ "h": 64,
+ "anchor": [
+  25,
+  48
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Nicho de ossos encostado na parede de trás do Ossário: tíbias empilhadas e crânios em fileira.",
+ "kind": "estante_ossos_a"
+}

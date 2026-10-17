@@ -1,0 +1,19 @@
+{
+ "w": 256,
+ "h": 166,
+ "anchor": [
+  33,
+  147
+ ],
+ "emissivo": "válvula do braço",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cadeira da Escuta: cadeira de dentista velha com correias de couro nos braços, capacete de fones aparafusado     no encosto e o cabo que sobe para o teto; sangue seco no apoio de cabeça.",
+ "kind": "cadeira_escuta"
+}

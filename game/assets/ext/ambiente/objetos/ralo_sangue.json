@@ -1,0 +1,17 @@
+{
+ "w": 84,
+ "h": 54,
+ "anchor": [
+  38,
+  24
+ ],
+ "bioma": "matadouro",
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Ralo redondo de ferro onde o sangue do chão converge, com riscos de sangue chegando de todo lado.",
+ "kind": "ralo_sangue"
+}

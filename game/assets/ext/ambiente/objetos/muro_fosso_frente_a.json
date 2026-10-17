@@ -1,0 +1,16 @@
+{
+ "w": 150,
+ "h": 106,
+ "anchor": [
+  34,
+  86
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Frente do fosso (lado da câmera): mureta quebrada na altura do joelho com estacas, para não tampar a luta.",
+ "kind": "muro_fosso_frente_a"
+}

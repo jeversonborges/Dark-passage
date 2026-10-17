@@ -1,0 +1,17 @@
+{
+ "w": 348,
+ "h": 222,
+ "anchor": [
+  96,
+  165
+ ],
+ "lore": "salao_hipostilo",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Coluna papiriforme partida a meia altura, com os tambores e o capitel caídos ao lado.",
+ "kind": "coluna_papiro_quebrada"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 234,
+ "h": 128,
+ "anchor": [
+  71,
+  88
+ ],
+ "lore": "avenida_das_esfinges",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "Esfinge de carneiro da avenida de Karnak: corpo de leão, cabeça de carneiro de Amon e, entre as patas, a     pequena estátua do faraó de pé protegido por ela. Calcário com pedaços faltando e rachaduras.",
+ "kind": "esfinge_carneiro_estatua"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 228,
+ "h": 150,
+ "anchor": [
+  22,
+  136
+ ],
+ "emissivo": "fogo",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste de madeira com a lamparina de óleo num braço de ferro: a luz quente das ruas e acampamentos.",
+ "kind": "lampiao_oleo"
+}

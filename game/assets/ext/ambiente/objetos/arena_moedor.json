@@ -1,0 +1,18 @@
+{
+ "w": 430,
+ "h": 268,
+ "anchor": [
+  131,
+  198
+ ],
+ "emissivo": "brasa da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "O moedor de Benedito no fosso: moedor industrial de ferro fundido num pedestal de tijolo, funil cheio de restos,     volante de manivela, boca de discos furados cuspindo carne moída num cocho, correntes e fornalha embaixo.",
+ "kind": "arena_moedor"
+}

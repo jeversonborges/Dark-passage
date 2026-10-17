@@ -1,0 +1,15 @@
+{
+ "w": 378,
+ "h": 224,
+ "anchor": [
+  72,
+  191
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Árvore morta torta, mais baixa e larga.",
+ "kind": "arvore_morta_2"
+}

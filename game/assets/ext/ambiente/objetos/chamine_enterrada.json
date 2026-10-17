@@ -1,0 +1,15 @@
+{
+ "w": 906,
+ "h": 526,
+ "anchor": [
+  266,
+  389
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Chaminé de fábrica saindo da areia, com fumaça e escada de ferro.",
+ "kind": "chamine_enterrada"
+}

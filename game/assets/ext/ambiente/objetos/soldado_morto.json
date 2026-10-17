@@ -1,0 +1,15 @@
+{
+ "w": 106,
+ "h": 74,
+ "anchor": [
+  48,
+  34
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "soldado_morto"
+}

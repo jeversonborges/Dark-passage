@@ -1,0 +1,17 @@
+{
+ "w": 170,
+ "h": 96,
+ "anchor": [
+  70,
+  58
+ ],
+ "chao": true,
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "nenufares_2"
+}

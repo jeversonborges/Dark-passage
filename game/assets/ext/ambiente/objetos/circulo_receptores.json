@@ -1,0 +1,17 @@
+{
+ "w": 158,
+ "h": 102,
+ "anchor": [
+  49,
+  73
+ ],
+ "andar": 5,
+ "emissivo": "válvulas laranja",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Santuário da Congregação: rádios velhos em círculo virados para dentro, com as     válvulas laranja acesas, velas entre eles e um microfone de pedestal no meio,     ligado a todos por fios; cera derretida e fotos encostadas.",
+ "kind": "circulo_receptores"
+}

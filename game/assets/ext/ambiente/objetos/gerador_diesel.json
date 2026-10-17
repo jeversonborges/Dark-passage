@@ -1,0 +1,16 @@
+{
+ "w": 300,
+ "h": 238,
+ "anchor": [
+  94,
+  170
+ ],
+ "emissivo": "luz piloto",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Grupo gerador a diesel: motor de seis cilindros sobre base de aço, volante grande exposto,     gerador, radiador, escapamento enegrecido subindo e painel com luz de válvula. Pinga óleo.",
+ "kind": "gerador_diesel"
+}

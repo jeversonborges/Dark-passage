@@ -1,0 +1,17 @@
+{
+ "w": 138,
+ "h": 76,
+ "anchor": [
+  61,
+  38
+ ],
+ "emissivo": "tinta de válvula laranja (fraco)",
+ "uso": "todos os andares da Torre",
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "A marca da Congregação pintada no chão em tinta de válvula laranja que brilha fraco:     onda senoidal atravessando uma trombeta, com respingos, a lata virada e o pincel.",
+ "kind": "simbolo_portadora"
+}

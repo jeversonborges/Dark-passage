@@ -1,0 +1,17 @@
+{
+ "w": 130,
+ "h": 86,
+ "anchor": [
+  37,
+  62
+ ],
+ "emissivo": "válvulas laranja",
+ "uso": "todos os andares da Torre",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pequeno santuário da Congregação: rádio de válvula sobre um caixote coberto de pano,     as válvulas acesas, velas, fotos dos que \"foram sintonizados\", flores secas e fones     pendurados; a marca pintada no caixote.",
+ "kind": "receptor_votivo"
+}

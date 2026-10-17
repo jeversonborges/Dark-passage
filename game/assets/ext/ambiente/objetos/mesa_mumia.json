@@ -1,0 +1,17 @@
+{
+ "w": 268,
+ "h": 156,
+ "anchor": [
+  67,
+  116
+ ],
+ "emissivo": "fogo (lampião)",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Mesa de estudo da escavação com uma múmia deitada, metade desenfaixada, ferramentas, lupa, frascos, o caderno     de notas e o lampião pendurado em cima.",
+ "kind": "mesa_mumia"
+}

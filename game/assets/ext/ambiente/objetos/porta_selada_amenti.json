@@ -1,0 +1,18 @@
+{
+ "w": 824,
+ "h": 496,
+ "anchor": [
+  192,
+  398
+ ],
+ "emissivo": "esmeralda (selo de Thoth)",
+ "bioma": "amenti",
+ "lore": "a_porta_fecha_atras",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  3
+ ],
+ "descricao": "",
+ "kind": "porta_selada_amenti"
+}

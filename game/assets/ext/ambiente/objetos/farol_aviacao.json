@@ -1,0 +1,17 @@
+{
+ "w": 204,
+ "h": 144,
+ "anchor": [
+  34,
+  115
+ ],
+ "andar": 5,
+ "emissivo": "vermelho de aviação",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Luz vermelha de aviação num segmento da treliça do mastro: a mesma que ninguém     desligou e que pisca fora de ritmo. Conduíte e fita isolante descendo pela perna.",
+ "kind": "farol_aviacao"
+}

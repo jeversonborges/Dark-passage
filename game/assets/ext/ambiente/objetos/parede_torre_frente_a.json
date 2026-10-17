@@ -1,0 +1,16 @@
+{
+ "w": 106,
+ "h": 68,
+ "anchor": [
+  32,
+  49
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Meia-parede da frente: concreto quebrado na altura do joelho, ferragem retorcida e eletroduto rompido.",
+ "kind": "parede_torre_frente_a"
+}

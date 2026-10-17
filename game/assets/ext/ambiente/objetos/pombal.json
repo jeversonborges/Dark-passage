@@ -1,0 +1,16 @@
+{
+ "w": 404,
+ "h": 260,
+ "anchor": [
+  68,
+  223
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Pombal do Nilo: torre de tijolo de lama em tronco de cone caiada em faixas, cravejada de potes de barro     deitados (as casas das pombas) e de varas de pouso.",
+ "kind": "pombal"
+}

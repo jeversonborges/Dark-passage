@@ -1,0 +1,16 @@
+{
+ "w": 520,
+ "h": 292,
+ "anchor": [
+  193,
+  191
+ ],
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  9
+ ],
+ "descricao": "(girada: ao longo do eixo Y do mapa)",
+ "kind": "ponte_canal_y"
+}

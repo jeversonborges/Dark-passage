@@ -1,0 +1,19 @@
+{
+ "w": 322,
+ "h": 200,
+ "anchor": [
+  45,
+  174
+ ],
+ "emissivo": "esmeralda",
+ "bioma": "amenti",
+ "armadilha": "fogo_frio",
+ "quadro": "jato",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "armadilha_fogo"
+}

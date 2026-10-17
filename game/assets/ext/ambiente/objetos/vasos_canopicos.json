@@ -1,0 +1,16 @@
+{
+ "w": 118,
+ "h": 76,
+ "anchor": [
+  33,
+  56
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Os quatro vasos canópicos de alabastro com as tampas dos Filhos de Hórus (Imseti homem, Hapi babuíno,     Duamutef chacal, Qebehsenuef falcão), sobre a arca de madeira pintada.",
+ "kind": "vasos_canopicos"
+}

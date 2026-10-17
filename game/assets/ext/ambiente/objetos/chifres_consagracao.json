@@ -1,0 +1,16 @@
+{
+ "w": 326,
+ "h": 198,
+ "anchor": [
+  121,
+  133
+ ],
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "",
+ "kind": "chifres_consagracao"
+}

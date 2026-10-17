@@ -1,0 +1,19 @@
+{
+ "w": 192,
+ "h": 104,
+ "anchor": [
+  49,
+  77
+ ],
+ "emissivo": "válvula acesa",
+ "luz": "valvula",
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Bancada de radioamador: chassi de transmissor aberto cheio de válvulas e fios, ferro de solda no suporte, rolo     de estanho, lupa com lâmpada e o caderno de frequências cheio de rabiscos.",
+ "kind": "bancada_solda"
+}

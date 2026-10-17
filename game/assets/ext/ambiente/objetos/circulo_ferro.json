@@ -1,0 +1,15 @@
+{
+ "w": 480,
+ "h": 246,
+ "anchor": [
+  237,
+  124
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  7,
+  7
+ ],
+ "descricao": "Círculo de Ferro: anel de trilho de bonde cravado na areia (raio 3,5 tiles), dormentes e grampos.",
+ "kind": "circulo_ferro"
+}

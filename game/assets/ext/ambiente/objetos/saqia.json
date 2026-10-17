@@ -1,0 +1,16 @@
+{
+ "w": 380,
+ "h": 198,
+ "anchor": [
+  115,
+  123
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Saqia: a roda d'água de alcatruzes movida por um boi que anda em círculo; a engrenagem horizontal de madeira     gira a roda vertical cheia de potes de barro que sobem do canal e despejam na calha.",
+ "kind": "saqia"
+}

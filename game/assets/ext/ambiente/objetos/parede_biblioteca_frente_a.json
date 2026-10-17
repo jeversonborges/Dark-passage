@@ -1,0 +1,17 @@
+{
+ "w": 140,
+ "h": 88,
+ "anchor": [
+  47,
+  60
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Meia-parede da frente (~0,7 m): toco de cantaria quebrado e o pé da estante partida, com livros     escorrendo para dentro da sala; nunca tapa o personagem.",
+ "kind": "parede_biblioteca_frente_a"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 74,
+ "h": 60,
+ "anchor": [
+  24,
+  35
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "mato_seco_2"
+}

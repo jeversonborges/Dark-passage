@@ -1,0 +1,17 @@
+{
+ "w": 144,
+ "h": 92,
+ "anchor": [
+  38,
+  71
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Esmeril de pedal: rebolo de arenito num cavalete de madeira, bacia de água ferruginosa embaixo, facas esperando a vez.",
+ "kind": "pedra_amolar"
+}

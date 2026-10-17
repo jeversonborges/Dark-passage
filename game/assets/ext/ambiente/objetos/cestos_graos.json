@@ -1,0 +1,16 @@
+{
+ "w": 136,
+ "h": 86,
+ "anchor": [
+  52,
+  51
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Cestos de junco com grão (cevada e trigo emmer), um saco aberto, a medida de madeira e a pá.",
+ "kind": "cestos_graos"
+}

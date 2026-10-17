@@ -1,0 +1,17 @@
+{
+ "w": 202,
+ "h": 114,
+ "anchor": [
+  53,
+  86
+ ],
+ "lore": "anubis_do_santuario",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Anúbis, o chacal deitado sobre o santuário (como o da tumba de Tutancâmon): madeira com resina preta, orelhas     em pé, colar e faixas de ouro gasto; o santuário com cornija de cavetto e pilares djed e nós de Ísis.",
+ "kind": "estatua_anubis"
+}

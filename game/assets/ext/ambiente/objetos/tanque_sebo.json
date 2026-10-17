@@ -1,0 +1,18 @@
+{
+ "w": 322,
+ "h": 182,
+ "anchor": [
+  60,
+  149
+ ],
+ "emissivo": "brasa da fornalha",
+ "luz": "fogo",
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Tacho de derreter sebo: caldeirão de chapa rebitada sobre fornalha de tijolo com a boca em brasa,     sebo amarelo grosso por cima, escumadeira e chaminé.",
+ "kind": "tanque_sebo"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 348,
+ "h": 180,
+ "anchor": [
+  64,
+  169
+ ],
+ "emissivo": "tinta de válvula da marca (laranja fraco)",
+ "uso": "todos os andares da Torre",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Estandarte da Congregação da Portadora: lona suja pendurada numa travessa de antena,     com a marca (onda senoidal atravessando uma trombeta) em tinta de válvula que brilha fraco.     O mastro é um cano preso num balde de concreto cheio de cera.",
+ "kind": "estandarte_portadora"
+}

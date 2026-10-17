@@ -1,0 +1,15 @@
+{
+ "w": 208,
+ "h": 126,
+ "anchor": [
+  63,
+  93
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Estante de acumuladores de vidro: placas de chumbo à vista, ácido turvo, pontes de cobre     com crosta de sulfato e uma célula quebrada.",
+ "kind": "bateria_acumuladores"
+}

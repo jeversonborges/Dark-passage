@@ -1,0 +1,16 @@
+{
+ "w": 770,
+ "h": 470,
+ "anchor": [
+  181,
+  392
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "tamareira_2"
+}

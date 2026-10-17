@@ -1,0 +1,17 @@
+{
+ "w": 194,
+ "h": 132,
+ "anchor": [
+  31,
+  110
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Balança de gancho num tripé de vigas: mostrador de latão com ponteiro, pernil pendurado no prato e contrapeso de ferro.",
+ "kind": "balanca_gancho"
+}

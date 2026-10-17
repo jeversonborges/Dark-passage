@@ -1,0 +1,17 @@
+{
+ "w": 130,
+ "h": 82,
+ "anchor": [
+  33,
+  62
+ ],
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "parede_glifos_amenti_frente_b"
+}

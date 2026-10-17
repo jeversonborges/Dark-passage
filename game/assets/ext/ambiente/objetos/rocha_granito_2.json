@@ -1,0 +1,16 @@
+{
+ "w": 384,
+ "h": 240,
+ "anchor": [
+  180,
+  142
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  4
+ ],
+ "descricao": "Aglomerado grande de penedos de granito da catarata (borda sul), lisos de água e riscados de grafites antigos.",
+ "kind": "rocha_granito_2"
+}

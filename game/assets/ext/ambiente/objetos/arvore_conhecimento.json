@@ -1,0 +1,18 @@
+{
+ "w": 944,
+ "h": 572,
+ "anchor": [
+  263,
+  437
+ ],
+ "emissivo": "frutos do Amargo (verde)",
+ "bioma": "novo_eden",
+ "marco": "conhecimento",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "",
+ "kind": "arvore_conhecimento"
+}

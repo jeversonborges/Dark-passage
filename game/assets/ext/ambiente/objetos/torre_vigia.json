@@ -1,0 +1,15 @@
+{
+ "w": 694,
+ "h": 434,
+ "anchor": [
+  101,
+  387
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Torre de vigia de madeira e sucata com holofote.",
+ "kind": "torre_vigia"
+}

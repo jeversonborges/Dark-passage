@@ -1,0 +1,16 @@
+{
+ "w": 198,
+ "h": 116,
+ "anchor": [
+  78,
+  72
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Peneira de escavação: caixilho de madeira com tela, apoiado em cavaletes, o monte de areia peneirada embaixo e     os cacos separados numa bandeja.",
+ "kind": "peneira_escavacao"
+}

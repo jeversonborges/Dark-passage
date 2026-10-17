@@ -1,0 +1,18 @@
+{
+ "w": 730,
+ "h": 434,
+ "anchor": [
+  79,
+  396
+ ],
+ "andar": 5,
+ "emissivo": "vermelho de aviação",
+ "uso": "sobe para fora do quadro: desenhe no fundo do Topo",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "O último trecho da treliça do mastro, vermelho e branco descascado, subindo para fora     do quadro, com escada de marinheiro e gaiola, cabos coaxiais presos à perna e a luz     vermelha de aviação numa plataforma no alto.",
+ "kind": "mastro_topo"
+}

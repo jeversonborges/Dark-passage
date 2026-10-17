@@ -1,0 +1,16 @@
+{
+ "w": 536,
+ "h": 318,
+ "anchor": [
+  134,
+  246
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "oliveira"
+}

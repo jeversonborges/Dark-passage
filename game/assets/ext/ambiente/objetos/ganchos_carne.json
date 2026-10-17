@@ -1,0 +1,16 @@
+{
+ "w": 382,
+ "h": 234,
+ "anchor": [
+  91,
+  190
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  1
+ ],
+ "descricao": "Trilho de ganchos da câmara fria: duas meias carcaças de boi e um porco aberto, correntes, sangue no chão.",
+ "kind": "ganchos_carne"
+}

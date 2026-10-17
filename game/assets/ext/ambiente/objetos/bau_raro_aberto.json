@@ -1,0 +1,17 @@
+{
+ "w": 156,
+ "h": 96,
+ "anchor": [
+  36,
+  74
+ ],
+ "estado": "aberto",
+ "emissivo": "ouro",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "bau_raro_aberto"
+}

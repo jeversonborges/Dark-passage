@@ -1,0 +1,16 @@
+{
+ "w": 142,
+ "h": 96,
+ "anchor": [
+  38,
+  66
+ ],
+ "bioma": "biblioteca",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Toco da pilastra da frente: base moldurada inteira e o fuste quebrado, com lascas no chão.",
+ "kind": "parede_biblioteca_frente_canto"
+}

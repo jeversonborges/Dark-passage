@@ -1,0 +1,17 @@
+{
+ "w": 146,
+ "h": 78,
+ "anchor": [
+  74,
+  52
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixas de ossuário empilhadas, com crânios pintados à moda velha (nome, data e uma coroa de folhas na testa),     uma tampa aberta mostrando os ossos longos arrumados.",
+ "kind": "ossuario_caixa"
+}

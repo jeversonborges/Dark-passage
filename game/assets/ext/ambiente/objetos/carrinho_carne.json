@@ -1,0 +1,16 @@
+{
+ "w": 152,
+ "h": 122,
+ "anchor": [
+  56,
+  81
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Carroça de ferro do frigorífico: caçamba rebitada cheia de miúdos e pés de boi, rodas de ferro, alça torta.",
+ "kind": "carrinho_carne"
+}

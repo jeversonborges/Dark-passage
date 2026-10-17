@@ -1,0 +1,15 @@
+{
+ "w": 386,
+ "h": 206,
+ "anchor": [
+  175,
+  127
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Monte de areia redondo, com face de queda e ondulação de vento.",
+ "kind": "duna_areia"
+}

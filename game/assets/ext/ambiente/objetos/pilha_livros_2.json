@@ -1,0 +1,16 @@
+{
+ "w": 116,
+ "h": 70,
+ "anchor": [
+  36,
+  32
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilha alta tombada pela metade, livros escorregando para o chão e um aberto por cima.",
+ "kind": "pilha_livros_2"
+}

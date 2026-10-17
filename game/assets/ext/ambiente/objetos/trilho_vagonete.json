@@ -1,0 +1,17 @@
+{
+ "w": 108,
+ "h": 62,
+ "anchor": [
+  50,
+  33
+ ],
+ "bioma": "egito",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Trilho de vagonete Decauville da escavação (bitola estreita) sobre dormentes de madeira na areia. Repete ao     longo do eixo X.",
+ "kind": "trilho_vagonete"
+}

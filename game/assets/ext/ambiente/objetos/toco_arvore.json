@@ -1,0 +1,15 @@
+{
+ "w": 106,
+ "h": 94,
+ "anchor": [
+  36,
+  45
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "toco_arvore"
+}

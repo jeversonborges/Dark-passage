@@ -1,0 +1,15 @@
+{
+ "w": 316,
+ "h": 208,
+ "anchor": [
+  35,
+  187
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilar de canto de concreto: faixa verde, prumada de cabos e faixas zebradas de perigo na base.",
+ "kind": "parede_torre_canto"
+}

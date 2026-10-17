@@ -1,0 +1,17 @@
+{
+ "w": 902,
+ "h": 570,
+ "anchor": [
+  160,
+  488
+ ],
+ "emissivo": "fogo",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  4,
+  6
+ ],
+ "descricao": "",
+ "kind": "torre_portao"
+}

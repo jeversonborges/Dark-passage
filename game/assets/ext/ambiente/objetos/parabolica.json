@@ -1,0 +1,17 @@
+{
+ "w": 388,
+ "h": 258,
+ "anchor": [
+  107,
+  200
+ ],
+ "andar": 4,
+ "emissivo": null,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Parabólica grande e enferrujada na base giratória de concreto e aço, com o     alimentador sobre três braços, painéis faltando, cabos descendo e fita do culto.",
+ "kind": "parabolica"
+}

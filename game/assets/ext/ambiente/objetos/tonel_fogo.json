@@ -1,0 +1,17 @@
+{
+ "w": 144,
+ "h": 94,
+ "anchor": [
+  34,
+  74
+ ],
+ "emissivo": "fogo",
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "tonel_fogo"
+}

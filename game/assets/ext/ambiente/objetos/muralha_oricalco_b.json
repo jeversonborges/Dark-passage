@@ -1,0 +1,17 @@
+{
+ "w": 220,
+ "h": 144,
+ "anchor": [
+  38,
+  121
+ ],
+ "bioma": "atlantida",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "",
+ "kind": "muralha_oricalco_b"
+}

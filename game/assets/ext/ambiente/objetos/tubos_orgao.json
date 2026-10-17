@@ -1,0 +1,15 @@
+{
+ "w": 410,
+ "h": 274,
+ "anchor": [
+  58,
+  237
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Órgão da Câmara: tubos de latão tortos sobre caixa de madeira, alguns arrancados.",
+ "kind": "tubos_orgao"
+}

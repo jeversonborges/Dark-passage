@@ -1,0 +1,17 @@
+{
+ "w": 450,
+ "h": 294,
+ "anchor": [
+  172,
+  198
+ ],
+ "lore": "vale_dos_reis",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  2
+ ],
+ "descricao": "Entrada de tumba do Vale dos Reis já registrada pela escavação: grade de ferro com cadeado, tábuas de escora,     o número da tumba pintado em ocre e cestos de entulho.",
+ "kind": "entrada_tumba_2"
+}

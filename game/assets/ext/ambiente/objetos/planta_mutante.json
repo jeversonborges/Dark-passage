@@ -1,0 +1,16 @@
+{
+ "w": 104,
+ "h": 64,
+ "anchor": [
+  40,
+  50
+ ],
+ "emissivo": "pústulas",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Planta mutante carnuda com pústulas verdes brilhantes.",
+ "kind": "planta_mutante"
+}

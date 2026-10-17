@@ -1,0 +1,17 @@
+{
+ "w": 182,
+ "h": 116,
+ "anchor": [
+  41,
+  95
+ ],
+ "andar": 5,
+ "emissivo": "válvulas laranja do receptor",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cultista morto ajoelhado, rezando para a fenda: casaco de borracha, fones aparafusados     no crânio, grade de alto-falante no lugar da boca, antenas de arame saindo da gola;     o fio dos fones vai até um receptor de válvula aceso no chão à sua frente.",
+ "kind": "sintonizado_ajoelhado"
+}

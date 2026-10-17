@@ -1,0 +1,15 @@
+{
+ "w": 474,
+ "h": 284,
+ "anchor": [
+  132,
+  211
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Barraco de sucata: chapas de zinco, portas velhas, placa de trânsito.",
+ "kind": "barraco_sucata"
+}

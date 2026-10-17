@@ -1,0 +1,16 @@
+{
+ "w": 156,
+ "h": 106,
+ "anchor": [
+  34,
+  77
+ ],
+ "andar": 3,
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cadeira giratória de operador com um operador morto, ainda de fones: cabeça caída no     peito, um braço pendurado, o fio dos fones descendo até o chão. Assento rasgado.",
+ "kind": "cadeira_operador"
+}

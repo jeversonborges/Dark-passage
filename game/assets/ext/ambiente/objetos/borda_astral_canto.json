@@ -1,0 +1,17 @@
+{
+ "w": 146,
+ "h": 96,
+ "anchor": [
+  32,
+  77
+ ],
+ "emissivo": "azul de estrela",
+ "bioma": "amenti",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "borda_astral_canto"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 466,
+ "h": 242,
+ "anchor": [
+  224,
+  127
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Vala aberta pela maré de areia, com soldados da Grande Batalha aparecendo.",
+ "kind": "vala_aberta"
+}

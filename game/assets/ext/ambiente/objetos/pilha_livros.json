@@ -1,0 +1,16 @@
+{
+ "w": 106,
+ "h": 66,
+ "anchor": [
+  25,
+  44
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Duas pilhas de livros no assoalho, à espera de catalogação, com uma ficha enfiada.",
+ "kind": "pilha_livros"
+}

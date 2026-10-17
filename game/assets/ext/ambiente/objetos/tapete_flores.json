@@ -1,0 +1,17 @@
+{
+ "w": 176,
+ "h": 98,
+ "anchor": [
+  90,
+  54
+ ],
+ "chao": true,
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "tapete_flores"
+}

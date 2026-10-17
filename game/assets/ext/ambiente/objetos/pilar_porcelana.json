@@ -1,0 +1,15 @@
+{
+ "w": 386,
+ "h": 252,
+ "anchor": [
+  47,
+  225
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "",
+ "kind": "pilar_porcelana"
+}

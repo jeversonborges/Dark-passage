@@ -1,0 +1,17 @@
+{
+ "w": 326,
+ "h": 204,
+ "anchor": [
+  62,
+  172
+ ],
+ "emissivo": "esmeralda (fogo frio)",
+ "bioma": "amenti",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "braseiro_frio"
+}

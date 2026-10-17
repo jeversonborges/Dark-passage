@@ -1,0 +1,16 @@
+{
+ "w": 170,
+ "h": 104,
+ "anchor": [
+  48,
+  77
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Vagonete basculante de ferro cheio de areia e lascas, nas rodinhas do trilho estreito.",
+ "kind": "vagonete"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 152,
+ "h": 98,
+ "anchor": [
+  33,
+  80
+ ],
+ "luz": "quente",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "braseiro_ferro"
+}

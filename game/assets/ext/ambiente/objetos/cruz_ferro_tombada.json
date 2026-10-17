@@ -1,0 +1,17 @@
+{
+ "w": 128,
+ "h": 90,
+ "anchor": [
+  47,
+  65
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cruz de túmulo de ferro batido com volutas e a plaquinha esmaltada do nome, tombada e meio torta sobre um monte de     terra, uma guirlanda de arame com flores secas ainda presa.",
+ "kind": "cruz_ferro_tombada"
+}

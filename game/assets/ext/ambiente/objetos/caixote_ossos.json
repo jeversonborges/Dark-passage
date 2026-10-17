@@ -1,0 +1,17 @@
+{
+ "w": 112,
+ "h": 72,
+ "anchor": [
+  40,
+  51
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixote de ripas cheio de ossos de tutano para o caldo do cerco, uma caveira de chifres por cima e o carimbo do Carniça.",
+ "kind": "caixote_ossos"
+}

@@ -1,0 +1,16 @@
+{
+ "w": 218,
+ "h": 134,
+ "anchor": [
+  65,
+  96
+ ],
+ "bioma": "atlantida",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "mirto"
+}

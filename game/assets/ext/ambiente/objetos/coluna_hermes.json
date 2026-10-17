@@ -1,0 +1,17 @@
+{
+ "w": 956,
+ "h": 626,
+ "anchor": [
+  135,
+  555
+ ],
+ "emissivo": "esmeralda (glifos e cristal)",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "",
+ "kind": "coluna_hermes"
+}

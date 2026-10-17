@@ -1,0 +1,17 @@
+{
+ "w": 524,
+ "h": 278,
+ "anchor": [
+  226,
+  179
+ ],
+ "lore": "mastaba_de_sacara",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Mastaba de Sacará: banco de calcário em talude sobre o poço funerário, com a falsa-porta de nichos na face     leste, a mesa de oferendas (hotep) na frente, relevos de portadores de oferendas e o poço aberto pela escavação.",
+ "kind": "mastaba"
+}

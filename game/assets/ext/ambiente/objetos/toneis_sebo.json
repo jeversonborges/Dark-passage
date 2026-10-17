@@ -1,0 +1,16 @@
+{
+ "w": 204,
+ "h": 160,
+ "anchor": [
+  47,
+  102
+ ],
+ "bioma": "matadouro",
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Tonéis de sebo e de banha: madeira com aros, sebo derramado endurecido, um deitado e aberto.",
+ "kind": "toneis_sebo"
+}

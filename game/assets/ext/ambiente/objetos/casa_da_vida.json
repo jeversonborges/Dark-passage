@@ -1,0 +1,17 @@
+{
+ "w": 1122,
+ "h": 562,
+ "anchor": [
+  366,
+  333
+ ],
+ "lore": "casa_da_vida",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  8
+ ],
+ "descricao": "A Casa da Vida, biblioteca do templo, meio enterrada: pórtico de colunas papiriformes de botão fechado, o teto     caído deixando ver por dentro as paredes de nichos cheias de rolos de papiro, mesas de escriba e o íbis de Thoth     tombado; a duna engoliu a ala direita.",
+ "kind": "casa_da_vida"
+}

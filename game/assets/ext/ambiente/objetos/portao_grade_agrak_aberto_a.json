@@ -1,0 +1,16 @@
+{
+ "w": 388,
+ "h": 246,
+ "anchor": [
+  63,
+  211
+ ],
+ "categoria": "dungeon",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Mesmo portão com a grade erguida (aberto).",
+ "kind": "portao_grade_agrak_aberto_a"
+}

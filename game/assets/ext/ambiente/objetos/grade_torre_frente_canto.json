@@ -1,0 +1,15 @@
+{
+ "w": 130,
+ "h": 82,
+ "anchor": [
+  26,
+  68
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste do guarda-corpo na quina da frente, corrimãos tortos chegando dos dois lados.",
+ "kind": "grade_torre_frente_canto"
+}

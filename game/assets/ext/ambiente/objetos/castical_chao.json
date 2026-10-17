@@ -1,0 +1,16 @@
+{
+ "w": 166,
+ "h": 114,
+ "anchor": [
+  18,
+  102
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Castiçal de chão de ferro, de três pés, com três velas acesas e cera escorrida até a base.",
+ "kind": "castical_chao"
+}

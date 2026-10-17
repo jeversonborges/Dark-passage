@@ -1,0 +1,18 @@
+{
+ "w": 520,
+ "h": 248,
+ "anchor": [
+  204,
+  146
+ ],
+ "emissivo": "esmeralda",
+ "bioma": "amenti",
+ "sobreposicao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  7,
+  7
+ ],
+ "descricao": "",
+ "kind": "vento_vazio"
+}

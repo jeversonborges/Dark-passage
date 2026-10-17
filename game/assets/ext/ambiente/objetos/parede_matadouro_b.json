@@ -1,0 +1,17 @@
+{
+ "w": 304,
+ "h": 204,
+ "anchor": [
+  29,
+  184
+ ],
+ "bioma": "matadouro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Parede de trás do Porão: azulejo branco rachado e encardido de sangue até meia altura, faixa cor de boi,     tijolo de fuligem acima, viga I rebitada e canos.",
+ "kind": "parede_matadouro_b"
+}

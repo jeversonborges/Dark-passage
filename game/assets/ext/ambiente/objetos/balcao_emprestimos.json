@@ -1,0 +1,16 @@
+{
+ "w": 234,
+ "h": 152,
+ "anchor": [
+  73,
+  113
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Balcão de empréstimos de Eulália: tampo de imbuia com frente almofadada, livro-registro aberto, carimbo e     almofada de tinta, porta-fichas, candeeiro de vidro aceso e a placa SILÊNCIO.",
+ "kind": "balcao_emprestimos"
+}

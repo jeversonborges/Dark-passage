@@ -1,0 +1,17 @@
+{
+ "w": 378,
+ "h": 194,
+ "anchor": [
+  111,
+  114
+ ],
+ "lore": "salao_hipostilo",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  3
+ ],
+ "descricao": "Coluna tombada: os tambores rolaram um a um pela areia e o capitel de papiro ficou de lado, com o ábaco.",
+ "kind": "coluna_tombada"
+}

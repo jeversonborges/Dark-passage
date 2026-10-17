@@ -1,0 +1,15 @@
+{
+ "w": 842,
+ "h": 354,
+ "anchor": [
+  365,
+  203
+ ],
+ "categoria": "limites",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "Ossada de criatura gigante meio enterrada (Mar de Dunas).",
+ "kind": "ossada_gigante"
+}

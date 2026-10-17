@@ -1,0 +1,16 @@
+{
+ "w": 1156,
+ "h": 688,
+ "anchor": [
+  223,
+  579
+ ],
+ "bioma": "egito",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Tamareira da margem do Nilo: tronco curvo coberto das bases das folhas velhas (escamas em diamante), coroa     cheia de folhas-pena com folíolos em V, folhas secas penduradas em saia e cachos de tâmaras alaranjadas.",
+ "kind": "tamareira_nilo_3"
+}

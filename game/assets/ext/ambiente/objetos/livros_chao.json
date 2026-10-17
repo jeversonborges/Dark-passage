@@ -1,0 +1,17 @@
+{
+ "w": 188,
+ "h": 104,
+ "anchor": [
+  92,
+  52
+ ],
+ "bioma": "biblioteca",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Decalque: livros caídos, páginas soltas e fichas espalhadas no assoalho.",
+ "kind": "livros_chao"
+}

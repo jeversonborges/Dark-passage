@@ -1,0 +1,15 @@
+{
+ "w": 416,
+ "h": 246,
+ "anchor": [
+  142,
+  170
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Tenda de lona remendada do Acampamento da Vela.",
+ "kind": "tenda_vigilia"
+}

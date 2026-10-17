@@ -1,0 +1,16 @@
+{
+ "w": 280,
+ "h": 162,
+ "anchor": [
+  133,
+  91
+ ],
+ "bioma": "sao_lazaro",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "O quarto da Nina: uma janela de 5º andar na altura da areia, com a veneziana solta, um pano pendurado de     cortina, a lata de fogo quase apagada na soleira (brasa ainda viva) e um cobertor lá dentro no escuro.",
+ "kind": "janela_nina"
+}

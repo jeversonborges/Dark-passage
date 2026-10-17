@@ -1,0 +1,15 @@
+{
+ "w": 608,
+ "h": 362,
+ "anchor": [
+  92,
+  333
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Torre de ferro com ninho gigante (algo grande mora aqui).",
+ "kind": "poste_ninho_gigante"
+}

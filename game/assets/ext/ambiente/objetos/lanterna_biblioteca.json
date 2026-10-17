@@ -1,0 +1,16 @@
+{
+ "w": 510,
+ "h": 308,
+ "anchor": [
+  196,
+  206
+ ],
+ "bioma": "sao_lazaro",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "A lanterna da cúpula da Biblioteca Pública, a única coisa dela que sai da areia: oito colunetas de bronze     com janelinhas de vidro (uma arrombada, por onde desce a escada de corda), domo de cobre verde com a esfera     armilar no topo e o anel de cantaria da cúpula aparecendo na duna. Lá de dentro sobe luz de vela.",
+ "kind": "lanterna_biblioteca"
+}

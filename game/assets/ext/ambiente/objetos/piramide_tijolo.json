@@ -1,0 +1,19 @@
+{
+ "w": 1310,
+ "h": 736,
+ "anchor": [
+  443,
+  512
+ ],
+ "emissivo": "fogo dos braseiros",
+ "lore": "porta_do_labirinto_de_hawara",
+ "entrada_dungeon": "labirinto_de_hawara",
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  12,
+  12
+ ],
+ "descricao": "A pirâmide de tijolo de Amenemés III em Hawara: tijolo de lama erodido num monte, restos do revestimento de     calcário na base e, na face da frente, a porta escura com batente de pedra que desce ao Labirinto (dungeon).",
+ "kind": "piramide_tijolo"
+}

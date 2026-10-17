@@ -1,0 +1,17 @@
+{
+ "w": 248,
+ "h": 166,
+ "anchor": [
+  23,
+  138
+ ],
+ "nota": "fica na cabeceira da ponte de corda, do lado da ilha",
+ "bioma": "deserto_absinto",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Sino de chamar a ponte: forca de troncos com um sino de bronze rachado (de capela afogada), a corda de puxar     amarrada no poste e, no pé, o sarilho de madeira que arria a ponte de corda, com o cabo enrolado e a manivela.",
+ "kind": "sino_ponte"
+}

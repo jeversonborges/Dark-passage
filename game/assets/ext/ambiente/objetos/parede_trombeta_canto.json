@@ -1,0 +1,15 @@
+{
+ "w": 342,
+ "h": 226,
+ "anchor": [
+  35,
+  205
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilar de canto da Câmara, com cinta de latão.",
+ "kind": "parede_trombeta_canto"
+}

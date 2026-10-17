@@ -1,0 +1,16 @@
+{
+ "w": 146,
+ "h": 92,
+ "anchor": [
+  60,
+  54
+ ],
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Aglomerado de jarros de barro do Nilo (água, cerveja, grão): ânforas de fundo pontudo encostadas, potes com     tampa de barro, um quebrado.",
+ "kind": "jarros"
+}

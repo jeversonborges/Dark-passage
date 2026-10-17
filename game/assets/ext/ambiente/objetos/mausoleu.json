@@ -1,0 +1,15 @@
+{
+ "w": 432,
+ "h": 272,
+ "anchor": [
+  106,
+  214
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  3
+ ],
+ "descricao": "Pequeno mausoléu de família com porta de ferro e anjo de pedra sem cabeça.",
+ "kind": "mausoleu"
+}

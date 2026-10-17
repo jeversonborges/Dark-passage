@@ -1,0 +1,17 @@
+{
+ "w": 190,
+ "h": 106,
+ "anchor": [
+  84,
+  60
+ ],
+ "emissivo": "lampião",
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Poste a gás de São Lázaro saindo da areia como mastro de navio afundado.",
+ "kind": "poste_mastro"
+}

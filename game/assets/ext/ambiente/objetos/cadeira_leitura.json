@@ -1,0 +1,16 @@
+{
+ "w": 138,
+ "h": 90,
+ "anchor": [
+  26,
+  74
+ ],
+ "bioma": "biblioteca",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cadeira de espaldar da sala de leitura, em carvalho, assento de veludo gasto até o pano.",
+ "kind": "cadeira_leitura"
+}

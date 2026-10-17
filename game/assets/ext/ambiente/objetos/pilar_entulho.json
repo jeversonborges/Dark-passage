@@ -1,0 +1,15 @@
+{
+ "w": 208,
+ "h": 136,
+ "anchor": [
+  52,
+  107
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Pilar baixo de entulho (cobertura contra o Bote dos leões): blocos de concreto, ferragem e sacos.",
+ "kind": "pilar_entulho"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 274,
+ "h": 166,
+ "anchor": [
+  47,
+  138
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Púlpito dos Arautos no adro, de pedra com estandarte e livro acorrentado.",
+ "kind": "pulpito_externo"
+}

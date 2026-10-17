@@ -1,0 +1,17 @@
+{
+ "w": 464,
+ "h": 300,
+ "anchor": [
+  65,
+  262
+ ],
+ "bioma": "atlantida",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "",
+ "kind": "colunata_a"
+}

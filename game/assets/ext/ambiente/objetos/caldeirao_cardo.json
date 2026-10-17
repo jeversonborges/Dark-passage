@@ -1,0 +1,17 @@
+{
+ "w": 156,
+ "h": 96,
+ "anchor": [
+  47,
+  68
+ ],
+ "emissivo": "caldo roxo",
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Caldeirão com caldo de cardo roxo fervendo (alquimia da Vigília).",
+ "kind": "caldeirao_cardo"
+}

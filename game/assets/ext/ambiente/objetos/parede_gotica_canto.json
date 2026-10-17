@@ -1,0 +1,15 @@
+{
+ "w": 370,
+ "h": 242,
+ "anchor": [
+  51,
+  213
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Pilar de canto em cantaria, com pináculo baixo.",
+ "kind": "parede_gotica_canto"
+}

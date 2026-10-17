@@ -1,0 +1,17 @@
+{
+ "w": 294,
+ "h": 200,
+ "anchor": [
+  31,
+  182
+ ],
+ "emissivo": "marca da Congregação e velas",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Treliça com isolador de porcelana, chapa com a marca da Congregação amarrada com arame e     fitas de pano, velas no rodapé.",
+ "kind": "grade_torre_v2_b"
+}

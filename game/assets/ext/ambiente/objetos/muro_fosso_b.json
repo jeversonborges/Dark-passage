@@ -1,0 +1,16 @@
+{
+ "w": 348,
+ "h": 222,
+ "anchor": [
+  36,
+  205
+ ],
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Muro do fosso (3 m, a mureta da arquibancada de baixo): concreto com faixa de propaganda desbotada,     estacas e arame farpado no topo.",
+ "kind": "muro_fosso_b"
+}

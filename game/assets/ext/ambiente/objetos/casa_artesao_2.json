@@ -1,0 +1,16 @@
+{
+ "w": 482,
+ "h": 256,
+ "anchor": [
+  156,
+  185
+ ],
+ "bioma": "egito",
+ "categoria": "predios",
+ "footprint_tiles": [
+  3,
+  4
+ ],
+ "descricao": "Casa da Vila dos Artesãos (variante) com o teto de vigas de palmeira meio desabado.",
+ "kind": "casa_artesao_2"
+}

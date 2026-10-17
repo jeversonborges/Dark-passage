@@ -1,0 +1,17 @@
+{
+ "w": 114,
+ "h": 68,
+ "anchor": [
+  38,
+  48
+ ],
+ "bioma": "matadouro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Meia-parede da frente (~0,6 m): tijolo quebrado, azulejo rachado na face, cano rompido e entulho; nunca tapa o personagem.",
+ "kind": "parede_matadouro_frente_a"
+}

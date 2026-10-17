@@ -1,0 +1,17 @@
+{
+ "w": 92,
+ "h": 54,
+ "anchor": [
+  42,
+  29
+ ],
+ "nota": "segmento contínuo: encaixe lado a lado ao longo do eixo",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Trilhos do bonde da linha 7 (segmento de 1 tile, enterrado na cinza).",
+ "kind": "trilho_bonde_a"
+}

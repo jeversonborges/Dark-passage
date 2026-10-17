@@ -1,0 +1,15 @@
+{
+ "w": 136,
+ "h": 84,
+ "anchor": [
+  36,
+  66
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "arbusto_seco_2"
+}

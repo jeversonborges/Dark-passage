@@ -1,0 +1,15 @@
+{
+ "w": 94,
+ "h": 56,
+ "anchor": [
+  35,
+  36
+ ],
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Tufo de capim seco (espalhe vários pelo mapa).",
+ "kind": "mato_seco"
+}

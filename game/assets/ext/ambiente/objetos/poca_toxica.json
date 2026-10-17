@@ -1,0 +1,16 @@
+{
+ "w": 72,
+ "h": 52,
+ "anchor": [
+  44,
+  29
+ ],
+ "emissivo": "verde tóxico",
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "poca_toxica"
+}

@@ -1,0 +1,17 @@
+{
+ "w": 376,
+ "h": 230,
+ "anchor": [
+  71,
+  194
+ ],
+ "emissivo": "fogo (lampião)",
+ "bioma": "egito",
+ "categoria": "props",
+ "footprint_tiles": [
+  3,
+  2
+ ],
+ "descricao": "Andaime de varas amarradas da escavação, dois níveis de tábuas, escada e lampião pendurado.",
+ "kind": "andaime"
+}

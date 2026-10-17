@@ -1,0 +1,15 @@
+{
+ "w": 64,
+ "h": 32,
+ "anchor": [
+  32,
+  16
+ ],
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "kind": "sujeira_rodape_b",
+ "descricao": "Sujeira de rodapé no pé da parede de trás da cripta (chao=1)."
+}

@@ -1,0 +1,17 @@
+{
+ "w": 308,
+ "h": 204,
+ "anchor": [
+  34,
+  184
+ ],
+ "bioma": "matadouro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Variante: pilastra de chapa rebitada, quadro de ferramentas de desossa (facas, cutelo, serrote) e pano sujo.",
+ "kind": "parede_matadouro_v3_a"
+}

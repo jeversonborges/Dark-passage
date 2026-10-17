@@ -1,0 +1,17 @@
+{
+ "w": 898,
+ "h": 588,
+ "anchor": [
+  122,
+  522
+ ],
+ "emissivo": "esmeralda (a Redoma)",
+ "bioma": "atlantida",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "",
+ "kind": "borda_domo"
+}

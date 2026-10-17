@@ -1,0 +1,17 @@
+{
+ "w": 608,
+ "h": 372,
+ "anchor": [
+  187,
+  274
+ ],
+ "chefe": 3,
+ "emissivo": "luz sagrada na campânula",
+ "categoria": "chefes",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "Chefe 3: a Trombeta Calada, enorme trombeta de ferro e porcelana sobre     altar, presa por correntes, com halo de ferro partido.",
+ "kind": "arena_trombeta"
+}

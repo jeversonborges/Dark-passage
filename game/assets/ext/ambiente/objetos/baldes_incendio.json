@@ -1,0 +1,17 @@
+{
+ "w": 170,
+ "h": 124,
+ "anchor": [
+  38,
+  88
+ ],
+ "bioma": "torre",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Suporte de baldes de incêndio do mirante: quatro baldes cônicos vermelhos (um caído), areia derramada, a pá e o     machado de incêndio na placa, tudo descascado e com cera de vela.",
+ "kind": "baldes_incendio"
+}

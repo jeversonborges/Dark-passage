@@ -1,0 +1,17 @@
+{
+ "w": 108,
+ "h": 58,
+ "anchor": [
+  65,
+  32
+ ],
+ "bioma": "matadouro",
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Rastro de sangue arrastado (decalque): faixa larga que afina, com marcas de dedos.",
+ "kind": "poca_abate_2"
+}

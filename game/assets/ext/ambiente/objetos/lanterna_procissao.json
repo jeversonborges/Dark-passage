@@ -1,0 +1,16 @@
+{
+ "w": 198,
+ "h": 130,
+ "anchor": [
+  8,
+  118
+ ],
+ "luz": "quente",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "lanterna_procissao"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 180,
+ "h": 108,
+ "anchor": [
+  48,
+  79
+ ],
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Carrinho de mão de sucata do Tobias, cheio de quinquilharias.",
+ "kind": "carrinho_tobias"
+}

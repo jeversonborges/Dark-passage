@@ -1,0 +1,17 @@
+{
+ "w": 594,
+ "h": 302,
+ "anchor": [
+  196,
+  196
+ ],
+ "bioma": "atlantida",
+ "lore": "fontes_quente_e_fria",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  4
+ ],
+ "descricao": "",
+ "kind": "fontes_gemeas"
+}

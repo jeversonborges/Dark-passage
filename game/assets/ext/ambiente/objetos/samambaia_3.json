@@ -1,0 +1,16 @@
+{
+ "w": 150,
+ "h": 110,
+ "anchor": [
+  57,
+  75
+ ],
+ "bioma": "novo_eden",
+ "categoria": "vegetacao",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "",
+ "kind": "samambaia_3"
+}

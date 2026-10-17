@@ -1,0 +1,16 @@
+{
+ "w": 244,
+ "h": 150,
+ "anchor": [
+  61,
+  116
+ ],
+ "emissivo": "olhos verdes no escuro",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  2
+ ],
+ "descricao": "Jaula de sucata do Portão dos Leões: chapas e barras soldadas, palha e ossos no chão.",
+ "kind": "jaula_leao"
+}

@@ -1,0 +1,15 @@
+{
+ "w": 726,
+ "h": 448,
+ "anchor": [
+  106,
+  411
+ ],
+ "categoria": "predios",
+ "footprint_tiles": [
+  5,
+  5
+ ],
+ "descricao": "Moinho de vento de ferro parado, com pás rasgadas.",
+ "kind": "moinho_ruina"
+}
