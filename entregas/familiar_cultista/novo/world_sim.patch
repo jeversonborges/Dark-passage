@@ -1,0 +1,34 @@
+--- /mnt/project-files/game/scripts/sim/world_sim.gd	2026-10-17 11:32:25.814097000 +0000
++++ novo/world_sim.gd	2026-10-17 11:30:03.678405000 +0000
+@@ -117,7 +117,6 @@
+ 	if mapa.get("id", "") == "area_inicial": _ajustar_spawns_novato()
+ 	for s in mapa.get("spawns", []): _criar_spawn(s)
+ 	if mapa.has("chefe"): chefe = ChefeCtl.new(self, mapa["chefe"])
+-	elif mapa.has("agrak"): chefe = AgrakCtl.new(self)   # O Agrak (evento PvP): entregas/agrak
+ 	if mapa.has("hermon"): hermon = HermonCtl.new(self, mapa["hermon"])
+ 	emitir("mapa", {"id": id})
+ 
+@@ -776,6 +775,7 @@
+ 	if op.has("cura"):
+ 		curar(alvo, op["cura"], atk); return {}
+ 	if alvo.tipo == "jogador" and atk.id != alvo.id: alvo.aux["ultimo_agressor"] = atk.dono if atk.tipo == "invocacao" else atk.id   # quem bateu no dono (familiar, 0.8.9)
++	if alvo.aux.get("familiar", false): alvo.aux["ultimo_agressor"] = atk.id   # quem bateu no familiar (0.9.3)
+ 	var r := Regras.golpe(atk, alvo, op, rng)
+ 	atk.em_combate_t = 0.0; alvo.em_combate_t = 0.0
+ 	if r["errou"]:
+@@ -816,6 +816,7 @@
+ 	if atk.classe == "demonio" and atk.nivel >= 12 and atk.frac_hp() < 0.3: rv += 0.1   # passiva Banquete
+ 	if atk.classe == "demonio" and atk.frac_hp() < 0.3 and atk.nivel >= 12: rv += 0.1
+ 	if rv > 0.0 and dano > 0: curar(atk, dano * rv, atk, true)
++	if atk.tipo == "jogador" and dano > 0: Familiar.ao_dono_bater(self, atk, dano)   # 10% do dano do Cultista cura o familiar (0.9.3)
+ 	# postura
+ 	var post: float = float(op.get("postura", atk.postura_arma if atk.tipo == "jogador" else 10.0))
+ 	if alvo.aux.get("agarrando", false): post *= 2.0
+@@ -845,6 +846,7 @@
+ 	alvo.em_combate_t = 0.0
+ 	emitir("dano", {"id": alvo.id, "de": atk.id if atk else -1, "valor": v, "estilo": estilo if alvo.tipo != "jogador" or estilo != "normal" else "jogador_recebe",
+ 		"elem": elem, "hp": alvo.hp, "hp_max": alvo.hp_max})
++	if atk != null and atk.tipo == "jogador": Familiar.ao_dono_bater(self, atk, v)   # dano por tempo do Cultista também cura o familiar (0.9.3)
+ 	if alvo.tipo == "jogador": Jogador.ao_ser_atingido(self, alvo, atk, v, {})
+ 	if alvo.hp <= 0.0: matar(alvo, atk)
+ 

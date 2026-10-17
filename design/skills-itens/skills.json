@@ -444,7 +444,9 @@
     "familiar demoníaco permanente que anda com o Cultista",
     "ataca quem bater no mestre; nunca puxa briga sozinho",
     "racial: não ocupa slot de skill nem tecla",
-    "invulnerável: não recebe dano e não morre",
+    "muito resistente (3x vida e defesa) e cura 10% do dano que o mestre causa",
+    "se morrer, volta sozinho em 30 s",
+    "barra do pet: Atacar, Proteger, Teleportar, Modo agressivo, Modo passivo",
     "é dano (DPS): todas as formas batem em área",
     "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16), Líder dos Demônios (60)"
    ],
