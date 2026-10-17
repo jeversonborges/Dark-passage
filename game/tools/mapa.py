@@ -11,7 +11,7 @@ Formato de saída (linhas indexadas por y, um caractere por x):
   props        [{k, x, y, chao?, luz?}]   k = nome do objeto do kit (já com _a/_b)
   objetos      baús, interativos, portais (lidos pelo servidor)
 """
-import json, math, os, random
+import json, math, os, random, zlib
 
 G = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = f"{G}/data/mapas"
@@ -254,7 +254,7 @@ class Andar:
         s.blk = [[True] * w for _ in range(h)]
         s.props, s.luzes, s.objetos, s.spawns, s.npcs = [], [], [], [], []
         s.zona = zona
-        s.rng = random.Random(hash(id) & 0xffff)
+        s.rng = random.Random(zlib.crc32(id.encode()) & 0xffff)   # crc32: hash() de str muda a cada execução e os mapas das criptas saíam diferentes
         s.extra_blk = set()
 
     def sala(s, x0, y0, x1, y1, piso=None):

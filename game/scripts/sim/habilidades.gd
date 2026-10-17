@@ -215,8 +215,11 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 		# ---------------------------------------------------------- invocações
 		"servo_carne", "torreta_sentinela":
 			var tipo_inv: String = h["invoca"]
-			for o in sim.ents.values():
-				if o.tipo == "invocacao" and o.dono == e.id and o.kind == tipo_inv: sim.matar(o, null)
+			# até "max" ao mesmo tempo (torreta: 2); passou disso, some a mais antiga
+			var minhas: Array = sim.ents.values().filter(func(o): return o.tipo == "invocacao" and o.dono == e.id and o.kind == tipo_inv and o.vivo)
+			minhas.sort_custom(func(a, b): return a.id < b.id)
+			while minhas.size() >= maxi(1, int(h.get("max", 1))):
+				sim.matar(minhas.pop_front(), null)
 			var d: Dictionary = Defs.CLASSES[e.classe]["invocacoes"][tipo_inv]
 			var inv := Ent.new()
 			inv.id = sim.novo_id(); inv.tipo = "invocacao"; inv.kind = tipo_inv; inv.dono = e.id
