@@ -1530,7 +1530,7 @@ func mostrar_ajuda() -> void:
 [b]Clique[/b] num inimigo para atacar. [b]Shift + clique[/b] ataca sem sair do lugar.
 [b]1 a 6[/b] usam as habilidades (no alvo ou onde o mouse aponta). [b]Botão direito[/b] = habilidade 1.
 [b]Q[/b] poção de vida, [b]W[/b] poção de recurso, [b]E[/b] antídoto, [b]R[/b] volta para a Paróquia (grátis).
-[b]V[/b] abre o teleporte: leva a qualquer área de caça do seu nível por 1 Lágrima Sanguínea.
+[b]V[/b] abre o teleporte: leva a qualquer área de caça do seu nível por 3.000 de ouro.
 [b]Z[/b] liga o modo automático: luta sozinho perto de onde você está, junta os drops e bebe poção (desliga ao clicar).
 [b]Clique direito[/b] numa skill da barra põe ou tira ela do automático; [b]Shift+Z[/b] abre os ajustes (raio, poções, drops).
 [b]Clique[/b] em NPCs, baús, portas e itens no chão. [b]Alt[/b] mostra os itens caídos.
