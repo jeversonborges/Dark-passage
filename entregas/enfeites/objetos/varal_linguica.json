@@ -1,0 +1,17 @@
+{
+ "w": 224,
+ "h": 140,
+ "anchor": [
+  61,
+  106
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "descricao": "Varal de defumar: cavaletes de madeira com uma vara de ferro, gomos de linguiça em laço e mantas de charque     secando; pingos de gordura e serragem no chão.",
+ "kind": "varal_linguica"
+}

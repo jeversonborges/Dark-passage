@@ -1,0 +1,17 @@
+{
+ "w": 218,
+ "h": 152,
+ "anchor": [
+  45,
+  116
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cabideiro de ferro do magarefe: avental de couro duro de sangue, luvas de borracha, chapéu de feltro e     as botas de cano alto largadas embaixo.",
+ "kind": "cabide_avental"
+}

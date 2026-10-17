@@ -1,0 +1,17 @@
+{
+ "w": 84,
+ "h": 74,
+ "anchor": [
+  27,
+  44
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Três múmias de gato de Bubástis em pé, enfaixadas em losango com a cara pintada e as orelhas de linho, e a     Bastet de bronze sentada com o filhote; uma caiu e abriu.",
+ "kind": "mumias_gato"
+}

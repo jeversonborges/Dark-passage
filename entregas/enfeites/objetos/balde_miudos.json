@@ -1,0 +1,17 @@
+{
+ "w": 122,
+ "h": 74,
+ "anchor": [
+  58,
+  40
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Dois baldes de chapa enferrujada: um cheio de miúdos até a borda, o outro tombado derramando tripa e sangue.",
+ "kind": "balde_miudos"
+}

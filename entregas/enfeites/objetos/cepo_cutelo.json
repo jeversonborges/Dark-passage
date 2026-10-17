@@ -1,0 +1,17 @@
+{
+ "w": 144,
+ "h": 96,
+ "anchor": [
+  55,
+  55
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cepo de tronco de casca rachada com aro de ferro, topo de lenho talhado e encharcado, cutelo cravado de fio,     um naco de costela e sangue escorrendo pela casca.",
+ "kind": "cepo_cutelo"
+}

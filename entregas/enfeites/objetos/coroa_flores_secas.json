@@ -1,0 +1,17 @@
+{
+ "w": 176,
+ "h": 112,
+ "anchor": [
+  39,
+  91
+ ],
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Coroa de flores de finados num tripé de arame: rosas e cravos secos quase pretos, folhagem de cipreste ressecada     e a faixa de luto escrita a tinta dourada desbotada.",
+ "kind": "coroa_flores_secas"
+}

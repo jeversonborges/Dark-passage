@@ -1,0 +1,17 @@
+{
+ "w": 112,
+ "h": 58,
+ "anchor": [
+  52,
+  31
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Caixa de ushabtis em forma de capela, pintada e de tampa caída: dezenas de servidores de faiança azul enfileirados     (\"aqui estou\") e alguns tombados no chão, um partido ao meio.",
+ "kind": "ushabtis"
+}

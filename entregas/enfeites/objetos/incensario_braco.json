@@ -1,0 +1,19 @@
+{
+ "w": 122,
+ "h": 70,
+ "anchor": [
+  31,
+  55
+ ],
+ "emissivo": "brasa do incenso",
+ "luz": "fogo",
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Incensário em forma de braço, de bronze verde: cabo de papiro com cabeça de falcão numa ponta e a mão aberta na     outra segurando a taça com brasa; pousado num suporte de calcário, com as bolinhas de resina num prato.",
+ "kind": "incensario_braco"
+}

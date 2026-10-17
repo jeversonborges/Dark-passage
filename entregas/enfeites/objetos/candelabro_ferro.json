@@ -1,0 +1,19 @@
+{
+ "w": 172,
+ "h": 116,
+ "anchor": [
+  25,
+  102
+ ],
+ "emissivo": "chama das velas",
+ "luz": "vela",
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Candelabro de chão de ferro batido com três pés de garra, coroa de sete pontas e velas grossas derretendo,     a cera escorrida em estalactites pelos braços.",
+ "kind": "candelabro_ferro"
+}

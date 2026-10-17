@@ -1,0 +1,19 @@
+{
+ "w": 78,
+ "h": 38,
+ "anchor": [
+  34,
+  20
+ ],
+ "emissivo": "chama das lamparinas",
+ "luz": "fogo",
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Lamparinas de barro acesas no chão diante de um nicho (o fogo dos que ainda rezam aqui), uma tigela de óleo,     pavios de linho e amuletos ankh e olho de Hórus deixados como ex-voto.",
+ "kind": "lamparinas_chao"
+}

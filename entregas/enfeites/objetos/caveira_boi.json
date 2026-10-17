@@ -1,0 +1,17 @@
+{
+ "w": 130,
+ "h": 74,
+ "anchor": [
+  57,
+  43
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cabeça de boi esfolada largada no chão: crânio com restos de carne, chifres longos, língua de fora e mandíbula solta.",
+ "kind": "caveira_boi"
+}

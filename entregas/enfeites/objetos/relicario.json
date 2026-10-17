@@ -1,0 +1,19 @@
+{
+ "w": 138,
+ "h": 90,
+ "anchor": [
+  30,
+  72
+ ],
+ "emissivo": "chama das velas",
+ "luz": "vela",
+ "bioma": "cripta",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Relicário gótico de latão sobre coluna de pedra: caixinha de vidro com pináculos, um osso de dedo num coxim de     veludo, ex-votos de fita amarrados na base e duas velas acesas.",
+ "kind": "relicario"
+}

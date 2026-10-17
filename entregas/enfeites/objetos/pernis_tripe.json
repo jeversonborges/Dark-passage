@@ -1,0 +1,17 @@
+{
+ "w": 188,
+ "h": 130,
+ "anchor": [
+  42,
+  99
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Tripé de ferro com corrente e três pernis curando no sal, um deles já cinzento de bolor; bacia de sal por baixo.",
+ "kind": "pernis_tripe"
+}

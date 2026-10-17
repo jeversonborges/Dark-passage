@@ -1,0 +1,18 @@
+{
+ "w": 122,
+ "h": 66,
+ "anchor": [
+  62,
+  32
+ ],
+ "bioma": "matadouro",
+ "enfeite": true,
+ "chao": true,
+ "categoria": "decalques",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Decalque de chão: aparas de carne, nacos de gordura, um osso de joelho e sangue pisado com marcas de bota.",
+ "kind": "restos_carne_chao"
+}

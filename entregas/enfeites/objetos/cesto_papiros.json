@@ -1,0 +1,17 @@
+{
+ "w": 84,
+ "h": 66,
+ "anchor": [
+  32,
+  42
+ ],
+ "bioma": "egito",
+ "enfeite": true,
+ "categoria": "enfeites",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Cesto de junco cheio de rolos de papiro atados com fita de linho, e um rolo aberto no chão com colunas de escrita     hierática e uma vinheta vermelha (o Livro dos Mortos de alguém que não chegou a ser enterrado).",
+ "kind": "cesto_papiros"
+}
