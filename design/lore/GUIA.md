@@ -43,7 +43,7 @@ A verdade aparece quando o jogador cruza duas fontes. Contradição entre fontes
 | Voz | Quem | Onde | Como soa |
 |---|---|---|---|
 | Despacho da Vela | a Capitã Odete Ferrolho (assina "C. O. Ferrolho"); Anselmo nos técnicos, Gaspar na forja | missões da Vigília | militar, numerado, frases de uma linha |
-| Versículo do Coro | Abdiel; Madre Ivone pela Comunhão; Malfas zomba no rodapé | missões dos Arautos | escritura, segunda pessoa solene |
+| Versículo do Coro | Abdiel; Madre Ivone pela Comunhão; Malfas zomba no rodapé. Livros: do Sopro, da Retirada, das Acusações, da Comunhão, das Patentes, do Chamado, do Sino (Sinésia) | missões dos Arautos | escritura, segunda pessoa solene |
 | Rádio São Lázaro | Isaura Valente | linha D, carregamento | boletim noturno, contagem de noites, "ouvinte", estática |
 | Caderno do Coveiro | Simão | bestiário, cemitério | seco, sem data, de quem enterrou tudo |
 | Crônica do Emparedado | Frei Anacleto | história do mundo, site | erudito, ouve o mundo pela parede |
