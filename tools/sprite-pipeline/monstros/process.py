@@ -37,6 +37,13 @@ if len(pix) >= 4:
     gp = gi.quantize(4, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE).getpalette()[:12]
     base = pal.getpalette()[:colors*3]
     pal = Image.new("P", (1, 1)); pal.putpalette(base + gp + base[:3]*(256 - colors - 4))
+# CORES_EXTRA="40f0d8,1c9c8c": cores fixas a mais na paleta (emissivos pequenos que a reserva acima perde,
+# ex. o turquesa quando há ouro saturado no mesmo monstro).
+if os.environ.get("CORES_EXTRA"):
+    ex = [int(h[i:i+2], 16) for h in os.environ["CORES_EXTRA"].split(",") for i in (0, 2, 4)]
+    cur = (pal.getpalette() or [])[:(colors + 4)*3]
+    cur += cur[:3]*((colors + 4) - len(cur)//3)
+    pal = Image.new("P", (1, 1)); pal.putpalette(cur + ex + cur[:3]*(256 - colors - 4 - len(ex)//3))
 
 sw, sh = shw*ppm, shw*ppm*.5
 shadow = Image.new("L", (PX, PX), 0)

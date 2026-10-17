@@ -287,3 +287,19 @@ def _(v):
 def _(v):
     y = music_box(['E6', 'G6', 'B6', 'C7', 'B6', 'G6', 'E6', 'D#6'], 0.3, 0.02)
     return varispeed(blp(y, 4000), np.linspace(1.0, 0.8, len(y)))
+
+
+@A('forja', 'Forja do ferreiro (som posicional perto da bigorna): brasa rugindo, fole respirando, estalos e chiado de tempera; as marteladas saem da animacao (itens/forja_martelo no quadro do golpe)', lufs=-20, espaco='rua', mix=0.15)
+def _(v):
+    d = DUR + XF
+    y = bed(d)
+    y = add(y, pan(fire(d, 0.9, 40), -0.15), pan(fire(d, 0.6, 30), 0.2) * 0.8)
+    roar = lp(brown(d), 220) * (0.6 + 0.4 * (slow(d, 0.3) - slow(d, 0.3).min()) / (np.ptp(slow(d, 0.3)) + 1e-9))
+    y = add(y, pan(roar, 0.0) * 0.5)
+    t = ru(1, 3)
+    while t < d - 3:  # fole: inspira e sopra, a brasa sobe junto
+        f = bp(pink(1.6), 500, 0.8) * env_pts(1.6, [(0, 0), (0.5, 0.4), (0.9, 1), (1.6, 0)], 2) * 0.5
+        y = place(y, pan(f, -0.3), t)
+        t += ru(5, 9)
+    y = scatter(y, 3, lambda: steam(1.0, 4000, 0.01, 0.35) * 0.35, (0.2, 0.4))
+    return loopify(y, XF)

@@ -3193,6 +3193,16 @@
     "sfx/ui/vida_baixa.ogg"
    ],
    "duracao_s": 4.0
+  },
+  "ambiente/forja": {
+   "desc": "Forja do ferreiro (som posicional perto da bigorna): brasa rugindo, fole respirando, estalos e chiado de tempera; as marteladas saem da animacao (itens/forja_martelo no quadro do golpe)",
+   "bus": "ambiente",
+   "loop": true,
+   "variacoes": 1,
+   "arquivos": [
+    "ambiente/forja.ogg"
+   ],
+   "duracao_s": 60.0
   }
  },
  "eventos_combate": {
