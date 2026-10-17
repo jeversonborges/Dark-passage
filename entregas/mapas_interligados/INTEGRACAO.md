@@ -39,3 +39,8 @@ para desenhar o marco da estrada. Sem ele, a estrada continua funcionando, só q
 
 Não rodei no Godot: o patch e os mapas foram conferidos só por script (grade igual, pontas ligadas ao spawn, patch aplica
 no main).
+
+## Gruta de Pã (Jerusalém)
+
+A "pedra" que o Jefin viu é a fechadura da missão jc02, e não um bug. O texto de trancado agora diz onde está a chave
+(`design/missoes/dados/objetos.json`, `porta_de_pa`). Ele entra pelo `sync.sh`, como os outros dados de missão.
