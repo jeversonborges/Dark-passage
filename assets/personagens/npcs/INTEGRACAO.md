@@ -8,6 +8,16 @@ Uma pasta por NPC (`<id>/`) no formato de `assets/personagens/<classe>/`: `idle.
 NE, N, NW, W, SW; colunas = quadros), `sprites.json` (frame_size, anchor_feet, anims), GIFs de conferência.
 Pranchas de prévia em `_previa/`. Fontes: `tools/sprite-pipeline/npcs/` (um módulo por NPC, `kit.py` comum).
 
+## NPCs prontos (38)
+Vela: capita_odete, doutor_anselmo, mae_cardo, tobias_pavio, gaspar_bigorna, zaqueu_vendedor (Belmiro).
+Cidade, cemitério e biblioteca: simao_coveiro, isaura_radialista, corvina_atravessadora, nina, eulalia_prado, frei_anacleto.
+Capela: madre_ivone, comandante_abdiel, malfas, irmao_lucio.
+Egito: tuya_nomarca, hapu_mercador, nefer_aguadeira, besankh_ferreiro, ahmose_barqueiro, meritre_barqueira, reis_abdu,
+djedi_mago, diaprepes_atlante, dalva_ferraz, conego_barnabe, senebtisi_sacerdotisa.
+Jerusalém, Hermon e Viveiro: sariel_porta, hulda_escada, henoc_escriba, rispa_vigilia, jael_escuta,
+joana_enxertadeira, tadeu_vigia, rute_abelheira.
+Tubal, Bartimeu, Zilpa e Zaqueu cobrador usam os modelos da Vela (tabela de réplicas abaixo).
+
 ## Como ligar no jogo
 1. `game/tools/sync.sh` só copia o primeiro nível de `assets/personagens/`. Copie cada pasta para
    `assets/personagens/<id>/` (ou estenda o sync para ler `npcs/*`).
@@ -18,7 +28,7 @@ Pranchas de prévia em `_previa/`. Fontes: `tools/sprite-pipeline/npcs/` (um mó
    - `esfinge_amenti` não tem modelo: é uma voz que sai da pedra.
 
 ## Ferreiros: forja animada
-O modelo do ferreiro (`gaspar_bigorna`) já traz bigorna, fogareiro, balde de têmpera e as faíscas dentro do sprite.
+Os ferreiros (`gaspar_bigorna` e `besankh_ferreiro`, no Egito) já trazem bigorna, fogareiro, balde de têmpera e as faíscas dentro do sprite.
 Não anda: `walk` é igual ao `idle` (8 quadros a 8 fps, 1 golpe por segundo).
 - Som: `assets/audio/ambiente/forja.ogg` (loop de 60 s, brasa + fole) como som posicional no ponto da forja, e
   `sfx/itens/forja_martelo` (3 variações) tocado no quadro 3 do idle (`GOLPE` no módulo), sorteando a variação.
