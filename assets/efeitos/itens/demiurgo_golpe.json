@@ -1,0 +1,21 @@
+{
+ "name": "demiurgo_golpe",
+ "cat": "itens",
+ "frames": 12,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  100
+ ],
+ "layer": "frente",
+ "desc": "Golpe do cetro: a esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
+ "char": null,
+ "title": "Golpe do cetro",
+ "resumo": "A esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
+ "frame_w": 96,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "demiurgo_golpe.png"
+}

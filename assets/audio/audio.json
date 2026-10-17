@@ -3193,6 +3193,48 @@
     "sfx/ui/vida_baixa.ogg"
    ],
    "duracao_s": 4.0
+  },
+  "ambiente/forja": {
+   "desc": "Forja do ferreiro (som posicional perto da bigorna): brasa rugindo, fole respirando, estalos e chiado de tempera; as marteladas saem da animacao (itens/forja_martelo no quadro do golpe)",
+   "bus": "ambiente",
+   "loop": true,
+   "variacoes": 1,
+   "arquivos": [
+    "ambiente/forja.ogg"
+   ],
+   "duracao_s": 60.0
+  },
+  "itens/cetro_aura": {
+   "desc": "aura do Cetro do Demiurgo em loop: zumbido de vidro bem baixo, os tres aneis girando, um coro longe",
+   "bus": "ambiente",
+   "loop": true,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/itens/cetro_aura.ogg"
+   ],
+   "duracao_s": 10.0
+  },
+  "itens/cetro_golpe": {
+   "desc": "golpe do Cetro do Demiurgo: sino de vidro esmeralda, estalo de luz e um sopro de coro",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 3,
+   "arquivos": [
+    "sfx/itens/cetro_golpe_1.ogg",
+    "sfx/itens/cetro_golpe_2.ogg",
+    "sfx/itens/cetro_golpe_3.ogg"
+   ],
+   "duracao_s": 5.65
+  },
+  "itens/cetro_juizo": {
+   "desc": "Juizo do Demiurgo: coluna de luz desce (coro + orgao subindo), impacto de vidro e o silencio depois",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 1,
+   "arquivos": [
+    "sfx/itens/cetro_juizo.ogg"
+   ],
+   "duracao_s": 7.43
   }
  },
  "eventos_combate": {

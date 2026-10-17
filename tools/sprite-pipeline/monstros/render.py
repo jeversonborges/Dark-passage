@@ -43,7 +43,7 @@ sc.cycles.use_denoising = info.get("denoise", False); sc.cycles.max_bounces = 3
 sc.cycles.use_adaptive_sampling = True; sc.cycles.adaptive_threshold = .02
 sc.render.use_persistent_data = True
 sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'Medium High Contrast'
-sc.render.film_transparent = True; sc.render.resolution_x = sc.render.resolution_y = PX*2
+sc.render.film_transparent = True; sc.render.resolution_x = sc.render.resolution_y = int(PX*float(os.environ.get("BRUTO", 2)))  # BRUTO=1: brutos em 1x (quadros grandes)
 sc.render.image_settings.color_mode = 'RGBA'
 os.makedirs(out, exist_ok=True)
 
@@ -69,6 +69,7 @@ for name, poses in frames_by_anim.items():
         for k in dirs:
             arm.rotation_euler = (0, 0, math.radians((k+1)*45))
             sc.render.filepath = f"{out}/{name}/{DIRS[k]}_{f-1:02d}.png"
+            if os.environ.get("RESUME") and os.path.exists(sc.render.filepath): continue  # RESUME=1 retoma um render interrompido
             bpy.ops.render.render(write_still=True)
 json.dump(meta, open(f"{out}/meta.json", "w"), indent=1)
 if not test and not only:

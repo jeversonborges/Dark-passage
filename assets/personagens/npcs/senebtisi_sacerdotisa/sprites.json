@@ -1,0 +1,42 @@
+{
+ "classe": "npc_senebtisi_sacerdotisa",
+ "frame_size": [
+  208,
+  208
+ ],
+ "anchor_feet": [
+  104.0,
+  153.9
+ ],
+ "rows_dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "dirs_note": "direção para onde o personagem olha na tela (S = para baixo)",
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "palette_colors": 64,
+ "anims": {
+  "idle": {
+   "file": "idle.png",
+   "frames": 8,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "file": "walk.png",
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  }
+ }
+}

@@ -89,7 +89,7 @@ for a in I.CHAVES_BAUS:
 # itens com nome da thread Missões
 mis = json.load(open(f"{DES}/missoes/dados/itens.json"))["itens"]
 em_pool = {i: tag for tag, ids in I.POOLS_LENDARIOS.items() for i in ids}
-MULT_RAR = {"comum":1.0,"magico":1.0,"raro":1.1,"lendario":1.25}
+MULT_RAR = {"comum":1.0,"magico":1.0,"raro":1.1,"lendario":1.25,"demiurgico":1.25}
 SLOT = {"cabeca":"cabeca","peito":"peito","amuleto":"amuleto","arma":"arma"}
 for m in mis:
     if m["id"] not in I.MISSOES:
@@ -108,6 +108,9 @@ for m in mis:
         if slot == "acessorio": slot = "anel" if m["id"] in ("selo_madre","faixa_vigilia","fita_juizo") else "amuleto"
         d.update(raridade=rar, slot=slot, nivel=m["nivel"], tags=tags, classes=m.get("classe"), faccao=m.get("faccao"))
         at = dict(m.get("atributos", {}))
+        if m.get("numeros_fixos"):   # arma do administrador (Cetro do Demiurgo): os números de missões valem como estão
+            if "dano" in at: d["dano"] = at.pop("dano"); d["intervalo"] = 1.0
+            if "defesa" in at: d["defesa"] = at.pop("defesa")
         if "dano" in at:
             d["dano_sugerido_missoes"] = at.pop("dano"); d["dano"] = dano(m["nivel"], MULT_RAR[rar])
             d["intervalo"] = INTERVALO.get({"escopeta_badalada":"escopeta","machado_bonde":"machado","cajado_lampiao":"cajado","espada_escudeiro":"espada",

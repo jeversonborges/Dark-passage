@@ -1,0 +1,21 @@
+{
+ "name": "demiurgo_verbo",
+ "cat": "itens",
+ "frames": 14,
+ "fps": 16,
+ "loop": false,
+ "anchor": [
+  128,
+  64
+ ],
+ "layer": "chao",
+ "desc": "Verbo: a onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
+ "char": null,
+ "title": "Verbo",
+ "resumo": "A onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
+ "frame_w": 256,
+ "frame_h": 128,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "demiurgo_verbo.png"
+}
