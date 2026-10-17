@@ -1,0 +1,19 @@
+{
+ "w": 480,
+ "h": 282,
+ "anchor": [
+  130,
+  214
+ ],
+ "emissivo": "fogo (lampião)",
+ "npc": "Pedro, o Exilado",
+ "luz": "quente",
+ "bioma": "deserto_absinto",
+ "categoria": "props",
+ "footprint_tiles": [
+  5,
+  4
+ ],
+ "descricao": "Oficina de Pedro, o Exilado: telheiro de tábuas e troncos sobre um estrado, coberto com lona remendada de duas     metades (a lona azul-noite da Vigília costurada ao pano rubro-negro do Coro), bancada com morsa, ferramentas na     parede, livros amarrados com corda, bigorna num toco, retalho azul e rubro pregado na parede; o lampião de latão     pendurado na viga da frente é a única luz.",
+ "kind": "oficina_exilado"
+}

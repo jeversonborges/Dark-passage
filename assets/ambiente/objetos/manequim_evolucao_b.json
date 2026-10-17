@@ -1,0 +1,18 @@
+{
+ "w": 210,
+ "h": 140,
+ "anchor": [
+  30,
+  121
+ ],
+ "faccao": "vigilia",
+ "nota": "na oficina do Exilado: o que você pode virar (Vigília)",
+ "bioma": "deserto_absinto",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Manequim da Vigília na oficina do Exilado: armação de costura vestida com o que um combatente da Vigília pode     virar no nível 50: guarda-pó azul-noite remendado, peitoral de chapa rebitada sobre o casaco, bandoleira de couro com     cartuchos de latão, lenço no pescoço, chapéu de aba larga na cabeça e a escopeta serrada encostada no tripé.",
+ "kind": "manequim_evolucao_b"
+}

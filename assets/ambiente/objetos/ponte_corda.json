@@ -1,0 +1,20 @@
+{
+ "w": 538,
+ "h": 298,
+ "anchor": [
+  232,
+  178
+ ],
+ "emissivo": "verde do Amargo (limo nas estacas)",
+ "comprimento_m": 6.4,
+ "nota": "peça inteira ao longo do eixo X do mapa; tabuleiro a 0,3-0,5 m sobre a água (z=0); usar como decalque (camada chao)",
+ "bioma": "deserto_absinto",
+ "chao": true,
+ "categoria": "props",
+ "footprint_tiles": [
+  9,
+  3
+ ],
+ "descricao": "Ponte de corda da Ilha do Exilado: tábuas gastas e desencontradas (de bonde, caixote e banco de igreja) sobre dois     cabos de cânhamo, corrimãos de corda presos em postes de tronco nas pontas, tirantes e espias amarradas em estacas;     uma tábua falta e outra está rachada; o limo verde do Amargo agarrado nas estacas. Peça inteira de 6,4 m ao longo do     eixo X do mapa (centro da ponte na âncora).",
+ "kind": "ponte_corda"
+}

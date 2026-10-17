@@ -1,0 +1,1160 @@
+diff -ruN a/scripts/client/game.gd b/scripts/client/game.gd
+--- a/scripts/client/game.gd	2026-10-17 05:15:42.538518703 +0000
++++ b/scripts/client/game.gd	2026-10-17 05:15:42.657709766 +0000
+@@ -681,6 +681,14 @@
+ 			var v = views.get(int(d["id"]))
+ 			if v: fx.texto_flutuante(v.position + Vector2(0, -v.altura_px - 20), "FOME SACIADA x%d" % int(d.get("fome", 1)), Color("#ff7a3a"), 16)
+ 		"porta": _porta(d)
++		"evolucao", "forma":   # troca o boneco (evolução do nível 50, Forma Colossal)
++			var v = views.get(int(d["id"]))
++			if v:
++				v.iniciar(self, v.ent)
++				if tipo == "evolucao": fx.folha("level_up", v.position, {"segue": v})
++			if tipo == "evolucao" and jog and int(d["id"]) == jog.id:
++				audio.evento("nivel_sobe")
++				_salvar()
+ 		"teleporte":
+ 			var v = views.get(int(d["id"]))
+ 			if v:
+@@ -1116,7 +1124,9 @@
+ 			else: usar_skill(0)
+ 	elif ev is InputEventKey and ev.pressed and not ev.echo:
+ 		match ev.keycode:
+-			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9: usar_skill(ev.keycode - KEY_1)
++			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
++				if ev.shift_pressed and ev.keycode <= KEY_5: usar_skill(Evolucao.SLOT_EVO + ev.keycode - KEY_1)   # skills da evolução
++				else: usar_skill(ev.keycode - KEY_1)
+ 			KEY_Q: cmd("pocao", ["vida"])
+ 			KEY_W: cmd("pocao", ["recurso"])
+ 			KEY_E: cmd("pocao", ["antidoto"])
+diff -ruN a/scripts/client/hud.gd b/scripts/client/hud.gd
+--- a/scripts/client/hud.gd	2026-10-17 05:15:42.539922131 +0000
++++ b/scripts/client/hud.gd	2026-10-17 05:15:42.657749638 +0000
+@@ -125,14 +125,19 @@
+ 	barra.mouse_filter = Control.MOUSE_FILTER_STOP
+ 	barra.dentro = func(p: Vector2) -> bool:
+ 		if p.y > 66 and p.x > 0 and p.x < 1280: return true
++		if _n_slots() > 10 and p.y > 30 and p.x > 218 and p.x < 222 + 48 * (_n_slots() - 10): return true
+ 		return p.distance_to(Vector2(78, 78)) < 66 or p.distance_to(Vector2(1202, 78)) < 66
+ 	barra.entrada = _entrada_barra
+ 	barra.mouse_exited.connect(func(): hover_slot = -1; hover_cinto = -1; hover_menu = -1; esconder_tip())
+ 	raiz.add_child(barra)
+ 
+ func _slot_rect(i: int) -> Rect2:
++	if i >= Evolucao.SLOT_EVO: return Rect2(222 + 48 * (i - Evolucao.SLOT_EVO), 34, 44, 44)   # fileira da evolução (Shift+1..5)
+ 	return Rect2(222 + 54 * i, 90, 52, 52)
+ 
++func _n_slots() -> int:
++	return maxi(10, game.jog.skills_slots.size()) if game.jog else 10
++
+ func _cinto_rect(i: int) -> Rect2:
+ 	return Rect2(792 + 52 * i, 94, 46, 46)
+ 
+@@ -143,7 +148,7 @@
+ 	if ev is InputEventMouseMotion:
+ 		var p: Vector2 = ev.position
+ 		var hs := -1; var hc := -1; var hm := -1
+-		for i in 10: if _slot_rect(i).has_point(p): hs = i
++		for i in _n_slots(): if _slot_rect(i).has_point(p): hs = i
+ 		for i in 4: if _cinto_rect(i).has_point(p): hc = i
+ 		for i in 6: if _menu_rect(i).has_point(p): hm = i
+ 		if hs != hover_slot or hc != hover_cinto or hm != hover_menu:
+@@ -249,15 +254,17 @@
+ 	else:
+ 		_txt(c, Vector2(186, 134), "%d OURO" % j.ouro, 7, Color("#e0b84a"), Tema.FONTE_PIXEL, 0, 2)
+ 	# skills
+-	for i in 10:
++	for i in _n_slots():
+ 		var r := _slot_rect(i)
++		var k := r.size.x / 52.0
+ 		var h: Dictionary = Jogador.skill_def(j, i) if i < j.skills_slots.size() else {}
+ 		if not h.is_empty():
+ 			var ic := Tema.icone_skill(j.classe, h["id"])
+ 			var bloq := j.nivel < int(h["nivel"])
+ 			var falta: bool = not bloq and not h.get("passiva", false) and ((j.classe == "cultista" and j.hp <= Jogador.custo(j, h)) or (j.classe != "cultista" and j.rec < Jogador.custo(j, h)))
+ 			var mod := Color(0.3, 0.3, 0.3) if bloq else (Color(0.55, 0.6, 0.85) if falta else Color.WHITE)
+-			if ic.size() == 2: c.draw_texture_rect_region(ic[0], Rect2(r.position + Vector2(6, 6), Vector2(40, 40)), ic[1], mod)
++			if ic.size() == 2: c.draw_texture_rect_region(ic[0], Rect2(r.position + Vector2(6, 6) * k, Vector2(40, 40) * k), ic[1], mod)
++			elif h.has("_evo"): _txt(c, r.position + Vector2(26, 30) * k, String(h["nome"]).left(3).to_upper(), 11, Color("#d8c08a") * mod, Tema.FONTE_PIXEL, 0, 2)   # ícone pintado ainda não chegou (LISTA.md)
+ 			if bloq: _txt(c, r.position + Vector2(26, 32), "%d" % int(h["nivel"]), 13, Color("#a89f8c"))
+ 			var cd := float(j.cds.get(h["id"], 0.0))
+ 			if cd > 0.0:
+@@ -269,13 +276,14 @@
+ 				_txt(c, r.position + Vector2(44, 46), "%d" % cg, 8, Color("#f6ead0"), Tema.FONTE_PIXEL, 1, 2)
+ 				var rc := float(j.aux.get("recarga_carga_" + h["id"], 0.0))
+ 				if rc > 0.0 and cd <= 0.0: c.draw_rect(Rect2(r.position + Vector2(6, 44), Vector2(40.0 * (1.0 - rc / float(h["recarga"])), 2)), Color(0.9, 0.75, 0.3, 0.9))
+-		c.draw_texture(Tema.ui("slot_sombra"), r.position)
++		c.draw_texture_rect(Tema.ui("slot_sombra"), r, false)
+ 		var mold := "slot_moldura"
+ 		if pressionado.get(i, 0.0) > t: mold = "slot_pressionado"
+ 		elif i == hover_slot: mold = "slot_hover"
+ 		elif not h.is_empty() and j.buffer_skill.get("slot", -1) == i: mold = "slot_ativo"
+-		c.draw_texture(Tema.ui(mold), r.position)
+-		c.draw_texture(Tema.ui("tecla_%d" % ((i + 1) % 10)), r.position + Vector2(-4, -5))
++		c.draw_texture_rect(Tema.ui(mold), r, false)
++		if i < 10: c.draw_texture(Tema.ui("tecla_%d" % ((i + 1) % 10)), r.position + Vector2(-4, -5))
++		elif not h.is_empty(): _txt(c, r.position + Vector2(4, 9), "⇧%d" % (i - 9), 8, Color("#d8c08a"), Tema.FONTE_PIXEL, -1, 2)
+ 		if not h.is_empty() and Jogador.skill_no_auto(j, i): _selo_auto(c, r)
+ 	# modo automático (tecla Z): "AUTO" dourado sobre a barra de skills e moldura pulsando no slot da skill automática
+ 	if j.aux.get("auto", false):
+@@ -363,7 +371,7 @@
+ 		if h.has("alcance") and float(h["alcance"]) > 2.0: linha.append("alcance %d" % int(h["alcance"]))
+ 		if h.has("cargas"): linha.append("%d cargas" % int(h["cargas"]))
+ 	s += "[color=#a89f8c][i]%s[/i][/color]\n" % " · ".join(linha)
+-	s += "[color=#e8dfc9]%s[/color]" % sk.get("descricao", "")
++	s += "[color=#e8dfc9]%s[/color]" % sk.get("descricao", h.get("descricao", ""))
+ 	for ef in sk.get("efeitos", []):
+ 		s += "\n[color=#9cc8ff]• %s[/color]" % ef
+ 	if j.nivel < int(h["nivel"]): s += "\n[color=#ff6a4a]Libera no nível %d[/color]" % int(h["nivel"])
+@@ -408,7 +416,7 @@
+ 	_txt(c, Vector2(62, 67), "%d" % j.nivel, 12, Color("#f0dca0"))
+ 	_txt(c, Vector2(82, 24), j.nome, 15, Color("#f0dca0"), Tema.FONTE_TITULO, -1)
+ 	var cls: Dictionary = {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+-	_txt(c, Vector2(82, 40), "%s · %s" % [cls.get(j.classe, j.classe), "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 12, Color("#a89f8c"), Tema.FONTE_ITALICO, -1, 2)
++	_txt(c, Vector2(82, 40), "%s · %s" % [Evolucao.nome_classe(j) if j.evolucao != "" else cls.get(j.classe, j.classe), "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 12, Color("#a89f8c"), Tema.FONTE_ITALICO, -1, 2)
+ 	_barra(c, Rect2(82, 48, 168, 8), j.frac_hp(), Color(0.72, 0.1, 0.08))
+ 	if j.rec_max > 0.0:
+ 		var cr := {"folego": Color(0.3, 0.55, 0.9), "graca": Color(0.95, 0.85, 0.45), "furia": Color(0.85, 0.35, 0.1), "brasa": Color(1.0, 0.45, 0.1), "carga": Color(0.35, 0.8, 1.0)}
+diff -ruN a/scripts/client/janelas.gd b/scripts/client/janelas.gd
+--- a/scripts/client/janelas.gd	2026-10-17 05:15:42.541648523 +0000
++++ b/scripts/client/janelas.gd	2026-10-17 05:15:42.657793008 +0000
+@@ -788,7 +788,7 @@
+ 	var cls: Dictionary = Defs.CLASSES[j.classe]
+ 	var nomes := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+ 	var t1 := Tema.rotulo(j.nome, 24, Color("#f0dca0"), Tema.FONTE_GOTICA, 3); t1.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; c.add_child(t1)
+-	var t2 := Tema.rotulo("%s de nível %d · %s" % [nomes[j.classe], j.nivel, "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 14, Color("#a89f8c"), Tema.FONTE_ITALICO)
++	var t2 := Tema.rotulo("%s de nível %d · %s" % [Evolucao.nome_classe(j) if j.evolucao != "" else nomes[j.classe], j.nivel, "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 14, Color("#a89f8c"), Tema.FONTE_ITALICO)
+ 	t2.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; c.add_child(t2)
+ 	var xpb := ProgressBar.new(); xpb.max_value = Defs.xp_para_proximo(j.nivel); xpb.value = j.xp; xpb.show_percentage = false; xpb.custom_minimum_size.y = 8
+ 	var sbf := StyleBoxFlat.new(); sbf.bg_color = Color(0.55, 0.75, 0.25); xpb.add_theme_stylebox_override("fill", sbf)
+@@ -841,8 +841,8 @@
+ 	v.add_theme_constant_override("separation", 10)
+ 	sc.add_child(v); c.add_child(sc)
+ 	var i := 0
+-	for h in Defs.CLASSES[j.classe]["habilidades"]:
+-		var sk := Defs.skill(j.classe, h["id"])
++	for h in Evolucao.habilidades(j):
++		var sk := Defs.skill(j.classe, h["id"]) if not h.has("_evo") else {"nome": h["nome"], "descricao": h.get("descricao", "")}
+ 		var linha := HBoxContainer.new()
+ 		linha.add_theme_constant_override("separation", 10)
+ 		var ic := Tema.icone_skill(j.classe, h["id"], true)
+@@ -856,7 +856,7 @@
+ 		linha.add_child(tr)
+ 		var col := VBoxContainer.new(); col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 		col.add_theme_constant_override("separation", 2)
+-		var nm := Tema.rotulo("%d · %s" % [i + 1, sk.get("nome", h["nome"])], 16, Color("#f0dca0") if not bloq else Color("#7d7466"), Tema.FONTE_TITULO)
++		var nm := Tema.rotulo("%s · %s" % [("⇧%d" % (i + 1 - Defs.CLASSES[j.classe]["habilidades"].size())) if h.has("_evo") else str(i + 1), sk.get("nome", h["nome"])], 16, Color("#f0dca0") if not bloq else Color("#7d7466"), Tema.FONTE_TITULO)
+ 		col.add_child(nm)
+ 		var meta: Array = []
+ 		if bloq: meta.append("nível %d" % int(h["nivel"]))
+diff -ruN a/scripts/client/unidade.gd b/scripts/client/unidade.gd
+--- a/scripts/client/unidade.gd	2026-10-17 05:15:42.546603207 +0000
++++ b/scripts/client/unidade.gd	2026-10-17 05:15:42.657834807 +0000
+@@ -86,7 +86,11 @@
+ func iniciar(g, e: Ent) -> void:
+ 	game = g; ent = e; id = e.id
+ 	var kind := e.kind
+-	if e.tipo == "jogador": kind = e.classe
++	if e.tipo == "jogador":
++		kind = e.classe
++		var spr_evo: String = Evolucao.defn(e.evolucao).get("sprite", e.evolucao) if e.evolucao != "" else ""
++		if e.aux.get("forma", "") == "forma_colossal" and Defs.SPR.has("abominacao_colossal"): kind = "abominacao_colossal"
++		elif spr_evo != "" and Defs.SPR.has(spr_evo): kind = spr_evo
+ 	elif e.tipo == "npc": kind = "npc:" + e.kind
+ 	elif e.tipo == "invocacao": kind = e.kind
+ 	info = Defs.sprite(kind)
+diff -ruN a/scripts/defs.gd b/scripts/defs.gd
+--- a/scripts/defs.gd	2026-10-17 05:15:42.547276242 +0000
++++ b/scripts/defs.gd	2026-10-17 05:15:42.659001725 +0000
+@@ -6,6 +6,7 @@
+ 
+ static var FORM := {}        # combate/formulas.json
+ static var CLASSES := {}     # combate/classes_base.json -> classes
++static var EVOLUCOES := {}   # combate/evolucoes.json (nível 50, Pedro o Exilado)
+ static var MOBS := {}        # combate/mobs.json -> mobs (+ textos de missoes/monstros.json)
+ static var MOBS_BASE := {}   # combate/mobs.json inteiro (curva, arquetipos, ia)
+ static var CHEFES := {}      # combate/chefes.json -> chefes
+@@ -51,6 +52,7 @@
+ 	carregado = true
+ 	FORM = ler(DESIGN + "combate/formulas.json")
+ 	CLASSES = ler(DESIGN + "combate/classes_base.json")["classes"]
++	EVOLUCOES = ler(DESIGN + "combate/evolucoes.json")
+ 	MOBS_BASE = ler(DESIGN + "combate/mobs.json")
+ 	MOBS = MOBS_BASE["mobs"]
+ 	var ch: Dictionary = ler(DESIGN + "combate/chefes.json")
+diff -ruN a/scripts/net/sincro.gd b/scripts/net/sincro.gd
+--- a/scripts/net/sincro.gd	2026-10-17 05:15:42.598177958 +0000
++++ b/scripts/net/sincro.gd	2026-10-17 05:15:42.658086588 +0000
+@@ -3,14 +3,14 @@
+ ## Os outros veem só o público; o dono do personagem recebe também mochila, missões, recargas etc.
+ 
+ const PUB := ["tipo", "kind", "nome", "nivel", "pos", "facing", "raio", "vivo", "invisivel", "alvejavel", "escala",
+-	"hp", "hp_max", "rec", "rec_max", "escudo", "postura", "postura_max", "estado", "arquetipo", "tags", "classe",
++	"hp", "hp_max", "rec", "rec_max", "escudo", "postura", "postura_max", "estado", "arquetipo", "tags", "classe", "evolucao",
+ 	"faccao", "alvo", "dono", "vel", "res"]
+ const PRIV := ["xp", "pontos", "ouro", "municao", "folego", "inv", "equip", "armazem", "missoes", "flags", "vistas",
+ 	"stats", "dano_min", "dano_max", "defesa", "ar", "er", "critico", "crit_mult", "excelente", "vel_ataque", "intervalo",
+ 	"alcance", "roubo_vida", "no_lugar", "zona", "abates", "skills_slots", "pity_raro"]
+ ## chaves de aux que o cliente usa para desenhar entidades dos outros
+ const AUX_PUB := ["neutro", "alfa", "titulo", "visual", "obj", "aberto", "requer_chefe", "visivel_se", "bau", "hist", "para",
+-	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto"]
++	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto", "forma"]
+ ## chaves de aux do próprio jogador que mudam todo quadro e o cliente não precisa
+ const AUX_RUIDO := ["repath", "parado_t", "amargo_t", "ia_t"]
+ 
+diff -ruN a/scripts/sim/ent.gd b/scripts/sim/ent.gd
+--- a/scripts/sim/ent.gd	2026-10-17 05:15:42.645223404 +0000
++++ b/scripts/sim/ent.gd	2026-10-17 05:15:42.658875660 +0000
+@@ -85,6 +85,7 @@
+ 
+ # jogador
+ var classe := ""
++var evolucao := ""         # caminho do nível 50 (design/combate/evolucoes.json), "" antes do Pedro
+ var faccao := ""
+ var xp := 0
+ var pontos := 0
+diff -ruN a/scripts/sim/evolucao.gd b/scripts/sim/evolucao.gd
+--- a/scripts/sim/evolucao.gd	1970-01-01 00:00:00.000000000 +0000
++++ b/scripts/sim/evolucao.gd	2026-10-17 05:15:42.658154304 +0000
+@@ -0,0 +1,445 @@
++class_name Evolucao
++## Evoluções de classe do nível 50 (design/combate/evolucoes.json). A classe base continua em e.classe
++## (recurso, ataque básico e skills base seguem iguais); e.evolucao guarda o caminho escolhido com o Pedro, o Exilado.
++## Aqui ficam: escolha e validação, bônus do caminho (atributos e multiplicadores), barra de skills e o efeito
++## das 60 skills novas, montado a partir dos campos do JSON (forma, área, alcance, buff...).
++
++const STATUS := {"atordoar": "atordoado", "provocar": "provocado", "preso": "enraizado", "enraizar": "enraizado",
++	"lentidao": "lento", "silencio": "silenciado", "marcado": "marcado", "cegueira": "cegueira", "cegueira_inimigos": "cegueira",
++	"medo": "atordoado", "medo_fracos": "atordoado", "derrubar_voo": "derrubado"}
++const SLOT_EVO := 10      # as skills da evolução ficam nos slots 10..14 (segunda fileira da barra, Shift+1..5)
++
++static var _skills_cache := {}
++
++static func doc() -> Dictionary:
++	return Defs.EVOLUCOES
++
++static func defn(id: String) -> Dictionary:
++	return Defs.EVOLUCOES.get("evolucoes", {}).get(id, {})
++
++static func de(e: Ent) -> Dictionary:
++	return defn(e.evolucao) if e.evolucao != "" else {}
++
++static func nivel_exigido() -> int:
++	return int(Defs.EVOLUCOES.get("nivel_evolucao", 50))
++
++static func opcoes(classe: String) -> Array:
++	var out: Array = []
++	for id in Defs.EVOLUCOES.get("evolucoes", {}):
++		if Defs.EVOLUCOES["evolucoes"][id]["classe_base"] == classe: out.append(id)
++	return out
++
++static func nome_classe(e: Ent) -> String:
++	var d := de(e)
++	return d.get("nome", "") if not d.is_empty() else e.classe.capitalize()
++
++## Motivo para recusar a evolução, ou "" se pode.
++static func recusa(e: Ent, id: String) -> String:
++	var d := defn(id)
++	if d.is_empty(): return "Caminho desconhecido."
++	if e.evolucao != "": return "Um caminho a gente não desescolhe."
++	if d["classe_base"] != e.classe: return "Esse caminho não é da sua classe."
++	if e.nivel < nivel_exigido(): return "Volte no nível %d." % nivel_exigido()
++	return ""
++
++static func aplicar(sim: WorldSim, e: Ent, id: String) -> bool:
++	var r := recusa(e, id)
++	if r != "":
++		sim.emitir_a(e, "aviso", {"texto": r}); return false
++	e.evolucao = id
++	e.pontos += int(Defs.EVOLUCOES.get("bonus_ao_evoluir", {}).get("pontos_atributo_extra", 0))
++	montar_slots(e)
++	Regras.recalc_jogador(e)
++	e.hp = e.hp_max
++	if e.rec_max > 0.0 and e.classe in ["anjo", "tecnomancer", "humano"]: e.rec = e.rec_max
++	sim.emitir("evolucao", {"id": e.id, "evolucao": id, "nome": defn(id)["nome"], "sprite": defn(id).get("sprite", id)})
++	sim.emitir_a(e, "aviso", {"texto": "Você agora é %s." % defn(id)["nome"]})
++	sim.emitir_a(e, "stats", {"id": e.id})
++	return true
++
++# =================================================================== bônus do caminho
++## Multiplicador (bônus de toda evolução x bônus do caminho). 1.0 sem evolução.
++static func mult(e: Ent, chave: String) -> float:
++	if e.evolucao == "": return 1.0
++	var base: Dictionary = Defs.EVOLUCOES.get("bonus_ao_evoluir", {})
++	return float(base.get(chave, 1.0)) * float(de(e).get("bonus", {}).get(chave, 1.0))
++
++## Soma (crítico, bloqueio, roubo de vida...). 0 sem evolução.
++static func soma(e: Ent, chave: String) -> float:
++	if e.evolucao == "": return 0.0
++	return float(de(e).get("bonus", {}).get(chave, 0.0))
++
++static func atributo(e: Ent, k: String) -> float:
++	return soma(e, k)
++
++# =================================================================== barra de skills
++## Skills da classe base + as da evolução (cópias marcadas com "_evo").
++static func habilidades(e: Ent) -> Array:
++	var base: Array = Defs.CLASSES[e.classe]["habilidades"]
++	if e.evolucao == "": return base
++	if not _skills_cache.has(e.evolucao):
++		var lst: Array = []
++		for h in de(e).get("habilidades", []):
++			var c: Dictionary = h.duplicate(true)
++			c["_evo"] = e.evolucao
++			if e.classe == "cultista": c["custo"] = float(h.get("custo", 0)) * 0.0025   # o Cultista paga em fração do HP
++			lst.append(c)
++		_skills_cache[e.evolucao] = lst
++	return base + _skills_cache[e.evolucao]
++
++static func montar_slots(e: Ent) -> void:
++	e.skills_slots = []
++	for h in Defs.CLASSES[e.classe]["habilidades"]: e.skills_slots.append(h["id"])
++	if e.evolucao == "": return
++	while e.skills_slots.size() < SLOT_EVO: e.skills_slots.append("")
++	for h in de(e).get("habilidades", []): e.skills_slots.append(h["id"])
++
++static func tipo(h: Dictionary) -> String:
++	if h.get("transformacao", false) or h.has("buff") or h.get("sensacao", "") == "buff": return "proprio"
++	if h.has("cura_mult") and not h.has("mult"): return "alvo_aliado" if not h.has("area_raio") else "proprio"
++	if h.has("ressuscitar_hp"): return "alvo_aliado"
++	if h.has("invocacao") or h.has("invoca"): return "proprio"
++	if h.get("forma", "") == "cone" or h.has("espiritos"): return "ponto"
++	if h.has("dano") or h.has("meteoros") or h.has("virotes") or h.has("deslocamento"): return "ponto"
++	if h.has("area_raio") and h.has("alcance") and not h.has("puxar"): return "ponto"
++	if h.has("area_raio") and not h.has("alcance"): return "proprio"
++	if h.has("mult") or h.has("efeito") or h.has("mult_por_s"): return "alvo_inimigo"
++	return "proprio"
++
++# =================================================================== efeito das skills
++static func _vfx(sim: WorldSim, e: Ent, h: Dictionary, d: Dictionary) -> void:
++	if h.has("vfx"): d["nome"] = h["vfx"]
++	else: d["skill"] = e.evolucao + "/" + h["id"]
++	d["de"] = e.id
++	sim.emitir("vfx", d)
++
++static func _op(e: Ent, h: Dictionary, extra: Dictionary = {}) -> Dictionary:
++	var hb := h
++	if h.has("empurrao") and typeof(h["empurrao"]) == TYPE_DICTIONARY:
++		hb = h.duplicate(); hb.erase("empurrao")
++	var op := Habilidades._op(e, hb, extra)
++	var ef := {}
++	for k in h.get("efeito", {}):
++		if STATUS.has(k): ef[STATUS[k]] = h["efeito"][k]
++	for k in ["sangramento", "veneno", "queimadura"]:
++		if h.has(k): ef[k] = h[k]
++	if h.has("queima"): ef["queimadura"] = h["queima"]
++	if extra.has("efeito"): ef.merge(extra["efeito"], true)
++	if ef.is_empty(): op.erase("efeito")
++	else: op["efeito"] = ef
++	if float(h.get("dano_vs_alados_mult", 0)) > 0.0: op["bonus_vs"] = {"tag:alado": float(h["dano_vs_alados_mult"])}
++	return op
++
++static func _status_em(sim: WorldSim, e: Ent, a: Ent, h: Dictionary) -> void:
++	for k in h.get("efeito", {}):
++		if STATUS.has(k): sim.aplicar_status(a, STATUS[k], h["efeito"][k], e)
++	if h.has("dano_recebido_extra") and a.vivo:
++		var mods := {"dano_recebido": float(h["dano_recebido_extra"])}
++		a.buffs.append({"id": "evo_" + h["id"], "t": float(h["efeito"].values()[0]) if h.has("efeito") else 6.0, "dur": 6.0, "mods": mods})
++
++static func _alvos_pt(sim: WorldSim, e: Ent, c: Vector2, raio: float) -> Array:
++	return sim.inimigos_de(e, c, raio + 0.3)
++
++static func _ponto(e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> Vector2:
++	var p := ponto
++	if p.distance_to(e.pos) < 0.3: p = alvo.pos if alvo != null else e.pos + e.facing * 2.0
++	var alc := float(h.get("alcance", 0))
++	if alc > 0.0 and p.distance_to(e.pos) > alc: p = e.pos + (p - e.pos).normalized() * alc
++	return p
++
++static func _buff_mods(bf: Dictionary) -> Dictionary:
++	var m := {}
++	for k in bf:
++		var v = bf[k]
++		if typeof(v) == TYPE_BOOL: continue
++		match k:
++			"dano_mult": m["dano"] = float(v) - 1.0
++			"dano_magico_mult": m["dano_magico"] = float(v) - 1.0
++			"defesa_mult": m["defesa_pct"] = float(v) - 1.0
++			"hp_mult": m["hp_pct"] = float(v) - 1.0
++			"velocidade_mult": m["vel"] = float(v) - 1.0
++			"velocidade_ataque_mult": m["velocidade_ataque"] = float(v) - 1.0
++			"velocidade_ataque": m["vel_ataque_fixa"] = float(v)
++			"critico": m["critico"] = float(v)
++			"recarga_mult": m["recarga_mult"] = float(v) - 1.0
++	return m
++
++static func _invocar(sim: WorldSim, e: Ent, kind: String, nome: String, dur: float, n: int = 1) -> void:
++	var dt: Dictionary = Defs.CLASSES["tecnomancer"].get("invocacoes", {}).get("torreta_sentinela", {"intervalo": 1.2, "alcance": 7})
++	var mlt := mult(e, "invocacoes_mult")
++	for i in n:
++		var inv := Ent.new()
++		inv.id = sim.novo_id(); inv.tipo = "invocacao"; inv.kind = kind; inv.dono = e.id; inv.nome = nome
++		inv.pos = sim.celula_livre_perto(e.pos + Vector2.from_angle(TAU * i / maxf(n, 1)) * 1.4)
++		inv.casa = inv.pos
++		inv.hp_max = e.hp_max * 0.5 * mlt; inv.hp = inv.hp_max
++		inv.dano_min = e.dano_min * 0.45 * mlt; inv.dano_max = e.dano_max * 0.45 * mlt
++		inv.intervalo = float(dt.get("intervalo", 1.2)); inv.alcance = float(dt.get("alcance", 7.0))
++		inv.vel = 2.8 if kind == "cranio_servo" else 0.0
++		inv.nivel = e.nivel; inv.ar = e.ar; inv.er = e.er; inv.critico = 0.05; inv.crit_mult = 1.5
++		inv.defesa = e.defesa; inv.elemento = "eletrico"; inv.dura_t = dur; inv.raio = 0.45
++		sim.ents[inv.id] = inv
++		sim.emitir("surgiu", {"id": inv.id})
++
++## Solta uma skill da evolução. Chamado por Habilidades.usar quando a skill tem "_evo".
++static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> void:
++	var id: String = h["id"]
++	var prep := maxf(float(h.get("preparo", h.get("conjuracao", h.get("canalizacao", 0.0)))) * mult(e, "conjuracao_mult"), 0.18)
++	var aid := alvo.id if alvo != null else -1
++	var dur := float(h.get("duracao", 0.0))
++	# ------------------------------------------------ transformações (Forma Vingativa, Forma Colossal)
++	if h.get("transformacao", false):
++		var mods := _buff_mods(h.get("buff", {}))
++		Jogador.add_buff(sim, e, id, dur, mods)
++		if h.get("buff", {}).get("imune_controle", false): e.aux["imune_cc"] = true
++		if h.get("buff", {}).get("tiros_atravessam", false): e.aux["tiros_atravessam"] = true
++		if h.get("buff", {}).has("area_ataque_basico"): e.aux["area_basico"] = float(h["buff"]["area_ataque_basico"])
++		var esc0 := e.escala
++		e.escala = float(h.get("escala", 1.0)) * esc0
++		e.aux["forma"] = id
++		e.hp = e.hp_max * e.frac_hp() if e.hp > 0.0 else e.hp
++		_vfx(sim, e, h, {"pos": e.pos, "fica": dur})
++		sim.emitir("forma", {"id": e.id, "forma": id, "on": true, "escala": e.escala, "t": dur})
++		sim.atrasar(dur, func():
++			e.escala = esc0; e.aux.erase("forma"); e.aux.erase("imune_cc"); e.aux.erase("tiros_atravessam"); e.aux.erase("area_basico")
++			sim.emitir("forma", {"id": e.id, "forma": id, "on": false, "escala": e.escala}))
++		return
++	# ------------------------------------------------ invocações
++	if h.has("invocacao") or h.has("invoca"):
++		var lst: Dictionary = h["invoca"] if h.has("invoca") else {h["invocacao"]: 1}
++		for k in lst:
++			_invocar(sim, e, k, {"torreta_relicario": "Torreta-Relicário", "cranio_servo": "Crânio-Servo"}.get(k, k), dur, int(lst[k]))
++		if h.has("sobrecarga"): Jogador.add_buff(sim, e, id, float(h["sobrecarga"]["duracao"]), {"velocidade_ataque": float(h["sobrecarga"]["cadencia_mult"]) - 1.0})
++		_vfx(sim, e, h, {"pos": e.pos, "fica": dur})
++		return
++	# ------------------------------------------------ buffs (próprio ou aliados em volta)
++	if h.has("buff") or (h.get("sensacao", "") == "buff" and not h.has("mult")):
++		var mods := _buff_mods(h.get("buff", {}))
++		if h.has("reducao_dano"): mods["dano_recebido"] = -float(h["reducao_dano"])
++		if h.has("reflete") or h.has("reflete_dano"): mods["reflete"] = float(h.get("reflete", h.get("reflete_dano", 0.0)))
++		if h.has("bloqueio_frontal"): mods["bloqueio"] = float(h["bloqueio_frontal"]) * 0.5   # de frente bloqueia, pelas costas não: na média, metade
++		if h.has("dano_por_inimigo"):   # Ave, Arena!: cada inimigo na arena dá dano ao Gladiador
++			var n_in := _alvos_pt(sim, e, e.pos, float(h.get("area_raio", 7))).size()
++			mods["dano"] = float(h["dano_por_inimigo"]) * mini(n_in, 6)
++			mods["cura_por_abate"] = float(h.get("cura_por_abate", 0.0))
++			sim.criar_area({"pos": e.pos, "raio": float(h.get("area_raio", 7)), "dur": dur, "tick": 99.0, "dono": e.id, "tipo": "arena"})
++		var quem: Array = [e]
++		if h.has("area_raio") and not h.has("provoca_todos"): quem = sim.aliados_de(e, e.pos, float(h["area_raio"]))
++		if not e in quem: quem.append(e)
++		var bdur := dur if dur > 0.0 else 6.0
++		for a: Ent in quem:
++			if not mods.is_empty():
++				if a.tipo == "jogador": Jogador.add_buff(sim, a, id, bdur, mods)
++				else: a.buffs.append({"id": id, "t": bdur, "dur": bdur, "mods": mods})
++			if h.has("escudo_mult"):
++				var esp: float = e.aux.get("ef", e.stats)["ESP"]
++				a.escudo = (esp * 1.5 + e.nivel * 8.0) * float(h["escudo_mult"]) * 0.5; a.escudo_t = bdur
++				sim.emitir("escudo", {"id": a.id, "valor": a.escudo, "t": bdur})
++			if h.get("cura_total", false): sim.curar(a, a.hp_max, e)
++			if h.has("invulneravel"): a.invuln_t = maxf(a.invuln_t, float(h["invulneravel"]))
++			if h.get("imune_controle", false):
++				a.aux["imune_cc"] = true
++				sim.atrasar(bdur, func(): a.aux.erase("imune_cc"))
++		if h.has("regen_hp_por_s"):
++			var eid := e.id
++			sim.criar_area({"pos": e.pos, "raio": 0.0, "dur": bdur, "tick": 1.0, "tipo": "hot", "cada_tick": func(_a):
++				var me := sim.valido(eid)
++				if me != null: sim.curar(me, me.hp_max * float(h["regen_hp_por_s"]), me, true)})
++		if h.has("custo_hp_por_s"):
++			var eid2 := e.id
++			sim.criar_area({"pos": e.pos, "raio": 0.0, "dur": bdur, "tick": 1.0, "tipo": "dreno", "cada_tick": func(_a):
++				var me := sim.valido(eid2)
++				if me != null and me.hp > me.hp_max * 0.1: me.hp -= me.hp_max * float(h["custo_hp_por_s"])})
++		if h.has("escala"):
++			var esc1 := e.escala
++			e.escala *= float(h["escala"])
++			sim.atrasar(bdur, func(): e.escala = esc1)
++		# quem provoca: Trono da Legião, Muro de Vela
++		var rp := float(h.get("area_raio", 0.0)) if h.get("provoca_todos", false) else float(h.get("provocar_area_raio", 0.0))
++		if rp > 0.0:
++			for o in _alvos_pt(sim, e, e.pos, rp): sim.aplicar_status(o, "provocado", minf(bdur, 5.0), e)
++		if h.get("imovel", false): e.aux["imovel_t"] = bdur
++		_vfx(sim, e, h, {"pos": e.pos, "fica": bdur})
++		return
++	# ------------------------------------------------ cura e ressurreição
++	if h.has("ressuscitar_hp"):
++		var a2: Ent = alvo if alvo != null else e
++		sim.curar(a2, a2.hp_max * float(h["ressuscitar_hp"]), e)
++		_vfx(sim, e, h, {"alvo": a2.id})
++		return
++	if h.has("cura_mult") and not h.has("mult"):
++		var quem2: Array = [alvo if alvo != null else e]
++		if h.has("area_raio"):
++			quem2 = sim.aliados_de(e, e.pos, float(h["area_raio"]))
++			if not e in quem2: quem2.append(e)
++		sim.iniciar_acao(e, {"preparo": prep, "rec": 0.25, "skill": id, "conj": true, "impacto": func():
++			for a: Ent in quem2:
++				if a.vivo: sim.curar(a, Habilidades.cura_valor(e, float(h["cura_mult"])), e)
++			if h.has("reparo_invocacoes_mult"):
++				for o: Ent in sim.ents.values():
++					if o.tipo == "invocacao" and o.dono == e.id: sim.curar(o, Habilidades.cura_valor(e, float(h["reparo_invocacoes_mult"])), e)
++			_vfx(sim, e, h, {"pos": e.pos})
++		})
++		return
++	# ------------------------------------------------ Bomba Atômica: centro mata, borda arranha, radiação fica
++	if h.has("dano"):
++		var p := _ponto(e, h, alvo, ponto)
++		sim.iniciar_acao(e, {"preparo": 0.3, "rec": 0.3, "ponto": p, "skill": id, "impacto": func():
++			sim.emitir("vfx", {"nome": h.get("vfx_projetil", "herege_bomba_arremesso"), "pos": e.pos, "para": p, "de": e.id})
++			sim.atrasar(float(h.get("voo", 0.9)), func(): _explodir(sim, e, h, p))
++		})
++		return
++	# ------------------------------------------------ Espíritos Malignos: voam em volta, cada alvo leva até N acertos
++	if h.has("espiritos"):
++		var raio := float(h.get("raio", 4.5))
++		var n := int(h["espiritos"])
++		var porm := int(h.get("acertos_max_por_alvo", 2))
++		var cont := {}
++		_vfx(sim, e, h, {"pos": e.pos, "fica": 1.6})
++		for i in n:
++			sim.atrasar(0.08 * i, func(): _espirito(sim, e, h, i, n, raio, porm, cont))
++		return
++	# ------------------------------------------------ chuvas (meteoros, virotes, sete espadas): N impactos na área
++	var chuva := int(h.get("meteoros", h.get("virotes", h.get("golpes", 0) if h.has("area_raio") and h.has("alcance") else 0)))
++	if chuva > 1:
++		var p2 := _ponto(e, h, alvo, ponto)
++		if h.has("area_raio") and not h.has("alcance"): p2 = e.pos
++		var ar := float(h["area_raio"])
++		var mx := float(h["mult"]) if not h.has("virotes") else float(h["mult"])
++		var ivl := 1.6 / chuva
++		sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "ponto": p2, "skill": id, "conj": prep > 0.4, "impacto": func():
++			_vfx(sim, e, h, {"pos": p2, "fica": 1.8})
++			for i in chuva:
++				var q := p2 + Vector2.from_angle(sim.rng.randf() * TAU) * sqrt(sim.rng.randf()) * ar
++				var r_imp := maxf(1.2, ar * 0.35)
++				if h.has("golpes"):   # Sete Espadas: em círculo, uma por vez, a última no centro
++					q = p2 if i == chuva - 1 else p2 + Vector2.from_angle(TAU * i / (chuva - 1)) * ar * 0.6
++					r_imp = ar * 0.45
++				sim.atrasar(ivl * i, func(): _impacto_chuva(sim, e, h, q, r_imp, p2, ar, mx, i))
++		})
++		return
++	# ------------------------------------------------ leque (cone)
++	if h.get("forma", "") == "cone":
++		var dir := (ponto - e.pos).normalized() if ponto.distance_to(e.pos) > 0.3 else e.facing
++		if alvo != null and ponto.distance_to(e.pos) <= 0.3: dir = (alvo.pos - e.pos).normalized()
++		e.facing = dir
++		var vezes := maxi(1, int(h.get("golpes", 1)))
++		sim.iniciar_acao(e, {"preparo": maxf(prep, 0.22), "rec": 0.3, "dir": dir, "ponto": e.pos + dir, "skill": id, "anim": "attack", "impacto": func():
++			for i in vezes:
++				sim.atrasar(0.07 * i, func(): Habilidades.area_nivel5(sim, e, h, "cone", e.pos, dir))
++			if h.has("cura_aliados_mult"):
++				for a: Ent in sim.aliados_de(e, e.pos, float(h.get("raio", 3.0)) + 2.0): sim.curar(a, Habilidades.cura_valor(e, float(h["cura_aliados_mult"])), e)
++		})
++		return
++	# ------------------------------------------------ dano contínuo (turíbulo, órbitas, sacos de ácido, enxame)
++	if h.has("mult_por_s"):
++		var segue: Ent = e if not h.has("alcance") else alvo
++		if segue == null: segue = e
++		var sid := segue.id
++		var r3 := float(h.get("area_raio", 1.2))
++		var t3 := dur if dur > 0.0 else 6.0
++		_vfx(sim, e, h, {"alvo": sid, "fica": t3})
++		var segue_f := func(a):
++			var s := sim.valido(sid)
++			if s != null: a["pos"] = s.pos
++		sim.criar_area({"pos": segue.pos, "raio": r3, "dur": t3, "tick": 1.0, "dono": e.id, "tipo": "evo_" + id, "cada_tick": segue_f,
++			"op": _op(e, h, {"mult": float(h["mult_por_s"]) * mult(e, "dano_continuo_mult"), "area": true, "nunca_erra": true, "sensacao": "dano_tempo", "postura": 0.0, "sem_recurso": true})})
++		return
++	# ------------------------------------------------ área no ponto (orbe, canhão, estrela, versículo, dobre)
++	if h.has("area_raio") and h.has("mult"):
++		var p4 := _ponto(e, h, alvo, ponto) if h.has("alcance") else e.pos
++		if h.has("deslocamento"):   # Queda do Arcanjo: salta até o ponto (no máximo o deslocamento) e cai em cima
++			p4 = _ponto(e, {"alcance": h["deslocamento"]}, alvo, ponto)
++			sim.deslocar(e, p4, 0.35, {"tipo": id, "anim": "dash", "atravessa": true})
++			p4 = e.deslocando.get("para", p4)
++		var ar4 := float(h["area_raio"])
++		sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "ponto": p4, "skill": id, "conj": prep > 0.4, "impacto": func():
++			_vfx(sim, e, h, {"pos": p4})
++			var primeiro := true
++			for o: Ent in _alvos_pt(sim, e, p4, ar4):
++				sim.aplicar_golpe(e, o, _op(e, h, {"area": true, "empurrao_de": p4, "sem_recurso": not primeiro}))
++				primeiro = false
++			if h.has("chao_amargo_s") or h.has("chao_em_chamas_s"):
++				var dch := float(h.get("chao_amargo_s", h.get("chao_em_chamas_s", 3.0)))
++				sim.criar_area({"pos": p4, "raio": ar4 * 0.8, "dur": dch, "tick": 0.5, "dono": e.id, "tipo": "radiacao" if h.has("chao_amargo_s") else "fogo",
++					"op": _op(e, h, {"mult": 0.15, "area": true, "nunca_erra": true, "sensacao": "dano_tempo", "postura": 0.0, "sem_recurso": true})})
++		})
++		return
++	# ------------------------------------------------ debuff em área (provocação, sermão, grito, rede)
++	if h.has("efeito") and not h.has("mult") and h.has("area_raio"):
++		var p5 := _ponto(e, h, alvo, ponto) if h.has("alcance") else e.pos
++		for o: Ent in _alvos_pt(sim, e, p5, float(h["area_raio"])): _status_em(sim, e, o, h)
++		if h.has("reducao_dano"): Jogador.add_buff(sim, e, id, 4.0, {"dano_recebido": -float(h["reducao_dano"])})
++		_vfx(sim, e, h, {"pos": p5})
++		return
++	# ------------------------------------------------ mobilidade/furtividade (Manto de Sombra)
++	if h.get("sensacao", "") == "mobilidade" and not h.has("mult"):
++		e.aux["bonus_prox"] = float(h.get("primeiro_golpe_mult", 1.5)) - 1.0; e.aux["bonus_prox_t"] = dur if dur > 0.0 else 4.0
++		e.invuln_t = maxf(e.invuln_t, 0.4)
++		Jogador.add_buff(sim, e, id, dur if dur > 0.0 else 4.0, {"vel": 0.2})
++		_vfx(sim, e, h, {"pos": e.pos})
++		return
++	# ------------------------------------------------ alvo único (golpe, tiro, arpão, marca)
++	if alvo == null: return
++	if not h.has("mult"):
++		_status_em(sim, e, alvo, h)
++		if h.get("puxar", false) and alvo.tipo != "chefe" and alvo.arquetipo != "elite":
++			sim.deslocar(alvo, e.pos + (alvo.pos - e.pos).normalized() * 1.2, 0.2, {"tipo": "puxao"})
++		_vfx(sim, e, h, {"alvo": aid})
++		return
++	if h.get("teleporte_atras", false):
++		var atras := alvo.pos - (e.pos - alvo.pos).normalized() * (alvo.raio + 0.6)
++		e.pos = sim.celula_livre_perto(atras, 1.5)
++		e.facing = (alvo.pos - e.pos).normalized()
++		sim.emitir("teleporte", {"id": e.id, "pos": e.pos})
++	var vezes2 := maxi(1, int(h.get("golpes", 1)))
++	var dist := float(h.get("alcance", 1.5)) > 2.5
++	sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "alvo": aid, "skill": id, "conj": prep > 0.4, "impacto": func():
++		for i in vezes2:
++			sim.atrasar(0.11 * i, func(): _golpe_unico(sim, e, h, aid, i, dist))
++		_vfx(sim, e, h, {"alvo": aid})
++	})
++
++
++static func _explodir(sim: WorldSim, e: Ent, h: Dictionary, p: Vector2) -> void:
++	var dn: Dictionary = h["dano"]
++	sim.emitir("vfx", {"nome": h.get("vfx", "herege_bomba_explosao"), "pos": p, "de": e.id})
++	for o: Ent in _alvos_pt(sim, e, p, float(dn["raio"])):
++		var d := o.pos.distance_to(p)
++		var t := clampf((d - float(dn["raio_centro"])) / maxf(float(dn["raio"]) - float(dn["raio_centro"]), 0.1), 0.0, 1.0)
++		var m := lerpf(float(dn["mult_centro"]), float(dn["mult_borda"]), t)
++		sim.aplicar_golpe(e, o, _op(e, h, {"mult": m, "area": true, "nunca_erra": true, "empurrao": 14.0 * (1.0 - t), "empurrao_de": p}))
++	if h.has("radiacao"):
++		var rd: Dictionary = h["radiacao"]
++		sim.criar_area({"pos": p, "raio": float(rd["raio"]), "dur": float(rd["duracao"]), "tick": 1.0, "dono": e.id, "tipo": "radiacao",
++			"op": _op(e, h, {"mult": float(rd.get("dano_por_s_mult", 0.3)), "area": true, "nunca_erra": true, "sensacao": "dano_tempo", "postura": 0.0, "sem_recurso": true, "elemento": "radiacao",
++				"efeito": {"cura_reduzida": 1.5}})})
++		sim.emitir("vfx", {"nome": h.get("vfx_chao", "herege_radiacao"), "pos": p, "de": e.id, "fica": float(rd["duracao"])})
++
++static func _espirito(sim: WorldSim, e: Ent, h: Dictionary, i: int, n: int, raio: float, porm: int, cont: Dictionary) -> void:
++	if not e.vivo: return
++	var c := e.pos + Vector2.from_angle(TAU * i / n) * raio * 0.6
++	for o: Ent in _alvos_pt(sim, e, c, raio * 0.55):
++		if int(cont.get(o.id, 0)) >= porm: continue
++		cont[o.id] = int(cont.get(o.id, 0)) + 1
++		sim.aplicar_golpe(e, o, _op(e, h, {"area": true, "nunca_erra": true, "sem_recurso": true}))
++		if h.has("vfx_impacto"): sim.emitir("vfx", {"nome": h["vfx_impacto"], "alvo": o.id, "de": e.id})
++		break
++
++static func _impacto_chuva(sim: WorldSim, e: Ent, h: Dictionary, q: Vector2, r_imp: float, p2: Vector2, ar: float, mx: float, i: int) -> void:
++	if not e.vivo: return
++	for o: Ent in _alvos_pt(sim, e, q, r_imp):
++		sim.aplicar_golpe(e, o, _op(e, h, {"mult": mx, "area": true, "nunca_erra": true, "sem_recurso": i > 0}))
++		if h.has("derruba_voadores") and "alado" in o.tags: sim.aplicar_status(o, "derrubado", float(h["derruba_voadores"]), e)
++	if h.has("cura_aliados_por_golpe"):
++		for a: Ent in sim.aliados_de(e, p2, ar + 2.0): sim.curar(a, a.hp_max * float(h["cura_aliados_por_golpe"]), e, true)
++
++static func _golpe_unico(sim: WorldSim, e: Ent, h: Dictionary, aid: int, i: int, dist: bool) -> void:
++	var a := sim.valido(aid)
++	if a == null or not e.vivo: return
++	var ex := {"sem_recurso": i > 0}
++	if h.get("puxar", false): ex["puxa_para"] = 1.2
++	if h.has("execucao_abaixo_hp") and a.tipo != "chefe" and a.frac_hp() <= float(h["execucao_abaixo_hp"]): ex["mult"] = 999.0
++	if dist: sim.lancar(e, {"vel": 20.0, "alvo": aid, "vfx": "bala", "perfura": h.get("atravessa", false)}, _op(e, h, ex))
++	else: sim.aplicar_golpe(e, a, _op(e, h, ex))
++	if h.has("dano_recebido_extra"): _status_em(sim, e, a, h)
+diff -ruN a/scripts/sim/evolucao.gd.uid b/scripts/sim/evolucao.gd.uid
+--- a/scripts/sim/evolucao.gd.uid	1970-01-01 00:00:00.000000000 +0000
++++ b/scripts/sim/evolucao.gd.uid	2026-10-17 05:15:42.658445332 +0000
+@@ -0,0 +1 @@
++uid://222bwhhcsfyg
+diff -ruN a/scripts/sim/habilidades.gd b/scripts/sim/habilidades.gd
+--- a/scripts/sim/habilidades.gd	2026-10-17 05:15:42.647011113 +0000
++++ b/scripts/sim/habilidades.gd	2026-10-17 05:15:42.658901100 +0000
+@@ -31,11 +31,13 @@
+ 
+ static func cura_valor(e: Ent, mult: float) -> float:
+ 	var esp: float = e.aux.get("ef", e.stats)["ESP"]
+-	var v := (esp / 3.0 + e.nivel * 2.0) * mult
++	var v := (esp / 3.0 + e.nivel * 2.0) * mult * Evolucao.mult(e, "cura_mult")
+ 	if "pena_zacarias" in e.aux.get("bonus", {}).get("efeitos", []): v *= 1.12
+ 	return v
+ 
+ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> void:
++	if h.has("_evo"):
++		Evolucao.usar(sim, e, h, alvo, ponto); return
+ 	var id: String = h["id"]
+ 	var conj := float(h.get("conjuracao", 0.0))
+ 	var prep := maxf(conj, 0.18)
+diff -ruN a/scripts/sim/jogador.gd b/scripts/sim/jogador.gd
+--- a/scripts/sim/jogador.gd	2026-10-17 05:15:42.649857139 +0000
++++ b/scripts/sim/jogador.gd	2026-10-17 05:15:42.658925373 +0000
+@@ -19,8 +19,7 @@
+ 	e.stats = c["atributos_iniciais"].duplicate()
+ 	for k in e.stats: e.stats[k] = float(e.stats[k])
+ 	e.raio = 0.35
+-	e.skills_slots = []
+-	for h in c["habilidades"]: e.skills_slots.append(h["id"])
++	Evolucao.montar_slots(e)
+ 	if salvo.is_empty():
+ 		var arma := _arma_inicial(classe)
+ 		if arma != "": e.equip["arma"] = Itens.novo(arma)
+@@ -32,6 +31,7 @@
+ 		e.ouro = 30
+ 	else:
+ 		carregar(e, salvo)
++		Evolucao.montar_slots(e)
+ 	Regras.recalc_jogador(e)
+ 	e.hp = e.hp_max
+ 	if salvo.is_empty():
+@@ -82,6 +82,7 @@
+ 	for k in ["pocao"]:
+ 		if e.aux.has("cd_" + k): e.aux["cd_" + k] -= dt
+ 	if e.aux.get("bonus_prox_t", 0.0) > 0.0: e.aux["bonus_prox_t"] -= dt
++	if e.aux.get("imovel_t", 0.0) > 0.0: e.aux["imovel_t"] -= dt   # Trono da Legião: sentado no trono
+ 	for h in Defs.CLASSES[e.classe]["habilidades"]:
+ 		if h.has("cargas"):
+ 			var k: String = "cargas_" + h["id"]
+@@ -99,7 +100,8 @@
+ 		e.aux["amargo_t"] = float(e.aux.get("amargo_t", 0.0)) + dt
+ 		if e.aux["amargo_t"] >= 1.0:
+ 			e.aux["amargo_t"] = 0.0
+-			sim.aplicar_dano_puro(e, e.hp_max * 0.025 * (am - 6), "veneno", null, "dano_tempo")
++			var dv := e.hp_max * 0.025 * (am - 6) * (1.0 - Evolucao.soma(e, "resistencia_amargo"))   # Profeta do Amargo resiste
++			if dv > 0.0: sim.aplicar_dano_puro(e, dv, "veneno", null, "dano_tempo")
+ 	# canalização (baú, vela de retorno)
+ 	if not e.interagindo.is_empty():
+ 		e.interagindo["t"] += dt
+@@ -521,6 +523,7 @@
+ # =================================================================== comandos
+ static func cmd_mover(sim: WorldSim, e: Ent, p: Vector2) -> void:
+ 	if not e.vivo: return
++	if e.aux.get("imovel_t", 0.0) > 0.0: return
+ 	desligar_auto(sim, e)
+ 	e.alvo = -1; e.aux.erase("interagir"); e.aux.erase("pegar"); e.buffer_skill = {}
+ 	if not e.interagindo.is_empty(): cancelar_canal(sim, e)
+@@ -586,6 +589,9 @@
+ 			if corpo_a_corpo:
+ 				if e.pos.distance_to(a2.pos) - a2.raio <= alcance_basico(e) + 0.8:
+ 					sim.aplicar_golpe(e, a2, op)
++					if e.aux.has("area_basico"):   # Forma Colossal: o tentáculo varre tudo em volta do alvo
++						for o in sim.inimigos_de(e, a2.pos, float(e.aux["area_basico"])):
++							if o != a2: sim.aplicar_golpe(e, o, op.merged({"area": true, "sem_recurso": true}))
+ 			else:
+ 				if e.classe == "humano": e.municao -= 1
+ 				sim.lancar(e, {"vel": float(arma.get("projetil_vel", 12)) if float(arma.get("projetil_vel", 0)) > 0 else 12.0, "alvo": alvo_id, "vfx": "basico_" + e.classe}, op)
+@@ -625,7 +631,7 @@
+ 			"rec": maxf(0.05, iv * 0.55), "alvo": alvo_id, "anim": "shoot", "impacto": func():
+ 			e.municao -= 1
+ 			sim.emitir("vfx", {"nome": "disparo_cano", "de": e.id, "alvo": alvo_id})
+-			sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": alvo_id, "vfx": "projetil_bala"}, op)
++			sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": alvo_id, "vfx": "projetil_bala", "perfura": e.aux.has("tiros_atravessam")}, op)
+ 		})
+ 	e.aux["arma_mao"] = "espada" if espada else "tiro"
+ 
+@@ -633,7 +639,8 @@
+ static func skill_def(e: Ent, slot: int) -> Dictionary:
+ 	if slot < 0 or slot >= e.skills_slots.size(): return {}
+ 	var id: String = e.skills_slots[slot]
+-	for h in Defs.CLASSES[e.classe]["habilidades"]:
++	if id == "": return {}
++	for h in Evolucao.habilidades(e):
+ 		if h["id"] == id: return h
+ 	return {}
+ 
+@@ -708,6 +715,7 @@
+ 	return true
+ 
+ static func _tipo_skill(h: Dictionary) -> String:
++	if h.has("_evo"): return Evolucao.tipo(h)
+ 	match h["id"]:
+ 		"toque_graca", "nanoreparo": return "alvo_aliado"
+ 		"asas_ascensao", "rolamento", "arrancada", "chuva_cinzas", "armadilha_prata", "investida_bestial", "rajada": return "ponto"
+@@ -742,6 +750,7 @@
+ 			sim.aplicar_dano_puro(atk, dano * float(b["mods"]["reflete"]), "fogo", e, "normal")
+ 
+ static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
++	if e.mod("cura_por_abate") > 0.0: sim.curar(e, e.hp_max * e.mod("cura_por_abate"), e)   # Ave, Arena!
+ 	var xp := Regras.xp_mob(morto) * Regras.mod_xp_nivel(morto.nivel, e.nivel)
+ 	if morto.tipo == "chefe":
+ 		xp = (10.0 + 5.0 * morto.nivel) * (25.0 if not e.flags.has("venceu_" + morto.kind) else 8.0)
+@@ -777,7 +786,7 @@
+ 		e.hp = e.hp_max
+ 		if e.classe in ["anjo", "tecnomancer", "humano"]: e.rec = e.rec_max
+ 		var nova := ""
+-		for h in Defs.CLASSES[e.classe]["habilidades"]:
++		for h in Evolucao.habilidades(e):
+ 			if int(h["nivel"]) == e.nivel: nova = h["nome"]
+ 		sim.emitir("nivel", {"id": e.id, "nivel": e.nivel, "skill_nova": nova})
+ 		if e.nivel % TALENTO_NIVEIS == 0: sim.emitir_a(e, "aviso", {"texto": "Ponto de talento novo! Aperte T para usar."})
+@@ -1255,7 +1264,7 @@
+ 
+ # =================================================================== save
+ static func salvar(e: Ent, sim: WorldSim) -> Dictionary:
+-	return {"v": 2, "classe": e.classe, "nome": e.nome, "nivel": e.nivel, "xp": e.xp, "pontos": e.pontos, "stats": e.stats,
++	return {"v": 2, "classe": e.classe, "evolucao": e.evolucao, "nome": e.nome, "nivel": e.nivel, "xp": e.xp, "pontos": e.pontos, "stats": e.stats,
+ 		"ouro": e.ouro, "municao": e.municao, "inv": e.inv, "equip": e.equip, "armazem": e.armazem, "missoes": e.missoes,
+ 		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if sim.mapa_id.begins_with("area") else "area_inicial",
+ 		"pos": [e.pos.x, e.pos.y] if sim.mapa_id.begins_with("area") else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
+@@ -1263,6 +1272,8 @@
+ 
+ static func carregar(e: Ent, s: Dictionary) -> void:
+ 	e.nivel = int(s.get("nivel", 1)); e.xp = int(s.get("xp", 0)); e.pontos = int(s.get("pontos", 0))
++	e.evolucao = str(s.get("evolucao", ""))
++	if e.evolucao != "" and Evolucao.defn(e.evolucao).get("classe_base", "") != e.classe: e.evolucao = ""   # save adulterado ou JSON mudou
+ 	for k in s.get("stats", {}): e.stats[k] = float(s["stats"][k])
+ 	e.ouro = int(s.get("ouro", 0)); e.municao = int(s.get("municao", 0))
+ 	e.inv = s.get("inv", []); e.equip = s.get("equip", {}); e.armazem = s.get("armazem", [])
+diff -ruN a/scripts/sim/missoes.gd b/scripts/sim/missoes.gd
+--- a/scripts/sim/missoes.gd	2026-10-17 05:15:42.652391599 +0000
++++ b/scripts/sim/missoes.gd	2026-10-17 05:15:42.658959756 +0000
+@@ -23,6 +23,7 @@
+ 	var rq: Array = d.get("requer_qualquer", [])
+ 	if rq.size() > 0 and not rq.any(func(r): return estado(jog, r) == "concluida"): return false
+ 	if jog.nivel < int(d.get("nivel", 1)) - 2: return false
++	if jog.nivel < int(d.get("nivel_minimo", 0)): return false
+ 	return true
+ 
+ ## Etapa atual: o menor número de etapa que ainda tem objetivo pendente.
+@@ -40,6 +41,8 @@
+ 	match o["tipo"]:
+ 		"coletar":
+ 			return Itens.contar(jog.inv, o["item"]) >= int(o.get("qtd", 1))
++		"chefes_dungeon":   # Livro dos Vencidos do Simão: vale o nível (a linha G ainda não está no jogo)
++			return jog.nivel >= int(o.get("ate_nivel", 0))
+ 		"falar", "decidir":
+ 			if npc_ignora != "":
+ 				var alvo = o.get("npc")
+@@ -52,6 +55,7 @@
+ 	var prog: Array = jog.missoes.get(mid, {}).get("prog", [])
+ 	var tot := int(o.get("qtd", 1))
+ 	if o["tipo"] == "coletar": return [mini(Itens.contar(jog.inv, o["item"]), tot), tot]
++	if o["tipo"] == "chefes_dungeon": return [1 if jog.nivel >= int(o.get("ate_nivel", 0)) else 0, 1]
+ 	return [mini(int(prog[i]) if i < prog.size() else 0, tot), tot]
+ 
+ static func pronta(jog: Ent, mid: String, npc: String = "") -> bool:
+@@ -86,6 +90,12 @@
+ static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "") -> void:
+ 	var d := def(mid)
+ 	if estado(jog, mid) != "ativa": return
++	var aplica = d.get("recompensas", {}).get("aplica_evolucao")
++	if aplica != null:   # Os Dois Caminhos: só conclui com um caminho válido da classe
++		var evo: String = escolha if str(aplica) == "escolhida" else str(aplica)
++		if not evo in d.get("escolhas_por_classe", {}).get(jog.classe, [evo]) or Evolucao.recusa(jog, evo) != "":
++			sim.emitir_a(jog, "aviso", {"texto": Evolucao.recusa(jog, evo) if Evolucao.recusa(jog, evo) != "" else "Esse caminho não é seu."})
++			return
+ 	for o in d["objetivos"]:
+ 		if o["tipo"] == "coletar": Itens.remover(jog.inv, o["item"], int(o.get("qtd", 1)))
+ 	var rec: Dictionary = d.get("recompensas", {}).duplicate(true)
+@@ -104,6 +114,8 @@
+ 	var epc: Dictionary = rec.get("escolha_por_classe", {})
+ 	if epc.has(jog.classe): Jogador.dar_item(sim, jog, Itens.novo(epc[jog.classe]))
+ 	if rec.has("xp"): Jogador.ganhar_xp(sim, jog, int(rec["xp"]), "missão")
++	if aplica != null: Evolucao.aplicar(sim, jog, escolha if str(aplica) == "escolhida" else str(aplica))
++	for f in d.get("flags", []): jog.flags[f] = true
+ 	var prox = d.get("ao_concluir_inicia")
+ 	if prox != null and prox != "" and disponivel(jog, prox): aceitar(sim, jog, prox)
+ 	sim.emitir_a(jog, "inventario", {})
+@@ -177,6 +189,7 @@
+ 			"missao_concluida": ok = lista.any(func(m): return estado(jog, m) == "concluida")
+ 			"missao_nao_iniciada": ok = lista.any(func(m): return estado(jog, m) == "nao_iniciada")
+ 			"faccao": ok = jog.faccao in lista
++			"classe": ok = jog.classe in lista and jog.evolucao == ""
+ 			"flag": ok = lista.any(func(f): return jog.flags.has(f))
+ 			"sem_flag": ok = not lista.any(func(f): return jog.flags.has(f))
+ 			"tem_item":
+@@ -293,6 +306,7 @@
+ 		"usar_item":
+ 			return "Use %s em %s" % [Defs.ITENS.get(o["item"], {}).get("nome", o["item"]), Defs.OBJETOS.get(o.get("objeto", ""), {}).get("nome", str(o.get("objeto", "")).replace("_", " "))]
+ 		"explorar": return "Chegue a %s" % Defs.nome_local(o.get("subzona", ""))
++		"chefes_dungeon": return "Encha o Livro dos Vencidos até o nível %d" % int(o.get("ate_nivel", 0))
+ 		"farmar_spot":
+ 			var sid := spot_real(null, str(o.get("spot", "")))
+ 			var nm3: String = Defs.SPOTS.get(sid, {}).get("nome", sid.replace("_", " "))
+diff -ruN a/scripts/sim/regras.gd b/scripts/sim/regras.gd
+--- a/scripts/sim/regras.gd	2026-10-17 05:15:42.653137393 +0000
++++ b/scripts/sim/regras.gd	2026-10-17 05:15:42.658979814 +0000
+@@ -22,18 +22,20 @@
+ 	var base_stats: Dictionary = e.stats
+ 	var st := {}
+ 	for k in NOMES_ATTR:
+-		st[k] = float(base_stats[k]) + float(b[k]) + e.mod(k)
++		st[k] = float(base_stats[k]) + float(b[k]) + e.mod(k) + Evolucao.atributo(e, k)
+ 	e.aux["ef"] = st
+ 	var F: float = st["FOR"]; var A: float = st["AGI"]; var V: float = st["VIT"]; var E: float = st["ESP"]
+ 	var vals := [F, A, V, E]
+ 	var hp_old := e.frac_hp()
+ 	e.hp_max = float(c["hp"]["base"]) + float(c["hp"]["por_nivel"]) * e.nivel + float(c["hp"]["por_vit"]) * V + float(b["hp"])
+-	e.hp_max *= 1.0 + e.mod("hp_pct")
++	e.hp_max *= (1.0 + e.mod("hp_pct")) * Evolucao.mult(e, "hp_mult")
+ 	if e.hp > 0.0: e.hp = minf(e.hp, e.hp_max)
+ 	var perfil: Array = PERFIS[c["perfil_dano"]]
+ 	var arma := Ent_arma(e)
+ 	var mn := Defs.expr(perfil[0], NOMES_ATTR, vals) + float(arma["min"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
+ 	var mx := Defs.expr(perfil[1], NOMES_ATTR, vals) + float(arma["max"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
++	var dm := Evolucao.mult(e, "dano_mult") * (Evolucao.mult(e, "dano_magico_mult") if c["perfil_dano"] == "magico" else 1.0)
++	mn *= dm; mx *= dm
+ 	e.dano_min = mn; e.dano_max = maxf(mx, mn)
+ 	if c["perfil_dano"] == "hibrido":
+ 		var sec: Dictionary = c["arma_secundaria"]
+@@ -41,19 +43,20 @@
+ 		var tmn := Defs.expr(pt[0], NOMES_ATTR, vals) + float(sec["min"]) + float(b["dano_plano"])
+ 		var tmx := Defs.expr(pt[1], NOMES_ATTR, vals) + float(sec["max"]) + float(b["dano_plano"])
+ 		e.aux["tiro"] = [tmn, maxf(tmx, tmn)]
+-	e.defesa = V / 5.0 + A / 10.0 + float(b["defesa"])
++	e.defesa = (V / 5.0 + A / 10.0 + float(b["defesa"])) * Evolucao.mult(e, "defesa_mult")
+ 	var magico: bool = c["perfil_dano"] == "magico"
+ 	e.ar = e.nivel * 3.0 + ((E / 2.0 + A / 2.0) if magico else (A + F / 4.0))
+ 	e.er = e.nivel * 2.0 + A / 2.0
+-	e.critico = minf(float(Defs.FORM["critico"]["chance_max"]), 0.05 + A * 0.0008 + float(b["critico"]) + e.mod("critico"))
+-	e.crit_mult = float(Defs.FORM["critico"]["mult_por_classe"].get(e.classe, Defs.FORM["critico"]["mult"]))
++	e.critico = minf(float(Defs.FORM["critico"]["chance_max"]), 0.05 + A * 0.0008 + float(b["critico"]) + e.mod("critico") + Evolucao.soma(e, "critico"))
++	e.crit_mult = float(Defs.FORM["critico"]["mult_por_classe"].get(e.classe, Defs.FORM["critico"]["mult"])) * Evolucao.mult(e, "dano_critico_mult")
+ 	e.excelente = minf(0.25, float(b["excelente"]))
+-	e.vel_ataque = minf(2.0, 1.0 + A * 0.004 + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque"))
++	e.vel_ataque = minf(2.0, (1.0 + A * 0.004 + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque")) * Evolucao.mult(e, "velocidade_ataque_mult"))
++	if e.mod("vel_ataque_fixa") > 0.0: e.vel_ataque = e.mod("vel_ataque_fixa")   # transformações (Forma Vingativa 2.3, Forma Colossal 0.45)
+ 	e.intervalo = float(arma["intervalo"]) / e.vel_ataque
+-	e.alcance = float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])
++	e.alcance = (float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])) * Evolucao.mult(e, "alcance_mult")
+ 	e.elemento = c["elemento_ataque"]
+ 	e.postura_arma = float(arma.get("postura", 10))
+-	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"])
++	e.roubo_vida = float(c.get("roubo_de_vida", 0.0)) + float(b["roubo_de_vida"]) + Evolucao.soma(e, "roubo_vida")
+ 	e.res = b["res"].duplicate()
+ 	if e.classe == "mutante":
+ 		for r in Defs.FORM["vantagem_cruzada"]["mutante"]["resiste"]: e.res[r] = e.res.get(r, 0.0) + 0.3
+@@ -65,6 +68,7 @@
+ 		"mutante", "demonio": e.rec_max = 100.0
+ 		"humano": e.rec_max = float(rc["folego"]["max"])
+ 		"cultista": e.rec_max = 0.0
++	e.rec_max *= Evolucao.mult(e, "recurso_max_mult")
+ 	e.rec = minf(e.rec, e.rec_max)
+ 	if hp_old > 0.0 and e.hp <= 0.0: e.hp = e.hp_max * hp_old
+ 
+@@ -151,6 +155,10 @@
+ 		if rng.randf() > ch:
+ 			r["errou"] = true
+ 			return r
++	# bloqueio das evoluções (Lorde das Trevas, Gladiador) e do Muro de Vela
++	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio"):
++		r["errou"] = true
++		return r
+ 	var faixa: Array = op.get("faixa", [atk.dano_min, atk.dano_max])
+ 	var bruto := rng.randf_range(float(faixa[0]), float(faixa[1])) * float(op.get("mult", 1.0)) + float(op.get("add", 0.0))
+ 	if atk.aux.get("bonus_prox_t", 0.0) > 0.0 and op.get("skill", "") != "arrancada":
+diff -ruN a/tools/teste_evolucao.gd b/tools/teste_evolucao.gd
+--- a/tools/teste_evolucao.gd	1970-01-01 00:00:00.000000000 +0000
++++ b/tools/teste_evolucao.gd	2026-10-17 05:15:42.661176202 +0000
+@@ -0,0 +1,212 @@
++extends SceneTree
++## Teste headless das evoluções do nível 50: carta do Simão, escolha com o Pedro (só os 2 caminhos da classe),
++## troca de classe, bônus (atributos, hp_mult, defesa_mult), as 5 skills novas de cada caminho e o save.
++## godot --headless --path . -s tools/teste_evolucao.gd
++
++var cont := {}
++var avisos: Array = []
++var falhas := 0
++
++func _ev(t: String, d: Dictionary) -> void:
++	cont[t] = cont.get(t, 0) + 1
++	if t == "aviso" and avisos.size() < 40: avisos.append(str(d.get("texto", "")))
++
++func falha(msg: String) -> void:
++	print("FALHA: ", msg); falhas += 1
++
++func rodar(sim: WorldSim, seg: float) -> void:
++	for i in int(seg * 30): sim.passo(WorldSim.TICK)
++
++func subir(sim: WorldSim, j: Ent, nivel: int) -> void:
++	while j.nivel < nivel: Jogador.ganhar_xp(sim, j, Defs.xp_para_proximo(j.nivel) - j.xp)
++
++func npc(sim: WorldSim, kind: String) -> Ent:
++	for e: Ent in sim.ents.values():
++		if e.tipo == "npc" and e.kind == kind: return e
++	return null
++
++## Escolhe no diálogo aberto a opção visível com esse texto. Devolve false se ela não estiver na tela.
++func opcao(sim: WorldSim, j: Ent, texto: String) -> bool:
++	var st: Dictionary = j.aux.get("dialogo", {})
++	if st.is_empty(): return false
++	var ops: Array = Defs.DIALOGOS[st["dlg"]]["nos"][st["no"]]["opcoes"]
++	for i in st["vis"].size():
++		if ops[st["vis"][i]]["texto"] == texto:
++			Missoes.escolher(sim, j, i); return true
++	return false
++
++func visiveis(j: Ent) -> Array:
++	var st: Dictionary = j.aux.get("dialogo", {})
++	var ops: Array = Defs.DIALOGOS[st["dlg"]]["nos"][st["no"]]["opcoes"]
++	return st["vis"].map(func(i): return ops[i]["texto"])
++
++func _init() -> void:
++	Defs.carregar()
++	if Defs.EVOLUCOES.is_empty():
++		print("FALHA: design/combate/evolucoes.json não carregou (rode tools/sync.sh)"); quit(1); return
++	var sim := WorldSim.new(7)
++	sim.evento.connect(_ev)
++	var j0 := Jogador.criar(sim, "anjo", "Mapa")
++	Jogador.entrar(sim, j0, "area_inicial", Vector2(44.5, 44))
++	var pedro := npc(sim, "pedro_exilado")
++	if pedro == null:
++		print("AVISO: pedro_exilado não está no mapa area_inicial do jogo (precisa do mapa novo de São Lázaro); o teste cria um")
++	else:
++		print("pedro_exilado no mapa em ", pedro.pos, " andável=", sim.andavel(pedro.pos), " zona=", sim.zona_em(pedro.pos))
++		if sim.zona_em(pedro.pos) != "ilha_do_exilado": falha("Pedro fora da zona ilha_do_exilado")
++	sim.remover_jogador(j0)
++
++	for classe in ["anjo", "demonio", "cultista", "humano", "mutante", "tecnomancer"]:
++		for caminho_idx in 2:
++			_testar(classe, caminho_idx)
++	print("eventos: ", cont)
++	print("avisos: ", avisos)
++	print("RESULTADO: ", "OK" if falhas == 0 else "%d falha(s)" % falhas)
++	quit(1 if falhas > 0 else 0)
++
++func _testar(classe: String, caminho_idx: int) -> void:
++	var sim := WorldSim.new(11 + caminho_idx)
++	sim.evento.connect(_ev)
++	var j := Jogador.criar(sim, classe, "Teste_" + classe)
++	Jogador.entrar(sim, j, "area_inicial", Vector2(44.5, 44))
++	var simao := npc(sim, "simao_coveiro")
++	var pedro := npc(sim, "pedro_exilado")
++	if pedro == null:
++		sim._criar_npc({"id": "pedro_exilado", "pos": [j.pos.x + 1.5, j.pos.y]})
++		pedro = npc(sim, "pedro_exilado")
++	if simao == null: falha("Simão não está no mapa"); return
++	var opcoes: Array = Evolucao.opcoes(classe)
++	var tag := "%s/%s" % [classe, opcoes[caminho_idx]]
++	# ------------------------------------------------ nível mínimo
++	subir(sim, j, 48)
++	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível no nível 48")
++	subir(sim, j, 50)
++	if not Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 indisponível no nível 50")
++	# ------------------------------------------------ carta do Simão
++	Missoes.abrir(sim, j, simao)
++	if not opcao(sim, j, "Tem alguma carta para o Exilado?"): falha(tag + ": Simão não oferece a carta: " + str(visiveis(j))); return
++	if Missoes.estado(j, "ev01") != "ativa": falha(tag + ": ev01 não ficou ativa")
++	if Itens.contar(j.inv, "carta_de_simao") < 1: falha(tag + ": sem a carta de Simão na mochila")
++	j.aux.erase("dialogo")
++	# ------------------------------------------------ Pedro lê a carta; Os Dois Caminhos começa sozinha
++	Missoes.abrir(sim, j, pedro)
++	if not opcao(sim, j, "O coveiro me mandou. Esta é a carta."): falha(tag + ": Pedro não aceita a carta: " + str(visiveis(j))); return
++	if Missoes.estado(j, "ev01") != "concluida": falha(tag + ": ev01 não concluiu")
++	if Missoes.estado(j, "ev02") != "ativa": falha(tag + ": ev02 não começou")
++	j.aux.erase("dialogo")
++	# ------------------------------------------------ escolha: só os 2 caminhos da classe
++	var stats_antes: Dictionary = j.stats.duplicate()
++	var hp_antes := j.hp_max; var def_antes := j.defesa; var pontos_antes := j.pontos
++	Missoes.abrir(sim, j, pedro)
++	if not opcao(sim, j, "Estou pronto para escolher o meu caminho."): falha(tag + ": Pedro não abre a escolha"); return
++	var vis := visiveis(j)
++	var nomes: Array = opcoes.map(func(o): return Evolucao.defn(o)["nome"])
++	if vis.size() != 3 or not (nomes[0] in vis and nomes[1] in vis): falha(tag + ": opções erradas na escolha: " + str(vis))
++	# caminho de outra classe é recusado
++	var alheio := "serafim" if classe != "anjo" else "ceifador"
++	Missoes.concluir(sim, j, "ev02", alheio)
++	if j.evolucao != "" or Missoes.estado(j, "ev02") != "ativa": falha(tag + ": aceitou caminho de outra classe")
++	var escolhido: String = opcoes[caminho_idx]
++	if not opcao(sim, j, Evolucao.defn(escolhido)["nome"]): falha(tag + ": não achou a opção " + escolhido); return
++	if j.evolucao != escolhido: falha(tag + ": evolução não aplicada (%s)" % j.evolucao); return
++	if Missoes.estado(j, "ev02") != "concluida": falha(tag + ": ev02 não concluiu")
++	if not j.flags.has("evolucao_50"): falha(tag + ": sem a flag evolucao_50")
++	if Evolucao.recusa(j, opcoes[1 - caminho_idx]) == "": falha(tag + ": dá para evoluir duas vezes")
++	# ------------------------------------------------ bônus: atributos, pontos, hp_mult e defesa_mult
++	var d := Evolucao.defn(escolhido)
++	var b: Dictionary = d["bonus"]
++	if j.pontos < pontos_antes + 10: falha(tag + ": não ganhou os 10 pontos extras")
++	for k in ["FOR", "AGI", "VIT", "ESP"]:
++		var esperado: float = float(j.stats[k]) + float(b.get(k, 0)) + float(j.aux["bonus"][k])
++		if absf(float(j.aux["ef"][k]) - esperado) > 0.01: falha(tag + ": atributo %s efetivo %.1f, esperado %.1f" % [k, j.aux["ef"][k], esperado])
++	# recalcula sem e com a evolução, com os mesmos atributos e nível, para isolar os multiplicadores
++	var evo := j.evolucao
++	j.evolucao = ""; Regras.recalc_jogador(j)
++	var hp_sem := j.hp_max; var def_sem := j.defesa
++	j.evolucao = evo; Regras.recalc_jogador(j)
++	var hp_mult := 1.15 * float(b.get("hp_mult", 1.0))
++	var def_mult := float(b.get("defesa_mult", 1.0))
++	var V: float = j.aux["ef"]["VIT"]; var A: float = j.aux["ef"]["AGI"]
++	var c: Dictionary = Defs.CLASSES[classe]
++	var hp_base: float = (float(c["hp"]["base"]) + float(c["hp"]["por_nivel"]) * j.nivel + float(c["hp"]["por_vit"]) * V + float(j.aux["bonus"]["hp"])) * (1.0 + j.mod("hp_pct"))
++	if absf(j.hp_max - hp_base * hp_mult) > 0.5: falha(tag + ": hp_max %.1f, esperado %.1f (x%.3f)" % [j.hp_max, hp_base * hp_mult, hp_mult])
++	var def_base := V / 5.0 + A / 10.0 + float(j.aux["bonus"]["defesa"])
++	if absf(j.defesa - def_base * def_mult) > 0.01: falha(tag + ": defesa %.2f, esperada %.2f (x%.2f)" % [j.defesa, def_base * def_mult, def_mult])
++	print("%-32s hp %.0f -> %.0f (x%.3f)  defesa %.1f -> %.1f (x%.2f)  slots %d" % [tag, hp_antes, j.hp_max, hp_mult, def_antes, j.defesa, def_mult, j.skills_slots.size()])
++	if hp_sem >= j.hp_max and hp_mult > 1.0: falha(tag + ": hp não subiu com a evolução")
++	if def_mult > 1.0 and def_sem >= j.defesa: falha(tag + ": defesa não subiu com a evolução")
++	# ------------------------------------------------ barra: base + 5 da evolução nos slots 10..14
++	if j.skills_slots.size() != Evolucao.SLOT_EVO + 5: falha(tag + ": slots %d" % j.skills_slots.size())
++	for i in 5:
++		if j.skills_slots[Evolucao.SLOT_EVO + i] != d["habilidades"][i]["id"]: falha(tag + ": slot %d errado" % (Evolucao.SLOT_EVO + i))
++	# ------------------------------------------------ as 5 skills disparam e fazem efeito
++	subir(sim, j, 70)
++	var campo := _campo_aberto(sim, j.pos)   # fora da zona segura, senão os monstros ficam imunes
++	j.pos = campo
++	for i in 5:
++		var slot := Evolucao.SLOT_EVO + i
++		var h := Jogador.skill_def(j, slot)
++		if h.is_empty(): falha(tag + ": skill_def vazia no slot %d" % slot); continue
++		for o: Ent in sim.ents.values():
++			if o.tipo in ["monstro", "invocacao"] and o.pos.distance_to(j.pos) < 30.0: sim.remover(o.id)
++		var alvo_m := sim.criar_mob(Defs.MOBS.keys()[0], sim.celula_livre_perto(campo + Vector2(2.0, 0.0)), 70)
++		alvo_m.hp_max = 1e7; alvo_m.hp = 1e7; alvo_m.dano_min = 0.0; alvo_m.dano_max = 0.0
++		var outro := sim.criar_mob(Defs.MOBS.keys()[0], sim.celula_livre_perto(campo + Vector2(2.5, 1.0)), 70)
++		outro.hp_max = 1e7; outro.hp = 1e7; outro.dano_min = 0.0; outro.dano_max = 0.0
++		if not j.vivo: Jogador.renascer(sim, j)
++		j.pos = campo; j.caminho.clear(); j.deslocando = {}
++		j.cds.clear(); j.acao = {}; j.buffs.clear(); Regras.recalc_jogador(j); j.hp = j.hp_max * 0.6; j.rec = j.rec_max
++		if classe in ["demonio", "mutante"]: j.rec = j.rec_max
++		var antes := cont.duplicate()
++		var hp_m := alvo_m.hp + outro.hp
++		var vel0 := j.vel_ataque; var crit0 := j.critico; var esc0 := j.escala; var hp0 := j.hp_max
++		Jogador.cmd_skill(sim, j, slot, alvo_m.id, alvo_m.pos)
++		var forma_vel := -1.0; var forma_crit := -1.0; var forma_esc := -1.0; var forma_hp := -1.0
++		if h.get("transformacao", false):
++			rodar(sim, 0.2)
++			forma_vel = j.vel_ataque; forma_crit = j.critico; forma_esc = j.escala; forma_hp = j.hp_max
++		rodar(sim, 4.0)
++		if cont.get("skill", 0) <= antes.get("skill", 0): falha(tag + ": %s não saiu (vivo=%s acao=%s status=%s avisos=%s)" % [h["id"], j.vivo, j.acao.get("skill", ""), j.status.keys(), avisos.slice(-2)])
++		var fez := []
++		for k in ["dano", "cura", "buff", "escudo", "surgiu", "status"]:
++			if cont.get(k, 0) > antes.get(k, 0): fez.append(k)
++		var feriu := alvo_m.hp + outro.hp < hp_m
++		print("    %-28s %-12s %s%s" % [h["id"], Evolucao.tipo(h), ",".join(fez), " (feriu)" if feriu else ""])
++		if fez.is_empty(): falha(tag + ": %s não fez nada" % h["id"])
++		if h.has("mult") and not h.has("buff") and not feriu: falha(tag + ": %s tem mult e não feriu" % h["id"])
++		if h["id"] == "forma_vingativa":
++			if absf(forma_vel - 2.3) > 0.01: falha(tag + ": Forma Vingativa deu velocidade de ataque %.2f" % forma_vel)
++			if absf(forma_crit - minf(float(Defs.FORM["critico"]["chance_max"]), crit0 + 0.3)) > 0.01: falha(tag + ": Forma Vingativa deu crítico %.2f (antes %.2f)" % [forma_crit, crit0])
++		if h["id"] == "forma_colossal":
++			if absf(forma_hp / hp0 - 3.0) > 0.05: falha(tag + ": Forma Colossal deu hp x%.2f" % (forma_hp / hp0))
++			if absf(forma_vel - 0.45) > 0.01: falha(tag + ": Forma Colossal bate a %.2f" % forma_vel)
++			if absf(forma_esc - 1.8 * esc0) > 0.01: falha(tag + ": Forma Colossal escala %.2f" % forma_esc)
++		if h.get("transformacao", false):
++			rodar(sim, float(h["duracao"]))
++			if absf(j.escala - esc0) > 0.01 or j.aux.has("forma"): falha(tag + ": %s não terminou" % h["id"])
++	# ------------------------------------------------ save: ida e volta pelo JSON (como o servidor grava)
++	j.buffs.clear(); Regras.recalc_jogador(j)
++	var txt := JSON.stringify(Jogador.salvar(j, sim))
++	var sim2 := WorldSim.new(3)
++	var j2 := Jogador.criar(sim2, classe, j.nome, JSON.parse_string(txt))
++	if j2.evolucao != escolhido: falha(tag + ": save perdeu a evolução")
++	if j2.skills_slots != j.skills_slots: falha(tag + ": save mudou a barra")
++	if absf(j2.hp_max - j.hp_max) > 0.5: falha(tag + ": hp_max depois do save %.1f != %.1f" % [j2.hp_max, j.hp_max])
++	if absf(j2.defesa - j.defesa) > 0.01: falha(tag + ": defesa depois do save %.2f != %.2f" % [j2.defesa, j.defesa])
++	if Missoes.estado(j2, "ev02") != "concluida": falha(tag + ": save perdeu ev02")
++	# save com caminho de outra classe é ignorado
++	var s3: Dictionary = JSON.parse_string(txt)
++	s3["evolucao"] = alheio
++	var j3 := Jogador.criar(sim2, classe, "x", s3)
++	if j3.evolucao != "": falha(tag + ": save adulterado aceitou " + alheio)
++
++func _campo_aberto(sim: WorldSim, perto: Vector2) -> Vector2:
++	for r in range(4, 80, 2):
++		for k in 16:
++			var p := perto + Vector2.from_angle(TAU * k / 16.0) * r
++			if not sim.andavel(p) or sim.zona_segura(p) or sim.amargo_em(p) >= 4: continue
++			var ok := true
++			for q in [Vector2(3, 0), Vector2(-3, 0), Vector2(0, 3), Vector2(0, -3), Vector2(2.5, 1)]:
++				if not sim.andavel(p + q) or sim.zona_segura(p + q): ok = false
++			if ok: return p
++	return perto

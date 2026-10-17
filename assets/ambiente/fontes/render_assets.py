@@ -4,6 +4,11 @@ import bpy, sys, os, json, math
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import kit as K
 import assets as A
+import importlib
+for _m in ("torre_kit_base", "torre_kit_alto", "torre_radio", "atlantida", "egito", "amenti", "matadouro", "exilado", "biblioteca"):   # kits da raid A Torre (registram no mesmo A.REG)
+    if not os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), _m + ".py")): continue
+    try: importlib.import_module(_m)
+    except Exception as _e: print("ERRO ao importar", _m, repr(_e), flush=True)
 
 argv = sys.argv[sys.argv.index("--")+1:]
 out = argv[0]; os.makedirs(out, exist_ok=True)

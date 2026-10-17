@@ -1,0 +1,18 @@
+{
+ "w": 232,
+ "h": 152,
+ "anchor": [
+  30,
+  135
+ ],
+ "faccao": "arautos",
+ "nota": "na oficina do Exilado: o que você pode virar (Arautos)",
+ "bioma": "deserto_absinto",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Manequim dos Arautos na oficina do Exilado: armação de costura vestida com o que um Arauto pode virar no nível     50: sobretudo rubro-negro do Coro, ombreira de ferro negro com cravos de latão, corrente atravessada no peito, gorjal,     máscara de gás de couro na cabeça e a auréola de latão partida espetada atrás numa haste.",
+ "kind": "manequim_evolucao_a"
+}
