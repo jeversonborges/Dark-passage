@@ -27,10 +27,16 @@ static func forma_para(nivel: int) -> Dictionary:
 static func _valor(txt: String, dono: Ent) -> float:
 	return Defs.expr(txt, PackedStringArray(DONO_VAR), [dono.hp_max, dono.defesa, dono.dano_max])
 
+## O familiar deste dono neste mapa (vivo ou morto), ou null. Cada mapa é um WorldSim com seus próprios ids, então
+## o familiar_id guardado no dono pode apontar para outra coisa (um monstro) depois de trocar de mapa ou relogar.
+static func _meu(sim: WorldSim, dono: Ent) -> Ent:
+	var fam: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
+	if fam != null and fam.tipo == "invocacao" and fam.dono == dono.id and fam.aux.get("familiar", false): return fam
+	return null
+
 static func criar(sim: WorldSim, dono: Ent) -> void:
 	if dono.classe != "cultista" or dados().is_empty(): return
-	var antigo: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
-	if antigo != null: return
+	if _meu(sim, dono) != null: return
 	var f := forma_para(dono.nivel)
 	if f.is_empty(): return
 	var fam := Ent.new()
@@ -67,12 +73,12 @@ static func _aplicar_forma(fam: Ent, dono: Ent, f: Dictionary, cheio: bool) -> v
 
 ## O familiar vivo do dono (ou null).
 static func de(sim: WorldSim, dono: Ent) -> Ent:
-	var fam: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
+	var fam := _meu(sim, dono)
 	return fam if fam != null and fam.vivo else null
 
 ## Barra do pet: "atacar" (alvo do dono), "teleportar" (para o lado do dono) ou um dos MODOS.
 static func comando(sim: WorldSim, dono: Ent, acao: String) -> void:
-	var fam: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
+	var fam := _meu(sim, dono)
 	if fam == null: return
 	if acao in MODOS:
 		dono.aux["pet_modo"] = acao
@@ -185,7 +191,7 @@ static func _evoluir(fam: Ent, dono: Ent, f: Dictionary) -> void:
 ## Guarda-Costas (passiva de Algoz e Tirano): parte do dano que ia para o dono vai para o familiar, se ele estiver perto.
 ## Devolve o dano que sobra para o dono.
 static func desviar(sim: WorldSim, dono: Ent, dano: float, atk: Ent) -> float:
-	var fam: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
+	var fam := _meu(sim, dono)
 	if fam == null or not fam.vivo or dano <= 0.0: return dano
 	var passiva: Dictionary = fam.aux.get("passiva", {})
 	if passiva.get("id", "") != "guarda_costas": return dano   # 0.9.3: nenhuma forma tem mais (o familiar é DPS)

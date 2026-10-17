@@ -49,4 +49,19 @@ func _init() -> void:
 		for i in 30 * 31: sim.passo(WorldSim.TICK)
 		print("nivel=%d forma=%s hp=%d/%d atingidos=%d apanhou=%s curou=%s passivo_ok=%s morreu=%d reviveu=%d vivo=%s" % [
 			nivel, fam.kind, fam.hp, fam.hp_max, area, r["apanhou"] > 0, r["curou"], passivo_ok, r["morreu"], r["reviveu"], fam.vivo])
+	# 5) servidor: troca de mapa / relogar. Cada mapa é um WorldSim com ids próprios; o familiar_id guardado no
+	#    dono pode cair num monstro do mapa novo. O familiar tem que nascer mesmo assim.
+	var a := WorldSim.new(3)
+	var jc := Jogador.criar(a, "cultista", "Teste2")
+	jc.nivel = 20
+	Jogador.entrar(a, jc, "area_inicial", Vector2(66, 104))
+	var fid := int(jc.aux.get("familiar_id", -1))
+	a.remover_jogador(jc)
+	var b := WorldSim.new(4)
+	b.carregar_mapa("area_inicial")
+	var intruso := b.criar_mob("cao_de_vala", b.celula_livre_perto(Vector2(80, 100)), 5)
+	b.ents.erase(intruso.id); intruso.id = fid; b.ents[fid] = intruso   # monstro com o mesmo id do familiar antigo
+	b.adicionar_jogador(jc, Vector2(66, 104))
+	var novo: Ent = b.ents.get(int(jc.aux.get("familiar_id", -1)))
+	print("troca_de_mapa: familiar=%s forma=%s monstro_intacto=%s" % [novo != null and novo.aux.get("familiar", false), novo.kind if novo else "-", intruso.tipo == "monstro" and intruso.dono != jc.id])
 	quit()
