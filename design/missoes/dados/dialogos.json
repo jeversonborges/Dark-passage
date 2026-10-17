@@ -6165,6 +6165,42 @@
           ]
         }
       }
+    },
+    {
+      "id": "dlg_zaqueu",
+      "npc": "zaqueu_vendedor",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bem-vindo ao balcão. Tenho o que o Hermon pede, e pago em ouro, nada de crédito.",
+          "opcoes": [
+            {
+              "texto": "O que tem para o Hermon?",
+              "ir": "hermon"
+            },
+            {
+              "texto": "Quero ver o estoque.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_zaqueu"
+                }
+              ]
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "hermon": {
+          "fala": "O convite dos Vigilantes. Trezentos de ouro. Vale uma entrada, por cinco minutos, depois que o juramento começa, às sete da noite. Depois disso o papel só diz quando o Hermon chama de novo. Não me pergunte quem fica com as armas. Eu só registro.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
     }
   ]
 }

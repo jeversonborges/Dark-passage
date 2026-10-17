@@ -103,6 +103,15 @@
         "unguento_de_mirra"
       ],
       "fala_ao_abrir": "Água! Mirra! Rápido que tem fila."
+    },
+    {
+      "id": "loja_zaqueu",
+      "npc": "zaqueu_vendedor",
+      "nome": "Balcão do Zaqueu",
+      "itens": [
+        "convite_dos_vigilantes"
+      ],
+      "fala_ao_abrir": "Trezentos de ouro. Sem desconto para Arauto, sem cobrança extra para Vigília."
     }
   ],
   "ferreiros": [

@@ -605,6 +605,22 @@
       "aparencia": "Demônio baixo e gordo de chifres serrados, colete de veludo puído sobre a pele vermelha, óculos de um aro só e um livro-caixa amarrado ao punho por uma corrente. Senta num caixote de munição como quem senta num trono.",
       "personalidade": "Simpático, venal, debochado. Zomba da liturgia do Coro na cara deles e anota tudo. Paga as dívidas, cobra em dobro.",
       "historia": "Contava as almas da Legião Blasfema antes de o general sumir. Sem general, contar almas virou contar apostas. Veio para a Atlântida porque Malfas apostou que o sino não derruba a Coluna, e Belzarim é quem segura o dinheiro. Ajuda os Arautos que pagam bem e ajuda o sino a falhar quando ninguém está olhando."
+    },
+    {
+      "id": "zaqueu_vendedor",
+      "nome": "Zaqueu",
+      "titulo": "Vendedor de Convites",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "a_vela"
+      },
+      "servicos": [],
+      "dialogo": "dlg_zaqueu",
+      "aparencia": "Homem magro de colarinho sujo, com um caderno de capa de couro preso ao cinto e lápis atrás da orelha.",
+      "personalidade": "Cordial demais, sempre sabe o preço de tudo. Não mente sobre números, só sobre o que acontece depois.",
+      "historia": "Contador de paróquia que virou corretor de tudo que sobe o Hermon. Vende o convite dos Vigilantes para a Vigília e diz que não sabe quem o compra depois."
     }
   ]
 }
