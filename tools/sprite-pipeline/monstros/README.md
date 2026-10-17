@@ -79,6 +79,10 @@ Animações: `idle`, `walk`, `attack`, `hit`, `death` (todas as criaturas); chef
   gancho na ponta no osso `line`, escondido fora dela; puxa duas vezes com o corpo todo). Quadro 224 px.
 - `familiar.py`: familiar do Cultista (racial Pacto do Familiar), variantes `diabrete`, `algoz` e `tirano` (formas dos níveis 1, 6
   e 16; plano em `design/personagens/familiar_cultista.md`). Animações idle, walk, attack, hit, death; saída renomeada para `familiar_<forma>_<anim>.png`.
+- `familiar_lider.py`: 4ª forma do familiar do Cultista (nível 60): o Líder dos Demônios em escala de pet (3,3 m,
+  quadro 448 px), importando o modelo de `lider_dos_demonios.py`, com idle, walk, attack (garra no chão), hit e death.
+  `BRUTO=1 DENOISE=0 AMOSTRAS=48 blender -b -P render.py -- familiar_lider /tmp/brutos/familiar_lider` e
+  `python3 process.py /tmp/brutos/familiar_lider /mnt/project-files/assets/monstros/familiar_lider 56 1.6`.
 - `fogo_de_vela.py`: Fogo-de-Vela (cripta, andar 2): velas de igreja derretidas fundidas num corpinho flutuante (cera com
   subsurface, escorridos, rosto derretido, aro de lustre com corrente); chamas em ossos `fl*` tremulando por escala, luz
   pontual presa à cabeça (`lamp`). Extras `blink_out` (encolhe numa bola de cera, vira poça e some) e `blink_in`; `death`

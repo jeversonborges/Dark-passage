@@ -302,7 +302,7 @@
         "nome": "Pacto do Familiar",
         "tipo": "racial",
         "familiar": {
-          "_doc": "RACIAL do Cultista (Jefin, 2026-10-11): nao ocupa slot de skill nem tecla. Nasce com o Cultista, segue o dono a 1,5-2 tiles e so ataca quem bateu no dono ou nele (nunca puxa neutro parado). Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Se morrer, volta sozinho. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma.",
+          "_doc": "RACIAL do Cultista (Jefin, 2026-10-11): nao ocupa slot de skill nem tecla. Nasce com o Cultista, segue o dono a 1,5-2 tiles e so ataca quem bateu no dono ou nele (nunca puxa neutro parado). Volta para o lado do dono se ficar a mais de 12 tiles ou na troca de mapa. Nao ganha XP nem pega loot. Evolui quando o DONO chega no nivel da forma. 0.9.3 (Jefin, 2026-10-17): INVULNERAVEL (nao recebe dano, nao morre, monstros nao o miram), papel de DPS, e TODAS as formas batem em AREA (area_raio de cada ataque). Ultima forma: o Lider dos Demonios no nivel 60.",
           "segue": {
             "distancia_tiles": [
               1.5,
@@ -327,8 +327,8 @@
               "altura_m": 0.75,
               "hp": "max_hp_dono * 0.35",
               "defesa": "defesa_dono * 0.5",
-              "dano": "dano_magico_dono * 0.30",
-              "intervalo": 1.2,
+              "dano": "dano_magico_dono * 0.45",
+              "intervalo": 1.1,
               "alcance": 4,
               "elemento": "fogo",
               "ataque": {
@@ -340,7 +340,8 @@
                     "duracao": 3.0,
                     "dano_por_s_mult": 0.1
                   }
-                }
+                },
+                "area_raio": 1.5
               },
               "ameaca_mult": 1.0,
               "tags": [
@@ -356,30 +357,24 @@
               "altura_m": 1.9,
               "hp": "max_hp_dono * 0.70",
               "defesa": "defesa_dono * 0.8",
-              "dano": "dano_magico_dono * 0.45",
-              "intervalo": 1.4,
+              "dano": "dano_magico_dono * 0.60",
+              "intervalo": 1.3,
               "alcance": 1.4,
               "elemento": "fogo",
               "ataque": {
                 "id": "cutelo_de_enxofre",
-                "nome": "Cutelo de Enxofre"
+                "nome": "Cutelo de Enxofre",
+                "area_raio": 2.0
               },
               "especial": {
                 "id": "puxao_de_corrente",
-                "nome": "Pux\u00e3o de Corrente",
+                "nome": "Puxão de Corrente",
                 "recarga": 10.0,
                 "alcance": 5,
                 "puxa_ate_familiar": true,
-                "provoca_s": 3.0,
                 "_doc": "usa no inimigo que bateu no dono"
               },
-              "passiva": {
-                "id": "guarda_costas",
-                "nome": "Guarda-Costas",
-                "desvia_dano_do_dono": 0.15,
-                "raio_tiles": 4
-              },
-              "ameaca_mult": 2.5,
+              "ameaca_mult": 1.0,
               "tags": [
                 "invocacao",
                 "familiar",
@@ -393,18 +388,19 @@
               "altura_m": 2.7,
               "hp": "max_hp_dono * 1.10",
               "defesa": "defesa_dono * 1.2",
-              "dano": "dano_magico_dono * 0.60",
-              "intervalo": 1.7,
+              "dano": "dano_magico_dono * 0.75",
+              "intervalo": 1.5,
               "alcance": 1.6,
               "elemento": "fogo",
               "ataque": {
                 "id": "punho_de_fornalha",
                 "nome": "Punho de Fornalha",
-                "postura": 20
+                "postura": 20,
+                "area_raio": 2.5
               },
               "especial": {
                 "id": "canhao_de_brasa",
-                "nome": "Canh\u00e3o de Brasa",
+                "nome": "Canhão de Brasa",
                 "recarga": 12.0,
                 "alcance": 6,
                 "area_raio": 2.0,
@@ -413,36 +409,62 @@
               },
               "especial_2": {
                 "id": "rugido_da_legiao",
-                "nome": "Rugido da Legi\u00e3o",
+                "nome": "Rugido da Legião",
                 "recarga": 20.0,
                 "area_raio": 3.0,
-                "provoca_s": 3.0,
-                "_doc": "quando 2 ou mais inimigos batem no dono"
+                "_doc": "quando 2 ou mais inimigos batem no dono",
+                "mult": 0.8
               },
-              "passiva": {
-                "id": "guarda_costas",
-                "nome": "Guarda-Costas",
-                "desvia_dano_do_dono": 0.25,
-                "raio_tiles": 4
-              },
-              "ameaca_mult": 3.0,
+              "ameaca_mult": 1.0,
               "tags": [
                 "invocacao",
                 "familiar",
                 "demonio"
               ]
+            },
+            {
+              "id": "familiar_lider",
+              "nome": "Lider dos Demonios",
+              "nivel_dono": 60,
+              "altura_m": 3.3,
+              "hp": "max_hp_dono * 1.50",
+              "defesa": "defesa_dono * 1.5",
+              "dano": "dano_magico_dono * 1.00",
+              "intervalo": 1.6,
+              "alcance": 2.2,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "garra_de_lava",
+                "nome": "Garra de Lava",
+                "area_raio": 3.0,
+                "postura": 25
+              },
+              "especial": {
+                "id": "decreto_do_lorde",
+                "nome": "Decreto do Lorde",
+                "recarga": 10.0,
+                "alcance": 6,
+                "area_raio": 4.0,
+                "mult": 2.0,
+                "_doc": "aponta a garra para o chao: explosao de lava em volta do alvo"
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ],
+              "_doc": "Jefin 2026-10-17: a ultima evolucao e o Lider dos Demonios (modelo de lider_dos_demonios.py, em escala de pet)"
             }
           ],
           "evolucao": {
             "quando": "dono sobe para o nivel da forma",
             "anim": "evolve",
             "cura_total": true,
-            "_doc": "casulo de brasa e carne de 2 s; o familiar fica invulneravel durante a troca"
+            "_doc": "casulo de brasa e carne de 2 s; o familiar ja e invulneravel sempre"
           },
-          "morte": {
-            "volta_sozinho_s": 30.0,
-            "anim_volta": "spawn"
-          }
+          "invulneravel": true,
+          "papel": "dps"
         }
       }
     },

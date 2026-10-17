@@ -1,0 +1,116 @@
+--- familiar.gd.orig	2026-10-17 00:30:52.856114000 +0000
++++ familiar.gd	2026-10-17 00:31:11.429645448 +0000
+@@ -2,10 +2,13 @@
+ ## Familiar do Cultista (racial "Pacto do Familiar", 0.8.9): um demônio que anda com o dono, evolui pelo nível
+ ## dele e ataca quem bateu no dono. Números em classes_base.json > cultista > racial > familiar.
+ ## Não ganha XP nem solta loot. Sem tecla e sem slot: nasce com o Cultista.
++## 0.9.3 (Jefin, 2026-10-17): é invulnerável (não recebe dano, não morre, monstros não o miram), é DPS e todas as
++## formas batem em área (ataque.area_raio). Última forma: Líder dos Demônios no nível 60.
+ 
+ const DONO_VAR := ["max_hp_dono", "defesa_dono", "dano_magico_dono"]
+ const SEGUE_MAX := 12.0       ## acima disso teleporta para perto do dono
+-const VOLTA_S := 30.0         ## tempo para voltar sozinho depois de morrer
++const VOLTA_S := 30.0         ## tempo para voltar sozinho depois de morrer (só se algo matar à força)
++const INVULN := 1.0e9         ## invuln_t "para sempre"
+ 
+ static func dados() -> Dictionary:
+ 	return Defs.CLASSES["cultista"]["racial"]["familiar"]
+@@ -56,11 +59,22 @@
+ 	fam.aux["ameaca_mult"] = float(f.get("ameaca_mult", 1.0))
+ 	fam.aux["forma"] = f["id"]
+ 	fam.aux["passiva"] = f.get("passiva", {})
++	fam.aux["area_raio"] = float((f.get("ataque", {}) as Dictionary).get("area_raio", 0.0))
++	_blindar(fam)
++
++## Invulnerável (0.9.3): fora do alcance de golpes e áreas (alvejavel = false) e sem dano por tempo (invuln_t).
++static func _blindar(fam: Ent) -> void:
++	fam.alvejavel = false
++	fam.invuln_t = INVULN
++	fam.hp = fam.hp_max
++	fam.status.clear()
+ 
+ ## Passo do familiar (chamado pelo world_sim para invocações com aux["familiar"]).
+ static func passo(sim: WorldSim, fam: Ent, dt: float) -> void:
+ 	var dono: Ent = sim.ents.get(fam.dono)
+-	if dono == null or not dono.vivo or not fam.pronto(): return
++	if dono == null or not dono.vivo: return
++	if fam.alvejavel or fam.invuln_t < 1000.0 or fam.hp < fam.hp_max: _blindar(fam)
++	if not fam.pronto(): return
+ 	var f := forma_para(dono.nivel)
+ 	if not f.is_empty() and f["id"] != fam.kind:
+ 		_evoluir(fam, dono, f); return
+@@ -91,19 +105,28 @@
+ 			sim.iniciar_acao(fam, {"preparo": 0.25, "rec": 0.2, "alvo": aid, "impacto": func():
+ 				var a := sim.valido(aid)
+ 				if a == null: return
+-				if fam.alcance > 2.0:
+-					sim.lancar(fam, {"vel": 9.0, "alvo": aid, "vfx": "torreta"}, {"mult": 1.0, "elemento": fam.elemento, "nunca_erra": true})
++				if fam.alcance > 2.5:
++					sim.lancar(fam, {"vel": 9.0, "alvo": aid, "vfx": "torreta", "ao_atingir": func(o: Ent): _respingo(sim, fam, o)},
++						{"mult": 1.0, "elemento": fam.elemento, "nunca_erra": true})
+ 				else:
+ 					sim.aplicar_golpe(fam, a, {"mult": 1.0, "nunca_erra": true})
++					_respingo(sim, fam, a)
+ 			})
+ 	else:
+ 		if fam.caminho.is_empty(): sim.ir_para(fam, alvo.pos)
+ 		sim.mover_ao_longo(fam, dt)
+ 
+-## Troca de forma: casulo de 2 s em que o familiar fica invulnerável, e sai com vida cheia.
++## Ataque em área (0.9.3): o golpe básico também acerta os outros inimigos em volta do alvo (ataque.area_raio).
++static func _respingo(sim: WorldSim, fam: Ent, alvo: Ent) -> void:
++	var r := float(fam.aux.get("area_raio", 0.0))
++	if r <= 0.0 or alvo == null: return
++	for o in sim.inimigos_de(fam, alvo.pos, r):
++		if o.id == alvo.id or o.tipo == "jogador" or o.tipo == "npc" or o.tipo == "objeto": continue
++		sim.aplicar_golpe(fam, o, {"mult": 1.0, "nunca_erra": true})
++
++## Troca de forma: casulo de 2 s, e sai com vida cheia (continua invulnerável).
+ static func _evoluir(fam: Ent, dono: Ent, f: Dictionary) -> void:
+ 	_aplicar_forma(fam, dono, f, true)
+-	fam.invuln_t = 2.0
+ 	fam.caminho.clear()
+ 
+ ## Guarda-Costas (passiva de Algoz e Tirano): parte do dano que ia para o dono vai para o familiar, se ele estiver perto.
+@@ -112,15 +135,13 @@
+ 	var fam: Ent = sim.ents.get(int(dono.aux.get("familiar_id", -1)))
+ 	if fam == null or not fam.vivo or dano <= 0.0: return dano
+ 	var passiva: Dictionary = fam.aux.get("passiva", {})
+-	if passiva.get("id", "") != "guarda_costas": return dano
++	if passiva.get("id", "") != "guarda_costas": return dano   # 0.9.3: nenhuma forma tem mais (o familiar é DPS)
+ 	if fam.pos.distance_to(dono.pos) > float(passiva.get("raio_tiles", 4.0)): return dano
+ 	var parte := dano * float(passiva.get("desvia_dano_do_dono", 0.0))
+-	fam.hp -= parte
+ 	sim.emitir("dano", {"id": fam.id, "de": atk.id, "valor": roundi(parte), "estilo": "escudo"})
+-	if fam.hp <= 0.0: sim.matar(fam, atk)
+-	return dano - parte
++	return dano - parte   # invulnerável: absorve sem perder vida
+ 
+-## Especiais do familiar (Algoz: Puxão de Corrente; Tirano: Canhão de Brasa e Rugido da Legião).
++## Especiais do familiar (Algoz: Puxão de Corrente; Tirano: Canhão de Brasa e Rugido da Legião; Líder: Decreto do Lorde).
+ ## Usam recarga própria, e só miram quem bateu no dono (o alvo atual do familiar).
+ static func _especiais(sim: WorldSim, fam: Ent, dono: Ent, alvo: Ent, dt: float) -> bool:
+ 	fam.aux["esp_cd"] = float(fam.aux.get("esp_cd", 0.0)) - dt
+@@ -133,14 +154,15 @@
+ 		if alvo.tipo != "chefe" and alvo.arquetipo != "elite":
+ 			sim.deslocar(alvo, alvo.pos + dir * maxf(0.0, dist - 1.2), 0.3, {"tipo": "puxao"})
+ 		sim.aplicar_golpe(fam, alvo, {"mult": 0.8, "nunca_erra": true})
++		_respingo(sim, fam, alvo)
+ 		return true
+ 	if fam.kind == "familiar_tirano" and f.has("especial_2") and sim.inimigos_de(fam, dono.pos, 3.0).size() >= 2:
+ 		fam.aux["esp_cd"] = float(f["especial_2"]["recarga"])
+ 		for o in sim.inimigos_de(fam, fam.pos, float(f["especial_2"]["area_raio"])):
+ 			if o.tipo == "jogador" or o.tipo == "npc" or o.tipo == "objeto": continue
+-			sim.aplicar_golpe(fam, o, {"mult": 0.6, "nunca_erra": true})
++			sim.aplicar_golpe(fam, o, {"mult": float(f["especial_2"].get("mult", 0.6)), "nunca_erra": true})
+ 		return true
+-	if fam.kind == "familiar_tirano" and f.has("especial") and dist <= 6.0:
++	if (fam.kind == "familiar_tirano" or fam.kind == "familiar_lider") and f.has("especial") and dist <= float(f["especial"].get("alcance", 6.0)):
+ 		fam.aux["esp_cd"] = float(f["especial"]["recarga"])
+ 		for o in sim.inimigos_de(fam, alvo.pos, float(f["especial"]["area_raio"])):
+ 			if o.tipo == "jogador" or o.tipo == "npc" or o.tipo == "objeto": continue
+@@ -156,4 +178,3 @@
+ 	fam.pos = sim.celula_livre_perto(dono.pos + Vector2(-1.2, 0.6)); fam.casa = fam.pos
+ 	fam.caminho.clear(); fam.alvo = -1
+ 	_aplicar_forma(fam, dono, forma_para(dono.nivel), true)
+-	fam.invuln_t = 0.0
