@@ -123,3 +123,17 @@ Detalhes em `eden.md`. Para o jogo:
 6. A Torre no mapa agora é o prop `torre_radio` (thread da Torre de rádio, já em `assets/ambiente`), centro (11.5, 9.0),
    porta do portal em (16.1, 9.0) e chegada ao sair em (17.3, 10.0) (`PORTA_TORRE`/`CHEGADA_TORRE` em `gerar.py`; os
    `torre_*.json` desta pasta foram regerados com a nova chegada).
+
+## Estradinhas legíveis no Novo Éden (17/10/2026, entra na 0.9.4)
+
+Pedido do Jefin: "deixa as estradas um pouco mais limpas, para entender onde é estrada".
+
+- Piso novo `trilha_eden` (terra batida cor de palha com lajes chatas de passo, bem mais clara que a relva), em
+  `assets/ambiente/tiles/` + bordas + `manifest.json`. No mapa a letra `t` agora aponta para ele (antes era `terra`).
+- A trilha ficou mais larga e contínua até perto do centro de cada clareira; flores, samambaias, pedras, troncos,
+  juncos e afins não nascem mais em cima nem colados na beira dela; a moldura de mata ao lado do caminho usa só
+  vegetação baixa (copa alta não pende sobre a estrada). Nenhum prop solto em cima de um grupo de spot.
+- Spots, grupos, portais, baús e NPCs no mesmo lugar (11 spots, 73 grupos). Prévia: `previa_eden/estradinhas_antes_depois.jpg`.
+
+Para integrar: `bash tools/sync.sh`, `python3 tools/pisos.py`, `python3 tools/manifest.py` e copiar
+`mata_do_granizo.json` desta pasta para `game/data/mapas/`. Nada muda no código.
