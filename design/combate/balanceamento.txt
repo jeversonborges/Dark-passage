@@ -1,35 +1,83 @@
 === Golpes basicos para matar um mob 'normal' do mesmo nivel / golpes de mob que o jogador aguenta ===
 nivel               anjo           cultista            mutante            demonio             humano        tecnomancer
-    1   3.4 /  26.4 (178hp)   3.6 /  23.2 (157hp)   3.1 /  41.8 (279hp)   2.7 /  29.2 (188hp)   2.7 /  26.1 (163hp)   4.0 /  22.6 (147hp)
-    3   3.8 /  18.7 (188hp)   3.7 /  16.5 (167hp)   4.1 /  30.4 (301hp)   3.2 /  20.7 (200hp)   3.6 /  18.6 (173hp)   4.0 /  16.1 (156hp)
-    5   4.0 /  15.0 (198hp)   3.8 /  13.4 (177hp)   4.2 /  24.9 (323hp)   3.4 /  16.7 (210hp)   3.8 /  15.0 (183hp)   4.2 /  13.0 (165hp)
-    7   4.2 /  12.8 (208hp)   3.9 /  11.5 (187hp)   4.3 /  21.6 (345hp)   3.5 /  14.2 (222hp)   3.9 /  12.8 (193hp)   4.2 /  11.1 (174hp)
-    9   4.3 /  11.3 (218hp)   3.9 /  10.1 (197hp)   4.4 /  19.3 (367hp)   3.6 /  12.5 (232hp)   4.0 /  11.3 (203hp)   4.3 /   9.8 (183hp)
-   11   4.4 /  10.2 (228hp)   4.0 /   9.2 (207hp)   4.4 /  17.6 (389hp)   3.7 /  11.3 (244hp)   4.1 /  10.2 (213hp)   4.3 /   8.9 (192hp)
-   13   4.4 /   9.3 (238hp)   4.0 /   8.5 (217hp)   4.4 /  16.4 (411hp)   3.7 /  10.4 (254hp)   4.1 /   9.4 (223hp)   4.4 /   8.2 (201hp)
+    1   5.7 /  20.4 (151hp)   6.2 /  17.9 (133hp)   4.8 /  30.6 (223hp)   4.5 /  22.5 (162hp)   4.3 /  20.2 (141hp)   6.8 /  17.6 (127hp)
+    3   5.8 /  15.4 (165hp)   5.4 /  13.7 (147hp)   6.0 /  24.3 (255hp)   5.0 /  17.1 (176hp)   5.5 /  15.5 (154hp)   6.0 /  13.4 (139hp)
+    5   5.8 /  12.9 (178hp)   5.2 /  11.6 (160hp)   5.8 /  21.3 (286hp)   4.9 /  14.4 (191hp)   5.4 /  13.2 (168hp)   5.8 /  11.4 (151hp)
+    7   5.7 /  11.4 (192hp)   5.1 /  10.3 (174hp)   5.6 /  19.4 (318hp)   4.8 /  12.7 (205hp)   5.4 /  11.7 (181hp)   5.6 /  10.1 (163hp)
+    9   5.7 /  10.3 (205hp)   5.0 /   9.4 (187hp)   5.5 /  18.1 (349hp)   4.7 /  11.6 (220hp)   5.3 /  10.7 (194hp)   5.5 /   9.2 (175hp)
+   11   5.6 /   9.6 (219hp)   4.9 /   8.8 (201hp)   5.5 /  17.1 (381hp)   4.7 /  10.7 (234hp)   5.3 /   9.9 (208hp)   5.5 /   8.5 (187hp)
+   13   5.6 /   9.0 (233hp)   4.9 /   8.3 (215hp)   5.4 /  16.4 (413hp)   4.7 /  10.1 (249hp)   5.2 /   9.3 (221hp)   5.4 /   8.0 (199hp)
 
 === Chefes (solo, jogador no nivel do chefe, rotacao por classe) ===
 
-Andras, o General Partido (nivel 8, HP 1800, alvo ~95s)
-  anjo         dps  24.9  luta ~  96s  basico 12.0% HP  golpe grande x2.2 26.4% HP
-  cultista     dps  35.1  luta ~  68s  basico 13.4% HP  golpe grande x2.2 29.4% HP
-  mutante      dps  24.3  luta ~  99s  basico  7.0% HP  golpe grande x2.2 15.4% HP
-  demonio      dps  38.3  luta ~  63s  basico 11.1% HP  golpe grande x2.2 24.5% HP
-  humano       dps  28.1  luta ~  85s  basico 12.7% HP  golpe grande x2.2 27.9% HP
-  tecnomancer  dps  29.5  luta ~  81s  basico 14.2% HP  golpe grande x2.2 31.3% HP
+Andras, o General Partido (nivel 8, HP 2430, alvo ~128s)
+  anjo         dps  23.4  luta ~ 138s  basico 17.4% HP  golpe grande x2.2 38.3% HP
+  cultista     dps  34.6  luta ~  94s  basico 19.2% HP  golpe grande x2.2 42.1% HP
+  mutante      dps  23.9  luta ~ 135s  basico 10.1% HP  golpe grande x2.2 22.2% HP
+  demonio      dps  36.5  luta ~  89s  basico 16.1% HP  golpe grande x2.2 35.3% HP
+  humano       dps  26.8  luta ~ 121s  basico 18.0% HP  golpe grande x2.2 39.6% HP
+  tecnomancer  dps  28.8  luta ~ 113s  basico 20.2% HP  golpe grande x2.2 44.5% HP
 
 Irma Celeste, a Carpideira (nivel 10, HP 2800, alvo ~110s)
-  anjo         dps  28.7  luta ~ 130s  basico 12.2% HP  golpe grande x2.2 26.8% HP
-  cultista     dps  40.8  luta ~  91s  basico 13.5% HP  golpe grande x2.2 29.6% HP
-  mutante      dps  28.2  luta ~ 132s  basico  7.0% HP  golpe grande x2.2 15.4% HP
-  demonio      dps  44.4  luta ~  84s  basico 11.3% HP  golpe grande x2.2 24.8% HP
-  humano       dps  32.9  luta ~ 114s  basico 12.8% HP  golpe grande x2.2 28.2% HP
-  tecnomancer  dps  34.6  luta ~ 108s  basico 14.4% HP  golpe grande x2.2 31.6% HP
+  anjo         dps  27.7  luta ~ 135s  basico 12.9% HP  golpe grande x2.2 28.4% HP
+  cultista     dps  41.3  luta ~  90s  basico 14.1% HP  golpe grande x2.2 31.1% HP
+  mutante      dps  28.6  luta ~ 131s  basico  7.3% HP  golpe grande x2.2 16.1% HP
+  demonio      dps  43.9  luta ~  85s  basico 11.9% HP  golpe grande x2.2 26.2% HP
+  humano       dps  32.5  luta ~ 115s  basico 13.3% HP  golpe grande x2.2 29.3% HP
+  tecnomancer  dps  34.7  luta ~ 107s  basico 15.0% HP  golpe grande x2.2 33.0% HP
 
 Zacarias, o Arauto da Trombeta Calada (nivel 12, HP 4500, alvo ~160s)
-  anjo         dps  32.0  luta ~ 188s  basico 13.1% HP  golpe grande x2.2 28.7% HP
-  cultista     dps  46.0  luta ~ 130s  basico 14.4% HP  golpe grande x2.2 31.7% HP
-  mutante      dps  31.8  luta ~ 189s  basico  7.4% HP  golpe grande x2.2 16.3% HP
-  demonio      dps  50.0  luta ~ 120s  basico 12.1% HP  golpe grande x2.2 26.6% HP
-  humano       dps  37.3  luta ~ 161s  basico 13.7% HP  golpe grande x2.2 30.1% HP
-  tecnomancer  dps  39.3  luta ~ 153s  basico 15.4% HP  golpe grande x2.2 33.8% HP
+  anjo         dps  31.6  luta ~ 190s  basico 13.6% HP  golpe grande x2.2 29.9% HP
+  cultista     dps  47.5  luta ~ 126s  basico 14.8% HP  golpe grande x2.2 32.5% HP
+  mutante      dps  32.8  luta ~ 183s  basico  7.5% HP  golpe grande x2.2 16.5% HP
+  demonio      dps  50.8  luta ~ 118s  basico 12.5% HP  golpe grande x2.2 27.5% HP
+  humano       dps  38.1  luta ~ 158s  basico 14.0% HP  golpe grande x2.2 30.7% HP
+  tecnomancer  dps  40.4  luta ~ 149s  basico 15.7% HP  golpe grande x2.2 34.5% HP
+
+Centurião Ferrabrás (nivel 15, HP 5250, alvo ~150s)
+  anjo         dps  37.5  luta ~ 187s  basico 14.4% HP  golpe grande x2.2 31.7% HP
+  cultista     dps  56.7  luta ~ 123s  basico 15.6% HP  golpe grande x2.2 34.3% HP
+  mutante      dps  39.2  luta ~ 178s  basico  7.8% HP  golpe grande x2.2 17.1% HP
+  demonio      dps  61.6  luta ~ 114s  basico 13.3% HP  golpe grande x2.2 29.2% HP
+  humano       dps  46.8  luta ~ 150s  basico 14.8% HP  golpe grande x2.2 32.5% HP
+  tecnomancer  dps  49.0  luta ~ 143s  basico 16.6% HP  golpe grande x2.2 36.6% HP
+
+Madre Brasília da Comunhão (nivel 19, HP 6650, alvo ~150s)
+  anjo         dps  45.3  luta ~ 196s  basico 15.4% HP  golpe grande x2.2 33.8% HP
+  cultista     dps  69.1  luta ~ 128s  basico 16.5% HP  golpe grande x2.2 36.2% HP
+  mutante      dps  47.7  luta ~ 186s  basico  8.0% HP  golpe grande x2.2 17.7% HP
+  demonio      dps  76.4  luta ~ 116s  basico 14.1% HP  golpe grande x2.2 31.1% HP
+  humano       dps  59.2  luta ~ 150s  basico 15.7% HP  golpe grande x2.2 34.5% HP
+  tecnomancer  dps  61.1  luta ~ 145s  basico 17.7% HP  golpe grande x2.2 38.8% HP
+
+O Telegrafista (nivel 23, HP 8050, alvo ~150s)
+  anjo         dps  53.2  luta ~ 202s  basico 16.1% HP  golpe grande x2.2 35.5% HP
+  cultista     dps  81.4  luta ~ 132s  basico 17.2% HP  golpe grande x2.2 37.8% HP
+  mutante      dps  56.3  luta ~ 191s  basico  8.3% HP  golpe grande x2.2 18.2% HP
+  demonio      dps  91.9  luta ~ 117s  basico 14.9% HP  golpe grande x2.2 32.7% HP
+  humano       dps  72.7  luta ~ 148s  basico 16.4% HP  golpe grande x2.2 36.1% HP
+  tecnomancer  dps  73.6  luta ~ 146s  basico 18.5% HP  golpe grande x2.2 40.7% HP
+
+Malaquias, o Escudeiro Cego (nivel 27, HP 9450, alvo ~150s)
+  anjo         dps  61.0  luta ~ 207s  basico 16.8% HP  golpe grande x2.2 36.9% HP
+  cultista     dps  93.7  luta ~ 134s  basico 17.8% HP  golpe grande x2.2 39.1% HP
+  mutante      dps  64.8  luta ~ 195s  basico  8.4% HP  golpe grande x2.2 18.5% HP
+  demonio      dps 108.1  luta ~ 117s  basico 15.4% HP  golpe grande x2.2 34.0% HP
+  humano       dps  87.1  luta ~ 145s  basico 17.0% HP  golpe grande x2.2 37.4% HP
+  tecnomancer  dps  86.7  luta ~ 145s  basico 19.2% HP  golpe grande x2.2 42.2% HP
+
+Baraquiel, o Arauto do Granizo (nivel 30, HP 12000, alvo ~170s)
+  anjo         dps  66.8  luta ~ 239s  basico 17.2% HP  golpe grande x2.2 37.9% HP
+  cultista     dps 102.9  luta ~ 155s  basico 18.2% HP  golpe grande x2.2 39.9% HP
+  mutante      dps  71.1  luta ~ 225s  basico  8.5% HP  golpe grande x2.2 18.8% HP
+  demonio      dps 120.7  luta ~ 133s  basico 15.8% HP  golpe grande x2.2 34.8% HP
+  humano       dps  98.6  luta ~ 162s  basico 17.4% HP  golpe grande x2.2 38.3% HP
+  tecnomancer  dps  96.9  luta ~ 165s  basico 19.6% HP  golpe grande x2.2 43.2% HP
+
+Bento Fel, o Coveiro do Amargo (nivel 22, HP 7700, alvo ~150s)
+  anjo         dps  51.2  luta ~ 201s  basico 16.0% HP  golpe grande x2.2 35.1% HP
+  cultista     dps  78.3  luta ~ 131s  basico 17.0% HP  golpe grande x2.2 37.4% HP
+  mutante      dps  54.1  luta ~ 190s  basico  8.2% HP  golpe grande x2.2 18.0% HP
+  demonio      dps  88.0  luta ~ 117s  basico 14.7% HP  golpe grande x2.2 32.3% HP
+  humano       dps  69.2  luta ~ 148s  basico 16.2% HP  golpe grande x2.2 35.7% HP
+  tecnomancer  dps  70.4  luta ~ 146s  basico 18.3% HP  golpe grande x2.2 40.2% HP

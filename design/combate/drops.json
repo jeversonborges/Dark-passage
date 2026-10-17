@@ -45,6 +45,14 @@
       "feixe": true,
       "peso_base": 10,
       "_doc": "itens unicos com nome e historia; so de chefe, elite, raro e Relicario"
+    },
+    "primordial": {
+      "nome_exibido": "Lendário",
+      "cor": "#a05cff",
+      "unico": true,
+      "feixe": true,
+      "peso_base": 0,
+      "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
     }
   },
   "nivel_de_refino_no_drop": {
@@ -56,6 +64,64 @@
       "+3": 0.02
     },
     "bonus_por_nivel": 0.08
+  },
+  "lagrimas": {
+    "_doc": "Joias de refino estilo Bless/Soul do MU (Jefin, 2026-10-15). Qualquer mob pode soltar, rolagem própria por abate, fora da tabela do mob. Chance da Angélica = curva(nível do mob); Sanguínea = curva x 0,5. Curva: 0,08% no nível 1 subindo em linha reta até 0,8% no nível 50; depois +0,004% por nível até o teto de 1,6%. Spots de farm multiplicam (melhora os spots). Chefes e baús seguem nas próprias tabelas (tag joia:refino) e rolam a curva também.",
+    "curva": {
+      "nivel_1": 0.0008,
+      "nivel_50": 0.008,
+      "por_nivel_acima_50": 4e-05,
+      "teto": 0.016
+    },
+    "itens": {
+      "lagrima_angelica": 1.0,
+      "lagrima_sanguinea": 0.5
+    },
+    "multiplicadores": {
+      "spot_de_farm": 1.25,
+      "elite": 3.0,
+      "chefe": 5.0,
+      "angelica_de_celestial": 2.0
+    },
+    "loot_pessoal": true,
+    "exemplos_por_abate": {
+      "nivel_1": "Angélica 0,08% / Sanguínea 0,04%",
+      "nivel_10": "0,21% / 0,11%",
+      "nivel_25": "0,43% / 0,22%",
+      "nivel_50": "0,80% / 0,40%",
+      "nivel_100": "1,00% / 0,50%"
+    },
+    "_farm": "Spot com 12 mobs e respawn de 14 s dá uns 500 abates por hora com o modo automático. Nível 5: ~0,9 Angélica/h; nível 20: ~2,3/h; nível 50: ~5/h (com o bônus de spot). Um +6 do zero pede 6 Angélicas; um +15 pede umas 20 Sanguíneas contando as falhas."
+  },
+  "refino_com_lagrimas": {
+    "_doc": "Substitui Lágrima de Anjo/Fragmento de Alma (saves antigos: lagrima_anjo vira lagrima_angelica, fragmento_alma vira lagrima_sanguinea). Feito no ferreiro. Cada + continua somando bonus_por_nivel (8%) no dano/defesa base.",
+    "maximo": 15,
+    "lagrima_angelica": {
+      "de": 0,
+      "ate": 6,
+      "chance": 1.0
+    },
+    "lagrima_sanguinea": {
+      "de": 6,
+      "ate": 15,
+      "chance_para": {
+        "+7": 0.75,
+        "+8": 0.7,
+        "+9": 0.65,
+        "+10": 0.55,
+        "+11": 0.5,
+        "+12": 0.45,
+        "+13": 0.4,
+        "+14": 0.35,
+        "+15": 0.3
+      }
+    },
+    "falha": {
+      "ate_+10": "perde 1 nível",
+      "do_+11_ao_+15": "perde 2 níveis, nunca abaixo de +6",
+      "quebra": false
+    },
+    "custo_ouro": "50 x nível alvo (o ferreiro cobra; o +15 custa 750)"
   },
   "opcoes_de_item": {
     "_doc": "Valores de referencia por opcao (faixa 1 = nivel 1-7, faixa 2 = nivel 7-13). A thread de itens escolhe quais opcoes cada tipo pode ter.",
@@ -336,11 +402,7 @@
         },
         {
           "tag": "equip:faixa2",
-          "peso": 50
-        },
-        {
-          "tag": "joia:refino",
-          "peso": 10
+          "peso": 60
         }
       ]
     },
@@ -370,11 +432,7 @@
         },
         {
           "tag": "equip:faixa2",
-          "peso": 55
-        },
-        {
-          "tag": "joia:refino",
-          "peso": 15
+          "peso": 70
         }
       ]
     },
@@ -512,7 +570,8 @@
       ],
       "raridade_minima": "magico",
       "ouro_mult": 5,
-      "joia_refino_chance": 0.25
+      "joia_refino_chance": 0.25,
+      "joia_sanguinea_fracao": 0.15
     },
     "bau_faminto": {
       "onde": "cripta; 1 em cada 12 caixotes podres vira mimico",

@@ -44,7 +44,7 @@
 
 ## 3. Atributos e fórmulas (`formulas.json`)
 
-5 pontos por nível (6 depois da evolução no 150, 7 depois do 400).
+5 pontos por nível (6 depois da evolução no 150, 7 depois do 400). **Ajuste do Jefin (11/10):** os atributos iniciais de todas as classes caíram 40% e cada ponto distribuído vale 1,6 no atributo (atributo = inicial + pontos × 1,6 + itens). O personagem começa mais fraco e cresce mais rápido com os pontos; por volta do nível 12 fica igual ao balanceamento anterior.
 
 | | O que faz |
 |---|---|
@@ -75,7 +75,7 @@
 
 ## 5. Monstros e IA (`mobs.json`)
 
-Curva do monstro "normal" no nível L: HP `32 + 7L`, dano `6,5 + 1,9L` em média, XP `10 + 5L`. Cada monstro aplica um arquétipo:
+Curva do monstro "normal" no nível L: HP `41,6 + 9,1L` (v0.3: +30% a pedido do Jefin; era `32 + 7L`), ouro `2,6L a 6,5L`, dano `6,5 + 1,9L` em média, XP `10 + 5L`. Cada monstro aplica um arquétipo:
 
 | Arquétipo | Papel | Exemplos |
 |---|---|---|
@@ -111,12 +111,12 @@ Demônio que foi general, partido ao meio na Grande Batalha, sobrevive comendo o
 - **Fase 3 (40%):** asas em chamas, a arena encolhe com um anel de fogo, lança dupla e nova tentativa de nota a cada 45 s.
 - Ensina: **tudo junto**: postura, cobertura, adds e espaço.
 
-**Tempo de luta na simulação** (solo, nível do chefe): General 63 a 99 s (mais com as curas), Celeste 84 a 132 s, Zacarias 120 a 189 s. Golpe básico de chefe tira 7% a 15% do HP; golpe grande telegrafado, 15% a 34%. Ver `balanceamento.txt`.
+**Tempo de luta na simulação** (solo, nível do chefe): Andras 86 a 134 s (mais com as curas; HP e dano +35% a pedido do Jefin), Celeste 84 a 132 s, Zacarias 120 a 189 s. Golpe básico de chefe tira 7% a 15% do HP; golpe grande telegrafado, 15% a 34%. Ver `balanceamento.txt`.
 
 ## 7. Progressão (`progressao.json`)
 
-- Nível máximo **400** (responde o ponto em aberto 2 de classes.md). XP para o próximo nível: `75L² + 375L` (v0.2, 3x a primeira versão por causa dos spots; nível 1→2: 450 XP; 7→8: 6.300; 12→13: 15.300), mais íngreme depois do 100.
-- Ritmo (v0.2): farmando no spot do próprio nível com poções, **4 a 9 min por nível entre o 5 e o 10**. Nível 7 em 50 a 70 min, nível 12 a 13 em mais umas 2 h. Cerca de 30% da XP vem de missões (sugestão para a thread de missões: missão comum = 40% do nível, história = 70%).
+- Nível máximo **400** (responde o ponto em aberto 2 de classes.md). XP para o próximo nível: `105L² + 525L` (v0.3: 40% mais difícil a pedido do Jefin, era `75L² + 375L`; nível 1→2: 630 XP; 7→8: 8.820; 12→13: 21.420), mais íngreme depois do 100.
+- Ritmo (v0.3): farmando no spot do próprio nível com poções, **7 a 17 min por nível entre o 5 e o 10**. Nível 7 em cerca de 1 h 40 a 2 h, nível 12 a 13 em mais umas 3 h 30 a 4 h. Revisão completa em `revisao_balanceamento.md`. Cerca de 30% da XP vem de missões (sugestão para a thread de missões: missão comum = 40% do nível, história = 70%).
 - Monstro 5+ níveis acima dá +20% de XP; 4+ abaixo cai rápido até 10%.
 - Morte: renasce no acampamento, sem perder item; a partir do nível 10 perde 2% da XP do nível (nunca perde nível).
 

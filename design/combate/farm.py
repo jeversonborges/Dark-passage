@@ -72,7 +72,7 @@ def farm(cls, Lp, Ls, pots):
     d = dl
     xmod = 1.2 if d >= 5 else (1 + 0.04 * d if d >= -3 else max(0.1, 1 - 0.15 * (-d - 3) - 0.12))
     xp *= xmod
-    ouro = 3.5 * Ls * 0.55 * kpm
+    o = sim.cb["ouro"]; ouro = (sim.curva(o[0], Ls) + sim.curva(o[1], Ls)) / 2 * 0.55 * kpm
     return dict(kpm=kpm, xp=xp, ouro=ouro, vida=vida_min, rec=rec_min, custo=custo_pot, frac=frac_leque, cap=kpm_dano >= oferta)
 
 if __name__ == "__main__":
