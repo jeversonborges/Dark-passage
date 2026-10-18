@@ -26,6 +26,8 @@ var esp := {}                # memória livre
 var horda_onda := -1         # próxima onda da horda (-1 = sem horda na luta atual)
 var horda_t := 0.0           # pausa até a próxima onda, depois que a anterior morre
 var horda_ids: Array = []    # ids dos mobs vivos da horda
+const HORDA_TRAVA_S := 30.0   # sem nenhuma morte da horda por tanto tempo, a próxima onda sai e o chefe acorda
+var horda_parada := 0.0       # segundos sem morrer nenhum mob da horda (mob preso não segura a luta)
 var egito: ChefeEgito = null # chefes do Egito (mecanica_egito em chefes.json): entregas/egito
 var mec := ""                # roteiro da luta: o próprio id, ou "mecanica_de" (chefes de Jerusalém espelham os da Cripta)
 
@@ -160,6 +162,7 @@ func _spawn_onda() -> void:
 	var hd: Dictionary = cfg["horda"]
 	var onda: Dictionary = hd["ondas"][horda_onda]
 	horda_onda += 1
+	horda_parada = 0.0
 	var pontos: Array = hd["pontos"]
 	var nv: Array = hd.get("nivel", [boss.nivel, boss.nivel])
 	var i := 0
@@ -174,10 +177,15 @@ func _spawn_onda() -> void:
 			horda_ids.append(m.id)
 
 func _passo_horda(dt: float) -> void:
+	var antes := horda_ids.size()
 	horda_ids = horda_ids.filter(func(id): return sim.ents.has(id) and sim.ents[id].vivo)
-	if not horda_ids.is_empty(): horda_t = float(cfg["horda"].get("pausa_s", 3.0)); return
-	if horda_onda >= cfg["horda"]["ondas"].size():
-		_comecar(); return
+	horda_parada = 0.0 if horda_ids.size() < antes else horda_parada + dt
+	var travada := horda_parada > HORDA_TRAVA_S
+	if horda_onda >= cfg["horda"]["ondas"].size():   # última onda no chão: o chefe acorda quando ela morre (ou trava)
+		if horda_ids.is_empty() or travada: _comecar()
+		return
+	# a próxima onda sai quando sobra no máximo 1 mob da anterior, ou quando ninguém morre há HORDA_TRAVA_S s
+	if horda_ids.size() > 1 and not travada: horda_t = float(cfg["horda"].get("pausa_s", 3.0)); return
 	horda_t -= dt
 	if horda_t <= 0.0: _spawn_onda()
 
