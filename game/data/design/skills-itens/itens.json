@@ -16631,6 +16631,195 @@
         "32": "assets/icones/itens/32/coracao_de_vidro.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/coracao_de_vidro.png"
+    },
+    {
+      "id": "chave_de_carneiro",
+      "nome": "Chave de Carneiro",
+      "categoria": "material",
+      "motivo": "chave_de_osso",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 12,
+      "raridade": "raro",
+      "tags": [
+        "colecao:chave_de_carneiro"
+      ],
+      "preco": 40,
+      "pilha": 20,
+      "lore": "Chave de osso de carneiro, com um pedaço de fita de lã presa ao anel. Ninguém lembra qual porta ela abria.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/chave_de_carneiro.png",
+        "40": "assets/icones/itens/40/chave_de_carneiro.png",
+        "32": "assets/icones/itens/32/chave_de_carneiro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/chave_de_carneiro.png"
+    },
+    {
+      "id": "olho_do_juizo",
+      "nome": "Olho do Juízo",
+      "categoria": "material",
+      "motivo": "olho_de_vidro",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 60,
+      "raridade": "lendario",
+      "tags": [
+        "colecao:olho_do_juizo"
+      ],
+      "preco": 600,
+      "pilha": 5,
+      "lore": "Olho de vidro com a íris riscada e o nervo ainda preso. Quem o carrega sente que está sendo visto.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/olho_do_juizo.png",
+        "40": "assets/icones/itens/40/olho_do_juizo.png",
+        "32": "assets/icones/itens/32/olho_do_juizo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/olho_do_juizo.png"
+    },
+    {
+      "id": "casca_de_lava",
+      "nome": "Casca de Lava",
+      "categoria": "material",
+      "motivo": "pedra_vulcanica",
+      "tint": "pedra",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 40,
+      "raridade": "comum",
+      "tags": [
+        "material:forja"
+      ],
+      "preco": 18,
+      "pilha": 100,
+      "lore": "Casca de pedra que ainda esquenta na mão. Abriu no meio como fruta madura.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/casca_de_lava.png",
+        "40": "assets/icones/itens/40/casca_de_lava.png",
+        "32": "assets/icones/itens/32/casca_de_lava.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/casca_de_lava.png"
+    },
+    {
+      "id": "cinza_de_ossario",
+      "nome": "Cinza de Ossário",
+      "categoria": "material",
+      "motivo": "cinza",
+      "tint": "cinza",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 30,
+      "raridade": "comum",
+      "tags": [
+        "material:forja"
+      ],
+      "preco": 12,
+      "pilha": 100,
+      "lore": "Saco de juta virado com pó cinza de ossos. Tem cheiro de vela apagada.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cinza_de_ossario.png",
+        "40": "assets/icones/itens/40/cinza_de_ossario.png",
+        "32": "assets/icones/itens/32/cinza_de_ossario.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cinza_de_ossario.png"
+    },
+    {
+      "id": "cacho_de_cristal_roxo",
+      "nome": "Cacho de Cristal Roxo",
+      "categoria": "material",
+      "motivo": "cristal",
+      "tint": "azul",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 30,
+      "raridade": "raro",
+      "tags": [
+        "material:forja"
+      ],
+      "preco": 45,
+      "pilha": 50,
+      "lore": "Cristal roxo cortado em pontas, preso num cacho de arame com espinhos. Dá choque leve quando encostado.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cacho_de_cristal_roxo.png",
+        "40": "assets/icones/itens/40/cacho_de_cristal_roxo.png",
+        "32": "assets/icones/itens/32/cacho_de_cristal_roxo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cacho_de_cristal_roxo.png"
+    },
+    {
+      "id": "gancho_partido",
+      "nome": "Gancho Partido",
+      "categoria": "material",
+      "motivo": "gancho",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "comum",
+      "tags": [
+        "colecao:gancho_partido"
+      ],
+      "preco": 6,
+      "pilha": 50,
+      "lore": "Gancho de ferro quebrado no meio. Ainda serve para pendurar uma coisa ou outra.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/gancho_partido.png",
+        "40": "assets/icones/itens/40/gancho_partido.png",
+        "32": "assets/icones/itens/32/gancho_partido.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/gancho_partido.png"
+    },
+    {
+      "id": "sino_de_mao",
+      "nome": "Sino de Mão",
+      "categoria": "material",
+      "motivo": "sino",
+      "tint": "bronze",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "comum",
+      "tags": [
+        "colecao:sino_de_mao"
+      ],
+      "preco": 30,
+      "pilha": 20,
+      "lore": "Sino de bronze com badalo pesado. Toca uma vez quando alguém se aproxima do altar, e não toca mais.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "icone": {
+        "64": "assets/icones/itens/64/sino_de_mao.png",
+        "40": "assets/icones/itens/40/sino_de_mao.png",
+        "32": "assets/icones/itens/32/sino_de_mao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/sino_de_mao.png"
     }
   ]
 }
