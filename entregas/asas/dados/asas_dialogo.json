@@ -1,0 +1,277 @@
+{
+ "dialogo": "dlg_pedro_exilado",
+ "opcao_na_raiz": {
+  "texto": "Ouvi dizer que você faz asas.",
+  "ir": "asas",
+  "_doc": "entra antes de 'Quem é você?'"
+ },
+ "nos": {
+  "asas": {
+   "fala": [
+    {
+     "se": {
+      "classe": [
+       "anjo",
+       "demonio"
+      ]
+     },
+     "texto": "Pedro olha as suas asas como um ferreiro olha uma espada torta. \"Essas aí te trouxeram até aqui. As minhas te levam mais longe.\""
+    },
+    {
+     "texto": "\"Faço. Para qualquer um que chegue até esta ilha e traga o que eu peço. Pena, couro ou engrenagem. E lágrima, sempre lágrima.\""
+    }
+   ],
+   "opcoes": [
+    {
+     "texto": "Quero a asa de penas (anjo), nível 1.",
+     "se": {
+      "missao_disponivel": "asa_anjo_1_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_anjo_1_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de penas (anjo), nível 1.",
+     "se": {
+      "missao_pronta": "asa_anjo_1_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_anjo_1_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de penas (anjo), nível 2.",
+     "se": {
+      "missao_disponivel": "asa_anjo_2_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_anjo_2_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de penas (anjo), nível 2.",
+     "se": {
+      "missao_pronta": "asa_anjo_2_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_anjo_2_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de penas (anjo), nível 3.",
+     "se": {
+      "missao_disponivel": "asa_anjo_3_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_anjo_3_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de penas (anjo), nível 3.",
+     "se": {
+      "missao_pronta": "asa_anjo_3_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_anjo_3_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de couro (demônio), nível 1.",
+     "se": {
+      "missao_disponivel": "asa_demonio_1_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_demonio_1_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de couro (demônio), nível 1.",
+     "se": {
+      "missao_pronta": "asa_demonio_1_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_demonio_1_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de couro (demônio), nível 2.",
+     "se": {
+      "missao_disponivel": "asa_demonio_2_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_demonio_2_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de couro (demônio), nível 2.",
+     "se": {
+      "missao_pronta": "asa_demonio_2_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_demonio_2_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de couro (demônio), nível 3.",
+     "se": {
+      "missao_disponivel": "asa_demonio_3_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_demonio_3_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de couro (demônio), nível 3.",
+     "se": {
+      "missao_pronta": "asa_demonio_3_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_demonio_3_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de foguetes (mecânica), nível 1.",
+     "se": {
+      "missao_disponivel": "asa_mecanica_1_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_mecanica_1_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de foguetes (mecânica), nível 1.",
+     "se": {
+      "missao_pronta": "asa_mecanica_1_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_mecanica_1_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de foguetes (mecânica), nível 2.",
+     "se": {
+      "missao_disponivel": "asa_mecanica_2_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_mecanica_2_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de foguetes (mecânica), nível 2.",
+     "se": {
+      "missao_pronta": "asa_mecanica_2_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_mecanica_2_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Quero a asa de foguetes (mecânica), nível 3.",
+     "se": {
+      "missao_disponivel": "asa_mecanica_3_receita"
+     },
+     "acoes": [
+      {
+       "aceitar_missao": "asa_mecanica_3_receita"
+      }
+     ],
+     "ir": "asas_aceita"
+    },
+    {
+     "texto": "Trouxe tudo da asa de foguetes (mecânica), nível 3.",
+     "se": {
+      "missao_pronta": "asa_mecanica_3_receita"
+     },
+     "acoes": [
+      {
+       "concluir_missao": "asa_mecanica_3_receita"
+      }
+     ],
+     "ir": "asas_feita"
+    },
+    {
+     "texto": "Do que você precisa, mesmo?",
+     "ir": "asas_como"
+    },
+    {
+     "texto": "Voltar.",
+     "ir": "raiz"
+    }
+   ]
+  },
+  "asas_como": {
+   "fala": "\"Pena de ave, pele seca de demônio ou engrenagem do que já girou. Vinte lágrimas: angélicas para a primeira, de sangue para as outras. Ouro para a forja. Para a segunda e a terceira, a asa de antes e uma prova que eu escolho. Não faço asa fácil. Asa fácil não aguenta o vento do Absinto.\"",
+   "opcoes": [
+    {
+     "texto": "Voltar.",
+     "ir": "asas"
+    }
+   ]
+  },
+  "asas_aceita": {
+   "fala": "\"Volta com tudo. Não volta com quase tudo.\"",
+   "opcoes": [
+    {
+     "texto": "Até mais."
+    }
+   ]
+  },
+  "asas_feita": {
+   "fala": "Pedro sopra a poeira da oficina e prende as asas nas suas costas com duas fivelas. \"Equipa. Abre. Agora pula.\"",
+   "opcoes": [
+    {
+     "texto": "Obrigado, Pedro."
+    }
+   ]
+  }
+ }
+}

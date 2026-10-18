@@ -87,6 +87,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		if Defs.ITENS.has(pid): sim.soltar_no_chao(Itens.novo(pid), e.pos, jog.id, e.pos)
 	_rolar_lagrimas(sim, e, jog, tab_id)
 	if sim.rng.randf() < chance_bau_dourado(e): sim.soltar_no_chao(Itens.novo("bau_dourado"), e.pos, jog.id, e.pos)
+	_rolar_materiais_asa(sim, e, jog)
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
 	for gid in tab.get("garantido", []):
@@ -153,6 +154,29 @@ static func abrir_dourado(sim: WorldSim, jog: Ent) -> void:
 	for i in n:
 		var it := item_da_tag(sim, "equip:faixa%d" % f, jog.nivel, str(regra["raridade_minima"]), jog)
 		if not it.is_empty(): sim.soltar_no_chao(it, jog.pos, jog.id, jog.pos)
+
+## Materiais de asa (drops.json "materiais_asa"): pena de ave, pele de demônio, engrenagem; rolagem pessoal pela tag do mob.
+## Chefes rolam também a asa pronta da tabela "asas_de_chefe".
+static func _rolar_materiais_asa(sim: WorldSim, e: Ent, jog: Ent) -> void:
+	var M: Dictionary = Defs.DROPS.get("materiais_asa", {})
+	if not M.is_empty() and jog.nivel - e.nivel < 10:
+		var mm: Dictionary = M.get("mult", {})
+		var mult := 1.0
+		if e.tipo == "chefe": mult *= float(mm.get("chefe", 1.0))
+		elif e.arquetipo == "elite" or e.arquetipo == "raro": mult *= float(mm.get("elite", 1.0))
+		if e.tipo == "monstro" and (str(e.aux.get("spot", "")) != "" or sim.spot_em(e.pos) != ""): mult *= float(mm.get("spot", 1.0))
+		var tags: Array = e.tags if not e.tags.is_empty() else Defs.MOBS.get(e.kind, {}).get("tags", [])
+		for id in M["itens"]:
+			var p := 0.0
+			var por_tag: Dictionary = M["itens"][id]["tags"]
+			for t in tags:
+				p = maxf(p, float(por_tag.get(t, 0.0)))
+			if p > 0.0 and Defs.ITENS.has(id) and sim.rng.randf() < p * mult:
+				sim.soltar_no_chao(Itens.novo(id), e.pos, jog.id, e.pos)
+	if e.tipo == "chefe":
+		for a in Defs.DROPS.get("asas_de_chefe", {}).get(e.kind, []):
+			if Defs.ITENS.has(a["item"]) and sim.rng.randf() < float(a["chance"]):
+				sim.soltar_no_chao(Itens.novo(a["item"]), e.pos, jog.id, e.pos)
 
 static func _soltar_ouro(sim: WorldSim, g: int, p: Vector2, jog: Ent) -> void:
 	if g <= 0: return

@@ -25,6 +25,13 @@ for c in $P/assets/personagens/*/ $P/assets/personagens/npcs/*/; do [ -f $c/spri
 # monstros: folhas + meta
 for m in $P/assets/monstros/*/; do n=$(basename $m); [ -f $m/meta.json ] || continue; mkdir -p $E/monstros/$n
   cp $m/*.png $m/meta.json $E/monstros/$n/; done
+# asas equipáveis: uma camada por asa + corpos em voo (mesmo formato de armas) + âncoras do encaixe nas costas
+if [ -d $P/assets/asas ]; then mkdir -p $E/asas; cp $P/assets/asas/ancoras.json $E/asas/ 2>/dev/null
+  for d in $P/assets/asas/asa_*/; do n=$(basename $d); mkdir -p $E/asas/$n; cp $d/*.png $d/asa.json $E/asas/$n/; done
+  for d in $P/assets/asas/corpos/*/; do n=$(basename $d); mkdir -p $E/asas/corpos/$n/corpo
+    cp $d/corpo/*.png $d/corpo/*.json $E/asas/corpos/$n/corpo/
+    for f in $d/*.png $d/*.json; do [ -e "$f" ] || continue; case $f in *_previa*|*vitrine.png|*custo.json) continue;; esac; cp $f $E/asas/corpos/$n/; done; done
+fi
 # armas visíveis: corpo sem arma + uma camada por silhueta (sem vitrines nem custo)
 mkdir -p $E/armas; cp $P/assets/armas/visuais.json $E/armas/
 for d in $P/assets/armas/*/; do [ -d $d/corpo ] || continue; n=$(basename $d); mkdir -p $E/armas/$n/corpo

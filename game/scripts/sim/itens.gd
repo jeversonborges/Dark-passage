@@ -5,9 +5,9 @@ const MOCHILA_W := 12
 const MOCHILA_H := 6
 const ARMAZEM_W := 12
 const ARMAZEM_H := 12
-const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2"]
+const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2", "asa"]
 const NOME_SLOT := {"arma": "Arma", "segunda_mao": "2ª mão", "cabeca": "Cabeça", "peito": "Peito", "luvas": "Luvas",
-	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel"}
+	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel", "asa": "Asa"}
 const ATTR := {"for": "FOR", "agi": "AGI", "vit": "VIT", "esp": "ESP"}
 
 static var _uid := 1
@@ -149,7 +149,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 	var b := {"FOR": 0.0, "AGI": 0.0, "VIT": 0.0, "ESP": 0.0, "defesa": 0.0, "hp": 0.0, "dano_plano": 0.0, "critico": 0.0,
 		"velocidade_ataque": 0.0, "roubo_de_vida": 0.0, "excelente": 0.0, "excelente_dano": 0.0, "reduz_dano": 0.0,
 		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": [],
-		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": []}
+		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": [], "dano_pct": 0.0}
 	var conj := {}
 	for s in equip:
 		var it: Dictionary = equip[s]

@@ -1,0 +1,76 @@
+{
+ "asa": "asa_mecanica_3",
+ "nome": "Asas do Silo",
+ "tipo": "mecanica",
+ "frame_size": [
+  224,
+  224
+ ],
+ "rows_dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "ancora": {
+  "S": [
+   112.0,
+   102.3
+  ],
+  "SE": [
+   106.1,
+   103.5
+  ],
+  "E": [
+   103.7,
+   106.5
+  ],
+  "NE": [
+   106.1,
+   109.4
+  ],
+  "N": [
+   112.0,
+   110.6
+  ],
+  "NW": [
+   117.9,
+   109.4
+  ],
+  "W": [
+   120.3,
+   106.5
+  ],
+  "SW": [
+   117.9,
+   103.5
+  ]
+ },
+ "ancora_nota": "ponto de encaixe nas costas dentro do quadro, por direção",
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "palette_colors": 32,
+ "anims": {
+  "pairar": {
+   "file": "pairar.png",
+   "frente": "pairar_frente.png",
+   "frames": 12,
+   "fps": 12,
+   "loop": true
+  },
+  "voar": {
+   "file": "voar.png",
+   "frente": "voar_frente.png",
+   "frames": 12,
+   "fps": 12,
+   "loop": true
+  }
+ }
+}

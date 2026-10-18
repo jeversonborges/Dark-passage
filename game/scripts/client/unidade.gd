@@ -88,6 +88,16 @@ const ALCANCE_FORJA := 420.0    # a forja (martelo e fole) só se ouve de perto;
 var _armas := {}       # slot -> Sprite2D (arma, segunda_mao)
 var _camadas := {}     # silhueta -> {json, tex, mask}
 var _kind_armas := ""  # classe com pasta em assets/armas (vazio: sem camadas)
+var _raiz_armas := ""  # pasta das camadas de arma: assets/ext/armas/<classe> ou, voando de asa, assets/ext/asas/corpos/<classe>
+# Asas equipáveis (assets/asas): com asa feita, o corpo vira a folha em voo (ou sem as asas próprias, no Anjo/Demônio)
+# e a asa é desenhada em duas camadas: atrás do corpo e, quando as costas viram para a câmera, o pedaço da frente.
+static var _ancoras_asa := {}   # assets/ext/asas/ancoras.json: classe -> anim -> dir -> [[dx, dy], ...]
+static var _asas_cache := {}    # id visual -> {json, tex, frente}
+var _kind := ""                 # classe/evolução desenhada (chave das pastas)
+var _asa_id := ""               # item de asa equipado agora (de ent.vis)
+var _asa := {}                  # camada ativa (vazio: sem asa por camada)
+var asa_tras := Sprite2D.new()
+var asa_frente := Sprite2D.new()
 var anim_base := ""           # animação em loop no lugar de idle (eat do Andras devorando)
 var sons := {}                # "sons" do substituto do NPC: loop posicional + som por quadro (forja do ferreiro)
 var _quadro_total := 0        # quadros contados desde o início da animação em loop (detecta o quadro cruzado)
@@ -113,6 +123,8 @@ func iniciar(g, e: Ent) -> void:
 	meta = info["meta"]
 	escala_base = float(info.get("escala", 1.0)) * float(meta.get("escala", 1.0))
 	if e.tipo == "chefe": escala_base *= 1.5   # chefe tem que impor presença
+	_kind = kind
+	_asa_id = _id_asa()
 	_carregar_corpo_armado(kind)
 	corpo.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	if _shader == null:
@@ -127,10 +139,17 @@ func iniciar(g, e: Ent) -> void:
 	corpo.material = mat
 	corpo.region_enabled = true
 	corpo.centered = false
-	add_child(sombra)
-	sombra.draw.connect(_desenhar_sombra)
-	add_child(corpo)
+	if sombra.get_parent() == null:
+		add_child(sombra)
+		sombra.draw.connect(_desenhar_sombra)
+		for sp in [asa_tras, asa_frente]:
+			sp.centered = false; sp.region_enabled = true; sp.visible = false
+			sp.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		add_child(asa_tras)
+		add_child(corpo)
 	_montar_armas()
+	if asa_frente.get_parent() == null: add_child(asa_frente)   # por cima do corpo e das armas
+	else: move_child(asa_frente, get_child_count() - 1)
 	var fr: Array = meta["frame"]
 	altura_px = float(fr[1]) * 0.55 * escala_base
 	pos_vis = Iso.to_screen(e.pos)
@@ -211,6 +230,7 @@ func _aplicar_frame() -> void:
 		corpo.scale = Vector2(esc * 1.05, esc * 0.78)
 		corpo.position = Vector2(-anc[0] * 1.05, -anc[1] * 0.78) * esc + (Vector2(0, -26) if levita else Vector2.ZERO)
 	if not _armas.is_empty(): _aplicar_armas()
+	_aplicar_asa()
 
 ## /ajoelhar
 func ajoelhar() -> void:
@@ -232,6 +252,7 @@ func morrer() -> void:
 
 func _process(dt: float) -> void:
 	tempo += dt
+	if ent != null and ent.tipo == "jogador" and _id_asa() != _asa_id: _trocar_asa()
 	if congelado_t > 0.0:
 		congelado_t -= dt
 		_atualizar_flash(dt)
@@ -362,8 +383,14 @@ static func _elipse(c: CanvasItem, centro: Vector2, raio: Vector2, cor: Color, c
 	else: c.draw_polyline(pts, cor, larg, true)
 
 ## Classe com pasta em assets/armas: o corpo passa a ser a folha sem arma (a arma vem por camada).
+## Com asa feita equipada, a pasta é assets/asas/corpos/<classe> (mesmo formato, corpo em voo) e a asa entra por camada.
 func _carregar_corpo_armado(kind: String) -> void:
-	var caminho := "res://assets/ext/armas/%s/corpo/sprites.json" % kind
+	_asa = {}
+	var raiz := "res://assets/ext/armas/%s" % kind
+	var vis_asa := _visual_asa(_asa_id)
+	if vis_asa != "" and FileAccess.file_exists("res://assets/ext/asas/corpos/%s/corpo/sprites.json" % kind) and _carregar_asa(vis_asa):
+		raiz = "res://assets/ext/asas/corpos/%s" % kind
+	var caminho := raiz + "/corpo/sprites.json"
 	if not FileAccess.file_exists(caminho): return
 	var c: Dictionary = Defs.ler(caminho)
 	var m: Dictionary = meta.duplicate(true)
@@ -371,13 +398,84 @@ func _carregar_corpo_armado(kind: String) -> void:
 	m["anims"] = {}
 	for n in c["anims"]:
 		var a: Dictionary = c["anims"][n].duplicate()
-		a["file"] = "res://assets/ext/armas/%s/corpo/%s" % [kind, a["file"]]
+		a["file"] = "%s/corpo/%s" % [raiz, a["file"]]
 		m["anims"][n] = a
 	meta = m
-	_kind_armas = kind
+	_kind_armas = kind if FileAccess.file_exists("res://assets/ext/armas/%s/corpo/sprites.json" % kind) else ""
+	_raiz_armas = raiz
+
+## Id do item no slot asa (ent.vis.asa, público: os outros jogadores também veem).
+func _id_asa() -> String:
+	if ent == null or ent.tipo != "jogador": return ""
+	return str((ent.vis as Dictionary).get("asa", {}).get("id", ""))
+
+## Desenho da asa: campo "visual" do item (null nas asas básicas do Anjo e do Demônio: ficam as asas do modelo).
+func _visual_asa(id_item: String) -> String:
+	if id_item == "": return ""
+	var v = Defs.ITENS.get(id_item, {}).get("visual")
+	return str(v) if v is String and v != "" else ""
+
+func _carregar_asa(vis: String) -> bool:
+	if _ancoras_asa.is_empty() and FileAccess.file_exists("res://assets/ext/asas/ancoras.json"):
+		_ancoras_asa = Defs.ler("res://assets/ext/asas/ancoras.json")
+	if not _ancoras_asa.has(_kind): return false
+	if not _asas_cache.has(vis):
+		var base := "res://assets/ext/asas/%s/" % vis
+		if not FileAccess.file_exists(base + "asa.json"): return false
+		var j: Dictionary = Defs.ler(base + "asa.json")
+		var texs := {}
+		for n in j["anims"]:
+			texs[n] = [Tema.tex(base + j["anims"][n]["file"]), Tema.tex(base + j["anims"][n]["frente"])]
+		_asas_cache[vis] = {"json": j, "tex": texs}
+	_asa = _asas_cache[vis]
+	return true
+
+## Equipou ou tirou a asa: troca a folha do corpo (voo) e as camadas, sem recriar a unidade.
+func _trocar_asa() -> void:
+	_asa_id = _id_asa()
+	meta = info["meta"]
+	_camadas = {}
+	_kind_armas = ""; _raiz_armas = ""
+	_carregar_corpo_armado(_kind)
+	if not _kind_armas.is_empty() and _armas.is_empty(): _montar_armas()
+	var nome := anim if anim != "" else "idle"
+	anim = ""
+	_definir_anim(nome)
+	_aplicar_frame()
+
+## Camadas da asa: quadro pelo próprio relógio (pairar parado, voar andando), posição pelo encaixe nas costas
+## do quadro atual do corpo (ancoras.json) menos o encaixe dentro do quadro da asa.
+func _aplicar_asa() -> void:
+	if _asa.is_empty() or morto:
+		asa_tras.visible = false; asa_frente.visible = false; return
+	var j: Dictionary = _asa["json"]
+	var nome := "voar" if andando and anim_unica == "" else "pairar"
+	var a: Dictionary = j["anims"][nome]
+	var n := int(a["frames"])
+	var f := int(tempo * float(a["fps"]) * (1.15 if nome == "voar" else 1.0)) % n
+	var d: String = DIRS_ARMA[clampi(dir, 0, 7)]
+	var r := j["rows_dirs"].find(d) as int
+	var fs: Array = j["frame_size"]
+	var por_anim: Dictionary = _ancoras_asa[_kind]
+	var lista: Array = por_anim.get(anim, por_anim.get("idle", {})).get(d, [])
+	var off := Vector2.ZERO
+	if not lista.is_empty():
+		var o: Array = lista[clampi(frame, 0, lista.size() - 1)]
+		off = Vector2(o[0], o[1])
+	var anc: Array = j["ancora"][d]
+	var esc := corpo.scale
+	var pes := corpo.position + Vector2(meta["anchor"][0], meta["anchor"][1]) * esc
+	var p := pes + (off - Vector2(anc[0], anc[1])) * esc
+	for k in 2:
+		var sp: Sprite2D = asa_tras if k == 0 else asa_frente
+		sp.visible = true
+		sp.texture = _asa["tex"][nome][k]
+		sp.region_rect = Rect2(f * fs[0], r * fs[1], fs[0], fs[1])
+		sp.position = p
+		sp.scale = esc
 
 func _montar_armas() -> void:
-	if _kind_armas == "": return
+	if _kind_armas == "" or not _armas.is_empty(): return
 	for slot in ["arma", "segunda_mao"]:
 		var sp := Sprite2D.new()
 		sp.centered = false
@@ -427,7 +525,7 @@ func _quadro_arma(v: Dictionary, slot: String, nome: String, d: int, f: int):
 	if sil == "": return null
 	var it: Dictionary = Defs.VISUAIS.get(str(v.get("id", "")), {})
 	if not _camadas.has(sil):
-		var base := "res://assets/ext/armas/%s/%s" % [_kind_armas, sil]
+		var base := "%s/%s" % [_raiz_armas, sil]
 		_camadas[sil] = {} if not FileAccess.file_exists(base + ".json") else {"json": Defs.ler(base + ".json"), "tex": Tema.tex(base + ".png"), "mask": Tema.tex(base + "_mascara.png")}
 	var c: Dictionary = _camadas[sil]
 	if c.is_empty(): return null
