@@ -830,7 +830,7 @@ static func ganhar_xp(sim: WorldSim, e: Ent, q: int, fonte: String = "") -> void
 static func morreu(sim: WorldSim, e: Ent) -> void:
 	var perda := 0
 	if e.nivel > int(Defs.FORM["morte"]["sem_perda_ate_nivel"]):
-		perda = int(Defs.xp_para_proximo(e.nivel) * float(Defs.FORM["morte"]["perda_xp_frac_do_nivel"]))
+		perda = int(Defs.xp_para_proximo(e.nivel) * float(Defs.FORM["morte"]["perda_xp_frac_do_nivel"]) * (1.0 - float(e.aux.get("bonus", {}).get("perda_xp_menos", 0.0))))
 		e.xp = maxi(0, e.xp - perda)
 	e.renascer_t = float(Defs.FORM["morte"]["tempo_para_renascer_s"])
 	e.alvo = -1; e.buffer_skill = {}; e.interagindo = {}

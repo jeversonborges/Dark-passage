@@ -960,6 +960,10 @@
         {
           "tag": "equip:faixa4",
           "peso": 88
+        },
+        {
+          "tag": "raro:amenti",
+          "peso": 3
         }
       ]
     },
