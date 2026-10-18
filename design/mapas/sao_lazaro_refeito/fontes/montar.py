@@ -154,5 +154,7 @@ rep('    if "luzes_extra" in q: q["luzes_extra"] = [shp(e) for e in q["luzes_ext
 rep('SAIDA = os.path.join(AQUI, "..")', 'SAIDA = os.path.join(AQUI, "..")   # design/mapas/sao_lazaro_refeito/')
 rep('objetos = [{"id": p["objeto"], "x": p["x"], "y": p["y"]} for p in props if p.get("objeto")]',
     'objetos = [{"id": p["objeto"], "x": p["x"], "y": (p["base"][1] - .7 if p.get("base") else p["y"])} for p in props if p.get("objeto")]   # objeto numa peça com base fica na beira, do lado do jogador')
+rep('npc("pirralho_ferrolho", "a_vela", -2.6, -2.8)',
+    'npc("pirralho_ferrolho", "a_vela", -2.6, -2.8)\nnpc("zaqueu_vendedor", "a_vela", 2.4, 1.4)   # Zaqueu, o vendedor de convites (npcs.json: ponto a_vela); some quando a Vela acende, mas fica por perto')
 open(f"{AQUI}/layout.py", "w", encoding="utf-8").write(s)
 print("layout.py montado:", len(s.splitlines()), "linhas")

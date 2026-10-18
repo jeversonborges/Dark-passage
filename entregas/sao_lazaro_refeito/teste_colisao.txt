@@ -1,2 +1,1 @@
-75 peças com base real · 1265 células de parede · 18879 células alcançáveis a partir do spawn
 colisão OK
