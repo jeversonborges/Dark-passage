@@ -78,6 +78,12 @@ func porta_fechada() -> bool:
 	return estado in ["horda", "luta", "transicao"]
 
 ## O alvo do chefe: na arena, vivo, com mais ameaça (no solo, o jogador; null se ninguém está na luta).
+func _jogadores_na_arena() -> int:
+	var n := 0
+	for e: Ent in sim.jogadores():
+		if e.vivo and e.pos.distance_to(centro) <= raio_arena + 3.0: n += 1
+	return n
+
 func _jog() -> Ent:
 	var melhor: Ent = null
 	var ma := -1.0
@@ -117,7 +123,8 @@ func passo(dt: float) -> void:
 		# acorda quando alguém entra na arena ou bate nele de fora (antes ele apanhava parado e a escada ficava livre)
 		var ferido := boss.hp < boss.hp_max
 		if j != null and j.vivo and (j.pos.distance_to(centro) < raio_arena - 0.5 or ferido):
-			_iniciar()
+			# raid com mínimo de jogadores (minimo_jogadores no chefe; 5 no oficial, 1 por enquanto)
+			if _jogadores_na_arena() >= int(d.get("minimo_jogadores", 1)): _iniciar()
 		elif ferido:
 			boss.hp = minf(boss.hp_max, boss.hp + boss.hp_max * 0.2 * dt)   # de longe demais não dá para tirar vida dele
 		return
