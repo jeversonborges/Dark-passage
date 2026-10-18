@@ -1,7 +1,7 @@
 # NPCs com modelo próprio · guia de integração
 
-**Não foi na 0.9.3** (pedido do Jefin em 17/10/2026: "não vamos enviar na 9.3, vamos só adiantar"); ligado no jogo na
-0.9.4 (seção "Como foi ligado" abaixo).
+**Não vai na 0.9.3** (pedido do Jefin em 17/10/2026: "não vamos enviar na 9.3, vamos só adiantar"). Fica pronto aqui
+para a thread "Prévia jogável e área inicial" integrar numa versão seguinte.
 
 ## O que tem aqui
 Uma pasta por NPC (`<id>/`) no formato de `assets/personagens/<classe>/`: `idle.png` e `walk.png` (linhas S, SE, E,
@@ -18,23 +18,14 @@ Jerusalém, Hermon e Viveiro: sariel_porta, hulda_escada, henoc_escriba, rispa_v
 joana_enxertadeira, tadeu_vigia, rute_abelheira.
 Tubal, Bartimeu, Zilpa e Zaqueu cobrador usam os modelos da Vela (tabela de réplicas abaixo).
 
-## Como foi ligado (0.9.4)
-- `game/tools/sync.sh` copia também `assets/personagens/npcs/*/` (sprites.json + PNGs das anims, sem GIF) para
-  `game/assets/ext/personagens/<id>/`; `game/tools/manifest.py` gera a chave `<id>` em `game/data/ext/sprites.json`.
-- `game/data/sprites_substitutos.json`: `"npc:<id>": {"usa": "<id>"}` para os 36 (`frei_anacleto` com `"fantasma": true`).
-  Sem entrada, `game/scripts/client/unidade.gd` usa a pasta com o id do NPC quando ela existe (senão, `classe_visual`).
-- Carrinhos: `tobias_carrinho` → `tobias_pavio`, `nefer_carrinho` → `nefer_aguadeira`, `bartimeu_carrinho` → `tobias_pavio`.
-- Forja: `"sons": {"loop": "ambiente/forja", "quadros": {"idle": {"3": "itens/forja_martelo"}}}` nas entradas de
-  `gaspar_bigorna`, `besankh_ferreiro` e `tubal_malho`. `unidade.gd` toca a martelada quando a animação cruza o quadro
-  (uma por golpe) e pede o loop posicional todo quadro (`Audio.loop_em`, -6 dB); o loop para sozinho quando o NPC sai.
-- Réplicas (ids reais de `npcs.json`): Jerusalém `tubal_malho` → `gaspar_bigorna`, `bartimeu_brasas` e
-  `bartimeu_carrinho` → `tobias_pavio` (tint um pouco mais escuro), `zilpa_hissopo` → `mae_cardo`,
-  `zaqueu_cobrador` → `zaqueu_vendedor`. Na Capela só existem Malfas (ferreiro + loja) e Lúcio (loja), com modelo
-  próprio: Ezequias, Matias Cera, Irmã Dorcas e Nabal não estão em `npcs.json`, e nenhum NPC da Capela tem ponto em
-  `game/data/mapas/area_inicial.json` (Missões e Level design). Zaqueu da Vela ainda se chama "Zaqueu" (renomear para
-  Belmiro é da thread de Missões).
-- `esfinge_amenti` não tem modelo (voz na pedra). Gustavo já tinha o dele (`classe_visual: gustavo_primarca`) e é o
-  mesmo em todo lugar.
+## Como ligar no jogo
+1. `game/tools/sync.sh` só copia o primeiro nível de `assets/personagens/`. Copie cada pasta para
+   `assets/personagens/<id>/` (ou estenda o sync para ler `npcs/*`).
+2. Em `game/data/sprites_substitutos.json`, troque a entrada do NPC por `"npc:<id>": {"usa": "<id>"}`.
+   - `frei_anacleto`: manter `"fantasma": true` (é o espírito emparedado; o modelo já traz a parede).
+   - Carrinhos que reaproveitam o mesmo vendedor: `tobias_carrinho` → `tobias_pavio`, `nefer_carrinho` →
+     `nefer_aguadeira`, `bartimeu_carrinho` → `tobias_pavio` (ver réplicas abaixo).
+   - `esfinge_amenti` não tem modelo: é uma voz que sai da pedra.
 
 ## Ferreiros: forja animada
 Os ferreiros (`gaspar_bigorna` e `besankh_ferreiro`, no Egito) já trazem bigorna, fogareiro, balde de têmpera e as faíscas dentro do sprite.
@@ -66,3 +57,19 @@ Instalação (container novo): `apt-get install -y libegl1 libgl1-mesa-dri` e um
 pillow numpy imageio` em `/opt/bpy42`. Depois, em `tools/sprite-pipeline/npcs/`:
 `bash lote.sh <id> ...` (render + folha; `RESUME=1` retoma). Teste rápido:
 `/opt/bpy42/bin/python render.py -- <id> /tmp/bt/<id> teste`.
+
+## 18/10: Zaqueu do convite com o Zacarias antigo (para a 0.9.5)
+
+Jefin pediu o modelo antigo do Zacarias (a armadura astral, `tools/sprite-pipeline/monstros/zacarias_v2.py`) como
+modelo do NPC que vende item de evento. O modelo foi re-renderizado só em idle e walk, no formato de monstro,
+em `assets/monstros/zacarias_antigo/` (folhas `zacarias_antigo_idle.png` / `_walk.png` + `meta.json`; prévia em
+`previa/`). O chefe `zacarias` (visual 3, Egito) não mudou.
+
+No branch `claude/npcs-cetro-094`:
+- `game/assets/ext/monstros/zacarias_antigo/` + `data/ext/sprites.json` (manifest.py);
+- `data/sprites_substitutos.json`: `"npc:zaqueu_vendedor": {"usa": "zacarias_antigo", "escala": 0.8}` (2,2 m);
+- `data/mapas/area_inicial.json`: o Zaqueu do convite não estava em mapa nenhum; entrou na praça da Vela, entre as
+  velas da matriz, em frente ao muro da capela (`pos [67.5, 105.5]`, olhando para a praça). Perto da lâmpada o
+  `predio_enterrado` tapa qualquer NPC até o jogador chegar perto (a Zulmira sofre disso); ali ele fica visível de
+  longe. A `loja_zaqueu` (Convite dos Irin, 300 de ouro) já existia. Foto: `assets/monstros/zacarias_antigo/previa/zaqueu_na_vela.png`.
+O Zaqueu cobrador de Jerusalém continua com o modelo humano.

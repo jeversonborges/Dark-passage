@@ -110,7 +110,8 @@
   }
  },
  "npc:zaqueu_vendedor": {
-  "usa": "zaqueu_vendedor"
+  "usa": "zacarias_antigo",
+  "escala": 0.8
  },
  "npc:simao_coveiro": {
   "usa": "simao_coveiro"
