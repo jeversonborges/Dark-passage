@@ -3262,5 +3262,131 @@
   1320,
   40,
   40
+ ],
+ "avental_de_engenheiro_herege": [
+  0,
+  1360,
+  40,
+  40
+ ],
+ "luvas_de_bobina": [
+  40,
+  1360,
+  40,
+  40
+ ],
+ "calcas_de_fiacao": [
+  80,
+  1360,
+  40,
+  40
+ ],
+ "botas_de_piston": [
+  120,
+  1360,
+  40,
+  40
+ ],
+ "adaga_calice_da_comunhao": [
+  160,
+  1360,
+  40,
+  40
+ ],
+ "batina_da_trombeta": [
+  200,
+  1360,
+  40,
+  40
+ ],
+ "luvas_do_bocal": [
+  240,
+  1360,
+  40,
+  40
+ ],
+ "calcas_de_linho_ritual": [
+  280,
+  1360,
+  40,
+  40
+ ],
+ "sandalias_de_linho": [
+  320,
+  1360,
+  40,
+  40
+ ],
+ "gladio_da_cerca": [
+  360,
+  1360,
+  40,
+  40
+ ],
+ "manoplas_de_quem_saiu": [
+  400,
+  1360,
+  40,
+  40
+ ],
+ "grevas_da_cerca": [
+  440,
+  1360,
+  40,
+  40
+ ],
+ "botas_da_cerca": [
+  480,
+  1360,
+  40,
+  40
+ ],
+ "luvas_de_porrete": [
+  520,
+  1360,
+  40,
+  40
+ ],
+ "grevas_do_badalo": [
+  560,
+  1360,
+  40,
+  40
+ ],
+ "botas_de_bronze_frio": [
+  600,
+  1360,
+  40,
+  40
+ ],
+ "foice_do_arauto_calado": [
+  0,
+  1400,
+  40,
+  40
+ ],
+ "jaqueta_de_fio_cobre": [
+  40,
+  1400,
+  40,
+  40
+ ],
+ "calcas_de_desertor": [
+  80,
+  1400,
+  40,
+  40
+ ],
+ "botas_de_passo_mudo": [
+  120,
+  1400,
+  40,
+  40
+ ],
+ "oculos_de_solda_herege": [
+  160,
+  1400,
+  40,
+  40
  ]
 }
