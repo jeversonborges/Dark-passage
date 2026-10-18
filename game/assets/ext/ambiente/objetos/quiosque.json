@@ -1,0 +1,23 @@
+{
+ "w": 554,
+ "h": 324,
+ "anchor": [
+  144,
+  255
+ ],
+ "base": [
+  -1.5,
+  -1.5,
+  1.5,
+  1.5
+ ],
+ "emissivo": "lampião",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  4,
+  4
+ ],
+ "descricao": "Quiosque de jornais da praça: casinha octogonal de madeira pintada, cartazes da Vigília colados, lampião e     balcão fechado com tábua; vende velas, não jornal.",
+ "kind": "quiosque"
+}

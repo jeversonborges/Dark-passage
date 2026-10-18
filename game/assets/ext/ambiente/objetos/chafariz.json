@@ -1,0 +1,23 @@
+{
+ "w": 702,
+ "h": 416,
+ "anchor": [
+  386,
+  214
+ ],
+ "base": [
+  -2.1,
+  -2.1,
+  2.1,
+  2.1
+ ],
+ "emissivo": "água do Amargo (verde)",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  6,
+  6
+ ],
+ "descricao": "Chafariz de ferro fundido da praça (1888): tanque de cantaria, coluna com quatro bicas de leão e a taça de cima;     seco há trinta anos, com um fio de água verde do Amargo no fundo.",
+ "kind": "chafariz"
+}

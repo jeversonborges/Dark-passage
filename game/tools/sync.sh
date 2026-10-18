@@ -54,7 +54,7 @@ mkdir -p $E/ui $E/fontes; cp -r $P/assets/ui/hud/1x $P/assets/ui/hud/2x $P/asset
 mkdir -p $E/ui/carregamento; cp $P/assets/ui/carregamento/tela_carregamento_1920x1080.png $P/assets/ui/carregamento/tela_carregamento_1280x720.png $E/ui/carregamento/
 cp $P/assets/ui/hud/fontes/*.woff2 $P/design/mapas/fontes/*.ttf $E/fontes/
 # mapa aprovado
-mkdir -p $D/mapas/cripta; cp $P/entregas/cidade_sao_lazaro/area_inicial.json $P/entregas/cidade_sao_lazaro/spots.json $D/mapas/
+mkdir -p $D/mapas/cripta; cp $P/entregas/sao_lazaro_refeito/area_inicial.json $P/entregas/sao_lazaro_refeito/spots.json $D/mapas/
 cp $P/design/mapas/cripta/{porao_matadouro,ossario_carpideiras,camara_trombeta}.json $D/mapas/cripta/
 cp $P/design/mapas/mata_do_granizo/mata_do_granizo.json $D/mapas/   # Novo Éden: 11 spots (16/10)
 cp $P/design/mapas/jerusalem_hermon/{jerusalem_hermon,minas_dos_gigantes,salao_das_noivas,altar_do_juramento}.json $G/data/mapas/   # Jerusalém e Monte Hermon + Fosso dos Vigilantes (0.9.3)

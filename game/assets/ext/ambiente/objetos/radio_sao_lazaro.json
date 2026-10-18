@@ -1,0 +1,23 @@
+{
+ "w": 1854,
+ "h": 1052,
+ "anchor": [
+  526,
+  833
+ ],
+ "base": [
+  -3.5,
+  -2.8,
+  3.5,
+  2.8
+ ],
+ "emissivo": "janelas do estúdio (âmbar) e luz do mastro (vermelha)",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  8
+ ],
+ "descricao": "Rádio São Lázaro: sobrado de platibanda da antiga Companhia Telefônica, com o mastro de rádio de treliça no     terraço (luz vermelha piscando), fios descendo para a rua, alto-falantes de corneta e a janela do estúdio acesa.",
+ "kind": "radio_sao_lazaro"
+}
