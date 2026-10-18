@@ -256,5 +256,65 @@
 280,
 40,
 40
+],
+"warlord_corte_do_eclipse": [
+40,
+280,
+40,
+40
+],
+"warlord_juramento_de_odio": [
+80,
+280,
+40,
+40
+],
+"warlord_fenda_na_terra": [
+120,
+280,
+40,
+40
+],
+"warlord_investida_de_ferro": [
+160,
+280,
+40,
+40
+],
+"warlord_marca_do_desprezo": [
+200,
+280,
+40,
+40
+],
+"warlord_muralha_de_escudo": [
+0,
+320,
+40,
+40
+],
+"warlord_redemoinho_de_aco": [
+40,
+320,
+40,
+40
+],
+"warlord_coroa_de_ferro": [
+80,
+320,
+40,
+40
+],
+"warlord_estandarte_da_ruina": [
+120,
+320,
+40,
+40
+],
+"warlord_eclipse_do_senhor_da_guerra": [
+160,
+320,
+40,
+40
 ]
 }

@@ -7,7 +7,7 @@ signal no_mundo(rede: Node, msg: Dictionary)
 signal criar_personagem()
 
 const CFG := "user://rede.cfg"
-const NOMES := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+const NOMES := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante", "warlord": "Warlord"}
 
 var rede: Node
 var caixa: VBoxContainer
@@ -21,7 +21,7 @@ var conta_atual := ""
 var auto := {}           # teste automático: conectar=ip usuario= senha= classe=
 
 const M := "res://assets/menu/"
-const CLASSES_ARTE := {"anjo": "classe_anjo", "demonio": "classe_demonio", "cultista": "classe_cultista", "humano": "classe_humano", "mutante": "classe_mutante", "tecnomancer": "classe_tecnomancer"}
+const CLASSES_ARTE := {"anjo": "classe_anjo", "demonio": "classe_demonio", "cultista": "classe_cultista", "humano": "classe_humano", "mutante": "classe_mutante", "tecnomancer": "classe_tecnomancer", "warlord": "classe_warlord"}
 const COR_BOTAO := Color("#dcc89a")
 const COR_BOTAO_HOVER := Color("#fff1c8")
 const COR_ROTULO := Color("#a8916a")

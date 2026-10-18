@@ -27,6 +27,7 @@ static func recalc_jogador(e: Ent) -> void:
 	e.vis = visual_armas(e)
 	var c: Dictionary = Defs.CLASSES[e.classe]
 	var b := Itens.bonus(e.equip)
+	e.aux["bloqueio_escudo"] = float(b["bloqueio"]) if e.classe == "warlord" else 0.0   # escudo do Warlord bloqueia (o resto ainda não entra no combate)
 	e.aux["bonus"] = b
 	var base_stats: Dictionary = e.stats
 	var st := {}
@@ -74,7 +75,7 @@ static func recalc_jogador(e: Ent) -> void:
 	var rc: Dictionary = c["recurso"]
 	match e.classe:
 		"anjo", "tecnomancer": e.rec_max = 100.0 + E / 2.0
-		"mutante", "demonio": e.rec_max = 100.0
+		"mutante", "demonio", "warlord": e.rec_max = 100.0
 		"humano": e.rec_max = float(rc["folego"]["max"])
 		"cultista": e.rec_max = 0.0
 	e.rec_max *= Evolucao.mult(e, "recurso_max_mult")
@@ -147,6 +148,11 @@ static func tem_tag(alvo: Ent, chave: String) -> bool:
 	if chave.begins_with("tag:"): return chave.substr(4) in alvo.tags
 	return alvo.classe == chave or alvo.kind == chave
 
+## Warlord: cada 20 de Ódio dá +2% de defesa; a Coroa de Ferro (nível 20) soma +3% por inimigo perto (até 5).
+static func defesa_warlord(alvo: Ent) -> float:
+	if alvo.classe != "warlord": return 0.0
+	return floorf(alvo.rec / 20.0) * 0.02 + float(alvo.aux.get("coroa_n", 0)) * 0.03
+
 static func mult_vantagem(atk: Ent, alvo: Ent) -> float:
 	var v: Dictionary = Defs.FORM["vantagem_cruzada"].get(atk.classe if atk.tipo == "jogador" else "", {})
 	if v.has("alvos"):
@@ -166,8 +172,9 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 			r["errou"] = true
 			return r
 	# bloqueio das evoluções (Lorde das Trevas, Gladiador) e do Muro de Vela
-	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio"):
+	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio") + float(alvo.aux.get("bloqueio_escudo", 0.0)):
 		r["errou"] = true; r["bloqueio"] = true
+		if alvo.classe == "warlord": alvo.rec = minf(alvo.rec_max, alvo.rec + float(Defs.CLASSES["warlord"]["recurso"]["ganho"]["bloqueio"]))
 		return r
 	# evasão de item (Relíquia, 18/10): esquiva o golpe mesmo quando não bloqueia
 	if alvo.tipo == "jogador" and rng.randf() < float(alvo.aux.get("bonus", {}).get("evasao", 0.0)):
@@ -181,7 +188,7 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	var crit_ch := atk.critico + float(op.get("crit_extra", 0.0))
 	if op.get("forca_crit", false) or rng.randf() < crit_ch:
 		r["crit"] = true; bruto *= atk.crit_mult
-	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct")) * (1.0 - Evolucao.pen_defesa(atk, op))
+	var def_ef := alvo.defesa * (1.0 + alvo.mod("defesa_pct") + defesa_warlord(alvo)) * (1.0 - Evolucao.pen_defesa(atk, op))
 	if atk.excelente > 0.0 and rng.randf() < atk.excelente:
 		r["exc"] = true; bruto *= 1.2; def_ef *= 0.5
 		bruto *= 1.0 + float(atk.aux.get("bonus", {}).get("excelente_dano", 0.0))
@@ -202,6 +209,7 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	if alvo.tipo == "jogador": dano *= 1.0 - float(alvo.aux.get("bonus", {}).get("reduz_dano", 0.0))
 	# recursos que dão dano
 	if atk.classe == "mutante": dano *= 1.0 + floorf(atk.rec / 10.0) * 0.02
+	if atk.classe == "warlord": dano *= 1.0 + floorf(atk.rec / 20.0) * 0.03
 	if atk.classe == "demonio" and atk.rec >= 80.0: dano *= 1.15
 	if atk.aux.has("enrage"): dano *= 1.5
 	r["dano"] = maxi(1, roundi(dano))

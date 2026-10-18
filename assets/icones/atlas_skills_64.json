@@ -256,5 +256,65 @@
 448,
 64,
 64
+],
+"warlord_corte_do_eclipse": [
+64,
+448,
+64,
+64
+],
+"warlord_juramento_de_odio": [
+128,
+448,
+64,
+64
+],
+"warlord_fenda_na_terra": [
+192,
+448,
+64,
+64
+],
+"warlord_investida_de_ferro": [
+256,
+448,
+64,
+64
+],
+"warlord_marca_do_desprezo": [
+320,
+448,
+64,
+64
+],
+"warlord_muralha_de_escudo": [
+0,
+512,
+64,
+64
+],
+"warlord_redemoinho_de_aco": [
+64,
+512,
+64,
+64
+],
+"warlord_coroa_de_ferro": [
+128,
+512,
+64,
+64
+],
+"warlord_estandarte_da_ruina": [
+192,
+512,
+64,
+64
+],
+"warlord_eclipse_do_senhor_da_guerra": [
+256,
+512,
+64,
+64
 ]
 }

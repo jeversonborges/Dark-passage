@@ -23,6 +23,9 @@ static func criar(sim: WorldSim, classe: String, nome: String, salvo: Dictionary
 	if salvo.is_empty():
 		var arma := _arma_inicial(classe)
 		if arma != "": e.equip["arma"] = Itens.novo(arma)
+		if c.get("escudo_inicial") is Dictionary:   # Warlord: escudo de ferro pintado na mão de trás
+			var esc := _id_por_nome(c["escudo_inicial"]["nome"])
+			if esc != "": e.equip["segunda_mao"] = Itens.novo(esc)
 		e.inv = []
 		# kit inicial do farm_auto.json: 20 de vida e 10 de recurso (o Cultista paga em HP: mais vida no lugar)
 		for it in [["pocao_vida_p", 20], ["pocao_recurso_p", 10] if classe != "cultista" else ["pocao_vida_p", 10]]:
@@ -43,11 +46,16 @@ static func criar(sim: WorldSim, classe: String, nome: String, salvo: Dictionary
 		e.rec = e.rec_max if classe in ["anjo", "tecnomancer", "humano"] else 0.0
 	return e
 
-static func _arma_inicial(classe: String) -> String:
-	var alvo: String = Defs.CLASSES[classe]["arma_inicial"]["nome"]
-	var n := _norm(alvo)
+static func _id_por_nome(nome: String) -> String:
+	var n := _norm(nome)
 	for id in Defs.ITENS:
 		if _norm(str(Defs.ITENS[id].get("nome", ""))) == n: return id
+	return ""
+
+static func _arma_inicial(classe: String) -> String:
+	var alvo: String = Defs.CLASSES[classe]["arma_inicial"]["nome"]
+	var por_nome := _id_por_nome(alvo)
+	if por_nome != "": return por_nome
 	for id in Defs.POR_TAG.get("equip:faixa1", []):
 		var cl = Defs.ITENS[id].get("classes")
 		if cl is Array and classe in cl and Defs.ITENS[id].get("slot") == "arma" and int(Defs.ITENS[id].get("nivel", 1)) == 1: return id
@@ -74,6 +82,7 @@ static func entrar(sim: WorldSim, e: Ent, mapa: String, pos: Vector2) -> void:
 static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 	_regen(sim, e, dt)
 	Demiurgo.aura(sim, e, dt)   # Aura Demiúrgica (tick de 1 s)
+	Habilidades.estandarte_tick(sim, e, dt)   # Estandarte da Ruína (Warlord)
 	if e.buffs.size() > 0:
 		var mudou := false
 		for b in e.buffs.duplicate():
@@ -190,6 +199,10 @@ static func _regen(sim: WorldSim, e: Ent, dt: float) -> void:
 		"humano": e.rec = minf(e.rec_max, e.rec + float(rc["folego"]["regen_por_s"]) * dt)
 		"mutante", "demonio":
 			if fora: e.rec = maxf(0.0, e.rec - float(rc["decai_por_s_fora_de_combate"]) * dt)
+		"warlord":
+			if fora: e.rec = maxf(0.0, e.rec - float(rc["decai_por_s_fora_de_combate"]) * dt)
+			# Coroa de Ferro (nível 20): conta os inimigos a até 3 m, até 5, para a defesa (regras.gd)
+			e.aux["coroa_n"] = mini(5, sim.inimigos_de(e, e.pos, 3.0).size()) if e.nivel >= 20 else 0
 
 static func alcance_basico(e: Ent) -> float:
 	if e.classe == "humano":
@@ -707,6 +720,8 @@ static func _tentar_skill(sim: WorldSim, e: Ent, slot: int, alvo_id: int, ponto:
 			ponto = e.pos + (ponto - e.pos).normalized() * alc
 	# paga e solta
 	cst = Evolucao.custo(e, cst)   # Três Auréolas do Arquimago
+	if h.get("consome_todo_odio", false):   # Eclipse do Senhor da Guerra: gasta tudo e o dano cresce com o gasto
+		cst = e.rec; e.aux["odio_usado"] = cst
 	if e.classe == "cultista": e.hp -= cst
 	else: e.rec -= cst
 	var recarga := float(h.get("recarga", 1.0)) * Demiurgo.mult_recarga(e)   # A Mão que Mede: -90%
@@ -728,6 +743,8 @@ static func _tipo_skill(h: Dictionary) -> String:
 	match h["id"]:
 		"toque_graca", "nanoreparo": return "alvo_aliado"
 		"asas_ascensao", "rolamento", "arrancada", "chuva_cinzas", "armadilha_prata", "investida_bestial", "rajada": return "ponto"
+		"warlord_fenda_na_terra", "investida_de_ferro": return "ponto"
+		"juramento_de_odio", "muralha_de_escudo", "redemoinho_de_aco", "marca_do_desprezo", "estandarte_da_ruina", "eclipse_do_senhor_da_guerra": return "proprio"
 		"anjo_leque_juizo", "demonio_ceifa_infernal", "cultista_espinhos_sangue", "humano_coquetel_querosene": return "ponto"
 		"mutante_terremoto_putrido", "tecnomancer_tempestade_bobina": return "proprio"
 		"halo_ardente", "corte_largo", "pacto_rubro", "servo_carne", "rugido_praga", "carapaca", "pele_enxofre", "agua_benta_polvora", "torreta_sentinela", "campo_forca", "pulso_anti_divino": return "proprio"
@@ -740,7 +757,7 @@ static func ao_acertar(sim: WorldSim, e: Ent, alvo: Ent, r: Dictionary, op: Dict
 	var rc: Dictionary = Defs.CLASSES[e.classe]["recurso"]
 	match e.classe:
 		"anjo": e.rec = minf(e.rec_max, e.rec + float(rc["ganho"]["golpe_acertado"]))
-		"mutante": e.rec = minf(e.rec_max, e.rec + float(rc["ganho"]["golpe_acertado"]))
+		"mutante", "warlord": e.rec = minf(e.rec_max, e.rec + float(rc["ganho"]["golpe_acertado"]))
 		"demonio":
 			var g := float(rc["ganho"]["golpe_acertado"]) + (float(rc["ganho"]["critico_extra"]) if r.get("crit", false) else 0.0)
 			var novo := e.rec + g
@@ -753,6 +770,8 @@ static func ao_acertar(sim: WorldSim, e: Ent, alvo: Ent, r: Dictionary, op: Dict
 static func ao_ser_atingido(sim: WorldSim, e: Ent, atk: Ent, dano: float, r: Dictionary) -> void:
 	if e.classe == "mutante":
 		e.rec = minf(e.rec_max, e.rec + dano / e.hp_max * 100.0)
+	if e.classe == "warlord":
+		e.rec = minf(e.rec_max, e.rec + float(Defs.CLASSES["warlord"]["recurso"]["ganho"]["golpe_recebido"]))
 	if not e.interagindo.is_empty() and dano > 0: cancelar_canal(sim, e)
 	Demiurgo.refletir(sim, e, atk, dano)   # Como em Cima, Assim Embaixo
 	# Pele de Enxofre: reflete

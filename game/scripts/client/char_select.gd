@@ -4,16 +4,17 @@ extends Control
 signal escolhido(classe: String, nome: String, salvo: Dictionary)
 signal voltar()
 
-const ORDEM := ["humano", "mutante", "tecnomancer", "anjo", "demonio", "cultista"]
-const NOMES := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+const ORDEM := ["humano", "mutante", "tecnomancer", "warlord", "anjo", "demonio", "cultista"]
+const NOMES := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante", "warlord": "Warlord"}
 const FANTASIA := {
 	"humano": "Sem milagre nenhum: escopeta de cano serrado, espada larga e teimosia. Atira de longe enquanto tem bala e resolve no aço quando chegam perto.",
 	"mutante": "O Amargo entrou no sangue e não saiu. Quanto mais apanha, mais perigoso fica. Segura a linha para os outros correrem.",
 	"tecnomancer": "Ciência proibida com reza de oficina. Torretas, arcos voltaicos e nanomáquinas que costuram carne.",
 	"anjo": "Porcelana rachada e asas sujas. Cura os seus enquanto julga os outros, sem pressa e sem pena.",
 	"demonio": "Ex-soldado do Inferno com fome de briga. Se alimenta do dano que causa e explode se não controlar a brasa.",
+	"warlord": "Veio do cerco e lutou pela Vela por carne e pela Capela por água. Hoje luta por quem paga e já não escolhe lado. Espada que não protege, escudo que não salva.",
 	"cultista": "Paga com o próprio sangue por um poder que ninguém devia ter. Sangra os inimigos devagar e levanta os mortos para lutar."}
-const PAPEL := {"humano": "Tiro e espada · versátil", "mutante": "Tanque · berserker", "tecnomancer": "Suporte · controle · torretas",
+const PAPEL := {"humano": "Tiro e espada · versátil", "mutante": "Tanque · berserker", "tecnomancer": "Suporte · controle · torretas", "warlord": "Tanque ofensivo · espada e escudo",
 	"anjo": "Cura · corpo a corpo", "demonio": "Assassino corpo a corpo", "cultista": "Magia de sangue · invocações"}
 
 var classe_sel := "humano"

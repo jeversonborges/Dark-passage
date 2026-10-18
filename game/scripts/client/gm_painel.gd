@@ -6,7 +6,7 @@ class_name GmPainel
 const ABAS := [["jogadores", "Jogadores"], ["invocar", "Invocar"], ["itens", "Itens e nível"], ["eventos", "Eventos"], ["viajar", "Viajar"]]
 const RARIDADES := ["", "comum", "magico", "raro", "excelente"]
 const NOME_RAR := {"": "do item", "comum": "comum", "magico": "mágico", "raro": "raro", "excelente": "excelente"}
-const NOME_CLASSE := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomancer"}
+const NOME_CLASSE := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomancer", "warlord": "Warlord"}
 const COR_TITULO := Color("#e0c890")
 const COR_SECAO := Color("#c9a860")
 const COR_FRACO := Color("#a89f8c")

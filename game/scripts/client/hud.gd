@@ -208,6 +208,7 @@ func _nome_recurso() -> String:
 		"mutante": return "FÚRIA"
 		"demonio": return "BRASA"
 		"tecnomancer": return "CARGA"
+		"warlord": return "ÓDIO"
 	return ""
 
 func _orbe(c: CanvasItem, centro: Vector2, frac: float, liquido: String, moldura: String, valor: String, nome: String, pulsar := false) -> void:
@@ -585,7 +586,7 @@ func _encher(c: CanvasItem, r: Rect2, frac: float, cor: Color) -> void:
 	c.draw_rect(Rect2(f.end.x - 1, f.position.y, 1, f.size.y), cor.lightened(0.45))
 
 func _linha_classe(j: Ent) -> String:
-	var cls: Dictionary = {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+	var cls: Dictionary = {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante", "warlord": "Warlord"}
 	return "%s · %s" % [Evolucao.nome_classe(j) if j.evolucao != "" else cls.get(j.classe, j.classe), "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"]
 
 func _cor_recurso() -> Color:
@@ -1220,7 +1221,7 @@ func fechar_menu_jogador() -> void:
 	menu_box = null
 
 # =================================================================== chat (Enter abre, Enter manda, Esc cancela)
-const COR_CLASSE := {"anjo": "#f3dc8e", "demonio": "#ff7a5c", "cultista": "#d77ad6", "humano": "#e8d4b0", "mutante": "#9fd86a", "tecnomancer": "#7fc8ff"}
+const COR_CLASSE := {"anjo": "#f3dc8e", "demonio": "#ff7a5c", "cultista": "#d77ad6", "humano": "#e8d4b0", "mutante": "#9fd86a", "tecnomancer": "#7fc8ff", "warlord": "#c8302a"}
 
 func _montar_chat() -> void:
 	chat_painel = PanelContainer.new()

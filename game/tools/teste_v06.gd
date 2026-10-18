@@ -95,7 +95,7 @@ func _init() -> void:
 		print("chave_lancamento no chão: ", chave)
 		if not chave: falhas += 1
 	# ---------------------------------------------------------------- skill em área e modo automático, por classe
-	for c in ["anjo", "cultista", "mutante", "demonio", "humano", "tecnomancer"]:
+	for c in ["anjo", "cultista", "mutante", "demonio", "humano", "tecnomancer", "warlord"]:
 		cont.clear(); avisos.clear()
 		var s2 := WorldSim.new(11)
 		s2.evento.connect(_ev)
