@@ -311,6 +311,11 @@ func _criar_spawn(s: Dictionary) -> void:
 		"qtd": int(s.get("qtd", 1)), "ents": [], "timers": [], "nivel": s.get("nivel"), "faccao_so": s.get("so_para", ""),
 		"patrulha": s.get("patrulha", []), "fila": s.get("formacao", "") == "fila", "postura": s.get("postura", "agressivo"),
 		"spot": s.get("spot", ""), "respawn_s": float(s.get("respawn_s", 0)), "territorio": float(s.get("territorio", 0))}
+	# spot de farm (0.9.5, Jefin): renasce mais rápido e com 1 mob a mais por grupo; elite (respawn longo) fica como está
+	var R: Dictionary = Defs.MOBS_BASE.get("spots", {})
+	if str(g["spot"]) != "" and float(g["respawn_s"]) < 60.0 and not R.is_empty():
+		g["respawn_s"] = minf(float(g["respawn_s"]) if g["respawn_s"] > 0 else 1e9, float(R.get("respawn_s", 6)))
+		g["qtd"] += int(R.get("mob_extra", 0))
 	spawns.append(g)
 	var idx := spawns.size() - 1
 	for i in g["qtd"]:
@@ -319,6 +324,11 @@ func _criar_spawn(s: Dictionary) -> void:
 func spawn_mob(idx: int) -> Ent:
 	var g: Dictionary = spawns[idx]
 	var p: Vector2 = g["pos"] + Vector2(rng.randf_range(-1, 1), rng.randf_range(-1, 1)) * g["raio"]
+	if str(g.get("spot", "")) != "":   # no spot nasce mesmo com jogador perto, mas não colado nele
+		var dist_min := float(Defs.MOBS_BASE.get("spots", {}).get("dist_min_jogador", 3.0))
+		for _t in 8:
+			if jogador_perto(p, dist_min) == null: break
+			p = g["pos"] + Vector2(rng.randf_range(-1, 1), rng.randf_range(-1, 1)) * maxf(g["raio"], dist_min + 1.0)
 	p = celula_livre_perto(p)
 	var m: Dictionary = Defs.MOBS.get(g["mob"], {})
 	var niv: Array = m.get("niveis", [1, 1])
@@ -1017,7 +1027,7 @@ func _passo_spawns(dt: float) -> void:
 				if float(g.get("so_quando", 0)) == 0: pass
 				ts.remove_at(k)
 				var p: Vector2 = g["pos"]
-				if jogador_perto(p, 7.0) != null:
+				if str(g.get("spot", "")) == "" and jogador_perto(p, 7.0) != null:
 					ts.append(4.0)   # não nasce na cara do jogador
 				elif g["mob"] != "" and Defs.MOBS.has(g["mob"]) and float(Defs.MOBS[g["mob"]].get("renascimento_s", 25)) > 0:
 					spawn_mob(i)
