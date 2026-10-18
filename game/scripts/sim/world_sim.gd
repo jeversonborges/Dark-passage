@@ -801,6 +801,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 		emitir("dano", {"id": alvo.id, "de": atk.id, "valor": 0, "estilo": "errou"})
 		if r.get("bloqueio", false): Evolucao.bloqueou(self, alvo, atk)
 		return r
+	if atk.tipo == "jogador": _efeitos_de_item(atk, alvo)   # gelo e invocação de Relíquia (18/10)
 	var dano: int = r["dano"]
 	if alvo.tipo == "jogador" and atk.tipo == "monstro": dano = maxi(1, roundi(dano * fator_novato(alvo)))
 	if alvo.tem("profecia") and alvo.tipo != "chefe":
@@ -920,6 +921,17 @@ func _passo_postura(e: Ent, dt: float) -> void:
 const CC := ["atordoado", "derrubado", "enraizado", "cegueira", "silenciado"]
 
 ## v: duração (float) ou {duracao, dano_por_s_mult}
+## Efeitos de Relíquia no acerto (18/10): gelo desacelera o alvo; invocação chama dois Não-Julgados com recarga.
+func _efeitos_de_item(atk: Ent, alvo: Ent) -> void:
+	var b: Dictionary = atk.aux.get("bonus", {})
+	var gelo := float(b.get("dano_gelo", 0.0))
+	if gelo > 0.0 and alvo.vivo and rng.randf() < gelo:
+		aplicar_status(alvo, "lento", {"duracao": 1.5}, atk)
+	for ef in b.get("invocar", []):
+		if tempo < float(atk.aux.get("invoca_pronta", 0.0)): continue
+		atk.aux["invoca_pronta"] = tempo + float(ef.get("recarga_s", 90))
+		Evolucao._invocar(self, atk, "nao_julgado", "Não-Julgado", float(ef.get("duracao_s", 20)), int(ef.get("qtd", 2)))
+
 func aplicar_status(alvo: Ent, s: String, v, atk: Ent) -> void:
 	if not alvo.vivo or alvo.tipo in ["npc", "objeto"]: return
 	if alvo.tipo == "jogador" and Demiurgo.tem(alvo): return   # Como em Cima, Assim Embaixo: imune a todos os status

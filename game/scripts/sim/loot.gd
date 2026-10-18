@@ -79,6 +79,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		var pid := "pocao_vida_p" if r0 < 50.0 else ("pocao_recurso_p" if r0 < 90.0 else ("pocao_vida_m" if r0 < 96.0 else "pocao_recurso_m"))
 		if Defs.ITENS.has(pid): sim.soltar_no_chao(Itens.novo(pid), e.pos, jog.id, e.pos)
 	_rolar_lagrimas(sim, e, jog, tab_id)
+	if sim.rng.randf() < chance_bau_dourado(e): sim.soltar_no_chao(Itens.novo("bau_dourado"), e.pos, jog.id, e.pos)
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
 	for gid in tab.get("garantido", []):
@@ -89,10 +90,14 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	elif sim.rng.randf() < float(tab.get("item_chance", 0.0)): n = 1
 	var minima: String = tab.get("raridade_minima", "comum")
 	jog.pity_raro += 1
+	var f_itens := float(Defs.DROPS["balanco"]["itens_de_mob"])   # balanço 18/10: cada rolagem de item tem 65% (drop mais baixo)
+	var f_joias := float(Defs.DROPS["balanco"]["joias"])
 	for i in n:
+		if sim.rng.randf() >= f_itens: continue
 		var r := _peso(sim, tab["rolagens"])
 		var tag: String = r["tag"]
 		if muito_abaixo and tag.begins_with("equip"): continue
+		if tag.begins_with("joia:") and sim.rng.randf() >= f_joias: continue   # joias de refino pela metade
 		var mn := minima
 		if jog.pity_raro >= int(Defs.DROPS["pity"]["raro_garantido_apos_abates_sem_raro"]) and tag.begins_with("equip"): mn = "raro"
 		var it := item_da_tag(sim, tag, e.nivel, mn, jog)
@@ -117,12 +122,30 @@ static func _rolar_lagrimas(sim: WorldSim, e: Ent, jog: Ent, tab_id) -> void:
 	if e.tipo == "chefe": mult *= float(m.get("chefe", 1.0))
 	elif e.arquetipo == "elite" or e.arquetipo == "raro": mult *= float(m.get("elite", 1.0))
 	if e.tipo == "monstro" and (str(e.aux.get("spot", "")) != "" or sim.spot_em(e.pos) != ""): mult *= float(m.get("spot_de_farm", 1.0))
-	var base := chance_lagrima(e.nivel) * mult
+	var base := chance_lagrima(e.nivel) * mult * float(Defs.DROPS["balanco"]["joias"])
 	for id in L["itens"]:
 		var p := base * float(L["itens"][id])
 		if id == "lagrima_angelica" and str(tab_id) == "cripta_celestial": p *= float(m.get("angelica_de_celestial", 1.0))
 		if Defs.ITENS.has(id) and sim.rng.randf() < p:
 			sim.soltar_no_chao(Itens.novo(id), e.pos, jog.id, e.pos)
+
+## Baú dourado (balanço 18/10): chance por abate. Mob comum 0,01%; elite, raro e chefe 5%; chefe de nível alto (Boss top) 30%.
+static func chance_bau_dourado(e: Ent) -> float:
+	var C: Dictionary = Defs.DROPS["balanco"]["bau_dourado"]
+	if e.tipo == "chefe":
+		return float(C["chefe_top"]) if e.nivel >= int(C["nivel_chefe_top"]) else float(C["elite_ou_chefe"])
+	if e.arquetipo == "elite" or e.arquetipo == "raro": return float(C["elite_ou_chefe"])
+	return float(C["mob_comum"])
+
+## Abre o baú dourado pelo inventário: só equipamento, nunca abaixo do piso da regra (Excelente).
+static func abrir_dourado(sim: WorldSim, jog: Ent) -> void:
+	var regra: Dictionary = Defs.DROPS["baus"]["bau_dourado"]
+	var rol: Array = regra["rolagens"]
+	var n := sim.rng.randi_range(int(rol[0]), int(rol[1]))
+	var f := 1 if jog.nivel < 7 else 2
+	for i in n:
+		var it := item_da_tag(sim, "equip:faixa%d" % f, jog.nivel, str(regra["raridade_minima"]), jog)
+		if not it.is_empty(): sim.soltar_no_chao(it, jog.pos, jog.id, jog.pos)
 
 static func _soltar_ouro(sim: WorldSim, g: int, p: Vector2, jog: Ent) -> void:
 	if g <= 0: return
@@ -156,7 +179,7 @@ static func abrir_bau(sim: WorldSim, b: Ent, jog: Ent) -> void:
 		else:
 			it = item_da_tag(sim, "consumivel:municao" if jog.classe == "humano" else "consumivel:extra", nivel, "comum", jog)
 		if not it.is_empty(): sim.soltar_no_chao(it, b.pos, jog.id, b.pos)
-	if sim.rng.randf() < float(regra.get("joia_refino_chance", 0.0)):
+	if sim.rng.randf() < float(regra.get("joia_refino_chance", 0.0)) * float(Defs.DROPS["balanco"]["joias"]):
 		var jid := "lagrima_sanguinea" if sim.rng.randf() < float(regra.get("joia_sanguinea_fracao", 0.0)) else "lagrima_angelica"
 		sim.soltar_no_chao(Itens.novo(jid), b.pos, jog.id, b.pos)
 	_soltar_ouro(sim, int(sim.rng.randf_range(2.6 * nivel, 6.5 * nivel) * float(regra.get("ouro_mult", 1))), b.pos, jog)

@@ -142,14 +142,17 @@ static func preco_venda(it: Dictionary) -> int:
 static func bonus(equip: Dictionary) -> Dictionary:
 	var b := {"FOR": 0.0, "AGI": 0.0, "VIT": 0.0, "ESP": 0.0, "defesa": 0.0, "hp": 0.0, "dano_plano": 0.0, "critico": 0.0,
 		"velocidade_ataque": 0.0, "roubo_de_vida": 0.0, "excelente": 0.0, "excelente_dano": 0.0, "reduz_dano": 0.0,
-		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": []}
+		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": [],
+		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": []}
 	var conj := {}
 	for s in equip:
 		var it: Dictionary = equip[s]
 		if it.is_empty(): continue
 		var d := defn(it["id"])
 		var ref := 1.0 + 0.08 * int(it.get("refino", 0))
-		if s != "arma" and d.has("defesa"): b["defesa"] += float(d["defesa"]) * ref
+		# armadura: o refino pesa mais (balanco.refino_armadura_por_nivel, 18/10)
+		var ref_def := 1.0 + float(Defs.DROPS["balanco"]["refino_armadura_por_nivel"]) * int(it.get("refino", 0))
+		if s != "arma" and d.has("defesa"): b["defesa"] += float(d["defesa"]) * ref_def
 		if s == "segunda_mao" and d.has("defesa"): pass
 		b["bloqueio"] += float(d.get("bloqueio", 0.0))
 		b["dano_magico_extra"] += float(d.get("dano_magico_extra", 0.0)) * ref
@@ -164,7 +167,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 			for k in bf:
 				if k == "res":
 					for el in bf["res"]: b["res"][el] = b["res"].get(el, 0.0) + float(bf["res"][el])
-				elif k == "defesa": b["defesa"] += float(bf[k]) * ref
+				elif k == "defesa": b["defesa"] += float(bf[k]) * ref_def
 				elif b.has(k): b[k] += float(bf[k])
 		for o in it.get("opcoes", []):
 			match o["tipo"]:
@@ -180,6 +183,16 @@ static func bonus(equip: Dictionary) -> Dictionary:
 				"excelente_dano": b["excelente_dano"] += o["valor"]
 				"excelente_reduz_dano": b["reduz_dano"] += o["valor"]
 				"excelente_ouro": b["ouro"] += o["valor"]
+		# efeitos de Relíquia (efeitos_mecanicos em missoes/itens.json, 18/10): crítico, roubo, evasão, fogo, gelo, defesa do próprio item, invocação
+		for ef in d.get("efeitos_mecanicos", []):
+			match ef["tipo"]:
+				"critico": b["critico"] += float(ef["valor"])
+				"roubo_de_vida": b["roubo_de_vida"] += float(ef["valor"])
+				"evasao": b["evasao"] += float(ef["valor"])
+				"dano_fogo": b["dano_fogo"] += float(ef["valor"])
+				"dano_gelo": b["dano_gelo"] += float(ef["valor"])
+				"defesa_pct_do_item": b["defesa"] += float(d.get("defesa", 0.0)) * ref_def * float(ef["valor"])
+				"invocar": b["invocar"].append(ef)
 		if d.get("efeito") is String: b["efeitos"].append(it["id"])
 		if d.has("conjunto"): conj[d["conjunto"]] = conj.get(d["conjunto"], 0) + 1
 	b["conjuntos"] = conj

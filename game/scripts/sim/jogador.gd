@@ -204,7 +204,7 @@ static func alcance_basico(e: Ent) -> float:
 ## Esta lógica nunca chama cmd_mover/cmd_atacar (que desligam o modo): mexe em e.alvo e no caminho direto.
 const AUTO_PADRAO := {"vida": AUTO_VIDA, "recurso": AUTO_RECURSO, "raio": AUTO_RAIO, "juntar": "tudo", "pocao_sempre": true, "area_min": 2}
 const AUTO_LIMITES := {"vida": [0.2, 0.8], "recurso": [0.1, 0.6], "raio": [3.0, 10.0], "area_min": [1, 3]}
-const AUTO_JUNTAR := ["tudo", "bons", "ouro", "nada"]
+const AUTO_JUNTAR := ["tudo", "bons", "ouro", "joias", "baus", "nada"]   # joias = só lágrimas/jóias de refino; baus = só baús dourados (18/10)
 
 ## Ajustes do modo automático do personagem (vão no save). "skills" = ids marcados; sem nada marcado, vale a do nível 5.
 static func cfg_auto(e: Ent) -> Dictionary:
@@ -396,6 +396,8 @@ static func _drop_para_juntar(sim: WorldSim, e: Ent, centro: Vector2, raio: floa
 		var it: Dictionary = c["item"]
 		if it["id"] != "_ouro":
 			if modo == "ouro": continue
+			if modo == "joias" and not it["id"] in Defs.POR_TAG.get("joia:refino", []): continue
+			if modo == "baus" and it["id"] != "bau_dourado": continue
 			if modo == "bons" and str(it.get("raridade", "comum")) == "comum" and not it["id"] in POCOES_VIDA + POCOES_RECURSO: continue
 			var empilha := Itens.pilha(it) > 1 and e.inv.any(func(o): return o["id"] == it["id"])
 			if not empilha and Itens.achar_lugar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it).x < 0:
@@ -765,6 +767,7 @@ static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
 	if morto.tipo == "chefe":
 		xp = (10.0 + 5.0 * morto.nivel) * (25.0 if not e.flags.has("venceu_" + morto.kind) else 8.0)
 		e.flags["venceu_" + morto.kind] = true
+	xp *= float(Defs.DROPS["balanco"]["xp"])   # balanço 18/10: XP do abate +50%
 	var grupo := membros_grupo(sim, e)
 	if grupo.size() > 1:   # grupo: a XP do abate vai para quem está perto (+10% por membro extra), dividida igualmente
 		var parte := int(round(xp * (1.0 + 0.1 * (grupo.size() - 1)) / grupo.size()))
@@ -1085,7 +1088,8 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 		sim.lancar(e, {"vel": 10.0, "dir": (p - e.pos).normalized(), "alcance": e.pos.distance_to(p), "vfx": "frasco"},
 			{"base_fixa": (float(dmg[0]) + float(dmg[1])) * 0.5, "area": true, "elemento": "sagrado", "sensacao": "area"})
 	if ef.has("repele"): add_buff(sim, e, "repele_" + str(ef["repele"]), float(ef.get("duracao_s", 30)), {})
-	if ef.has("abre"): usou = false; sim.emitir_a(e, "aviso", {"texto": "Use num baú de ferro."})
+	if ef.has("abre") and it["id"] == "bau_dourado": Loot.abrir_dourado(sim, e)   # baú dourado: abre no inventário (18/10)
+	elif ef.has("abre"): usou = false; sim.emitir_a(e, "aviso", {"texto": "Use num baú de ferro."})
 	if usou:
 		Itens.remover(e.inv, it["id"], 1)
 		sim.emitir_a(e, "som_evento", {"ev": "pocao"})
@@ -1255,13 +1259,14 @@ static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 	if r >= maximo:
 		sim.emitir_a(e, "aviso", {"texto": "Já está no +%d." % maximo}); return
 	var joia := "lagrima_angelica" if r < int(R["lagrima_angelica"]["ate"]) else "lagrima_sanguinea"
-	if Itens.contar(e.inv, joia) <= 0:
-		sim.emitir_a(e, "aviso", {"texto": "Precisa de %s." % Defs.ITENS[joia]["nome"]}); return
+	var n_joias := custo_joias(r)
+	if Itens.contar(e.inv, joia) < n_joias:
+		sim.emitir_a(e, "aviso", {"texto": "Precisa de %d %s." % [n_joias, Defs.ITENS[joia]["nome"]]}); return
 	var custo_ouro := 50 * (r + 1)
 	if e.ouro < custo_ouro:
 		sim.emitir_a(e, "aviso", {"texto": "O ferreiro cobra %d de ouro." % custo_ouro}); return
 	e.ouro -= custo_ouro
-	Itens.remover(e.inv, joia, 1)
+	Itens.remover(e.inv, joia, n_joias)
 	if r >= 10 and sim.rng.randf() < 0.15:   # acima do +10 o item pode quebrar (15%, Jefin 17/10): a lágrima e o ouro já foram
 		if onde == "mochila": e.inv.erase(it)
 		else: e.equip.erase(onde)
@@ -1277,6 +1282,13 @@ static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 	sim.emitir_a(e, "refino", {"ok": ok, "nivel": int(it["refino"]), "nome": Itens.nome(it)})
 	sim.emitir_a(e, "som_evento", {"ev": "refino_sucesso" if ok else "refino_falha"})
 	sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
+
+## Lágrimas por tentativa de refino (balanco.refino_joias, 18/10): de 1 no +0 até 10 no último nível.
+static func custo_joias(r: int) -> int:
+	var J: Dictionary = Defs.DROPS["balanco"]["refino_joias"]
+	var maximo := int(Defs.DROPS["refino_com_lagrimas"].get("maximo", 15))
+	var lo := int(J["min"]); var hi := int(J["max"])
+	return lo + r * (hi - lo) / maxi(1, maximo - 1)
 
 ## Chance de chegar ao nível alvo (1.0 até o +6).
 static func chance_refino(alvo: int) -> float:

@@ -1429,7 +1429,7 @@ func fechar_dialogo() -> void:
 const AUTO_RAIOS := [[4.0, "Curto"], [6.0, "Médio"], [8.0, "Longo"], [10.0, "Amplo"]]
 const AUTO_VIDAS := [0.3, 0.4, 0.5, 0.6, 0.7]
 const AUTO_RECURSOS := [0.15, 0.25, 0.35, 0.5]
-const AUTO_JUNTAR_NOME := {"tudo": "tudo", "bons": "ouro, poções, mágicos+", "ouro": "só ouro", "nada": "nada"}
+const AUTO_JUNTAR_NOME := {"tudo": "tudo", "bons": "ouro, poções, mágicos+", "ouro": "só ouro", "joias": "só jóias (lágrimas)", "baus": "baús dourados", "nada": "nada"}
 
 func auto_mudou() -> void:
 	# em rede o ajuste novo chega no snapshot seguinte: redesenha logo depois

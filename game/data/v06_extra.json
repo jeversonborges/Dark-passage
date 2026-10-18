@@ -7281,6 +7281,10 @@
     {
      "tag": "lendario:regalia_de_sobek",
      "peso": 5
+    },
+    {
+     "tag": "lendario:tesouro_da_nomarca",
+     "peso": 3
     }
    ],
    "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
@@ -7312,6 +7316,10 @@
     {
      "tag": "lendario:regalia_de_sobek",
      "peso": 5
+    },
+    {
+     "tag": "lendario:escriba_de_thoth",
+     "peso": 3
     }
    ],
    "_doc": "chance de relíquia por morte ~13%; 4 relíquias exclusivas + 5 peças da Regalia de Sobek; trava diária"
@@ -7371,6 +7379,10 @@
     {
      "tag": "lendario:regalia_do_farao",
      "peso": 7
+    },
+    {
+     "tag": "lendario:olho_de_ra",
+     "peso": 3
     }
    ],
    "loot_de_grupo": true,
@@ -7458,6 +7470,10 @@
     {
      "tag": "lendario:regalia_do_farao",
      "peso": 7
+    },
+    {
+     "tag": "lendario:isolador_djed",
+     "peso": 3
     }
    ],
    "loot_de_grupo": true,
@@ -7487,6 +7503,10 @@
     {
      "tag": "lendario:regalia_do_farao",
      "peso": 7
+    },
+    {
+     "tag": "lendario:pesador_de_almas",
+     "peso": 3
     }
    ],
    "loot_de_grupo": true,
@@ -7516,6 +7536,10 @@
     {
      "tag": "lendario:regalia_do_farao",
      "peso": 7
+    },
+    {
+     "tag": "lendario:farao_ramesses",
+     "peso": 3
     }
    ],
    "loot_de_grupo": true,
