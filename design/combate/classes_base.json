@@ -777,12 +777,12 @@
     },
     "humano": {
       "faccao": "vigilia",
-      "papel": "hibrido: tiro a distancia + espada larga corpo a corpo (mudanca do Jefin, 2026-10-04)",
+      "papel": "tiro a distância com besta pesada; escopeta de cano serrado no tiro secundário (mudança do Jefin, 2026-10-16: sem espada larga)",
       "atributos_iniciais": {
-        "FOR": 28,
-        "AGI": 30,
-        "VIT": 20,
-        "ESP": 12
+        "FOR": 17,
+        "AGI": 18,
+        "VIT": 12,
+        "ESP": 7
       },
       "build_sugerida_por_nivel": {
         "FOR": 2,
@@ -798,14 +798,15 @@
       "perfil_dano": "hibrido",
       "elemento_ataque": "fisico",
       "arma_inicial": {
-        "nome": "Espada Larga de Sucata",
+        "nome": "Besta Pesada",
         "min": 6,
         "max": 10,
         "intervalo": 1.25,
         "postura": 18,
-        "tipo": "espada_larga",
-        "sensacao": "golpe_pesado",
-        "_doc": "golpe largo em arco 120 graus: acerta ate 2 inimigos colados, o segundo com 50%"
+        "tipo": "arma_de_fogo",
+        "projetil_vel": 16,
+        "sensacao": "tiro_pesado",
+        "_doc": "ataque básico com a besta pesada: dispara a distância (gasta 1 munição). Sem munição, vira um golpe de coronha curto."
       },
       "recurso": {
         "nome": "Municao + Folego",
@@ -837,7 +838,7 @@
         },
         {
           "id": "corte_largo",
-          "nome": "Corte Giratorio",
+          "nome": "Rajada de Escopeta",
           "nivel": 3,
           "custo": 25,
           "recarga": 6.0,
@@ -846,7 +847,7 @@
           "alcance": 0,
           "postura": 35,
           "empurrao": 1.0,
-          "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
+          "_doc": "mesmo peso do antigo Corte Giratório (custo 25, recarga 6, mult 1.4, raio 2). Escopeta em volta do corpo; sai a animação de giro.",
           "sensacao": "area",
           "area_raio": 2.0,
           "empurrao_a_partir_do_centro": true
@@ -877,7 +878,7 @@
         },
         {
           "id": "arrancada",
-          "nome": "Arrancada",
+          "nome": "Salto de Recuo",
           "nivel": 6,
           "custo": 20,
           "recarga": 5.0,
@@ -889,7 +890,7 @@
           "proximo_ataque_extra": 0.3,
           "janela_bonus_s": 2.0,
           "vai_para": "ponto sob o mouse",
-          "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
+          "_doc": "mesmo peso da antiga Arrancada (custo 20, recarga 5, 2 cargas, 4 tiles). Salto com 0.2s de invulnerabilidade e tiro de escopeta no caminho; o próximo tiro em 2s causa +30%.",
           "sensacao": "investida",
           "substitui": "rolamento",
           "mult": 0.9,
@@ -949,9 +950,9 @@
         }
       ],
       "perfil_hibrido": {
-        "_doc": "Ataque basico troca sozinho pela distancia ao alvo: ate 1.8 tiles golpeia com a espada larga (perfil corpo_a_corpo, FOR); mais longe atira (perfil distancia, AGI) gastando 1 municao. A troca leva 0.15s (animacao de sacar). Shift+clique forca o tiro mesmo de perto.",
-        "distancia_troca": 1.8,
-        "tempo_troca_s": 0.15,
+        "_doc": "sem espada: o básico sempre dispara; só sem munição ele dá o golpe de coronha (alcance curto).",
+        "distancia_troca": 0.0,
+        "tempo_troca_s": 0.0,
         "espada": "corpo_a_corpo",
         "tiro": "distancia"
       },
@@ -1101,6 +1102,23 @@
           },
           "postura": 40,
           "sensacao": "area"
+        },
+        {
+          "id": "rosario_voltaico",
+          "nome": "Rosário Voltaico",
+          "nivel": 16,
+          "custo": 34,
+          "recarga": 4.0,
+          "mult": 1.6,
+          "saltos": 5,
+          "queda_por_salto": 0.12,
+          "raio_salto": 3.5,
+          "alcance": 7,
+          "elemento": "eletrico",
+          "postura": 14,
+          "chance_paralisar": 0.15,
+          "paralisar_s": 0.5,
+          "sensacao": "raio"
         }
       ],
       "invocacoes": {
