@@ -911,6 +911,14 @@
         {
           "tag": "consumivel:frutos_absinto",
           "peso": 2
+        },
+        {
+          "tag": "material:forja",
+          "peso": 4
+        },
+        {
+          "tag": "excelente:vala_dos_caes",
+          "peso": 3
         }
       ]
     },

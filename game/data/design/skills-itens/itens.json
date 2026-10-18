@@ -16822,6 +16822,138 @@
       "icone_mochila": "assets/icones/itens/mochila/sino_de_mao.png"
     },
     {
+      "id": "balanca_do_coracao",
+      "nome": "Balança do Coração",
+      "slot": "amuleto",
+      "classes": [],
+      "raridade": "raro",
+      "nivel": 15,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Pesada de latão, com um prato cheio de areia. Nos ritos de Amenti, o coração era pesado contra uma pena.",
+      "efeito": "Raro: +4% de chance de esquiva. Ao morrer, perde 25% menos XP.",
+      "efeitos_mecanicos": [
+        {
+          "tipo": "evasao",
+          "valor": 0.04
+        },
+        {
+          "tipo": "perda_xp_morte",
+          "valor": 0.25
+        }
+      ],
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/balanca_do_coracao.png",
+        "40": "assets/icones/itens/40/balanca_do_coracao.png",
+        "32": "assets/icones/itens/32/balanca_do_coracao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/balanca_do_coracao.png"
+    },
+    {
+      "id": "escudo_de_anubis",
+      "nome": "Escudo de Anúbis",
+      "slot": "segunda_mao",
+      "classes": [
+        "warlord",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 18,
+      "tags": [
+        "raro:amenti"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de madeira coberto de couro, com o chacal pintado em ocre.",
+      "efeito": "Raro: +10% da defesa do próprio escudo.",
+      "defesa": 14,
+      "efeitos_mecanicos": [
+        {
+          "tipo": "defesa_pct_do_item",
+          "valor": 0.1
+        }
+      ],
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_de_anubis.png",
+        "40": "assets/icones/itens/40/escudo_de_anubis.png",
+        "32": "assets/icones/itens/32/escudo_de_anubis.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png"
+    },
+    {
+      "id": "livro_das_cordas_de_ankh",
+      "nome": "Livro das Cordas de Ankh",
+      "categoria": "leitura",
+      "motivo": "papiro",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 1,
+      "raridade": "comum",
+      "tags": [
+        "leitura:cordas_de_ankh"
+      ],
+      "preco": 0,
+      "pilha": 1,
+      "lore": "Rolo de cordas de linho com nós que contam uma história. Quem lê os nós esquece a ordem.",
+      "efeito": "Item de missão, sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/livro_das_cordas_de_ankh.png",
+        "40": "assets/icones/itens/40/livro_das_cordas_de_ankh.png",
+        "32": "assets/icones/itens/32/livro_das_cordas_de_ankh.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/livro_das_cordas_de_ankh.png"
+    },
+    {
+      "id": "papiro_das_carpideiras",
+      "nome": "Papiro das Carpideiras",
+      "categoria": "leitura",
+      "motivo": "papiro",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 1,
+      "raridade": "comum",
+      "tags": [
+        "leitura:carpideiras"
+      ],
+      "preco": 0,
+      "pilha": 1,
+      "lore": "Lamentos copiados em papiro, com as fileiras de mulheres de luto desenhadas nas margens.",
+      "efeito": "Item de missão, sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/papiro_das_carpideiras.png",
+        "40": "assets/icones/itens/40/papiro_das_carpideiras.png",
+        "32": "assets/icones/itens/32/papiro_das_carpideiras.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/papiro_das_carpideiras.png"
+    },
+    {
       "id": "elmo_do_manto_sangrento",
       "nome": "Elmo do Manto Sangrento",
       "slot": "cabeca",
@@ -18647,55 +18779,17 @@
       "icone_mochila": "assets/icones/itens/mochila/peitoral_do_guardiao_das_velas.png"
     },
     {
-      "id": "balanca_do_coracao",
-      "nome": "Balança do Coração",
-      "slot": "amuleto",
-      "classes": [],
-      "raridade": "raro",
-      "nivel": 15,
-      "tags": [
-        "raro:egito"
-      ],
-      "categoria": "acessorio",
-      "motivo": "colar",
-      "tint": "osso",
-      "emissivo": null,
-      "grade": [
-        1,
-        1
-      ],
-      "lore": "Pesada de latão, com um prato cheio de areia. Nos ritos de Amenti, o coração era pesado contra uma pena.",
-      "efeito": "Raro: +4% de chance de esquiva. Ao morrer, perde 25% menos XP.",
-      "efeitos_mecanicos": [
-        {
-          "tipo": "evasao",
-          "valor": 0.04
-        },
-        {
-          "tipo": "perda_xp_morte",
-          "valor": 0.25
-        }
-      ],
-      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
-      "icone": {
-        "64": "assets/icones/itens/64/balanca_do_coracao.png",
-        "40": "assets/icones/itens/40/balanca_do_coracao.png",
-        "32": "assets/icones/itens/32/balanca_do_coracao.png"
-      },
-      "icone_mochila": "assets/icones/itens/mochila/balanca_do_coracao.png"
-    },
-    {
-      "id": "escudo_de_anubis",
-      "nome": "Escudo de Anúbis",
-      "slot": "segunda_mao",
+      "id": "veu_de_renda_velha",
+      "nome": "Véu de Renda Velha",
+      "slot": "cabeca",
       "classes": [
-        "warlord",
-        "mutante"
+        "anjo",
+        "humano"
       ],
       "raridade": "raro",
-      "nivel": 18,
+      "nivel": 22,
       "tags": [
-        "raro:amenti"
+        "raro:jerusalem"
       ],
       "categoria": "armadura",
       "motivo": "papel",
@@ -18705,78 +18799,905 @@
         1,
         2
       ],
-      "lore": "Escudo de madeira coberto de couro, com o chacal pintado em ocre.",
-      "efeito": "Raro: +10% da defesa do próprio escudo.",
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 2
+      },
+      "defesa": 6,
+      "icone": {
+        "64": "assets/icones/itens/64/veu_de_renda_velha.png",
+        "40": "assets/icones/itens/40/veu_de_renda_velha.png",
+        "32": "assets/icones/itens/32/veu_de_renda_velha.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/veu_de_renda_velha.png"
+    },
+    {
+      "id": "elmo_cruzado_de_ferro",
+      "nome": "Elmo Cruzado de Ferro",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 34,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 4
+      },
+      "defesa": 20,
+      "icone": {
+        "64": "assets/icones/itens/64/elmo_cruzado_de_ferro.png",
+        "40": "assets/icones/itens/40/elmo_cruzado_de_ferro.png",
+        "32": "assets/icones/itens/32/elmo_cruzado_de_ferro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/elmo_cruzado_de_ferro.png"
+    },
+    {
+      "id": "peitoral_de_faixas_de_ferro",
+      "nome": "Peitoral de Faixas de Ferro",
+      "slot": "peito",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 5
+      },
+      "defesa": 24,
+      "icone": {
+        "64": "assets/icones/itens/64/peitoral_de_faixas_de_ferro.png",
+        "40": "assets/icones/itens/40/peitoral_de_faixas_de_ferro.png",
+        "32": "assets/icones/itens/32/peitoral_de_faixas_de_ferro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_faixas_de_ferro.png"
+    },
+    {
+      "id": "alabarda_dourada",
+      "nome": "Alabarda Dourada",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 40,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 6
+      },
+      "maos": 1,
+      "dano": [
+        44,
+        70
+      ],
+      "intervalo": 1.05,
+      "icone": {
+        "64": "assets/icones/itens/64/alabarda_dourada.png",
+        "40": "assets/icones/itens/40/alabarda_dourada.png",
+        "32": "assets/icones/itens/32/alabarda_dourada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/alabarda_dourada.png"
+    },
+    {
+      "id": "coroa_de_espinhos_dourada",
+      "nome": "Coroa de Espinhos Dourada",
+      "slot": "cabeca",
+      "classes": [
+        "demonio",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:amenti"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 6,
+        "vit": 3
+      },
+      "defesa": 10,
+      "icone": {
+        "64": "assets/icones/itens/64/coroa_de_espinhos_dourada.png",
+        "40": "assets/icones/itens/40/coroa_de_espinhos_dourada.png",
+        "32": "assets/icones/itens/32/coroa_de_espinhos_dourada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coroa_de_espinhos_dourada.png"
+    },
+    {
+      "id": "manto_da_cruz_dourada",
+      "nome": "Manto da Cruz Dourada",
+      "slot": "peito",
+      "classes": [
+        "anjo",
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "defesa": 12,
+      "icone": {
+        "64": "assets/icones/itens/64/manto_da_cruz_dourada.png",
+        "40": "assets/icones/itens/40/manto_da_cruz_dourada.png",
+        "32": "assets/icones/itens/32/manto_da_cruz_dourada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manto_da_cruz_dourada.png"
+    },
+    {
+      "id": "elmo_de_chifres_serrados",
+      "nome": "Elmo de Chifres Serrados",
+      "slot": "cabeca",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "defesa": 18,
+      "icone": {
+        "64": "assets/icones/itens/64/elmo_de_chifres_serrados.png",
+        "40": "assets/icones/itens/40/elmo_de_chifres_serrados.png",
+        "32": "assets/icones/itens/32/elmo_de_chifres_serrados.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/elmo_de_chifres_serrados.png"
+    },
+    {
+      "id": "manoplas_de_espinhos",
+      "nome": "Manoplas de Espinhos",
+      "slot": "luvas",
+      "classes": [
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 36,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "defesa": 12,
+      "icone": {
+        "64": "assets/icones/itens/64/manoplas_de_espinhos.png",
+        "40": "assets/icones/itens/40/manoplas_de_espinhos.png",
+        "32": "assets/icones/itens/32/manoplas_de_espinhos.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_espinhos.png"
+    },
+    {
+      "id": "maca_do_pulso_azul",
+      "nome": "Maça do Pulso Azul",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "maos": 1,
+      "dano": [
+        40,
+        64
+      ],
+      "intervalo": 1.05,
+      "icone": {
+        "64": "assets/icones/itens/64/maca_do_pulso_azul.png",
+        "40": "assets/icones/itens/40/maca_do_pulso_azul.png",
+        "32": "assets/icones/itens/32/maca_do_pulso_azul.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/maca_do_pulso_azul.png"
+    },
+    {
+      "id": "cajado_da_pupila_de_vidro",
+      "nome": "Cajado da Pupila de Vidro",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 46,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 9
+      },
+      "maos": 1,
+      "dano": [
+        34,
+        56
+      ],
+      "intervalo": 1.05,
+      "icone": {
+        "64": "assets/icones/itens/64/cajado_da_pupila_de_vidro.png",
+        "40": "assets/icones/itens/40/cajado_da_pupila_de_vidro.png",
+        "32": "assets/icones/itens/32/cajado_da_pupila_de_vidro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cajado_da_pupila_de_vidro.png"
+    },
+    {
+      "id": "mascara_de_faixas_sagradas",
+      "nome": "Máscara de Faixas Sagradas",
+      "slot": "cabeca",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 42,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5
+      },
+      "defesa": 12,
+      "icone": {
+        "64": "assets/icones/itens/64/mascara_de_faixas_sagradas.png",
+        "40": "assets/icones/itens/40/mascara_de_faixas_sagradas.png",
+        "32": "assets/icones/itens/32/mascara_de_faixas_sagradas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/mascara_de_faixas_sagradas.png"
+    },
+    {
+      "id": "peitoral_do_olho_de_bronze",
+      "nome": "Peitoral do Olho de Bronze",
+      "slot": "peito",
+      "classes": [
+        "demonio",
+        "humano"
+      ],
+      "raridade": "excelente",
+      "nivel": 48,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 6
+      },
+      "defesa": 28,
+      "icone": {
+        "64": "assets/icones/itens/64/peitoral_do_olho_de_bronze.png",
+        "40": "assets/icones/itens/40/peitoral_do_olho_de_bronze.png",
+        "32": "assets/icones/itens/32/peitoral_do_olho_de_bronze.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_olho_de_bronze.png"
+    },
+    {
+      "id": "capuz_de_musgo_do_amargo",
+      "nome": "Capuz de Musgo do Amargo",
+      "slot": "cabeca",
+      "classes": [
+        "mutante",
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 3
+      },
+      "defesa": 8,
+      "icone": {
+        "64": "assets/icones/itens/64/capuz_de_musgo_do_amargo.png",
+        "40": "assets/icones/itens/40/capuz_de_musgo_do_amargo.png",
+        "32": "assets/icones/itens/32/capuz_de_musgo_do_amargo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/capuz_de_musgo_do_amargo.png"
+    },
+    {
+      "id": "colete_de_garrafas_do_amargo",
+      "nome": "Colete de Garrafas do Amargo",
+      "slot": "peito",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 4
+      },
+      "defesa": 16,
+      "icone": {
+        "64": "assets/icones/itens/64/colete_de_garrafas_do_amargo.png",
+        "40": "assets/icones/itens/40/colete_de_garrafas_do_amargo.png",
+        "32": "assets/icones/itens/32/colete_de_garrafas_do_amargo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/colete_de_garrafas_do_amargo.png"
+    },
+    {
+      "id": "lenco_musgoso_do_amargo",
+      "nome": "Lenço Musgoso do Amargo",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 22,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 2
+      },
+      "defesa": 5,
+      "icone": {
+        "64": "assets/icones/itens/64/lenco_musgoso_do_amargo.png",
+        "40": "assets/icones/itens/40/lenco_musgoso_do_amargo.png",
+        "32": "assets/icones/itens/32/lenco_musgoso_do_amargo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lenco_musgoso_do_amargo.png"
+    },
+    {
+      "id": "colete_de_couro_costurado",
+      "nome": "Colete de Couro Costurado",
+      "slot": "peito",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 20,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 3
+      },
       "defesa": 14,
-      "efeitos_mecanicos": [
-        {
-          "tipo": "defesa_pct_do_item",
-          "valor": 0.1
-        }
-      ],
-      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
       "icone": {
-        "64": "assets/icones/itens/64/escudo_de_anubis.png",
-        "40": "assets/icones/itens/40/escudo_de_anubis.png",
-        "32": "assets/icones/itens/32/escudo_de_anubis.png"
+        "64": "assets/icones/itens/64/colete_de_couro_costurado.png",
+        "40": "assets/icones/itens/40/colete_de_couro_costurado.png",
+        "32": "assets/icones/itens/32/colete_de_couro_costurado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png"
+      "icone_mochila": "assets/icones/itens/mochila/colete_de_couro_costurado.png"
     },
     {
-      "id": "livro_das_cordas_de_ankh",
-      "nome": "Livro das Cordas de Ankh",
-      "categoria": "leitura",
-      "motivo": "papiro",
+      "id": "luvas_de_couro_curtido",
+      "nome": "Luvas de Couro Curtido",
+      "slot": "luvas",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 18,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
       "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 2
+      },
+      "defesa": 6,
+      "icone": {
+        "64": "assets/icones/itens/64/luvas_de_couro_curtido.png",
+        "40": "assets/icones/itens/40/luvas_de_couro_curtido.png",
+        "32": "assets/icones/itens/32/luvas_de_couro_curtido.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/luvas_de_couro_curtido.png"
+    },
+    {
+      "id": "pingente_de_pedra_musgosa",
+      "nome": "Pingente de Pedra Musgosa",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
       "emissivo": null,
       "grade": [
         1,
         1
       ],
-      "nivel": 1,
-      "raridade": "comum",
-      "tags": [
-        "leitura:cordas_de_ankh"
-      ],
-      "preco": 0,
-      "pilha": 1,
-      "lore": "Rolo de cordas de linho com nós que contam uma história. Quem lê os nós esquece a ordem.",
-      "efeito": "Item de missão, sem efeito de combate.",
-      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
-      "icone": {
-        "64": "assets/icones/itens/64/livro_das_cordas_de_ankh.png",
-        "40": "assets/icones/itens/40/livro_das_cordas_de_ankh.png",
-        "32": "assets/icones/itens/32/livro_das_cordas_de_ankh.png"
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
       },
-      "icone_mochila": "assets/icones/itens/mochila/livro_das_cordas_de_ankh.png"
+      "icone": {
+        "64": "assets/icones/itens/64/pingente_de_pedra_musgosa.png",
+        "40": "assets/icones/itens/40/pingente_de_pedra_musgosa.png",
+        "32": "assets/icones/itens/32/pingente_de_pedra_musgosa.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pingente_de_pedra_musgosa.png"
     },
     {
-      "id": "papiro_das_carpideiras",
-      "nome": "Papiro das Carpideiras",
-      "categoria": "leitura",
-      "motivo": "papiro",
+      "id": "cajado_de_sino_enferrujado",
+      "nome": "Cajado de Sino Enferrujado",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5
+      },
+      "maos": 1,
+      "dano": [
+        18,
+        30
+      ],
+      "intervalo": 1.05,
+      "icone": {
+        "64": "assets/icones/itens/64/cajado_de_sino_enferrujado.png",
+        "40": "assets/icones/itens/40/cajado_de_sino_enferrujado.png",
+        "32": "assets/icones/itens/32/cajado_de_sino_enferrujado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cajado_de_sino_enferrujado.png"
+    },
+    {
+      "id": "veu_de_correntes_de_lagrimas",
+      "nome": "Véu de Correntes de Lágrimas",
+      "slot": "cabeca",
+      "classes": [
+        "anjo",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:amenti"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
       "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5,
+        "vit": 2
+      },
+      "defesa": 8,
+      "icone": {
+        "64": "assets/icones/itens/64/veu_de_correntes_de_lagrimas.png",
+        "40": "assets/icones/itens/40/veu_de_correntes_de_lagrimas.png",
+        "32": "assets/icones/itens/32/veu_de_correntes_de_lagrimas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/veu_de_correntes_de_lagrimas.png"
+    },
+    {
+      "id": "batina_do_calice_dourado",
+      "nome": "Batina do Cálice Dourado",
+      "slot": "peito",
+      "classes": [
+        "anjo",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 6
+      },
+      "defesa": 16,
+      "icone": {
+        "64": "assets/icones/itens/64/batina_do_calice_dourado.png",
+        "40": "assets/icones/itens/40/batina_do_calice_dourado.png",
+        "32": "assets/icones/itens/32/batina_do_calice_dourado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_do_calice_dourado.png"
+    },
+    {
+      "id": "terco_de_ossos",
+      "nome": "Terço de Ossos",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "humano",
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 22,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
       "emissivo": null,
       "grade": [
         1,
         1
       ],
-      "nivel": 1,
-      "raridade": "comum",
-      "tags": [
-        "leitura:carpideiras"
-      ],
-      "preco": 0,
-      "pilha": 1,
-      "lore": "Lamentos copiados em papiro, com as fileiras de mulheres de luto desenhadas nas margens.",
-      "efeito": "Item de missão, sem efeito de combate.",
-      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
-      "icone": {
-        "64": "assets/icones/itens/64/papiro_das_carpideiras.png",
-        "40": "assets/icones/itens/40/papiro_das_carpideiras.png",
-        "32": "assets/icones/itens/32/papiro_das_carpideiras.png"
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 2
       },
-      "icone_mochila": "assets/icones/itens/mochila/papiro_das_carpideiras.png"
+      "icone": {
+        "64": "assets/icones/itens/64/terco_de_ossos.png",
+        "40": "assets/icones/itens/40/terco_de_ossos.png",
+        "32": "assets/icones/itens/32/terco_de_ossos.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/terco_de_ossos.png"
+    },
+    {
+      "id": "anel_da_caveira_dourada",
+      "nome": "Anel da Caveira Dourada",
+      "slot": "anel",
+      "classes": [
+        "demonio",
+        "humano",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 36,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "acessorio",
+      "motivo": "anel",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 3
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/anel_da_caveira_dourada.png",
+        "40": "assets/icones/itens/40/anel_da_caveira_dourada.png",
+        "32": "assets/icones/itens/32/anel_da_caveira_dourada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_da_caveira_dourada.png"
+    },
+    {
+      "id": "peitoral_de_armadura_gasta",
+      "nome": "Peitoral de Armadura Gasta",
+      "slot": "peito",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 32,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 5
+      },
+      "defesa": 26,
+      "icone": {
+        "64": "assets/icones/itens/64/peitoral_de_armadura_gasta.png",
+        "40": "assets/icones/itens/40/peitoral_de_armadura_gasta.png",
+        "32": "assets/icones/itens/32/peitoral_de_armadura_gasta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_armadura_gasta.png"
+    },
+    {
+      "id": "coroa_dourada_de_arena",
+      "nome": "Coroa Dourada de Arena",
+      "slot": "cabeca",
+      "classes": [
+        "demonio",
+        "humano",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 42,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 4,
+        "vit": 3
+      },
+      "defesa": 10,
+      "icone": {
+        "64": "assets/icones/itens/64/coroa_dourada_de_arena.png",
+        "40": "assets/icones/itens/40/coroa_dourada_de_arena.png",
+        "32": "assets/icones/itens/32/coroa_dourada_de_arena.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coroa_dourada_de_arena.png"
+    },
+    {
+      "id": "manto_dourado_de_arena",
+      "nome": "Manto Dourado de Arena",
+      "slot": "peito",
+      "classes": [
+        "anjo",
+        "demonio",
+        "humano",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 46,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 4,
+        "vit": 3
+      },
+      "defesa": 14,
+      "icone": {
+        "64": "assets/icones/itens/64/manto_dourado_de_arena.png",
+        "40": "assets/icones/itens/40/manto_dourado_de_arena.png",
+        "32": "assets/icones/itens/32/manto_dourado_de_arena.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manto_dourado_de_arena.png"
     }
   ]
 }

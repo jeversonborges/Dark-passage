@@ -2590,5 +2590,161 @@
 1664,
 64,
 64
+],
+"veu_de_renda_velha": [
+0,
+1728,
+64,
+64
+],
+"elmo_cruzado_de_ferro": [
+64,
+1728,
+64,
+64
+],
+"peitoral_de_faixas_de_ferro": [
+128,
+1728,
+64,
+64
+],
+"alabarda_dourada": [
+192,
+1728,
+64,
+64
+],
+"coroa_de_espinhos_dourada": [
+256,
+1728,
+64,
+64
+],
+"manto_da_cruz_dourada": [
+320,
+1728,
+64,
+64
+],
+"elmo_de_chifres_serrados": [
+384,
+1728,
+64,
+64
+],
+"manoplas_de_espinhos": [
+448,
+1728,
+64,
+64
+],
+"maca_do_pulso_azul": [
+512,
+1728,
+64,
+64
+],
+"cajado_da_pupila_de_vidro": [
+576,
+1728,
+64,
+64
+],
+"mascara_de_faixas_sagradas": [
+640,
+1728,
+64,
+64
+],
+"peitoral_do_olho_de_bronze": [
+704,
+1728,
+64,
+64
+],
+"capuz_de_musgo_do_amargo": [
+768,
+1728,
+64,
+64
+],
+"colete_de_garrafas_do_amargo": [
+832,
+1728,
+64,
+64
+],
+"lenco_musgoso_do_amargo": [
+896,
+1728,
+64,
+64
+],
+"colete_de_couro_costurado": [
+960,
+1728,
+64,
+64
+],
+"luvas_de_couro_curtido": [
+0,
+1792,
+64,
+64
+],
+"pingente_de_pedra_musgosa": [
+64,
+1792,
+64,
+64
+],
+"cajado_de_sino_enferrujado": [
+128,
+1792,
+64,
+64
+],
+"veu_de_correntes_de_lagrimas": [
+192,
+1792,
+64,
+64
+],
+"batina_do_calice_dourado": [
+256,
+1792,
+64,
+64
+],
+"terco_de_ossos": [
+320,
+1792,
+64,
+64
+],
+"anel_da_caveira_dourada": [
+384,
+1792,
+64,
+64
+],
+"peitoral_de_armadura_gasta": [
+448,
+1792,
+64,
+64
+],
+"coroa_dourada_de_arena": [
+512,
+1792,
+64,
+64
+],
+"manto_dourado_de_arena": [
+576,
+1792,
+64,
+64
 ]
 }

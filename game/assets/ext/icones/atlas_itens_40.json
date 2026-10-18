@@ -2590,5 +2590,161 @@
 1040,
 40,
 40
+],
+"veu_de_renda_velha": [
+0,
+1080,
+40,
+40
+],
+"elmo_cruzado_de_ferro": [
+40,
+1080,
+40,
+40
+],
+"peitoral_de_faixas_de_ferro": [
+80,
+1080,
+40,
+40
+],
+"alabarda_dourada": [
+120,
+1080,
+40,
+40
+],
+"coroa_de_espinhos_dourada": [
+160,
+1080,
+40,
+40
+],
+"manto_da_cruz_dourada": [
+200,
+1080,
+40,
+40
+],
+"elmo_de_chifres_serrados": [
+240,
+1080,
+40,
+40
+],
+"manoplas_de_espinhos": [
+280,
+1080,
+40,
+40
+],
+"maca_do_pulso_azul": [
+320,
+1080,
+40,
+40
+],
+"cajado_da_pupila_de_vidro": [
+360,
+1080,
+40,
+40
+],
+"mascara_de_faixas_sagradas": [
+400,
+1080,
+40,
+40
+],
+"peitoral_do_olho_de_bronze": [
+440,
+1080,
+40,
+40
+],
+"capuz_de_musgo_do_amargo": [
+480,
+1080,
+40,
+40
+],
+"colete_de_garrafas_do_amargo": [
+520,
+1080,
+40,
+40
+],
+"lenco_musgoso_do_amargo": [
+560,
+1080,
+40,
+40
+],
+"colete_de_couro_costurado": [
+600,
+1080,
+40,
+40
+],
+"luvas_de_couro_curtido": [
+0,
+1120,
+40,
+40
+],
+"pingente_de_pedra_musgosa": [
+40,
+1120,
+40,
+40
+],
+"cajado_de_sino_enferrujado": [
+80,
+1120,
+40,
+40
+],
+"veu_de_correntes_de_lagrimas": [
+120,
+1120,
+40,
+40
+],
+"batina_do_calice_dourado": [
+160,
+1120,
+40,
+40
+],
+"terco_de_ossos": [
+200,
+1120,
+40,
+40
+],
+"anel_da_caveira_dourada": [
+240,
+1120,
+40,
+40
+],
+"peitoral_de_armadura_gasta": [
+280,
+1120,
+40,
+40
+],
+"coroa_dourada_de_arena": [
+320,
+1120,
+40,
+40
+],
+"manto_dourado_de_arena": [
+360,
+1120,
+40,
+40
 ]
 }
