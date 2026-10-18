@@ -29,10 +29,10 @@ def bones():
 def build():
     rnd = random.Random(7)
     paint = stained("mt_pintura", (.2, .17, .13), stain=(.3, .08, .03), amount=.6, scale=5, rough=.6, grime=1.2)
-    steel = stained("mt_aco", (.36, .35, .33), stain=(.3, .06, .02), amount=.6, scale=6, metal=.9, rough=.42, grime=.5)
+    steel = stained("mt_aco", (.5, .48, .45), stain=(.3, .06, .02), amount=.45, scale=6, metal=.95, rough=.28, grime=.35)
     rust = stained("mt_ferrugem", (.3, .13, .05), stain=(.2, .03, .01), amount=.5, scale=4, metal=.25, rough=.85, grime=.8)
     leather = stained("mt_couro", (.12, .07, .04), stain=(.2, .02, .01), amount=.6, scale=3, rough=.4, grime=.8)
-    rubber = stained("mt_borracha", (.025, .024, .024), stain=(.2, .03, .01), amount=.4, scale=5, rough=.82, grime=.9)
+    rubber = stained("mt_borracha", (.05, .048, .046), stain=(.2, .03, .01), amount=.4, scale=5, rough=.6, grime=.7)
     brass = stained("mt_latao", (.42, .27, .1), stain=(.1, .08, .04), amount=.45, scale=6, metal=1, rough=.4, grime=.4)
     glow = mat("mt_brasa", (1, .42, .1), emit=(1, .42, .1), strength=10)
 
@@ -57,6 +57,8 @@ def build():
     fr.append(prim("primitive_cube_add", rust, (.2, .05, .86), scale=(.025, .22, .12), rot=(0, 0, 14)))  # placa de sucata
     fr.append(prim("primitive_cube_add", steel, (-.19, -.32, .88), scale=(.01, .14, .06), rot=(0, 0, -6)))  # placa parafusada
     fr.append(prim("primitive_cube_add", rust, (-.02, -.74, .54), scale=(.03, .05, .03), rot=(0, 0, 0)))  # trava solta
+    fr.append(prim("primitive_cube_add", rust, (0, -.85, .66), scale=(.1, .24, .012), rot=(-14, 0, 0)))  # paralama da frente
+    fr.append(prim("primitive_cube_add", rust, (0, .78, .6), scale=(.1, .2, .012), rot=(12, 0, 0)))  # paralama de trás
     # escapamento de latão com brasa no bocal
     fr.append(along("primitive_cylinder_add", brass, (.13, -.25, .42), (.13, .6, .3), .045, vertices=12))
     fr.append(prim("primitive_uv_sphere_add", glow, (.13, .62, .3), scale=(.035, .035, .035)))
