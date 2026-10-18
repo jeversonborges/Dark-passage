@@ -1540,8 +1540,8 @@
       ]
     },
     {
-      "id": "calcas_de_linho_de_amenti",
-      "nome": "Calças de Linho de Amenti",
+      "id": "calcas_de_linho_ritual",
+      "nome": "Calças de Linho Ritual",
       "tipo": "equipamento",
       "slot": "calcas",
       "classe": [
