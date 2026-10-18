@@ -1576,7 +1576,7 @@
    "duracao_s": 0.78
   },
   "itens/forja_martelo": {
-   "desc": "martelada na bigorna (ferreiro / reparar)",
+   "desc": "martelada grave na bigorna (ferreiro / reparar): baixa e curta, so se ouve de perto",
    "bus": "sfx",
    "loop": false,
    "variacoes": 3,
@@ -1585,7 +1585,7 @@
     "sfx/itens/forja_martelo_2.ogg",
     "sfx/itens/forja_martelo_3.ogg"
    ],
-   "duracao_s": 1.92
+   "duracao_s": 3.46
   },
   "itens/joia_aplicar": {
    "desc": "usa joia de refino (Lagrima de Anjo / Fragmento de Alma): carga subindo",
