@@ -1083,7 +1083,13 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 				"cada_tick": func(_a): sim.curar(e, por_s * bonus_comida, e)})
 		else: sim.curar(e, float(ef["cura_hp"]) * bonus_comida, e)
 		e.aux["cd_pocao"] = CD_POCAO
-	if ef.has("cura_hp_pct"): sim.curar(e, e.hp_max * float(ef["cura_hp_pct"]) / 100.0, e)
+	if ef.has("cura_hp_pct"):
+		var total := e.hp_max * float(ef["cura_hp_pct"]) / 100.0
+		if ef.has("duracao_s"):   # Frasco de Bílis Dourado: a cura vem ao longo do tempo
+			var por_s := total / float(ef["duracao_s"])
+			sim.criar_area({"pos": e.pos, "raio": 0.0, "dur": float(ef["duracao_s"]), "tick": 1.0, "tipo": "regen",
+				"cada_tick": func(_a): sim.curar(e, por_s, e)})
+		else: sim.curar(e, total, e)
 	if ef.has("recurso_pct"):
 		if e.classe == "cultista": sim.curar(e, e.hp_max * float(ef["recurso_pct"]) * 0.5, e)
 		else: e.rec = minf(e.rec_max, e.rec + e.rec_max * float(ef["recurso_pct"]))
