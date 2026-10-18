@@ -1,5 +1,5 @@
 extends SceneTree
-## Teste headless das evoluções do nível 50: carta do Simão, escolha com o Pedro (só os 2 caminhos da classe),
+## Teste headless das evoluções do nível 30: carta do Simão, escolha com o Pedro (só os 2 caminhos da classe),
 ## troca de classe, bônus (atributos, hp_mult, defesa_mult), as 5 skills novas de cada caminho e o save.
 ## godot --headless --path . -s tools/teste_evolucao.gd
 
@@ -79,10 +79,13 @@ func _testar(classe: String, caminho_idx: int) -> void:
 	var opcoes: Array = Evolucao.opcoes(classe)
 	var tag := "%s/%s" % [classe, opcoes[caminho_idx]]
 	# ------------------------------------------------ nível mínimo
-	subir(sim, j, 48)
-	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível no nível 48")
-	subir(sim, j, 50)
-	if not Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 indisponível no nível 50")
+	subir(sim, j, 28)
+	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível no nível 28")
+	subir(sim, j, 30)
+	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível sem a g02 do Livro dos Vencidos")
+	j.missoes["g02"] = {"estado": "concluida"}   # requisito: Livro dos Vencidos do Simão
+	for b in Defs.REG_CHEFES: j.flags["venceu_" + str(b["id"])] = true   # Livro dos Vencidos cheio até o nível da evolução
+	if not Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 indisponível no nível 30")
 	# ------------------------------------------------ carta do Simão
 	Missoes.abrir(sim, j, simao)
 	if not opcao(sim, j, "Tem alguma carta para o Exilado?"): falha(tag + ": Simão não oferece a carta: " + str(visiveis(j))); return
@@ -141,7 +144,7 @@ func _testar(classe: String, caminho_idx: int) -> void:
 	for i in 5:
 		if j.skills_slots[Evolucao.SLOT_EVO + i] != d["habilidades"][i]["id"]: falha(tag + ": slot %d errado" % (Evolucao.SLOT_EVO + i))
 	# ------------------------------------------------ as 5 skills disparam e fazem efeito
-	subir(sim, j, 70)
+	subir(sim, j, 50)
 	var campo := _campo_aberto(sim, j.pos)   # fora da zona segura, senão os monstros ficam imunes
 	j.pos = campo
 	for i in 5:
@@ -216,7 +219,7 @@ func _campo_aberto(sim: WorldSim, perto: Vector2) -> Vector2:
 func _evoluido(sim: WorldSim, classe: String, evo: String, pos: Vector2) -> Ent:
 	var j := Jogador.criar(sim, classe, "P_" + evo)
 	sim.adicionar_jogador(j, pos)
-	subir(sim, j, 70)
+	subir(sim, j, 50)
 	if not Evolucao.aplicar(sim, j, evo): falha("passivas: não evoluiu " + evo)
 	j.pos = pos
 	return j
