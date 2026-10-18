@@ -215,9 +215,11 @@ def _(v):
     return y
 
 
-@som('itens/forja_martelo', var=3, lufs=-15, espaco='rua', mix=0.15, desc='martelada na bigorna (ferreiro / reparar)')
+@som('itens/forja_martelo', var=3, lufs=-21, espaco='rua', mix=0.2, desc='martelada grave na bigorna (ferreiro / reparar): baixa e curta, so se ouve de perto')
 def _(v):
-    return anvil(ru(950, 1250), 1.4)
+    d = 3.0
+    y = clang(360, d, 0.9, 1.3, 0.6) * 0.9 + thump(70, d, 0.6, 0.14, 0.25) * 0.8
+    return y
 
 
 @som('itens/reparar', var=1, lufs=-16, espaco='rua', mix=0.15, desc='reparar equipamento: tres marteladas e chiado de tempera')
