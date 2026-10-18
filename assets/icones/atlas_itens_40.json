@@ -3370,5 +3370,851 @@
 1400,
 40,
 40
+],
+"luvas_do_lacre_partido": [
+80,
+1400,
+40,
+40
+],
+"oculos_de_fumaca_de_latao": [
+120,
+1400,
+40,
+40
+],
+"colar_de_usekh": [
+160,
+1400,
+40,
+40
+],
+"pingente_da_serpente_de_sobek": [
+200,
+1400,
+40,
+40
+],
+"ombreiras_de_engrenagem": [
+240,
+1400,
+40,
+40
+],
+"embrulho_selado_com_cera": [
+280,
+1400,
+40,
+40
+],
+"anel_do_cerebro_vitrificado": [
+320,
+1400,
+40,
+40
+],
+"anel_do_alvo_vermelho": [
+360,
+1400,
+40,
+40
+],
+"frutos_verdes_de_absinto": [
+400,
+1400,
+40,
+40
+],
+"casulo_vermelho": [
+440,
+1400,
+40,
+40
+],
+"coroa_de_serpente": [
+480,
+1400,
+40,
+40
+],
+"cinturao_de_ametista": [
+520,
+1400,
+40,
+40
+],
+"escaravelho_de_latao": [
+560,
+1400,
+40,
+40
+],
+"peitoral_de_escamas_douradas": [
+600,
+1400,
+40,
+40
+],
+"estandarte_azul_da_vela": [
+0,
+1440,
+40,
+40
+],
+"escudo_de_lava_solidificada": [
+40,
+1440,
+40,
+40
+],
+"escudo_do_batismo_azul": [
+80,
+1440,
+40,
+40
+],
+"peitoral_do_orbe_roxo": [
+120,
+1440,
+40,
+40
+],
+"peitoral_de_costelas": [
+160,
+1440,
+40,
+40
+],
+"bracadeira_de_gema_verde": [
+200,
+1440,
+40,
+40
+],
+"carta_do_sol_torto": [
+240,
+1440,
+40,
+40
+],
+"cristal_estelar": [
+280,
+1440,
+40,
+40
+],
+"insignia_do_tridente": [
+320,
+1440,
+40,
+40
+],
+"manto_de_juba": [
+360,
+1440,
+40,
+40
+],
+"nemes_de_ouro_e_lapis": [
+400,
+1440,
+40,
+40
+],
+"peitoral_de_bronze_verde": [
+440,
+1440,
+40,
+40
+],
+"sinete_da_coroa_partida": [
+480,
+1440,
+40,
+40
+],
+"anel_da_pena_e_ambar": [
+520,
+1440,
+40,
+40
+],
+"ankh_de_asas": [
+560,
+1440,
+40,
+40
+],
+"bussola_de_ouro_e_safira": [
+600,
+1440,
+40,
+40
+],
+"peitoral_do_guardiao_das_velas": [
+0,
+1480,
+40,
+40
+],
+"veu_de_renda_velha": [
+40,
+1480,
+40,
+40
+],
+"peitoral_de_faixas_de_ferro": [
+80,
+1480,
+40,
+40
+],
+"mascara_de_faixas_sagradas": [
+120,
+1480,
+40,
+40
+],
+"colete_de_garrafas_do_amargo": [
+160,
+1480,
+40,
+40
+],
+"lenco_musgoso_do_amargo": [
+200,
+1480,
+40,
+40
+],
+"veu_de_correntes_de_lagrimas": [
+240,
+1480,
+40,
+40
+],
+"batina_do_calice_dourado": [
+280,
+1480,
+40,
+40
+],
+"coroa_dourada_de_arena": [
+320,
+1480,
+40,
+40
+],
+"manto_dourado_de_arena": [
+360,
+1480,
+40,
+40
+],
+"anel_dourado_da_marca": [
+400,
+1480,
+40,
+40
+],
+"medalhao_de_fita_vermelha": [
+440,
+1480,
+40,
+40
+],
+"espada_de_aco_velho": [
+480,
+1480,
+40,
+40
+],
+"elmo_de_capa_vermelha": [
+520,
+1480,
+40,
+40
+],
+"manoplas_de_ferro_gasto": [
+560,
+1480,
+40,
+40
+],
+"botas_de_cano_alto": [
+600,
+1480,
+40,
+40
+],
+"anel_prateado_do_simbolo": [
+0,
+1520,
+40,
+40
+],
+"pedra_em_cordao": [
+40,
+1520,
+40,
+40
+],
+"botas_do_escriba": [
+80,
+1520,
+40,
+40
+],
+"anel_com_palmeira": [
+120,
+1520,
+40,
+40
+],
+"amuleto_de_placa_gravada": [
+160,
+1520,
+40,
+40
+],
+"luvas_amarelas_de_oficina": [
+200,
+1520,
+40,
+40
+],
+"botas_de_sola_grossa": [
+240,
+1520,
+40,
+40
+],
+"bracadeira_de_cobre": [
+280,
+1520,
+40,
+40
+],
+"pingente_de_lanterna": [
+320,
+1520,
+40,
+40
+],
+"faca_de_trilha": [
+360,
+1520,
+40,
+40
+],
+"chapeu_de_vaqueiro_do_amargo": [
+400,
+1520,
+40,
+40
+],
+"cajado_de_linho": [
+440,
+1520,
+40,
+40
+],
+"faixa_de_linho_com_gema": [
+480,
+1520,
+40,
+40
+],
+"luvas_de_bandagem_de_ritual": [
+520,
+1520,
+40,
+40
+],
+"saia_de_linho_com_cinto": [
+560,
+1520,
+40,
+40
+],
+"bracadeira_de_anubis": [
+600,
+1520,
+40,
+40
+],
+"amuleto_de_linho_com_ankh": [
+0,
+1560,
+40,
+40
+],
+"peitoral_de_bronze_com_manto": [
+40,
+1560,
+40,
+40
+],
+"sino_de_bronze_com_estrela": [
+80,
+1560,
+40,
+40
+],
+"lenco_vermelho_de_flores": [
+120,
+1560,
+40,
+40
+],
+"tridente_de_lodo_verde": [
+160,
+1560,
+40,
+40
+],
+"medalhao_de_bronze_com_cruz": [
+200,
+1560,
+40,
+40
+],
+"faixa_vermelha_de_emblema": [
+240,
+1560,
+40,
+40
+],
+"fita_bege_com_sol_dourado": [
+280,
+1560,
+40,
+40
+],
+"gancho_vermelho_com_brasa": [
+320,
+1560,
+40,
+40
+],
+"etiqueta_de_papel_com_cruz": [
+360,
+1560,
+40,
+40
+],
+"estandarte_rasgado_com_cruz": [
+400,
+1560,
+40,
+40
+],
+"pena_vermelha_escura": [
+440,
+1560,
+40,
+40
+],
+"frasco_prateado_de_alca": [
+480,
+1560,
+40,
+40
+],
+"frasco_amarelo_da_cruz": [
+520,
+1560,
+40,
+40
+],
+"frasco_azul_com_sal": [
+560,
+1560,
+40,
+40
+],
+"pocao_vermelha_enfaixada": [
+600,
+1560,
+40,
+40
+],
+"pocao_azul_enfaixada": [
+0,
+1600,
+40,
+40
+],
+"garrafa_verde_da_caveira": [
+40,
+1600,
+40,
+40
+],
+"pocao_vermelha_amarrada": [
+80,
+1600,
+40,
+40
+],
+"pocao_azul_amarrada": [
+120,
+1600,
+40,
+40
+],
+"pocao_de_cristal_azul": [
+160,
+1600,
+40,
+40
+],
+"disco_de_ferro_manchado": [
+200,
+1600,
+40,
+40
+],
+"figo_partido": [
+240,
+1600,
+40,
+40
+],
+"pinca_de_metal": [
+280,
+1600,
+40,
+40
+],
+"ferramenta_dobrada_de_metal": [
+320,
+1600,
+40,
+40
+],
+"esfera_de_chumbo": [
+360,
+1600,
+40,
+40
+],
+"vela_de_cera_gasta": [
+400,
+1600,
+40,
+40
+],
+"lamina_vermelha_da_cruz": [
+440,
+1600,
+40,
+40
+],
+"lamina_curva_sangrenta": [
+480,
+1600,
+40,
+40
+],
+"espada_dourada_da_estrela": [
+520,
+1600,
+40,
+40
+],
+"foice_sangrenta": [
+560,
+1600,
+40,
+40
+],
+"clava_de_osso_acorrentada": [
+600,
+1600,
+40,
+40
+],
+"escudo_vermelho_da_caveira": [
+0,
+1640,
+40,
+40
+],
+"machado_azul_com_gema": [
+40,
+1640,
+40,
+40
+],
+"adaga_serrilhada": [
+80,
+1640,
+40,
+40
+],
+"pistola_de_cano_duplo": [
+120,
+1640,
+40,
+40
+],
+"mosquete_com_sino": [
+160,
+1640,
+40,
+40
+],
+"espada_com_fita": [
+200,
+1640,
+40,
+40
+],
+"besta_de_trilho": [
+240,
+1640,
+40,
+40
+],
+"haste_espiral_de_metal": [
+280,
+1640,
+40,
+40
+],
+"luva_eletrica_de_cobre": [
+320,
+1640,
+40,
+40
+],
+"pistola_eletrica": [
+360,
+1640,
+40,
+40
+],
+"fuzil_de_cobre": [
+400,
+1640,
+40,
+40
+],
+"tubo_de_vidro_com_volante": [
+440,
+1640,
+40,
+40
+],
+"manoplas_de_bronze": [
+480,
+1640,
+40,
+40
+],
+"luvas_palidas_costuradas": [
+520,
+1640,
+40,
+40
+],
+"casaco_vermelho_de_ombreiras": [
+560,
+1640,
+40,
+40
+],
+"manoplas_de_aco_com_brasa": [
+600,
+1640,
+40,
+40
+],
+"couro_curtido": [
+0,
+1680,
+40,
+40
+],
+"cano_de_metal_com_tira": [
+40,
+1680,
+40,
+40
+],
+"pedra_com_cruz": [
+80,
+1680,
+40,
+40
+],
+"pena_dourada_manchada": [
+120,
+1680,
+40,
+40
+],
+"olho_de_vidro_vermelho": [
+160,
+1680,
+40,
+40
+],
+"canhao_de_cano_marrom": [
+200,
+1680,
+40,
+40
+],
+"cimitarra_enferrujada": [
+240,
+1680,
+40,
+40
+],
+"bau_com_dentes": [
+280,
+1680,
+40,
+40
+],
+"carretel_de_cobre": [
+320,
+1680,
+40,
+40
+],
+"dente_com_brilho_verde": [
+360,
+1680,
+40,
+40
+],
+"raizes_secas_do_amargo": [
+400,
+1680,
+40,
+40
+],
+"caldo_de_ervas": [
+440,
+1680,
+40,
+40
+],
+"pote_amarelo_de_cera": [
+480,
+1680,
+40,
+40
+],
+"placa_de_ferro_enferrujada": [
+520,
+1680,
+40,
+40
+],
+"colher_de_bronze": [
+560,
+1680,
+40,
+40
+],
+"gancho_de_ferro": [
+600,
+1680,
+40,
+40
+],
+"pa_de_ferro": [
+0,
+1720,
+40,
+40
+],
+"carretel_de_cobre_com_manivela": [
+40,
+1720,
+40,
+40
+],
+"frasco_verde_vazio": [
+80,
+1720,
+40,
+40
+],
+"cera_vermelha_com_cruz": [
+120,
+1720,
+40,
+40
+],
+"carne_marcada_com_ferro": [
+160,
+1720,
+40,
+40
+],
+"medalhao_de_gota": [
+200,
+1720,
+40,
+40
+],
+"corneta_dourada_amassada": [
+240,
+1720,
+40,
+40
+],
+"rosa_seca_em_papel": [
+280,
+1720,
+40,
+40
+],
+"mapa_rasgado_com_marca": [
+320,
+1720,
+40,
+40
+],
+"lanterna_de_ferro_gasta": [
+360,
+1720,
+40,
+40
+],
+"cristal_rachado": [
+400,
+1720,
+40,
+40
+],
+"cera_vermelha_partida": [
+440,
+1720,
+40,
+40
+],
+"estandarte_dourado_com_serpente": [
+480,
+1720,
+40,
+40
+],
+"placa_de_metal_com_arco": [
+520,
+1720,
+40,
+40
+],
+"gema_dourada_lapidada": [
+560,
+1720,
+40,
+40
 ]
 }
