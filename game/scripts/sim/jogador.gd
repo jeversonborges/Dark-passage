@@ -1286,19 +1286,20 @@ static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 		sim.emitir_a(e, "aviso", {"texto": "O ferreiro cobra %d de ouro." % custo_ouro}); return
 	e.ouro -= custo_ouro
 	Itens.remover(e.inv, joia, n_joias)
+	var nome := Itens.nome(it)
 	if r >= 10 and sim.rng.randf() < 0.15:   # acima do +10 o item pode quebrar (15%, Jefin 17/10): a lágrima e o ouro já foram
 		if onde == "mochila": e.inv.erase(it)
 		else: e.equip.erase(onde)
 		Regras.recalc_jogador(e)
-		sim.emitir_a(e, "aviso", {"texto": "%s quebrou ao passar do +10." % Itens.nome(it)})
+		sim.emitir_a(e, "refino", {"ok": false, "quebrou": true, "nivel": 0, "nome": nome})
 		sim.emitir_a(e, "som_evento", {"ev": "refino_falha"})
 		sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
 		return
 	var ok := joia == "lagrima_angelica" or sim.rng.randf() < chance_refino(r + 1)
 	if ok: it["refino"] = r + 1
-	else: it["refino"] = maxi(mini(r, 6), r - (2 if r + 1 >= 11 else 1))
+	else: it["refino"] = nivel_apos_falha(r)
 	Regras.recalc_jogador(e)
-	sim.emitir_a(e, "refino", {"ok": ok, "nivel": int(it["refino"]), "nome": Itens.nome(it)})
+	sim.emitir_a(e, "refino", {"ok": ok, "quebrou": false, "nivel": int(it["refino"]), "nome": nome})
 	sim.emitir_a(e, "som_evento", {"ev": "refino_sucesso" if ok else "refino_falha"})
 	sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
 
@@ -1310,6 +1311,10 @@ static func custo_joias(r: int) -> int:
 	return lo + r * (hi - lo) / maxi(1, maximo - 1)
 
 ## Chance de chegar ao nível alvo (1.0 até o +6).
+## Nível em que o item fica depois de uma falha ao tentar r + 1.
+static func nivel_apos_falha(r: int) -> int:
+	return maxi(mini(r, 6), r - (2 if r + 1 >= 11 else 1))
+
 static func chance_refino(alvo: int) -> float:
 	var t: Dictionary = Defs.DROPS["refino_com_lagrimas"]["lagrima_sanguinea"]["chance_para"]
 	return float(t.get("+%d" % alvo, 1.0))

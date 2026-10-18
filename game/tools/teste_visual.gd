@@ -33,6 +33,9 @@ func _ready() -> void:
 				[0.1, "tip_tp", "rio_amargo"], [0.5, "foto", "tp_2_tip"], [0.1, "janela", "teleporte"],
 				[0.1, "tp", "rio_amargo"], [1.5, "foto", "tp_3_canal"], [3.5, "foto", "tp_4_chegou"],
 				[0.1, "janela", "teleporte"], [0.8, "foto", "tp_5_menu_depois"], [0.3, "fim", ""]]
+		"ferreiro":   # forja: lista, detalhe com antes/depois, custo e chance; a segunda peça com +9 (sangrenta, quebra possível)
+			roteiro = [[2.5, "preparar_forja", ""], [0.2, "abrir_forja", ""], [1.0, "foto", "forja_1"],
+				[0.1, "forja_sel", ""], [0.6, "foto", "forja_2_sel"], [0.3, "fim", ""]]
 		"chefe":
 			roteiro = [[1.5, "forte", ""], [0.1, "lutar_chefe", ""], [6.0, "foto", "c1"], [6.0, "foto", "c2"], [8.0, "foto", "c3"], [0.5, "fim", ""]]
 		"tour":
@@ -137,6 +140,21 @@ func _process(dt: float) -> void:
 				if not h.get("passiva", false) and int(h["nivel"]) <= jogo.jog.nivel: hs.append(h["id"])
 			for k in 3: for id in hs.slice(0, 2): jogo.cmd("talento", [id])
 		"preparar_menu": _preparar_menu()
+		"preparar_forja":
+			_preparar_menu()
+			var j: Ent = jogo.jog
+			Itens.guardar(j.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, Itens.novo("lagrima_angelica", 9))
+			Itens.guardar(j.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, Itens.novo("lagrima_sanguinea", 12))
+			if j.equip.has("peito"): j.equip["peito"]["refino"] = 5
+			for it in j.inv:
+				if Itens.equipavel(it) and Itens.slot_de(it) == "arma": it["refino"] = 9; break
+			Regras.recalc_jogador(j)
+		"abrir_forja":
+			jogo.janelas.servico({"tipo": "ferreiro", "titulo": "Forja de Tubal", "fala": "Ferro bom não se joga fora. Ele só pede mais fogo.", "npc": jogo.jog.id})
+		"forja_sel":
+			var fl: Array = jogo.janelas._candidatos_refino(jogo.jog)
+			for par in fl:
+				if int(par[0].get("refino", 0)) >= 9: jogo.janelas._escolher_refino(int(par[0]["uid"]), par[1]); break
 		"abrir_arca":
 			jogo.janelas.servico({"tipo": "armazem", "titulo": "Arca do Primarca", "fala": "O que entra na arca não enferruja. Nem a memória.", "npc": jogo.jog.id})
 		"tip_melhoria":
