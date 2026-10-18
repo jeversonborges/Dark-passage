@@ -1,0 +1,33 @@
+ESPELHO VIGÍLIA x ARAUTOS (gerado por gerar.py)
+
+spot do deserto (nível, mobs, dist. da Vela) -> spot daqui (nível, mobs, dist. de Jerusalém)
+
+Telhados dos Corvos      [3, 5]   6 cao_de_vala (territorial) + 6 corvo_de_cinza (neutro)  [104 m]
+  -> Escadas de Siloé      [3, 5]   6 chacal_de_josafa (territorial) + 6 abutre_do_hermon (neutro)  [37 m]  respawn 14 s
+Covas Rasas              [1, 3]   6 carnical (neutro) + 3 corvo_de_cinza (neutro) + 5 desertor_legiao (territorial)  [93 m]
+  -> Oliveiras do Getsêmani [1, 3]   6 peregrino_ressecado (neutro) + 3 abutre_do_hermon (neutro) + 3 sapador_herege (territorial)  [33 m]  respawn 14 s
+Marco do Corte           [7, 9]   6 desertor_legiao (territorial) + 6 carnical (neutro)  [76 m]
+  -> A Fenda das Oliveiras [7, 9]   6 sapador_herege (territorial) + 6 peregrino_ressecado (neutro)  [42 m]  respawn 14 s
+Fosso dos Cães           [3, 5]   9 cao_de_vala (territorial) + 3 carnical (neutro)  [76 m]
+  -> Covil dos Chacais     [3, 5]   9 chacal_de_josafa (territorial) + 3 peregrino_ressecado (neutro)  [53 m]  respawn 14 s
+Procissão Parada         [4, 6]   12 nao_julgado (neutro)  [118 m]
+  -> Os Primeiros a Levantar [4, 6]   12 levantado_das_oliveiras (neutro)  [76 m]  respawn 14 s
+Margem das Viúvas        [5, 7]   8 nao_julgado (neutro) + 4 sangrador_apostata (territorial) + 6 desertor_legiao (territorial) + 4 sangrador_apostata (neutro)  [143 m]
+  -> Cedros Partidos       [5, 7]   6 levantado_das_oliveiras (neutro) + 3 sineiro_infiltrado (territorial) + 3 sapador_herege (territorial)  [92 m]  respawn 14 s
+Pátio do Abatedouro      [7, 9]   1 capataz_gancho (agressivo) + 11 acougueiro_oco (agressivo)  [110 m]
+  -> Fornalhas de Tofete   [7, 9]   1 capataz_de_tofete (agressivo) + 11 fornalheiro_de_tofete (agressivo)  [71 m]  respawn 14 s
+Chiqueiro do Carniça     [4, 6]   12 porco_pestilento (neutro)  [132 m]
+  -> Pocilga de Gadara     [4, 6]   12 porco_de_gadara (neutro)  [80 m]  respawn 14 s
+Acampamento dos Desertores [6, 9]   8 desertor_legiao (territorial) + 4 cao_de_vala (neutro)  [120 m]
+  -> Canteiro dos Sapadores [6, 9]   8 sapador_herege (territorial) + 4 chacal_de_josafa (neutro)  [59 m]  respawn 14 s
+Beira da Tempestade      [9, 12]  6 nao_julgado (neutro) + 6 sombra_gravada (territorial) + 6 sombra_gravada (neutro)  [157 m]
+  -> Neve de Cinza         [9, 12]  6 levantado_das_oliveiras (neutro) + 6 vigilante_acorrentado (territorial)  [111 m]  respawn 14 s
+
+mobs no mundo: deserto 149 (em spots 138) | aqui 131 (em spots 120)
+baús no mundo: deserto 23 | aqui 23 (+3 esconderijos do Bartimeu, interativos)
+descansos: deserto 6 | aqui 6
+
+dungeon: Cripta da Trombeta Calada -> Fosso dos Vigilantes (mesmos andares, grupos, níveis e números de chefe)
+  Porão do Matadouro (6-8, 9 grupos/14 mobs, Andras nv 8)   -> Minas dos Gigantes (6-8, 9/14, Ohya nv 8)
+  Ossário das Carpideiras (8-10, 8/13, Irmã Celeste nv 10) -> Salão das Noivas (8-10, 8/13, Naamá nv 10)
+  Câmara da Trombeta (10-12, 5/7, Zacarias nv 12)          -> Altar do Juramento (10-12, 5/7, Semyaza nv 12)

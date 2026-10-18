@@ -1,0 +1,345 @@
+{
+ "objetos": [
+  {
+   "id": "peregrino_de_joelhos",
+   "nome": "Peregrino de Joelhos",
+   "subzona": "necropole_oliveiras",
+   "quantidade_no_mapa": 3,
+   "texto_ao_usar": "Ele está ajoelhado de frente para a Porta Dourada, mãos juntas, coberto de cinza. Não respira. Não caiu. Ainda espera alguém passar pela porta.",
+   "visivel_se": {
+    "missao_ativa": [
+     "j04"
+    ]
+   },
+   "espelho_de": "corpo_lacrado"
+  },
+  {
+   "id": "mesa_do_capataz",
+   "nome": "Mesa do Capataz",
+   "subzona": "vale_hinom",
+   "texto_ao_usar": "Entre correntes e recibos chamuscados, um livro de couro: CONTAS DE TOFETE. A última página está dobrada.",
+   "visivel_se": {
+    "missao_ativa": "jc02"
+   },
+   "espelho_de": "escritorio_capataz",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "porta_de_pa",
+   "nome": "Gruta de Pã",
+   "subzona": "vale_hinom",
+   "requer_item": "chave_de_pa",
+   "texto_trancado": "A gruta de Pã está fechada por uma pedra com um buraco em forma de chifre. Do outro lado, algo respira devagar e quente. A chave de chifre anda no cinto do Capataz de Tofete, nas fornalhas do Vale de Hinom.",
+   "texto_ao_usar": "A chave entra no chifre e gira sozinha o resto do caminho. A pedra se afasta e um bafo quente sobe das Fontes do Jordão para o fundo do monte.",
+   "leva_para": "minas_dos_gigantes",
+   "espelho_de": "porta_ganchos",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "porta_do_altar",
+   "nome": "Porta do Altar",
+   "subzona": "salao_das_noivas",
+   "requer_itens": [
+    "selo_do_sonho",
+    "selo_das_aguas"
+   ],
+   "texto_trancado": "Uma porta de pedra negra com dois buracos: um em forma de olho fechado, outro em forma de onda.",
+   "texto_ao_usar": "Os selos se encaixam e a pedra se abre para dentro. Lá no fundo, duzentas vozes falam a mesma frase.",
+   "leva_para": "altar_do_juramento",
+   "espelho_de": "porta_camara",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "tumulo_de_joas",
+   "nome": "Túmulo de Joás",
+   "subzona": "necropole_oliveiras",
+   "texto_ao_usar": "Você derrama a infusão na pedra. O cheiro amargo sobe. Entre os túmulos, algo grande e verde se levanta e pergunta, rouco: ...mãe?",
+   "invoca": "filho_do_hissopo",
+   "visivel_se": {
+    "missao_ativa": "js02"
+   },
+   "espelho_de": "tumulo_cardo",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "tumulos_dos_profetas",
+   "nome": "Túmulo de Profeta",
+   "subzona": "necropole_oliveiras",
+   "quantidade_no_mapa": 5,
+   "requer_item": "pa_do_escriba",
+   "texto_ao_usar": "Você joga cinza sobre a laje até o nome sumir de novo. Um Levantado na fila próxima abaixa a cabeça. Amanhã o vento descobre outro.",
+   "visivel_se": {
+    "missao_ativa": "js08"
+   },
+   "espelho_de": "covas_abertas"
+  },
+  {
+   "id": "nicho_da_noiva",
+   "nome": "Nicho da Noiva",
+   "subzona": "salao_das_noivas",
+   "quantidade_no_mapa": 7,
+   "leitura": "leitura_juramento_noivas",
+   "visivel_se": {
+    "missao_ativa": "js09"
+   },
+   "texto_ao_usar": "Uma mulher de pedra com véu. Na base, dois nomes riscados: o dela, de mulher, e o dele, de anjo.",
+   "espelho_de": "cela_monge"
+  },
+  {
+   "id": "estandartes_da_legiao",
+   "nome": "Estandarte da Legião",
+   "subzona": "monte_oliveiras",
+   "quantidade_no_mapa": 3,
+   "texto_ao_usar": "Um estandarte da Legião Blasfema caído na cinza da Geena. Em volta, pegadas de muitos demônios. Nenhum o levantou.",
+   "visivel_se": {
+    "missao_ativa": [
+     "je01"
+    ]
+   },
+   "espelho_de": "estandartes_caidos"
+  },
+  {
+   "id": "trono_vazio",
+   "nome": "Trono da Geena",
+   "subzona": "monte_oliveiras",
+   "texto_ao_usar": "Um trono de ferro e osso no meio das fornalhas, preso por correntes. No braço, metade de uma coroa. O assento está frio.",
+   "visivel_se": {
+    "missao_ativa": "je04"
+   },
+   "espelho_de": "marco_do_corte",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "rastro_de_brasas",
+   "nome": "Rastro de Brasa",
+   "subzona": "vale_hinom",
+   "quantidade_no_mapa": 3,
+   "texto_ao_usar": "Dois sulcos de mão gigante na lama, com um risco de brasa no meio, como de algo que se arrasta sem pernas. O rastro vai para o sul, na direção do deserto.",
+   "visivel_se": {
+    "missao_ativa": [
+     "je05"
+    ]
+   },
+   "espelho_de": "rastro_arrasto"
+  },
+  {
+   "id": "fontes_secas",
+   "nome": "Fonte Represada",
+   "subzona": "fontes_jordao",
+   "quantidade_no_mapa": 3,
+   "texto_ao_usar": "Você enche o frasco. A água cinzenta canta uma nota baixa dentro do vidro, sem parar.",
+   "visivel_se": {
+    "missao_ativa": "jd04"
+   },
+   "espelho_de": "pocas_amargas"
+  },
+  {
+   "id": "laje_do_juramento",
+   "nome": "Laje do Juramento",
+   "subzona": "cume_hermon",
+   "texto_trancado": "Uma laje negra rachada no meio de sete pilares. Ela não se mexe para quem não foi chamado.",
+   "texto_ao_usar": "Uma laje de pedra negra rachada no meio de sete pilares. Quando você encosta, as estrelas do céu escuro parecem piscar na mesma hora. Alguém se levanta do outro lado.",
+   "invoca": "kokabiel_contador",
+   "visivel_se": {
+    "missao_ativa": "jd06"
+   },
+   "espelho_de": "escotilha_silo",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "antena_da_escuta",
+   "nome": "Antena da Escuta",
+   "subzona": "cidade_de_davi",
+   "texto_ao_usar": "Você troca as válvulas. A antena estala, e por toda a encosta se ouve a contagem: cento e noventa e nove, duzentos, um...",
+   "visivel_se": {
+    "missao_ativa": "jd02"
+   },
+   "espelho_de": "antena_radio",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "pedra_da_ascensao",
+   "nome": "Pedra da Ascensão",
+   "subzona": "necropole_oliveiras",
+   "texto_ao_usar": "Na pedra, duas pegadas. Uma é famosa. A outra, mais antiga, tem do lado, em argila: AQUI EU SUBI. AQUI EU VOLTEI.",
+   "visivel_se": {
+    "missao_ativa": "jf02"
+   },
+   "espelho_de": "andor_padroeiro",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "tumulo_vazio_de_henoc",
+   "nome": "Túmulo Vazio",
+   "subzona": "necropole_oliveiras",
+   "texto_ao_usar": "A vela acende sozinha. O túmulo está pronto há séculos e nunca foi usado. Na parede, gravado em letras antigas: ELE ANDOU COM DEUS, E JÁ NÃO ERA.",
+   "visivel_se": {
+    "missao_ativa": "jf05"
+   },
+   "espelho_de": "sepulcro_primeiro",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "forja_de_tofete",
+   "nome": "Fornalha de Tofete",
+   "subzona": "vale_hinom",
+   "texto_ao_usar": "A fornalha grande ainda ruge. Os elos ficam brancos e, por um segundo, você ouve alguém puxando uma corrente lá embaixo.",
+   "visivel_se": {
+    "missao_ativa": "js03"
+   },
+   "espelho_de": "torre_sino",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "rolos_da_escada",
+   "nome": "Rolos da Escada",
+   "subzona": "jerusalem",
+   "texto_ao_usar": "Rolos de couro amarrados com fita vermelha. No de cima, a folha primeira de um livro: duzentos que desceram num monte e um escriba que escreveu por eles.",
+   "visivel_se": {
+    "missao_ativa": "jf03"
+   },
+   "espelho_de": "torre_sino",
+   "quantidade_no_mapa": 1
+  },
+  {
+   "id": "ninhos_de_abutre",
+   "nome": "Ninho de Abutre",
+   "subzona": "monte_oliveiras",
+   "quantidade_no_mapa": 3,
+   "tabela": "ninho_corvo",
+   "texto_ao_usar": "Um ninho de galhos, pano de mortalha e coisas brilhantes no alto de um poste. Os abutres não vão gostar disso.",
+   "invoca": "abutre_do_hermon",
+   "espelho_de": "ninhos_corvo"
+  }
+ ],
+ "baus": [
+  {
+   "id": "bau_bartimeu_1",
+   "nome": "Esconderijo da Pedra que Sobe",
+   "subzona": "monte_oliveiras",
+   "tipo": "comum",
+   "visivel_se": {
+    "missao_ativa": "js04"
+   },
+   "fixo": [
+    {
+     "id": "pao_duro",
+     "qtd": 3
+    }
+   ],
+   "tabela": "bau_area_inicial_comum",
+   "texto_ao_abrir": "Debaixo de uma pedra solta, uma lata com moedas de peregrino e um pedaço de cera com o desenho de um olho.",
+   "espelho_de": "bau_tobias_1"
+  },
+  {
+   "id": "bau_bartimeu_2",
+   "nome": "Esconderijo do Bosque",
+   "subzona": "necropole_oliveiras",
+   "tipo": "comum",
+   "visivel_se": {
+    "missao_ativa": "js04"
+   },
+   "fixo": [
+    {
+     "id": "vela_do_escriba",
+     "qtd": 2
+    }
+   ],
+   "tabela": "bau_area_inicial_comum",
+   "texto_ao_abrir": "Dentro de um tronco oco, perto da cabana do Escriba, um embrulho de couro amarrado com três nós de cego.",
+   "espelho_de": "bau_tobias_2"
+  },
+  {
+   "id": "bau_bartimeu_3",
+   "nome": "Esconderijo da Cidade de Baixo",
+   "subzona": "vale_hinom",
+   "tipo": "trancado",
+   "visivel_se": {
+    "missao_ativa": "js04"
+   },
+   "fixo": [
+    {
+     "id": "flauta_de_osso",
+     "qtd": 1
+    }
+   ],
+   "tabela": "bau_area_inicial_raro",
+   "texto_ao_abrir": "Um baú de ferro trancado, com uma flauta de osso rachada por cima do resto.",
+   "espelho_de": "bau_tobias_3"
+  },
+  {
+   "id": "bau_escada_hulda",
+   "nome": "Baú da Escada",
+   "subzona": "jerusalem",
+   "tipo": "trancado",
+   "faccao": "vigilia",
+   "visivel_se": {
+    "missao_concluida": "jc01"
+   },
+   "fixo": [
+    {
+     "id": "leitura_hulda",
+     "qtd": 1
+    }
+   ],
+   "texto_ao_abrir": "O baú da Hulda, cheio de rolos e um frasco de óleo da primeira noite.",
+   "espelho_de": "bau_barraca_anselmo"
+  },
+  {
+   "id": "bau_ohya",
+   "nome": "Baú de Ohya",
+   "subzona": "minas_dos_gigantes",
+   "tipo": "chefe",
+   "aparece_apos": "general_partido",
+   "tabela": "bau_chefe_general",
+   "texto_ao_abrir": "O tesouro do gigante: o que sobrou dos escravos que tinham alguma coisa.",
+   "espelho_de": "bau_general"
+  },
+  {
+   "id": "bau_naama",
+   "nome": "Arca do Enxoval",
+   "subzona": "salao_das_noivas",
+   "tipo": "chefe",
+   "aparece_apos": "irma_celeste",
+   "fixo": [
+    {
+     "id": "leitura_canto_das_noivas",
+     "qtd": 1
+    }
+   ],
+   "tabela": "bau_chefe_celeste",
+   "texto_ao_abrir": "O enxoval de Naamá: panos de linho, sal e brinquedos grandes demais para criança de gente.",
+   "espelho_de": "bau_celeste"
+  },
+  {
+   "id": "bau_semyaza",
+   "nome": "Cofre do Juramento",
+   "subzona": "altar_do_juramento",
+   "tipo": "chefe",
+   "aparece_apos": "zacarias_arauto",
+   "fixo": [
+    {
+     "id": "leitura_juramento_duzentos",
+     "qtd": 1
+    }
+   ],
+   "tabela": "bau_chefe_zacarias",
+   "texto_ao_abrir": "O que os duzentos trouxeram do céu e não puderam usar.",
+   "espelho_de": "bau_zacarias"
+  },
+  {
+   "id": "bau_dote_naama",
+   "nome": "Dote das Noivas",
+   "subzona": "salao_das_noivas",
+   "tipo": "amaldicoado",
+   "invoca_ao_abrir": [
+    "monge_emparedado",
+    "monge_emparedado",
+    "carpideira_de_ossos"
+   ],
+   "tabela": "bau_dungeon_raro",
+   "texto_ao_abrir": "O dote que os Vigilantes pagaram pelas filhas dos homens. Ainda brilha. Ainda pesa na consciência de alguém.",
+   "espelho_de": "bau_amaldicoado_ossario"
+  }
+ ]
+}

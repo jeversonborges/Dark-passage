@@ -70,6 +70,64 @@
         "hostia_negra"
       ],
       "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Isso é honestidade."
+    },
+    {
+      "id": "loja_hulda",
+      "npc": "hulda_escada",
+      "nome": "Rolos e Remédios da Escada",
+      "itens": [
+        "hostia_negra",
+        "pao_duro"
+      ],
+      "fala_ao_abrir": "Tudo abençoado. Por mim. Serve?"
+    },
+    {
+      "id": "loja_zilpa",
+      "npc": "zilpa_hissopo",
+      "nome": "Caldeirão da Zilpa",
+      "itens": [
+        "cha_de_hissopo",
+        "pao_duro",
+        "agua_doce"
+      ],
+      "fala_ao_abrir": "Come. Paga depois. Mas paga."
+    },
+    {
+      "id": "loja_bartimeu",
+      "npc": "bartimeu_brasas",
+      "nome": "Carrinho do Cego",
+      "itens": [
+        "vela_do_escriba",
+        "agua_benta_polvora",
+        "pao_duro",
+        "agua_doce"
+      ],
+      "compra_sucata": true,
+      "fala_ao_abrir": "Escolhe. Eu sei o que você pegou pelo barulho."
+    },
+    {
+      "id": "loja_carrinho_bartimeu",
+      "npc": "bartimeu_carrinho",
+      "nome": "Carrinho de Poções do Bartimeu",
+      "fala_ao_abrir": "Vida, éter, antídoto. O resto ficou na cidade.",
+      "itens": [
+        "agua_benta_polvora",
+        "pao_duro",
+        "agua_doce"
+      ],
+      "_nota": "poções, munição e armas da faixa 1 entram pelo jogador.gd estoque() (ver INTEGRACAO.md)"
+    },
+    {
+      "id": "loja_zaqueu_cobrador",
+      "npc": "zaqueu_cobrador",
+      "nome": "Degrau do Cobrador",
+      "itens": [
+        "agua_doce",
+        "vela_do_escriba",
+        "tonico_graxa",
+        "hostia_negra"
+      ],
+      "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Anoto tudo."
     }
   ],
   "ferreiros": [

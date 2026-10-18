@@ -1,0 +1,675 @@
+{
+ "monstros": [
+  {
+   "id": "peregrino_ressecado",
+   "nome": "Peregrino Ressecado",
+   "tipo": "normal",
+   "locais": [
+    "monte_oliveiras"
+   ],
+   "descricao": "Peregrinos que vieram de todo canto ver o fim do mundo em Jerusalém e foram pegos pelo primeiro toque. Secaram de joelhos. Levantam para cavar o Getsêmani atrás de relíquias.",
+   "aparencia": "Pele de couro seco, roupas de romaria, terço nas mãos, joelhos em carne viva.",
+   "espelho_de": "carnical",
+   "drops_missao": [
+    {
+     "item": "tabuinha_de_argila",
+     "chance": 0.35,
+     "missao": "jf01"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Peregrinos que vieram de todo canto ver o fim do mundo em Jerusalém e foram pegos pelo primeiro toque."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "abutre_do_hermon",
+   "nome": "Abutre do Hermon",
+   "tipo": "normal",
+   "locais": [
+    "monte_oliveiras",
+    "cidade_de_davi"
+   ],
+   "descricao": "Abutres grandes que descem do Hermon atrás dos mortos. Furam odres, levam papel, levam azeite.",
+   "aparencia": "Abutre do tamanho de um homem curvado, cabeça pelada cinza, penas sujas de cinza.",
+   "espelho_de": "corvo_de_cinza",
+   "drops_missao": [
+    {
+     "item": "azeite_do_lagar",
+     "chance": 0.45,
+     "missao": "j02"
+    },
+    {
+     "item": "folha_do_livro",
+     "chance": 0.4,
+     "missao": "jf03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Abutres grandes que descem do Hermon atrás dos mortos."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "chacal_de_josafa",
+   "nome": "Chacal de Josafá",
+   "tipo": "normal",
+   "locais": [
+    "vale_josafa",
+    "cidade_de_davi",
+    "fontes_jordao"
+   ],
+   "descricao": "Matilhas do leito seco do Cedrom, no Vale de Josafá, onde as nações serão julgadas. Defendem a toca.",
+   "aparencia": "Chacal magro e alto, pelo ruivo queimado, dentes à mostra.",
+   "espelho_de": "cao_de_vala",
+   "drops_missao": [
+    {
+     "item": "valvula_da_escuta",
+     "chance": 0.4,
+     "missao": "jd02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Matilhas do leito seco do Cedrom, no Vale de Josafá, onde as nações serão julgadas."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "levantado_das_oliveiras",
+   "nome": "Levantado das Oliveiras",
+   "tipo": "normal",
+   "locais": [
+    "necropole_oliveiras",
+    "encosta_cedros",
+    "cume_hermon"
+   ],
+   "descricao": "Os mortos do Monte das Oliveiras, os primeiros a levantar no Juízo, como a tradição prometia. Esperam na fila ser chamados.",
+   "aparencia": "Mortos antigos de mortalha de linho cinzento, de pé em fila, olhando a Porta Dourada.",
+   "espelho_de": "nao_julgado",
+   "drops_missao": [
+    {
+     "item": "raiz_de_hissopo",
+     "chance": 0.3,
+     "missao": "js01"
+    },
+    {
+     "item": "pagina_do_decreto",
+     "chance": 0.3,
+     "missao": "jd03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Os mortos do Monte das Oliveiras, os primeiros a levantar no Juízo, como a tradição prometia."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "porco_de_gadara",
+   "nome": "Porco de Gadara",
+   "tipo": "normal",
+   "locais": [
+    "pocilgas_gadara"
+   ],
+   "descricao": "A vara onde a Legião guarda os espíritos que sobram, como em Gadara. Ninguém lembra de mandar a vara para o mar.",
+   "aparencia": "Porco grande de couro avermelhado, olhos humanos, fala sozinho baixinho.",
+   "espelho_de": "porco_pestilento",
+   "drops_missao": [
+    {
+     "item": "cinza_de_tofete",
+     "chance": 0.55,
+     "missao": "jc01"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "A vara onde a Legião guarda os espíritos que sobram, como em Gadara."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "sineiro_infiltrado",
+   "nome": "Sineiro Infiltrado",
+   "tipo": "normal",
+   "locais": [
+    "encosta_cedros"
+   ],
+   "descricao": "Sineiros da Vigília escondidos nos cedros: tocam sinos rachados para abafar o Coro e carregam cartas cifradas.",
+   "aparencia": "Homem de capa azul suja, sino de bronze rachado no cinto, rosto coberto.",
+   "espelho_de": "sangrador_apostata",
+   "drops_missao": [
+    {
+     "item": "carta_do_sineiro",
+     "chance": 0.35,
+     "missao": "je03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Sineiros da Vigília escondidos nos cedros: tocam sinos rachados para abafar o Coro e carregam cartas cifradas."
+    }
+   ],
+   "nivel": [
+    5,
+    7
+   ]
+  },
+  {
+   "id": "sapador_herege",
+   "nome": "Sapador Herege",
+   "tipo": "normal",
+   "locais": [
+    "fontes_jordao",
+    "monte_oliveiras",
+    "encosta_cedros"
+   ],
+   "descricao": "Engenheiros Hereges da Vigília represando as Fontes do Jordão para mandar água ao deserto. Cavam também a Fenda das Oliveiras.",
+   "aparencia": "Engenheiro de macacão de lona, óculos de solda, picareta e lanterna de arco.",
+   "espelho_de": "desertor_legiao",
+   "drops_missao": [
+    {
+     "item": "insignia_da_cerca",
+     "chance": 0.5,
+     "missao": "je02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Engenheiros Hereges da Vigília represando as Fontes do Jordão para mandar água ao deserto."
+    }
+   ],
+   "nivel": [
+    6,
+    9
+   ]
+  },
+  {
+   "id": "vigilante_acorrentado",
+   "nome": "Vigilante Acorrentado",
+   "tipo": "normal",
+   "locais": [
+    "cume_hermon"
+   ],
+   "descricao": "Pedaços dos duzentos Vigilantes que desceram no Hermon. As correntes afrouxaram no Juízo; eles guardam as pegadas do juramento.",
+   "aparencia": "Figura alta e translúcida, asas de fumaça, correntes partidas nos pulsos.",
+   "espelho_de": "sombra_gravada",
+   "drops_missao": [
+    {
+     "item": "elo_partido",
+     "chance": 0.4,
+     "missao": "jd05"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Pedaços dos duzentos Vigilantes que desceram no Hermon."
+    }
+   ],
+   "nivel": [
+    9,
+    12
+   ]
+  },
+  {
+   "id": "fornalheiro_de_tofete",
+   "nome": "Fornalheiro de Tofete",
+   "tipo": "normal",
+   "locais": [
+    "vale_hinom"
+   ],
+   "descricao": "Demônios ocos que alimentam as fornalhas da Geena. Atacam quem entra no pátio de Tofete.",
+   "aparencia": "Demônio oco de couro rachado, brasa no peito aberto, pá de carvão.",
+   "espelho_de": "acougueiro_oco",
+   "drops_missao": [
+    {
+     "item": "elo_de_corrente",
+     "chance": 0.5,
+     "missao": "js03"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Demônios ocos que alimentam as fornalhas da Geena."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "capataz_de_tofete",
+   "nome": "Capataz de Tofete",
+   "tipo": "normal",
+   "locais": [
+    "vale_hinom"
+   ],
+   "descricao": "Manda nas fornalhas desde que o general sumiu. Guarda a Chave de Pã no cinto.",
+   "aparencia": "Demônio grande de avental de ferro, corrente no ombro, chave de chifre no cinto.",
+   "espelho_de": "capataz_gancho",
+   "drops_missao": [
+    {
+     "item": "chave_de_pa",
+     "chance": 1.0,
+     "missao": "jc02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Manda nas fornalhas desde que o general sumiu."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "filho_do_hissopo",
+   "nome": "Filho do Hissopo",
+   "tipo": "normal",
+   "locais": [
+    "necropole_oliveiras"
+   ],
+   "descricao": "O hissopo bebeu um morto e levantou com ele. Responde por um nome.",
+   "aparencia": "Criatura de raízes e mortalha, flores de hissopo nos ombros, medalha no pescoço.",
+   "espelho_de": "filho_de_cardo",
+   "drops_missao": [
+    {
+     "item": "medalha_de_joas",
+     "chance": 1.0,
+     "missao": "js02"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "O hissopo bebeu um morto e levantou com ele."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "kokabiel_contador",
+   "nome": "Kokabiel, o Contador de Estrelas",
+   "tipo": "elite",
+   "locais": [
+    "cume_hermon"
+   ],
+   "descricao": "O Vigilante que ensinou os homens a ler as estrelas. Conta as noites que faltam para o fim terminar.",
+   "aparencia": "Anjo alto de manto de estrelas apagadas, astrolábio de latão no peito.",
+   "espelho_de": "ultimo_operador",
+   "drops_missao": [
+    {
+     "item": "astrolabio_de_kokabiel",
+     "chance": 1.0,
+     "missao": "jd06"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "O Vigilante que ensinou os homens a ler as estrelas."
+    }
+   ],
+   "nivel": [
+    12,
+    12
+   ]
+  },
+  {
+   "id": "verme_do_fosso",
+   "nome": "Verme do Fosso",
+   "tipo": "normal",
+   "locais": [
+    "minas_dos_gigantes"
+   ],
+   "descricao": "Comem o que os gigantes deixam nas minas.",
+   "aparencia": "Verme branco do tamanho de um cão.",
+   "espelho_de": "larva_de_carne",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Comem o que os gigantes deixam nas minas."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "escravo_dos_gigantes",
+   "nome": "Escravo dos Gigantes",
+   "tipo": "normal",
+   "locais": [
+    "minas_dos_gigantes"
+   ],
+   "descricao": "Os homens que os Nefilins puseram para cavar. Morreram de pé e continuam cavando.",
+   "aparencia": "Morto de tanga e corrente, gancho de minério na mão.",
+   "espelho_de": "gancheiro",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Os homens que os Nefilins puseram para cavar."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "nefilim_mirrado",
+   "nome": "Nefilim Mirrado",
+   "tipo": "normal",
+   "locais": [
+    "minas_dos_gigantes"
+   ],
+   "descricao": "Filhos pequenos dos Vigilantes, grandes demais para gente e pequenos demais para o dilúvio levar.",
+   "aparencia": "Gigante de três metros, curvado, cabeça grande demais.",
+   "espelho_de": null,
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Filhos pequenos dos Vigilantes, grandes demais para gente e pequenos demais para o dilúvio levar."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "soldado_de_pedra",
+   "nome": "Soldado de Pedra",
+   "tipo": "normal",
+   "locais": [
+    "minas_dos_gigantes"
+   ],
+   "descricao": "Mortos que viraram pedra antes que os gigantes os comessem.",
+   "aparencia": "Soldado de armadura antiga, pele de pedra rachada.",
+   "espelho_de": "soldado_caido",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Mortos que viraram pedra antes que os gigantes os comessem."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "noiva_afogada",
+   "nome": "Noiva Afogada",
+   "tipo": "normal",
+   "locais": [
+    "salao_das_noivas"
+   ],
+   "descricao": "As filhas dos homens que casaram com os Vigilantes; choram os filhos que o dilúvio levou.",
+   "aparencia": "Mulher de véu encharcado, pele azulada, voz de água.",
+   "espelho_de": "carpideira_de_ossos",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "As filhas dos homens que casaram com os Vigilantes; choram os filhos que o dilúvio levou."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "brasa_de_azazel",
+   "nome": "Brasa de Azazel",
+   "tipo": "normal",
+   "locais": [
+    "salao_das_noivas"
+   ],
+   "descricao": "O fogo que Azazel ensinou aos homens; ainda procura uma forja.",
+   "aparencia": "Chama viva do tamanho de uma criança, com cara.",
+   "espelho_de": "fogo_de_vela",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "O fogo que Azazel ensinou aos homens; ainda procura uma forja."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "escriba_emparedado",
+   "nome": "Escriba Emparedado",
+   "tipo": "normal",
+   "locais": [
+    "salao_das_noivas"
+   ],
+   "descricao": "Copiavam os ensinamentos proibidos dos Vigilantes e foram emparedados com eles.",
+   "aparencia": "Homem magro meio saído da parede, pena na mão, olhos costurados.",
+   "espelho_de": "monge_emparedado",
+   "drops_missao": [
+    {
+     "item": "ultima_linha",
+     "chance": 0.2,
+     "missao": "jf04"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Copiavam os ensinamentos proibidos dos Vigilantes e foram emparedados com eles."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "eco_do_juramento",
+   "nome": "Eco do Juramento",
+   "tipo": "normal",
+   "locais": [
+    "altar_do_juramento"
+   ],
+   "descricao": "A voz dos duzentos jurando, que ainda anda pelo salão.",
+   "aparencia": "Boca de luz pálida flutuando, repetindo palavras.",
+   "espelho_de": "eco_da_trombeta",
+   "drops_missao": [
+    {
+     "item": "nome_verdadeiro",
+     "chance": 0.25,
+     "missao": "jf06"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "A voz dos duzentos jurando, que ainda anda pelo salão."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "vigilante_desfeito",
+   "nome": "Vigilante Desfeito",
+   "tipo": "normal",
+   "locais": [
+    "altar_do_juramento"
+   ],
+   "descricao": "O que sobrou dos Vigilantes que o Juízo soltou pela metade.",
+   "aparencia": "Anjo de asas quebradas, corpo de fumaça e corrente.",
+   "espelho_de": "querubim_desfeito",
+   "drops_missao": [],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "O que sobrou dos Vigilantes que o Juízo soltou pela metade."
+    }
+   ],
+   "nivel": [
+    1,
+    1
+   ]
+  },
+  {
+   "id": "ohya_gigante",
+   "nome": "Ohya, o Gigante que Sonhou",
+   "tipo": "chefe",
+   "locais": [
+    "minas_dos_gigantes"
+   ],
+   "descricao": "Filho de Semyaza. Sonhou com o dilúvio antes de todos e se escondeu no fundo do Hermon.",
+   "aparencia": "Gigante de cinco metros, manto de peles costuradas, clava de tronco de cedro.",
+   "espelho_de": "general_partido",
+   "drops_missao": [
+    {
+     "item": "selo_do_sonho",
+     "chance": 1.0,
+     "missao": "jc04"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "Filho de Semyaza."
+    }
+   ],
+   "nivel": [
+    8,
+    8
+   ]
+  },
+  {
+   "id": "naama_noiva",
+   "nome": "Naamá, a Noiva dos Vigilantes",
+   "tipo": "chefe",
+   "locais": [
+    "salao_das_noivas"
+   ],
+   "descricao": "A Noiva dos Vigilantes, que chora os filhos gigantes afogados.",
+   "aparencia": "Mulher altíssima de véu de sal, flutuando, lágrimas que caem como chuva.",
+   "espelho_de": "irma_celeste",
+   "drops_missao": [
+    {
+     "item": "selo_das_aguas",
+     "chance": 1.0,
+     "missao": "jc05"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "A Noiva dos Vigilantes, que chora os filhos gigantes afogados."
+    }
+   ],
+   "nivel": [
+    10,
+    10
+   ]
+  },
+  {
+   "id": "semyaza_juramento",
+   "nome": "Semyaza, o Primeiro Juramento",
+   "tipo": "chefe",
+   "locais": [
+    "altar_do_juramento"
+   ],
+   "descricao": "O chefe dos duzentos que desceram no Hermon. Jura de novo: que o fim fique onde está.",
+   "aparencia": "Anjo imenso acorrentado ao Altar, asas negras de fuligem, Tábua de pedra no peito.",
+   "espelho_de": "zacarias_arauto",
+   "drops_missao": [
+    {
+     "item": "tabua_do_juramento",
+     "chance": 1.0,
+     "missao": "jc06"
+    }
+   ],
+   "registros": [
+    {
+     "fonte": "caderno_escriba",
+     "titulo": "Folha solta",
+     "texto": "O chefe dos duzentos que desceram no Hermon."
+    }
+   ],
+   "nivel": [
+    12,
+    12
+   ]
+  }
+ ]
+}

@@ -198,6 +198,138 @@
         "noite": "a areia brilha verde fraco; Não-Julgados brilham mais forte",
         "tempestade_de_amargo": "evento: poeira verde que reduz a visão e causa dano leve fora de abrigo ou da luz da Vela"
       }
+    },
+    {
+      "id": "jerusalem_hermon",
+      "nome": "Jerusalém e Monte Hermon",
+      "tipo": "area_inicial",
+      "faccao": "arautos",
+      "nivel": [
+        1,
+        12
+      ],
+      "descricao": "A cidade santa onde o Juízo começou, aberta pela Porta Dourada no primeiro toque, e as encostas do Hermon, onde os duzentos Vigilantes juraram antes do dilúvio. Pedra branca suja de cinza, oliveiras mortas, a Geena ardendo no vale e neve de cinza no cume.",
+      "musica_sugerida": "coro distante de vozes graves, sinos de bronze abafados, vento de montanha, estalo de brasa",
+      "subzonas": [
+        {
+          "id": "jerusalem",
+          "nome": "Jerusalém, a Cidade Santa",
+          "tipo": "base",
+          "faccao": "arautos",
+          "seguro": true,
+          "nivel": null
+        },
+        {
+          "id": "cidade_de_davi",
+          "nome": "Cidade de Davi",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "monte_oliveiras",
+          "nome": "Monte das Oliveiras",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            1,
+            3
+          ]
+        },
+        {
+          "id": "vale_josafa",
+          "nome": "Vale de Josafá",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            2,
+            4
+          ]
+        },
+        {
+          "id": "bosque_hissopo",
+          "nome": "Bosque do Hissopo",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            2,
+            4
+          ]
+        },
+        {
+          "id": "necropole_oliveiras",
+          "nome": "Necrópole das Oliveiras",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            3,
+            5
+          ]
+        },
+        {
+          "id": "encosta_cedros",
+          "nome": "Encosta dos Cedros",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            4,
+            5
+          ]
+        },
+        {
+          "id": "vale_hinom",
+          "nome": "Vale do Hinom (Geena)",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            4,
+            7
+          ]
+        },
+        {
+          "id": "pocilgas_gadara",
+          "nome": "Pocilgas de Gadara",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            4,
+            6
+          ]
+        },
+        {
+          "id": "fontes_jordao",
+          "nome": "Fontes do Jordão",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            6,
+            8
+          ]
+        },
+        {
+          "id": "cume_hermon",
+          "nome": "Cume do Hermon",
+          "tipo": "campo",
+          "faccao": null,
+          "seguro": false,
+          "nivel": [
+            9,
+            12
+          ]
+        }
+      ]
     }
   ],
   "dungeons": [
@@ -267,6 +399,46 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fosso_dos_vigilantes",
+      "nome": "Fosso dos Vigilantes",
+      "faccao": "arautos",
+      "nivel": [
+        6,
+        12
+      ],
+      "entrada": "fontes_jordao",
+      "descricao": "Debaixo do Hermon, atrás dos Portões do Hades na gruta de Pã: as minas dos gigantes, o salão das noivas e o altar onde Semyaza jura de novo que o fim nunca termine.",
+      "andares": [
+        {
+          "id": "minas_dos_gigantes",
+          "nome": "Minas dos Gigantes",
+          "nivel": [
+            6,
+            8
+          ],
+          "chefe": "ohya_gigante"
+        },
+        {
+          "id": "salao_das_noivas",
+          "nome": "Salão das Noivas",
+          "nivel": [
+            8,
+            10
+          ],
+          "chefe": "naama_noiva"
+        },
+        {
+          "id": "altar_do_juramento",
+          "nome": "Altar do Juramento",
+          "nivel": [
+            10,
+            12
+          ],
+          "chefe": "semyaza_juramento"
+        }
+      ]
     }
   ],
   "spots": {
@@ -328,6 +500,146 @@
           "d05"
         ],
         "motivo": "As sombras do muro da vila militar; d05 precisa delas (dropam fragmento_clarao). Escotilha do silo (escotilha_silo, d06, invoca o elite ultimo_operador) fica nesse muro."
+      },
+      {
+        "id": "escadas_de_siloe",
+        "nome": "Escadas de Siloé",
+        "nivel": [
+          3,
+          5
+        ],
+        "subzona": "cidade_de_davi",
+        "monstros": [
+          "abutre_do_hermon",
+          "chacal_de_josafa"
+        ],
+        "espelho_de": "telhados_dos_corvos"
+      },
+      {
+        "id": "getsemani",
+        "nome": "Oliveiras do Getsêmani",
+        "nivel": [
+          1,
+          3
+        ],
+        "subzona": "monte_oliveiras",
+        "monstros": [
+          "abutre_do_hermon",
+          "peregrino_ressecado",
+          "sapador_herege"
+        ],
+        "espelho_de": "covas_rasas"
+      },
+      {
+        "id": "fenda_das_oliveiras",
+        "nome": "A Fenda das Oliveiras",
+        "nivel": [
+          7,
+          9
+        ],
+        "subzona": "monte_oliveiras",
+        "monstros": [
+          "peregrino_ressecado",
+          "sapador_herege"
+        ],
+        "espelho_de": "marco_do_corte"
+      },
+      {
+        "id": "covil_dos_chacais",
+        "nome": "Covil dos Chacais",
+        "nivel": [
+          3,
+          5
+        ],
+        "subzona": "vale_josafa",
+        "monstros": [
+          "chacal_de_josafa",
+          "peregrino_ressecado"
+        ],
+        "espelho_de": "fosso_dos_caes"
+      },
+      {
+        "id": "primeiros_a_levantar",
+        "nome": "Os Primeiros a Levantar",
+        "nivel": [
+          4,
+          6
+        ],
+        "subzona": "necropole_oliveiras",
+        "monstros": [
+          "levantado_das_oliveiras"
+        ],
+        "espelho_de": "procissao_parada"
+      },
+      {
+        "id": "cedros_partidos",
+        "nome": "Cedros Partidos",
+        "nivel": [
+          5,
+          7
+        ],
+        "subzona": "encosta_cedros",
+        "monstros": [
+          "levantado_das_oliveiras",
+          "sapador_herege",
+          "sineiro_infiltrado"
+        ],
+        "espelho_de": "margem_das_viuvas"
+      },
+      {
+        "id": "fornalhas_de_tofete",
+        "nome": "Fornalhas de Tofete",
+        "nivel": [
+          7,
+          9
+        ],
+        "subzona": "vale_hinom",
+        "monstros": [
+          "capataz_de_tofete",
+          "fornalheiro_de_tofete"
+        ],
+        "espelho_de": "patio_do_abatedouro"
+      },
+      {
+        "id": "pocilga_de_gadara",
+        "nome": "Pocilga de Gadara",
+        "nivel": [
+          4,
+          6
+        ],
+        "subzona": "pocilgas_gadara",
+        "monstros": [
+          "porco_de_gadara"
+        ],
+        "espelho_de": "chiqueiro_do_carnica"
+      },
+      {
+        "id": "acampamento_sapadores",
+        "nome": "Canteiro dos Sapadores",
+        "nivel": [
+          6,
+          9
+        ],
+        "subzona": "fontes_jordao",
+        "monstros": [
+          "chacal_de_josafa",
+          "sapador_herege"
+        ],
+        "espelho_de": "acampamento_desertores"
+      },
+      {
+        "id": "neve_de_cinza",
+        "nome": "Neve de Cinza",
+        "nivel": [
+          9,
+          12
+        ],
+        "subzona": "cume_hermon",
+        "monstros": [
+          "levantado_das_oliveiras",
+          "vigilante_acorrentado"
+        ],
+        "espelho_de": "beira_da_tempestade"
       }
     ]
   }
