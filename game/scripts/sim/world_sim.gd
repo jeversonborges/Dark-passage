@@ -1033,7 +1033,7 @@ func matar(e: Ent, assassino: Ent) -> void:
 		if killer != null and killer.tipo == "jogador":
 			# em grupo: quem ajudou (bateu, curou no meio da briga, está na arena do chefe) também ganha XP, missão e o próprio saque
 			for j: Ent in participantes(e, killer):
-				Jogador.abateu(self, j, e)
+				if not j.aux.get("agrak_espectador", false): Jogador.abateu(self, j, e)   # Agrak: quem já caiu só assiste, sem XP
 				Loot.dropar_mob(self, e, j)
 		if e.spawn_ref >= 0 and e.spawn_ref < spawns.size():
 			var g: Dictionary = spawns[e.spawn_ref]

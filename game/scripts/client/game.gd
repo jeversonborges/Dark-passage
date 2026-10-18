@@ -780,8 +780,9 @@ func _ev(tipo: String, d: Dictionary) -> void:
 				trocando = true
 				call_deferred("_trocar_mapa", d["mapa"], d.get("pos", Vector2(-1, -1)))
 		"jogador_morreu":
-			audio.evento("jogador_morre")
-			hud.morte(d)
+			if int(d.get("_para", jog.id)) == jog.id:   # só a morte do próprio jogador (em local o evento chega a todos)
+				audio.evento("jogador_morre")
+				hud.morte(d)
 		"reviveu":
 			var vr = views.get(int(d["id"]))
 			var er: Ent = sim.ents.get(int(d["id"]))
