@@ -1,3002 +1,3098 @@
 {
- "espada_vigilia_rachada": [
-  0,
-  0,
-  40,
-  40
- ],
- "escudo_porta_capela": [
-  40,
-  0,
-  40,
-  40
- ],
- "lanca_procissao": [
-  80,
-  0,
-  40,
-  40
- ],
- "espada_sineiro": [
-  120,
-  0,
-  40,
-  40
- ],
- "adaga_ritual_cega": [
-  160,
-  0,
-  40,
-  40
- ],
- "cajado_vertebras": [
-  200,
-  0,
-  40,
-  40
- ],
- "grimorio_acorrentado": [
-  240,
-  0,
-  40,
-  40
- ],
- "adaga_ossuario": [
-  280,
-  0,
-  40,
-  40
- ],
- "machado_placa_transito": [
-  320,
-  0,
-  40,
-  40
- ],
- "punhos_sucata": [
-  360,
-  0,
-  40,
-  40
- ],
- "cutelo_matadouro": [
-  400,
-  0,
-  40,
-  40
- ],
- "garras_ossario": [
-  440,
-  0,
-  40,
-  40
- ],
- "foice_serrilhada": [
-  480,
-  0,
-  40,
-  40
- ],
- "espada_serrilhada": [
-  520,
-  0,
-  40,
-  40
- ],
- "corrente_gancho": [
-  560,
-  0,
-  40,
-  40
- ],
- "foice_sepultura": [
-  600,
-  0,
-  40,
-  40
- ],
- "besta_sucata": [
-  0,
-  40,
-  40,
-  40
- ],
- "espada_larga_sucata": [
-  40,
-  40,
-  40,
-  40
- ],
- "escopeta_cano_serrado": [
-  80,
-  40,
-  40,
-  40
- ],
- "espada_larga_carrasco": [
-  120,
-  40,
-  40,
-  40
- ],
- "montante_vigilia": [
-  160,
-  40,
-  40,
-  40
- ],
- "escopeta_cano_duplo": [
-  200,
-  40,
-  40,
-  40
- ],
- "mosquete_pederneira": [
-  240,
-  40,
-  40,
-  40
- ],
- "besta_repeticao": [
-  280,
-  40,
-  40,
-  40
- ],
- "cajado_antena_torto": [
-  320,
-  40,
-  40,
-  40
- ],
- "luva_voltaica": [
-  360,
-  40,
-  40,
-  40
- ],
- "pistola_raios": [
-  400,
-  40,
-  40,
-  40
- ],
- "cajado_valvulas": [
-  440,
-  40,
-  40,
-  40
- ],
- "batina_remendada_cabeca": [
-  480,
-  40,
-  40,
-  40
- ],
- "batina_remendada_peito": [
-  520,
-  40,
-  40,
-  40
- ],
- "batina_remendada_luvas": [
-  560,
-  40,
-  40,
-  40
- ],
- "batina_remendada_calcas": [
-  600,
-  40,
-  40,
-  40
- ],
- "batina_remendada_botas": [
-  0,
-  80,
-  40,
-  40
- ],
- "couro_sobrevivente_cabeca": [
-  40,
-  80,
-  40,
-  40
- ],
- "couro_sobrevivente_peito": [
-  80,
-  80,
-  40,
-  40
- ],
- "couro_sobrevivente_luvas": [
-  120,
-  80,
-  40,
-  40
- ],
- "couro_sobrevivente_calcas": [
-  160,
-  80,
-  40,
-  40
- ],
- "couro_sobrevivente_botas": [
-  200,
-  80,
-  40,
-  40
- ],
- "placas_sino_cabeca": [
-  240,
-  80,
-  40,
-  40
- ],
- "placas_sino_peito": [
-  280,
-  80,
-  40,
-  40
- ],
- "placas_sino_luvas": [
-  320,
-  80,
-  40,
-  40
- ],
- "placas_sino_calcas": [
-  360,
-  80,
-  40,
-  40
- ],
- "placas_sino_botas": [
-  400,
-  80,
-  40,
-  40
- ],
- "coro_mudo_cabeca": [
-  440,
-  80,
-  40,
-  40
- ],
- "coro_mudo_peito": [
-  480,
-  80,
-  40,
-  40
- ],
- "coro_mudo_luvas": [
-  520,
-  80,
-  40,
-  40
- ],
- "coro_mudo_calcas": [
-  560,
-  80,
-  40,
-  40
- ],
- "coro_mudo_botas": [
-  600,
-  80,
-  40,
-  40
- ],
- "couraca_acougueiro_oco_cabeca": [
-  0,
-  120,
-  40,
-  40
- ],
- "couraca_acougueiro_oco_peito": [
-  40,
-  120,
-  40,
-  40
- ],
- "couraca_acougueiro_oco_luvas": [
-  80,
-  120,
-  40,
-  40
- ],
- "couraca_acougueiro_oco_calcas": [
-  120,
-  120,
-  40,
-  40
- ],
- "couraca_acougueiro_oco_botas": [
-  160,
-  120,
-  40,
-  40
- ],
- "juramento_quebrado_cabeca": [
-  200,
-  120,
-  40,
-  40
- ],
- "juramento_quebrado_peito": [
-  240,
-  120,
-  40,
-  40
- ],
- "juramento_quebrado_luvas": [
-  280,
-  120,
-  40,
-  40
- ],
- "juramento_quebrado_calcas": [
-  320,
-  120,
-  40,
-  40
- ],
- "juramento_quebrado_botas": [
-  360,
-  120,
-  40,
-  40
- ],
- "anel_prego_caixao": [
-  400,
-  120,
-  40,
-  40
- ],
- "colar_dentes": [
-  440,
-  120,
-  40,
-  40
- ],
- "anel_ferro_cripta": [
-  480,
-  120,
-  40,
-  40
- ],
- "rosario_ossos": [
-  520,
-  120,
-  40,
-  40
- ],
- "pocao_vida_p": [
-  560,
-  120,
-  40,
-  40
- ],
- "pocao_vida_m": [
-  600,
-  120,
-  40,
-  40
- ],
- "pocao_recurso_p": [
-  0,
-  160,
-  40,
-  40
- ],
- "pocao_recurso_m": [
-  40,
-  160,
-  40,
-  40
- ],
- "agua_benta": [
-  80,
-  160,
-  40,
-  40
- ],
- "antidoto_querosene": [
-  120,
-  160,
-  40,
-  40
- ],
- "vela_retorno": [
-  160,
-  160,
-  40,
-  40
- ],
- "gazua": [
-  200,
-  160,
-  40,
-  40
- ],
- "balas_chumbo": [
-  240,
-  160,
-  40,
-  40
- ],
- "virotes_prata": [
-  280,
-  160,
-  40,
-  40
- ],
- "cartuchos_sal": [
-  320,
-  160,
-  40,
-  40
- ],
- "osso": [
-  360,
-  160,
-  40,
-  40
- ],
- "couro_podre": [
-  400,
-  160,
-  40,
-  40
- ],
- "sucata": [
-  440,
-  160,
-  40,
-  40
- ],
- "cinza_de_alma": [
-  480,
-  160,
-  40,
-  40
- ],
- "carne_estragada": [
-  520,
-  160,
-  40,
-  40
- ],
- "pedra_benta": [
-  560,
-  160,
-  40,
-  40
- ],
- "cera_de_vela": [
-  600,
-  160,
-  40,
-  40
- ],
- "pena_suja": [
-  0,
-  200,
-  40,
-  40
- ],
- "lagrima_anjo": [
-  40,
-  200,
-  40,
-  40
- ],
- "fragmento_alma": [
-  80,
-  200,
-  40,
-  40
- ],
- "coagulo_caos": [
-  120,
-  200,
-  40,
-  40
- ],
- "engrenagem_viva": [
-  160,
-  200,
-  40,
-  40
- ],
- "chave_bau_ferro": [
-  200,
-  200,
-  40,
-  40
- ],
- "caixote_podre": [
-  240,
-  200,
-  40,
-  40
- ],
- "bau_de_ferro": [
-  280,
-  200,
-  40,
-  40
- ],
- "bau_faminto": [
-  320,
-  200,
-  40,
-  40
- ],
- "relicario_da_trombeta": [
-  360,
-  200,
-  40,
-  40
- ],
- "bobina_cobre": [
-  400,
-  200,
-  40,
-  40
- ],
- "pena_querubim": [
-  440,
-  200,
-  40,
-  40
- ],
- "dente_vala": [
-  480,
-  200,
-  40,
-  40
- ],
- "raiz_cova": [
-  520,
-  200,
-  40,
-  40
- ],
- "caldo_cardo": [
-  560,
-  200,
-  40,
-  40
- ],
- "medalhinha_cardo": [
-  600,
-  200,
-  40,
-  40
- ],
- "sebo_rancoso": [
-  0,
-  240,
-  40,
-  40
- ],
- "ferro_velho": [
-  40,
-  240,
-  40,
-  40
- ],
- "badalo_rachado": [
-  80,
-  240,
-  40,
-  40
- ],
- "livro_obitos": [
-  120,
-  240,
-  40,
-  40
- ],
- "chave_gancho": [
-  160,
-  240,
-  40,
-  40
- ],
- "lacre_carne": [
-  200,
-  240,
-  40,
-  40
- ],
- "lacre_lagrimas": [
-  240,
-  240,
-  40,
-  40
- ],
- "bocal_trombeta": [
-  280,
-  240,
-  40,
-  40
- ],
- "carta_lucio": [
-  320,
-  240,
-  40,
-  40
- ],
- "mapa_rasgado": [
-  360,
-  240,
-  40,
-  40
- ],
- "relicario_vazio": [
-  400,
-  240,
-  40,
-  40
- ],
- "pa_simao": [
-  440,
-  240,
-  40,
-  40
- ],
- "caixinha_musica": [
-  480,
-  240,
-  40,
-  40
- ],
- "pao_duro": [
-  520,
-  240,
-  40,
-  40
- ],
- "agua_doce": [
-  560,
-  240,
-  40,
-  40
- ],
- "tonico_graxa": [
-  600,
-  240,
-  40,
-  40
- ],
- "hostia_negra": [
-  0,
-  280,
-  40,
-  40
- ],
- "vela_simao": [
-  40,
-  280,
-  40,
-  40
- ],
- "agua_benta_polvora": [
-  80,
-  280,
-  40,
-  40
- ],
- "caldo_cardo_comum": [
-  120,
-  280,
-  40,
-  40
- ],
- "figo_anacleto": [
-  160,
-  280,
-  40,
-  40
- ],
- "leitura_obitos": [
-  200,
-  280,
-  40,
-  40
- ],
- "leitura_carta_lucio": [
-  240,
-  280,
-  40,
-  40
- ],
- "leitura_mapa_tobias": [
-  280,
-  280,
-  40,
-  40
- ],
- "leitura_anselmo": [
-  320,
-  280,
-  40,
-  40
- ],
- "leitura_tabela_carnica": [
-  360,
-  280,
-  40,
-  40
- ],
- "leitura_hino_carpideiras": [
-  400,
-  280,
-  40,
-  40
- ],
- "leitura_confissao_anacleto": [
-  440,
-  280,
-  40,
-  40
- ],
- "leitura_ordem_zacarias": [
-  480,
-  280,
-  40,
-  40
- ],
- "faixa_vigilia": [
-  520,
-  280,
-  40,
-  40
- ],
- "fita_juizo": [
-  560,
-  280,
-  40,
-  40
- ],
- "escopeta_badalada": [
-  600,
-  280,
-  40,
-  40
- ],
- "machado_bonde": [
-  0,
-  320,
-  40,
-  40
- ],
- "cajado_lampiao": [
-  40,
-  320,
-  40,
-  40
- ],
- "espada_escudeiro": [
-  80,
-  320,
-  40,
-  40
- ],
- "foice_penhor": [
-  120,
-  320,
-  40,
-  40
- ],
- "adaga_chaga": [
-  160,
-  320,
-  40,
-  40
- ],
- "badalo_de_guerra": [
-  200,
-  320,
-  40,
-  40
- ],
- "lenco_cardo": [
-  240,
-  320,
-  40,
-  40
- ],
- "terco_lucio": [
-  280,
-  320,
-  40,
-  40
- ],
- "selo_madre": [
-  320,
-  320,
-  40,
-  40
- ],
- "dragonas_general": [
-  360,
-  320,
-  40,
-  40
- ],
- "veu_carpideira": [
-  400,
-  320,
-  40,
-  40
- ],
- "estilhaco_lacre": [
-  440,
-  320,
-  40,
-  40
- ],
- "diapasao_reverso": [
-  480,
-  320,
-  40,
-  40
- ],
- "pena_zacarias": [
-  520,
-  320,
-  40,
-  40
- ],
- "etiqueta_branca": [
-  560,
-  320,
-  40,
-  40
- ],
- "gancho_capataz": [
-  600,
-  320,
-  40,
-  40
- ],
- "estandarte_legiao": [
-  0,
-  360,
-  40,
-  40
- ],
- "bacula_femur": [
-  40,
-  360,
-  40,
-  40
- ],
- "halo_incandescente": [
-  80,
-  360,
-  40,
-  40
- ],
- "valvula_radio": [
-  120,
-  360,
-  40,
-  40
- ],
- "pagina_ordem": [
-  160,
-  360,
-  40,
-  40
- ],
- "amostra_amarga": [
-  200,
-  360,
-  40,
-  40
- ],
- "fragmento_clarao": [
-  240,
-  360,
-  40,
-  40
- ],
- "chave_lancamento": [
-  280,
-  360,
-  40,
-  40
- ],
- "insignia_arrancada": [
-  320,
-  360,
-  40,
-  40
- ],
- "carta_apostata": [
-  360,
-  360,
-  40,
-  40
- ],
- "meia_dragona": [
-  400,
-  360,
-  40,
-  40
- ],
- "leitura_ordem_lancamento": [
-  440,
-  360,
-  40,
-  40
- ],
- "leitura_carta_apostata": [
-  480,
-  360,
-  40,
-  40
- ],
- "contador_isaura": [
-  520,
-  360,
-  40,
-  40
- ],
- "estilhaco_absinto": [
-  560,
-  360,
-  40,
-  40
- ],
- "chave_segunda_estrela": [
-  600,
-  360,
-  40,
-  40
- ],
- "divisa_legiao": [
-  0,
-  400,
-  40,
-  40
- ],
- "placa_coveiro": [
-  40,
-  400,
-  40,
-  40
- ],
- "folha_tombo": [
-  80,
-  400,
-  40,
-  40
- ],
- "ultimo_tijolo": [
-  120,
-  400,
-  40,
-  40
- ],
- "leitura_livro_tombo": [
-  160,
-  400,
-  40,
-  40
- ],
- "faixas_betania": [
-  200,
-  400,
-  40,
-  40
- ],
- "eco_do_nome": [
-  240,
-  400,
-  40,
-  40
- ],
- "elmo_rafael": [
-  280,
-  400,
-  40,
-  40
- ],
- "botas_da_setima_hora": [
-  320,
-  400,
-  40,
-  40
- ],
- "braceletes_de_sobek": [
-  360,
-  400,
-  40,
-  40
- ],
- "braceletes_do_ureu": [
-  400,
-  400,
-  40,
-  40
- ],
- "coroa_de_sobek": [
-  440,
-  400,
-  40,
-  40
- ],
- "peitoral_de_sobek": [
-  480,
-  400,
-  40,
-  40
- ],
- "diadema_do_enigma": [
-  520,
-  400,
-  40,
-  40
- ],
- "nemes_do_farao": [
-  560,
-  400,
-  40,
-  40
- ],
- "escama_dourada_de_sobek": [
-  600,
-  400,
-  40,
-  40
- ],
- "escama_do_caos": [
-  0,
-  440,
-  40,
-  40
- ],
- "faixas_do_embalsamador": [
-  40,
-  440,
-  40,
-  40
- ],
- "garras_da_esfinge": [
-  80,
-  440,
-  40,
-  40
- ],
- "juba_da_leoa": [
-  120,
-  440,
-  40,
-  40
- ],
- "luvas_de_dalva": [
-  160,
-  440,
-  40,
-  40
- ],
- "luvas_da_imitacao": [
-  200,
-  440,
-  40,
-  40
- ],
- "manto_de_ohya": [
-  240,
-  440,
-  40,
-  40
- ],
- "manto_dos_magos_de_farao": [
-  280,
-  440,
-  40,
-  40
- ],
- "mascara_do_chacal": [
-  320,
-  440,
-  40,
-  40
- ],
- "pschent_do_farao": [
-  360,
-  440,
-  40,
-  40
- ],
- "peitoral_de_ouro": [
-  400,
-  440,
-  40,
-  40
- ],
- "couraca_de_quitina": [
-  440,
-  440,
-  40,
-  40
- ],
- "arco_de_qebehsenuef": [
-  480,
-  440,
-  40,
-  40
- ],
- "arpao_do_juncal": [
-  520,
-  440,
-  40,
-  40
- ],
- "bastao_que_virou_serpente": [
-  560,
-  440,
-  40,
-  40
- ],
- "malho_de_tubal": [
-  600,
-  440,
-  40,
-  40
- ],
- "martelo_de_tubal": [
-  0,
-  480,
-  40,
-  40
- ],
- "cajado_da_cheia": [
-  40,
-  480,
-  40,
-  40
- ],
- "cajado_das_dez_pragas": [
-  80,
-  480,
-  40,
-  40
- ],
- "cajado_estrelas_contadas": [
-  120,
-  480,
-  40,
-  40
- ],
- "balanca_de_barnabe": [
-  160,
-  480,
-  40,
-  40
- ],
- "cetro_was_do_pesador": [
-  200,
-  480,
-  40,
-  40
- ],
- "cetro_dos_quatro": [
-  240,
-  480,
-  40,
-  40
- ],
- "cetro_que_abre_a_garganta": [
-  280,
-  480,
-  40,
-  40
- ],
- "cimitarra_de_janes": [
-  320,
-  480,
-  40,
-  40
- ],
- "escopeta_juramento_quebrado": [
-  360,
-  480,
-  40,
-  40
- ],
- "espada_primeiro_juramento": [
-  400,
-  480,
-  40,
-  40
- ],
- "falx_de_azazel": [
-  440,
-  480,
-  40,
-  40
- ],
- "ferrao_de_bronze": [
-  480,
-  480,
-  40,
-  40
- ],
- "garra_de_ammit": [
-  520,
-  480,
-  40,
-  40
- ],
- "khopesh_de_ramesses": [
-  560,
-  480,
-  40,
-  40
- ],
- "lamina_da_pergunta": [
-  600,
-  480,
-  40,
-  40
- ],
- "astrolabio_do_coro": [
-  0,
-  520,
-  40,
-  40
- ],
- "pena_que_ficou": [
-  40,
-  520,
-  40,
-  40
- ],
- "anel_da_nomarca": [
-  80,
-  520,
-  40,
-  40
- ],
- "anel_de_jambres": [
-  120,
-  520,
-  40,
-  40
- ],
- "anel_raiz_arvore_mae": [
-  160,
-  520,
-  40,
-  40
- ],
- "anel_de_sinete_real": [
-  200,
-  520,
-  40,
-  40
- ],
- "anel_do_primogenito": [
-  240,
-  520,
-  40,
-  40
- ],
- "ankh_de_serket": [
-  280,
-  520,
-  40,
-  40
- ],
- "argola_do_deus_crocodilo": [
-  320,
-  520,
-  40,
-  40
- ],
- "astrolabio_de_kokabiel": [
-  360,
-  520,
-  40,
-  40
- ],
- "pagina_do_decreto": [
-  400,
-  520,
-  40,
-  40
- ],
- "mapa_de_bartimeu": [
-  440,
-  520,
-  40,
-  40
- ],
- "azeite_do_lagar": [
-  480,
-  520,
-  40,
-  40
- ],
- "vaso_de_imseti": [
-  520,
-  520,
-  40,
-  40
- ],
- "brasa_viva": [
-  560,
-  520,
-  40,
-  40
- ],
- "chave_de_pa": [
-  600,
-  520,
-  40,
-  40
- ],
- "carta_de_simao": [
-  0,
-  560,
-  40,
-  40
- ],
- "carta_do_sineiro": [
-  40,
-  560,
-  40,
-  40
- ],
- "selo_do_sonho": [
-  80,
-  560,
-  40,
-  40
- ],
- "cinta_de_latao": [
-  120,
-  560,
-  40,
-  40
- ],
- "glifo_da_resposta": [
-  160,
-  560,
-  40,
-  40
- ],
- "badalo_de_bronze": [
-  200,
-  560,
-  40,
-  40
- ],
- "olho_de_horus": [
-  240,
-  560,
-  40,
-  40
- ],
- "olho_que_apaga": [
-  280,
-  560,
-  40,
-  40
- ],
- "orelha_de_jael": [
-  320,
-  560,
-  40,
-  40
- ],
- "pena_de_maat_viva": [
-  360,
-  560,
-  40,
-  40
- ],
- "pena_de_ibis": [
-  400,
-  560,
-  40,
-  40
- ],
- "saquinho_sementes_salvas": [
-  440,
-  560,
-  40,
-  40
- ],
- "selo_das_aguas": [
-  480,
-  560,
-  40,
-  40
- ],
- "selo_dos_doze_patios": [
-  520,
-  560,
-  40,
-  40
- ],
- "binoculo_de_plantao": [
-  560,
-  560,
-  40,
-  40
- ],
- "cartucho_sem_nome": [
-  600,
-  560,
-  40,
-  40
- ],
- "colar_usekh": [
-  0,
-  600,
-  40,
-  40
- ],
- "colar_de_ouro_de_sobek": [
-  40,
-  600,
-  40,
-  40
- ],
- "disco_do_sol_terco": [
-  80,
-  600,
-  40,
-  40
- ],
- "insignia_da_cerca": [
-  120,
-  600,
-  40,
-  40
- ],
- "corrente_casa_de_maquinas": [
-  160,
-  600,
-  40,
-  40
- ],
- "escama_palida": [
-  200,
-  600,
-  40,
-  40
- ],
- "faixa_de_linho_rafael": [
-  240,
-  600,
-  40,
-  40
- ],
- "letra_raspada_oricalco": [
-  280,
-  600,
-  40,
-  40
- ],
- "cinza_de_tofete": [
-  320,
-  600,
-  40,
-  40
- ],
- "coracao_do_farao": [
-  360,
-  600,
-  40,
-  40
- ],
- "coroa_partida": [
-  400,
-  600,
-  40,
-  40
- ],
- "elo_partido": [
-  440,
-  600,
-  40,
-  40
- ],
- "elo_de_corrente": [
-  480,
-  600,
-  40,
-  40
- ],
- "elo_de_vigilante": [
-  520,
-  600,
-  40,
-  40
- ],
- "engrenagem_oricalco": [
-  560,
-  600,
-  40,
-  40
- ],
- "ferrao_de_serket": [
-  600,
-  600,
-  40,
-  40
- ],
- "ficha_sangue": [
-  0,
-  640,
-  40,
-  40
- ],
- "flauta_de_osso": [
-  40,
-  640,
-  40,
-  40
- ],
- "elmo_da_legiao_sem_general": [
-  80,
-  640,
-  40,
-  40
- ],
- "elmo_da_retirada": [
-  120,
-  640,
-  40,
-  40
- ],
- "capuz_de_granizo": [
-  160,
-  640,
-  40,
-  40
- ],
- "coroa_do_arauto_calado": [
-  200,
-  640,
-  40,
-  40
- ],
- "diadema_do_escriba": [
-  240,
-  640,
-  40,
-  40
- ],
- "escudo_de_duamutef": [
-  280,
-  640,
-  40,
-  40
- ],
- "cetro_heka": [
-  320,
-  640,
-  40,
-  40
- ],
- "prato_do_coracao": [
-  360,
-  640,
-  40,
-  40
- ],
- "leitura_carta_do_sineiro": [
-  400,
-  640,
-  40,
-  40
- ],
- "amuleto_de_cascalho_verde": [
-  440,
-  640,
-  40,
-  40
- ],
- "fragmento_de_vitral_vivo": [
-  480,
-  640,
-  40,
-  40
- ],
- "tabua_do_juramento": [
-  520,
-  640,
-  40,
-  40
- ],
- "medalha_de_joas": [
-  560,
-  640,
-  40,
-  40
- ],
- "livro_dos_vencidos": [
-  600,
-  640,
-  40,
-  40
- ],
- "livro_de_contas_de_tofete": [
-  0,
-  680,
-  40,
-  40
- ],
- "escudo_da_cruz_remida": [
-  40,
-  680,
-  40,
-  40
- ],
- "escudo_de_raizes_vivas": [
-  80,
-  680,
-  40,
-  40
- ],
- "frasco_de_bilis_dourado": [
-  120,
-  680,
-  40,
-  40
- ],
- "azeite_de_lavanda_bento": [
-  160,
-  680,
-  40,
-  40
- ],
- "serra_da_vala": [
-  200,
-  680,
-  40,
-  40
- ],
- "glandula_de_naja": [
-  240,
-  680,
-  40,
-  40
- ],
- "emblema_da_cerca": [
-  280,
-  680,
-  40,
-  40
- ],
- "estilhaco_da_estrela": [
-  320,
-  680,
-  40,
-  40
- ],
- "livro_branco": [
-  360,
-  680,
-  40,
-  40
- ],
- "leitura_confissao": [
-  400,
-  680,
-  40,
-  40
- ],
- "vaso_canopico_lacrado": [
-  440,
-  680,
-  40,
-  40
- ],
- "leitura_mapa_bartimeu": [
-  480,
-  680,
-  40,
-  40
- ],
- "selo_de_oricalco": [
-  520,
-  680,
-  40,
-  40
- ],
- "livro_de_thoth": [
-  560,
-  680,
-  40,
-  40
- ],
- "couraca_sem_divisa": [
-  600,
-  680,
-  40,
-  40
- ],
- "peitoral_do_sino_mudo": [
-  0,
-  720,
-  40,
-  40
- ],
- "tunica_do_amargo_bebido": [
-  40,
-  720,
-  40,
-  40
- ],
- "couraca_do_sino_derretido": [
-  80,
-  720,
-  40,
-  40
- ],
- "colete_da_agua_verde": [
-  120,
-  720,
-  40,
-  40
- ],
- "gibao_de_couro_de_bode": [
-  160,
-  720,
-  40,
-  40
- ],
- "couraca_da_cerca": [
-  200,
-  720,
-  40,
-  40
- ],
- "peitoral_de_amenti": [
-  240,
-  720,
-  40,
-  40
- ],
- "couraca_da_fronteira": [
-  280,
-  720,
-  40,
-  40
- ],
- "manto_de_folhas_soltas": [
-  320,
-  720,
-  40,
-  40
- ],
- "elmo_de_quem_saiu": [
-  360,
-  720,
-  40,
-  40
- ],
- "capuz_do_rio": [
-  400,
-  720,
-  40,
-  40
- ],
- "elmo_da_cerca": [
-  440,
-  720,
-  40,
-  40
- ],
- "veu_da_comunhao": [
-  480,
-  720,
-  40,
-  40
- ],
- "tampa_de_hapi": [
-  520,
-  720,
-  40,
-  40
- ],
- "relicario_da_trombeta_calada": [
-  560,
-  720,
-  40,
-  40
- ],
- "amuleto_de_linho_sagrado": [
-  600,
-  720,
-  40,
-  40
- ],
- "amuleto_da_cadeira_vazia": [
-  0,
-  760,
-  40,
-  40
- ],
- "pagina_solta": [
-  40,
-  760,
-  40,
-  40
- ],
- "anel_de_sinete_do_absinto": [
-  80,
-  760,
-  40,
-  40
- ],
- "amuleto_do_granizo_cego": [
-  120,
-  760,
-  40,
-  40
- ],
- "garras_da_legiao": [
-  160,
-  760,
-  40,
-  40
- ],
- "escudo_do_coro_dourado": [
-  200,
-  760,
-  40,
-  40
- ],
- "manto_da_trombeta": [
-  240,
-  760,
-  40,
-  40
- ],
- "agua_de_degelo": [
-  280,
-  760,
-  40,
-  40
- ],
- "casca_de_lava": [
-  320,
-  760,
-  40,
-  40
- ],
- "brinco_de_petsuchos": [
-  360,
-  760,
-  40,
-  40
- ],
- "leitura_decreto_sexta_hora": [
-  400,
-  760,
-  40,
-  40
- ],
- "convite_dos_vigilantes": [
-  440,
-  760,
-  40,
-  40
- ],
- "chave_de_carneiro": [
-  480,
-  760,
-  40,
-  40
- ],
- "saiote_de_sobek": [
-  520,
-  760,
-  40,
-  40
- ],
- "cinza_de_ossario": [
-  560,
-  760,
-  40,
-  40
- ],
- "orbe_coracao": [
-  600,
-  760,
-  40,
-  40
- ],
- "coroa_do_bocal": [
-  0,
-  800,
-  40,
-  40
- ],
- "gancho_partido": [
-  40,
-  800,
-  40,
-  40
- ],
- "lenco_do_absinto": [
-  80,
-  800,
-  40,
-  40
- ],
- "ampulheta_do_juizo_travado": [
-  120,
-  800,
-  40,
-  40
- ],
- "manoplas_da_cerca": [
-  160,
-  800,
-  40,
-  40
- ],
- "gibao_de_arquibancada": [
-  200,
-  800,
-  40,
-  40
- ],
- "amuleto_do_caminhante": [
-  240,
-  800,
-  40,
-  40
- ],
- "lanterna_do_cranio_verde": [
-  280,
-  800,
-  40,
-  40
- ],
- "cinto_de_caveira": [
-  320,
-  800,
-  40,
-  40
- ],
- "livro_do_olho_roxo": [
-  360,
-  800,
-  40,
-  40
- ],
- "botas_de_crampons_cegos": [
-  400,
-  800,
-  40,
-  40
- ],
- "coracao_de_vidro": [
-  440,
-  800,
-  40,
-  40
- ],
- "leitura_estela_herodoto": [
-  480,
-  800,
-  40,
-  40
- ],
- "sino_de_mao": [
-  520,
-  800,
-  40,
-  40
- ],
- "ampulheta_da_trombeta": [
-  560,
-  800,
-  40,
-  40
- ],
- "medalhao_do_sol_de_latao": [
-  600,
-  800,
-  40,
-  40
- ],
- "veu_de_luto": [
-  0,
-  840,
-  40,
-  40
- ],
- "anel_de_granizo_seco": [
-  40,
-  840,
-  40,
-  40
- ],
- "luvas_de_sangue_seco": [
-  80,
-  840,
-  40,
-  40
- ],
- "leitura_juramento_noivas": [
-  120,
-  840,
-  40,
-  40
- ],
- "asa_anjo_1": [
-  160,
-  840,
-  40,
-  40
- ],
- "anel_de_sinete_de_amenti": [
-  200,
-  840,
-  40,
-  40
- ],
- "botas_da_legiao": [
-  240,
-  840,
-  40,
-  40
- ],
- "tabuinha_de_argila": [
-  280,
-  840,
-  40,
-  40
- ],
- "pena_de_maat": [
-  320,
-  840,
-  40,
-  40
- ],
- "pena_de_ibis_atl": [
-  360,
-  840,
-  40,
-  40
- ],
- "pena_do_escriba": [
-  400,
-  840,
-  40,
-  40
- ],
- "pilar_djed_de_bronze": [
-  440,
-  840,
-  40,
-  40
- ],
- "pa_do_escriba": [
-  480,
-  840,
-  40,
-  40
- ],
- "leitura_juramento_duzentos": [
-  520,
-  840,
-  40,
-  40
- ],
- "paginas_arrancadas": [
-  560,
-  840,
-  40,
-  40
- ],
- "raiz_de_hissopo": [
-  600,
-  840,
-  40,
-  40
- ],
- "agua_do_nilo": [
-  0,
-  880,
-  40,
-  40
- ],
- "infusao_de_hissopo": [
-  40,
-  880,
-  40,
-  40
- ],
- "leitura_rolo_magos": [
-  80,
-  880,
-  40,
-  40
- ],
- "cacho_de_cristal_roxo": [
-  120,
-  880,
-  40,
-  40
- ],
- "veu_de_zilpa": [
-  160,
-  880,
-  40,
-  40
- ],
- "olho_do_juizo": [
-  200,
-  880,
-  40,
-  40
- ],
- "taca_de_cerveja_ocre": [
-  240,
-  880,
-  40,
-  40
- ],
- "leitura_contas_de_tofete": [
-  280,
-  880,
-  40,
-  40
- ],
- "estandarte_da_hoste": [
-  320,
-  880,
-  40,
-  40
- ],
- "asa_zacarias": [
-  360,
-  880,
-  40,
-  40
- ],
- "casca_de_escaravelho": [
-  400,
-  880,
-  40,
-  40
- ],
- "couro_do_nilo": [
-  440,
-  880,
-  40,
-  40
- ],
- "fragmento_do_duat": [
-  480,
-  880,
-  40,
-  40
- ],
- "linho_de_mumia": [
-  520,
-  880,
-  40,
-  40
- ],
- "ouro_de_sobek": [
-  560,
-  880,
-  40,
-  40
- ],
- "po_de_calcario": [
-  600,
-  880,
-  40,
-  40
- ],
- "astrolabio_do_deserto": [
-  0,
-  920,
-  40,
-  40
- ],
- "martelo_de_bobina": [
-  40,
-  920,
-  40,
-  40
- ],
- "corrente_da_arena": [
-  80,
-  920,
-  40,
-  40
- ],
- "rosario_do_coro": [
-  120,
-  920,
-  40,
-  40
- ],
- "engrenagem_gasta": [
-  160,
-  920,
-  40,
-  40
- ],
- "presas_do_massacre": [
-  200,
-  920,
-  40,
-  40
- ],
- "divisa_da_geena": [
-  240,
-  920,
-  40,
-  40
- ],
- "orgao_de_vapor": [
-  280,
-  920,
-  40,
-  40
- ],
- "leitura_livro_de_henoc": [
-  320,
-  920,
-  40,
-  40
- ],
- "fragmento_de_esmeralda": [
-  360,
-  920,
-  40,
-  40
- ],
- "asa_basica_anjo": [
-  400,
-  920,
-  40,
-  40
- ],
- "asa_basica_demonio": [
-  440,
-  920,
-  40,
-  40
- ],
- "asa_anjo_2": [
-  480,
-  920,
-  40,
-  40
- ],
- "asa_anjo_3": [
-  520,
-  920,
-  40,
-  40
- ],
- "asa_demonio_1": [
-  560,
-  920,
-  40,
-  40
- ],
- "asa_demonio_2": [
-  600,
-  920,
-  40,
-  40
- ],
- "asa_demonio_3": [
-  0,
-  960,
-  40,
-  40
- ],
- "asa_mecanica_1": [
-  40,
-  960,
-  40,
-  40
- ],
- "asa_mecanica_2": [
-  80,
-  960,
-  40,
-  40
- ],
- "asa_mecanica_3": [
-  120,
-  960,
-  40,
-  40
- ],
- "asa_andras": [
-  160,
-  960,
-  40,
-  40
- ],
- "asa_carpideira": [
-  200,
-  960,
-  40,
-  40
- ],
- "pena_cinzenta": [
-  240,
-  960,
-  40,
-  40
- ],
- "pele_ressecada": [
-  280,
-  960,
-  40,
-  40
- ],
- "nome_verdadeiro": [
-  320,
-  960,
-  40,
-  40
- ],
- "lasca_da_tabua": [
-  360,
-  960,
-  40,
-  40
- ],
- "bau_dourado": [
-  400,
-  960,
-  40,
-  40
- ],
- "cetro_do_demiurgo": [
-  440,
-  960,
-  40,
-  40
- ],
- "sino_rachado": [
-  480,
-  960,
-  40,
-  40
- ],
- "leitura_hulda": [
-  520,
-  960,
-  40,
-  40
- ],
- "folha_do_livro": [
-  560,
-  960,
-  40,
-  40
- ],
- "ultima_linha": [
-  600,
-  960,
-  40,
-  40
- ],
- "selo_do_coro": [
-  0,
-  1000,
-  40,
-  40
- ],
- "estrela_contada": [
-  40,
-  1000,
-  40,
-  40
- ],
- "valvula_da_escuta": [
-  80,
-  1000,
-  40,
-  40
- ],
- "ostraco_de_faltas": [
-  120,
-  1000,
-  40,
-  40
- ],
- "leitura_canto_das_noivas": [
-  160,
-  1000,
-  40,
-  40
- ],
- "balanca_do_coracao": [
-  200,
-  1000,
-  40,
-  40
- ],
- "escudo_de_anubis": [
-  240,
-  1000,
-  40,
-  40
- ],
- "livro_das_cordas_de_ankh": [
-  280,
-  1000,
-  40,
-  40
- ],
- "papiro_das_carpideiras": [
-  320,
-  1000,
-  40,
-  40
- ],
- "manoplas_do_badalo": [
-  360,
-  1000,
-  40,
-  40
- ],
- "escudo_ferro_pintado": [
-  400,
-  1000,
-  40,
-  40
- ],
- "botas_de_fronteira": [
-  440,
-  1000,
-  40,
-  40
- ],
- "sandalias_de_sobek": [
-  480,
-  1000,
-  40,
-  40
- ],
- "sandalias_de_mut": [
-  520,
-  1000,
-  40,
-  40
- ],
- "colete_de_sela_gasta": [
-  560,
-  1000,
-  40,
-  40
- ],
- "luvas_de_bandagem": [
-  600,
-  1000,
-  40,
-  40
- ],
- "cajado_do_sino_parado": [
-  0,
-  1040,
-  40,
-  40
- ],
- "cajado_do_sino_quebrado": [
-  40,
-  1040,
-  40,
-  40
- ],
- "espada_da_retirada": [
-  80,
-  1040,
-  40,
-  40
- ],
- "escopeta_da_vela_acesa": [
-  120,
-  1040,
-  40,
-  40
- ],
- "espada_da_arquibancada": [
-  160,
-  1040,
-  40,
-  40
- ],
- "foice_da_legiao_sem_general": [
-  200,
-  1040,
-  40,
-  40
- ],
- "khopesh_do_coracao_duro": [
-  240,
-  1040,
-  40,
-  40
- ],
- "cajado_de_linho_ritual": [
-  280,
-  1040,
-  40,
-  40
- ],
- "cajado_da_trombeta_calada": [
-  320,
-  1040,
-  40,
-  40
- ],
- "antena_de_cajado": [
-  360,
-  1040,
-  40,
-  40
- ],
- "cetro_do_raio_partido": [
-  400,
-  1040,
-  40,
-  40
- ],
- "machado_da_agua_verde": [
-  440,
-  1040,
-  40,
-  40
- ],
- "bastao_de_amenti": [
-  480,
-  1040,
-  40,
-  40
- ],
- "cajado_do_engenheiro_herege": [
-  520,
-  1040,
-  40,
-  40
- ],
- "corona_do_arauto_calado": [
-  560,
-  1040,
-  40,
-  40
- ],
- "diadema_de_linho": [
-  600,
-  1040,
-  40,
-  40
- ],
- "capacete_do_sino_derretido": [
-  0,
-  1080,
-  40,
-  40
- ],
- "capacete_de_operador": [
-  40,
-  1080,
-  40,
-  40
- ],
- "veu_de_naama": [
-  80,
-  1080,
-  40,
-  40
- ],
- "mascara_de_amenti": [
-  120,
-  1080,
-  40,
-  40
- ],
- "bronze_antigo": [
-  160,
-  1080,
-  40,
-  40
- ],
- "cerveja_ocre": [
-  200,
-  1080,
-  40,
-  40
- ],
- "unguento_de_mirra": [
-  240,
-  1080,
-  40,
-  40
- ],
- "luvas_de_cera_quente": [
-  280,
-  1080,
-  40,
-  40
- ],
- "luvas_de_isolante": [
-  320,
-  1080,
-  40,
-  40
- ],
- "luvas_de_cera_fria": [
-  360,
-  1080,
-  40,
-  40
- ],
- "sobrepeliz_de_amenti": [
-  400,
-  1080,
-  40,
-  40
- ],
- "amuleto_de_valvula": [
-  440,
-  1080,
-  40,
-  40
- ],
- "amuleto_de_fita_de_cetim": [
-  480,
-  1080,
-  40,
-  40
- ],
- "anel_de_marcador": [
-  520,
-  1080,
-  40,
-  40
- ],
- "anel_de_passagem": [
-  560,
-  1080,
-  40,
-  40
- ],
- "anel_de_palma_de_arena": [
-  600,
-  1080,
-  40,
-  40
- ],
- "anel_de_latao_da_cripta": [
-  0,
-  1120,
-  40,
-  40
- ],
- "calcas_da_retirada": [
-  40,
-  1120,
-  40,
-  40
- ],
- "botas_do_versiculo": [
-  80,
-  1120,
-  40,
-  40
- ],
- "chapeu_da_vela_acesa": [
-  120,
-  1120,
-  40,
-  40
- ],
- "casaco_da_vela_acesa": [
-  160,
-  1120,
-  40,
-  40
- ],
- "luvas_da_polvora": [
-  200,
-  1120,
-  40,
-  40
- ],
- "calcas_de_vigia": [
-  240,
-  1120,
-  40,
-  40
- ],
- "botas_de_turno": [
-  280,
-  1120,
-  40,
-  40
- ],
- "martelo_do_sino_derretido": [
-  320,
-  1120,
-  40,
-  40
- ],
- "avental_de_engenheiro_herege": [
-  360,
-  1120,
-  40,
-  40
- ],
- "luvas_de_bobina": [
-  400,
-  1120,
-  40,
-  40
- ],
- "calcas_de_fiacao": [
-  440,
-  1120,
-  40,
-  40
- ],
- "botas_de_piston": [
-  480,
-  1120,
-  40,
-  40
- ],
- "adaga_calice_da_comunhao": [
-  520,
-  1120,
-  40,
-  40
- ],
- "batina_da_trombeta": [
-  560,
-  1120,
-  40,
-  40
- ],
- "luvas_do_bocal": [
-  600,
-  1120,
-  40,
-  40
- ],
- "calcas_de_linho_ritual": [
-  0,
-  1160,
-  40,
-  40
- ],
- "sandalias_de_linho": [
-  40,
-  1160,
-  40,
-  40
- ],
- "gladio_da_cerca": [
-  80,
-  1160,
-  40,
-  40
- ],
- "manoplas_de_quem_saiu": [
-  120,
-  1160,
-  40,
-  40
- ],
- "grevas_da_cerca": [
-  160,
-  1160,
-  40,
-  40
- ],
- "botas_da_cerca": [
-  200,
-  1160,
-  40,
-  40
- ],
- "luvas_de_porrete": [
-  240,
-  1160,
-  40,
-  40
- ],
- "grevas_do_badalo": [
-  280,
-  1160,
-  40,
-  40
- ],
- "botas_de_bronze_frio": [
-  320,
-  1160,
-  40,
-  40
- ],
- "foice_do_arauto_calado": [
-  360,
-  1160,
-  40,
-  40
- ],
- "jaqueta_de_fio_cobre": [
-  400,
-  1160,
-  40,
-  40
- ],
- "calcas_de_desertor": [
-  440,
-  1160,
-  40,
-  40
- ],
- "botas_de_passo_mudo": [
-  480,
-  1160,
-  40,
-  40
- ],
- "oculos_de_solda_herege": [
-  520,
-  1160,
-  40,
-  40
- ],
- "calcas_de_areia_fina": [
-  560,
-  1160,
-  40,
-  40
- ],
- "botas_de_dunas": [
-  600,
-  1160,
-  40,
-  40
- ],
- "luvas_de_linho_de_amenti": [
-  0,
-  1200,
-  40,
-  40
- ],
- "calcas_de_linho_de_amenti": [
-  40,
-  1200,
-  40,
-  40
- ],
- "sandalias_de_amenti": [
-  80,
-  1200,
-  40,
-  40
- ],
- "machado_de_gelo_sujo": [
-  120,
-  1200,
-  40,
-  40
- ],
- "luvas_musgosas": [
-  160,
-  1200,
-  40,
-  40
- ],
- "calcas_de_juncos": [
-  200,
-  1200,
-  40,
-  40
- ],
- "botas_de_lama_verde": [
-  240,
-  1200,
-  40,
-  40
- ],
- "facao_do_amargo_verde": [
-  280,
-  1200,
-  40,
-  40
- ],
- "calcas_do_porao": [
-  320,
-  1200,
-  40,
-  40
- ],
- "botas_do_porao": [
-  360,
-  1200,
-  40,
-  40
- ],
- "anel_de_bobina_de_radio": [
-  400,
-  1200,
-  40,
-  40
- ],
- "luvas_de_indice": [
-  440,
-  1200,
-  40,
-  40
- ],
- "calcas_da_estrada": [
-  480,
-  1200,
-  40,
-  40
- ],
- "botas_do_passo_lento": [
-  520,
-  1200,
-  40,
-  40
- ],
- "espada_de_quem_saiu": [
-  560,
-  1200,
-  40,
-  40
- ],
- "botas_de_arena_rachada": [
-  600,
-  1200,
-  40,
-  40
- ],
- "botas_de_degrau_alto": [
-  0,
-  1240,
-  40,
-  40
- ],
- "calcas_de_gladiador_da_plateia": [
-  40,
-  1240,
-  40,
-  40
- ],
- "chapeu_de_arena": [
-  80,
-  1240,
-  40,
-  40
- ],
- "manoplas_de_raiz": [
-  120,
-  1240,
-  40,
-  40
- ]
+"espada_vigilia_rachada": [
+0,
+0,
+40,
+40
+],
+"escudo_porta_capela": [
+40,
+0,
+40,
+40
+],
+"lanca_procissao": [
+80,
+0,
+40,
+40
+],
+"espada_sineiro": [
+120,
+0,
+40,
+40
+],
+"adaga_ritual_cega": [
+160,
+0,
+40,
+40
+],
+"cajado_vertebras": [
+200,
+0,
+40,
+40
+],
+"grimorio_acorrentado": [
+240,
+0,
+40,
+40
+],
+"adaga_ossuario": [
+280,
+0,
+40,
+40
+],
+"machado_placa_transito": [
+320,
+0,
+40,
+40
+],
+"punhos_sucata": [
+360,
+0,
+40,
+40
+],
+"cutelo_matadouro": [
+400,
+0,
+40,
+40
+],
+"garras_ossario": [
+440,
+0,
+40,
+40
+],
+"foice_serrilhada": [
+480,
+0,
+40,
+40
+],
+"espada_serrilhada": [
+520,
+0,
+40,
+40
+],
+"corrente_gancho": [
+560,
+0,
+40,
+40
+],
+"foice_sepultura": [
+600,
+0,
+40,
+40
+],
+"besta_sucata": [
+0,
+40,
+40,
+40
+],
+"espada_larga_sucata": [
+40,
+40,
+40,
+40
+],
+"escopeta_cano_serrado": [
+80,
+40,
+40,
+40
+],
+"espada_larga_carrasco": [
+120,
+40,
+40,
+40
+],
+"montante_vigilia": [
+160,
+40,
+40,
+40
+],
+"escopeta_cano_duplo": [
+200,
+40,
+40,
+40
+],
+"mosquete_pederneira": [
+240,
+40,
+40,
+40
+],
+"besta_repeticao": [
+280,
+40,
+40,
+40
+],
+"cajado_antena_torto": [
+320,
+40,
+40,
+40
+],
+"luva_voltaica": [
+360,
+40,
+40,
+40
+],
+"pistola_raios": [
+400,
+40,
+40,
+40
+],
+"cajado_valvulas": [
+440,
+40,
+40,
+40
+],
+"batina_remendada_cabeca": [
+480,
+40,
+40,
+40
+],
+"batina_remendada_peito": [
+520,
+40,
+40,
+40
+],
+"batina_remendada_luvas": [
+560,
+40,
+40,
+40
+],
+"batina_remendada_calcas": [
+600,
+40,
+40,
+40
+],
+"batina_remendada_botas": [
+0,
+80,
+40,
+40
+],
+"couro_sobrevivente_cabeca": [
+40,
+80,
+40,
+40
+],
+"couro_sobrevivente_peito": [
+80,
+80,
+40,
+40
+],
+"couro_sobrevivente_luvas": [
+120,
+80,
+40,
+40
+],
+"couro_sobrevivente_calcas": [
+160,
+80,
+40,
+40
+],
+"couro_sobrevivente_botas": [
+200,
+80,
+40,
+40
+],
+"placas_sino_cabeca": [
+240,
+80,
+40,
+40
+],
+"placas_sino_peito": [
+280,
+80,
+40,
+40
+],
+"placas_sino_luvas": [
+320,
+80,
+40,
+40
+],
+"placas_sino_calcas": [
+360,
+80,
+40,
+40
+],
+"placas_sino_botas": [
+400,
+80,
+40,
+40
+],
+"coro_mudo_cabeca": [
+440,
+80,
+40,
+40
+],
+"coro_mudo_peito": [
+480,
+80,
+40,
+40
+],
+"coro_mudo_luvas": [
+520,
+80,
+40,
+40
+],
+"coro_mudo_calcas": [
+560,
+80,
+40,
+40
+],
+"coro_mudo_botas": [
+600,
+80,
+40,
+40
+],
+"couraca_acougueiro_oco_cabeca": [
+0,
+120,
+40,
+40
+],
+"couraca_acougueiro_oco_peito": [
+40,
+120,
+40,
+40
+],
+"couraca_acougueiro_oco_luvas": [
+80,
+120,
+40,
+40
+],
+"couraca_acougueiro_oco_calcas": [
+120,
+120,
+40,
+40
+],
+"couraca_acougueiro_oco_botas": [
+160,
+120,
+40,
+40
+],
+"juramento_quebrado_cabeca": [
+200,
+120,
+40,
+40
+],
+"juramento_quebrado_peito": [
+240,
+120,
+40,
+40
+],
+"juramento_quebrado_luvas": [
+280,
+120,
+40,
+40
+],
+"juramento_quebrado_calcas": [
+320,
+120,
+40,
+40
+],
+"juramento_quebrado_botas": [
+360,
+120,
+40,
+40
+],
+"anel_prego_caixao": [
+400,
+120,
+40,
+40
+],
+"colar_dentes": [
+440,
+120,
+40,
+40
+],
+"anel_ferro_cripta": [
+480,
+120,
+40,
+40
+],
+"rosario_ossos": [
+520,
+120,
+40,
+40
+],
+"pocao_vida_p": [
+560,
+120,
+40,
+40
+],
+"pocao_vida_m": [
+600,
+120,
+40,
+40
+],
+"pocao_recurso_p": [
+0,
+160,
+40,
+40
+],
+"pocao_recurso_m": [
+40,
+160,
+40,
+40
+],
+"agua_benta": [
+80,
+160,
+40,
+40
+],
+"antidoto_querosene": [
+120,
+160,
+40,
+40
+],
+"vela_retorno": [
+160,
+160,
+40,
+40
+],
+"gazua": [
+200,
+160,
+40,
+40
+],
+"balas_chumbo": [
+240,
+160,
+40,
+40
+],
+"virotes_prata": [
+280,
+160,
+40,
+40
+],
+"cartuchos_sal": [
+320,
+160,
+40,
+40
+],
+"osso": [
+360,
+160,
+40,
+40
+],
+"couro_podre": [
+400,
+160,
+40,
+40
+],
+"sucata": [
+440,
+160,
+40,
+40
+],
+"cinza_de_alma": [
+480,
+160,
+40,
+40
+],
+"carne_estragada": [
+520,
+160,
+40,
+40
+],
+"pedra_benta": [
+560,
+160,
+40,
+40
+],
+"cera_de_vela": [
+600,
+160,
+40,
+40
+],
+"pena_suja": [
+0,
+200,
+40,
+40
+],
+"lagrima_anjo": [
+40,
+200,
+40,
+40
+],
+"fragmento_alma": [
+80,
+200,
+40,
+40
+],
+"coagulo_caos": [
+120,
+200,
+40,
+40
+],
+"engrenagem_viva": [
+160,
+200,
+40,
+40
+],
+"chave_bau_ferro": [
+200,
+200,
+40,
+40
+],
+"caixote_podre": [
+240,
+200,
+40,
+40
+],
+"bau_de_ferro": [
+280,
+200,
+40,
+40
+],
+"bau_faminto": [
+320,
+200,
+40,
+40
+],
+"relicario_da_trombeta": [
+360,
+200,
+40,
+40
+],
+"bobina_cobre": [
+400,
+200,
+40,
+40
+],
+"pena_querubim": [
+440,
+200,
+40,
+40
+],
+"dente_vala": [
+480,
+200,
+40,
+40
+],
+"raiz_cova": [
+520,
+200,
+40,
+40
+],
+"caldo_cardo": [
+560,
+200,
+40,
+40
+],
+"medalhinha_cardo": [
+600,
+200,
+40,
+40
+],
+"sebo_rancoso": [
+0,
+240,
+40,
+40
+],
+"ferro_velho": [
+40,
+240,
+40,
+40
+],
+"badalo_rachado": [
+80,
+240,
+40,
+40
+],
+"livro_obitos": [
+120,
+240,
+40,
+40
+],
+"chave_gancho": [
+160,
+240,
+40,
+40
+],
+"lacre_carne": [
+200,
+240,
+40,
+40
+],
+"lacre_lagrimas": [
+240,
+240,
+40,
+40
+],
+"bocal_trombeta": [
+280,
+240,
+40,
+40
+],
+"carta_lucio": [
+320,
+240,
+40,
+40
+],
+"mapa_rasgado": [
+360,
+240,
+40,
+40
+],
+"relicario_vazio": [
+400,
+240,
+40,
+40
+],
+"pa_simao": [
+440,
+240,
+40,
+40
+],
+"caixinha_musica": [
+480,
+240,
+40,
+40
+],
+"pao_duro": [
+520,
+240,
+40,
+40
+],
+"agua_doce": [
+560,
+240,
+40,
+40
+],
+"tonico_graxa": [
+600,
+240,
+40,
+40
+],
+"hostia_negra": [
+0,
+280,
+40,
+40
+],
+"vela_simao": [
+40,
+280,
+40,
+40
+],
+"agua_benta_polvora": [
+80,
+280,
+40,
+40
+],
+"caldo_cardo_comum": [
+120,
+280,
+40,
+40
+],
+"figo_anacleto": [
+160,
+280,
+40,
+40
+],
+"leitura_obitos": [
+200,
+280,
+40,
+40
+],
+"leitura_carta_lucio": [
+240,
+280,
+40,
+40
+],
+"leitura_mapa_tobias": [
+280,
+280,
+40,
+40
+],
+"leitura_anselmo": [
+320,
+280,
+40,
+40
+],
+"leitura_tabela_carnica": [
+360,
+280,
+40,
+40
+],
+"leitura_hino_carpideiras": [
+400,
+280,
+40,
+40
+],
+"leitura_confissao_anacleto": [
+440,
+280,
+40,
+40
+],
+"leitura_ordem_zacarias": [
+480,
+280,
+40,
+40
+],
+"faixa_vigilia": [
+520,
+280,
+40,
+40
+],
+"fita_juizo": [
+560,
+280,
+40,
+40
+],
+"escopeta_badalada": [
+600,
+280,
+40,
+40
+],
+"machado_bonde": [
+0,
+320,
+40,
+40
+],
+"cajado_lampiao": [
+40,
+320,
+40,
+40
+],
+"espada_escudeiro": [
+80,
+320,
+40,
+40
+],
+"foice_penhor": [
+120,
+320,
+40,
+40
+],
+"adaga_chaga": [
+160,
+320,
+40,
+40
+],
+"badalo_de_guerra": [
+200,
+320,
+40,
+40
+],
+"lenco_cardo": [
+240,
+320,
+40,
+40
+],
+"terco_lucio": [
+280,
+320,
+40,
+40
+],
+"selo_madre": [
+320,
+320,
+40,
+40
+],
+"dragonas_general": [
+360,
+320,
+40,
+40
+],
+"veu_carpideira": [
+400,
+320,
+40,
+40
+],
+"estilhaco_lacre": [
+440,
+320,
+40,
+40
+],
+"diapasao_reverso": [
+480,
+320,
+40,
+40
+],
+"pena_zacarias": [
+520,
+320,
+40,
+40
+],
+"etiqueta_branca": [
+560,
+320,
+40,
+40
+],
+"gancho_capataz": [
+600,
+320,
+40,
+40
+],
+"estandarte_legiao": [
+0,
+360,
+40,
+40
+],
+"bacula_femur": [
+40,
+360,
+40,
+40
+],
+"halo_incandescente": [
+80,
+360,
+40,
+40
+],
+"valvula_radio": [
+120,
+360,
+40,
+40
+],
+"pagina_ordem": [
+160,
+360,
+40,
+40
+],
+"amostra_amarga": [
+200,
+360,
+40,
+40
+],
+"fragmento_clarao": [
+240,
+360,
+40,
+40
+],
+"chave_lancamento": [
+280,
+360,
+40,
+40
+],
+"insignia_arrancada": [
+320,
+360,
+40,
+40
+],
+"carta_apostata": [
+360,
+360,
+40,
+40
+],
+"meia_dragona": [
+400,
+360,
+40,
+40
+],
+"leitura_ordem_lancamento": [
+440,
+360,
+40,
+40
+],
+"leitura_carta_apostata": [
+480,
+360,
+40,
+40
+],
+"contador_isaura": [
+520,
+360,
+40,
+40
+],
+"estilhaco_absinto": [
+560,
+360,
+40,
+40
+],
+"chave_segunda_estrela": [
+600,
+360,
+40,
+40
+],
+"divisa_legiao": [
+0,
+400,
+40,
+40
+],
+"placa_coveiro": [
+40,
+400,
+40,
+40
+],
+"folha_tombo": [
+80,
+400,
+40,
+40
+],
+"ultimo_tijolo": [
+120,
+400,
+40,
+40
+],
+"leitura_livro_tombo": [
+160,
+400,
+40,
+40
+],
+"faixas_betania": [
+200,
+400,
+40,
+40
+],
+"eco_do_nome": [
+240,
+400,
+40,
+40
+],
+"elmo_rafael": [
+280,
+400,
+40,
+40
+],
+"botas_da_setima_hora": [
+320,
+400,
+40,
+40
+],
+"braceletes_de_sobek": [
+360,
+400,
+40,
+40
+],
+"braceletes_do_ureu": [
+400,
+400,
+40,
+40
+],
+"coroa_de_sobek": [
+440,
+400,
+40,
+40
+],
+"peitoral_de_sobek": [
+480,
+400,
+40,
+40
+],
+"diadema_do_enigma": [
+520,
+400,
+40,
+40
+],
+"nemes_do_farao": [
+560,
+400,
+40,
+40
+],
+"escama_dourada_de_sobek": [
+600,
+400,
+40,
+40
+],
+"escama_do_caos": [
+0,
+440,
+40,
+40
+],
+"faixas_do_embalsamador": [
+40,
+440,
+40,
+40
+],
+"garras_da_esfinge": [
+80,
+440,
+40,
+40
+],
+"juba_da_leoa": [
+120,
+440,
+40,
+40
+],
+"luvas_de_dalva": [
+160,
+440,
+40,
+40
+],
+"luvas_da_imitacao": [
+200,
+440,
+40,
+40
+],
+"manto_de_ohya": [
+240,
+440,
+40,
+40
+],
+"manto_dos_magos_de_farao": [
+280,
+440,
+40,
+40
+],
+"mascara_do_chacal": [
+320,
+440,
+40,
+40
+],
+"pschent_do_farao": [
+360,
+440,
+40,
+40
+],
+"peitoral_de_ouro": [
+400,
+440,
+40,
+40
+],
+"couraca_de_quitina": [
+440,
+440,
+40,
+40
+],
+"arco_de_qebehsenuef": [
+480,
+440,
+40,
+40
+],
+"arpao_do_juncal": [
+520,
+440,
+40,
+40
+],
+"bastao_que_virou_serpente": [
+560,
+440,
+40,
+40
+],
+"malho_de_tubal": [
+600,
+440,
+40,
+40
+],
+"martelo_de_tubal": [
+0,
+480,
+40,
+40
+],
+"cajado_da_cheia": [
+40,
+480,
+40,
+40
+],
+"cajado_das_dez_pragas": [
+80,
+480,
+40,
+40
+],
+"cajado_estrelas_contadas": [
+120,
+480,
+40,
+40
+],
+"balanca_de_barnabe": [
+160,
+480,
+40,
+40
+],
+"cetro_was_do_pesador": [
+200,
+480,
+40,
+40
+],
+"cetro_dos_quatro": [
+240,
+480,
+40,
+40
+],
+"cetro_que_abre_a_garganta": [
+280,
+480,
+40,
+40
+],
+"cimitarra_de_janes": [
+320,
+480,
+40,
+40
+],
+"escopeta_juramento_quebrado": [
+360,
+480,
+40,
+40
+],
+"espada_primeiro_juramento": [
+400,
+480,
+40,
+40
+],
+"falx_de_azazel": [
+440,
+480,
+40,
+40
+],
+"ferrao_de_bronze": [
+480,
+480,
+40,
+40
+],
+"garra_de_ammit": [
+520,
+480,
+40,
+40
+],
+"khopesh_de_ramesses": [
+560,
+480,
+40,
+40
+],
+"lamina_da_pergunta": [
+600,
+480,
+40,
+40
+],
+"astrolabio_do_coro": [
+0,
+520,
+40,
+40
+],
+"pena_que_ficou": [
+40,
+520,
+40,
+40
+],
+"anel_da_nomarca": [
+80,
+520,
+40,
+40
+],
+"anel_de_jambres": [
+120,
+520,
+40,
+40
+],
+"anel_raiz_arvore_mae": [
+160,
+520,
+40,
+40
+],
+"anel_de_sinete_real": [
+200,
+520,
+40,
+40
+],
+"anel_do_primogenito": [
+240,
+520,
+40,
+40
+],
+"ankh_de_serket": [
+280,
+520,
+40,
+40
+],
+"argola_do_deus_crocodilo": [
+320,
+520,
+40,
+40
+],
+"astrolabio_de_kokabiel": [
+360,
+520,
+40,
+40
+],
+"pagina_do_decreto": [
+400,
+520,
+40,
+40
+],
+"mapa_de_bartimeu": [
+440,
+520,
+40,
+40
+],
+"azeite_do_lagar": [
+480,
+520,
+40,
+40
+],
+"vaso_de_imseti": [
+520,
+520,
+40,
+40
+],
+"brasa_viva": [
+560,
+520,
+40,
+40
+],
+"chave_de_pa": [
+600,
+520,
+40,
+40
+],
+"carta_de_simao": [
+0,
+560,
+40,
+40
+],
+"carta_do_sineiro": [
+40,
+560,
+40,
+40
+],
+"selo_do_sonho": [
+80,
+560,
+40,
+40
+],
+"cinta_de_latao": [
+120,
+560,
+40,
+40
+],
+"glifo_da_resposta": [
+160,
+560,
+40,
+40
+],
+"badalo_de_bronze": [
+200,
+560,
+40,
+40
+],
+"olho_de_horus": [
+240,
+560,
+40,
+40
+],
+"olho_que_apaga": [
+280,
+560,
+40,
+40
+],
+"orelha_de_jael": [
+320,
+560,
+40,
+40
+],
+"pena_de_maat_viva": [
+360,
+560,
+40,
+40
+],
+"pena_de_ibis": [
+400,
+560,
+40,
+40
+],
+"saquinho_sementes_salvas": [
+440,
+560,
+40,
+40
+],
+"selo_das_aguas": [
+480,
+560,
+40,
+40
+],
+"selo_dos_doze_patios": [
+520,
+560,
+40,
+40
+],
+"binoculo_de_plantao": [
+560,
+560,
+40,
+40
+],
+"cartucho_sem_nome": [
+600,
+560,
+40,
+40
+],
+"colar_usekh": [
+0,
+600,
+40,
+40
+],
+"colar_de_ouro_de_sobek": [
+40,
+600,
+40,
+40
+],
+"disco_do_sol_terco": [
+80,
+600,
+40,
+40
+],
+"insignia_da_cerca": [
+120,
+600,
+40,
+40
+],
+"corrente_casa_de_maquinas": [
+160,
+600,
+40,
+40
+],
+"escama_palida": [
+200,
+600,
+40,
+40
+],
+"faixa_de_linho_rafael": [
+240,
+600,
+40,
+40
+],
+"letra_raspada_oricalco": [
+280,
+600,
+40,
+40
+],
+"cinza_de_tofete": [
+320,
+600,
+40,
+40
+],
+"coracao_do_farao": [
+360,
+600,
+40,
+40
+],
+"coroa_partida": [
+400,
+600,
+40,
+40
+],
+"elo_partido": [
+440,
+600,
+40,
+40
+],
+"elo_de_corrente": [
+480,
+600,
+40,
+40
+],
+"elo_de_vigilante": [
+520,
+600,
+40,
+40
+],
+"engrenagem_oricalco": [
+560,
+600,
+40,
+40
+],
+"ferrao_de_serket": [
+600,
+600,
+40,
+40
+],
+"ficha_sangue": [
+0,
+640,
+40,
+40
+],
+"flauta_de_osso": [
+40,
+640,
+40,
+40
+],
+"elmo_da_legiao_sem_general": [
+80,
+640,
+40,
+40
+],
+"elmo_da_retirada": [
+120,
+640,
+40,
+40
+],
+"capuz_de_granizo": [
+160,
+640,
+40,
+40
+],
+"coroa_do_arauto_calado": [
+200,
+640,
+40,
+40
+],
+"diadema_do_escriba": [
+240,
+640,
+40,
+40
+],
+"escudo_de_duamutef": [
+280,
+640,
+40,
+40
+],
+"cetro_heka": [
+320,
+640,
+40,
+40
+],
+"prato_do_coracao": [
+360,
+640,
+40,
+40
+],
+"leitura_carta_do_sineiro": [
+400,
+640,
+40,
+40
+],
+"amuleto_de_cascalho_verde": [
+440,
+640,
+40,
+40
+],
+"fragmento_de_vitral_vivo": [
+480,
+640,
+40,
+40
+],
+"tabua_do_juramento": [
+520,
+640,
+40,
+40
+],
+"medalha_de_joas": [
+560,
+640,
+40,
+40
+],
+"livro_dos_vencidos": [
+600,
+640,
+40,
+40
+],
+"livro_de_contas_de_tofete": [
+0,
+680,
+40,
+40
+],
+"escudo_da_cruz_remida": [
+40,
+680,
+40,
+40
+],
+"escudo_de_raizes_vivas": [
+80,
+680,
+40,
+40
+],
+"frasco_de_bilis_dourado": [
+120,
+680,
+40,
+40
+],
+"azeite_de_lavanda_bento": [
+160,
+680,
+40,
+40
+],
+"serra_da_vala": [
+200,
+680,
+40,
+40
+],
+"glandula_de_naja": [
+240,
+680,
+40,
+40
+],
+"emblema_da_cerca": [
+280,
+680,
+40,
+40
+],
+"estilhaco_da_estrela": [
+320,
+680,
+40,
+40
+],
+"livro_branco": [
+360,
+680,
+40,
+40
+],
+"leitura_confissao": [
+400,
+680,
+40,
+40
+],
+"vaso_canopico_lacrado": [
+440,
+680,
+40,
+40
+],
+"leitura_mapa_bartimeu": [
+480,
+680,
+40,
+40
+],
+"selo_de_oricalco": [
+520,
+680,
+40,
+40
+],
+"livro_de_thoth": [
+560,
+680,
+40,
+40
+],
+"couraca_sem_divisa": [
+600,
+680,
+40,
+40
+],
+"peitoral_do_sino_mudo": [
+0,
+720,
+40,
+40
+],
+"tunica_do_amargo_bebido": [
+40,
+720,
+40,
+40
+],
+"couraca_do_sino_derretido": [
+80,
+720,
+40,
+40
+],
+"colete_da_agua_verde": [
+120,
+720,
+40,
+40
+],
+"gibao_de_couro_de_bode": [
+160,
+720,
+40,
+40
+],
+"couraca_da_cerca": [
+200,
+720,
+40,
+40
+],
+"peitoral_de_amenti": [
+240,
+720,
+40,
+40
+],
+"couraca_da_fronteira": [
+280,
+720,
+40,
+40
+],
+"manto_de_folhas_soltas": [
+320,
+720,
+40,
+40
+],
+"elmo_de_quem_saiu": [
+360,
+720,
+40,
+40
+],
+"capuz_do_rio": [
+400,
+720,
+40,
+40
+],
+"elmo_da_cerca": [
+440,
+720,
+40,
+40
+],
+"veu_da_comunhao": [
+480,
+720,
+40,
+40
+],
+"tampa_de_hapi": [
+520,
+720,
+40,
+40
+],
+"relicario_da_trombeta_calada": [
+560,
+720,
+40,
+40
+],
+"amuleto_de_linho_sagrado": [
+600,
+720,
+40,
+40
+],
+"amuleto_da_cadeira_vazia": [
+0,
+760,
+40,
+40
+],
+"pagina_solta": [
+40,
+760,
+40,
+40
+],
+"anel_de_sinete_do_absinto": [
+80,
+760,
+40,
+40
+],
+"amuleto_do_granizo_cego": [
+120,
+760,
+40,
+40
+],
+"garras_da_legiao": [
+160,
+760,
+40,
+40
+],
+"escudo_do_coro_dourado": [
+200,
+760,
+40,
+40
+],
+"manto_da_trombeta": [
+240,
+760,
+40,
+40
+],
+"agua_de_degelo": [
+280,
+760,
+40,
+40
+],
+"casca_de_lava": [
+320,
+760,
+40,
+40
+],
+"brinco_de_petsuchos": [
+360,
+760,
+40,
+40
+],
+"leitura_decreto_sexta_hora": [
+400,
+760,
+40,
+40
+],
+"convite_dos_vigilantes": [
+440,
+760,
+40,
+40
+],
+"chave_de_carneiro": [
+480,
+760,
+40,
+40
+],
+"saiote_de_sobek": [
+520,
+760,
+40,
+40
+],
+"cinza_de_ossario": [
+560,
+760,
+40,
+40
+],
+"orbe_coracao": [
+600,
+760,
+40,
+40
+],
+"coroa_do_bocal": [
+0,
+800,
+40,
+40
+],
+"gancho_partido": [
+40,
+800,
+40,
+40
+],
+"lenco_do_absinto": [
+80,
+800,
+40,
+40
+],
+"ampulheta_do_juizo_travado": [
+120,
+800,
+40,
+40
+],
+"manoplas_da_cerca": [
+160,
+800,
+40,
+40
+],
+"gibao_de_arquibancada": [
+200,
+800,
+40,
+40
+],
+"amuleto_do_caminhante": [
+240,
+800,
+40,
+40
+],
+"lanterna_do_cranio_verde": [
+280,
+800,
+40,
+40
+],
+"cinto_de_caveira": [
+320,
+800,
+40,
+40
+],
+"livro_do_olho_roxo": [
+360,
+800,
+40,
+40
+],
+"botas_de_crampons_cegos": [
+400,
+800,
+40,
+40
+],
+"coracao_de_vidro": [
+440,
+800,
+40,
+40
+],
+"leitura_estela_herodoto": [
+480,
+800,
+40,
+40
+],
+"sino_de_mao": [
+520,
+800,
+40,
+40
+],
+"ampulheta_da_trombeta": [
+560,
+800,
+40,
+40
+],
+"medalhao_do_sol_de_latao": [
+600,
+800,
+40,
+40
+],
+"veu_de_luto": [
+0,
+840,
+40,
+40
+],
+"anel_de_granizo_seco": [
+40,
+840,
+40,
+40
+],
+"luvas_de_sangue_seco": [
+80,
+840,
+40,
+40
+],
+"leitura_juramento_noivas": [
+120,
+840,
+40,
+40
+],
+"asa_anjo_1": [
+160,
+840,
+40,
+40
+],
+"anel_de_sinete_de_amenti": [
+200,
+840,
+40,
+40
+],
+"botas_da_legiao": [
+240,
+840,
+40,
+40
+],
+"tabuinha_de_argila": [
+280,
+840,
+40,
+40
+],
+"pena_de_maat": [
+320,
+840,
+40,
+40
+],
+"pena_de_ibis_atl": [
+360,
+840,
+40,
+40
+],
+"pena_do_escriba": [
+400,
+840,
+40,
+40
+],
+"pilar_djed_de_bronze": [
+440,
+840,
+40,
+40
+],
+"pa_do_escriba": [
+480,
+840,
+40,
+40
+],
+"leitura_juramento_duzentos": [
+520,
+840,
+40,
+40
+],
+"paginas_arrancadas": [
+560,
+840,
+40,
+40
+],
+"raiz_de_hissopo": [
+600,
+840,
+40,
+40
+],
+"agua_do_nilo": [
+0,
+880,
+40,
+40
+],
+"infusao_de_hissopo": [
+40,
+880,
+40,
+40
+],
+"leitura_rolo_magos": [
+80,
+880,
+40,
+40
+],
+"cacho_de_cristal_roxo": [
+120,
+880,
+40,
+40
+],
+"veu_de_zilpa": [
+160,
+880,
+40,
+40
+],
+"olho_do_juizo": [
+200,
+880,
+40,
+40
+],
+"taca_de_cerveja_ocre": [
+240,
+880,
+40,
+40
+],
+"leitura_contas_de_tofete": [
+280,
+880,
+40,
+40
+],
+"estandarte_da_hoste": [
+320,
+880,
+40,
+40
+],
+"asa_zacarias": [
+360,
+880,
+40,
+40
+],
+"casca_de_escaravelho": [
+400,
+880,
+40,
+40
+],
+"couro_do_nilo": [
+440,
+880,
+40,
+40
+],
+"fragmento_do_duat": [
+480,
+880,
+40,
+40
+],
+"linho_de_mumia": [
+520,
+880,
+40,
+40
+],
+"ouro_de_sobek": [
+560,
+880,
+40,
+40
+],
+"po_de_calcario": [
+600,
+880,
+40,
+40
+],
+"astrolabio_do_deserto": [
+0,
+920,
+40,
+40
+],
+"martelo_de_bobina": [
+40,
+920,
+40,
+40
+],
+"corrente_da_arena": [
+80,
+920,
+40,
+40
+],
+"rosario_do_coro": [
+120,
+920,
+40,
+40
+],
+"engrenagem_gasta": [
+160,
+920,
+40,
+40
+],
+"presas_do_massacre": [
+200,
+920,
+40,
+40
+],
+"divisa_da_geena": [
+240,
+920,
+40,
+40
+],
+"orgao_de_vapor": [
+280,
+920,
+40,
+40
+],
+"leitura_livro_de_henoc": [
+320,
+920,
+40,
+40
+],
+"fragmento_de_esmeralda": [
+360,
+920,
+40,
+40
+],
+"asa_basica_anjo": [
+400,
+920,
+40,
+40
+],
+"asa_basica_demonio": [
+440,
+920,
+40,
+40
+],
+"asa_anjo_2": [
+480,
+920,
+40,
+40
+],
+"asa_anjo_3": [
+520,
+920,
+40,
+40
+],
+"asa_demonio_1": [
+560,
+920,
+40,
+40
+],
+"asa_demonio_2": [
+600,
+920,
+40,
+40
+],
+"asa_demonio_3": [
+0,
+960,
+40,
+40
+],
+"asa_mecanica_1": [
+40,
+960,
+40,
+40
+],
+"asa_mecanica_2": [
+80,
+960,
+40,
+40
+],
+"asa_mecanica_3": [
+120,
+960,
+40,
+40
+],
+"asa_andras": [
+160,
+960,
+40,
+40
+],
+"asa_carpideira": [
+200,
+960,
+40,
+40
+],
+"pena_cinzenta": [
+240,
+960,
+40,
+40
+],
+"pele_ressecada": [
+280,
+960,
+40,
+40
+],
+"nome_verdadeiro": [
+320,
+960,
+40,
+40
+],
+"lasca_da_tabua": [
+360,
+960,
+40,
+40
+],
+"bau_dourado": [
+400,
+960,
+40,
+40
+],
+"cetro_do_demiurgo": [
+440,
+960,
+40,
+40
+],
+"sino_rachado": [
+480,
+960,
+40,
+40
+],
+"leitura_hulda": [
+520,
+960,
+40,
+40
+],
+"folha_do_livro": [
+560,
+960,
+40,
+40
+],
+"ultima_linha": [
+600,
+960,
+40,
+40
+],
+"selo_do_coro": [
+0,
+1000,
+40,
+40
+],
+"estrela_contada": [
+40,
+1000,
+40,
+40
+],
+"valvula_da_escuta": [
+80,
+1000,
+40,
+40
+],
+"ostraco_de_faltas": [
+120,
+1000,
+40,
+40
+],
+"leitura_canto_das_noivas": [
+160,
+1000,
+40,
+40
+],
+"balanca_do_coracao": [
+200,
+1000,
+40,
+40
+],
+"escudo_de_anubis": [
+240,
+1000,
+40,
+40
+],
+"livro_das_cordas_de_ankh": [
+280,
+1000,
+40,
+40
+],
+"papiro_das_carpideiras": [
+320,
+1000,
+40,
+40
+],
+"manoplas_do_badalo": [
+360,
+1000,
+40,
+40
+],
+"escudo_ferro_pintado": [
+400,
+1000,
+40,
+40
+],
+"botas_de_fronteira": [
+440,
+1000,
+40,
+40
+],
+"sandalias_de_sobek": [
+480,
+1000,
+40,
+40
+],
+"sandalias_de_mut": [
+520,
+1000,
+40,
+40
+],
+"colete_de_sela_gasta": [
+560,
+1000,
+40,
+40
+],
+"luvas_de_bandagem": [
+600,
+1000,
+40,
+40
+],
+"cajado_do_sino_parado": [
+0,
+1040,
+40,
+40
+],
+"cajado_do_sino_quebrado": [
+40,
+1040,
+40,
+40
+],
+"espada_da_retirada": [
+80,
+1040,
+40,
+40
+],
+"escopeta_da_vela_acesa": [
+120,
+1040,
+40,
+40
+],
+"espada_da_arquibancada": [
+160,
+1040,
+40,
+40
+],
+"foice_da_legiao_sem_general": [
+200,
+1040,
+40,
+40
+],
+"khopesh_do_coracao_duro": [
+240,
+1040,
+40,
+40
+],
+"cajado_de_linho_ritual": [
+280,
+1040,
+40,
+40
+],
+"cajado_da_trombeta_calada": [
+320,
+1040,
+40,
+40
+],
+"antena_de_cajado": [
+360,
+1040,
+40,
+40
+],
+"cetro_do_raio_partido": [
+400,
+1040,
+40,
+40
+],
+"machado_da_agua_verde": [
+440,
+1040,
+40,
+40
+],
+"bastao_de_amenti": [
+480,
+1040,
+40,
+40
+],
+"cajado_do_engenheiro_herege": [
+520,
+1040,
+40,
+40
+],
+"corona_do_arauto_calado": [
+560,
+1040,
+40,
+40
+],
+"diadema_de_linho": [
+600,
+1040,
+40,
+40
+],
+"capacete_do_sino_derretido": [
+0,
+1080,
+40,
+40
+],
+"capacete_de_operador": [
+40,
+1080,
+40,
+40
+],
+"veu_de_naama": [
+80,
+1080,
+40,
+40
+],
+"mascara_de_amenti": [
+120,
+1080,
+40,
+40
+],
+"bronze_antigo": [
+160,
+1080,
+40,
+40
+],
+"cerveja_ocre": [
+200,
+1080,
+40,
+40
+],
+"unguento_de_mirra": [
+240,
+1080,
+40,
+40
+],
+"luvas_de_cera_quente": [
+280,
+1080,
+40,
+40
+],
+"luvas_de_isolante": [
+320,
+1080,
+40,
+40
+],
+"luvas_de_cera_fria": [
+360,
+1080,
+40,
+40
+],
+"sobrepeliz_de_amenti": [
+400,
+1080,
+40,
+40
+],
+"amuleto_de_valvula": [
+440,
+1080,
+40,
+40
+],
+"amuleto_de_fita_de_cetim": [
+480,
+1080,
+40,
+40
+],
+"anel_de_marcador": [
+520,
+1080,
+40,
+40
+],
+"anel_de_passagem": [
+560,
+1080,
+40,
+40
+],
+"anel_de_palma_de_arena": [
+600,
+1080,
+40,
+40
+],
+"anel_de_latao_da_cripta": [
+0,
+1120,
+40,
+40
+],
+"calcas_da_retirada": [
+40,
+1120,
+40,
+40
+],
+"botas_do_versiculo": [
+80,
+1120,
+40,
+40
+],
+"chapeu_da_vela_acesa": [
+120,
+1120,
+40,
+40
+],
+"casaco_da_vela_acesa": [
+160,
+1120,
+40,
+40
+],
+"luvas_da_polvora": [
+200,
+1120,
+40,
+40
+],
+"calcas_de_vigia": [
+240,
+1120,
+40,
+40
+],
+"botas_de_turno": [
+280,
+1120,
+40,
+40
+],
+"martelo_do_sino_derretido": [
+320,
+1120,
+40,
+40
+],
+"avental_de_engenheiro_herege": [
+360,
+1120,
+40,
+40
+],
+"luvas_de_bobina": [
+400,
+1120,
+40,
+40
+],
+"calcas_de_fiacao": [
+440,
+1120,
+40,
+40
+],
+"botas_de_piston": [
+480,
+1120,
+40,
+40
+],
+"adaga_calice_da_comunhao": [
+520,
+1120,
+40,
+40
+],
+"batina_da_trombeta": [
+560,
+1120,
+40,
+40
+],
+"luvas_do_bocal": [
+600,
+1120,
+40,
+40
+],
+"calcas_de_linho_ritual": [
+0,
+1160,
+40,
+40
+],
+"sandalias_de_linho": [
+40,
+1160,
+40,
+40
+],
+"gladio_da_cerca": [
+80,
+1160,
+40,
+40
+],
+"manoplas_de_quem_saiu": [
+120,
+1160,
+40,
+40
+],
+"grevas_da_cerca": [
+160,
+1160,
+40,
+40
+],
+"botas_da_cerca": [
+200,
+1160,
+40,
+40
+],
+"luvas_de_porrete": [
+240,
+1160,
+40,
+40
+],
+"grevas_do_badalo": [
+280,
+1160,
+40,
+40
+],
+"botas_de_bronze_frio": [
+320,
+1160,
+40,
+40
+],
+"foice_do_arauto_calado": [
+360,
+1160,
+40,
+40
+],
+"jaqueta_de_fio_cobre": [
+400,
+1160,
+40,
+40
+],
+"calcas_de_desertor": [
+440,
+1160,
+40,
+40
+],
+"botas_de_passo_mudo": [
+480,
+1160,
+40,
+40
+],
+"oculos_de_solda_herege": [
+520,
+1160,
+40,
+40
+],
+"calcas_de_areia_fina": [
+560,
+1160,
+40,
+40
+],
+"botas_de_dunas": [
+600,
+1160,
+40,
+40
+],
+"luvas_de_linho_de_amenti": [
+0,
+1200,
+40,
+40
+],
+"calcas_de_linho_de_amenti": [
+40,
+1200,
+40,
+40
+],
+"sandalias_de_amenti": [
+80,
+1200,
+40,
+40
+],
+"machado_de_gelo_sujo": [
+120,
+1200,
+40,
+40
+],
+"luvas_musgosas": [
+160,
+1200,
+40,
+40
+],
+"calcas_de_juncos": [
+200,
+1200,
+40,
+40
+],
+"botas_de_lama_verde": [
+240,
+1200,
+40,
+40
+],
+"facao_do_amargo_verde": [
+280,
+1200,
+40,
+40
+],
+"calcas_do_porao": [
+320,
+1200,
+40,
+40
+],
+"botas_do_porao": [
+360,
+1200,
+40,
+40
+],
+"anel_de_bobina_de_radio": [
+400,
+1200,
+40,
+40
+],
+"luvas_de_indice": [
+440,
+1200,
+40,
+40
+],
+"calcas_da_estrada": [
+480,
+1200,
+40,
+40
+],
+"botas_do_passo_lento": [
+520,
+1200,
+40,
+40
+],
+"espada_de_quem_saiu": [
+560,
+1200,
+40,
+40
+],
+"botas_de_arena_rachada": [
+600,
+1200,
+40,
+40
+],
+"botas_de_degrau_alto": [
+0,
+1240,
+40,
+40
+],
+"calcas_de_gladiador_da_plateia": [
+40,
+1240,
+40,
+40
+],
+"chapeu_de_arena": [
+80,
+1240,
+40,
+40
+],
+"manoplas_de_raiz": [
+120,
+1240,
+40,
+40
+],
+"pena_de_tinta_dura": [
+160,
+1240,
+40,
+40
+],
+"chapeu_de_bibliotecario": [
+200,
+1240,
+40,
+40
+],
+"shendyt_real": [
+240,
+1240,
+40,
+40
+],
+"batina_remendada": [
+280,
+1240,
+40,
+40
+],
+"luvas_de_r\u00e9dea": [
+320,
+1240,
+40,
+40
+],
+"calcas_de_estante": [
+360,
+1240,
+40,
+40
+],
+"sandalias_da_comunhao": [
+400,
+1240,
+40,
+40
+],
+"calcas_de_procissao": [
+440,
+1240,
+40,
+40
+],
+"couro_sobrevivente": [
+480,
+1240,
+40,
+40
+],
+"calcas_de_operador_da_torre": [
+520,
+1240,
+40,
+40
+],
+"couraca_acougueiro_oco": [
+560,
+1240,
+40,
+40
+],
+"placas_sino": [
+600,
+1240,
+40,
+40
+],
+"juramento_quebrado": [
+0,
+1280,
+40,
+40
+],
+"sandalias_de_papiro_real": [
+40,
+1280,
+40,
+40
+],
+"lampada_de_dendera": [
+80,
+1280,
+40,
+40
+],
+"coro_mudo": [
+120,
+1280,
+40,
+40
+]
 }
