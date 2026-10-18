@@ -437,5 +437,9 @@
   "usa": "baraquiel",
   "escala": 1.0,
   "fase3": "baraquiel_sinal_pleno"
+ },
+ "familiar_capitao": {
+  "usa": "familiar_lider",
+  "escala": 0.9
  }
 }

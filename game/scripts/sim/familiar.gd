@@ -4,7 +4,7 @@ class_name Familiar
 ## Não ganha XP nem solta loot. Sem tecla e sem slot: nasce com o Cultista.
 ## 0.9.3 (Jefin, 2026-10-17): é DPS, todas as formas batem em área (ataque.area_raio), tem 3x a vida e a defesa de
 ## antes, se cura em 10% do dano que o dono causa e obedece à barra do pet (Atacar, Proteger, Teleportar, Modo
-## agressivo, Modo passivo). Última forma: Líder dos Demônios no nível 60. Se morrer, volta sozinho em 30 s.
+## agressivo, Modo passivo). Forma 5: Capitão da Legião Blasfema no nível 30 (modelo do Líder). Última forma: Líder dos Demônios no nível 60. Se morrer, volta sozinho em 30 s.
 
 const DONO_VAR := ["max_hp_dono", "defesa_dono", "dano_magico_dono"]
 const SEGUE_MAX := 12.0       ## acima disso teleporta para perto do dono
@@ -223,7 +223,7 @@ static func _especiais(sim: WorldSim, fam: Ent, dono: Ent, alvo: Ent, dt: float)
 			if o.tipo == "jogador" or o.tipo == "npc" or o.tipo == "objeto": continue
 			sim.aplicar_golpe(fam, o, {"mult": float(f["especial_2"].get("mult", 0.6)), "nunca_erra": true})
 		return true
-	if (fam.kind == "familiar_tirano" or fam.kind == "familiar_lider") and f.has("especial") and dist <= float(f["especial"].get("alcance", 6.0)):
+	if (fam.kind == "familiar_tirano" or fam.kind == "familiar_capitao" or fam.kind == "familiar_lider") and f.has("especial") and dist <= float(f["especial"].get("alcance", 6.0)):
 		fam.aux["esp_cd"] = float(f["especial"]["recarga"])
 		for o in sim.inimigos_de(fam, alvo.pos, float(f["especial"]["area_raio"])):
 			if o.tipo == "jogador" or o.tipo == "npc" or o.tipo == "objeto": continue
