@@ -17310,6 +17310,7 @@
       "preco": 90,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/embrulho_selado_com_cera.png",
@@ -17533,6 +17534,7 @@
       "preco": 14,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/carne_de_abominacao.png",
@@ -17560,6 +17562,7 @@
       "preco": 10,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/massa_rugosa.png",
@@ -17587,6 +17590,7 @@
       "preco": 22,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/casulo_vermelho.png",
@@ -18220,6 +18224,7 @@
       "preco": 60,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/cristal_estelar.png",
@@ -18247,6 +18252,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/tablete_de_pedra_gravada.png",
@@ -20875,6 +20881,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Etiqueta de papel amarelada, com uma cruz vermelha impressa.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/etiqueta_de_papel_com_cruz.png",
@@ -20902,6 +20909,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Pano de estandarte rasgado ao meio, com uma cruz vermelha que ainda se lê.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/estandarte_rasgado_com_cruz.png",
@@ -20929,6 +20937,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Pena longa, quase preta na ponta, com um brilho avermelhado.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/pena_vermelha_escura.png",
@@ -21208,6 +21217,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Disco de ferro com uma cruz e manchas escuras no centro.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/disco_de_ferro_manchado.png",
@@ -21235,6 +21245,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Figo seco, partido ao meio, ainda com o caroço à mostra.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/figo_partido.png",
@@ -21262,6 +21273,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Pinça de metal curta, com as pontas gastas.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/pinca_de_metal.png",
@@ -21289,6 +21301,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Ferramenta de metal dobrada no meio, sem uso que se reconheça.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/ferramenta_dobrada_de_metal.png",
@@ -21316,6 +21329,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Esferas de chumbo empilhadas, pesadas e sem marca.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/esfera_de_chumbo.png",
@@ -21343,6 +21357,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Vela de cera amarela, derretida até a metade.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/vela_de_cera_gasta.png",
@@ -22192,6 +22207,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Couro grosso curtido em casa, com cheiro de fumaça.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/couro_curtido.png",
@@ -22219,6 +22235,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Cano de metal curto, com uma tira de couro enrolada no meio.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/cano_de_metal_com_tira.png",
@@ -22316,6 +22333,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Bola de vidro vermelho, presa num fio de bronze.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/olho_de_vidro_vermelho.png",
@@ -22424,6 +22442,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Caixa de madeira com pregos de dente de ferro na tampa.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/bau_com_dentes.png",
@@ -22451,6 +22470,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Carretel de cobre com fio enrolado pela metade.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/carretel_de_cobre.png",
@@ -22478,6 +22498,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Dente longo com um brilho verde que não sai com a limpeza.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/dente_com_brilho_verde.png",
@@ -22505,6 +22526,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Raízes secas, amargas, colhidas nas margens do Rio Amargo.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/raizes_secas_do_amargo.png",
@@ -22560,6 +22582,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Pote de barro com cera amarela endurecida na boca.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/pote_amarelo_de_cera.png",
@@ -22587,6 +22610,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Placa de ferro com a superfície tomada pela ferrugem.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/placa_de_ferro_enferrujada.png",
@@ -22614,6 +22638,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Colher de bronze gasta, de cabo longo.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/colher_de_bronze.png",
@@ -22641,6 +22666,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Gancho de ferro de carga, com a ponta lisa de uso.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/gancho_de_ferro.png",
@@ -22708,6 +22734,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Carretel de cobre com uma manivela de madeira presa ao eixo.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/carretel_de_cobre_com_manivela.png",
@@ -22735,6 +22762,7 @@
       "preco": 20,
       "pilha": 50,
       "lore": "Frasco verde, sem rolha, com cheiro de remédio.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "icone": {
         "64": "assets/icones/itens/64/frasco_verde_vazio.png",
