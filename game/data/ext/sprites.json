@@ -9223,5 +9223,40 @@
    }
   },
   "escala": 1.0
+ },
+ "zacarias_antigo": {
+  "frame": [
+   512,
+   512
+  ],
+  "anchor": [
+   256.0,
+   355.8
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/monstros/zacarias_antigo/zacarias_antigo_idle.png",
+    "frames": 6,
+    "fps": 7,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/monstros/zacarias_antigo/zacarias_antigo_walk.png",
+    "frames": 8,
+    "fps": 9,
+    "loop": true
+   }
+  },
+  "escala": 1.0
  }
 }

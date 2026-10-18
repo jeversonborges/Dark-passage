@@ -1,0 +1,80 @@
+{
+ "monstro": "zacarias_antigo",
+ "frame_size": [
+  512,
+  512
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  256.0,
+  355.8
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 7,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 9,
+   "loop": true
+  },
+  "attack": {
+   "frames": 10,
+   "fps": 13,
+   "loop": false
+  },
+  "charge": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "release": {
+   "frames": 10,
+   "fps": 14,
+   "loop": false
+  },
+  "hit": {
+   "frames": 4,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 14,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "zacarias_antigo_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "zacarias_antigo_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 0.6
+ }
+}

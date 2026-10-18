@@ -57,3 +57,19 @@ Instalação (container novo): `apt-get install -y libegl1 libgl1-mesa-dri` e um
 pillow numpy imageio` em `/opt/bpy42`. Depois, em `tools/sprite-pipeline/npcs/`:
 `bash lote.sh <id> ...` (render + folha; `RESUME=1` retoma). Teste rápido:
 `/opt/bpy42/bin/python render.py -- <id> /tmp/bt/<id> teste`.
+
+## 18/10: Zaqueu do convite com o Zacarias antigo (para a 0.9.5)
+
+Jefin pediu o modelo antigo do Zacarias (a armadura astral, `tools/sprite-pipeline/monstros/zacarias_v2.py`) como
+modelo do NPC que vende item de evento. O modelo foi re-renderizado só em idle e walk, no formato de monstro,
+em `assets/monstros/zacarias_antigo/` (folhas `zacarias_antigo_idle.png` / `_walk.png` + `meta.json`; prévia em
+`previa/`). O chefe `zacarias` (visual 3, Egito) não mudou.
+
+No branch `claude/npcs-cetro-094`:
+- `game/assets/ext/monstros/zacarias_antigo/` + `data/ext/sprites.json` (manifest.py);
+- `data/sprites_substitutos.json`: `"npc:zaqueu_vendedor": {"usa": "zacarias_antigo", "escala": 0.8}` (2,2 m);
+- `data/mapas/area_inicial.json`: o Zaqueu do convite não estava em mapa nenhum; entrou na praça da Vela, entre as
+  velas da matriz, em frente ao muro da capela (`pos [67.5, 105.5]`, olhando para a praça). Perto da lâmpada o
+  `predio_enterrado` tapa qualquer NPC até o jogador chegar perto (a Zulmira sofre disso); ali ele fica visível de
+  longe. A `loja_zaqueu` (Convite dos Irin, 300 de ouro) já existia. Foto: `assets/monstros/zacarias_antigo/previa/zaqueu_na_vela.png`.
+O Zaqueu cobrador de Jerusalém continua com o modelo humano.
