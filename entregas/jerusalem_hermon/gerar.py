@@ -125,6 +125,11 @@ for _k, _d in MOBS.items():
     if _k not in ("filho_do_hissopo", "kokabiel_contador"): ESPELHO_DE.setdefault(_d["espelho"], _k)
 # Grupos de cada spot congelados do espelho do deserto antigo (16/10). O São Lázaro novo (0.9.3) trocou os spots do
 # deserto, então o espelho não é mais recalculado: os números do mapa ficam como foram balanceados.
+# pegada real de cada prédio: o footprint_tiles do manifesto do sprite (Jefin: "não quero construções atravessáveis")
+MANIFESTO = os.path.join(AQUI, "..", "..", "assets", "ambiente", "objetos")
+def pegada(k, fp):
+    f = os.path.join(MANIFESTO, k + ".json")
+    return json.load(open(f)).get("footprint_tiles", fp) if os.path.exists(f) else fp
 GRUPOS = json.load(open(os.path.join(AQUI, "grupos_espelho.json")))["grupos"]
 
 # ---- blobs: chave -> (x, y, raio, zona, spot | None). spot = (id, nome, nível, [(mob, qtd por grupo, nº de grupos)], temperamento por mob, espelho)
@@ -285,11 +290,15 @@ def mapa():
     def livre3(x, y): return all(a.livre(x + dx, y + dy) and not agua(x + dx, y + dy) and (x + dx, y + dy) not in a.extra_blk
                                  for dx in (-1, 0, 1) for dy in (-1, 0, 1))
     def perto_prop(x, y, d): return any(math.dist((x, y), (p["x"], p["y"])) < d for p in a.props if not p.get("chao"))
-    def predio(k, x, y, fp, luz=None, **kw):
-        """Prédio com pegada (fp em tiles, centrada na posição, como o add() do deserto)."""
-        a.prop(k, x, y, luz=luz, **kw)
+    def bloqueia_pegada(k, x, y, fp=None):
+        """Construção (prédio ou muro) trava a pegada inteira do sprite: o que se vê é o que trava (Jefin, 17/10)."""
+        fp = pegada(k, fp or (1, 1))
         for yy in range(int(y - fp[1]/2 + .5), int(y - fp[1]/2 + .5) + fp[1]):
             for xx in range(int(x - fp[0]/2 + .5), int(x - fp[0]/2 + .5) + fp[0]): a.extra_blk.add((xx, yy))
+    def predio(k, x, y, fp=None, luz=None, **kw):
+        """Prédio com pegada (a do manifesto, ver bloqueia_pegada)."""
+        a.prop(k, x, y, luz=luz, **kw)
+        bloqueia_pegada(k, x, y, fp)
 
     # ================================================================ Jerusalém (base dos Arautos, zona segura)
     # Uma cidade pequena e legível: muro baixo de pedra e barro em volta (a câmera vê por cima), quatro portas com
@@ -462,7 +471,7 @@ def mapa():
             z = zv[0] if zv else "monte_oliveiras"
             frente = any(0 <= x + k + d < W and 0 <= y - k < H and not a.blk[y - k][x + k + d] for k in range(1, 9) for d in (-1, 0, 1))
             k = rng.choice(baixa[z] if frente else alta[z])
-            feitas.append((qx, qy)); a.prop(k, qx, qy, decor_moldura=True)
+            feitas.append((qx, qy)); a.prop(k, qx, qy, decor_moldura=True); bloqueia_pegada(k, qx, qy)
             if z == "vale_hinom" and rng.random() < .12: a.luzes.append([round(qx, 2), round(qy, 2)] + BRASA + [5])
 
     # ================================================================ spots estilo MU (anel de grupos, fogueira na chegada, marco atrás)
@@ -473,7 +482,7 @@ def mapa():
     for key, (bx, by, r, z, sp) in blobs:
         if not sp: continue
         sid, nome, niv, grupos, esp = sp
-        resp = 14   # padrão do Combate em todo spot: 12 mobs, 14 s
+        resp = 7   # spots de farm: 12 mobs, 7 s (0.9.5; antes 14 s)
         spots.append({"id": sid, "nome": nome, "nivel": niv, "pos": [bx, by], "raio": round(r*.85, 1), "respawn_s": resp, "espelho": esp,
                       "zona": z})
         # grupos = os congelados do espelho (grupos_espelho.json): mesmo mob, quantidade, nível e temperamento de antes
@@ -501,6 +510,7 @@ def mapa():
         mx, my = bx - r*.62, by + r*.62
         if a.livre(int(mx), int(my)) and not agua(int(mx), int(my)) and not perto_prop(mx, my, 2.0):
             a.prop(marcos[sid], mx, my, bloqueia=.8 if marcos[sid] not in ("cratera_corte",) else 0, chao=marcos[sid] == "cratera_corte")
+            if marcos[sid] != "cratera_corte": bloqueia_pegada(marcos[sid], mx, my)
     # ---- 6 pontos de descanso (fogueira + carrinho do Bartimeu), um para cada par de spots, como no deserto
     pares = [("getsemani", "escadas_de_siloe"), ("covil_dos_chacais", "fenda_das_oliveiras"), ("primeiros_a_levantar", "acampamento_sapadores"),
              ("fornalhas_de_tofete", "pocilga_de_gadara"), ("cedros_partidos", "neve_de_cinza"), ("acampamento_sapadores", "fenda_das_oliveiras")]

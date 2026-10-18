@@ -120,3 +120,11 @@ Passos: rode o `aplicar_dados.py` (passo 3 acima), depois
 `game/tools/teste_jerusalem.gd` pelo `integrar/teste_jerusalem.gd` (o teste do nível 12 virou "nível 1 já desce").
 Testado numa cópia do `game/`: `teste_jerusalem.gd` 49 ok, 0 falhas, todos os 49 grupos alcançáveis a pé.
 Fotos em `previa_cidade/` (`antes.png` é a cidade da 0.9.3).
+
+### Colisão das construções (18/10)
+
+Os prédios travavam só uma parte do desenho (o gerador bloqueava um tamanho à mão, e alguns sprites são maiores,
+como o `casa_ruina` de 8x8 contra 6x6). Agora cada prédio e muro trava a pegada inteira do próprio sprite
+(`footprint_tiles` do manifesto), também os de borda e os marcos de spot. `python3 integrar/teste_colisao.py`
+confere: 75 construções, 0 com célula livre. Rode-o junto com o `teste_jerusalem.gd` depois de regerar.
+Os mapas do Egito e de São Lázaro têm o mesmo problema e não foram tocados (ficam com as threads donas).
