@@ -55,7 +55,8 @@ static func equipavel(it: Dictionary) -> bool:
 ## Vinculado à conta ("vinculado": true na definição; a Chave-Mestra traz um dicionário): não se vende, não se larga, não se troca.
 static func vinculado(it: Dictionary) -> bool:
 	var v = defn(it["id"]).get("vinculado", false)
-	return v == true or (v is Dictionary and not v.is_empty())
+	if v is bool: return v
+	return v is Dictionary and not v.is_empty()
 
 ## Faixa de item: 1 para mobs até o nível 7, 2 a partir do 7 (meio a meio no 7).
 static func faixa(nivel_mob: int, rng: RandomNumberGenerator) -> int:
