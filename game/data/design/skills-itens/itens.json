@@ -17008,12 +17008,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Luvas de couro com um pedaço de cera vermelha quebrado no punho. Lembram um costume de capela e pouco mais.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 4
       },
       "defesa": 10,
+      "efeito": "Força +4. Defesa 10.",
       "icone": {
         "64": "assets/icones/itens/64/luvas_do_lacre_partido.png",
         "40": "assets/icones/itens/40/luvas_do_lacre_partido.png",
@@ -17335,7 +17336,7 @@
       ],
       "preco": 0,
       "pilha": 1,
-      "lore": "",
+      "lore": "Papiro com um sol rachado ao meio. Quem escreveu contava os dias pelo calor, não pelo relógio.",
       "efeito": "Leitura. Sem efeito de combate.",
       "icone": {
         "64": "assets/icones/itens/64/papiro_do_sol_partido.png",
@@ -18190,7 +18191,7 @@
       ],
       "preco": 0,
       "pilha": 1,
-      "lore": "",
+      "lore": "Carta sem remetente, escrita a lápis por alguém que tremia. Fala de um sol que nasceu torto e de uma fila que nunca andou.",
       "efeito": "Leitura. Sem efeito de combate.",
       "icone": {
         "64": "assets/icones/itens/64/carta_do_sol_torto.png",
@@ -18344,7 +18345,7 @@
       ],
       "preco": 0,
       "pilha": 1,
-      "lore": "",
+      "lore": "Livro de contas da Vigília, com colunas de peso do trigo, da água e do chumbo. Entre as páginas, o Amargo seco.",
       "efeito": "Leitura. Sem efeito de combate.",
       "icone": {
         "64": "assets/icones/itens/64/livro_dos_pesos.png",
@@ -18372,7 +18373,7 @@
       ],
       "preco": 0,
       "pilha": 1,
-      "lore": "",
+      "lore": "Missal de capela, com orações gastas e manchas de vela nas bordas. Alguém riscou uma delas e escreveu por cima: \"não hoje\".",
       "efeito": "Leitura. Sem efeito de combate.",
       "icone": {
         "64": "assets/icones/itens/64/missal_manchado.png",
