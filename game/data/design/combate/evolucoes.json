@@ -1,7 +1,7 @@
 {
-  "_doc": "Evoluções de classe no nível 50 (estilo Ragnarok), rascunho v0.1 de 2026-10-16. Duas por classe; a escolha é feita numa missão de evolução no nível 50 e é definitiva. A evolução mantém todas as skills da classe base e soma 4 skills novas (níveis 50, 55, 60 e 70) e 1 passiva. Números no mesmo formato de design/combate/classes_base.json; conferir com simular.py antes de integrar. Sprites: tools/sprite-pipeline/personagens/evolucoes.py (render.py aceita o id como tipo).",
+  "_doc": "Evoluções de classe no nível 30 (Jefin 18/10: era 50) (estilo Ragnarok), rascunho v0.1 de 2026-10-16. Duas por classe; a escolha é feita numa missão de evolução no nível 30 (Jefin 18/10: era 50) e é definitiva. A evolução mantém todas as skills da classe base e soma 4 skills novas (níveis 50, 55, 60 e 70) e 1 passiva. Números no mesmo formato de design/combate/classes_base.json; conferir com simular.py antes de integrar. Sprites: tools/sprite-pipeline/personagens/evolucoes.py (render.py aceita o id como tipo).",
   "versao": "0.1",
-  "nivel_evolucao": 50,
+  "nivel_evolucao": 30,
   "missao": {
     "_doc": "Jefin 16/10/2026: Pedro, o Exilado (homenagem ao Pedro) é o responsável pela ascensão de classe. O Livro dos Vencidos do Simão (linha G) continua sendo o requisito: ele registra os chefes e manda o jogador até o Pedro. As evoluções dos níveis 150 e 400 (g07, h01) seguem com o Simão por enquanto.",
     "npc": {
@@ -21,7 +21,7 @@
       "dialogo": "dlg_pedro_exilado",
       "aparencia": "Homem de uns sessenta anos, largo e firme, barba grisalha trançada com anéis de latão. Usa um sobretudo costurado de dois: metade lona azul-noite da Vigília, metade tecido rubro-negro do Coro, unidos por uma costura grossa no meio do peito. Carrega um cajado-lampião com uma lente de farol e uma bolsa de livros amarrados com corda. Nos antebraços, os símbolos das duas facções foram riscados a faca, e ele nunca escondeu as cicatrizes.",
       "personalidade": "Calmo, generoso, de humor seco. Escuta antes de falar e trata todo aprendiz igual, venha de que lado vier. Não dá ordens, dá escolhas. Ri alto, e é o único riso que se ouve no rio.",
-      "historia": "Foi mestre de armas e de ofícios dos dois lados do Impasse. Ensinou humanos a aguentar o Amargo no corpo e ensinou anjos e demônios a lutar sem o Coro, porque achava que quem sobrevive ao fim do mundo merece ficar mais forte, de qualquer lado. A Vigília o expulsou por treinar Arautos; o Coro, por treinar humanos. Ele não brigou com nenhum dos dois: atravessou o Rio Amargo, ergueu uma oficina numa ilhota que nenhum lado reclama e esperou. Os aprendizes vieram mesmo assim. É velho amigo de Simão: 'Ele escreve os vencidos. Eu ensino os que venceram.' Quando o Livro dos Vencidos chega ao nível 50, é a carta de Simão que abre a ponte da ilha.",
+      "historia": "Foi mestre de armas e de ofícios dos dois lados do Impasse. Ensinou humanos a aguentar o Amargo no corpo e ensinou anjos e demônios a lutar sem o Coro, porque achava que quem sobrevive ao fim do mundo merece ficar mais forte, de qualquer lado. A Vigília o expulsou por treinar Arautos; o Coro, por treinar humanos. Ele não brigou com nenhum dos dois: atravessou o Rio Amargo, ergueu uma oficina numa ilhota que nenhum lado reclama e esperou. Os aprendizes vieram mesmo assim. É velho amigo de Simão: 'Ele escreve os vencidos. Eu ensino os que venceram.' Quando o Livro dos Vencidos chega ao nível 30, é a carta de Simão que abre a ponte da ilha.",
       "falas_curtas": [
         "Os dois lados me mandaram embora. Nenhum dos dois parou de mandar gente.",
         "Força não tem bandeira. Quem decide a bandeira é você.",
@@ -36,19 +36,19 @@
         "tipo": "principal",
         "linha": "A Ascensão",
         "faccao": "ambas",
-        "nivel": 50,
-        "nivel_minimo": 50,
+        "nivel": 30,
+        "nivel_minimo": 30,
         "doador": "simao_coveiro",
         "entrega": "pedro_exilado",
         "requer": [
           "g02"
         ],
-        "resumo": "Com o Livro dos Vencidos cheio até o nível 50, leve a carta de Simão até Pedro, o Exilado, na ilha do Rio Amargo.",
+        "resumo": "Com o Livro dos Vencidos cheio até o nível 30, leve a carta de Simão até Pedro, o Exilado, na ilha do Rio Amargo.",
         "descricao": "Simão fecha o livro e escreve uma carta curta, com a letra de quem tem pressa nenhuma: 'Pedro. Este venceu. Ensina.' A ilha do Exilado fica no meio do Rio Amargo, e a ponte só baixa para quem traz a palavra do coveiro.",
         "objetivos": [
           {
             "tipo": "chefes_dungeon",
-            "ate_nivel": 50
+            "ate_nivel": 30
           },
           {
             "tipo": "falar",
@@ -77,8 +77,8 @@
         "tipo": "principal",
         "linha": "A Ascensão",
         "faccao": "ambas",
-        "nivel": 50,
-        "nivel_minimo": 50,
+        "nivel": 30,
+        "nivel_minimo": 30,
         "doador": "pedro_exilado",
         "entrega": "pedro_exilado",
         "requer": [
@@ -121,7 +121,7 @@
         "recompensas": {
           "xp": 250000,
           "ouro": 3000,
-          "_doc": "aplica a evolução escolhida (id em evolucoes.json) e libera as skills do nível 50; não mexe no estágio de classe da linha G (evolucao_classe 2 e 3 em 150/400)",
+          "_doc": "aplica a evolução escolhida (id em evolucoes.json) e libera as skills do nível 30; não mexe no estágio de classe da linha G (evolucao_classe 2 e 3 em 150/400)",
           "aplica_evolucao": "escolhida"
         },
         "texto_conclusao": "Pedro amarrou no seu braço um anel de latão da barba dele. 'Agora some daqui. E volta quando o mundo tiver ficado pequeno pra você.'",
@@ -146,11 +146,11 @@
     "_doc": "Bônus base de toda evolução, somado ao bônus próprio de cada caminho."
   },
   "desbloqueio_habilidades_niveis": [
-    50,
-    55,
-    60,
-    65,
-    70
+    30,
+    35,
+    40,
+    45,
+    50
   ],
   "evolucoes": {
     "arcanjo": {
@@ -175,7 +175,7 @@
         {
           "id": "montante_do_sol",
           "nome": "Montante do Sol",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 22,
           "recarga": 6.0,
           "mult": 3.2,
@@ -190,7 +190,7 @@
         {
           "id": "estandarte_da_hoste",
           "nome": "Estandarte da Hoste",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 35,
           "recarga": 30.0,
           "duracao": 12,
@@ -204,7 +204,7 @@
         {
           "id": "provocacao_celeste",
           "nome": "Provocação Celeste",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 15,
           "recarga": 12.0,
           "area_raio": 5,
@@ -215,7 +215,7 @@
           "sensacao": "debuff"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "sete_espadas_do_juizo",
           "nome": "Sete Espadas do Juízo",
           "custo": 70,
@@ -232,7 +232,7 @@
         {
           "id": "queda_do_arcanjo",
           "nome": "Queda do Arcanjo",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 45,
           "recarga": 25.0,
           "deslocamento": 7,
@@ -268,7 +268,7 @@
         {
           "id": "fogo_que_nao_consome",
           "nome": "Fogo Que Não Consome",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 30,
           "recarga": 8.0,
           "cura_mult": 3.5,
@@ -279,7 +279,7 @@
         {
           "id": "rodas_de_olhos",
           "nome": "Rodas de Olhos",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 25,
           "recarga": 18.0,
           "duracao": 8,
@@ -295,7 +295,7 @@
         {
           "id": "escudo_do_trono",
           "nome": "Escudo do Trono",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 28,
           "recarga": 20.0,
           "alcance": 8,
@@ -304,7 +304,7 @@
           "sensacao": "buff"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "coro_dos_seis_ais",
           "nome": "Coro dos Seis Ais",
           "custo": 90,
@@ -321,7 +321,7 @@
         {
           "id": "levanta_te",
           "nome": "Levanta-te",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 60,
           "recarga": 120.0,
           "alcance": 6,
@@ -354,7 +354,7 @@
         {
           "id": "golpe_de_escudo",
           "nome": "Golpe do Escudo-Torre",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 18,
           "recarga": 7.0,
           "mult": 2.4,
@@ -369,7 +369,7 @@
         {
           "id": "muralha_negra",
           "nome": "Muralha Negra",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 30,
           "recarga": 24.0,
           "duracao": 6,
@@ -380,7 +380,7 @@
         {
           "id": "grito_da_legiao",
           "nome": "Grito da Legião Blasfema",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 25,
           "recarga": 15.0,
           "area_raio": 6,
@@ -391,7 +391,7 @@
           "sensacao": "debuff"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "trono_da_legiao",
           "nome": "Trono da Legião",
           "custo": 60,
@@ -409,7 +409,7 @@
         {
           "id": "espadao_do_general",
           "nome": "Espadão do General",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 40,
           "recarga": 18.0,
           "mult": 4.0,
@@ -446,7 +446,7 @@
         {
           "id": "ceifa_da_alma",
           "nome": "Ceifa da Alma",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 20,
           "recarga": 5.0,
           "mult": 3.6,
@@ -461,7 +461,7 @@
         {
           "id": "manto_de_sombra",
           "nome": "Manto de Sombra",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 25,
           "recarga": 20.0,
           "duracao": 5,
@@ -474,7 +474,7 @@
         {
           "id": "marca_do_ceifador",
           "nome": "Marca do Ceifador",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 15,
           "recarga": 14.0,
           "alcance": 8,
@@ -487,7 +487,7 @@
         {
           "id": "espiritos_malignos",
           "nome": "Espíritos Malignos",
-          "nivel": 65,
+          "nivel": 45,
           "custo": 35,
           "recarga": 8.0,
           "elemento": "trevas",
@@ -504,7 +504,7 @@
         {
           "id": "julgamento_antecipado",
           "nome": "Julgamento Antecipado",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 45,
           "recarga": 30.0,
           "mult": 6.0,
@@ -537,7 +537,7 @@
         {
           "id": "orbe_coracao",
           "nome": "Coração Preso",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 28,
           "recarga": 4.0,
           "mult": 3.0,
@@ -550,7 +550,7 @@
         {
           "id": "grimorio_aberto",
           "nome": "Grimório Aberto",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 30,
           "recarga": 22.0,
           "duracao": 10,
@@ -563,7 +563,7 @@
         {
           "id": "orbitas_de_sangue",
           "nome": "Órbitas de Sangue",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 24,
           "recarga": 12.0,
           "duracao": 6,
@@ -573,7 +573,7 @@
           "sensacao": "area"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "chuva_de_estrelas_rubras",
           "nome": "Chuva de Estrelas Rubras",
           "custo": 85,
@@ -594,7 +594,7 @@
         {
           "id": "setimo_versiculo",
           "nome": "Sétimo Versículo",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 70,
           "recarga": 35.0,
           "canalizacao": 2.0,
@@ -628,7 +628,7 @@
         {
           "id": "turibulo_do_amargo",
           "nome": "Turíbulo do Amargo",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 20,
           "recarga": 6.0,
           "area_raio": 3.5,
@@ -641,7 +641,7 @@
         {
           "id": "estilhaco_da_estrela",
           "nome": "Estilhaço da Estrela",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 26,
           "recarga": 8.0,
           "mult": 2.8,
@@ -654,7 +654,7 @@
         {
           "id": "sermao_do_fim",
           "nome": "Sermão do Fim",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 30,
           "recarga": 20.0,
           "area_raio": 5,
@@ -665,7 +665,7 @@
           "sensacao": "debuff"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "enxame_da_podridao",
           "nome": "Enxame da Podridão",
           "custo": 55,
@@ -683,7 +683,7 @@
         {
           "id": "absinto_caiu",
           "nome": "A Estrela Caiu",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 60,
           "recarga": 40.0,
           "alcance": 10,
@@ -720,7 +720,7 @@
         {
           "id": "dois_canos",
           "nome": "Dois Canos",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 12,
           "recarga": 3.0,
           "golpes": 6,
@@ -732,7 +732,7 @@
         {
           "id": "abanar_o_cao",
           "nome": "Abanar o Cão",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 22,
           "recarga": 10.0,
           "forma": "cone",
@@ -745,7 +745,7 @@
         {
           "id": "rifle_de_alavanca",
           "nome": "Rifle de Alavanca",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 25,
           "recarga": 12.0,
           "preparo": 1.0,
@@ -755,7 +755,7 @@
           "sensacao": "golpe_pesado"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "forma_vingativa",
           "nome": "Forma Vingativa",
           "custo": 60,
@@ -774,7 +774,7 @@
         {
           "id": "meio_dia",
           "nome": "Meio-Dia",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 45,
           "recarga": 35.0,
           "duracao": 6,
@@ -810,7 +810,7 @@
         {
           "id": "arpao_de_corrente",
           "nome": "Arpão de Corrente",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 18,
           "recarga": 8.0,
           "mult": 2.2,
@@ -825,7 +825,7 @@
         {
           "id": "rede_de_prata",
           "nome": "Rede de Prata",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 22,
           "recarga": 16.0,
           "alcance": 7,
@@ -839,7 +839,7 @@
         {
           "id": "virote_da_asa",
           "nome": "Virote da Asa",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 24,
           "recarga": 9.0,
           "mult": 3.4,
@@ -853,7 +853,7 @@
           "sensacao": "golpe_pesado"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "chuva_de_virotes_benzidos",
           "nome": "Chuva de Virotes Benzidos",
           "custo": 65,
@@ -871,7 +871,7 @@
         {
           "id": "noite_da_cacada",
           "nome": "Noite da Caçada",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 50,
           "recarga": 40.0,
           "duracao": 10,
@@ -908,7 +908,7 @@
         {
           "id": "muro_de_vela",
           "nome": "Muro de Vela",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 15,
           "recarga": 18.0,
           "duracao": 5,
@@ -919,7 +919,7 @@
         {
           "id": "machado_do_carrasco",
           "nome": "Machado do Carrasco",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 25,
           "recarga": 8.0,
           "mult": 3.6,
@@ -933,7 +933,7 @@
         {
           "id": "corrente_da_arena",
           "nome": "Corrente da Arena",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 20,
           "recarga": 12.0,
           "alcance": 6,
@@ -944,7 +944,7 @@
           "sensacao": "debuff"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "ave_arena",
           "nome": "Ave, Arena!",
           "custo": 60,
@@ -961,7 +961,7 @@
         {
           "id": "campeao",
           "nome": "Campeão",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 40,
           "recarga": 45.0,
           "duracao": 10,
@@ -995,7 +995,7 @@
         {
           "id": "lamina_de_osso",
           "nome": "Lâmina de Osso",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 15,
           "recarga": 4.0,
           "mult": 3.0,
@@ -1011,7 +1011,7 @@
         {
           "id": "sacos_de_acido",
           "nome": "Sacos de Ácido",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 20,
           "recarga": 14.0,
           "area_raio": 4,
@@ -1026,7 +1026,7 @@
         {
           "id": "segundo_braco",
           "nome": "O Segundo Braço",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 22,
           "recarga": 10.0,
           "alcance": 4,
@@ -1038,7 +1038,7 @@
           "sensacao": "golpe_pesado"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "forma_colossal",
           "nome": "Forma Colossal",
           "custo": 80,
@@ -1061,7 +1061,7 @@
         {
           "id": "frenesi_da_carne",
           "nome": "Frenesi da Carne",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 50,
           "recarga": 45.0,
           "duracao": 10,
@@ -1097,7 +1097,7 @@
         {
           "id": "bracos_servos",
           "nome": "Braços Servos",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 25,
           "recarga": 10.0,
           "cura_mult": 2.5,
@@ -1108,7 +1108,7 @@
         {
           "id": "orgao_de_vapor",
           "nome": "Órgão de Vapor",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 30,
           "recarga": 22.0,
           "area_raio": 6,
@@ -1122,7 +1122,7 @@
         {
           "id": "torreta_relicario",
           "nome": "Torreta-Relicário",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 40,
           "recarga": 30.0,
           "duracao": 25,
@@ -1131,7 +1131,7 @@
           "sensacao": "invocacao"
         },
         {
-          "nivel": 65,
+          "nivel": 45,
           "id": "legiao_de_servos",
           "nome": "Legião de Servos",
           "custo": 70,
@@ -1153,7 +1153,7 @@
         {
           "id": "engrenagem_sagrada",
           "nome": "Engrenagem Sagrada",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 55,
           "recarga": 60.0,
           "area_raio": 7,
@@ -1187,7 +1187,7 @@
         {
           "id": "canhao_sino",
           "nome": "Canhão-Sino",
-          "nivel": 50,
+          "nivel": 30,
           "custo": 25,
           "recarga": 6.0,
           "preparo": 0.6,
@@ -1200,7 +1200,7 @@
         {
           "id": "martelo_de_bobina",
           "nome": "Martelo de Bobina",
-          "nivel": 55,
+          "nivel": 35,
           "custo": 18,
           "recarga": 7.0,
           "mult": 2.6,
@@ -1212,7 +1212,7 @@
         {
           "id": "exoesqueleto",
           "nome": "Exoesqueleto",
-          "nivel": 60,
+          "nivel": 40,
           "custo": 30,
           "recarga": 30.0,
           "duracao": 10,
@@ -1226,7 +1226,7 @@
         {
           "id": "bomba_atomica",
           "nome": "Bomba Atômica",
-          "nivel": 65,
+          "nivel": 45,
           "custo": 80,
           "recarga": 60.0,
           "alvo": "chao",
@@ -1262,7 +1262,7 @@
         {
           "id": "dobre_de_finados",
           "nome": "Dobre de Finados",
-          "nivel": 70,
+          "nivel": 50,
           "custo": 65,
           "recarga": 45.0,
           "canalizacao": 3.0,
