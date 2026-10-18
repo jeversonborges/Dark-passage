@@ -322,5 +322,53 @@
   512,
   64,
   64
+ ],
+ "montante_do_sol": [
+  384,
+  192,
+  64,
+  64
+ ],
+ "estandarte_da_hoste": [
+  448,
+  192,
+  64,
+  64
+ ],
+ "provocacao_celeste": [
+  512,
+  192,
+  64,
+  64
+ ],
+ "sete_espadas_do_juizo": [
+  576,
+  192,
+  64,
+  64
+ ],
+ "queda_do_arcanjo": [
+  640,
+  192,
+  64,
+  64
+ ],
+ "fogo_que_nao_consome": [
+  704,
+  192,
+  64,
+  64
+ ],
+ "rodas_de_olhos": [
+  768,
+  192,
+  64,
+  64
+ ],
+ "cultista_familiar_pacto": [
+  832,
+  192,
+  64,
+  64
  ]
 }

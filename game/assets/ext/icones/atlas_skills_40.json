@@ -322,5 +322,53 @@
   320,
   40,
   40
+ ],
+ "montante_do_sol": [
+  240,
+  120,
+  40,
+  40
+ ],
+ "estandarte_da_hoste": [
+  280,
+  120,
+  40,
+  40
+ ],
+ "provocacao_celeste": [
+  320,
+  120,
+  40,
+  40
+ ],
+ "sete_espadas_do_juizo": [
+  360,
+  120,
+  40,
+  40
+ ],
+ "queda_do_arcanjo": [
+  400,
+  120,
+  40,
+  40
+ ],
+ "fogo_que_nao_consome": [
+  440,
+  120,
+  40,
+  40
+ ],
+ "rodas_de_olhos": [
+  480,
+  120,
+  40,
+  40
+ ],
+ "cultista_familiar_pacto": [
+  520,
+  120,
+  40,
+  40
  ]
 }
