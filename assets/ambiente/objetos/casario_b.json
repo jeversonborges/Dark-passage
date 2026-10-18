@@ -1,0 +1,24 @@
+{
+ "w": 1272,
+ "h": 838,
+ "anchor": [
+  342,
+  573
+ ],
+ "base": [
+  -2.2,
+  -4.8,
+  2.2,
+  4.8
+ ],
+ "emissivo": "janela acesa e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  13,
+  6
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Casario geminado de três casas estreitas (ocre, rosa e branca), cada uma com a sua porta, telhados de barro em     degrau e uma lanterna comum; a casa do meio tem a janela acesa.",
+ "kind": "casario_b"
+}

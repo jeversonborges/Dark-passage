@@ -1,0 +1,23 @@
+{
+ "w": 188,
+ "h": 112,
+ "anchor": [
+  54,
+  83
+ ],
+ "base": [
+  -0.8,
+  -0.3,
+  0.8,
+  0.3
+ ],
+ "bioma": "sao_lazaro",
+ "categoria": "props",
+ "footprint_tiles": [
+  2,
+  1
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Banco de praça de ferro fundido e ripas de madeira, uma ripa faltando.",
+ "kind": "banco_praca_a"
+}

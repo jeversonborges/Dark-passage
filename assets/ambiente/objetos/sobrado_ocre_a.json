@@ -1,0 +1,24 @@
+{
+ "w": 1440,
+ "h": 832,
+ "anchor": [
+  468,
+  609
+ ],
+ "base": [
+  -3.2,
+  -2.6,
+  3.2,
+  2.6
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  7
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Sobrado ocre de 1890: dois andares de janelas de arco, sacada de ferro, telhado de barro com chaminé; a janela do antigo 4º andar virou porta.",
+ "kind": "sobrado_ocre_a"
+}

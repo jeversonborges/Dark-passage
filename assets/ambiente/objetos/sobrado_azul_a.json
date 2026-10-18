@@ -1,0 +1,24 @@
+{
+ "w": 1392,
+ "h": 792,
+ "anchor": [
+  432,
+  605
+ ],
+ "base": [
+  -2.5,
+  -2.5,
+  2.5,
+  2.5
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  7,
+  7
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Sobrado estreito cinza-azul, duas janelas por andar, telhado com a cumeeira para a rua.",
+ "kind": "sobrado_azul_a"
+}

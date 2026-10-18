@@ -83,6 +83,15 @@ def latao(): return _c("lat", lambda: K.mat_brass("latao_sl"))
 def telha(): return _c("tel", lambda: mat_telha())
 def vao(): return _c("vao", lambda: K.mat_solid("vao_sl", (.004, .004, .004), 0, .9))
 def vidro_aceso(): return _c("vac", lambda: K.mat_window_lit("janela_acesa_sl"))
+def clarab_acesa():
+    """Clarabóia do mercado: vidro sujo iluminado por dentro, bem mais fraco que uma janela acesa."""
+    def f():
+        m = K.mat_window_lit("claraboia_sl"); nt = m.node_tree; b = next(n for n in nt.nodes if n.type == "BSDF_PRINCIPLED")
+        for l in list(nt.links):
+            if l.to_socket == b.inputs["Emission Strength"]: nt.links.remove(l)
+        b.inputs["Emission Strength"].default_value = .45
+        return m
+    return _c("cla", f)
 def vidro_escuro(): return _c("ves", lambda: K.mat_solid("vidro_escuro_sl", (.02, .025, .03), .1, .15))
 def areia(): return _c("are", lambda: K.mat_sand_obj())
 
@@ -540,7 +549,7 @@ def mercado_ferro(m, seed=12):
             box(mat, c_, (W/4 + .02, math.hypot(D*(t1 - t0), z1 - z0), .04), (math.degrees(ang), 0, 0), 0)
     for i in range(6):                                                                               # clarabóia da cumeeira
         x = -W/2 + .9 + i*(W - 1.8)/5
-        box(vidro_aceso() if i % 2 else vidro_escuro(), (x, 0, H + 2.3), (1.2, 1.4, .06), bevel=0)
+        box(clarab_acesa() if i % 2 else vidro_escuro(), (x, 0, H + 2.3), (1.2, 1.4, .06), bevel=0)
     # bancas, caixotes e lampiões por baixo
     for i, x in enumerate((-3.3, -1.1, 1.1, 3.3)):
         box(madeira("escura"), (x, -.6, .75), (1.8, 1.0, .08), bevel=.004)

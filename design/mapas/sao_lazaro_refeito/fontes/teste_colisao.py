@@ -40,8 +40,9 @@ for p in bases:
         for y in range(int(math.floor(y0)), int(math.ceil(y1))):
             # só o miolo (célula inteira dentro da base): a borda tem a folga de 30 cm
             if x + .5 < x0 or x + .5 > x1 or y + .5 < y0 or y + .5 > y1: continue
+            if p.get("passagem") and abs((x + .5) - p["x"]) < 1.6 and abs((y + .5) - p["y"]) < 1.6: continue   # vão do portão
             celulas_base.add((x, y))
-            if not bloqueada(x, y) and not (p.get("passagem") and abs((x + .5) - p["x"]) < 1.6 and abs((y + .5) - p["y"]) < 1.6):
+            if not bloqueada(x, y):
                 furos += 1
                 if furos <= 10: erros.append(f"parede atravessável: {p['kind']} em ({p['x']}, {p['y']}) tem a célula ({x}, {y}) livre")
 if furos > 10: erros.append(f"... e mais {furos - 10} células de parede livres")
@@ -90,7 +91,8 @@ for t in M["trilhas"]:
             if not (j["x0"] <= x < j["x1"] and j["y0"] <= y < j["y1"]) or ter[int(x)][int(y)] in "hd": continue
             tot += 1
             if perto(x, y, 1): livres += 1
-    if tot and livres < tot*.75:   # bondes parados nos trilhos são de propósito erros.append(f"rua interrompida: {t['nome']} ({livres}/{tot} pontos alcançáveis)")
+    if tot and livres < tot*.75:   # bondes parados nos trilhos são de propósito
+        erros.append(f"rua interrompida: {t['nome']} ({livres}/{tot} pontos alcançáveis)")
 # bolsões dentro da Cerca
 zl = M["zonas_legenda"]; letra = next(k for k, v in zl.items() if v == "acampamento_vela")
 cerca = [(x, y) for x in range(NT) for y in range(NT) if M["zonas_grid"][x][y] == letra]

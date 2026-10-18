@@ -1,0 +1,24 @@
+{
+ "w": 1514,
+ "h": 818,
+ "anchor": [
+  509,
+  571
+ ],
+ "base": [
+  -4.0,
+  -2.7,
+  4.0,
+  2.7
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  11,
+  7
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Sobrado rosa-queimado de platibanda com balaústres e urnas, caixa d'água de latão da Vigília no terraço.",
+ "kind": "sobrado_rosa_a"
+}

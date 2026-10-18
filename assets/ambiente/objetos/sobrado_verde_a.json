@@ -1,0 +1,24 @@
+{
+ "w": 1414,
+ "h": 752,
+ "anchor": [
+  459,
+  546
+ ],
+ "base": [
+  -3.0,
+  -2.6,
+  3.0,
+  2.6
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  7
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Sobrado verde-garrafa de platibanda, porta na ponta e sacada corrida.",
+ "kind": "sobrado_verde_a"
+}
