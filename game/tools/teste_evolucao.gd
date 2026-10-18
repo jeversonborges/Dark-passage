@@ -1,6 +1,7 @@
 extends SceneTree
-## Teste headless das evoluções do nível 30: carta do Simão, escolha com o Pedro (só os 2 caminhos da classe),
-## troca de classe, bônus (atributos, hp_mult, defesa_mult), as 5 skills novas de cada caminho e o save.
+## Teste headless das evoluções do nível 30: os cards abrem sem missão (só os 2 caminhos da classe), a escolha é
+## definitiva, a missão de Os Dois Caminhos ainda conclui com o Pedro, bônus (atributos, hp_mult, defesa_mult),
+## as 5 skills novas de cada caminho e o save.
 ## godot --headless --path . -s tools/teste_evolucao.gd
 
 var cont := {}
@@ -77,13 +78,24 @@ func _testar(classe: String, caminho_idx: int) -> void:
 		pedro = npc(sim, "pedro_exilado")
 	if simao == null: falha("Simão não está no mapa"); return
 	var opcoes: Array = Evolucao.opcoes(classe)
-	var tag := "%s/%s" % [classe, opcoes[caminho_idx]]
-	# ------------------------------------------------ nível mínimo
+	var escolhido: String = opcoes[caminho_idx]
+	var tag := "%s/%s" % [classe, escolhido]
+	# ------------------------------------------------ cards: nível 30, sem missão nenhuma
 	subir(sim, j, 28)
-	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível no nível 28")
+	if Missoes.disponivel(j, "ev01") or not Evolucao.disponiveis(j).is_empty(): falha(tag + ": ev01 ou cards antes do nível 30")
 	subir(sim, j, 30)
+	if Evolucao.disponiveis(j) != opcoes: falha(tag + ": cards do nível 30 = %s" % str(Evolucao.disponiveis(j)))
 	if Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 disponível sem a g02 do Livro dos Vencidos")
-	j.missoes["g02"] = {"estado": "concluida"}   # requisito: Livro dos Vencidos do Simão
+	var alheio := "serafim" if classe != "anjo" else "ceifador"
+	Comandos.executar(sim, j, "evoluir", [alheio])
+	if j.evolucao != "": falha(tag + ": cards aceitaram caminho de outra classe"); return
+	var hp_antes := j.hp_max; var def_antes := j.defesa; var pontos_antes := j.pontos
+	Comandos.executar(sim, j, "evoluir", [escolhido])
+	if j.evolucao != escolhido: falha(tag + ": cards não evoluíram (%s)" % j.evolucao); return
+	if not Evolucao.disponiveis(j).is_empty(): falha(tag + ": cards continuam abertos depois da escolha")
+	Comandos.executar(sim, j, "evoluir", [opcoes[1 - caminho_idx]])
+	if j.evolucao != escolhido: falha(tag + ": dá para trocar de caminho pelos cards")
+	j.missoes["g02"] = {"estado": "concluida"}   # a missão Os Dois Caminhos continua valendo, mas não manda na evolução
 	for b in Defs.REG_CHEFES: j.flags["venceu_" + str(b["id"])] = true   # Livro dos Vencidos cheio até o nível da evolução
 	if not Missoes.disponivel(j, "ev01"): falha(tag + ": ev01 indisponível no nível 30")
 	# ------------------------------------------------ carta do Simão
@@ -92,28 +104,16 @@ func _testar(classe: String, caminho_idx: int) -> void:
 	if Missoes.estado(j, "ev01") != "ativa": falha(tag + ": ev01 não ficou ativa")
 	if Itens.contar(j.inv, "carta_de_simao") < 1: falha(tag + ": sem a carta de Simão na mochila")
 	j.aux.erase("dialogo")
-	# ------------------------------------------------ Pedro lê a carta; Os Dois Caminhos começa sozinha
+	# ------------------------------------------------ Pedro lê a carta; Os Dois Caminhos já está resolvida (evoluiu pelos cards)
 	Missoes.abrir(sim, j, pedro)
 	if not opcao(sim, j, "O coveiro me mandou. Esta é a carta."): falha(tag + ": Pedro não aceita a carta: " + str(visiveis(j))); return
 	if Missoes.estado(j, "ev01") != "concluida": falha(tag + ": ev01 não concluiu")
-	if Missoes.estado(j, "ev02") != "ativa": falha(tag + ": ev02 não começou")
+	if Missoes.estado(j, "ev02") != "concluida": falha(tag + ": ev02 não se resolveu sozinha depois dos cards")
 	j.aux.erase("dialogo")
-	# ------------------------------------------------ escolha: só os 2 caminhos da classe
-	var stats_antes: Dictionary = j.stats.duplicate()
-	var hp_antes := j.hp_max; var def_antes := j.defesa; var pontos_antes := j.pontos
 	Missoes.abrir(sim, j, pedro)
-	if not opcao(sim, j, "Estou pronto para escolher o meu caminho."): falha(tag + ": Pedro não abre a escolha"); return
-	var vis := visiveis(j)
-	var nomes: Array = opcoes.map(func(o): return Evolucao.defn(o)["nome"])
-	if vis.size() != 3 or not (nomes[0] in vis and nomes[1] in vis): falha(tag + ": opções erradas na escolha: " + str(vis))
-	# caminho de outra classe é recusado
-	var alheio := "serafim" if classe != "anjo" else "ceifador"
-	Missoes.concluir(sim, j, "ev02", alheio)
-	if j.evolucao != "" or Missoes.estado(j, "ev02") != "ativa": falha(tag + ": aceitou caminho de outra classe")
-	var escolhido: String = opcoes[caminho_idx]
-	if not opcao(sim, j, Evolucao.defn(escolhido)["nome"]): falha(tag + ": não achou a opção " + escolhido); return
-	if j.evolucao != escolhido: falha(tag + ": evolução não aplicada (%s)" % j.evolucao); return
-	if Missoes.estado(j, "ev02") != "concluida": falha(tag + ": ev02 não concluiu")
+	if opcao(sim, j, "Estou pronto para escolher o meu caminho."): falha(tag + ": Pedro oferece escolha de novo")
+	j.aux.erase("dialogo")
+	if j.evolucao != escolhido: falha(tag + ": o Pedro mexeu na evolução (%s)" % j.evolucao); return
 	if not j.flags.has("evolucao_50"): falha(tag + ": sem a flag evolucao_50")
 	if Evolucao.recusa(j, opcoes[1 - caminho_idx]) == "": falha(tag + ": dá para evoluir duas vezes")
 	# ------------------------------------------------ bônus: atributos, pontos, hp_mult e defesa_mult

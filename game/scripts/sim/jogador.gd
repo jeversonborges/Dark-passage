@@ -802,7 +802,7 @@ static func ganhar_xp(sim: WorldSim, e: Ent, q: int, fonte: String = "") -> void
 		var nova := ""
 		for h in Evolucao.habilidades(e):
 			if int(h["nivel"]) == e.nivel: nova = h["nome"]
-		sim.emitir("nivel", {"id": e.id, "nivel": e.nivel, "skill_nova": nova})
+		sim.emitir("nivel", {"id": e.id, "nivel": e.nivel, "skill_nova": nova})   # o cliente abre os cards da evolução ao ver o nível 30
 		if e.nivel % TALENTO_NIVEIS == 0: sim.emitir_a(e, "aviso", {"texto": "Ponto de talento novo! Aperte T para usar."})
 
 # =================================================================== morte

@@ -17,6 +17,7 @@ const SAVE := "user://dark_passage_v2.save"
 
 var sim: WorldSim
 var jog: Ent
+var _evo_login := false   # os cards da evolução abrem uma vez ao entrar na rede (depois, pelo nível e pelo Personagem)
 var mapa: Dictionary
 var chao: Node2D
 var decal := Node2D.new()
@@ -78,6 +79,7 @@ func iniciar(classe: String, nome: String, salvo: Dictionary = {}) -> void:
 	var pos := Vector2(-1, -1)
 	if salvo.get("pos", []).size() == 2: pos = Vector2(salvo["pos"][0], salvo["pos"][1])
 	_entrar(mapa_ini, pos)
+	janelas.call_deferred("escolha_evolucao")   # ao entrar, quem já está no nível 30 sem caminho escolhe
 	if salvo.is_empty() and not OS.get_cmdline_user_args().has("fotos") and not "fotos" in " ".join(OS.get_cmdline_user_args()):
 		hud.mostrar_ajuda()
 
@@ -119,6 +121,7 @@ func _entrar_rede(m: Dictionary) -> void:
 	cam.position = Iso.to_screen(jog.pos)
 	cam.reset_smoothing()
 	hud.ao_trocar_mapa()
+	if not trocou and not _evo_login: _evo_login = true; janelas.call_deferred("escolha_evolucao")
 	if trocou and not Defs.eh_mapa_casa(m["mapa"]): audio.tocar("musica/vinheta/entrar_cripta")
 	cortina.modulate.a = 1.0
 	var tw := create_tween()
@@ -728,6 +731,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 				if tipo == "evolucao": fx.folha("level_up", v.position, {"segue": v})
 			if tipo == "evolucao" and jog and int(d["id"]) == jog.id:
 				audio.evento("nivel_sobe")
+				janelas.fechar("evolucao")
 				_salvar()
 		"teleporte":
 			var v = views.get(int(d["id"]))
@@ -789,6 +793,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			if int(d.get("id", jog.id)) == jog.id:
 				audio.evento("nivel_sobe")
 				hud.nivel(d)
+				if int(d.get("nivel", 0)) >= Evolucao.nivel_exigido(): janelas.call_deferred("escolha_evolucao")   # cards do caminho de classe
 				_salvar()
 		"xp": hud.xp(d)
 		"skill": hud.skill_usada(d)

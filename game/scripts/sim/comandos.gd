@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -71,6 +71,8 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _str(a, 0) and a[0] in ["atacar", "teleportar", "proteger", "agressivo", "passivo"]: Familiar.comando(sim, e, a[0])
 		"escolher":
 			if _int(a, 0): Missoes.escolher(sim, e, a[0])
+		"evoluir":   # cards da evolução no nível 30: o id do caminho (evolucoes.json)
+			if _str(a, 0): Evolucao.escolher(sim, e, a[0])
 		"virar":
 			if _v2(a, 0) and (a[0] as Vector2).length() > 0.01: e.facing = (a[0] as Vector2).normalized()
 		"no_lugar":
