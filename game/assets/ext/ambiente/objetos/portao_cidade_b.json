@@ -1,0 +1,28 @@
+{
+ "w": 614,
+ "h": 380,
+ "anchor": [
+  142,
+  302
+ ],
+ "base": [
+  -0.5,
+  -2.5,
+  0.5,
+  2.5
+ ],
+ "passagem": [
+  -1.4,
+  1.4
+ ],
+ "emissivo": "braseiros",
+ "bioma": "sao_lazaro",
+ "categoria": "paredes",
+ "footprint_tiles": [
+  6,
+  2
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Portão da Cerca da Vigília: dois pilares de cantaria com braseiros, portão de ferro batido aberto e a placa     'SÃO LÁZARO · VIGÍLIA' pendurada em correntes; bloqueia nos pilares, passa no meio.",
+ "kind": "portao_cidade_b"
+}

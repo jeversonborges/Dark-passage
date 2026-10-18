@@ -1,0 +1,23 @@
+{
+ "w": 1572,
+ "h": 866,
+ "anchor": [
+  522,
+  650
+ ],
+ "base": [
+  -3.5,
+  -3.5,
+  3.5,
+  3.5
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  10
+ ],
+ "descricao": "Sobrado de esquina com a porta chanfrada no canto da praça, lanterna grande e relógio de rua; reboco cinza,     telhado de quatro águas de telha de barro.",
+ "kind": "sobrado_esquina"
+}

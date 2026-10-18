@@ -1,7 +1,7 @@
 {
  "_doc": "Spots de farm da Cidade de São Lázaro (grade 200x200 de area_inicial.json).",
  "regras": {
-  "respawn_s": "14 por mob nos spots de farm (padrão do Combate); 25 fora dos spots",
+  "respawn_s": "7 s por grupo nos spots de farm (0.9.5, antes 14 s); 25 fora dos spots",
   "subgrupos": "2 ou 3 mobs, a pelo menos 5 m um do outro; aggro_social 0 entre subgrupos",
   "afastamento": "spot a mais de 14 m da Cerca da cidade e fora das estradas principais; quem só passa não puxa nada",
   "skill_em_area": "clareira de 8 a 10 m de raio sem objetos altos, para o leque do nível 5 e o modo automático",
@@ -16,10 +16,10 @@
     3
    ],
    "zona": "campos_cinza",
-   "x": 108.0,
-   "y": 112.0,
+   "x": 114.0,
+   "y": 114.0,
    "raio": 10,
-   "respawn_s": 14,
+   "respawn_s": 7,
    "mobs": [
     {
      "kind": "carnical",
@@ -44,8 +44,8 @@
    ],
    "lore": "Carniçais revirando os mortos da Grande Batalha no vidro derretido; os corvos esperam a vez. Ninguém aqui ataca primeiro.",
    "missao": "v01 Pavio Curto, v02 (Odete): primeiros abates",
-   "livre": 0.98,
-   "dist_trilha": 4.5
+   "livre": 0.91,
+   "dist_trilha": 10.2
   },
   {
    "id": "cemiterio_bondes",
@@ -55,10 +55,10 @@
     4
    ],
    "zona": "patio_bondes",
-   "x": 46.0,
-   "y": 60.0,
+   "x": 44.0,
+   "y": 51.0,
    "raio": 10,
-   "respawn_s": 14,
+   "respawn_s": 7,
    "novo": true,
    "mobs": [
     {
@@ -86,8 +86,8 @@
    ],
    "lore": "Os bondes que a companhia largou no ramal morto. Os corvos fazem ninho nos mastros e defendem o poste torto; os Carniçais dormem dentro dos vagões.",
    "missao": "vc02 Cobre dos Bondes (Odete)",
-   "livre": 0.78,
-   "dist_trilha": 10.4
+   "livre": 0.75,
+   "dist_trilha": 3.6
   },
   {
    "id": "telhados_dos_corvos",
@@ -126,8 +126,8 @@
    ],
    "lore": "A matilha caça ratos entre os telhados enterrados, perto da antena de repetição da Rádio; os corvos ficam nas chaminés.",
    "missao": "linha D: d02 Antena no Telhado",
-   "livre": 0.86,
-   "dist_trilha": 9.2
+   "livre": 0.8,
+   "dist_trilha": 8.1
   },
   {
    "id": "fosso_dos_caes",
@@ -194,8 +194,8 @@
    ],
    "lore": "A fila de Não-Julgados parada diante da torre do sino, com o andor no meio, esperando o Juízo. Só revidam: o spot feito para o leque.",
    "missao": "v04 Lacres Inteiros, f02 O Rosto do Padroeiro",
-   "livre": 0.88,
-   "dist_trilha": 4.5
+   "livre": 0.85,
+   "dist_trilha": 3.6
   },
   {
    "id": "chiqueiro_do_carnica",
@@ -222,7 +222,7 @@
    ],
    "lore": "Os porcos gordos fuçam a lama atrás das cercas de chapa; o rastro de arrasto passa por aqui.",
    "missao": "linha E: o rastro de arrasto",
-   "livre": 0.8,
+   "livre": 0.78,
    "dist_trilha": 6.4
   },
   {
@@ -249,8 +249,7 @@
      "subgrupos": 3
     },
     {
-     "kind": "corvo_de_cinza_carnica",
-     "substituto": "corvo_de_cinza",
+     "kind": "corvo_de_cinza",
      "nivel": [
       6,
       7
@@ -264,7 +263,7 @@
    ],
    "lore": "Os mortos mais antigos da paróquia, nas covas de família do alto do morro. Os corvos-carniça guardam o mausoléu onde fazem ninho.",
    "missao": "vc04 Os Nomes do Alto (Simão)",
-   "livre": 0.89,
+   "livre": 0.82,
    "dist_trilha": 4.0
   },
   {
@@ -346,7 +345,7 @@
    ],
    "lore": "Demônios da Legião Blasfema que largaram a bandeira quando o general sumiu, acampados na margem do oásis, cobrando pedágio da água.",
    "missao": "e02 Desertores, d04 O Que a Água Lembra",
-   "livre": 0.91,
+   "livre": 0.89,
    "dist_trilha": 8.2
   },
   {
@@ -358,7 +357,7 @@
    ],
    "zona": "campos_cinza",
    "x": 112.0,
-   "y": 78.0,
+   "y": 72.0,
    "raio": 9,
    "mobs": [
     {
@@ -388,8 +387,8 @@
    ],
    "lore": "O bonde tombado onde Andras foi partido. Desertores vêm procurar o corpo do general e guardam o lugar; os Carniçais incharam de tanto comer ali.",
    "missao": "e04 O Marco do Corte",
-   "livre": 0.92,
-   "dist_trilha": 13.9
+   "livre": 0.88,
+   "dist_trilha": 14.3
   },
   {
    "id": "patio_do_abatedouro",
@@ -428,7 +427,7 @@
    ],
    "lore": "Os açougueiros ainda trabalham para o patrão morto e atacam quem entra no pátio. O único spot agressivo de verdade, e a porta da Cripta.",
    "missao": "c02 O Livro de Óbitos, c03 A Porta Debaixo da Carne",
-   "livre": 0.84,
+   "livre": 0.81,
    "dist_trilha": 4.1
   },
   {
@@ -470,7 +469,7 @@
    ],
    "lore": "A vila dos oficiais do silo. Os apóstatas fizeram das casas um altar e sangram os Não-Julgados que ainda batem às portas.",
    "missao": "vc05 O Último Turno (Isaura)",
-   "livre": 0.65,
+   "livre": 0.64,
    "dist_trilha": 8.9
   },
   {
@@ -512,15 +511,15 @@
    ],
    "lore": "As sombras que o clarão da bomba gravou no muro da vila descolam à noite e defendem o muro. Na borda da tempestade o contador não para de estalar.",
    "missao": "d05 O Muro das Sombras, d06 Absinto-2",
-   "livre": 0.88,
+   "livre": 0.87,
    "dist_trilha": 14.4
   }
  ],
  "descanso": [
   {
    "nome": "Fogueira do Espantalho",
-   "x": 99.0,
-   "y": 95.0,
+   "x": 107.0,
+   "y": 103.0,
    "props": [
     "fogueira",
     "carrinho_tobias"
@@ -534,7 +533,7 @@
   {
    "nome": "Fogueira do Pátio",
    "x": 56.0,
-   "y": 72.0,
+   "y": 56.0,
    "props": [
     "fogueira",
     "carrinho_tobias"
@@ -559,8 +558,8 @@
   },
   {
    "nome": "Fogueira da Vala",
-   "x": 128.0,
-   "y": 58.0,
+   "x": 133.0,
+   "y": 64.0,
    "props": [
     "fogueira",
     "carrinho_tobias"
@@ -587,8 +586,8 @@
   },
   {
    "nome": "Fogueira do Vau",
-   "x": 150.0,
-   "y": 115.0,
+   "x": 149.0,
+   "y": 112.0,
    "props": [
     "fogueira",
     "carrinho_tobias"
@@ -601,8 +600,8 @@
   },
   {
    "nome": "Fogueira da Tempestade",
-   "x": 155.0,
-   "y": 162.0,
+   "x": 153.0,
+   "y": 163.0,
    "props": [
     "fogueira",
     "carrinho_tobias"

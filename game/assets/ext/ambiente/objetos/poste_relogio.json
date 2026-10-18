@@ -1,0 +1,22 @@
+{
+ "w": 392,
+ "h": 256,
+ "anchor": [
+  38,
+  239
+ ],
+ "base": [
+  -0.3,
+  -0.3,
+  0.3,
+  0.3
+ ],
+ "bioma": "sao_lazaro",
+ "categoria": "props",
+ "footprint_tiles": [
+  1,
+  1
+ ],
+ "descricao": "Relógio de rua de ferro fundido, de quatro faces, parado nas 3 e 12 (a hora da terceira trombeta).",
+ "kind": "poste_relogio"
+}

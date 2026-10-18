@@ -1,0 +1,24 @@
+{
+ "w": 1360,
+ "h": 738,
+ "anchor": [
+  576,
+  490
+ ],
+ "base": [
+  -5.3,
+  -3.5,
+  5.3,
+  3.5
+ ],
+ "emissivo": "lampiões e clarabóia (âmbar)",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  14,
+  9
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Mercado Municipal de 1890: pavilhão de ferro fundido e vidro, aberto nos lados, com as tesouras arqueadas, a     clarabóia da cumeeira, bancas por baixo e lampiões; metade das vidraças virou chapa de zinco.",
+ "kind": "mercado_ferro_a"
+}

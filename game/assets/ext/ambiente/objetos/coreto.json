@@ -1,0 +1,23 @@
+{
+ "w": 1164,
+ "h": 654,
+ "anchor": [
+  441,
+  445
+ ],
+ "base": [
+  -3.2,
+  -3.2,
+  3.2,
+  3.2
+ ],
+ "emissivo": "lanternas (âmbar)",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  8,
+  8
+ ],
+ "descricao": "Coreto da Praça da Matriz: base de cantaria com escada, oito colunas de ferro fundido com lambrequim, telhado de     chapa pintada de verde em bico com catavento, gradil de ferro batido e quatro lanternas nos braços de fora.",
+ "kind": "coreto"
+}

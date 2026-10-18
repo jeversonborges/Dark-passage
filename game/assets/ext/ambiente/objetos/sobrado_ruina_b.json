@@ -1,0 +1,24 @@
+{
+ "w": 1280,
+ "h": 844,
+ "anchor": [
+  309,
+  607
+ ],
+ "base": [
+  -2.6,
+  -3.2,
+  2.6,
+  3.2
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  9,
+  7
+ ],
+ "orientacao": "ao longo do eixo Y do mapa (face voltada para baixo-direita)",
+ "descricao": "Sobrado abandonado: janelas tapadas com tábuas, reboco caído, parte do telhado desabada com os caibros à vista.",
+ "kind": "sobrado_ruina_b"
+}

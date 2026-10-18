@@ -1,0 +1,24 @@
+{
+ "w": 1476,
+ "h": 832,
+ "anchor": [
+  486,
+  619
+ ],
+ "base": [
+  -3.6,
+  -2.6,
+  3.6,
+  2.6
+ ],
+ "emissivo": "janelas acesas e lanterna",
+ "bioma": "sao_lazaro",
+ "categoria": "predios",
+ "footprint_tiles": [
+  10,
+  7
+ ],
+ "orientacao": "ao longo do eixo X do mapa (face voltada para baixo-esquerda)",
+ "descricao": "Armazém de secos e molhados: letreiro dourado, toldo de lona remendada, janelas acesas em cima.",
+ "kind": "sobrado_loja_a"
+}
