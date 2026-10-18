@@ -564,5 +564,9 @@
   "usa": "esfinge_de_hawara",
   "escala": 0.7,
   "fantasma": true
+ },
+ "npc:pedro_exilado": {
+  "usa": "lider_dos_anjos",
+  "_doc": "provisório (Jefin 18/10): modelo do Perfeito até o Pedro anjo de armadura dourada ficar pronto"
  }
 }
