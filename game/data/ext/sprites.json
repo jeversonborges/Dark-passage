@@ -1891,6 +1891,40 @@
    }
   }
  },
+ "pedro_exilado": {
+  "frame": [
+   256,
+   256
+  ],
+  "anchor": [
+   128.0,
+   187.9
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/pedro_exilado/idle.png",
+    "frames": 8,
+    "fps": 6,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/pedro_exilado/walk.png",
+    "frames": 8,
+    "fps": 10,
+    "loop": true
+   }
+  }
+ },
  "pedro_penitente": {
   "frame": [
    192,

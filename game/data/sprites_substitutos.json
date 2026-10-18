@@ -567,8 +567,7 @@
   "fantasma": true
  },
  "npc:pedro_exilado": {
-  "usa": "lider_dos_anjos",
-  "_doc": "provisório (Jefin 18/10): modelo do Perfeito até o Pedro anjo de armadura dourada ficar pronto"
+  "usa": "pedro_exilado"
  },
  "familiar_capitao": {
   "usa": "familiar_lider",
