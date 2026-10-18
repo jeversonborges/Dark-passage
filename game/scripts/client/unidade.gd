@@ -166,11 +166,28 @@ func _definir_anim(nome: String) -> void:
 	frame = 0; frame_t = 0.0; _quadro_total = 0
 	corpo.texture = Tema.tex(a["file"])
 
+## Esquiva: o teleporte some e volta já no destino; a névoa se desfaz e se refaz (shader dissolve).
+## Voo, rolamento, salto, tranco e escudo são só a folha "evasao" (a altura do voo/salto está nela).
+func evasao(estilo: String, dur: float) -> void:
+	if morto: return
+	var tw := create_tween()
+	match estilo:
+		"teleporte":
+			tw.tween_property(self, "modulate:a", 0.0, minf(0.06, dur * 0.4))
+			tw.tween_interval(maxf(0.04, dur * 0.7))
+			tw.tween_callback(func(): if ent != null: pos_vis = Iso.to_screen(ent.pos))
+			tw.tween_property(self, "modulate:a", 1.0, 0.12)
+		"nevoa":
+			tw.tween_method(func(x: float): mat.set_shader_parameter("dissolve", x), 0.0, 0.9, dur * 0.45)
+			tw.tween_method(func(x: float): mat.set_shader_parameter("dissolve", x), 0.9, 0.0, dur * 0.55 + 0.12)
+		_: tw.kill()
+
 ## Toca uma animação de ação uma vez (attack, shoot, spin, dash, hit, death, eat...). dur: segundos (ajusta o fps).
 func tocar(nome: String, dur := 0.0) -> void:
 	if morto and nome != "death": return
 	var a := _sheet(nome)
 	if a.is_empty():
+		if nome == "evasao": a = _sheet("dash"); nome = "dash"   # personagem sem a folha nova: o dash (Humano) ou nada
 		if nome in ["shoot", "spin", "heavy", "sweep", "lunge", "hook", "leap", "vomit", "feast", "roar", "howl", "shout", "cast", "summon"]: a = _sheet("attack"); nome = "attack"
 		if a.is_empty(): return
 	anim_unica = nome; ajoelhado = false

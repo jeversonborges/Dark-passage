@@ -36,6 +36,12 @@
     "frames": 12,
     "fps": 18,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/abominacao/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -110,6 +116,12 @@
     "frames": 16,
     "fps": 24,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/anjo/evasao.png",
+    "frames": 12,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -150,6 +162,12 @@
     "frames": 16,
     "fps": 24,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/arcanjo/evasao.png",
+    "frames": 12,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -189,6 +207,12 @@
     "file": "res://assets/ext/personagens/arquimago/attack.png",
     "frames": 8,
     "fps": 12,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/arquimago/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -332,6 +356,12 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/cacador_de_anjos/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -405,6 +435,12 @@
     "file": "res://assets/ext/personagens/ceifador/attack.png",
     "frames": 16,
     "fps": 24,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/ceifador/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -582,6 +618,12 @@
     "frames": 12,
     "fps": 18,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/cultista/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -689,6 +731,12 @@
     "file": "res://assets/ext/personagens/demonio/attack.png",
     "frames": 16,
     "fps": 24,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/demonio/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -831,6 +879,12 @@
     "file": "res://assets/ext/personagens/engenheiro_herege/attack.png",
     "frames": 8,
     "fps": 12,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/engenheiro_herege/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -1007,6 +1061,12 @@
     "file": "res://assets/ext/personagens/gladiador/attack.png",
     "frames": 12,
     "fps": 18,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/gladiador/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -1207,6 +1267,12 @@
     "file": "res://assets/ext/personagens/humano/dash.png",
     "frames": 12,
     "fps": 18,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/humano/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -1486,6 +1552,12 @@
     "frames": 16,
     "fps": 24,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/lorde_das_trevas/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -1628,6 +1700,12 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/mechanicus/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -1701,6 +1779,12 @@
     "file": "res://assets/ext/personagens/mutante/attack.png",
     "frames": 14,
     "fps": 21,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/mutante/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -1912,6 +1996,12 @@
     "frames": 8,
     "fps": 12,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/pistoleiro/evasao.png",
+    "frames": 10,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -2031,6 +2121,12 @@
     "file": "res://assets/ext/personagens/profeta_do_amargo/attack.png",
     "frames": 8,
     "fps": 12,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/profeta_do_amargo/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -2276,6 +2372,12 @@
     "frames": 16,
     "fps": 24,
     "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/serafim/evasao.png",
+    "frames": 12,
+    "fps": 20,
+    "loop": false
    }
   }
  },
@@ -2383,6 +2485,12 @@
     "file": "res://assets/ext/personagens/tecnomancer/attack.png",
     "frames": 12,
     "fps": 18,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/tecnomancer/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }
@@ -2559,6 +2667,12 @@
     "file": "res://assets/ext/personagens/warlord/attack.png",
     "frames": 14,
     "fps": 21,
+    "loop": false
+   },
+   "evasao": {
+    "file": "res://assets/ext/personagens/warlord/evasao.png",
+    "frames": 10,
+    "fps": 20,
     "loop": false
    }
   }

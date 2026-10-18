@@ -85,6 +85,7 @@ static func passo(sim: WorldSim, e: Ent, dt: float) -> void:
 	if e.aux.get("bonus_prox_t", 0.0) > 0.0: e.aux["bonus_prox_t"] -= dt
 	if e.aux.get("imovel_t", 0.0) > 0.0: e.aux["imovel_t"] -= dt   # Trono da Legião: sentado no trono
 	Evolucao.passo(sim, e, dt)
+	Evasao.passo(e, dt)
 	for h in Defs.CLASSES[e.classe]["habilidades"]:
 		if h.has("cargas"):
 			var k: String = "cargas_" + h["id"]

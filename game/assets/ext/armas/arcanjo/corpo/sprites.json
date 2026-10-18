@@ -43,6 +43,12 @@
    "frames": 16,
    "fps": 24,
    "loop": false
+  },
+  "evasao": {
+   "file": "evasao.png",
+   "frames": 12,
+   "fps": 20,
+   "loop": false
   }
  }
 }

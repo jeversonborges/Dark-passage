@@ -136,6 +136,10 @@ func _comecar(classe: String, nome: String, salvo: Dictionary) -> void:
 		var tc: Node = load("res://tools/teste_config.gd").new()
 		tc.jogo = jogo; tc.dir = args["fotos_config"]
 		add_child(tc)
+	if args.has("teste_evasao"):   # godot -- classe=humano teste_evasao=/pasta
+		var te: Node = load("res://tools/teste_evasao.gd").new()
+		te.jogo = jogo; te.args = args
+		add_child(te)
 	if args.has("fotos"):
 		var t: Node = load("res://tools/teste_visual.gd").new()
 		t.jogo = jogo; t.args = args

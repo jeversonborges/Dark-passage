@@ -671,6 +671,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 				elif d.get("tipo", "") == "investida" and v._sheet("charge").size() > 0: v.tocar("charge", float(d.get("dur", 0.35)))
 				if d.get("tipo", "") in ["rolamento", "arrancada", "asas_ascensao", "passo_sombrio", "investida_bestial"]:
 					fx.folha("esquiva_poeira", Iso.to_screen(d["de"]))
+		"evasao": _evasao(d)
 		"recuo":
 			var v = views.get(int(d["id"]))
 			if v and not v.morto and v.anim_unica == "": v.tocar("hit")
@@ -1187,11 +1188,11 @@ func _unhandled_input(ev: InputEvent) -> void:
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_UP and ev.pressed: cam.zoom = (cam.zoom * 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
 		elif ev.button_index == MOUSE_BUTTON_WHEEL_DOWN and ev.pressed: cam.zoom = (cam.zoom / 1.08).clamp(Vector2(0.8, 0.8), Vector2(1.6, 1.6))
 		elif ev.button_index == MOUSE_BUTTON_RIGHT and ev.pressed:
-			# botão direito num jogador abre o menu (Inspecionar / Convidar ao grupo); fora dele, skill 1
+			# botão direito num jogador aliado abre o menu (Inspecionar / Convidar ao grupo); fora dele, a esquiva da classe
 			var outro := _jogador_sob_mouse()
 			var eo: Ent = sim.ents.get(outro)
 			if outro != -1 and rede != null and not jog.eh_inimigo_de(eo): hud.menu_jogador(outro, get_viewport().get_mouse_position())   # em briga, o direito solta skill nele
-			else: usar_skill(0)
+			else: evadir()
 	elif ev is InputEventKey and ev.pressed and not ev.echo:
 		match ev.keycode:
 			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
@@ -1210,6 +1211,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 			KEY_K: janelas.alternar("habilidades")
 			KEY_T: janelas.alternar("talentos")
 			KEY_V: janelas.alternar("teleporte")
+			KEY_SPACE: evadir()
 			KEY_F8: GmPainel.alternar(self)   # só abre para conta GM (o servidor avisa com gm_ativo)
 			KEY_F7: GmPainel.ponto(self)
 			KEY_M, KEY_TAB: hud.alternar_mapa()
@@ -1226,6 +1228,30 @@ func _unhandled_input(ev: InputEvent) -> void:
 ## Teleporte de volta ao acampamento: grátis, não gasta item.
 func usar_vela() -> void:
 	cmd("voltar", [])
+
+## Esquiva (botão direito, Espaço ou RT no controle): vai para onde o mouse aponta; cada classe do seu jeito
+## (design/combate/evasao.json). Duas cargas, 10 s cada; o servidor confere tudo.
+func evadir(ponto = null) -> void:
+	if not jog.vivo or trocando: return
+	cmd("evadir", [ponto if ponto is Vector2 else mouse_mundo()])
+
+## Efeitos da esquiva: saída, rastro, chegada e som (o movimento e a folha "evasao" vêm no "desloca").
+func _evasao(d: Dictionary) -> void:
+	var h := Evasao.defn_de(str(d.get("classe", "")), str(d.get("evolucao", "")))
+	if h.is_empty(): return
+	var de := Iso.to_screen(d["de"])
+	var para := Iso.to_screen(d["para"])
+	var dur := float(d.get("dur", 0.3))
+	var opc := {}
+	if h.has("vfx_cor"): opc["cor"] = Defs.cor(str(h["vfx_cor"]))
+	if h.has("vfx_origem"): fx.folha(str(h["vfx_origem"]), de, opc)
+	if h.has("vfx_rastro"): fx.folha(str(h["vfx_rastro"]), de.lerp(para, 0.5), opc)
+	if h.has("vfx_destino"):
+		get_tree().create_timer(dur * 0.8).timeout.connect(func(): if is_instance_valid(fx): fx.folha(str(h["vfx_destino"]), para, opc))
+	audio.tocar(str(h.get("som", "")), de, -3.0)
+	var v = views.get(int(d["id"]))
+	if v and is_instance_valid(v): v.evasao(str(h.get("estilo", "")), dur)
+	if int(d["id"]) == jog.id: Controle.vibrar(0.3, 0.0, 0.08)
 
 func usar_skill(slot: int) -> void:
 	if mira_ctl.ativo: mira_ctl.usar_skill(slot); return   # controle: mira pelo alvo automático e pelos sticks

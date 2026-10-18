@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -50,6 +50,8 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _int(a, 0) and _str(a, 1): Jogador.refinar(sim, e, a[0], a[1])
 		"redistribuir":
 			Jogador.redistribuir(sim, e)
+		"evadir":   # esquiva do botão direito (Evasao): ponto = para onde o mouse aponta
+			if _v2(a, 0): Evasao.evadir(sim, e, a[0])
 		"voltar":   # teleporte de volta ao acampamento: grátis, só canaliza 3 s parado
 			Jogador.voltar_acampamento(sim, e)
 		"teleportar":   # menu de teleporte (V): id do destino de data/teleporte.json; custa 3.000 de ouro

@@ -121,6 +121,8 @@ func _painel(desenhar: Callable) -> Painel:
 	return p
 
 # =================================================================== barra de baixo
+var hover_evasao := false
+
 func _montar_barra() -> void:
 	barra = _painel(_desenhar_barra)
 	barra.size = Vector2(1280, 150)
@@ -128,6 +130,7 @@ func _montar_barra() -> void:
 	barra.offset_left = -640; barra.offset_right = 640; barra.offset_top = -150; barra.offset_bottom = 0
 	barra.mouse_filter = Control.MOUSE_FILTER_STOP
 	barra.dentro = func(p: Vector2) -> bool:
+		if _evasao_rect().has_point(p): return true
 		if p.y > 66 and p.x > 0 and p.x < 1280: return true
 		if _n_slots() > 10 and p.y > 30 and p.x > 218 and p.x < 222 + 48 * (_n_slots() - 10): return true
 		return p.distance_to(Vector2(78, 78)) < 66 or p.distance_to(Vector2(1202, 78)) < 66
@@ -138,6 +141,10 @@ func _montar_barra() -> void:
 func _slot_rect(i: int) -> Rect2:
 	if i >= Evolucao.SLOT_EVO: return Rect2(222 + 48 * (i - Evolucao.SLOT_EVO), 34, 44, 44)   # fileira da evolução (Shift+1..5)
 	return Rect2(222 + 54 * i, 90, 52, 52)
+
+## Slot da esquiva (botão direito): acima da barra, à esquerda do orbe do recurso.
+func _evasao_rect() -> Rect2:
+	return Rect2(1082, 14, 48, 48)
 
 func _n_slots() -> int:
 	return maxi(10, game.jog.skills_slots.size()) if game.jog else 10
@@ -155,6 +162,11 @@ func _entrada_barra(ev: InputEvent) -> void:
 		for i in _n_slots(): if _slot_rect(i).has_point(p): hs = i
 		for i in 4: if _cinto_rect(i).has_point(p): hc = i
 		for i in 6: if _menu_rect(i).has_point(p): hm = i
+		var he := _evasao_rect().has_point(p)
+		if he != hover_evasao:
+			hover_evasao = he
+			if he: mostrar_tip(_tip_evasao())
+			elif hs < 0 and hc < 0 and hm < 0: esconder_tip()
 		if hs != hover_slot or hc != hover_cinto or hm != hover_menu:
 			hover_slot = hs; hover_cinto = hc; hover_menu = hm
 			if hs >= 0: mostrar_tip(_tip_skill(hs))
@@ -289,6 +301,7 @@ func _desenhar_barra(c: Painel) -> void:
 		if i < 10: _tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % ((i + 1) % 10), "skill_%d" % (i + 1))
 		elif not h.is_empty(): _txt(c, r.position + Vector2(4, 9), "⇧%d" % (i - 9), 8, Color("#d8c08a"), Tema.FONTE_PIXEL, -1, 2)
 		if not h.is_empty() and Jogador.skill_no_auto(j, i): _selo_auto(c, r)
+	_desenhar_evasao(c, j)
 	# modo automático (tecla Z): "AUTO" dourado sobre a barra de skills e moldura pulsando no slot da skill automática
 	if j.aux.get("auto", false):
 		var pulso := 0.65 + 0.35 * sin(t * 4.0)
@@ -407,6 +420,45 @@ func _desenhar_pet(c: Painel) -> void:
 	if j.aux.get("auto", false):
 		var pulso2 := 0.65 + 0.35 * sin(t * 4.0)
 		_txt(c, Vector2(c.size.x + 34, 40), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso2), Tema.FONTE_TITULO, 0, 4)
+
+## Esquiva: ícone pintado (quando chegar: atlas skills_40, chave <classe>_evasao), duas cargas em losango de latão
+## embaixo do slot e a carga que está voltando enchendo; sem carga, o setor escuro com os segundos.
+func _desenhar_evasao(c: CanvasItem, j: Ent) -> void:
+	var h := Evasao.defn(j)
+	if h.is_empty(): return
+	var r := _evasao_rect()
+	var n := Evasao.cargas(j)
+	var mx := Evasao.cargas_max()
+	var rc := float(j.aux.get("ev_recarga", 0.0))
+	c.draw_texture_rect(Tema.ui("slot_sombra"), r, false)
+	var ic := Tema.icone_skill(j.classe, "evasao")
+	var mod := Color.WHITE if n > 0 else Color(0.5, 0.5, 0.55)
+	if ic.size() == 2: c.draw_texture_rect_region(ic[0], Rect2(r.position + Vector2(6, 6) * r.size.x / 52.0, Vector2(40, 40) * r.size.x / 52.0), ic[1], mod)
+	else: _txt(c, r.get_center() + Vector2(0, 4), String(h["nome"]).left(3).to_upper(), 11, Color("#d8c08a") * mod, Tema.FONTE_PIXEL, 0, 2)   # ícone pintado ainda não chegou (LISTA.md)
+	if n <= 0 and rc > 0.0:
+		_setor(c, r.get_center(), 19.0, rc / Evasao.recarga(), Color(0, 0, 0, 0.72))
+		_txt(c, r.get_center() + Vector2(0, 5), ("%.1f" % rc) if rc < 3.0 else ("%d" % ceili(rc)), 13, Color("#f6ead0"))
+	c.draw_texture_rect(Tema.ui("slot_hover" if hover_evasao else "slot_moldura"), r, false)
+	# cargas: losangos de latão embaixo do slot
+	for k in mx:
+		var p := Vector2(r.get_center().x + (k - (mx - 1) * 0.5) * 16.0, r.end.y + 6.0)
+		var fora := PackedVector2Array([p + Vector2(0, -6), p + Vector2(6, 0), p + Vector2(0, 6), p + Vector2(-6, 0)])
+		c.draw_colored_polygon(fora, Color(0.07, 0.05, 0.03, 0.92))
+		var cheio := 1.0 if k < n else (1.0 - rc / Evasao.recarga() if k == n and rc > 0.0 else 0.0)
+		if cheio > 0.0:
+			var e := 4.0 * cheio
+			c.draw_colored_polygon(PackedVector2Array([p + Vector2(0, -e), p + Vector2(e, 0), p + Vector2(0, e), p + Vector2(-e, 0)]),
+				Color(0.86, 0.62, 0.24) if k < n else Color(0.55, 0.38, 0.14))
+		c.draw_polyline(PackedVector2Array([fora[0], fora[1], fora[2], fora[3], fora[0]]), Color(0.94, 0.78, 0.36) if k < n else Color(0.5, 0.4, 0.25), 1.0)
+	if Controle.pad_ativo(): _tecla(c, r.position + Vector2(-4, -5), "", "evadir")
+	elif Tema.ui("tecla_mouse_dir"): c.draw_texture(Tema.ui("tecla_mouse_dir"), r.position + Vector2(-4, -5))
+
+func _tip_evasao() -> String:
+	var j := _jog()
+	var h := Evasao.defn(j) if j else {}
+	if h.is_empty(): return ""
+	var linha := "%.1f tiles · %d cargas · %d s cada · sem custo" % [float(h["deslocamento"]), Evasao.cargas_max(), int(Evasao.recarga())]
+	return "[font_size=15][b]%s[/b][/font_size]  [color=#a89f8c]esquiva · botão direito ou Espaço[/color]\n[font_size=13]%s[/font_size]\n[color=#c9b88a]%s[/color]" % [h["nome"], h.get("descricao", ""), linha]
 
 ## Selo de latão no canto do slot: a skill está no modo automático (clique direito liga/desliga).
 func _selo_auto(c: CanvasItem, r: Rect2) -> void:
@@ -1528,7 +1580,7 @@ func mostrar_ajuda() -> void:
 		r.add_theme_font_override("bold_font", Tema.FONTE_TITULO)
 		r.text = """[b]Clique[/b] no chão para andar (segure para seguir o mouse).
 [b]Clique[/b] num inimigo para atacar. [b]Shift + clique[/b] ataca sem sair do lugar.
-[b]1 a 6[/b] usam as habilidades (no alvo ou onde o mouse aponta). [b]Botão direito[/b] = habilidade 1.
+[b]1 a 6[/b] usam as habilidades (no alvo ou onde o mouse aponta). [b]Botão direito[/b] (ou [b]Espaço[/b]) = esquiva da classe, para onde o mouse aponta (2 cargas, 10 s cada).
 [b]Q[/b] poção de vida, [b]W[/b] poção de recurso, [b]E[/b] antídoto, [b]R[/b] volta para a Paróquia (grátis).
 [b]V[/b] abre o teleporte: leva a qualquer área de caça do seu nível por 3.000 de ouro.
 [b]Z[/b] liga o modo automático: luta sozinho perto de onde você está, junta os drops e bebe poção (desliga ao clicar).

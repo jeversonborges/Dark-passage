@@ -42,7 +42,8 @@ const ACOES := [
 	["skill_7", "Skill 7", "Combate", "lt+x"],
 	["skill_8", "Skill 8", "Combate", "lt+y"],
 	["skill_9", "Skill 9", "Combate", "lt+rb"],
-	["interagir", "Pegar item, falar, abrir baú", "Combate", "rt"],
+	["evadir", "Esquiva (botão direito)", "Combate", "rt"],
+	["interagir", "Pegar item, falar, abrir baú", "Combate", "lt+rt"],
 	["alvo", "Próximo alvo", "Combate", "lb"],
 	["travar", "Travar / soltar alvo", "Combate", "r3"],
 	["auto", "Modo automático (Z)", "Combate", "l3"],
@@ -55,7 +56,7 @@ const ACOES := [
 	["missoes", "Missões (J)", "Janelas", "lt+baixo"],
 	["habilidades", "Habilidades (K)", "Janelas", "lt+esquerda"],
 	["talentos", "Talentos (T)", "Janelas", "lt+lb"],
-	["auto_cfg", "Ajustes do automático (Shift+Z)", "Janelas", "lt+rt"],
+	["auto_cfg", "Ajustes do automático (Shift+Z)", "Janelas", "lt+l3"],
 	["mapa", "Mapa (M)", "Sistema", "view"],
 	["ajuda", "Como jogar (H)", "Sistema", "lt+view"],
 	["menu", "Menu / pausa (Esc)", "Sistema", "menu"],
@@ -66,6 +67,7 @@ const GLOBAIS := ["inventario", "personagem", "missoes", "habilidades", "talento
 # ajustes (salvos em CFG, seção "ajustes")
 const PADRAO := {"zona_morta": 0.22, "cursor_vel": 1.0, "vibracao": 0.8, "icones": "auto", "canhoto": false}
 
+var _ult_esq := Vector2.ZERO   # stick esquerdo do quadro (direção da esquiva)
 var mapa := {}            # id da ação -> botão ("a", "lt+b"...)
 var ajustes := PADRAO.duplicate()
 var ativo := false        # o último input foi do controle
@@ -116,6 +118,16 @@ func carregar() -> void:
 		var b := str(cf.get_value("botoes", a[0], a[3]))
 		if _botao_valido(b): mapa[a[0]] = b
 	for k in PADRAO: ajustes[k] = cf.get_value("ajustes", k, PADRAO[k])
+	_migrar_evasao(cf)
+
+## Configuração salva antes da esquiva: RT era "interagir" e LT+RT os ajustes do automático. Se o jogador não
+## tinha mexido nesses dois, passa para o padrão novo (RT esquiva, LT+RT interagir, LT+L3 ajustes).
+func _migrar_evasao(cf: ConfigFile) -> void:
+	if cf.has_section_key("botoes", "evadir"): return
+	if mapa.get("interagir", "") == "rt" and mapa.get("auto_cfg", "") == "lt+rt":
+		mapa["interagir"] = "lt+rt"; mapa["auto_cfg"] = "lt+l3"; mapa["evadir"] = "rt"
+	else:
+		for k in mapa: if k != "evadir" and mapa[k] == mapa["evadir"]: mapa["evadir"] = ""   # sem conflito: fica sem botão até escolher
 
 func salvar() -> void:
 	var cf := ConfigFile.new()
@@ -335,6 +347,7 @@ func _ligar_mira(g: Node) -> void:
 func _passo_mundo(g: Node, dt: float, esq: Vector2, dir: Vector2) -> void:
 	if "ativo" in mira: mira.ativo = true   # o MiraControle se desliga com o mouse, inclusive o cursor que geramos nas janelas
 	mira.passo(dt, esq, dir)
+	_ult_esq = esq
 	_mover(g, dt, esq)
 	for b in _bordas():
 		var t: String = b[0]
@@ -354,6 +367,7 @@ func _disparar(g: Node, ac: String) -> void:
 	match ac:
 		"atacar": mira.ataque_basico(false)
 		"interagir": mira.interagir()
+		"evadir": _evadir(g)
 		"alvo": mira.ciclar_alvo(1)
 		"travar": mira.travar_alvo()
 		"auto": g.cmd("auto", [not g.jog.aux.get("auto", false)])
@@ -368,6 +382,12 @@ func _disparar(g: Node, ac: String) -> void:
 		"menu": _tecla(KEY_ESCAPE)
 		_:
 			if ac.begins_with("skill_"): mira.usar_skill(int(ac.substr(6)) - 1)
+
+## Esquiva no controle: para onde o stick esquerdo aponta; parado, para onde o personagem olha.
+func _evadir(g: Node) -> void:
+	var w: Vector2 = Iso.to_world(_ult_esq).normalized() if _ult_esq.length() > 0.3 else g.jog.facing
+	if w == Vector2.ZERO: w = Vector2(0, 1)
+	g.evadir(g.jog.pos + w * 4.0)
 
 ## Stick esquerdo: anda na direção da TELA (para cima no stick = para cima na tela), passo curto e contínuo.
 ## Se a frente está bloqueada, desliza pela parede tentando ângulos vizinhos.

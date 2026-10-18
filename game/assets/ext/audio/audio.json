@@ -1335,6 +1335,83 @@
    ],
    "duracao_s": 1.37
   },
+  "evasao/anjo_revoada": {
+   "desc": "Revoada: uma batida forte de asa e o planeio com penas",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/anjo_revoada_1.ogg",
+    "sfx/evasao/anjo_revoada_2.ogg"
+   ],
+   "duracao_s": 1.14
+  },
+  "evasao/cultista_veu": {
+   "desc": "Véu de Sangue: carne se desfazendo em névoa úmida e voltando",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/cultista_veu_1.ogg",
+    "sfx/evasao/cultista_veu_2.ogg"
+   ],
+   "duracao_s": 1.13
+  },
+  "evasao/demonio_enxofre": {
+   "desc": "Passo de Enxofre: estalo seco, chiado de enxofre e brasa",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/demonio_enxofre_1.ogg",
+    "sfx/evasao/demonio_enxofre_2.ogg"
+   ],
+   "duracao_s": 2.94
+  },
+  "evasao/humano_cambalhota": {
+   "desc": "Cambalhota: casaco, cascalho e a arma batendo no peito",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/humano_cambalhota_1.ogg",
+    "sfx/evasao/humano_cambalhota_2.ogg"
+   ],
+   "duracao_s": 1.27
+  },
+  "evasao/mutante_tranco": {
+   "desc": "Tranco: pisada pesada de arranque e terra voando",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/mutante_tranco_1.ogg",
+    "sfx/evasao/mutante_tranco_2.ogg"
+   ],
+   "duracao_s": 1.11
+  },
+  "evasao/tecnomancer_vapor": {
+   "desc": "Propulsor a Vapor: válvula estourando, jato de vapor e pouso de latão",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/tecnomancer_vapor_1.ogg",
+    "sfx/evasao/tecnomancer_vapor_2.ogg"
+   ],
+   "duracao_s": 1.29
+  },
+  "evasao/warlord_escudo": {
+   "desc": "Passo de Escudo: ferro do escudo subindo e pé firmando no chão",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/evasao/warlord_escudo_1.ogg",
+    "sfx/evasao/warlord_escudo_2.ogg"
+   ],
+   "duracao_s": 1.22
+  },
   "itens/bau_ferro": {
    "desc": "abre bau de ferro: chave, ferrolho pesado, tampa de ferro",
    "bus": "sfx",

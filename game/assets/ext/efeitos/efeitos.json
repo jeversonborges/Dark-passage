@@ -1495,6 +1495,174 @@
   "sheet": "demonio/lorde_trono.png"
  },
  {
+  "name": "evasao_anjo_penas",
+  "cat": "evasao",
+  "frames": 14,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   32,
+   60
+  ],
+  "layer": "frente",
+  "desc": "Penas caindo no caminho da Revoada (tocar no meio do trajeto, atrás do Anjo).",
+  "char": "anjo",
+  "title": "Penas caindo no caminho da Revoada (tocar no meio do trajeto, atrás do Anjo)",
+  "resumo": "Penas caindo no caminho da Revoada (tocar no meio do trajeto, atrás do Anjo).",
+  "frame_w": 64,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_anjo_penas.png"
+ },
+ {
+  "name": "evasao_anjo_revoada",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   56,
+   66
+  ],
+  "layer": "frente",
+  "desc": "Revoada (esquiva do Anjo): a batida das asas joga a areia para os lados num anel e solta penas sujas; duas faíscas sagradas no ar. Tocar no ponto de saída.",
+  "char": "anjo",
+  "title": "Revoada (esquiva do Anjo)",
+  "resumo": "A batida das asas joga a areia para os lados num anel e solta penas sujas; duas faíscas sagradas no ar. Tocar no ponto de saída.",
+  "frame_w": 112,
+  "frame_h": 80,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_anjo_revoada.png"
+ },
+ {
+  "name": "evasao_cultista_gotas",
+  "cat": "evasao",
+  "frames": 10,
+  "fps": 12,
+  "loop": false,
+  "anchor": [
+   28,
+   16
+  ],
+  "layer": "chao",
+  "desc": "Rastro de gotas de sangue no chão no caminho do Véu de Sangue.",
+  "char": null,
+  "title": "Rastro de gotas de sangue no chão no caminho do Véu de Sangue",
+  "resumo": "Rastro de gotas de sangue no chão no caminho do Véu de Sangue.",
+  "frame_w": 56,
+  "frame_h": 28,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_cultista_gotas.png"
+ },
+ {
+  "name": "evasao_cultista_veu",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   48,
+   76
+  ],
+  "layer": "frente",
+  "desc": "Véu de Sangue (esquiva do Cultista): o corpo vira névoa rubra que escorre rente ao chão; gotas grossas caem. Tocar na saída (some) e na chegada (volta).",
+  "char": "cultista",
+  "title": "Véu de Sangue (esquiva do Cultista)",
+  "resumo": "O corpo vira névoa rubra que escorre rente ao chão; gotas grossas caem. Tocar na saída (some) e na chegada (volta).",
+  "frame_w": 96,
+  "frame_h": 88,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_cultista_veu.png"
+ },
+ {
+  "name": "evasao_demonio_enxofre",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   44,
+   94
+  ],
+  "layer": "frente",
+  "desc": "Passo de Enxofre (esquiva do Demônio): estalo de fumaça sulfurosa amarelada-escura com brasas, num redemoinho. Tocar na saída e na chegada.",
+  "char": "demonio",
+  "title": "Passo de Enxofre (esquiva do Demônio)",
+  "resumo": "Estalo de fumaça sulfurosa amarelada-escura com brasas, num redemoinho. Tocar na saída e na chegada.",
+  "frame_w": 88,
+  "frame_h": 104,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_demonio_enxofre.png"
+ },
+ {
+  "name": "evasao_mutante_tranco",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   56,
+   30
+  ],
+  "layer": "chao",
+  "desc": "Tranco (esquiva do Mutante): o pé de arranque estoura o chão, levantando terra e lascas para trás. Tocar na saída.",
+  "char": "mutante",
+  "title": "Tranco (esquiva do Mutante)",
+  "resumo": "O pé de arranque estoura o chão, levantando terra e lascas para trás. Tocar na saída.",
+  "frame_w": 112,
+  "frame_h": 48,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_mutante_tranco.png"
+ },
+ {
+  "name": "evasao_tecnomancer_vapor",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   48,
+   78
+  ],
+  "layer": "frente",
+  "desc": "Propulsor a Vapor (esquiva do Tecnomancer): jato de vapor cinza das botas de pistão, faíscas de latão e um anel de pressão no chão. Tocar na saída.",
+  "char": "tecnomancer",
+  "title": "Propulsor a Vapor (esquiva do Tecnomancer)",
+  "resumo": "Jato de vapor cinza das botas de pistão, faíscas de latão e um anel de pressão no chão. Tocar na saída.",
+  "frame_w": 96,
+  "frame_h": 88,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_tecnomancer_vapor.png"
+ },
+ {
+  "name": "evasao_warlord_escudo",
+  "cat": "evasao",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   48,
+   78
+  ],
+  "layer": "frente",
+  "desc": "Passo de Escudo (esquiva do Warlord): o escudo sobe num arco de ferro com um fio de brasa na borda; faíscas quando ele firma o pé. Tocar no ponto de saída.",
+  "char": "warlord",
+  "title": "Passo de Escudo (esquiva do Warlord)",
+  "resumo": "O escudo sobe num arco de ferro com um fio de brasa na borda; faíscas quando ele firma o pé. Tocar no ponto de saída.",
+  "frame_w": 96,
+  "frame_h": 88,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "evasao/evasao_warlord_escudo.png"
+ },
+ {
   "name": "cacador_chuva_virotes",
   "cat": "humano",
   "frames": 30,
@@ -1768,6 +1936,90 @@
   "sheet": "itens/bau_abertura.png"
  },
  {
+  "name": "demiurgo_aura",
+  "cat": "itens",
+  "frames": 24,
+  "fps": 12,
+  "loop": true,
+  "anchor": [
+   64,
+   132
+  ],
+  "layer": "frente",
+  "desc": "Aura Demiurgica: três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
+  "char": "qualquer",
+  "title": "Aura Demiurgica",
+  "resumo": "Três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
+  "frame_w": 128,
+  "frame_h": 144,
+  "cols": 8,
+  "rows": 3,
+  "sheet": "itens/demiurgo_aura.png"
+ },
+ {
+  "name": "demiurgo_golpe",
+  "cat": "itens",
+  "frames": 12,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   48,
+   100
+  ],
+  "layer": "frente",
+  "desc": "Golpe do cetro: a esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
+  "char": null,
+  "title": "Golpe do cetro",
+  "resumo": "A esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
+  "frame_w": 96,
+  "frame_h": 112,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/demiurgo_golpe.png"
+ },
+ {
+  "name": "demiurgo_juizo",
+  "cat": "itens",
+  "frames": 18,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   56,
+   220
+  ],
+  "layer": "frente",
+  "desc": "Juízo do Demiurgo: coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
+  "char": null,
+  "title": "Juízo do Demiurgo",
+  "resumo": "Coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
+  "frame_w": 112,
+  "frame_h": 232,
+  "cols": 8,
+  "rows": 3,
+  "sheet": "itens/demiurgo_juizo.png"
+ },
+ {
+  "name": "demiurgo_verbo",
+  "cat": "itens",
+  "frames": 14,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   128,
+   64
+  ],
+  "layer": "chao",
+  "desc": "Verbo: a onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
+  "char": null,
+  "title": "Verbo",
+  "resumo": "A onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
+  "frame_w": 256,
+  "frame_h": 128,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "itens/demiurgo_verbo.png"
+ },
+ {
   "name": "item_brilho_excelente",
   "cat": "itens",
   "frames": 12,
@@ -1976,90 +2228,6 @@
   "cols": 8,
   "rows": 2,
   "sheet": "itens/lagrima_sanguinea_queda.png"
- },
- {
-  "name": "demiurgo_aura",
-  "cat": "itens",
-  "frames": 24,
-  "fps": 12,
-  "loop": true,
-  "anchor": [
-   64,
-   132
-  ],
-  "layer": "frente",
-  "desc": "Aura Demiurgica: três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
-  "char": "qualquer",
-  "title": "Aura Demiurgica",
-  "resumo": "Três anéis de luz esmeralda girando em volta de quem segura o cetro, com runas no chão e faíscas subindo; todos veem.",
-  "frame_w": 128,
-  "frame_h": 144,
-  "cols": 8,
-  "rows": 3,
-  "sheet": "itens/demiurgo_aura.png"
- },
- {
-  "name": "demiurgo_golpe",
-  "cat": "itens",
-  "frames": 12,
-  "fps": 18,
-  "loop": false,
-  "anchor": [
-   48,
-   100
-  ],
-  "layer": "frente",
-  "desc": "Golpe do cetro: a esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
-  "char": null,
-  "title": "Golpe do cetro",
-  "resumo": "A esmeralda abre um anel de luz no alvo e um feixe curto sobe; faíscas brancas.",
-  "frame_w": 96,
-  "frame_h": 112,
-  "cols": 8,
-  "rows": 2,
-  "sheet": "itens/demiurgo_golpe.png"
- },
- {
-  "name": "demiurgo_juizo",
-  "cat": "itens",
-  "frames": 18,
-  "fps": 18,
-  "loop": false,
-  "anchor": [
-   56,
-   220
-  ],
-  "layer": "frente",
-  "desc": "Juízo do Demiurgo: coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
-  "char": null,
-  "title": "Juízo do Demiurgo",
-  "resumo": "Coluna de luz esmeralda desce do alto sobre o inimigo apagado; so sobram faíscas.",
-  "frame_w": 112,
-  "frame_h": 232,
-  "cols": 8,
-  "rows": 3,
-  "sheet": "itens/demiurgo_juizo.png"
- },
- {
-  "name": "demiurgo_verbo",
-  "cat": "itens",
-  "frames": 14,
-  "fps": 16,
-  "loop": false,
-  "anchor": [
-   128,
-   64
-  ],
-  "layer": "chao",
-  "desc": "Verbo: a onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
-  "char": null,
-  "title": "Verbo",
-  "resumo": "A onda de luz esmeralda do ataque basico varre o chão em 8 m, com o círculo de runas que mede.",
-  "frame_w": 256,
-  "frame_h": 128,
-  "cols": 8,
-  "rows": 2,
-  "sheet": "itens/demiurgo_verbo.png"
  },
  {
   "name": "abominacao_forma_colossal",

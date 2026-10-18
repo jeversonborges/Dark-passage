@@ -528,6 +528,12 @@ func _passo_deslocamento(e: Ent, dt: float) -> void:
 			if not d.has("ja"): d["ja"] = []
 			d["ja"].append(o.id)
 			aplicar_golpe(e, o, d["golpeia"])
+	if d.has("ao_passar"):   # Tranco do Mutante: cada inimigo no caminho, uma vez
+		for o in inimigos_de(e, e.pos, 0.9):
+			if o.id in d.get("ja_passou", []): continue
+			if not d.has("ja_passou"): d["ja_passou"] = []
+			d["ja_passou"].append(o.id)
+			(d["ao_passar"] as Callable).call(o)
 	if k >= 1.0:
 		var fim := d
 		e.deslocando = {}
