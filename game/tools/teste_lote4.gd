@@ -10,5 +10,7 @@ func _init() -> void:
 		print("FALHA: evasão da Balança"); falhas += 1
 	if Defs.ITENS.has("escudo_de_anubis") and int(Itens.bonus({"segunda_mao": Itens.novo("escudo_de_anubis")})["defesa"]) != 15:
 		print("FALHA: defesa do Escudo de Anúbis (esperado 14 + 10% = 15)"); falhas += 1
+	if Defs.ITENS.has("balanca_do_coracao") and absf(float(Itens.bonus({"amuleto": Itens.novo("balanca_do_coracao")})["perda_xp_menos"]) - 0.25) > 0.0001:
+		print("FALHA: perda de XP da Balança"); falhas += 1
 	print("teste_lote4: %s" % ("OK" if falhas == 0 else "%d falha(s)" % falhas))
 	quit(1 if falhas > 0 else 0)

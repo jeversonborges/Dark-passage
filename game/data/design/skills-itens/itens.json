@@ -16840,11 +16840,15 @@
         1
       ],
       "lore": "Pesada de latão, com um prato cheio de areia. Nos ritos de Amenti, o coração era pesado contra uma pena.",
-      "efeito": "Raro: +4% de chance de esquiva. Ao morrer, perde menos XP.",
+      "efeito": "Raro: +4% de chance de esquiva. Ao morrer, perde 25% menos XP.",
       "efeitos_mecanicos": [
         {
           "tipo": "evasao",
           "valor": 0.04
+        },
+        {
+          "tipo": "perda_xp_morte",
+          "valor": 0.25
         }
       ],
       "fonte": "design/skills-itens/itens_novos_096_lote4.json",
@@ -16877,7 +16881,7 @@
         2
       ],
       "lore": "Escudo de madeira coberto de couro, com o chacal pintado em ocre.",
-      "efeito": "Raro: +10% da defesa do próprio escudo. Reflete 5% do dano físico recebido.",
+      "efeito": "Raro: +10% da defesa do próprio escudo.",
       "defesa": 14,
       "efeitos_mecanicos": [
         {
