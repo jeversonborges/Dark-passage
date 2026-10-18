@@ -4,7 +4,10 @@ tер a pegada (footprint_tiles) toda bloqueada na grade. Uso: python3 integrar/
 import json, os, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-MANIFESTO = os.path.join(AQUI, "..", "..", "..", "assets", "ambiente", "objetos")
+# os manifestos completos ficam na pasta compartilhada; o repositório tem só parte deles (416 de 1.444), e a pegada
+# muda de tamanho entre as duas (cupula_estacao: 5x5 contra 14x14)
+MANIFESTO = "/mnt/project-files/assets/ambiente/objetos" if os.path.isdir("/mnt/project-files/assets/ambiente/objetos") \
+    else os.path.join(AQUI, "..", "..", "..", "assets", "ambiente", "objetos")
 MAPA = sys.argv[1] if len(sys.argv) > 1 else os.path.join(AQUI, "..", "jerusalem_hermon.json")
 
 

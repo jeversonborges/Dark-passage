@@ -127,4 +127,4 @@ Os prédios travavam só uma parte do desenho (o gerador bloqueava um tamanho à
 como o `casa_ruina` de 8x8 contra 6x6). Agora cada prédio e muro trava a pegada inteira do próprio sprite
 (`footprint_tiles` do manifesto), também os de borda e os marcos de spot. `python3 integrar/teste_colisao.py`
 confere: 75 construções, 0 com célula livre. Rode-o junto com o `teste_jerusalem.gd` depois de regerar.
-Os mapas do Egito e de São Lázaro têm o mesmo problema e não foram tocados (ficam com as threads donas).
+O teste lê os manifestos de `/mnt/project-files/assets/` (o repositório tem só parte deles). Os mapas do Egito e de São Lázaro têm o mesmo problema e não foram tocados (ficam com as threads donas).
