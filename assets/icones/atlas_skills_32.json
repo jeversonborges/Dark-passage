@@ -646,5 +646,95 @@
   192,
   32,
   32
+ ],
+ "martelo_de_bobina": [
+  384,
+  192,
+  32,
+  32
+ ],
+ "exoesqueleto": [
+  416,
+  192,
+  32,
+  32
+ ],
+ "bomba_atomica": [
+  448,
+  192,
+  32,
+  32
+ ],
+ "dobre_de_finados": [
+  480,
+  192,
+  32,
+  32
+ ],
+ "bracos_servos": [
+  0,
+  224,
+  32,
+  32
+ ],
+ "orgao_de_vapor": [
+  32,
+  224,
+  32,
+  32
+ ],
+ "torreta_relicario": [
+  64,
+  224,
+  32,
+  32
+ ],
+ "legiao_de_servos": [
+  96,
+  224,
+  32,
+  32
+ ],
+ "engrenagem_sagrada": [
+  128,
+  224,
+  32,
+  32
+ ],
+ "canhao_sino": [
+  160,
+  224,
+  32,
+  32
+ ],
+ "trono_vazio": [
+  192,
+  224,
+  32,
+  32
+ ],
+ "tres_aureolas": [
+  224,
+  224,
+  32,
+  32
+ ],
+ "colheita": [
+  256,
+  224,
+  32,
+  32
+ ],
+ "balas_bentas": [
+  288,
+  224,
+  32,
+  32
+ ],
+ "trofeu": [
+  320,
+  224,
+  32,
+  32
  ]
 }

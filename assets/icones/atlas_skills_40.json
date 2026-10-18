@@ -646,5 +646,95 @@
   240,
   40,
   40
+ ],
+ "martelo_de_bobina": [
+  480,
+  240,
+  40,
+  40
+ ],
+ "exoesqueleto": [
+  520,
+  240,
+  40,
+  40
+ ],
+ "bomba_atomica": [
+  560,
+  240,
+  40,
+  40
+ ],
+ "dobre_de_finados": [
+  600,
+  240,
+  40,
+  40
+ ],
+ "bracos_servos": [
+  0,
+  280,
+  40,
+  40
+ ],
+ "orgao_de_vapor": [
+  40,
+  280,
+  40,
+  40
+ ],
+ "torreta_relicario": [
+  80,
+  280,
+  40,
+  40
+ ],
+ "legiao_de_servos": [
+  120,
+  280,
+  40,
+  40
+ ],
+ "engrenagem_sagrada": [
+  160,
+  280,
+  40,
+  40
+ ],
+ "canhao_sino": [
+  200,
+  280,
+  40,
+  40
+ ],
+ "trono_vazio": [
+  240,
+  280,
+  40,
+  40
+ ],
+ "tres_aureolas": [
+  280,
+  280,
+  40,
+  40
+ ],
+ "colheita": [
+  320,
+  280,
+  40,
+  40
+ ],
+ "balas_bentas": [
+  360,
+  280,
+  40,
+  40
+ ],
+ "trofeu": [
+  400,
+  280,
+  40,
+  40
  ]
 }

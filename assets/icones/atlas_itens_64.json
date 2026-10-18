@@ -2452,5 +2452,257 @@
   1600,
   64,
   64
+ ],
+ "manoplas_do_badalo": [
+  576,
+  1600,
+  64,
+  64
+ ],
+ "escudo_ferro_pintado": [
+  640,
+  1600,
+  64,
+  64
+ ],
+ "botas_de_fronteira": [
+  704,
+  1600,
+  64,
+  64
+ ],
+ "sandalias_de_sobek": [
+  768,
+  1600,
+  64,
+  64
+ ],
+ "sandalias_de_mut": [
+  832,
+  1600,
+  64,
+  64
+ ],
+ "colete_de_sela_gasta": [
+  896,
+  1600,
+  64,
+  64
+ ],
+ "luvas_de_bandagem": [
+  960,
+  1600,
+  64,
+  64
+ ],
+ "cajado_do_sino_parado": [
+  0,
+  1664,
+  64,
+  64
+ ],
+ "cajado_do_sino_quebrado": [
+  64,
+  1664,
+  64,
+  64
+ ],
+ "espada_da_retirada": [
+  128,
+  1664,
+  64,
+  64
+ ],
+ "escopeta_da_vela_acesa": [
+  192,
+  1664,
+  64,
+  64
+ ],
+ "espada_da_arquibancada": [
+  256,
+  1664,
+  64,
+  64
+ ],
+ "foice_da_legiao_sem_general": [
+  320,
+  1664,
+  64,
+  64
+ ],
+ "khopesh_do_coracao_duro": [
+  384,
+  1664,
+  64,
+  64
+ ],
+ "cajado_de_linho_ritual": [
+  448,
+  1664,
+  64,
+  64
+ ],
+ "cajado_da_trombeta_calada": [
+  512,
+  1664,
+  64,
+  64
+ ],
+ "antena_de_cajado": [
+  576,
+  1664,
+  64,
+  64
+ ],
+ "cetro_do_raio_partido": [
+  640,
+  1664,
+  64,
+  64
+ ],
+ "machado_da_agua_verde": [
+  704,
+  1664,
+  64,
+  64
+ ],
+ "bastao_de_amenti": [
+  768,
+  1664,
+  64,
+  64
+ ],
+ "cajado_do_engenheiro_herege": [
+  832,
+  1664,
+  64,
+  64
+ ],
+ "corona_do_arauto_calado": [
+  896,
+  1664,
+  64,
+  64
+ ],
+ "diadema_de_linho": [
+  960,
+  1664,
+  64,
+  64
+ ],
+ "capacete_do_sino_derretido": [
+  0,
+  1728,
+  64,
+  64
+ ],
+ "capacete_de_operador": [
+  64,
+  1728,
+  64,
+  64
+ ],
+ "veu_de_naama": [
+  128,
+  1728,
+  64,
+  64
+ ],
+ "mascara_de_amenti": [
+  192,
+  1728,
+  64,
+  64
+ ],
+ "bronze_antigo": [
+  256,
+  1728,
+  64,
+  64
+ ],
+ "cerveja_ocre": [
+  320,
+  1728,
+  64,
+  64
+ ],
+ "unguento_de_mirra": [
+  384,
+  1728,
+  64,
+  64
+ ],
+ "luvas_de_cera_quente": [
+  448,
+  1728,
+  64,
+  64
+ ],
+ "luvas_de_isolante": [
+  512,
+  1728,
+  64,
+  64
+ ],
+ "luvas_de_cera_fria": [
+  576,
+  1728,
+  64,
+  64
+ ],
+ "sobrepeliz_de_amenti": [
+  640,
+  1728,
+  64,
+  64
+ ],
+ "amuleto_de_valvula": [
+  704,
+  1728,
+  64,
+  64
+ ],
+ "amuleto_de_fita_de_cetim": [
+  768,
+  1728,
+  64,
+  64
+ ],
+ "anel_de_marcador": [
+  832,
+  1728,
+  64,
+  64
+ ],
+ "anel_de_passagem": [
+  896,
+  1728,
+  64,
+  64
+ ],
+ "anel_de_palma_de_arena": [
+  960,
+  1728,
+  64,
+  64
+ ],
+ "anel_de_latao_da_cripta": [
+  0,
+  1792,
+  64,
+  64
+ ],
+ "calcas_da_retirada": [
+  64,
+  1792,
+  64,
+  64
+ ],
+ "botas_do_versiculo": [
+  128,
+  1792,
+  64,
+  64
  ]
 }
