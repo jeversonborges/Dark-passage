@@ -25,6 +25,10 @@ try:
 except ImportError:
     pass
 try:
+    import efeitos_warlord  # noqa
+except ImportError:
+    pass
+try:
     import efeitos_demiurgo  # noqa
 except ImportError:
     pass

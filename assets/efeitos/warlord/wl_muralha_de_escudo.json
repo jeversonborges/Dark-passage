@@ -1,0 +1,21 @@
+{
+ "name": "wl_muralha_de_escudo",
+ "cat": "warlord",
+ "frames": 12,
+ "fps": 14,
+ "loop": false,
+ "anchor": [
+  48,
+  70
+ ],
+ "layer": "frente",
+ "desc": "Muralha de Escudo: anel de aço se fecha ao redor do Warlord e devolve o golpe em faísca.",
+ "char": null,
+ "title": "Muralha de Escudo",
+ "resumo": "Anel de aço se fecha ao redor do Warlord e devolve o golpe em faísca.",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "wl_muralha_de_escudo.png"
+}

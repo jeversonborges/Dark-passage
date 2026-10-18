@@ -2123,5 +2123,68 @@
   "cols": 8,
   "rows": 2,
   "sheet": "itens/demiurgo_verbo.png"
+ },
+ {
+  "name": "wl_investida_de_ferro",
+  "cat": "warlord",
+  "frames": 10,
+  "fps": 16,
+  "loop": false,
+  "anchor": [
+   48,
+   52
+  ],
+  "layer": "frente",
+  "desc": "Investida de Ferro: rastro de poeira e faíscas de aço no avanço com o escudo erguido.",
+  "char": null,
+  "title": "Investida de Ferro",
+  "resumo": "Rastro de poeira e faíscas de aço no avanço com o escudo erguido.",
+  "frame_w": 96,
+  "frame_h": 64,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "warlord/wl_investida_de_ferro.png"
+ },
+ {
+  "name": "wl_muralha_de_escudo",
+  "cat": "warlord",
+  "frames": 12,
+  "fps": 14,
+  "loop": false,
+  "anchor": [
+   48,
+   70
+  ],
+  "layer": "frente",
+  "desc": "Muralha de Escudo: anel de aço se fecha ao redor do Warlord e devolve o golpe em faísca.",
+  "char": null,
+  "title": "Muralha de Escudo",
+  "resumo": "Anel de aço se fecha ao redor do Warlord e devolve o golpe em faísca.",
+  "frame_w": 96,
+  "frame_h": 96,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "warlord/wl_muralha_de_escudo.png"
+ },
+ {
+  "name": "wl_estandarte_da_ruina",
+  "cat": "warlord",
+  "frames": 14,
+  "fps": 12,
+  "loop": false,
+  "anchor": [
+   32,
+   104
+  ],
+  "layer": "frente",
+  "desc": "Estandarte da Ruína: haste de ferro cravada no chão com pano rasgado que tremula e um anel rubro no solo.",
+  "char": null,
+  "title": "Estandarte da Ruína",
+  "resumo": "Haste de ferro cravada no chão com pano rasgado que tremula e um anel rubro no solo.",
+  "frame_w": 64,
+  "frame_h": 112,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "warlord/wl_estandarte_da_ruina.png"
  }
 ]

@@ -1,0 +1,21 @@
+{
+ "name": "wl_estandarte_da_ruina",
+ "cat": "warlord",
+ "frames": 14,
+ "fps": 12,
+ "loop": false,
+ "anchor": [
+  32,
+  104
+ ],
+ "layer": "frente",
+ "desc": "Estandarte da Ruína: haste de ferro cravada no chão com pano rasgado que tremula e um anel rubro no solo.",
+ "char": null,
+ "title": "Estandarte da Ruína",
+ "resumo": "Haste de ferro cravada no chão com pano rasgado que tremula e um anel rubro no solo.",
+ "frame_w": 64,
+ "frame_h": 112,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "wl_estandarte_da_ruina.png"
+}
