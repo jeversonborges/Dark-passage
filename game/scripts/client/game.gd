@@ -1221,6 +1221,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 			KEY_K: janelas.alternar("habilidades")
 			KEY_T: janelas.alternar("talentos")
 			KEY_V: janelas.alternar("teleporte")
+			KEY_G: janelas.alternar("revista")
 			KEY_SPACE: evadir()
 			KEY_F8: GmPainel.alternar(self)   # só abre para conta GM (o servidor avisa com gm_ativo)
 			KEY_F7: GmPainel.ponto(self)
