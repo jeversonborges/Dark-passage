@@ -28,6 +28,9 @@ func _ready() -> void:
 			roteiro = [[2.0, "preparar_menu", ""], [0.2, "janela", "inventario"], [0.2, "abrir_arca", ""], [1.0, "foto", "menu_1"],
 				[0.1, "tip_melhoria", ""], [0.5, "foto", "menu_2_tip"], [0.1, "tip_slot", ""], [0.5, "foto", "menu_3_slot"],
 				[0.1, "janela", "missoes"], [0.6, "foto", "menu_4_diario"], [0.3, "fim", ""]]
+		"revista":   # tecla G: a Gazeta do Impasse com os drops das masmorras e raids
+			roteiro = [[2.5, "foto", "1_mundo"], [0.2, "janela", "revista"], [1.0, "foto", "revista_1"],
+				[0.2, "fim", ""]]
 		"teleporte":   # menu V: lista, tooltip, viagem paga e o ouro cobrado
 			roteiro = [[2.5, "preparar_tp", ""], [0.2, "janela", "teleporte"], [0.8, "foto", "tp_1_menu"],
 				[0.1, "tip_tp", "rio_amargo"], [0.5, "foto", "tp_2_tip"], [0.1, "janela", "teleporte"],

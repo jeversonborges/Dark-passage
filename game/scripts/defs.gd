@@ -30,6 +30,7 @@ static var BAUS_HIST := {}
 static var LOJAS := {}
 static var FERREIROS := {}
 static var LOCAIS := {}      # subzonas e andares por id
+static var DUNGEONS := {}    # masmorras e raids (locais.json -> dungeons) por id
 static var REG_CHEFES := []  # chefes de dungeon (locais.json -> registro_chefes.lista), com nível e espelho
 static var MON_TXT := {}     # missoes/monstros.json por id
 static var SPR := {}         # data/ext/sprites.json
@@ -95,6 +96,7 @@ static func carregar() -> void:
 	for a in lc["areas"]:
 		for s in a["subzonas"]: LOCAIS[s["id"]] = s
 	for dg in lc["dungeons"]:
+		DUNGEONS[dg["id"]] = dg
 		for s in dg["andares"]: LOCAIS[s["id"]] = s
 	for m in ler(DESIGN + "missoes/monstros.json")["monstros"]: MON_TXT[m["id"]] = m
 	if FileAccess.file_exists("res://assets/ext/armas/visuais.json"):

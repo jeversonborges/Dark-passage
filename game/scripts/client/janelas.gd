@@ -13,6 +13,7 @@ var mao := {}                 # item na mão: {it, de, slot}
 var mao_ui: Control
 var alvos_soltar: Array = []  # Controls que aceitam item (grades e slots)
 var missao_sel := ""
+var revista_sel := ""   # masmorra aberta na Gazeta do Impasse
 var troca_d := {}             # estado da troca que o servidor mandou (vazio = sem troca)
 var troca_ok_ms := 0          # quando o botão Confirmar acende (o servidor só aceita depois disso)
 var _sel_aba := "ativas"
@@ -134,6 +135,7 @@ func alternar(nome: String) -> void:
 		"auto": abrir_auto()
 		"talentos": abrir_talentos()
 		"teleporte": abrir_teleporte()
+		"revista": abrir_revista()
 
 func fechar(nome: String) -> void:
 	if not jan.has(nome): return
@@ -1406,6 +1408,7 @@ func abrir_menu() -> void:
 		["Como jogar (H)", func(): fechar("menu"); game.hud.mostrar_ajuda()],
 		["Modo automático (Shift+Z)", func(): fechar("menu"); abrir_auto()],
 		["Teleporte (V)", func(): fechar("menu"); abrir_teleporte()],
+		["Gazeta do Impasse (G)", func(): fechar("menu"); abrir_revista()],
 		["Configurações (F10)", func(): fechar("menu"); Configuracoes.abrir(self, abrir_menu)],
 		["Salvar e voltar ao início" if game.rede == null else "Sair da partida", func(): game._salvar(); game.sair_rede(); get_tree().reload_current_scene()],
 	]
@@ -1776,3 +1779,66 @@ func _milhar(v: int) -> String:
 	while t.length() > 3:
 		out = "." + t.right(3) + out; t = t.left(t.length() - 3)
 	return ("-" if v < 0 else "") + t + out
+
+# =================================================================== Gazeta do Impasse (drops de masmorras e raids)
+## Revista com os drops de cada masmorra e raid: índice à esquerda, a página do lugar à direita.
+func abrir_revista() -> void:
+	var c := _janela("revista", "A GAZETA DO IMPASSE", Vector2(680, 540), "centro")
+	_limpar(c)
+	var pags := Revista.paginas()
+	if revista_sel == "" and not pags.is_empty(): revista_sel = pags[0]["id"]
+	var h := HBoxContainer.new(); h.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	h.add_theme_constant_override("separation", 12)
+	c.add_child(h)
+	var sc := ScrollContainer.new(); sc.custom_minimum_size.x = 190; sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var indice := VBoxContainer.new(); indice.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sc.add_child(indice); h.add_child(sc)
+	for p in pags:
+		var b := Button.new()
+		b.text = p["nome"] + ("  · raid" if p["raid"] else "")
+		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		b.toggle_mode = true; b.button_pressed = p["id"] == revista_sel
+		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 14)
+		var pid: String = p["id"]
+		b.pressed.connect(func(): revista_sel = pid; abrir_revista())
+		indice.add_child(b)
+	var sep := ColorRect.new(); sep.color = Color(0.42, 0.34, 0.2, 0.5); sep.custom_minimum_size.x = 1; h.add_child(sep)
+	var pag := ScrollContainer.new(); pag.size_flags_horizontal = Control.SIZE_EXPAND_FILL; pag.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	pag.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var col := VBoxContainer.new(); col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	col.add_theme_constant_override("separation", 6)
+	pag.add_child(col); h.add_child(pag)
+	for p in pags:
+		if p["id"] == revista_sel: _pagina_revista(col, p)
+
+func _pagina_revista(col: VBoxContainer, p: Dictionary) -> void:
+	var sub := "%s · nível %d a %d" % ["Raid" if p["raid"] else "Masmorra", p["nivel_min"], p["nivel_max"]]
+	if p["raid"] and not p["grupo"].is_empty(): sub += " · grupo de %d a %d" % [p["grupo"][0], p["grupo"][1]]
+	col.add_child(Tema.rotulo(p["nome"], 22, Color("#f0dca0"), Tema.FONTE_TITULO, 3))
+	col.add_child(Tema.rotulo(sub, 12, Color("#a89f8c"), Tema.FONTE_ITALICO))
+	for ch in p["chefes"]:
+		var linha := ColorRect.new(); linha.color = Color(0.42, 0.34, 0.2, 0.6); linha.custom_minimum_size.y = 1
+		col.add_child(linha)
+		col.add_child(Tema.rotulo("%s · nível %d" % [ch["nome"], ch["nivel"]], 17, Color("#e0c890"), Tema.FONTE_TITULO, 2))
+		if ch["rolagens_garantidas"] > 0:
+			col.add_child(Tema.rotulo("%d rolagens garantidas · raridade mínima %s" % [ch["rolagens_garantidas"], Defs.nome_raridade(ch["raridade_minima"])], 13, Color("#a89f8c"), Tema.FONTE_ITALICO))
+		for r in ch["rolagens"]:
+			col.add_child(Tema.rotulo("%s · %s por rolagem" % [r["rotulo"], _pct_revista(r["pct"])], 13, Color("#d9b66a")))
+			var fl := HFlowContainer.new()
+			fl.add_theme_constant_override("h_separation", 12); fl.add_theme_constant_override("v_separation", 4)
+			for id in r["itens"]: fl.add_child(_item_revista(id, r["raridade"]))
+			col.add_child(fl)
+		col.add_child(Tema.rotulo("Baú dourado: %s por abate" % _pct_revista(ch["bau_pct"]), 13, Color("#c99a3e")))
+
+func _pct_revista(v: float) -> String:
+	var txt := "%d" % roundi(v) if absf(v - roundf(v)) < 0.05 else ("%.1f" % v).replace(".", ",")
+	return txt + "%"
+
+func _item_revista(id: String, rar: String) -> Control:
+	var it := Itens.novo(id)
+	var box := HBoxContainer.new(); box.add_theme_constant_override("separation", 5)
+	var ic := Desenho.new(); ic.custom_minimum_size = Vector2(30, 30); ic.mouse_filter = Control.MOUSE_FILTER_PASS
+	ic.desenhar = func(cv): _desenhar_icone(cv, it, Rect2(Vector2.ZERO, cv.size))
+	box.add_child(ic)
+	box.add_child(Tema.rotulo(Itens.nome(it), 13, Defs.cor_raridade(rar), Tema.FONTE_TEXTO))
+	return box
