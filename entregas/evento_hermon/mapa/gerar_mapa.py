@@ -99,14 +99,14 @@ def main():
 
     # ---- os duzentos ajoelhados (posições dos Vigilantes): em círculos, virados para a laje, por área de anel
     vig = []
-    raios = [15.0, 12.0, 9.0, 6.5]  # longe da muralha (anel_1 cai de 17 a 22); cada lugar fica a 2+ tiles do outro
-    nos = [17, 13, 12, 8]           # 50 lugares (teto do inicio_max); o controle usa os primeiros N, espalhados
+    raios = [15.0, 12.0, 9.0, 6.5]  # longe da muralha (anel_1 cai de 17 a 22)
+    nos = [24, 18, 14, 10]          # candidatos; 3 tiles entre um e outro deixam uns 56 lugares (teto do inicio_max 50)
     for rr, n in zip(raios, nos):
         for k in range(n):
             ang = 2 * math.pi * (k + .37 * rr) / n
             x, y = CX + rr * math.cos(ang), CY + rr * math.sin(ang)
             if a.blk[int(y)][int(x)]: continue
-            if any(math.dist((x, y), v["pos"]) < 2.0 for v in vig): continue
+            if any(math.dist((x, y), v["pos"]) < 3.0 for v in vig): continue     # 3 tiles entre um e outro
             vig.append({"pos": [round(x, 2), round(y, 2)], "olha": [round(-math.cos(ang), 3), round(-math.sin(ang), 3)],
                         "anel": celula_anel.get((int(x), int(y)))})
     # intercala para que os primeiros N fiquem espalhados por todos os anéis
