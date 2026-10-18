@@ -448,6 +448,40 @@
         "Psiu. Eles estão contando.",
         "Cento e noventa e oito... cento e noventa e nove..."
       ]
+    },
+    {
+      "id": "rute_abelheira",
+      "nome": "Rute Abelheira",
+      "titulo": "Vendedora de Bichos da Vela",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "a_definir_pets"
+      },
+      "servicos": [
+        "coletor"
+      ],
+      "dialogo": "dlg_rute_pets",
+      "aparencia": "Mulher miúda de chapéu de palha furado, véu de tela na frente do rosto, luvas de couro cheias de remendo. Tem uma gaiola de arame às costas.",
+      "personalidade": "Fala baixo e com os bichos mais do que com gente. Vende companhia que junta o que o dono esquece no chão."
+    },
+    {
+      "id": "joana_enxertadeira",
+      "nome": "Joana Enxertadeira",
+      "titulo": "Vendedora de Bichos da Capela",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "a_definir_pets"
+      },
+      "servicos": [
+        "coletor"
+      ],
+      "dialogo": "dlg_joana_pets",
+      "aparencia": "Mulher de avental de couro, mangas arregaçadas, mãos cheias de cicatriz de enxerto. Tem um pássaro de cinza pousado no ombro.",
+      "personalidade": "Séria, prática, fala da Capela como se fosse uma horta. Acha que todo bicho bem cuidado serve a alguém."
     }
   ]
 }

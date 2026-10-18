@@ -1237,6 +1237,9 @@ static func abrir_servico(sim: WorldSim, e: Ent, s: Dictionary, npc: Ent) -> voi
 			d["titulo"] = l.get("nome", npc.nome); d["fala"] = l.get("fala_ao_abrir", "")
 			d["itens"] = estoque(e, s["id"])
 			d["loja"] = s["id"]
+		"coletor":   # vendedor de pets (0.9.6): as espécies que dá para ter como coletor
+			d["titulo"] = "Pets de " + npc.nome.split(" ")[0]; d["fala"] = "Bicho que junta para você. Escolhe o seu."
+			d["especies"] = Coletor.ESPECIES.keys().map(func(k): return {"id": k, "nome": Coletor.ESPECIES[k]["nome"], "preco": Coletor.ESPECIES[k]["preco"]})
 		"ferreiro":
 			d["titulo"] = "Forja de " + npc.nome.split(" ")[0]; d["fala"] = Defs.FERREIROS.get(npc.kind, {}).get("fala_ao_abrir", "")
 		"armazem":

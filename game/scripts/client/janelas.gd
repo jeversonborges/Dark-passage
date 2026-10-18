@@ -178,6 +178,7 @@ func atualizar() -> void:
 	if aberta("personagem"): abrir_personagem()
 	if aberta("teleporte"): abrir_teleporte()
 	if aberta("servico") and servico_d.get("tipo") == "ferreiro": _corpo_ferreiro()
+	if aberta("servico") and servico_d.get("tipo") == "coletor": _corpo_coletor()
 	_atualizar_arca()
 	for n in ["inventario", "servico"]:
 		if jan.has(n): _redesenhar(jan[n])
@@ -1199,6 +1200,7 @@ func servico(d: Dictionary) -> void:
 			abrir_inventario()
 		"armazem": _abrir_armazem(d)
 		"treinador": _abrir_treinador(d)
+		"coletor": _abrir_coletor(d)
 
 func _fala_servico(c: Control, d: Dictionary) -> void:
 	if d.get("fala", "") != "":
@@ -1604,6 +1606,60 @@ func _auto_secao(txt: String) -> Control:
 	var l := Tema.rotulo(txt.to_upper(), 13, Color("#c9a860"), Tema.FONTE_TITULO, 2)
 	l.custom_minimum_size.y = 16
 	return l
+
+# =================================================================== vendedor de pets (0.9.6)
+## Pet coletor: compra a espécie e marca o filtro do que ele junta (raridades, poções, joias, asas, baús dourados).
+func _abrir_coletor(d: Dictionary) -> void:
+	_janela("servico", d.get("titulo", "Pets"), Vector2(440, 600), "esquerda")
+	_titulo("servico", d.get("titulo", "Pets"))
+	_corpo_coletor()
+	abrir_inventario()
+
+func coletor_mudou() -> void:
+	if aberta("servico") and servico_d.get("tipo") == "coletor": _corpo_coletor()
+
+func _corpo_coletor() -> void:
+	if not jan.has("servico"): return
+	var c: Control = corpo["servico"]
+	_limpar(c)
+	_fala_servico(c, servico_d)
+	var j := _jog()
+	var cfg: Dictionary = j.aux.get("coletor", {})
+	var atual: String = cfg.get("especie", "")
+	var f: Dictionary = cfg.get("filtro", Coletor.filtro_padrao())
+	var sc := ScrollContainer.new(); sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var v := VBoxContainer.new(); v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	sc.add_child(v); c.add_child(sc)
+	v.add_child(Tema.rotulo("Pet atual: %s    Ouro: %d" % [Coletor.ESPECIES[atual]["nome"] if atual != "" else "nenhum", j.ouro], 14, Tema.COR_OURO, Tema.FONTE_TITULO))
+	v.add_child(Tema.rotulo("Compra", 13, Color("#c8bfa8")))
+	for esp in Coletor.ESPECIES:
+		var b := Button.new(); b.custom_minimum_size = Vector2(0, 36)
+		b.text = "  %s   —   %d ouro%s" % [Coletor.ESPECIES[esp]["nome"], Coletor.ESPECIES[esp]["preco"], "   (atual)" if esp == atual else ""]
+		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 15)
+		b.pressed.connect(func(): game.cmd("coletor", ["comprar", esp]))
+		v.add_child(b)
+	if atual != "":
+		v.add_child(_auto_botao("Dispensar o pet (o filtro fica salvo)", func(): game.cmd("coletor", ["dispensar"])))
+	v.add_child(Tema.rotulo("O que ele junta", 13, Color("#c8bfa8")))
+	for r in Coletor.RARIDADES:
+		_coletor_marca(v, RARIDADE_NOME_COLETOR[r], f["raridade"].get(r, true), ["raridade", r])
+	_coletor_marca(v, "Poções de vida e recurso", f["pocoes"], ["pocoes"])
+	for id in Defs.POR_TAG.get("joia:refino", []):
+		_coletor_marca(v, Defs.ITENS.get(id, {}).get("nome", id), f["joias"].get(id, true), ["joia", id])
+	_coletor_marca(v, "Materiais de asas", f["asas"], ["asas"])
+	_coletor_marca(v, "Baús dourados", f["baus"], ["baus"])
+	v.add_child(Tema.rotulo("Ouro sempre é juntado.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
+
+const RARIDADE_NOME_COLETOR := {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia"}
+
+func _coletor_marca(v: VBoxContainer, txt: String, marcado: bool, chave: Array) -> void:
+	var cb := CheckBox.new(); cb.text = txt; cb.button_pressed = marcado
+	cb.add_theme_font_override("font", Tema.FONTE_TEXTO); cb.add_theme_font_size_override("font_size", 14)
+	cb.toggled.connect(func(on: bool):
+		var valor = [chave[1], on] if chave.size() > 1 else on   # raridade e joia levam o id junto
+		game.cmd("coletor", ["filtro", chave[0], valor]))
+	v.add_child(cb)
 
 func _auto_botao(txt: String, acao: Callable) -> Button:
 	var b := Button.new(); b.text = txt; b.custom_minimum_size = Vector2(0, 28)

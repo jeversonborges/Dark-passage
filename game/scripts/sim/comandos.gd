@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -69,6 +69,10 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _str(a, 0): Biblioteca.pedido_ler(sim, e, a[0])
 		"pet":   # barra do pet do Cultista: atacar, proteger, teleportar, agressivo, passivo
 			if _str(a, 0) and a[0] in ["atacar", "teleportar", "proteger", "agressivo", "passivo"]: Familiar.comando(sim, e, a[0])
+		"coletor":   # pet coletor (0.9.6): comprar espécie no vendedor, dispensar, ou marcar o filtro
+			if _str(a, 0) and a[0] == "comprar" and _str(a, 1): Coletor.comprar(sim, e, a[1])
+			elif _str(a, 0) and a[0] == "dispensar": Coletor.dispensar(sim, e)
+			elif _str(a, 0) and a[0] == "filtro" and a.size() > 2 and _str(a, 1): Coletor.cmd_cfg(sim, e, a[1], a[2])
 		"escolher":
 			if _int(a, 0): Missoes.escolher(sim, e, a[0])
 		"evoluir":   # cards da evolução no nível 30: o id do caminho (evolucoes.json)

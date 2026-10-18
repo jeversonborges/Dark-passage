@@ -82,6 +82,7 @@ func adicionar_jogador(e: Ent, pos: Vector2) -> void:
 	emitir("surgiu", {"id": e.id})
 	Jogador._checar_zona(self, e)
 	Familiar.criar(self, e)   # o familiar do Cultista nasce com ele (racial, 0.8.9)
+	Coletor.garantir(self, e)   # o pet coletor (0.9.6) vem junto com o dono em cada mapa
 	if hermon != null: hermon.entrou(e)
 
 ## Servidor: tira o jogador deste mapa (trocou de mapa ou desconectou). Monstros esquecem dele.
@@ -462,8 +463,14 @@ func _passo_ent(e: Ent, dt: float) -> void:
 	match e.tipo:
 		"jogador": Jogador.passo(self, e, dt)
 		"monstro": IA.passo(self, e, dt)
-		"invocacao": Familiar.passo(self, e, dt) if e.aux.get("familiar", false) else IA.passo_invocacao(self, e, dt)
+		"invocacao": _passo_invocacao(e, dt)
 		"chefe": pass   # o ChefeCtl move e decide
+
+## Invocações: familiar do Cultista, pet coletor (0.9.6) ou invocação comum.
+func _passo_invocacao(e: Ent, dt: float) -> void:
+	if e.aux.get("coletor", false): Coletor.passo(self, e, dt)
+	elif e.aux.get("familiar", false): Familiar.passo(self, e, dt)
+	else: IA.passo_invocacao(self, e, dt)
 
 # ------------------------------------------------------------------- movimento
 func mover_ao_longo(e: Ent, dt: float, vel_mult: float = 1.0) -> bool:

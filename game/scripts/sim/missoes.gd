@@ -250,7 +250,7 @@ static func mostrar(sim: WorldSim, jog: Ent) -> void:
 		for a in o.get("acoes", []):
 			if a.has("aceitar_missao"): tipo = "aceitar"
 			elif a.has("concluir_missao"): tipo = "concluir"
-			elif a.has("abrir_loja") or a.has("abrir_ferreiro") or a.has("abrir_armazem") or a.has("abrir_treinador"): tipo = "servico"
+			elif a.has("abrir_loja") or a.has("abrir_ferreiro") or a.has("abrir_armazem") or a.has("abrir_treinador") or a.has("abrir_coletor"): tipo = "servico"
 		if o.has("se") and (o["se"].has("missao_disponivel") or o["se"].has("missao_pronta")) and tipo == "":
 			tipo = "missao"
 		ops.append({"texto": o["texto"], "tipo": tipo})
@@ -282,6 +282,7 @@ static func escolher(sim: WorldSim, jog: Ent, idx: int) -> void:
 		if a.has("abrir_loja"): servico = {"tipo": "loja", "id": a["abrir_loja"]}
 		if a.has("abrir_ferreiro"): servico = {"tipo": "ferreiro", "id": a["abrir_ferreiro"]}
 		if a.has("abrir_armazem"): servico = {"tipo": "armazem"}
+		if a.has("abrir_coletor"): servico = {"tipo": "coletor"}   # vendedor de pets (0.9.6)
 		if a.has("abrir_treinador"): servico = {"tipo": "treinador", "id": a["abrir_treinador"]}
 	if fecha or not servico.is_empty():
 		jog.aux.erase("dialogo")

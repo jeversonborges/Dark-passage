@@ -828,6 +828,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			audio.tocar({"aceita": "ui/missao_aceita", "concluida": "ui/missao_concluida"}.get(d.get("estado", ""), "ui/missao_atualizada"))
 			_salvar()
 		"servico": janelas.servico(d)
+		"coletor": janelas.coletor_mudou()
 		"inventario", "stats", "buff", "refino":
 			janelas.atualizar()
 			hud.atualizar_cinto()
