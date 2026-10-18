@@ -1,0 +1,407 @@
+{
+ "versao": "0.9.6",
+ "descricao": "Redução de mobs soltos: só spawns, sem props. Aplicar por cima dos mapas do jogo com aplicar.py.",
+ "mapas": {
+  "area_inicial": {
+   "motivo": "Deserto: 1 grupo errante (carniçais). Os demais grupos soltos saem; spots ficam.",
+   "remover": [
+    {
+     "mob": "carnical",
+     "pos": [
+      96.0,
+      116.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "corvo_de_cinza",
+     "pos": [
+      105.0,
+      87.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "corvo_de_cinza",
+     "pos": [
+      119.0,
+      101.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "carnical",
+     "pos": [
+      120.0,
+      112.0
+     ],
+     "qtd": 3
+    },
+    {
+     "mob": "carnical",
+     "pos": [
+      66.0,
+      50.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "corvo_de_cinza",
+     "pos": [
+      56.0,
+      48.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cao_de_vala",
+     "pos": [
+      90.0,
+      46.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cao_de_vala",
+     "pos": [
+      130.0,
+      38.0
+     ],
+     "qtd": 3
+    },
+    {
+     "mob": "carnical",
+     "pos": [
+      108.0,
+      38.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cao_de_vala",
+     "pos": [
+      48.5,
+      124.5
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "corvo_de_cinza",
+     "pos": [
+      32.0,
+      138.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      92.0,
+      138.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      112.0,
+      152.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      84.0,
+      146.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "porco_pestilento",
+     "pos": [
+      152.0,
+      100.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "porco_pestilento",
+     "pos": [
+      170.0,
+      112.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "acougueiro_oco",
+     "pos": [
+      168.0,
+      80.0
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "acougueiro_oco",
+     "pos": [
+      148.0,
+      68.0
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      139.5,
+      148.5
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cao_de_vala",
+     "pos": [
+      160.0,
+      128.0
+     ],
+     "qtd": 3
+    },
+    {
+     "mob": "corvo_de_cinza",
+     "pos": [
+      154.0,
+      134.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      170.0,
+      144.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cao_de_vala_alfa",
+     "pos": [
+      124.5,
+      160.5
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "nao_julgado",
+     "pos": [
+      108.5,
+      144.5
+     ],
+     "qtd": 4
+    }
+   ]
+  },
+  "egito": {
+   "motivo": "Egito: 1 grupo errante (crocodilos do Faium). Chacais de Anúbis saem.",
+   "remover": [
+    {
+     "mob": "ibis_de_thoth",
+     "pos": [
+      127.1,
+      125.3
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "escaravelho_sagrado",
+     "pos": [
+      91.7,
+      102.7
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "mumia_operaria",
+     "pos": [
+      82.1,
+      78.8
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "escorpiao_de_serket",
+     "pos": [
+      33.5,
+      86.5
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "naja",
+     "pos": [
+      165.5,
+      49.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "escaravelho_rei",
+     "pos": [
+      44.8,
+      156.1
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "anubis_sentinela",
+     "pos": [
+      24.2,
+      156.8
+     ],
+     "qtd": 2
+    }
+   ]
+  },
+  "atlantida": {
+   "motivo": "Atlântida: fica o touro do hipódromo e a guarda da ponte (Irmãos da Escuridão); saem os 4 pares errantes.",
+   "remover": [
+    {
+     "mob": "ibis_de_thoth_atl",
+     "pos": [
+      111.8,
+      115.3
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "ibis_de_thoth_atl",
+     "pos": [
+      68.8,
+      74.8
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cinocefalo",
+     "pos": [
+      70.0,
+      114.1
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "elefante_de_atlas",
+     "pos": [
+      54.2,
+      52.8
+     ],
+     "qtd": 2
+    }
+   ]
+  },
+  "jerusalem_hermon": {
+   "motivo": "Jerusalém: 1 grupo errante (peregrino). Chacais, levantados e fornalheiros saem.",
+   "remover": [
+    {
+     "mob": "chacal_de_josafa",
+     "pos": [
+      111.5,
+      40.5
+     ],
+     "qtd": 3
+    },
+    {
+     "mob": "levantado_das_oliveiras",
+     "pos": [
+      88.7,
+      76.8
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "levantado_das_oliveiras",
+     "pos": [
+      116.7,
+      104.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "fornalheiro_de_tofete",
+     "pos": [
+      93.2,
+      46.0
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "fornalheiro_de_tofete",
+     "pos": [
+      62.0,
+      31.0
+     ],
+     "qtd": 1
+    },
+    {
+     "mob": "filho_do_hissopo",
+     "pos": [
+      88.5,
+      66.0
+     ],
+     "qtd": 1
+    }
+   ]
+  },
+  "mata_do_granizo": {
+   "motivo": "Granizo: 1 errante (cervos de lume) + elites presos (ent, serpente). Saem 6 grupos errantes.",
+   "remover": [
+    {
+     "mob": "corvo_de_brasa",
+     "pos": [
+      48.5,
+      77.5
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "javali_brasa",
+     "pos": [
+      74.0,
+      54.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "enxame_de_fagulhas",
+     "pos": [
+      60.5,
+      38.0
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "querubim_da_espada",
+     "pos": [
+      37.7,
+      28.4
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "serpente_do_eden",
+     "pos": [
+      54.5,
+      22.5
+     ],
+     "qtd": 2
+    },
+    {
+     "mob": "cervo_de_lume",
+     "pos": [
+      54.5,
+      37.5
+     ],
+     "qtd": 2
+    }
+   ]
+  }
+ }
+}

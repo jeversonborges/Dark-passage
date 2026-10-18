@@ -51,7 +51,7 @@ func _criar_chefe() -> void:
 	e.postura_max = float(d["postura_max"]); e.postura = e.postura_max
 	e.res = d.get("res", {}).duplicate(); e.tags = d.get("tags", []).duplicate()
 	e.ar = e.nivel * 4.0 + 20.0; e.er = e.nivel * 3.0 + 5.0; e.critico = 0.05; e.crit_mult = 1.5
-	e.arquetipo = "chefe"; e.raio = 0.9; e.escala = 1.0
+	e.arquetipo = "chefe"; e.raio = 0.9; e.escala = float(d.get("escala", 1.0))
 	e.alcance = 1.8
 	e.facing = (centro - e.pos).normalized() if centro != e.pos else Vector2(-1, 0)
 	boss = e
@@ -219,7 +219,7 @@ func _resetar() -> void:
 	for t in sim.telegrafos.duplicate(): sim.remover_telegrafo(t["id"])
 	sim.cancelar_acao(boss)
 	boss.hp = boss.hp_max; boss.postura = boss.postura_max; boss.pos = boss.casa; boss.status.clear(); boss.buffs.clear()
-	boss.aux.erase("enrage"); boss.aux.erase("imune"); boss.aux.erase("agarrando"); boss.escala = 1.0
+	boss.aux.erase("enrage"); boss.aux.erase("imune"); boss.aux.erase("agarrando"); boss.escala = float(d.get("escala", 1.0))
 	if boss.aux.has("visual_fase"):
 		boss.aux.erase("visual_fase")
 		sim.emitir("visual", {"id": boss.id, "kind": boss.kind})
@@ -544,7 +544,7 @@ func _general(dt: float, j: Ent) -> void:
 				var st := int(boss.aux.get("fome", 0)) + 1
 				if st <= 6:
 					boss.aux["fome"] = st
-					boss.escala = 1.0 + 0.06 * st
+					boss.escala = float(d.get("escala", 1.0)) * (1.0 + 0.06 * st)
 					boss.dano_min = float(d["dano_base"]) * 0.9 * (1.0 + 0.1 * st); boss.dano_max = float(d["dano_base"]) * 1.1 * (1.0 + 0.1 * st)
 					sim.emitir("chefe_buff", {"id": boss.id, "fome": st})
 				if alvo != null: pilhas.erase(alvo.id); sim.remover(alvo.id)
