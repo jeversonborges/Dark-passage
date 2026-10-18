@@ -96,15 +96,17 @@ static func aceitar(sim: WorldSim, jog: Ent, mid: String) -> void:
 	# objetivos já cumpridos (explorar a zona em que já está, itens já na mochila)
 	evento(sim, jog, "explorar", jog.zona)
 	_checar_auto(sim, jog, mid)
+	if mid == "ev02" and jog.evolucao != "" and estado(jog, mid) == "ativa": concluir(sim, jog, mid, jog.evolucao)   # já escolheu pelos cards
 
 static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "") -> void:
 	var d := def(mid)
 	if estado(jog, mid) != "ativa": return
 	var aplica = d.get("recompensas", {}).get("aplica_evolucao")
-	if aplica != null:   # Os Dois Caminhos: só conclui com um caminho válido da classe
-		var evo: String = escolha if str(aplica) == "escolhida" else str(aplica)
-		if not evo in d.get("escolhas_por_classe", {}).get(jog.classe, [evo]) or Evolucao.recusa(jog, evo) != "":
-			sim.emitir_a(jog, "aviso", {"texto": Evolucao.recusa(jog, evo) if Evolucao.recusa(jog, evo) != "" else "Esse caminho não é seu."})
+	var evo := ""
+	if aplica != null:   # Os Dois Caminhos: só conclui com um caminho da classe; a evolução já pode ter vindo pelos cards
+		evo = escolha if str(aplica) == "escolhida" else str(aplica)
+		if not evo in d.get("escolhas_por_classe", {}).get(jog.classe, [evo]):
+			sim.emitir_a(jog, "aviso", {"texto": "Esse caminho não é seu."})
 			return
 	for o in d["objetivos"]:
 		if o["tipo"] == "coletar": Itens.remover(jog.inv, o["item"], int(o.get("qtd", 1)))
@@ -124,7 +126,7 @@ static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "")
 	var epc: Dictionary = rec.get("escolha_por_classe", {})
 	if epc.has(jog.classe): Jogador.dar_item(sim, jog, Itens.novo(epc[jog.classe]))
 	if rec.has("xp"): Jogador.ganhar_xp(sim, jog, int(rec["xp"]), "missão")
-	if aplica != null: Evolucao.aplicar(sim, jog, escolha if str(aplica) == "escolhida" else str(aplica))
+	if aplica != null and Evolucao.recusa(jog, evo) == "": Evolucao.aplicar(sim, jog, evo)
 	for f in d.get("flags", []): jog.flags[f] = true
 	var prox = d.get("ao_concluir_inicia")
 	if prox != null and prox != "" and disponivel(jog, prox): aceitar(sim, jog, prox)

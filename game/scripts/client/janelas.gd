@@ -860,6 +860,8 @@ func abrir_personagem() -> void:
 	for el in j.res:
 		if absf(float(j.res[el])) > 0.001: res.append("%s %+d%%" % [el.capitalize(), roundi(float(j.res[el]) * 100.0)])
 	if not res.is_empty(): c.add_child(Tema.rotulo("Resistências: " + ", ".join(res), 13, Color("#9cc8ff")))
+	if j.evolucao == "" and j.nivel >= Evolucao.nivel_exigido():
+		c.add_child(_botao_menu("Escolher caminho de classe", escolha_evolucao))
 
 # =================================================================== habilidades
 func abrir_habilidades() -> void:
@@ -1104,6 +1106,84 @@ func _escolher(i: int) -> void:
 		dialogo_t = 1.0; return
 	game.audio.tocar("ui/clique", null, -6.0)
 	game.cmd("escolher", [i])
+
+# =================================================================== caminho de classe (nível 30)
+var _evo_botoes: Array = []     # botões dos cards (o segundo clique confirma; a escolha é definitiva)
+var _evo_pendente := ""
+
+## Cards dos dois caminhos da classe: abrem ao chegar ao nível 30 (e ao entrar nele) e pelo Personagem.
+func escolha_evolucao() -> void:
+	var j := _jog()
+	if j == null or j.evolucao != "" or j.nivel < Evolucao.nivel_exigido(): return
+	var ids := Evolucao.opcoes(j.classe)
+	if ids.is_empty(): return
+	var c := _janela("evolucao", "CAMINHO DE CLASSE", Vector2(640, 470), "centro")
+	_limpar(c)
+	_evo_botoes = []; _evo_pendente = ""
+	var sub := Tema.rotulo("Escolha o que você vai ser. Um caminho a gente não desescolhe.", 14, Color("#a89f8c"), Tema.FONTE_ITALICO)
+	sub.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	c.add_child(sub)
+	var fileira := HBoxContainer.new()
+	fileira.add_theme_constant_override("separation", 14)
+	fileira.alignment = BoxContainer.ALIGNMENT_CENTER
+	fileira.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	for id in ids: fileira.add_child(_cartao_evolucao(id))
+	c.add_child(fileira)
+
+func _cartao_evolucao(id: String) -> Control:
+	var d := Evolucao.defn(id)
+	var p := PanelContainer.new()
+	p.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	p.add_theme_stylebox_override("panel", Tema.caixa_menu(8))
+	var v := VBoxContainer.new()
+	v.add_theme_constant_override("separation", 6)
+	p.add_child(v)
+	var retrato := Desenho.new()
+	retrato.custom_minimum_size = Vector2(0, 156)
+	retrato.desenhar = func(g: Control): _desenhar_retrato_evolucao(g, str(d.get("sprite", id)))
+	v.add_child(retrato)
+	var nome := Tema.rotulo(str(d.get("nome", id)), 20, Color("#f0dca0"), Tema.FONTE_TITULO, 3)
+	nome.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	v.add_child(nome)
+	var papel := Tema.rotulo(str(d.get("papel", "")), 14, Color("#a89f8c"), Tema.FONTE_ITALICO)
+	papel.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	papel.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.add_child(papel)
+	var pas: Dictionary = d.get("passiva", {})
+	var pn := Tema.rotulo("Passiva: " + str(pas.get("nome", "")), 15, Color("#ffd27a"), Tema.FONTE_TITULO)
+	pn.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.add_child(pn)
+	var pe := Tema.rotulo(str(pas.get("efeito", "")), 14, Color("#e8dfc9"), Tema.FONTE_TEXTO)
+	pe.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	v.add_child(pe)
+	var b := Button.new()
+	b.text = "Escolher este caminho"
+	b.add_theme_font_override("font", Tema.FONTE_TEXTO)
+	b.add_theme_font_size_override("font_size", 16)
+	b.pressed.connect(func(): _confirmar_evolucao(id))
+	v.add_child(b)
+	_evo_botoes.append({"id": id, "botao": b})
+	return p
+
+func _desenhar_retrato_evolucao(g: Control, spr: String) -> void:
+	g.draw_rect(Rect2(Vector2.ZERO, g.size), Color(0.03, 0.025, 0.02))
+	var meta: Dictionary = Defs.SPR.get(spr, {})
+	if meta.is_empty(): return
+	var tex := Tema.tex(meta["anims"]["idle"]["file"])
+	if tex == null: return
+	var anc: Array = meta["anchor"]
+	var src := Rect2(anc[0] - 55, anc[1] - 140, 110, 150)   # primeiro quadro do idle, pés no chão do cartão
+	g.draw_texture_rect_region(tex, Rect2((g.size.x - 110.0) * 0.5, 3.0, 110.0, 150.0), src)
+	g.draw_rect(Rect2(Vector2.ZERO, g.size), Color(0.42, 0.34, 0.2), false, 2.0)
+
+func _confirmar_evolucao(id: String) -> void:
+	if _evo_pendente != id:
+		_evo_pendente = id
+		for it in _evo_botoes: it["botao"].text = "Confirmar: é definitivo" if it["id"] == id else "Escolher este caminho"
+		return
+	_evo_pendente = ""
+	game.audio.tocar("ui/clique", null, -6.0)
+	game.cmd("evoluir", [id])
 
 # =================================================================== serviços
 func servico(d: Dictionary) -> void:

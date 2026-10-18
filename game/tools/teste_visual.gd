@@ -52,6 +52,8 @@ func _ready() -> void:
 				roteiro.append([3.0, "foto", "%s%d_%s" % [args.get("prefixo", "c"), i, q[0]]])
 				i += 1
 			roteiro.append([0.3, "fim", ""])
+		"evolucao":   # cards do caminho de classe: sobe ao nível 30 e abre a escolha
+			roteiro = [[2.5, "nivel_30", ""], [0.3, "cards", ""], [1.5, "foto", "evo_1_cards"], [0.3, "fim", ""]]
 		"bichos":
 			for k in str(args.get("kinds", "cao_de_vala,porco_pestilento,corvo_de_cinza,filho_de_cardo")).split(","):
 				roteiro.append([0.3, "perto_de", k])
@@ -122,6 +124,10 @@ func _process(dt: float) -> void:
 			img.save_png(pasta + "/" + p[2] + ".png")
 			print("foto ", p[2])
 		"janela": jogo.janelas.alternar(p[2])
+		"nivel_30":
+			var jg = jogo.jog
+			while jg.nivel < Evolucao.nivel_exigido(): Jogador.ganhar_xp(jogo.sim, jg, Defs.xp_para_proximo(jg.nivel) - jg.xp)
+		"cards": jogo.janelas.escolha_evolucao()
 		"auto_marcar":
 			for s in p[2]: jogo.cmd("auto_skill", [s])
 		"auto_ligar": jogo.cmd("auto", [true])

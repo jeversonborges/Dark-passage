@@ -42,6 +42,18 @@ static func recusa(e: Ent, id: String) -> String:
 	if e.nivel < nivel_exigido(): return "Volte no nível %d." % nivel_exigido()
 	return ""
 
+## Caminhos que o jogador pode escolher agora: só no nível da evolução, sem missão, e só os 2 da classe.
+static func disponiveis(e: Ent) -> Array:
+	if e.evolucao != "" or e.nivel < nivel_exigido(): return []
+	return opcoes(e.classe)
+
+## Escolha pedida pelo jogador nos cards (comando "evoluir"). O servidor confere tudo de novo.
+static func escolher(sim: WorldSim, e: Ent, id: String) -> bool:
+	if not id in disponiveis(e):
+		var r := recusa(e, id)
+		sim.emitir_a(e, "aviso", {"texto": r if r != "" else "Esse caminho não é seu."}); return false
+	return aplicar(sim, e, id)
+
 static func aplicar(sim: WorldSim, e: Ent, id: String) -> bool:
 	var r := recusa(e, id)
 	if r != "":
@@ -55,6 +67,7 @@ static func aplicar(sim: WorldSim, e: Ent, id: String) -> bool:
 	sim.emitir("evolucao", {"id": e.id, "evolucao": id, "nome": defn(id)["nome"], "sprite": defn(id).get("sprite", id)})
 	sim.emitir_a(e, "aviso", {"texto": "Você agora é %s." % defn(id)["nome"]})
 	sim.emitir_a(e, "stats", {"id": e.id})
+	if Missoes.estado(e, "ev02") == "ativa": Missoes.concluir(sim, e, "ev02", id)   # Os Dois Caminhos se resolve sozinha
 	return true
 
 # =================================================================== bônus do caminho
