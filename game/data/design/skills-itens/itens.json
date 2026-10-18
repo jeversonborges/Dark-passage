@@ -16136,6 +16136,168 @@
       "icone_provisorio": true,
       "variante_de": "cetro_do_raio_partido",
       "multiplicador_atributos": 1.35
+    },
+    {
+      "id": "escudo_da_cruz_remida",
+      "nome": "Escudo da Cruz Remida",
+      "slot": "segunda_mao",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 24,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de latão com a cruz raspada até o metal. Ainda tem as asas de penas brancas, mas nenhuma cruz foi refeita.",
+      "efeito": "Excelente: ao receber dano abaixo de 10% da vida, ganha 5% de vida máxima ao longo de 4 s (recarga 30 s).",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 16,
+      "atributos": {
+        "vit": 3
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_da_cruz_remida.png",
+        "40": "assets/icones/itens/40/escudo_da_cruz_remida.png",
+        "32": "assets/icones/itens/32/escudo_da_cruz_remida.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_da_cruz_remida.png"
+    },
+    {
+      "id": "escudo_de_raizes_vivas",
+      "nome": "Escudo de Raízes Vivas",
+      "slot": "segunda_mao",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de tronco torcido com raízes que ainda brotam. Quem o carrega diz que sente a terra mexer debaixo dos pés.",
+      "efeito": "Excelente: enquanto você está parado, ganha 1% de vida máxima por segundo.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 25,
+      "atributos": {
+        "vit": 4
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_de_raizes_vivas.png",
+        "40": "assets/icones/itens/40/escudo_de_raizes_vivas.png",
+        "32": "assets/icones/itens/32/escudo_de_raizes_vivas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_raizes_vivas.png"
+    },
+    {
+      "id": "serra_da_vala",
+      "nome": "Serra da Vala",
+      "slot": "arma",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 20,
+      "tags": [
+        "excelente:vala_dos_caes"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina de serra de trilho presa a um cabo de ferro. Os dentes estão tortos de tanto bater em osso.",
+      "efeito": "Excelente: golpes básicos causam sangramento que tira 1% da vida do alvo por segundo, por 4 s.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        16,
+        28
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "for": 3
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/serra_da_vala.png",
+        "40": "assets/icones/itens/40/serra_da_vala.png",
+        "32": "assets/icones/itens/32/serra_da_vala.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/serra_da_vala.png"
+    },
+    {
+      "id": "frasco_de_bilis_dourado",
+      "nome": "Frasco de Bílis Dourado",
+      "efeito": {
+        "cura_hp_pct": 15,
+        "duracao_s": 8
+      },
+      "preco": 14,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Líquido amarelo com veias vermelhas dentro, como se a bolsa ainda estivesse viva. Cheira a cobre e a mel.",
+      "tags": [
+        "consumivel:bilis_dourado"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "icone": {
+        "64": "assets/icones/itens/64/frasco_de_bilis_dourado.png",
+        "40": "assets/icones/itens/40/frasco_de_bilis_dourado.png",
+        "32": "assets/icones/itens/32/frasco_de_bilis_dourado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/frasco_de_bilis_dourado.png"
+    },
+    {
+      "id": "azeite_de_lavanda_bento",
+      "nome": "Azeite de Lavanda Bento",
+      "efeito": {
+        "recurso_pct": 0.2
+      },
+      "preco": 10,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "azul",
+      "lore": "Azeite de lavanda colhida à beira do Rio Amargo, com uma medalha de latão presa ao gargalo. O padre benzeu antes de fechar a rolha.",
+      "tags": [
+        "consumivel:azeite_bento"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 12,
+      "icone": {
+        "64": "assets/icones/itens/64/azeite_de_lavanda_bento.png",
+        "40": "assets/icones/itens/40/azeite_de_lavanda_bento.png",
+        "32": "assets/icones/itens/32/azeite_de_lavanda_bento.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/azeite_de_lavanda_bento.png"
     }
   ]
 }

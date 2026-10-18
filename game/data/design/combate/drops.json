@@ -464,6 +464,10 @@
         {
           "tag": "equip:faixa1",
           "peso": 10
+        },
+        {
+          "tag": "excelente:vala_dos_caes",
+          "peso": 2
         }
       ]
     },
@@ -751,6 +755,14 @@
         {
           "tag": "equip:faixa1",
           "peso": 88
+        },
+        {
+          "tag": "consumivel:bilis_dourado",
+          "peso": 4
+        },
+        {
+          "tag": "consumivel:azeite_bento",
+          "peso": 4
         }
       ]
     },
