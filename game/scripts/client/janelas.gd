@@ -1354,7 +1354,7 @@ func _detalhe_refino(c: Control, it: Dictionary, onde: String) -> void:
 		var antes := Itens.dano_arma(it)
 		var prox := it.duplicate(); prox["refino"] = r + 1
 		var depois := Itens.dano_arma(prox)
-		v.add_child(_linha_refino("Dano", "%s~%s  →  %s~%s" % [_num(antes[0]), _num(antes[1]), _num(depois[0]), _num(depois[1])]))
+		v.add_child(_linha_refino("Dano", "%d~%d  →  %d~%d" % [roundi(antes[0]), roundi(antes[1]), roundi(depois[0]), roundi(depois[1])]))
 		v.add_child(_linha_refino("Por nível", "+%d%% de dano" % roundi(100.0 * (Itens.fator_dano(1) - 1.0)), Tema.COR_TEXTO_FRACO))
 	elif d.has("defesa"):
 		var base := float(d["defesa"])
