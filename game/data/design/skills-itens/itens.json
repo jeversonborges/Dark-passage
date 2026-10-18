@@ -10684,11 +10684,11 @@
       ],
       "categoria": "bau",
       "icone": {
-        "64": "assets/icones/itens/64/bau_de_ferro.png",
-        "40": "assets/icones/itens/40/bau_de_ferro.png",
-        "32": "assets/icones/itens/32/bau_de_ferro.png"
+        "64": "assets/icones/itens/64/bau_dourado.png",
+        "40": "assets/icones/itens/40/bau_dourado.png",
+        "32": "assets/icones/itens/32/bau_dourado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bau_de_ferro.png",
+      "icone_mochila": "assets/icones/itens/mochila/bau_dourado.png",
       "grade": [
         1,
         1
