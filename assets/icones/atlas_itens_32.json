@@ -1666,5 +1666,605 @@
 544,
 32,
 32
+],
+"glandula_de_naja": [
+192,
+544,
+32,
+32
+],
+"emblema_da_cerca": [
+224,
+544,
+32,
+32
+],
+"estilhaco_da_estrela": [
+256,
+544,
+32,
+32
+],
+"livro_branco": [
+288,
+544,
+32,
+32
+],
+"leitura_confissao": [
+320,
+544,
+32,
+32
+],
+"vaso_canopico_lacrado": [
+352,
+544,
+32,
+32
+],
+"leitura_mapa_bartimeu": [
+384,
+544,
+32,
+32
+],
+"selo_de_oricalco": [
+416,
+544,
+32,
+32
+],
+"livro_de_thoth": [
+448,
+544,
+32,
+32
+],
+"couraca_sem_divisa": [
+480,
+544,
+32,
+32
+],
+"peitoral_do_sino_mudo": [
+0,
+576,
+32,
+32
+],
+"tunica_do_amargo_bebido": [
+32,
+576,
+32,
+32
+],
+"couraca_do_sino_derretido": [
+64,
+576,
+32,
+32
+],
+"colete_da_agua_verde": [
+96,
+576,
+32,
+32
+],
+"gibao_de_couro_de_bode": [
+128,
+576,
+32,
+32
+],
+"couraca_da_cerca": [
+160,
+576,
+32,
+32
+],
+"peitoral_de_amenti": [
+192,
+576,
+32,
+32
+],
+"couraca_da_fronteira": [
+224,
+576,
+32,
+32
+],
+"manto_de_folhas_soltas": [
+256,
+576,
+32,
+32
+],
+"elmo_de_quem_saiu": [
+288,
+576,
+32,
+32
+],
+"capuz_do_rio": [
+320,
+576,
+32,
+32
+],
+"elmo_da_cerca": [
+352,
+576,
+32,
+32
+],
+"veu_da_comunhao": [
+384,
+576,
+32,
+32
+],
+"tampa_de_hapi": [
+416,
+576,
+32,
+32
+],
+"relicario_da_trombeta_calada": [
+448,
+576,
+32,
+32
+],
+"amuleto_de_linho_sagrado": [
+480,
+576,
+32,
+32
+],
+"amuleto_da_cadeira_vazia": [
+0,
+608,
+32,
+32
+],
+"pagina_solta": [
+32,
+608,
+32,
+32
+],
+"anel_de_sinete_do_absinto": [
+64,
+608,
+32,
+32
+],
+"amuleto_do_granizo_cego": [
+96,
+608,
+32,
+32
+],
+"garras_da_legiao": [
+128,
+608,
+32,
+32
+],
+"escudo_do_coro_dourado": [
+160,
+608,
+32,
+32
+],
+"manto_da_trombeta": [
+192,
+608,
+32,
+32
+],
+"agua_de_degelo": [
+224,
+608,
+32,
+32
+],
+"casca_de_lava": [
+256,
+608,
+32,
+32
+],
+"brinco_de_petsuchos": [
+288,
+608,
+32,
+32
+],
+"leitura_decreto_sexta_hora": [
+320,
+608,
+32,
+32
+],
+"convite_dos_vigilantes": [
+352,
+608,
+32,
+32
+],
+"chave_de_carneiro": [
+384,
+608,
+32,
+32
+],
+"saiote_de_sobek": [
+416,
+608,
+32,
+32
+],
+"cinza_de_ossario": [
+448,
+608,
+32,
+32
+],
+"orbe_coracao": [
+480,
+608,
+32,
+32
+],
+"coroa_do_bocal": [
+0,
+640,
+32,
+32
+],
+"gancho_partido": [
+32,
+640,
+32,
+32
+],
+"lenco_do_absinto": [
+64,
+640,
+32,
+32
+],
+"ampulheta_do_juizo_travado": [
+96,
+640,
+32,
+32
+],
+"manoplas_da_cerca": [
+128,
+640,
+32,
+32
+],
+"gibao_de_arquibancada": [
+160,
+640,
+32,
+32
+],
+"amuleto_do_caminhante": [
+192,
+640,
+32,
+32
+],
+"lanterna_do_cranio_verde": [
+224,
+640,
+32,
+32
+],
+"cinto_de_caveira": [
+256,
+640,
+32,
+32
+],
+"livro_do_olho_roxo": [
+288,
+640,
+32,
+32
+],
+"botas_de_crampons_cegos": [
+320,
+640,
+32,
+32
+],
+"coracao_de_vidro": [
+352,
+640,
+32,
+32
+],
+"leitura_estela_herodoto": [
+384,
+640,
+32,
+32
+],
+"sino_de_mao": [
+416,
+640,
+32,
+32
+],
+"ampulheta_da_trombeta": [
+448,
+640,
+32,
+32
+],
+"medalhao_do_sol_de_latao": [
+480,
+640,
+32,
+32
+],
+"veu_de_luto": [
+0,
+672,
+32,
+32
+],
+"anel_de_granizo_seco": [
+32,
+672,
+32,
+32
+],
+"luvas_de_sangue_seco": [
+64,
+672,
+32,
+32
+],
+"leitura_juramento_noivas": [
+96,
+672,
+32,
+32
+],
+"asa_anjo_1": [
+128,
+672,
+32,
+32
+],
+"anel_de_sinete_de_amenti": [
+160,
+672,
+32,
+32
+],
+"botas_da_legiao": [
+192,
+672,
+32,
+32
+],
+"tabuinha_de_argila": [
+224,
+672,
+32,
+32
+],
+"pena_de_maat": [
+256,
+672,
+32,
+32
+],
+"pena_de_ibis_atl": [
+288,
+672,
+32,
+32
+],
+"pena_do_escriba": [
+320,
+672,
+32,
+32
+],
+"pilar_djed_de_bronze": [
+352,
+672,
+32,
+32
+],
+"pa_do_escriba": [
+384,
+672,
+32,
+32
+],
+"leitura_juramento_duzentos": [
+416,
+672,
+32,
+32
+],
+"paginas_arrancadas": [
+448,
+672,
+32,
+32
+],
+"raiz_de_hissopo": [
+480,
+672,
+32,
+32
+],
+"agua_do_nilo": [
+0,
+704,
+32,
+32
+],
+"infusao_de_hissopo": [
+32,
+704,
+32,
+32
+],
+"leitura_rolo_magos": [
+64,
+704,
+32,
+32
+],
+"cacho_de_cristal_roxo": [
+96,
+704,
+32,
+32
+],
+"veu_de_zilpa": [
+128,
+704,
+32,
+32
+],
+"olho_do_juizo": [
+160,
+704,
+32,
+32
+],
+"taca_de_cerveja_ocre": [
+192,
+704,
+32,
+32
+],
+"leitura_contas_de_tofete": [
+224,
+704,
+32,
+32
+],
+"estandarte_da_hoste": [
+256,
+704,
+32,
+32
+],
+"asa_zacarias": [
+288,
+704,
+32,
+32
+],
+"casca_de_escaravelho": [
+320,
+704,
+32,
+32
+],
+"couro_do_nilo": [
+352,
+704,
+32,
+32
+],
+"fragmento_do_duat": [
+384,
+704,
+32,
+32
+],
+"linho_de_mumia": [
+416,
+704,
+32,
+32
+],
+"ouro_de_sobek": [
+448,
+704,
+32,
+32
+],
+"po_de_calcario": [
+480,
+704,
+32,
+32
+],
+"astrolabio_do_deserto": [
+0,
+736,
+32,
+32
+],
+"martelo_de_bobina": [
+32,
+736,
+32,
+32
+],
+"corrente_da_arena": [
+64,
+736,
+32,
+32
+],
+"rosario_do_coro": [
+96,
+736,
+32,
+32
+],
+"engrenagem_gasta": [
+128,
+736,
+32,
+32
+],
+"presas_do_massacre": [
+160,
+736,
+32,
+32
+],
+"divisa_da_geena": [
+192,
+736,
+32,
+32
+],
+"orgao_de_vapor": [
+224,
+736,
+32,
+32
+],
+"leitura_livro_de_henoc": [
+256,
+736,
+32,
+32
+],
+"fragmento_de_esmeralda": [
+288,
+736,
+32,
+32
 ]
 }
