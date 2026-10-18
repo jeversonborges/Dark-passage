@@ -1594,5 +1594,77 @@
 1024,
 64,
 64
+],
+"leitura_carta_do_sineiro": [
+640,
+1024,
+64,
+64
+],
+"amuleto_de_cascalho_verde": [
+704,
+1024,
+64,
+64
+],
+"fragmento_de_vitral_vivo": [
+768,
+1024,
+64,
+64
+],
+"tabua_do_juramento": [
+832,
+1024,
+64,
+64
+],
+"medalha_de_joas": [
+896,
+1024,
+64,
+64
+],
+"livro_dos_vencidos": [
+960,
+1024,
+64,
+64
+],
+"livro_de_contas_de_tofete": [
+0,
+1088,
+64,
+64
+],
+"escudo_da_cruz_remida": [
+64,
+1088,
+64,
+64
+],
+"escudo_de_raizes_vivas": [
+128,
+1088,
+64,
+64
+],
+"frasco_de_bilis_dourado": [
+192,
+1088,
+64,
+64
+],
+"azeite_de_lavanda_bento": [
+256,
+1088,
+64,
+64
+],
+"serra_da_vala": [
+320,
+1088,
+64,
+64
 ]
 }
