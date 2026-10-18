@@ -4,7 +4,7 @@ class_name Familiar
 ## Não ganha XP nem solta loot. Sem tecla e sem slot: nasce com o Cultista.
 ## 0.9.3 (Jefin, 2026-10-17): é DPS, todas as formas batem em área (ataque.area_raio), tem 3x a vida e a defesa de
 ## antes, se cura em 10% do dano que o dono causa e obedece à barra do pet (Atacar, Proteger, Teleportar, Modo
-## agressivo, Modo passivo). Forma 5: Capitão da Legião Blasfema no nível 30 (modelo do Líder). Última forma: Líder dos Demônios no nível 60. Se morrer, volta sozinho em 30 s.
+## agressivo, Modo passivo). Forma 5: Lâmina Blasfema no nível 30 (modelo do Líder). Última forma: Líder dos Demônios no nível 60. Se morrer, volta sozinho em 30 s.
 
 const DONO_VAR := ["max_hp_dono", "defesa_dono", "dano_magico_dono"]
 const SEGUE_MAX := 12.0       ## acima disso teleporta para perto do dono
@@ -71,6 +71,18 @@ static func _aplicar_forma(fam: Ent, dono: Ent, f: Dictionary, cheio: bool) -> v
 	fam.aux["area_raio"] = float((f.get("ataque", {}) as Dictionary).get("area_raio", 0.0))
 	fam.alvejavel = true
 
+## Vida e ataque do familiar acompanham os pontos do dono: se o máximo de vida ou o dano do dono mudou, refaz os
+## números da forma e mantém a proporção de vida que ele tinha.
+static func _sincronizar(fam: Ent, dono: Ent) -> void:
+	var f := forma_para(dono.nivel)
+	if f.is_empty() or f["id"] != fam.kind: return
+	var hp_novo := maxf(1.0, _valor(f["hp"], dono))
+	var dano_novo := maxf(1.0, _valor(f["dano"], dono))
+	if absf(hp_novo - fam.hp_max) < 0.5 and absf(dano_novo - fam.dano_max) < 0.5: return
+	var proporcao := fam.hp / fam.hp_max if fam.hp_max > 0.0 else 1.0
+	_aplicar_forma(fam, dono, f, false)
+	fam.hp = fam.hp_max * proporcao
+
 ## O familiar vivo do dono (ou null).
 static func de(sim: WorldSim, dono: Ent) -> Ent:
 	var fam := _meu(sim, dono)
@@ -114,6 +126,7 @@ static func passo(sim: WorldSim, fam: Ent, dt: float) -> void:
 	if dono == null or not dono.vivo: return
 	if float(fam.aux.get("cd_tp", 0.0)) > 0.0: fam.aux["cd_tp"] = float(fam.aux["cd_tp"]) - dt
 	if not fam.pronto(): return
+	_sincronizar(fam, dono)
 	var f := forma_para(dono.nivel)
 	if not f.is_empty() and f["id"] != fam.kind:
 		_evoluir(fam, dono, f); return

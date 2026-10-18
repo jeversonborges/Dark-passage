@@ -64,4 +64,14 @@ func _init() -> void:
 	b.adicionar_jogador(jc, Vector2(66, 104))
 	var novo: Ent = b.ents.get(int(jc.aux.get("familiar_id", -1)))
 	print("troca_de_mapa: familiar=%s forma=%s monstro_intacto=%s" % [novo != null and novo.aux.get("familiar", false), novo.kind if novo else "-", intruso.tipo == "monstro" and intruso.dono != jc.id])
+	# 6) pontos do dono: vida e ataque do pet sobem junto com o dono (sem sair e voltar de mapa)
+	var c := WorldSim.new(5)
+	var jd := Jogador.criar(c, "cultista", "Teste3")
+	jd.nivel = 30
+	Jogador.entrar(c, jd, "area_inicial", Vector2(66, 104))
+	var pet: Ent = c.ents.get(int(jd.aux.get("familiar_id", -1)))
+	var hp_antes := pet.hp_max; var dano_antes := pet.dano_max
+	jd.hp_max = jd.hp_max * 2.0; jd.dano_max = jd.dano_max * 2.0
+	c.passo(WorldSim.TICK)
+	print("pontos_do_dono: forma=%s hp_max %.0f -> %.0f, dano %.1f -> %.1f" % [pet.kind, hp_antes, pet.hp_max, dano_antes, pet.dano_max])
 	quit()

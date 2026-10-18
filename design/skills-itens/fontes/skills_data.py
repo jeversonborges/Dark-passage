@@ -93,7 +93,7 @@ sk(id="cultista_familiar_pacto", classe="cultista", nome="Pacto do Familiar", ti
                 "ataque": "Punho de Fornalha: soco que acerta todos em 2,5 tiles do alvo e quebra postura",
                 "especial": "Canhão de Brasa: tiro em área de 2 tiles; Rugido da Legião: onda de fogo em 3 tiles quando 2 ou mais inimigos batem no mestre",
                 "fx": "tiro de brasa com fumaça preta + anel de fogo no chão; vapor saindo do pistão", "som": "rugido grave + escape de vapor + explosão abafada"},
-               {"id": "familiar_capitao", "nome": "Capitão da Legião Blasfema", "nivel": 30,
+               {"id": "familiar_capitao", "nome": "Lâmina Blasfema", "nivel": 30,
                 "descricao": "O Líder dos Demônios ainda não é o Líder: é o capitão que comanda a tropa da Legião Blasfema em nome dele. Mesmo modelo, em escala menor, com a armadura mais rachada e uma lâmina de ferro negro.",
                 "ataque": "Lâmina da Legião: corte que acerta todos em 2,5 tiles do alvo",
                 "especial": "Brado da Legião: onda em 3 tiles em volta do alvo",
