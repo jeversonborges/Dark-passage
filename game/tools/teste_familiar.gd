@@ -4,7 +4,7 @@ extends SceneTree
 
 func _init() -> void:
 	Defs.carregar()
-	for nivel in [1, 6, 16, 60]:
+	for nivel in [1, 6, 16, 30, 60]:
 		var sim := WorldSim.new(7)
 		var j := Jogador.criar(sim, "cultista", "Teste")
 		j.nivel = nivel

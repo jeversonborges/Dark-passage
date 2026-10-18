@@ -423,6 +423,38 @@
               ]
             },
             {
+              "id": "familiar_capitao",
+              "nome": "Capitão da Legião Blasfema",
+              "nivel_dono": 30,
+              "altura_m": 3.0,
+              "hp": "max_hp_dono * 3.90",
+              "defesa": "defesa_dono * 4.0",
+              "dano": "dano_magico_dono * 0.85",
+              "intervalo": 1.5,
+              "alcance": 2.0,
+              "elemento": "fogo",
+              "ataque": {
+                "id": "lamina_da_legiao",
+                "nome": "Lâmina da Legião",
+                "area_raio": 2.5
+              },
+              "especial": {
+                "id": "brado_da_legiao",
+                "nome": "Brado da Legião",
+                "recarga": 12.0,
+                "alcance": 6,
+                "area_raio": 3.0,
+                "mult": 1.4
+              },
+              "ameaca_mult": 1.0,
+              "tags": [
+                "invocacao",
+                "familiar",
+                "demonio"
+              ],
+              "_doc": "Jefin 2026-10-18: 5a forma, entra no nivel 30 com o modelo do Lider dos Demonios (sprite familiar_lider em escala menor, via sprites_substitutos.json). Nome provisorio."
+            },
+            {
               "id": "familiar_lider",
               "nome": "Lider dos Demonios",
               "nivel_dono": 60,
