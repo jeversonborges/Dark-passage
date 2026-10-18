@@ -2704,7 +2704,7 @@
      "recarga": 9
     }
    ],
-   "drop": null,
+   "drop": "egito_elite",
    "renascimento_s": 0,
    "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
    "ajuste": {
@@ -2766,7 +2766,7 @@
      }
     }
    ],
-   "drop": null,
+   "drop": "egito_elite",
    "renascimento_s": 0,
    "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
    "ajuste": {
@@ -2828,7 +2828,7 @@
      }
     }
    ],
-   "drop": null,
+   "drop": "egito_elite",
    "renascimento_s": 0,
    "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
    "ajuste": {
@@ -2885,7 +2885,7 @@
      "recarga": 10
     }
    ],
-   "drop": null,
+   "drop": "egito_elite",
    "renascimento_s": 0,
    "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
    "ajuste": {
@@ -2957,7 +2957,7 @@
      "recarga": 10
     }
    ],
-   "drop": null,
+   "drop": "egito_elite",
    "renascimento_s": 0,
    "motivo": "adicional de chefe (controlado pelo chefe_egito.gd)",
    "ajuste": {
@@ -3725,7 +3725,7 @@
    "tags": [
     "animal"
    ],
-   "drop": "elite_atl",
+   "drop": "atlantida_elite",
    "res": {
     "fisico": 0.2
    },
@@ -3759,7 +3759,8 @@
     "raio_aggro": 3.0,
     "raio_coleira": 8
    },
-   "motivo": "guarda o Portão do lado da luz; não se mexe para quem não o toca"
+   "motivo": "guarda o Portão do lado da luz; não se mexe para quem não o toca",
+   "drop": "egito_elite"
   },
   "guardiao_do_crepusculo": {
    "nome": "O Guardião do Crepúsculo",
@@ -3788,7 +3789,8 @@
     "raio_aggro": 3.0,
     "raio_coleira": 8
    },
-   "motivo": "pesa o coração de quem chega ao Portão; não se mexe para quem não o toca"
+   "motivo": "pesa o coração de quem chega ao Portão; não se mexe para quem não o toca",
+   "drop": "egito_elite"
   },
   "arconte_de_luz": {
    "nome": "Arconte de Luz",
@@ -3815,7 +3817,8 @@
     "raio_aggro": 2.0,
     "raio_coleira": 10
    },
-   "motivo": "passa pelo Salão do Universo como passa pelo céu, sem ver ninguém"
+   "motivo": "passa pelo Salão do Universo como passa pelo céu, sem ver ninguém",
+   "drop": "egito_elite"
   },
   "o_que_nao_tem_rosto": {
    "nome": "O Que Não Tem Rosto",
@@ -3844,7 +3847,8 @@
     "raio_aggro": 1.5,
     "raio_coleira": 1
    },
-   "motivo": "está no meio do Vazio desde antes do Vazio"
+   "motivo": "está no meio do Vazio desde antes do Vazio",
+   "drop": "egito_elite"
   },
   "cao_da_barreira": {
    "nome": "Cão da Barreira",
@@ -6900,7 +6904,7 @@
      ]
     }
    ],
-   "drop": "chefe_gadiro"
+   "drop": "atlantida_chefe"
   }
  },
  "drops": {
@@ -6975,6 +6979,9 @@
      "tag": "joia:refino",
      "peso": 19
     }
+   ],
+   "garantido": [
+    "missao:calcas_de_fiacao"
    ]
   },
   "chefe_torre_2": {
@@ -6990,6 +6997,9 @@
      "tag": "joia:refino",
      "peso": 20
     }
+   ],
+   "garantido": [
+    "missao:adaga_calice_da_comunhao"
    ]
   },
   "chefe_torre_3": {
@@ -7005,6 +7015,9 @@
      "tag": "joia:refino",
      "peso": 21
     }
+   ],
+   "garantido": [
+    "missao:luvas_de_bobina"
    ]
   },
   "chefe_torre_4": {
@@ -7020,6 +7033,9 @@
      "tag": "joia:refino",
      "peso": 22
     }
+   ],
+   "garantido": [
+    "missao:chapeu_da_vela_acesa"
    ]
   },
   "chefe_torre_5": {
@@ -7035,6 +7051,9 @@
      "tag": "joia:refino",
      "peso": 23
     }
+   ],
+   "garantido": [
+    "missao:garras_da_legiao"
    ]
   },
   "catacumba": {
@@ -7063,6 +7082,9 @@
      "tag": "joia:refino",
      "peso": 20
     }
+   ],
+   "garantido": [
+    "missao:couraca_sem_divisa"
    ]
   },
   "egito_animal": {
@@ -7268,7 +7290,8 @@
    "raridade_minima": "magico",
    "ouro_mult": 30,
    "garantido": [
-    "missao:brinco_de_petsuchos"
+    "missao:brinco_de_petsuchos",
+    "lendario:petsuchos"
    ],
    "rolagens": [
     {
@@ -7303,7 +7326,8 @@
    "raridade_minima": "magico",
    "ouro_mult": 35,
    "garantido": [
-    "missao:glifo_da_resposta"
+    "missao:glifo_da_resposta",
+    "lendario:esfinge_de_hawara"
    ],
    "rolagens": [
     {
@@ -7338,7 +7362,8 @@
    "raridade_minima": "magico",
    "ouro_mult": 40,
    "garantido": [
-    "missao:ferrao_de_serket"
+    "missao:ferrao_de_serket",
+    "lendario:serket"
    ],
    "rolagens": [
     {
@@ -7395,7 +7420,10 @@
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "lendario:sekhmet"
+   ]
   },
   "chefe_coracao_2": {
    "rolagens_garantidas": 2,
@@ -7424,7 +7452,10 @@
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "lendario:janes"
+   ]
   },
   "chefe_coracao_3": {
    "rolagens_garantidas": 2,
@@ -7453,7 +7484,10 @@
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "lendario:imseti"
+   ]
   },
   "chefe_coracao_4": {
    "rolagens_garantidas": 2,
@@ -7486,7 +7520,10 @@
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "lendario:apofis"
+   ]
   },
   "chefe_coracao_5": {
    "rolagens_garantidas": 2,
@@ -7519,7 +7556,10 @@
     }
    ],
    "loot_de_grupo": true,
-   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal"
+   "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
+   "garantido": [
+    "lendario:anubis_pesador"
+   ]
   },
   "chefe_coracao_6": {
    "rolagens_garantidas": 3,
@@ -7554,7 +7594,8 @@
    "loot_de_grupo": true,
    "_doc": "loot pessoal (cada um rola o seu); 5 relíquias exclusivas + 8 peças da Regalia do Faraó; trava semanal",
    "garantido": [
-    "missao:coracao_do_farao"
+    "missao:coracao_do_farao",
+    "lendario:farao_sem_nome"
    ]
   },
   "drop_ohya": {
@@ -7562,7 +7603,8 @@
    "raridade_minima": "magico",
    "ouro_mult": 25,
    "garantido": [
-    "missao:estandarte_roido"
+    "espada_da_retirada",
+    "lendario:general"
    ],
    "rolagens": [
     {
@@ -7596,7 +7638,8 @@
    "raridade_minima": "magico",
    "ouro_mult": 25,
    "garantido": [
-    "missao:veu_da_carpideira"
+    "tunica_do_amargo_bebido",
+    "lendario:celeste"
    ],
    "rolagens": [
     {
@@ -7630,7 +7673,8 @@
    "raridade_minima": "raro",
    "ouro_mult": 30,
    "garantido": [
-    "missao:bocal_da_trombeta"
+    "peitoral_do_sino_mudo",
+    "lendario:zacarias"
    ],
    "rolagens": [
     {
@@ -7767,6 +7811,9 @@
      "tag": "lendario:zacarias",
      "peso": 12
     }
+   ],
+   "garantido": [
+    "missao:cajado_do_engenheiro_herege"
    ]
   }
  },

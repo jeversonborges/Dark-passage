@@ -308,6 +308,36 @@
     ],
     "lendario:farao_ramesses": [
       "khopesh_de_ramesses"
+    ],
+    "lendario:sao_lazaro": [
+      "escopeta_da_vela_acesa",
+      "chapeu_da_vela_acesa",
+      "casaco_da_vela_acesa",
+      "luvas_da_polvora",
+      "calcas_de_vigia",
+      "botas_de_turno"
+    ],
+    "lendario:atlantida": [
+      "martelo_do_sino_derretido",
+      "capacete_do_sino_derretido",
+      "couraca_do_sino_derretido",
+      "manoplas_do_badalo",
+      "grevas_do_badalo",
+      "botas_de_bronze_frio",
+      "bastao_de_amenti",
+      "mascara_de_amenti",
+      "peitoral_de_amenti",
+      "luvas_de_linho_de_amenti",
+      "calcas_de_linho_de_amenti",
+      "sandalias_de_amenti"
+    ],
+    "lendario:egito": [
+      "adaga_calice_da_comunhao",
+      "veu_da_comunhao",
+      "tunica_do_amargo_bebido",
+      "luvas_de_sangue_seco",
+      "calcas_de_procissao",
+      "sandalias_da_comunhao"
     ]
   },
   "cobertura_tags_drops": {
@@ -10655,6 +10685,2206 @@
         1
       ],
       "_doc": "18/10: ícone provisório (baú de ferro) até a arte própria entrar em entregas/arte_itens/LISTA.md. Abre pelo inventário e dá equipamento de Excelente para cima."
+    },
+    {
+      "id": "espada_da_retirada",
+      "nome": "Espada da Retirada",
+      "slot": "arma",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina que o Coro deixou no campo quando recuou. Ainda tem o sangue de quem a empunhou por último.",
+      "efeito": "Excelente: cada golpe básico tem 8% de chance de devolver 1 de Graça.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        13,
+        24
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "elmo_da_retirada",
+      "nome": "Elmo da Retirada",
+      "slot": "cabeca",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Elmo de anjo com a viseira presa para trás, como quem saiu do campo sem olhar.",
+      "efeito": "Excelente: +10% de defesa contra Não-Julgados.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 3,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "espada_da_retirada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "peitoral_do_sino_mudo",
+      "nome": "Peitoral do Sino Mudo",
+      "slot": "peito",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Placa de peito fundida de um sino que parou no meio do toque.",
+      "efeito": "Excelente: recebe 5% menos de dano dos Arautos.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 6,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "espada_da_retirada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_de_cera_quente",
+      "nome": "Luvas de Cera Quente",
+      "slot": "luvas",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas com cera de lacre por dentro, ainda mornas.",
+      "efeito": "Excelente: golpes ganham +3% de velocidade de ataque.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 2,
+      "atributos": {
+        "for": 2
+      },
+      "conjunto": "espada_da_retirada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_da_retirada",
+      "nome": "Calças da Retirada",
+      "slot": "calcas",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de tecido de batina, cortada para correr.",
+      "efeito": "Excelente: +5% de velocidade de movimento.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 4,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "espada_da_retirada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_do_versiculo",
+      "nome": "Botas do Versículo",
+      "slot": "botas",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 10,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de couro com um versículo costurado na sola.",
+      "efeito": "Excelente: +4% de esquiva.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 3,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "espada_da_retirada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "escopeta_da_vela_acesa",
+      "nome": "Escopeta da Vela Acesa",
+      "slot": "arma",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cano serrado com uma vela presa no guarda-mão. A Vigília não diz para quê.",
+      "efeito": "Relíquia: 10% de chance de acertar o segundo alvo com o mesmo tiro.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        13,
+        24
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "chapeu_da_vela_acesa",
+      "nome": "Chapéu da Vela Acesa",
+      "slot": "cabeca",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Chapéu de aba larga com cera queimada na copa.",
+      "efeito": "Relíquia: +8% de chance de crítico com armas de fogo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 2,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "escopeta_da_vela_acesa",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "casaco_da_vela_acesa",
+      "nome": "Casaco da Vela Acesa",
+      "slot": "peito",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Sobretudo de couro com um forro de lona de barraca.",
+      "efeito": "Relíquia: +6% de resistência ao Amargo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 4,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "escopeta_da_vela_acesa",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_da_polvora",
+      "nome": "Luvas da Pólvora",
+      "slot": "luvas",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas sem dedos, com manchas de chumbo nas palmas.",
+      "efeito": "Relíquia: recarregar leva 15% menos tempo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 1,
+      "atributos": {
+        "for": 2
+      },
+      "conjunto": "escopeta_da_vela_acesa",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_vigia",
+      "nome": "Calças de Vigia",
+      "slot": "calcas",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de sarja de turno, com bolsos para balas.",
+      "efeito": "Relíquia: +4% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 3,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "escopeta_da_vela_acesa",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_turno",
+      "nome": "Botas de Turno",
+      "slot": "botas",
+      "classes": [
+        "humano"
+      ],
+      "raridade": "lendario",
+      "nivel": 8,
+      "tags": [
+        "lendario:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Coturno de couro que já fez oito noites de guarda.",
+      "efeito": "Relíquia: +5% de velocidade de movimento fora de combate.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 2,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "escopeta_da_vela_acesa",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "martelo_do_sino_derretido",
+      "nome": "Martelo do Sino Derretido",
+      "slot": "arma",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cabeça de bronze de um sino que derreteu sozinho na Cerca. O cabo ainda tem a marca do badalo.",
+      "efeito": "Relíquia: golpes em área ecoam e atingem o alvo de novo com 40% do dano.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        42,
+        78
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 9
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "capacete_do_sino_derretido",
+      "nome": "Capacete do Sino Derretido",
+      "slot": "cabeca",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Capacete de bronze escorrido de um lado, como cera de vela.",
+      "efeito": "Relíquia: +10% de defesa contra dano físico.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "vit": 9
+      },
+      "conjunto": "martelo_do_sino_derretido",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "couraca_do_sino_derretido",
+      "nome": "Couraça do Sino Derretido",
+      "slot": "peito",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Placas de bronze presas com arame, cheias de bolhas.",
+      "efeito": "Relíquia: +8% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 29,
+      "atributos": {
+        "vit": 9
+      },
+      "conjunto": "martelo_do_sino_derretido",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "manoplas_do_badalo",
+      "nome": "Manoplas do Badalo",
+      "slot": "luvas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de ferro com um pedaço de badalo como nó.",
+      "efeito": "Relíquia: +6% de dano de golpes corporais.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 10,
+      "atributos": {
+        "for": 9
+      },
+      "conjunto": "martelo_do_sino_derretido",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "grevas_do_badalo",
+      "nome": "Grevas do Badalo",
+      "slot": "calcas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Grevas de bronze com um sino em miniatura pendurado.",
+      "efeito": "Relíquia: +6% de defesa contra área.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 19,
+      "atributos": {
+        "agi": 9
+      },
+      "conjunto": "martelo_do_sino_derretido",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_bronze_frio",
+      "nome": "Botas de Bronze Frio",
+      "slot": "botas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "lendario",
+      "nivel": 36,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas com solas de placa de sino, pesadas e silenciosas.",
+      "efeito": "Relíquia: imune a empurrões em alvos pequenos.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "agi": 9
+      },
+      "conjunto": "martelo_do_sino_derretido",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "foice_da_legiao_sem_general",
+      "nome": "Foice da Legião Sem General",
+      "slot": "arma",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Foice de cabo longo que ficou com a Legião depois que o general sumiu. Ninguém a reclamou.",
+      "efeito": "Excelente: 10% de chance de atordoar por 0,5 s ao acertar.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        57,
+        107
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 14
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "elmo_da_legiao_sem_general",
+      "nome": "Elmo da Legião Sem General",
+      "slot": "cabeca",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Elmo de demônio com a divisa arrancada, deixando só o buraco.",
+      "efeito": "Excelente: +10% de defesa contra demônios.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 19,
+      "atributos": {
+        "vit": 14
+      },
+      "conjunto": "foice_da_legiao_sem_general",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "couraca_sem_divisa",
+      "nome": "Couraça Sem Divisa",
+      "slot": "peito",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Peitoral de couro escuro, com a marca de uma divisa descolada.",
+      "efeito": "Excelente: 5% menos de dano de chefes.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 41,
+      "atributos": {
+        "vit": 14
+      },
+      "conjunto": "foice_da_legiao_sem_general",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "garras_da_legiao",
+      "nome": "Garras da Legião",
+      "slot": "luvas",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de couro com garras de metal na ponta dos dedos.",
+      "efeito": "Excelente: +5% de dano com a foice.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "for": 14
+      },
+      "conjunto": "foice_da_legiao_sem_general",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_desertor",
+      "nome": "Calças de Desertor",
+      "slot": "calcas",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de couro rasgada, com um pedaço de casaca costurado.",
+      "efeito": "Excelente: +6% de velocidade de movimento.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 26,
+      "atributos": {
+        "agi": 14
+      },
+      "conjunto": "foice_da_legiao_sem_general",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_da_legiao",
+      "nome": "Botas da Legião",
+      "slot": "botas",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 58,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de couro com o passo marcado na sola.",
+      "efeito": "Excelente: +4% de esquiva contra Arautos.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 19,
+      "atributos": {
+        "agi": 14
+      },
+      "conjunto": "foice_da_legiao_sem_general",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "cajado_do_engenheiro_herege",
+      "nome": "Cajado do Engenheiro Herege",
+      "slot": "arma",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cajado de cobre com uma bobina na ponta. A bobina ainda zumbe quando alguém mente perto dela.",
+      "efeito": "Excelente: cada 5 acertos, a próxima habilidade custa 20% menos de recurso.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        33,
+        62
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 8
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "oculos_de_solda_herege",
+      "nome": "Óculos de Solda Herege",
+      "slot": "cabeca",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Lentes de vidro escuro presas por arame de cobre.",
+      "efeito": "Excelente: +8% de chance de acertar com torretas.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 8,
+      "atributos": {
+        "vit": 8
+      },
+      "conjunto": "cajado_do_engenheiro_herege",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "avental_de_engenheiro_herege",
+      "nome": "Avental de Engenheiro Herege",
+      "slot": "peito",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Avental de couro com bolsos cheios de peças de rádio.",
+      "efeito": "Excelente: +6% de resistência à eletricidade.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 18,
+      "atributos": {
+        "vit": 8
+      },
+      "conjunto": "cajado_do_engenheiro_herege",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_de_bobina",
+      "nome": "Luvas de Bobina",
+      "slot": "luvas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas com fios de cobre costurados nos dedos.",
+      "efeito": "Excelente: +5% de velocidade de conjuração.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 6,
+      "atributos": {
+        "for": 8
+      },
+      "conjunto": "cajado_do_engenheiro_herege",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_fiacao",
+      "nome": "Calças de Fiação",
+      "slot": "calcas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de lona com fios grossos trançados na costura.",
+      "efeito": "Excelente: +5% de recurso máximo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 12,
+      "atributos": {
+        "agi": 8
+      },
+      "conjunto": "cajado_do_engenheiro_herege",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_piston",
+      "nome": "Botas de Pistão",
+      "slot": "botas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 32,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas com um pistão pequeno no calcanhar.",
+      "efeito": "Excelente: +4% de velocidade de movimento.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 8,
+      "atributos": {
+        "agi": 8
+      },
+      "conjunto": "cajado_do_engenheiro_herege",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "adaga_calice_da_comunhao",
+      "nome": "Cálice-Adaga da Comunhão",
+      "slot": "arma",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Adaga com cabo de cálice. A lâmina é de vidro escuro cheio de pó verde do Amargo.",
+      "efeito": "Relíquia: cada golpe cura 2% da vida perdida no último minuto.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        74,
+        137
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 16
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "veu_da_comunhao",
+      "nome": "Véu da Comunhão",
+      "slot": "cabeca",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Véu de renda manchada de pó verde.",
+      "efeito": "Relíquia: +8% de dano de habilidades de sangue.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 16,
+      "atributos": {
+        "vit": 16
+      },
+      "conjunto": "adaga_calice_da_comunhao",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "tunica_do_amargo_bebido",
+      "nome": "Túnica do Amargo Bebido",
+      "slot": "peito",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Túnica de linho com o peito queimado por pó verde.",
+      "efeito": "Relíquia: +10% de resistência ao Amargo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 34,
+      "atributos": {
+        "vit": 16
+      },
+      "conjunto": "adaga_calice_da_comunhao",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_de_sangue_seco",
+      "nome": "Luvas de Sangue Seco",
+      "slot": "luvas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de pano com manchas que não saem.",
+      "efeito": "Relíquia: +5% de dano com a adaga.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 12,
+      "atributos": {
+        "for": 16
+      },
+      "conjunto": "adaga_calice_da_comunhao",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_procissao",
+      "nome": "Calças de Procissão",
+      "slot": "calcas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de linho para caminhar muito e não cansar.",
+      "efeito": "Relíquia: +6% de velocidade de movimento.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 22,
+      "atributos": {
+        "agi": 16
+      },
+      "conjunto": "adaga_calice_da_comunhao",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "sandalias_da_comunhao",
+      "nome": "Sandálias da Comunhão",
+      "slot": "botas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Sandálias de couro cru com correias que sobem até o tornozelo.",
+      "efeito": "Relíquia: +4% de esquiva em área.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 16,
+      "atributos": {
+        "agi": 16
+      },
+      "conjunto": "adaga_calice_da_comunhao",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "gladio_da_cerca",
+      "nome": "Gládio da Cerca",
+      "slot": "arma",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Espada curta de quem guardou a cerca sul por três noites sem trocar. Tem a marca da guarda na guarda.",
+      "efeito": "Excelente: cada 10 de Ódio gastos, o próximo golpe causa +15% de dano.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        14,
+        26
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "elmo_da_cerca",
+      "nome": "Elmo da Cerca",
+      "slot": "cabeca",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Elmo de ferro com a viseira arranhada pela cerca.",
+      "efeito": "Excelente: +10% de defesa quando o Ódio está cheio.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 4,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "gladio_da_cerca",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "couraca_da_cerca",
+      "nome": "Couraça da Cerca",
+      "slot": "peito",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Placas de ferro com marcas de arame farpado.",
+      "efeito": "Excelente: +8% de bloqueio.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 8,
+      "atributos": {
+        "vit": 2
+      },
+      "conjunto": "gladio_da_cerca",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "manoplas_da_cerca",
+      "nome": "Manoplas da Cerca",
+      "slot": "luvas",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de ferro com punhos de madeira de cerca.",
+      "efeito": "Excelente: +5% de dano de golpes corporais.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 3,
+      "atributos": {
+        "for": 2
+      },
+      "conjunto": "gladio_da_cerca",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "grevas_da_cerca",
+      "nome": "Grevas da Cerca",
+      "slot": "calcas",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Grevas de ferro amarradas com arame.",
+      "efeito": "Excelente: +6% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 5,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "gladio_da_cerca",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_da_cerca",
+      "nome": "Botas da Cerca",
+      "slot": "botas",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 11,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de couro com solas de ferro, para pisar em tudo.",
+      "efeito": "Excelente: +5% de velocidade de ataque.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 4,
+      "atributos": {
+        "agi": 2
+      },
+      "conjunto": "gladio_da_cerca",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "cajado_da_trombeta_calada",
+      "nome": "Cajado da Trombeta Calada",
+      "slot": "arma",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cajado de latão de uma corneta da quinta trombeta. Está fechado, e ainda assim soa baixo.",
+      "efeito": "Excelente: a cada inimigo morto, uma torreta próxima ganha 5% de dano por 10 s.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        54,
+        100
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 13
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "coroa_do_bocal",
+      "nome": "Coroa do Bocal",
+      "slot": "cabeca",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Coroa de latão com o bocal da corneta como fecho.",
+      "efeito": "Excelente: +6% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "vit": 13
+      },
+      "conjunto": "cajado_da_trombeta_calada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "manto_da_trombeta",
+      "nome": "Manto da Trombeta",
+      "slot": "peito",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manto de pano de altar com um pedaço de latão costurado.",
+      "efeito": "Excelente: +8% de resistência a efeitos de área.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 30,
+      "atributos": {
+        "vit": 13
+      },
+      "conjunto": "cajado_da_trombeta_calada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_do_bocal",
+      "nome": "Luvas do Bocal",
+      "slot": "luvas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de couro com fivelas de latão nos dedos.",
+      "efeito": "Excelente: +5% de velocidade de conjuração.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 11,
+      "atributos": {
+        "for": 13
+      },
+      "conjunto": "cajado_da_trombeta_calada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_do_porao",
+      "nome": "Calças do Porão",
+      "slot": "calcas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de lã grossa, usada no porão do Abatedouro.",
+      "efeito": "Excelente: +5% de defesa no escuro.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 20,
+      "atributos": {
+        "agi": 13
+      },
+      "conjunto": "cajado_da_trombeta_calada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_do_porao",
+      "nome": "Botas do Porão",
+      "slot": "botas",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de borracha que já pisaram muita lama.",
+      "efeito": "Excelente: +4% de esquiva em terreno difícil.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "agi": 13
+      },
+      "conjunto": "cajado_da_trombeta_calada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "bastao_de_amenti",
+      "nome": "Bastão de Amenti",
+      "slot": "arma",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Bastão de cedro com um olho de cobre na ponta. Vem de uma tumba que nenhum mapa tem.",
+      "efeito": "Relíquia: 10% de chance de refletir magia recebida de volta ao lançador.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        51,
+        94
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 11
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "mascara_de_amenti",
+      "nome": "Máscara de Amenti",
+      "slot": "cabeca",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Máscara de linho com um olho pintado de verde.",
+      "efeito": "Relíquia: +8% de chance de crítico com magia.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 13,
+      "atributos": {
+        "vit": 11
+      },
+      "conjunto": "bastao_de_amenti",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "peitoral_de_amenti",
+      "nome": "Peitoral de Amenti",
+      "slot": "peito",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Peitoral de cobre fino com inscrições apagadas.",
+      "efeito": "Relíquia: +8% de resistência à magia.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 28,
+      "atributos": {
+        "vit": 11
+      },
+      "conjunto": "bastao_de_amenti",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_de_linho_de_amenti",
+      "nome": "Luvas de Linho de Amenti",
+      "slot": "luvas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de linho de mumificação, sem dedos na ponta.",
+      "efeito": "Relíquia: +5% de velocidade de conjuração.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 10,
+      "atributos": {
+        "for": 11
+      },
+      "conjunto": "bastao_de_amenti",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_linho_de_amenti",
+      "nome": "Calças de Linho de Amenti",
+      "slot": "calcas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de linho pesado, com faixas de sal.",
+      "efeito": "Relíquia: +6% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 18,
+      "atributos": {
+        "agi": 11
+      },
+      "conjunto": "bastao_de_amenti",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "sandalias_de_amenti",
+      "nome": "Sandálias de Amenti",
+      "slot": "botas",
+      "classes": [
+        "cultista"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Sandálias de palha e couro, com o nome de um deus na tira.",
+      "efeito": "Relíquia: +4% de esquiva.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 13,
+      "atributos": {
+        "agi": 11
+      },
+      "conjunto": "bastao_de_amenti",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "machado_da_agua_verde",
+      "nome": "Machado da Água Verde",
+      "slot": "arma",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Machado de lâmina de ferro com musgo verde preso na fenda. Veio da margem do Rio Amargo.",
+      "efeito": "Excelente: cada golpe deixa uma poça verde que causa 5% de dano por 3 s.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "maos": 1,
+      "dano": [
+        69,
+        127
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "agi": 17
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "capuz_do_rio",
+      "nome": "Capuz do Rio",
+      "slot": "cabeca",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Capuz de juncos trançados, úmido e verde.",
+      "efeito": "Excelente: +6% de resistência ao Amargo.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 18,
+      "atributos": {
+        "vit": 17
+      },
+      "conjunto": "machado_da_agua_verde",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "colete_da_agua_verde",
+      "nome": "Colete da Água Verde",
+      "slot": "peito",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Colete de couro com bolsos de cantil.",
+      "efeito": "Excelente: +6% de vida máxima.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 39,
+      "atributos": {
+        "vit": 17
+      },
+      "conjunto": "machado_da_agua_verde",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_musgosas",
+      "nome": "Luvas Musgosas",
+      "slot": "luvas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de couro com musgo verde nas juntas.",
+      "efeito": "Excelente: +5% de dano com o machado.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 14,
+      "atributos": {
+        "for": 17
+      },
+      "conjunto": "machado_da_agua_verde",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_juncos",
+      "nome": "Calças de Juncos",
+      "slot": "calcas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de lona trançada com juncos das margens.",
+      "efeito": "Excelente: +5% de velocidade de movimento na margem.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 25,
+      "atributos": {
+        "agi": 17
+      },
+      "conjunto": "machado_da_agua_verde",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_lama_verde",
+      "nome": "Botas de Lama Verde",
+      "slot": "botas",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 70,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de couro com a lama verde do rio ainda na sola.",
+      "efeito": "Excelente: +4% de esquiva em terreno molhado.",
+      "fonte": "design/skills-itens/conjuntos_096.json",
+      "defesa": 18,
+      "atributos": {
+        "agi": 17
+      },
+      "conjunto": "machado_da_agua_verde",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
     },
     {
       "id": "espada_serrilhada_sem_bandeira",
