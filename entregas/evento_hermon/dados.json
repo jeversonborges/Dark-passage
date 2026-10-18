@@ -1,0 +1,652 @@
+{
+ "_doc": "Evento 'O Cume dos Vigilantes' (estilo Chaos Castle do MU; pedido do Jefin, 16/10/2026). Fonte de verdade dos números; LEIAME.md explica. Tempos em segundos, distâncias em tiles (1 tile = 1 m). Mobs no formato de design/combate/mobs.json; itens no de design/missoes/dados/itens.json.",
+ "versao": "0.1",
+ "evento": {
+  "id": "cume_vigilantes",
+  "nome": "O Cume dos Vigilantes",
+  "mapa": "cume_dos_vigilantes",
+  "agenda": {
+   "fuso": "America/Sao_Paulo",
+   "diario": [
+    "19:00"
+   ],
+   "_doc": "1 vez por dia, às 19h de Brasília (Jefin, 16/10/2026); não bate com o Agrak (20h e 22h)"
+  },
+  "avisos_min_antes": [
+   10,
+   5,
+   1
+  ],
+  "entrada": {
+   "item": "convite_dos_vigilantes",
+   "como": "clicar (usar) o convite na mochila enquanto a entrada está aberta: o convite é gasto e o jogador sobe ao cume da faixa dele",
+   "janela_s": 300,
+   "nivel_min": 15,
+   "max_por_cume": 20,
+   "acima_do_max": "abre outro cume da mesma faixa (outra instância do mapa)",
+   "min_para_comecar": 2,
+   "cancelado": "se um cume fecha a entrada com menos de 2 jogadores: devolve o convite e manda de volta",
+   "fora_da_janela": "usar o convite fora da janela só mostra quanto falta para a próxima subida (não gasta)",
+   "proibido_em": [
+    "dungeon",
+    "evento",
+    "combate_com_chefe"
+   ]
+  },
+  "faixas": [
+   {
+    "niveis": [
+     15,
+     49
+    ],
+    "nivel_mob": 30
+   },
+   {
+    "niveis": [
+     50,
+     99
+    ],
+    "nivel_mob": 70
+   },
+   {
+    "niveis": [
+     100,
+     149
+    ],
+    "nivel_mob": 120
+   },
+   {
+    "niveis": [
+     150,
+     249
+    ],
+    "nivel_mob": 190
+   },
+   {
+    "niveis": [
+     250,
+     400
+    ],
+    "nivel_mob": 300
+   }
+  ],
+  "espera": {
+   "_doc": "durante os 5 min de entrada: quem já subiu espera no cume; sem PvP, Vigilantes ajoelhados (estátuas, não atacam nem são atacados)",
+   "pvp": false,
+   "contagem_na_tela_s": 10
+  },
+  "sobrevivencia": {
+   "dur_s": 900,
+   "pvp": true,
+   "pocoes": true,
+   "lado": "cada jogador é o próprio lado (h_<id>); Vigilantes atacam todo mundo",
+   "voar_nao_salva": "Anjo e Demônio caem do mesmo jeito: o vento do juramento derruba qualquer asa"
+  },
+  "desmoronamento": {
+   "_doc": "o cume é um disco; cada anel cai inteiro no tempo dado (contado do começo da sobrevivência). 20 s antes as rachaduras acendem e a terra treme. Quem estiver no anel quando cai (jogador ou Vigilante) despenca e é eliminado.",
+   "aviso_s": 20,
+   "aneis": [
+    {
+     "id": "anel_1",
+     "raio_min": 17,
+     "raio_max": 22,
+     "cai_em": 180
+    },
+    {
+     "id": "anel_2",
+     "raio_min": 13,
+     "raio_max": 17,
+     "cai_em": 360
+    },
+    {
+     "id": "anel_3",
+     "raio_min": 9,
+     "raio_max": 13,
+     "cai_em": 540
+    },
+    {
+     "id": "anel_4",
+     "raio_min": 5,
+     "raio_max": 9,
+     "cai_em": 720
+    },
+    {
+     "id": "anel_5",
+     "raio_min": 3,
+     "raio_max": 5,
+     "cai_em": 840
+    }
+   ],
+   "sobra": "a Laje do Juramento (raio 3) nunca cai",
+   "beira_empurrao": "na beira (até 0,7 tile do abismo), um empurrão para fora derruba"
+  },
+  "vigilantes": {
+   "inicio_base": 20,
+   "inicio_por_jogador": 2,
+   "inicio_max": 50,
+   "mistura": {
+    "vigilante_jurado": 0.6,
+    "vigilante_ferreiro": 0.3,
+    "vigilante_estrelado": 0.1
+   },
+   "posicoes": "ajoelhados em círculos, mais nos anéis de fora (proporção à área de cada anel), nunca a menos de 4 tiles da Laje",
+   "reforco_ao_cair_anel": {
+    "base": 3,
+    "por_jogadores_vivos": 4,
+    "_doc": "3 + 1 a cada 4 jogadores vivos descem do céu (anim land) no que sobrou do cume",
+    "max_vivos": 60
+   },
+   "aggro": "atacam o mais perto (jogador); raio 7; sem coleira; não puxam em cadeia",
+   "xp": "normal, como fora (o nível do Vigilante é o da faixa)",
+   "drop": "nenhum dentro do evento"
+  },
+  "pontos": {
+   "vigilante_jurado": 1,
+   "vigilante_ferreiro": 1,
+   "vigilante_estrelado": 3,
+   "jogador": 3
+  },
+  "fim": {
+   "_doc": "a sobrevivência acaba aos 15 min ou antes, quando sobra 1 jogador vivo e nenhum Vigilante (ou 0 jogadores).",
+   "vencedor": "único vivo no fim; se mais de um sobreviver aos 15 min, vence quem tiver mais pontos (empate: mais % de HP, depois quem subiu primeiro)",
+   "sem_ninguem": "O Hermon não guardou ninguém. O juramento foi feito sem testemunha."
+  },
+  "morte": {
+   "penalidade": false,
+   "volta": "o eliminado (morte ou queda) volta na hora para o ponto de renascer da facção dele, com HP cheio",
+   "desconectar": "eliminado"
+  },
+  "premios": {
+   "_doc": "Jefin 16/10/2026: o prêmio do vencedor é 30% de chance de uma arma lendária. Quem sobrevive aos 15 min (vencedor incluso) leva o prêmio de sobrevivente.",
+   "testemunha": {
+    "_doc": "vencedor",
+    "chance_arma_lendaria": 0.3,
+    "pool": "lendario:hermon",
+    "arma_da_classe": true,
+    "titulo": "Testemunha do Juramento",
+    "sem_arma_fala": "A forja de Azazel não respondeu desta vez. O título fica.",
+    "ficha_sangue": 2,
+    "_doc_fichas": "o vencedor leva 2 a mais que o prêmio de sobrevivente (3 no total)"
+   },
+   "sobrevivente": {
+    "_doc": "todo vivo aos 15 min, vencedor incluso",
+    "lagrima_angelica": 1,
+    "ouro_por_nivel_mob": 15,
+    "ficha_sangue": 1
+   },
+   "_ex_ouro": "faixa 15-49 (mob 30): 450 de ouro por sobrevivente",
+   "_doc_fichas": "Jefin 16/10/2026 'Coloca algumas fichas de pvp': Ficha de Sangue, a mesma moeda PvP do Agrak (compra a Couraça do Agrak na banca do Saulo).",
+   "abate_pvp": {
+    "_doc": "na hora do abate de outro jogador no cume; no máximo 3 por evento",
+    "ficha_sangue": 1,
+    "max_por_evento": 3
+   }
+  },
+  "falas": {
+   "abriu": "O Hermon chama. Rompa o lacre do Convite dos Vigilantes para subir. (5 min)",
+   "fechou": "Os duzentos se ajoelham. O juramento começa.",
+   "comecou": "\"Que o fim fique onde está.\" Sobreviva ao juramento.",
+   "aviso_anel": "O cume racha: a borda cai em 20 segundos.",
+   "caiu_anel": "A borda do Hermon despencou na nevasca.",
+   "reforco": "Mais Vigilantes descem do céu.",
+   "queda": "%s caiu do Hermon.",
+   "abate_pvp": "%s derrubou %s.",
+   "vencedor": "%s viu o juramento até o fim. Testemunha do Juramento.",
+   "vencedor_arma": "%s viu o juramento até o fim e a forja de Azazel respondeu: %s."
+  }
+ },
+ "regras_pvp": {
+  "_doc": "iguais ao Agrak (design/pvp/agrak/dados.json); se o Agrak mudar, este segue",
+  "dano_jogador_em_jogador": 0.6,
+  "cura_em_jogador": 0.7,
+  "controle_em_jogador": {
+   "duracao_mult": 0.5,
+   "imunidade_mesmo_efeito_s": 4
+  },
+  "invocacoes": "contam como do dono; somem quando ele é eliminado"
+ },
+ "mobs": {
+  "vigilante_jurado": {
+   "nome": "Vigilante Jurado",
+   "area": "evento O Cume dos Vigilantes",
+   "niveis": [
+    30,
+    30
+   ],
+   "arquetipo": "normal",
+   "tags": [
+    "celestial",
+    "humanoide"
+   ],
+   "grupo": [
+    1,
+    1
+   ],
+   "res": {
+    "sagrado": 0.4,
+    "sangue": -0.2
+   },
+   "alcance": 1.6,
+   "ia": {
+    "padrao": "teimoso",
+    "raio_aggro": 7,
+    "raio_coleira": 99,
+    "raio_vagar": 0,
+    "aggro_social": 0
+   },
+   "comportamento": "Um dos duzentos. Começa ajoelhado como estátua e levanta quando o juramento começa. Caça o jogador mais perto com a falx; o Corte do Juramento varre um leque à frente.",
+   "ataques": [
+    {
+     "id": "falx",
+     "mult": 1.0,
+     "preparo": 0.55
+    },
+    {
+     "id": "corte_do_juramento",
+     "mult": 1.6,
+     "preparo": 0.9,
+     "recarga": 9,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.6,
+      "angulo": 110
+     }
+    }
+   ],
+   "drop": null,
+   "sprite": "vigilante_jurado"
+  },
+  "vigilante_ferreiro": {
+   "nome": "Vigilante Ferreiro",
+   "area": "evento O Cume dos Vigilantes",
+   "niveis": [
+    30,
+    30
+   ],
+   "arquetipo": "bruto",
+   "tags": [
+    "celestial",
+    "humanoide"
+   ],
+   "grupo": [
+    1,
+    1
+   ],
+   "res": {
+    "sagrado": 0.3,
+    "fogo": 0.4,
+    "fisico": 0.1
+   },
+   "alcance": 1.6,
+   "ia": {
+    "padrao": "teimoso",
+    "raio_aggro": 7,
+    "raio_coleira": 99,
+    "raio_vagar": 0,
+    "aggro_social": 0
+   },
+   "comportamento": "Discípulo de Azazel, que ensinou os homens a forjar. Mais lento e pesado; o Golpe de Malho joga o alvo longe, e perto da beira isso é uma queda.",
+   "ataques": [
+    {
+     "id": "falx",
+     "mult": 1.0,
+     "preparo": 0.6
+    },
+    {
+     "id": "golpe_de_malho",
+     "mult": 1.3,
+     "preparo": 1.0,
+     "recarga": 7,
+     "empurrao_px": 40,
+     "telegrafo": {
+      "forma": "cone",
+      "raio": 2.2,
+      "angulo": 70
+     }
+    }
+   ],
+   "drop": null,
+   "sprite": "vigilante_ferreiro"
+  },
+  "vigilante_estrelado": {
+   "nome": "Vigilante Estrelado",
+   "area": "evento O Cume dos Vigilantes",
+   "niveis": [
+    30,
+    30
+   ],
+   "arquetipo": "elite",
+   "ajuste": {
+    "hp": 0.5
+   },
+   "tags": [
+    "celestial",
+    "humanoide"
+   ],
+   "grupo": [
+    1,
+    1
+   ],
+   "res": {
+    "sagrado": 0.5,
+    "eletrico": -0.2
+   },
+   "alcance": 1.7,
+   "ia": {
+    "padrao": "elite",
+    "raio_aggro": 8,
+    "raio_coleira": 99,
+    "raio_vagar": 0,
+    "aggro_social": 0
+   },
+   "comportamento": "Discípulo de Kokabiel, o que contava as estrelas. Raro (1 em 10), mais alto, sobretudo de constelações e anéis de astrolábio. Vale 3 pontos. A Queda de Estrela marca o chão onde o alvo está e cai 1,2 s depois.",
+   "ataques": [
+    {
+     "id": "falx",
+     "mult": 1.1,
+     "preparo": 0.5
+    },
+    {
+     "id": "queda_de_estrela",
+     "mult": 1.8,
+     "preparo": 1.2,
+     "recarga": 10,
+     "alcance": 7,
+     "telegrafo": {
+      "forma": "circulo",
+      "raio": 1.6,
+      "no_alvo": true
+     }
+    }
+   ],
+   "drop": null,
+   "sprite": "vigilante_estrelado"
+  }
+ },
+ "itens": [
+  {
+   "id": "convite_dos_vigilantes",
+   "nome": "Convite dos Vigilantes",
+   "tipo": "consumivel",
+   "uso": "evento:cume_vigilantes",
+   "pilha": 5,
+   "preco": 300,
+   "vende_em": [
+    "loja_zaqueu (Jerusalém, Porta do Esterco)",
+    "loja_corvina (Sótão da Corvina)"
+   ],
+   "vinculado": false,
+   "descricao": "Uma pena cinzenta dobrada e presa num lacre de cera, com uma linha escrita por dentro. Quem rompe o lacre na hora do juramento é chamado ao cume do Hermon. Só vale nos 5 minutos em que o Hermon chama.",
+   "citacao": {
+    "texto": "Eu cobro a subida. A descida é por conta de quem sobe.",
+    "autor": "Zaqueu"
+   }
+  },
+  {
+   "id": "espada_primeiro_juramento",
+   "nome": "Espada do Primeiro Juramento",
+   "classes": [
+    "anjo"
+   ],
+   "tipo": "espada",
+   "maos": 1,
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "espada",
+   "tint": "latao",
+   "dano": [
+    30,
+    50
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "for": 10,
+    "esp": 8
+   },
+   "efeito": "Golpes em quem feriu um aliado nos últimos 3 s curam o grupo em 3% do dano causado.",
+   "lore": "Forjada no Hermon para o primeiro anjo que jurou. A lâmina tem o juramento gravado ao contrário, para ser lido no reflexo.",
+   "citacao": {
+    "texto": "Que o fim fique onde está.",
+    "autor": "Os Duzentos"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "cajado_estrelas_contadas",
+   "nome": "Cajado das Estrelas Contadas",
+   "classes": [
+    "cultista"
+   ],
+   "tipo": "cajado",
+   "maos": 2,
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "cajado_antena",
+   "tint": "latao",
+   "dano": [
+    34,
+    58
+   ],
+   "intervalo": 1.25,
+   "atributos": {
+    "esp": 16
+   },
+   "efeito": "A cada 6 s, a próxima magia também derruba uma estrela no alvo (40% do dano, em área pequena).",
+   "lore": "Kokabiel contava as noites que faltam com este cajado. Os anéis de latão ainda giram sozinhos quando ninguém olha.",
+   "citacao": {
+    "texto": "Faltam menos noites do que vocês pensam. Faltam mais do que eu queria.",
+    "autor": "Kokabiel"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "falx_de_azazel",
+   "nome": "Falx de Azazel",
+   "classes": [
+    "demonio"
+   ],
+   "tipo": "foice",
+   "maos": 2,
+   "grade": [
+    1,
+    4
+   ],
+   "motivo": "foice",
+   "tint": "ferrugem",
+   "dano": [
+    40,
+    66
+   ],
+   "intervalo": 1.3,
+   "atributos": {
+    "for": 12,
+    "agi": 6
+   },
+   "efeito": "Acertos em alvos abaixo de 30% do HP causam +25% de dano.",
+   "lore": "A primeira arma que um anjo ensinou o homem a fazer. A Legião Blasfema pagou caro por ela e nunca a usou: ela não corta quem a comprou.",
+   "citacao": {
+    "texto": "Ensinei o ferro. Não ensinei o que fazer com ele. Isso vocês aprenderam sozinhos.",
+    "autor": "Azazel"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "escopeta_juramento_quebrado",
+   "nome": "Escopeta do Juramento Quebrado",
+   "classes": [
+    "humano"
+   ],
+   "tipo": "escopeta",
+   "maos": 2,
+   "grade": [
+    1,
+    3
+   ],
+   "motivo": "escopeta",
+   "tint": "latao",
+   "dano": [
+    36,
+    60
+   ],
+   "intervalo": 1.4,
+   "atributos": {
+    "agi": 12,
+    "for": 4
+   },
+   "efeito": "O primeiro tiro depois de 4 s sem atirar empurra o alvo para trás com força.",
+   "lore": "Cano serrado de um sino do Hermon. Cada cartucho leva um pedaço do lacre de um convite.",
+   "citacao": {
+    "texto": "Juramento é coisa de anjo. Eu trouxe munição.",
+    "autor": "Testemunha anônima"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "malho_de_tubal",
+   "nome": "Malho de Tubal-Caim",
+   "classes": [
+    "mutante"
+   ],
+   "tipo": "machado",
+   "maos": 2,
+   "grade": [
+    2,
+    3
+   ],
+   "motivo": "machado_placa",
+   "tint": "ferrugem",
+   "dano": [
+    42,
+    70
+   ],
+   "intervalo": 1.5,
+   "atributos": {
+    "for": 12,
+    "vit": 8
+   },
+   "efeito": "Golpe pesado: a cada 4 s, o próximo ataque derruba o alvo por 1 s.",
+   "lore": "O pai de todos os ferreiros martelou isto com o que Azazel ensinou. Tubal, o da forja de Jerusalém, jura que é parente.",
+   "citacao": {
+    "texto": "Malho bom não tem nome. Esse tem. Desconfie.",
+    "autor": "Tubal"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "bobina_de_baraquiel",
+   "nome": "Bobina de Baraquiel",
+   "classes": [
+    "tecnomancer"
+   ],
+   "tipo": "luva",
+   "maos": 1,
+   "grade": [
+    2,
+    2
+   ],
+   "motivo": "luva_voltaica",
+   "tint": "cobre",
+   "dano": [
+    28,
+    46
+   ],
+   "intervalo": 0.95,
+   "atributos": {
+    "esp": 14
+   },
+   "efeito": "As torretas soltam um raio em cadeia a cada 5 s (2 alvos, 30% do dano).",
+   "lore": "Baraquiel ensinou os sinais do relâmpago. Alguém enrolou o ensinamento em cobre e prendeu numa luva.",
+   "citacao": {
+    "texto": "Raio não cai duas vezes no mesmo lugar. Esse cai quantas eu quiser.",
+    "autor": "Jael, do Posto de Escuta"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 25,
+   "tags": [
+    "lendario:hermon"
+   ],
+   "faccao": null,
+   "emissivo": "#ffd890",
+   "categoria": "arma",
+   "fonte": "evento O Cume dos Vigilantes"
+  },
+  {
+   "id": "ficha_sangue",
+   "nome": "Ficha de Sangue",
+   "tipo": "moeda",
+   "pilha": 99,
+   "vinculado": true,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "comum",
+   "lore": "Uma ficha de latão cunhada com um dente de leão no meio, ainda grudenta. No Agrak, é o único dinheiro que compra respeito.",
+   "citacao": {
+    "texto": "Ouro qualquer um acha na areia. Isto aqui você tem que tirar de alguém.",
+    "autor": "Saulo, o Penitente"
+   },
+   "_doc": "cópia da Ficha de Sangue do Agrak (design/pvp/agrak/itens_agrak.json); se o Agrak já estiver no jogo, vale a de lá"
+  }
+ ],
+ "pools_lendarios": {
+  "lendario:hermon": [
+   "espada_primeiro_juramento",
+   "cajado_estrelas_contadas",
+   "falx_de_azazel",
+   "escopeta_juramento_quebrado",
+   "malho_de_tubal",
+   "bobina_de_baraquiel"
+  ]
+ }
+}

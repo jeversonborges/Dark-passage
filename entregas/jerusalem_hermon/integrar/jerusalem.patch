@@ -1,0 +1,501 @@
+diff --git a/game/scripts/client/efeitos.gd b/game/scripts/client/efeitos.gd
+index 03eb9d0..231791b 100644
+--- a/game/scripts/client/efeitos.gd
++++ b/game/scripts/client/efeitos.gd
+@@ -281,9 +281,9 @@ func telegrafo(d: Dictionary) -> void:
+ 	var dono: Ent = game.sim.ents.get(int(d.get("dono", -1)))
+ 	if dono != null and dono.tipo == "chefe":
+ 		tg.cor_borda = Color("#ff3a1c")
+-	if dono != null and dono.kind == "zacarias_arauto":
++	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "zacarias_arauto":
+ 		tg.cor_borda = Color("#ffe08a"); tg.cor_fill = Color("#c89a2a")
+-	if dono != null and dono.kind == "irma_celeste":
++	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "irma_celeste":
+ 		tg.cor_borda = Color("#cfe4ff"); tg.cor_fill = Color("#5a6a9a")
+ 	tg.z_index = -5
+ 	add_child(tg)
+diff --git a/game/scripts/client/game.gd b/game/scripts/client/game.gd
+index 4fcc43e..e940daf 100644
+--- a/game/scripts/client/game.gd
++++ b/game/scripts/client/game.gd
+@@ -69,7 +69,7 @@ func iniciar(classe: String, nome: String, salvo: Dictionary = {}) -> void:
+ 	sim.evento.connect(_ev)
+ 	jog = Jogador.criar(sim, classe, nome, salvo)
+ 	_montar_nos()
+-	var mapa_ini: String = salvo.get("mapa", "area_inicial")
++	var mapa_ini: String = salvo.get("mapa", Defs.mapa_casa(jog.faccao))
+ 	var pos := Vector2(-1, -1)
+ 	if salvo.get("pos", []).size() == 2: pos = Vector2(salvo["pos"][0], salvo["pos"][1])
+ 	_entrar(mapa_ini, pos)
+@@ -114,7 +114,7 @@ func _entrar_rede(m: Dictionary) -> void:
+ 	cam.position = Iso.to_screen(jog.pos)
+ 	cam.reset_smoothing()
+ 	hud.ao_trocar_mapa()
+-	if trocou and m["mapa"] != "area_inicial": audio.tocar("musica/vinheta/entrar_cripta")
++	if trocou and not Defs.eh_mapa_casa(m["mapa"]): audio.tocar("musica/vinheta/entrar_cripta")
+ 	cortina.modulate.a = 1.0
+ 	var tw := create_tween()
+ 	tw.tween_property(cortina, "modulate:a", 0.0, 0.8)
+@@ -824,7 +824,7 @@ func _trocar_mapa(id_mapa: String, pos: Vector2) -> void:
+ 	var tw := create_tween()
+ 	tw.tween_property(cortina, "modulate:a", 1.0, 0.45)
+ 	await tw.finished
+-	if id_mapa != "area_inicial": audio.tocar("musica/vinheta/entrar_cripta")
++	if not Defs.eh_mapa_casa(id_mapa): audio.tocar("musica/vinheta/entrar_cripta")
+ 	_entrar(id_mapa, pos)
+ 	trocando = false
+ 	_salvar()
+@@ -835,7 +835,7 @@ func _ataque(d: Dictionary) -> void:
+ 	var e: Ent = sim.ents.get(v.id)
+ 	var nome := "attack"
+ 	if d.get("anim", "") != "": nome = d["anim"]
+-	elif e != null and e.tipo == "chefe" and e.kind == "general_partido":
++	elif e != null and e.tipo == "chefe" and Defs.mecanica_chefe(e.kind) == "general_partido":
+ 		nome = {"arrasto": "lunge", "vomito_de_brasa": "vomit", "banquete": "feast", "golpe_estandarte": "attack", "varredura": "sweep", "ordem_de_levantar": "roar"}.get(d.get("nome", ""), "sweep" if d.get("nome", "").contains("varre") else "attack")
+ 	elif e != null and e.kind == "capataz_gancho" and d.get("nome", "") != "": nome = "hook" if d["nome"].contains("gancho") else ("spin" if d["nome"].contains("gir") else "attack")
+ 	elif e != null and e.kind == "cao_de_vala" and d.get("nome", "") == "bote": nome = "leap"
+diff --git a/game/scripts/client/hud.gd b/game/scripts/client/hud.gd
+index 8179766..d6f3a8e 100644
+--- a/game/scripts/client/hud.gd
++++ b/game/scripts/client/hud.gd
+@@ -763,6 +763,10 @@ const DESTINOS := {
+ 	"ossario_carpideiras": "Ossário (chefe Irmã Celeste, nv 10)",
+ 	"camara_trombeta": "Câmara (chefe Zacarias, nv 12)",
+ 	"area_inicial": "Saída para a Paróquia",
++	"minas_dos_gigantes": "Fosso · Minas dos Gigantes (chefe Ohya, nv 8)",
++	"salao_das_noivas": "Fosso · Salão das Noivas (chefe Naamá, nv 10)",
++	"altar_do_juramento": "Fosso · Altar do Juramento (chefe Semyaza, nv 12)",
++	"jerusalem_hermon": "Saída para as Fontes do Jordão",
+ }
+ var mapa_tex: ImageTexture
+ var mapa_tex_id := ""
+diff --git a/game/scripts/defs.gd b/game/scripts/defs.gd
+index 9e6ae86..3ab9b8b 100644
+--- a/game/scripts/defs.gd
++++ b/game/scripts/defs.gd
+@@ -138,8 +138,23 @@ static func _extras_v06() -> void:
+ 		if not LOJAS.has(l["id"]): LOJAS[l["id"]] = l
+ 	for k in ex.get("chefes", {}):   # A Torre (mata_do_granizo, 0.8.3): chefes e drops ainda sem entrada no design
+ 		if not CHEFES.has(k): CHEFES[k] = ex["chefes"][k]
+-	for k in ex.get("drops", {}):
+-		if not DROPS.has(k): DROPS[k] = ex["drops"][k]
++	for k in ex.get("drops", {}):   # o Loot lê DROPS["tabelas"]: as tabelas daqui entram lá (Torre, Jerusalém)
++		if not DROPS["tabelas"].has(k): DROPS["tabelas"][k] = ex["drops"][k]
++
++## Roteiro de luta de um chefe: os do Fosso dos Vigilantes (Jerusalém) usam o de um chefe da Cripta ("mecanica_de").
++static func mecanica_chefe(kind: String) -> String:
++	return str(CHEFES.get(kind, {}).get("mecanica_de", kind))
++
++## Mapa de casa da facção: Arautos nascem em Jerusalém e Monte Hermon (0.9.3); a Vigília, no Deserto de Absinto.
++static func mapa_casa(faccao: String) -> String:
++	if faccao == "arautos" and FileAccess.file_exists("res://data/mapas/jerusalem_hermon.json"): return "jerusalem_hermon"
++	return "area_inicial"
++
++static func mapa_casa_classe(classe: String) -> String:
++	return mapa_casa("arautos" if CLASSES.get(classe, {}).get("faccao", "") == "arautos" else "vigilia")
++
++static func eh_mapa_casa(id: String) -> bool:
++	return id in ["area_inicial", "jerusalem_hermon"]
+ 
+ ## Curva de XP (progressao.json v0.2: 75L² + 375L, 3x a v0.1 por causa dos spots e do modo automático).
+ static func xp_para_proximo(n: int) -> int:
+diff --git a/game/scripts/net/servidor.gd b/game/scripts/net/servidor.gd
+index f4563c0..cbde338 100644
+--- a/game/scripts/net/servidor.gd
++++ b/game/scripts/net/servidor.gd
+@@ -260,8 +260,9 @@ func _entrar_mundo(peer: int, idx: int) -> void:
+ 	var salvo: Dictionary = contas[s["u"]]["personagens"][idx]
+ 	var novo: bool = salvo.get("novo", false)
+ 	salvo.erase("novo")
+-	var mapa_id: String = salvo.get("mapa", "area_inicial")
+-	if not ResourceLoader.exists("res://data/mapas/%s.json" % mapa_id) and not FileAccess.file_exists("res://data/mapas/%s.json" % mapa_id): mapa_id = "area_inicial"
++	var casa := Defs.mapa_casa_classe(str(salvo["classe"]))   # Arautos nascem em Jerusalém (0.9.3)
++	var mapa_id: String = salvo.get("mapa", casa)
++	if not ResourceLoader.exists("res://data/mapas/%s.json" % mapa_id) and not FileAccess.file_exists("res://data/mapas/%s.json" % mapa_id): mapa_id = casa
+ 	var sim := _mundo(mapa_id)
+ 	var e := Jogador.criar(sim, salvo["classe"], salvo.get("nome", "Sobrevivente"), {} if novo else salvo)
+ 	var pos := _spawn(sim, e)
+diff --git a/game/scripts/sim/chefe_ctl.gd b/game/scripts/sim/chefe_ctl.gd
+index d04af6b..dac19e1 100644
+--- a/game/scripts/sim/chefe_ctl.gd
++++ b/game/scripts/sim/chefe_ctl.gd
+@@ -27,10 +27,12 @@ var horda_onda := -1         # próxima onda da horda (-1 = sem horda na luta at
+ var horda_t := 0.0           # pausa até a próxima onda, depois que a anterior morre
+ var horda_ids: Array = []    # ids dos mobs vivos da horda
+ var egito: ChefeEgito = null # chefes do Egito (mecanica_egito em chefes.json): entregas/egito
++var mec := ""                # roteiro da luta: o próprio id, ou "mecanica_de" (chefes de Jerusalém espelham os da Cripta)
+ 
+ func _init(p_sim: WorldSim, c: Dictionary) -> void:
+ 	sim = p_sim; cfg = c
+ 	d = Defs.CHEFES[c["id"]]
++	mec = Defs.mecanica_chefe(c["id"])
+ 	centro = Vector2(c["arena"]["centro"][0], c["arena"]["centro"][1])
+ 	raio_arena = float(c["arena"]["raio"])
+ 	if c.get("derrotado", false):
+@@ -239,7 +241,7 @@ func _nova_fase(n: int) -> void:
+ 	sim.emitir("chefe", {"id": boss.id, "fase": n, "nome_fase": fd.get("nome", "")})
+ 	sim.emitir("chefe_fala", {"id": boss.id, "texto": fd.get("fala", "")})
+ 	sim.emitir("som_evento", {"ev": "chefe_fase", "chefe": boss.kind})
+-	match boss.kind:
++	match mec:
+ 		"irma_celeste":
+ 			if n == 2: _coro_comecar()
+ 			if n == 3: _apagar_velas()
+@@ -349,7 +351,7 @@ func _no_alcance(a: Dictionary, dist: float) -> bool:
+ 
+ func _virar(p: Vector2, dt: float) -> void:
+ 	var alvo := (p - boss.pos).normalized()
+-	if boss.kind == "general_partido":
++	if mec == "general_partido":
+ 		var ang := boss.facing.angle()
+ 		var diff := angle_difference(ang, alvo.angle())
+ 		var mx := deg_to_rad(120.0) * dt
+@@ -361,7 +363,7 @@ func _op(a: Dictionary, extra: Dictionary = {}) -> Dictionary:
+ 	if a.has("efeito"): op["efeito"] = a["efeito"]
+ 	if a.has("empurrao_px"): op["empurrao"] = float(a["empurrao_px"])
+ 	if a.has("telegrafo"): op["area"] = true
+-	op["elemento"] = "sagrado" if boss.kind == "zacarias_arauto" else ("fogo" if a["id"] == "vomito_de_brasa" else "fisico")
++	op["elemento"] = "sagrado" if mec == "zacarias_arauto" else ("fogo" if a["id"] == "vomito_de_brasa" else "fisico")
+ 	op.merge(extra, true)
+ 	return op
+ 
+@@ -378,7 +380,7 @@ func _usar(a: Dictionary, j: Ent) -> void:
+ 	var prep := maxf(float(a.get("preparo", 0.6)), 0.6 if a.has("telegrafo") else 0.3)
+ 	var jid := j.id
+ 	var dir := (j.pos - boss.pos).normalized()
+-	if boss.kind == "general_partido": dir = boss.facing.slerp(dir, 0.5).normalized()
++	if mec == "general_partido": dir = boss.facing.slerp(dir, 0.5).normalized()
+ 	sim.emitir("som_evento", {"ev": "telegrafo_inicio"}) if a.has("telegrafo") else null
+ 	match id:
+ 		"arrasto", "lanca_do_juizo":
+@@ -487,8 +489,10 @@ func _anel(a: Dictionary, ang: float) -> void:
+ 
+ func _invocar(inv: Dictionary, de: Array = []) -> void:
+ 	var i := 0
+-	for k in inv:
+-		for n in int(inv[k]):
++	var troca: Dictionary = d.get("invoca_troca", {})   # o espelho chama os próprios mobs (soldado_caido -> soldado_de_pedra)
++	for k0 in inv:
++		var k: String = troca.get(k0, k0)
++		for n in int(inv[k0]):
+ 			var p: Vector2 = de[i % de.size()] if de.size() > 0 else boss.pos + Vector2.from_angle(sim.rng.randf() * TAU) * 2.5
+ 			i += 1
+ 			var m := sim.criar_mob(k, sim.celula_livre_perto(p), int(Defs.MOBS.get(k, {}).get("niveis", [boss.nivel])[0]))
+@@ -498,7 +502,7 @@ func _invocar(inv: Dictionary, de: Array = []) -> void:
+ 
+ # =================================================================== mecânicas especiais por chefe
+ func _mecanicas(dt: float, j: Ent) -> void:
+-	match boss.kind:
++	match mec:
+ 		"general_partido": _general(dt, j)
+ 		"irma_celeste": _celeste(dt, j)
+ 		"zacarias_arauto": _zacarias(dt, j)
+diff --git a/game/scripts/sim/jogador.gd b/game/scripts/sim/jogador.gd
+index c45e476..4eb05eb 100644
+--- a/game/scripts/sim/jogador.gd
++++ b/game/scripts/sim/jogador.gd
+@@ -844,11 +844,14 @@ static func canalizar(sim: WorldSim, e: Ent, dur: float, texto: String, fim: Cal
+ 	e.caminho.clear()
+ 	sim.emitir("canal", {"id": e.id, "dur": dur, "texto": texto})
+ 
+-## Teleporte de volta ao acampamento: grátis, sem item. Fica parado 3 s e sai da área.
++## Teleporte de volta à base da facção (Vigília: São Lázaro; Arautos: Jerusalém): grátis, sem item. Fica parado 3 s.
+ static func voltar_acampamento(sim: WorldSim, e: Ent) -> void:
+ 	if not e.vivo or e.interagindo.has("t"): return
+-	canalizar(sim, e, 3.0, "Voltando ao acampamento", func():
+-		sim.emitir_a(e, "trocar_mapa", {"mapa": "area_inicial", "pos": ponto_renascer(sim, e) if sim.mapa_id == "area_inicial" else Vector2(-1, -1)}))
++	canalizar(sim, e, 3.0, "Voltando ao acampamento", func(): _ir_para_casa(sim, e))
++
++static func _ir_para_casa(sim: WorldSim, e: Ent) -> void:
++	var casa := Defs.mapa_casa(e.faccao)
++	sim.emitir_a(e, "trocar_mapa", {"mapa": casa, "pos": ponto_renascer(sim, e) if sim.mapa_id == casa else Vector2(-1, -1)})
+ 
+ static func _bau(sim: WorldSim, e: Ent, b: Ent) -> void:
+ 	if b.aux.get("aberto", false):
+@@ -915,7 +918,7 @@ static func _objeto(sim: WorldSim, e: Ent, o: Ent) -> void:
+ 	if d.has("requer_item"): precisa.append(d["requer_item"])
+ 	precisa.append_array(d.get("requer_itens", []))
+ 	var abre_porta := d.has("leva_para") and e.flags.has("aberto_" + o.aux["obj"])
+-	if d.has("leva_para") and o.aux["obj"] == "porta_camara":   # pedido do Jefin: a Câmara do Zacarias abre sem os lacres
++	if d.has("leva_para") and o.aux["obj"] in ["porta_camara", "porta_do_altar"]:   # pedido do Jefin: a Câmara do Zacarias (e o Altar, espelho dela) abre sem os lacres
+ 		precisa = precisa.filter(func(it): return Itens.contar(e.inv, it) > 0)
+ 	if not abre_porta:
+ 		for it in precisa:
+@@ -943,6 +946,8 @@ static func _objeto(sim: WorldSim, e: Ent, o: Ent) -> void:
+ static func _portal(sim: WorldSim, e: Ent, o: Ent) -> void:
+ 	if o.aux.has("requer_flag") and not e.flags.has(o.aux["requer_flag"]):
+ 		sim.emitir_a(e, "aviso", {"texto": o.aux.get("texto_trancado", "Fechado.")}); return
++	if e.nivel < int(o.aux.get("nivel_minimo", 0)):   # Estrada do Sul (Jerusalém -> deserto): só no nível 12
++		sim.emitir_a(e, "aviso", {"texto": o.aux.get("texto_trancado", "Volte no nível %d." % int(o.aux["nivel_minimo"]))}); return
+ 	if sim.chefe != null and sim.chefe.porta_fechada():
+ 		sim.emitir_a(e, "aviso", {"texto": "A grade não se mexe enquanto o chefe estiver vivo."}); return
+ 	canalizar(sim, e, 0.6, o.nome, func(): _portal_para(sim, e, o.aux["para"], o.aux.get("chegada", [])))
+@@ -1064,8 +1069,7 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
+ 			if Itens.ATTR.has(k): mods[Itens.ATTR[k]] = float(bf[k])
+ 		add_buff(sim, e, it["id"], float(bf.get("duracao_s", 300)), mods)
+ 	if ef.has("teleporta"):
+-		canalizar(sim, e, float(ef.get("canalizar_s", 3)), "Vela de Retorno", func():
+-			sim.emitir_a(e, "trocar_mapa", {"mapa": "area_inicial", "pos": ponto_renascer(sim, e) if sim.mapa_id == "area_inicial" else Vector2(-1, -1)}))
++		canalizar(sim, e, float(ef.get("canalizar_s", 3)), "Vela de Retorno", func(): _ir_para_casa(sim, e))
+ 	if ef.has("arremesso"):
+ 		var alvo := sim.valido(e.alvo)
+ 		var p: Vector2 = alvo.pos if alvo != null else e.pos + e.facing * 4.0
+@@ -1173,14 +1177,15 @@ static func estoque(e: Ent, loja_id: String) -> Array:
+ 	var l: Dictionary = Defs.LOJAS.get(loja_id, {})
+ 	var ids: Array = l.get("itens", []).duplicate()
+ 	# poção tem que ser fácil de comprar (farm_auto.json): todo vendedor tem o básico
+-	if loja_id in ["loja_anselmo", "loja_lucio", "loja_malfas", "loja_tobias", "loja_cardo", "loja_corvina"]:
++	if loja_id in ["loja_anselmo", "loja_lucio", "loja_malfas", "loja_tobias", "loja_cardo", "loja_corvina",
++			"loja_hulda", "loja_zilpa", "loja_bartimeu", "loja_carrinho_bartimeu", "loja_zaqueu_cobrador"]:
+ 		for i in ESTOQUE_GERAL.get(e.faccao, ESTOQUE_GERAL["vigilia"]):
+ 			if not i in ids: ids.append(i)
+-	if loja_id in ["loja_tobias", "loja_malfas"]:
++	if loja_id in ["loja_tobias", "loja_malfas", "loja_bartimeu", "loja_carrinho_bartimeu"]:
+ 		for i in ["cartuchos_sal", "virotes_prata", "balas_chumbo", "gazua"]:
+ 			if not i in ids: ids.append(i)
+ 	# armas e armaduras de nível baixo para a classe do jogador
+-	if loja_id in ["loja_tobias", "loja_malfas"]:
++	if loja_id in ["loja_tobias", "loja_malfas", "loja_bartimeu", "loja_carrinho_bartimeu"]:
+ 		for id in Defs.POR_TAG.get("equip:faixa1", []):
+ 			var d: Dictionary = Defs.ITENS[id]
+ 			var cl = d.get("classes")
+@@ -1280,8 +1285,8 @@ static func redistribuir(sim: WorldSim, e: Ent) -> void:
+ static func salvar(e: Ent, sim: WorldSim) -> Dictionary:
+ 	return {"v": 2, "classe": e.classe, "evolucao": e.evolucao, "nome": e.nome, "nivel": e.nivel, "xp": e.xp, "pontos": e.pontos, "stats": e.stats,
+ 		"ouro": e.ouro, "municao": e.municao, "inv": e.inv, "equip": e.equip, "armazem": e.armazem, "missoes": e.missoes,
+-		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if sim.mapa_id.begins_with("area") else "area_inicial",
+-		"pos": [e.pos.x, e.pos.y] if sim.mapa_id.begins_with("area") else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
++		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if Defs.eh_mapa_casa(sim.mapa_id) else Defs.mapa_casa(e.faccao),
++		"pos": [e.pos.x, e.pos.y] if Defs.eh_mapa_casa(sim.mapa_id) else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
+ 		"auto": cfg_auto(e), "talentos": talentos(e)}
+ 
+ static func carregar(e: Ent, s: Dictionary) -> void:
+diff --git a/game/scripts/sim/loot.gd b/game/scripts/sim/loot.gd
+index fa89f27..ad24635 100644
+--- a/game/scripts/sim/loot.gd
++++ b/game/scripts/sim/loot.gd
+@@ -67,8 +67,9 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
+ 	var ja := {}
+ 	for dm in txt.get("drops_missao", []):
+ 		if ja.has(dm["item"]): continue
+-		# a Chave de Gancho (porão -> chefes) cai sempre para quem ainda não tem e não abriu a porta
+-		var chave: bool = dm["item"] == "chave_gancho" and Itens.contar(jog.inv, "chave_gancho") == 0 and not jog.flags.has("aberto_porta_ganchos")
++		# a Chave de Gancho (porão -> chefes) e a Chave de Pã (Fontes do Jordão -> Fosso) caem sempre para quem ainda não tem e não abriu a porta
++		var porta_da_chave := {"chave_gancho": "porta_ganchos", "chave_de_pa": "porta_de_pa"}
++		var chave: bool = porta_da_chave.has(dm["item"]) and Itens.contar(jog.inv, dm["item"]) == 0 and not jog.flags.has("aberto_" + porta_da_chave[dm["item"]])
+ 		if (chave or Missoes.precisa_item(jog, dm["missao"], dm["item"])) and sim.rng.randf() < float(dm["chance"]):
+ 			ja[dm["item"]] = true
+ 			sim.soltar_no_chao(Itens.novo(dm["item"]), e.pos, jog.id, e.pos)
+diff --git a/game/tools/mapa.py b/game/tools/mapa.py
+index 827c7b4..fefca81 100644
+--- a/game/tools/mapa.py
++++ b/game/tools/mapa.py
+@@ -237,6 +237,9 @@ def area_inicial():
+     # ligação com a Mata do Granizo (Novo Éden, 0.8.3): a fresta da borda norte leva à mata
+     objetos.append({"kind": "portal", "pos": [87.5, 24.5], "para": "mata_do_granizo", "chegada": [72.5, 85.5],
+                     "nome": "Linha de Cinza · para a Mata do Granizo", "visual": "escada_subida"})
++    # ligação com Jerusalém e Monte Hermon (Arautos, 0.9.3): a estrada sai no caminho da banca da Corvina
++    objetos.append({"kind": "portal", "pos": [56.5, 126.5], "para": "jerusalem_hermon", "chegada": [101.5, 34.5],
++                    "nome": "Estrada dos Peregrinos · para Jerusalém", "visual": "escada_subida"})
+     luzes += mapa_biblioteca.rua(objetos, props, npcs, blk)   # Biblioteca Soterrada: lanterna, lintel e quarto da Nina
+     m = {"id": "area_inicial", "nome": d["name"], "w": n, "h": n,
+          "grade": ["".join("#" if blk[y][x] else "." for x in range(n)) for y in range(n)],
+diff --git a/game/tools/sim_test.gd b/game/tools/sim_test.gd
+index 10cbd2c..8ce893a 100644
+--- a/game/tools/sim_test.gd
++++ b/game/tools/sim_test.gd
+@@ -39,7 +39,8 @@ func _init() -> void:
+ 		var sim := WorldSim.new(42)
+ 		sim.evento.connect(_ev)
+ 		var j := Jogador.criar(sim, c, "Teste")
+-		var sp: Array = Defs.ler("res://data/mapas/area_inicial.json")["spawn_por_faccao"][j.faccao]
++		var mi: Dictionary = Defs.ler("res://data/mapas/area_inicial.json")   # o São Lázaro novo só tem spawn da Vigília
++		var sp: Array = mi["spawn_por_faccao"].get(j.faccao, mi["spawn"])
+ 		Jogador.entrar(sim, j, "area_inicial", Vector2(sp[0], sp[1]))
+ 		rodar(sim, 1.0)
+ 		j.pos = sim.celula_livre_perto(Vector2(57, 53))
+diff --git a/game/tools/sync.sh b/game/tools/sync.sh
+index 375aa2d..df12a03 100644
+--- a/game/tools/sync.sh
++++ b/game/tools/sync.sh
+@@ -57,6 +57,8 @@ cp $P/assets/ui/hud/fontes/*.woff2 $P/design/mapas/fontes/*.ttf $E/fontes/
+ mkdir -p $D/mapas/cripta; cp $P/entregas/cidade_sao_lazaro/area_inicial.json $P/entregas/cidade_sao_lazaro/spots.json $D/mapas/
+ cp $P/design/mapas/cripta/{porao_matadouro,ossario_carpideiras,camara_trombeta}.json $D/mapas/cripta/
+ cp $P/design/mapas/mata_do_granizo/mata_do_granizo.json $D/mapas/   # Novo Éden: 11 spots (16/10)
++cp $P/design/mapas/jerusalem_hermon/{jerusalem_hermon,minas_dos_gigantes,salao_das_noivas,altar_do_juramento}.json $G/data/mapas/   # Jerusalém e Monte Hermon + Fosso dos Vigilantes (0.9.3)
++cp $P/design/pvp/hermon/cume_dos_vigilantes.json $G/data/mapas/   # O Cume dos Vigilantes, evento diário (0.9.3)
+ cp $P/design/mapas/biblioteca/biblioteca_soterrada.json $G/data/mapas/   # Biblioteca Soterrada: interior (17/10)
+ cp $P/entregas/egito/mapas/*.json $G/data/mapas/   # Egito: 3 andares do Hawara, 6 salões do Coração e o mapa egito (17/10)
+ cp $P/design/mapas/atlantida/atlantida.json $D/mapas/atlantida.json   # Atlântida de Thoth (16/10)
+diff --git a/game/tools/teste_jerusalem.gd b/game/tools/teste_jerusalem.gd
+new file mode 100644
+index 0000000..faf353c
+--- /dev/null
++++ b/game/tools/teste_jerusalem.gd
+@@ -0,0 +1,166 @@
++extends SceneTree
++## Teste headless de Jerusalém e Monte Hermon (Arautos, 0.9.3): casa por facção, portais, lojas, chave de Pã
++## e os 3 chefes do Fosso dos Vigilantes com o roteiro dos chefes da Cripta.
++## godot --headless --path . --script res://tools/teste_jerusalem.gd
++
++var falhas := 0
++var oks := 0
++var evs: Array = []
++
++func ok(cond: bool, txt: String) -> void:
++	if cond: oks += 1; print("  ok   ", txt)
++	else: falhas += 1; print("  FALHA ", txt)
++
++func _ev(t: String, d: Dictionary) -> void:
++	evs.append([t, d])
++
++func conta(t: String, f: Callable = Callable()) -> int:
++	var n := 0
++	for x in evs:
++		if x[0] == t and (not f.is_valid() or f.call(x[1])): n += 1
++	return n
++
++func ultimo(t: String) -> Dictionary:
++	for i in range(evs.size() - 1, -1, -1):
++		if evs[i][0] == t: return evs[i][1]
++	return {}
++
++func rodar(sim: WorldSim, seg: float, f: Callable = Callable()) -> void:
++	for i in int(seg * 30):
++		if f.is_valid() and i % 6 == 0: f.call()
++		sim.passo(WorldSim.TICK)
++
++func _init() -> void:
++	Defs.carregar()
++	teste_dados()
++	teste_casa()
++	teste_portais()
++	teste_lojas_e_chave()
++	for c in [["minas_dos_gigantes", "ohya_gigante", "general_partido", "soldado_de_pedra"],
++			["salao_das_noivas", "naama_noiva", "irma_celeste", "noiva_afogada"],
++			["altar_do_juramento", "semyaza_juramento", "zacarias_arauto", "eco_do_juramento"]]:
++		teste_chefe(c[0], c[1], c[2], c[3])
++	print("\nteste_jerusalem: %d ok, %d falhas" % [oks, falhas])
++	quit(1 if falhas > 0 else 0)
++
++func teste_dados() -> void:
++	print("[dados]")
++	for m in ["jerusalem_hermon", "minas_dos_gigantes", "salao_das_noivas", "altar_do_juramento", "cume_dos_vigilantes"]:
++		ok(FileAccess.file_exists("res://data/mapas/%s.json" % m), "mapa %s" % m)
++	for k in ["peregrino_ressecado", "kokabiel_contador", "vigilante_desfeito"]:
++		ok(Defs.MOBS.has(k) and Defs.MOBS[k].has("hp_base") or Defs.MOBS[k].size() > 5, "mob %s com números do espelho" % k)
++	for k in ["drop_ohya", "drop_naama", "drop_semyaza"]:
++		ok(Defs.DROPS["tabelas"].has(k), "tabela de drop %s" % k)
++	ok(Defs.mecanica_chefe("ohya_gigante") == "general_partido" and Defs.mecanica_chefe("general_partido") == "general_partido", "mecanica_de")
++	ok(Defs.ITENS.has("martelo_de_tubal") and Defs.ITENS.has("malho_de_tubal"), "martelo_de_tubal (Jerusalém) e malho_de_tubal (Hermon) separados")
++	var g02: Dictionary = Missoes.def("g02")
++	ok(g02.get("requer_qualquer", []) == ["g01", "jg01"], "g02 abre com g01 ou jg01")
++
++func teste_casa() -> void:
++	print("[casa por facção]")
++	ok(Defs.mapa_casa_classe("anjo") == "jerusalem_hermon" and Defs.mapa_casa_classe("cultista") == "jerusalem_hermon", "Arautos nascem em Jerusalém")
++	ok(Defs.mapa_casa_classe("humano") == "area_inicial" and Defs.mapa_casa_classe("tecnomancer") == "area_inicial", "Vigília nasce no deserto")
++	var sim := WorldSim.new(3); sim.evento.connect(_ev)
++	var j := Jogador.criar(sim, "demonio", "Teste")
++	var sp: Array = Defs.ler("res://data/mapas/jerusalem_hermon.json")["spawn_por_faccao"]["arautos"]
++	Jogador.entrar(sim, j, "jerusalem_hermon", Vector2(sp[0], sp[1]))
++	rodar(sim, 0.5)
++	ok(j.pos.distance_to(Vector2(sp[0], sp[1])) < 2.0, "nasce na Brasa do Altar")
++	var cheg := 0
++	for s in sim.spawns:
++		if not sim.caminho(j.pos, s["pos"]).is_empty(): cheg += 1
++	ok(cheg == sim.spawns.size(), "a pé, da cidade até todos os grupos de mobs (%d de %d)" % [cheg, sim.spawns.size()])
++	var sv := Jogador.salvar(j, sim)
++	ok(sv["mapa"] == "jerusalem_hermon" and sv["pos"].size() == 2, "save guarda Jerusalém e a posição")
++	Jogador.entrar(sim, j, "minas_dos_gigantes", Vector2(12.5, 50.5))
++	sv = Jogador.salvar(j, sim)
++	ok(sv["mapa"] == "jerusalem_hermon" and sv["pos"].is_empty(), "save dentro do Fosso volta para Jerusalém")
++	evs.clear()
++	Jogador.voltar_acampamento(sim, j); rodar(sim, 3.5)
++	ok(ultimo("trocar_mapa").get("mapa", "") == "jerusalem_hermon", "teleporte para a base leva o Arauto a Jerusalém")
++	var h := Jogador.criar(sim, "humano", "Teste2")
++	ok(Jogador.salvar(h, sim)["mapa"] == "area_inicial", "Vigília fora de casa salva no deserto")
++
++func _portal(sim: WorldSim, para: String) -> Ent:
++	for e: Ent in sim.ents.values():
++		if e.tipo == "objeto" and e.kind == "portal" and e.aux.get("para", "") == para: return e
++	return null
++
++func teste_portais() -> void:
++	print("[portais]")
++	var sim := WorldSim.new(4); sim.evento.connect(_ev)
++	var j := Jogador.criar(sim, "anjo", "Teste")
++	Jogador.entrar(sim, j, "jerusalem_hermon", Vector2(101.5, 42.5))
++	var p := _portal(sim, "area_inicial")
++	ok(p != null, "Estrada do Sul em Jerusalém")
++	ok(not sim.caminho(j.pos, p.pos).is_empty() or j.pos.distance_to(p.pos) < 2, "dá para andar até a Estrada do Sul")
++	evs.clear()
++	j.pos = sim.celula_livre_perto(p.pos)
++	Jogador.interagir(sim, j, p); rodar(sim, 1.0)
++	ok(conta("trocar_mapa") == 0 and conta("aviso") > 0, "nível 1 não desce para o deserto")
++	j.nivel = 12; evs.clear()
++	Jogador.interagir(sim, j, p); rodar(sim, 1.0)
++	var t := ultimo("trocar_mapa")
++	ok(t.get("mapa", "") == "area_inicial", "nível 12 desce para o deserto")
++	Jogador.entrar(sim, j, "area_inicial", t["pos"])
++	ok(j.pos.distance_to(t["pos"]) < 2.5, "chega andável no deserto (%s)" % str(j.pos))
++	var v := _portal(sim, "jerusalem_hermon")
++	ok(v != null and j.pos.distance_to(v.pos) < 4.0, "Estrada dos Peregrinos ao lado da chegada")
++	ok(not sim.caminho(j.pos, Vector2(70, 94)).is_empty(), "da Estrada dos Peregrinos até o centro de São Lázaro a pé")
++	evs.clear(); j.pos = sim.celula_livre_perto(v.pos)
++	Jogador.interagir(sim, j, v); rodar(sim, 1.0)
++	ok(ultimo("trocar_mapa").get("mapa", "") == "jerusalem_hermon", "volta para Jerusalém")
++	var tp: Array = Defs.ler("res://data/teleporte.json")["destinos"].filter(func(d): return d["mapa"] == "jerusalem_hermon")
++	ok(tp.size() >= 8, "menu de teleporte com %d destinos em Jerusalém" % tp.size())
++
++func teste_lojas_e_chave() -> void:
++	print("[lojas e chave de Pã]")
++	var sim := WorldSim.new(5)
++	var j := Jogador.criar(sim, "cultista", "Teste")
++	Jogador.entrar(sim, j, "jerusalem_hermon", Vector2(101.5, 42.5))
++	for l in ["loja_hulda", "loja_zilpa", "loja_bartimeu", "loja_carrinho_bartimeu", "loja_zaqueu_cobrador"]:
++		ok(Defs.LOJAS.has(l) and Jogador.estoque(j, l).has("pocao_vida_p"), "%s vende poção" % l)
++	ok(Jogador.estoque(j, "loja_bartimeu").size() > Defs.LOJAS["loja_bartimeu"]["itens"].size() + 3, "Bartimeu vende munição e armas da faixa 1")
++	var cap: Ent = null
++	for e: Ent in sim.ents.values():
++		if e.tipo == "monstro" and e.kind == "capataz_de_tofete": cap = e
++	ok(cap != null, "Capataz de Tofete no mapa")
++	if cap == null: return
++	var achou := false
++	for i in 6:
++		Loot.dropar_mob(sim, cap, j)
++		for k in sim.chao.keys():
++			if sim.chao[k]["item"]["id"] == "chave_de_pa": achou = true
++		if achou: break
++	ok(achou, "Chave de Pã cai do Capataz")
++
++func teste_chefe(mapa: String, id: String, mec: String, invocado: String) -> void:
++	print("[%s]" % mapa)
++	evs.clear()
++	var sim := WorldSim.new(11); sim.evento.connect(_ev)
++	var j := Jogador.criar(sim, "demonio", "Teste")
++	var c: Dictionary = Defs.ler("res://data/mapas/%s.json" % mapa)["chefe"]
++	Jogador.entrar(sim, j, mapa, Vector2(c["arena"]["centro"][0], c["arena"]["centro"][1]))
++	ok(sim.chefe != null and sim.chefe.boss.kind == id and sim.chefe.mec == mec, "%s usa o roteiro de %s" % [id, mec])
++	j.nivel = 12; j.stats["FOR"] = 120; j.stats["AGI"] = 60
++	Regras.recalc_jogador(j); j.hp_max = 9000; j.hp = 9000
++	for m: Ent in sim.ents.values():
++		if m.tipo == "monstro": m.vivo = false
++	var t0 := Time.get_ticks_msec()
++	var vistos := {}
++	rodar(sim, 240.0, func():
++		for e: Ent in sim.ents.values():
++			if e.tipo == "monstro" and e.vivo: vistos[e.kind] = true
++		if not j.vivo: return
++		j.hp = maxf(j.hp, j.hp_max * 0.5)
++		var b: Ent = sim.chefe.boss if sim.chefe != null and sim.chefe.boss.vivo else null
++		if b != null and j.acao.is_empty(): Jogador.cmd_atacar(sim, j, b.id))
++	var invocou := 1 if vistos.has(invocado) else 0
++	var errado := 0
++	for k in ["soldado_caido", "carpideira_de_ossos", "eco_da_trombeta", "querubim_desfeito"]:
++		if vistos.has(k): errado += 1
++	print("    mobs na luta: ", vistos.keys())
++	print("    estado=%s fase=%d hp=%d  (%d ms)" % [sim.chefe.estado, sim.chefe.fase, int(sim.chefe.boss.hp), Time.get_ticks_msec() - t0])
++	ok(sim.chefe.fase >= 2, "%s passou da fase 1" % id)
++	ok(errado == 0, "%s não chama mobs da Cripta" % id)
++	if mec != "irma_celeste": ok(invocou > 0, "%s chamou %s" % [id, invocado])

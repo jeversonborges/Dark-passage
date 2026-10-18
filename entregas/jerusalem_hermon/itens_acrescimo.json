@@ -1,0 +1,587 @@
+{
+ "_doc": "Cópias dos itens do deserto (mesmos atributos e efeitos), com nome e texto daqui.",
+ "itens": [
+  {
+   "id": "azeite_do_lagar",
+   "nome": "Azeite do Lagar",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Azeite grosso das últimas oliveiras do Getsêmani, guardado em odre de couro. Os abutres furam os odres dos peregrinos mortos e levam para o ninho.",
+   "espelho_de": "bobina_cobre",
+   "citacao": {
+    "texto": "A Brasa come qualquer óleo. Este ela come com gosto.",
+    "autor": "Hulda da Escada"
+   }
+  },
+  {
+   "id": "vela_do_escriba",
+   "nome": "Vela de Cera do Escriba",
+   "tipo": "consumivel",
+   "pilha": 10,
+   "efeito": {
+    "repele": "levantado_das_oliveiras",
+    "duracao_s": 30
+   },
+   "preco": 15,
+   "descricao": "Vela de cera escura que o Escriba enrola à mão, com uma linha escrita em volta do pavio. Enquanto ela queima, os Levantados das Oliveiras abaixam a cabeça e deixam você passar.",
+   "espelho_de": "vela_simao",
+   "citacao": {
+    "texto": "Os mortos respeitam quem sabe o nome deles.",
+    "autor": "o Escriba"
+   }
+  },
+  {
+   "id": "lasca_da_tabua",
+   "nome": "Lasca da Tábua",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "faccao": "arautos",
+   "raridade": "unico",
+   "nivel": 12,
+   "atributos": {
+    "vit": 6,
+    "esp": 3
+   },
+   "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+   "descricao": "Uma lasca de pedra queimada com metade de uma letra que ninguém sabe ler. Esquenta quando alguém mente perto dela.",
+   "espelho_de": "estilhaco_lacre",
+   "citacao": {
+    "texto": "Queimamos o juramento. O fim deu um passo. Eu senti.",
+    "autor": "Sariel, Guardiã da Porta"
+   }
+  },
+  {
+   "id": "selo_do_coro",
+   "nome": "Selo do Coro",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "faccao": "arautos",
+   "raridade": "unico",
+   "nivel": 12,
+   "atributos": {
+    "esp": 6,
+    "agi": 3
+   },
+   "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
+   "descricao": "O selo de chumbo que o Coro de Sião pôs na Tábua do Juramento antes de guardá-la. Pesa mais do que deveria.",
+   "espelho_de": "diapasao_reverso",
+   "citacao": {
+    "texto": "Guardado não é perdoado. É guardado.",
+    "autor": "Hulda da Escada"
+   }
+  },
+  {
+   "id": "raiz_de_hissopo",
+   "nome": "Raiz de Hissopo",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Raiz branca de hissopo que só nasce onde enterraram alguém. Os Levantados carregam presa nas unhas.",
+   "espelho_de": "raiz_cova"
+  },
+  {
+   "id": "cha_de_hissopo",
+   "nome": "Chá de Hissopo",
+   "tipo": "consumivel",
+   "faccao": "arautos",
+   "pilha": 10,
+   "efeito": {
+    "cura_hp": 40,
+    "buff": {
+     "vit": 3,
+     "duracao_s": 300
+    }
+   },
+   "preco": 12,
+   "descricao": "O chá amargo do caldeirão da Zilpa. Purifica, ela diz. Ninguém sabe do quê, mas quem toma levanta mais forte.",
+   "espelho_de": "caldo_cardo_comum",
+   "citacao": {
+    "texto": "Purifica-me com hissopo, e ficarei limpo. Ficar limpo dói.",
+    "autor": "Zilpa, a Hissopeira"
+   }
+  },
+  {
+   "id": "infusao_de_hissopo",
+   "nome": "Infusão de Hissopo",
+   "tipo": "missao",
+   "pilha": 1,
+   "uso": "Derramar no Túmulo de Joás, na necrópole do Monte das Oliveiras.",
+   "descricao": "Uma tigela de barro com o chá mais forte que a Zilpa sabe fazer. Não é para beber.",
+   "espelho_de": "caldo_cardo"
+  },
+  {
+   "id": "medalha_de_joas",
+   "nome": "Medalha de Joás",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Medalha de latão com o nome JOÁS gravado a prego. Estava presa no pescoço de algo que respondia por esse nome.",
+   "espelho_de": "medalhinha_cardo"
+  },
+  {
+   "id": "veu_de_zilpa",
+   "nome": "Véu Bordado da Zilpa",
+   "tipo": "equipamento",
+   "slot": "acessorio",
+   "raridade": "raro",
+   "nivel": 5,
+   "atributos": {
+    "vit": 4,
+    "hp": 40
+   },
+   "efeito": "Comida e sopas curam 25% a mais.",
+   "descricao": "Véu de luto bordado com ramos de hissopo, o único que a Zilpa não vendeu. Era do filho dela antes de ser dela.",
+   "espelho_de": "lenco_cardo",
+   "citacao": {
+    "texto": "Ele usava para dormir. Agora você usa para não morrer.",
+    "autor": "Zilpa, a Hissopeira"
+   }
+  },
+  {
+   "id": "elo_de_corrente",
+   "nome": "Elo de Corrente",
+   "tipo": "missao",
+   "pilha": 20,
+   "descricao": "Elo grosso de corrente antiga, das que prendiam algo grande no fundo da terra. Os fornalheiros levam no cinto como amuleto.",
+   "espelho_de": "ferro_velho"
+  },
+  {
+   "id": "elo_de_vigilante",
+   "nome": "Elo de Vigilante",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Um elo de corrente do tamanho de uma mão aberta, que Tubal tirou das fornalhas e não teve coragem de derreter. Pesa como uma criança dormindo.",
+   "espelho_de": "badalo_rachado"
+  },
+  {
+   "id": "malho_de_tubal",
+   "nome": "Malho de Tubal",
+   "tipo": "equipamento",
+   "slot": "acessorio",
+   "faccao": "arautos",
+   "raridade": "raro",
+   "nivel": 5,
+   "atributos": {
+    "vit": 3,
+    "for": 2
+   },
+   "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+   "descricao": "Martelo de forja da Legião, cabo de osso, cabeça feita de elos de corrente fundidos. Tubal martela o seu nome nele antes de entregar.",
+   "espelho_de": "badalo_de_guerra",
+   "citacao": {
+    "texto": "Ferro de Vigilante não enferruja. Só lembra.",
+    "autor": "Tubal, o Malho"
+   }
+  },
+  {
+   "id": "flauta_de_osso",
+   "nome": "Flauta de Osso",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Uma flauta de osso de abutre, rachada. Bartimeu tocava para a mãe quando ainda havia mãe.",
+   "espelho_de": "caixinha_musica"
+  },
+  {
+   "id": "leitura_mapa_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "tipo": "leitura",
+   "texto": "(em relevo de cera, para ler com o dedo)\nX 1: no olival, perto da pedra que sobe. Debaixo da pedra que balança.\nX 2: no bosque, no tronco oco perto da cabana do Escriba (ele finge que não ouve).\nX 3: na cidade de baixo, perto de Siloé. Trancado. Chama alguém forte.\nSe não achar, fecha o olho e tenta de novo. O que achar é seu, mas a flauta é MINHA. — B.",
+   "espelho_de": "leitura_mapa_tobias"
+  },
+  {
+   "id": "mapa_de_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "tipo": "missao",
+   "pilha": 1,
+   "leitura": "leitura_mapa_bartimeu",
+   "descricao": "Um mapa desenhado por alguém que nunca viu nada. Os traços são em relevo, feitos com cera derretida. Funciona melhor de olhos fechados.",
+   "espelho_de": "mapa_rasgado"
+  },
+  {
+   "id": "pa_do_escriba",
+   "nome": "Pá do Escriba",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Pá curta de cabo gasto, com uma linha de escrita em volta do cabo. O Escriba empresta, mas conta.",
+   "espelho_de": "pa_simao"
+  },
+  {
+   "id": "pao_de_rispa",
+   "nome": "Pão de Rispa",
+   "tipo": "consumivel",
+   "pilha": 1,
+   "efeito": {
+    "cura_hp_pct": 100
+   },
+   "descricao": "Pão de cevada assado na fogueira da Rispa, embrulhado em saco. Ela assa um para cada morto que guarda e não come nenhum.",
+   "espelho_de": "figo_anacleto",
+   "citacao": {
+    "texto": "Do começo da sega até a chuva. Eu fico.",
+    "autor": "Rispa, a Que Vigia"
+   }
+  },
+  {
+   "id": "cinza_de_tofete",
+   "nome": "Cinza de Tofete",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Cinza gordurosa das fornalhas da Geena. Os porcos de Gadara rolam nela para tirar os espíritos de cima. O Escriba faz velas com ela.",
+   "espelho_de": "sebo_rancoso"
+  },
+  {
+   "id": "chave_de_pa",
+   "nome": "Chave de Pã",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Chave de ferro em forma de chifre, presa a um cordão de couro com a palavra PANEAS gravada. Abre a gruta dos Portões do Hades.",
+   "espelho_de": "chave_gancho",
+   "citacao": {
+    "texto": "PANEAS · PORTA DOS QUE DESCEM",
+    "autor": "inscrição no cordão"
+   }
+  },
+  {
+   "id": "leitura_contas_de_tofete",
+   "nome": "Contas de Tofete",
+   "tipo": "leitura",
+   "texto": "Ano 1: 40 carroças de mortos, 3 de lenha.\nAno 9: 12 carroças de mortos. Pouca lenha. Os porcos comem o resto.\nAno 30: 2 carroças. O fogo não apaga mesmo assim.\nEncomenda paga em correntes, entregue na gruta de Pã: 600 elos.\nPARA O FUNDO DO MONTE. Quem paga não assina. Quem entrega não volta.",
+   "espelho_de": "leitura_obitos"
+  },
+  {
+   "id": "livro_de_contas_de_tofete",
+   "nome": "Livro de Contas de Tofete",
+   "tipo": "missao",
+   "pilha": 1,
+   "leitura": "leitura_contas_de_tofete",
+   "descricao": "Livro de capa de couro com tudo o que entrou nas fornalhas desde o primeiro dia. Na última página, uma encomenda paga em correntes: PARA O FUNDO DO MONTE.",
+   "espelho_de": "livro_obitos"
+  },
+  {
+   "id": "selo_do_sonho",
+   "nome": "Selo do Sonho",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "O primeiro dos dois selos que trancam a porta do Altar. Estava enrolado no pulso de Ohya. Quem segura, sonha com água subindo.",
+   "espelho_de": "lacre_carne",
+   "citacao": {
+    "texto": "Sonha com água. É o que eles todos sonham.",
+    "autor": "Rispa, a Que Vigia"
+   }
+  },
+  {
+   "id": "manto_de_ohya",
+   "nome": "Manto de Ohya",
+   "tipo": "equipamento",
+   "slot": "peito",
+   "raridade": "raro",
+   "nivel": 8,
+   "atributos": {
+    "defesa": 28,
+    "vit": 5,
+    "for": 2
+   },
+   "efeito": "Matar um inimigo recupera 3% do HP.",
+   "descricao": "Pele costurada de muitos escravos que o gigante usava como manto, cortada para caber num corpo de gente. Ainda está quente do fogo das minas.",
+   "espelho_de": "dragonas_general",
+   "citacao": {
+    "texto": "Sonhei que vinha alguém pequeno. Sonhei errado no tamanho.",
+    "autor": "Ohya, o Gigante que Sonhou"
+   }
+  },
+  {
+   "id": "selo_das_aguas",
+   "nome": "Selo das Águas",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "O segundo selo da porta do Altar, frio e molhado por dentro como uma concha. Estava debaixo do véu de Naamá.",
+   "espelho_de": "lacre_lagrimas"
+  },
+  {
+   "id": "veu_de_naama",
+   "nome": "Véu de Naamá",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "raro",
+   "nivel": 10,
+   "atributos": {
+    "defesa": 14,
+    "esp": 5
+   },
+   "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+   "descricao": "O véu de noiva de Naamá, endurecido de sal e lágrima. Por baixo, o mundo fica sempre um pouco mais quieto.",
+   "espelho_de": "veu_carpideira",
+   "citacao": {
+    "texto": "Eles eram grandes. Eram meus.",
+    "autor": "Naamá, a Noiva dos Vigilantes"
+   }
+  },
+  {
+   "id": "tabua_do_juramento",
+   "nome": "Tábua do Juramento",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Uma tábua de pedra negra com duzentos nomes e uma frase só, repetida até o fim da pedra. Semyaza a segurava contra o peito.",
+   "espelho_de": "bocal_trombeta",
+   "citacao": {
+    "texto": "Que o fim fique onde está.",
+    "autor": "a frase gravada duzentas vezes"
+   }
+  },
+  {
+   "id": "valvula_da_escuta",
+   "nome": "Válvula da Escuta",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Válvula de vidro do posto de escuta, comida pelos chacais junto com o cabo. Ainda acende quando alguém reza perto.",
+   "espelho_de": "valvula_radio"
+  },
+  {
+   "id": "pagina_do_decreto",
+   "nome": "Página do Decreto",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Página arrancada de um decreto do Coro. Os Levantados dos cedros guardam no peito, como guardariam uma carta.",
+   "espelho_de": "pagina_ordem"
+  },
+  {
+   "id": "leitura_decreto_sexta_hora",
+   "nome": "O Decreto da Sexta Hora (cópia)",
+   "tipo": "leitura",
+   "texto": "CORO DE SIÃO · DECRETO DA SEXTA HORA · PRIMEIRO DIA DO JUÍZO\nOs Vigiados resistem. A Cerca segura as cidades. O Juízo não avança.\nPelo bem do Fim, NA SEXTA HORA AFROUXEM-SE AS CORRENTES DOS DUZENTOS que jazem no Hermon.\nQue desçam outra vez sobre os homens, como desceram nos dias de Jarede.\nCopiado pela irmã Jael. Selado pelo Coro. (o selo foi raspado)",
+   "espelho_de": "leitura_ordem_lancamento",
+   "descricao": "Cópia em pergaminho de um decreto do Coro de Sião, com o selo raspado. Hulda diz que é falso. Jael diz que é a letra dela."
+  },
+  {
+   "id": "agua_de_degelo",
+   "nome": "Água de Degelo",
+   "tipo": "missao",
+   "pilha": 5,
+   "descricao": "Água cinzenta do degelo do Hermon. Os sapadores a represam para mandar ao deserto. No frasco, ela canta sozinha uma nota baixa.",
+   "espelho_de": "amostra_amarga"
+  },
+  {
+   "id": "orelha_de_jael",
+   "nome": "Orelha de Latão da Jael",
+   "tipo": "equipamento",
+   "slot": "acessorio",
+   "raridade": "raro",
+   "nivel": 8,
+   "atributos": {
+    "vit": 4,
+    "esp": 2
+   },
+   "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+   "descricao": "Um fone de latão do posto de escuta, preso num cordão. Estala quando um Vigilante acorda por perto.",
+   "espelho_de": "contador_isaura",
+   "citacao": {
+    "texto": "Eles falam baixo. Quem não escuta acha que é vento.",
+    "autor": "Jael, a Escuta"
+   }
+  },
+  {
+   "id": "elo_partido",
+   "nome": "Elo Partido",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Elo de corrente partido de dentro para fora. Estava no pulso de um Vigilante Acorrentado.",
+   "espelho_de": "fragmento_clarao"
+  },
+  {
+   "id": "astrolabio_de_kokabiel",
+   "nome": "Astrolábio de Kokabiel",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Instrumento de latão cheio de estrelas que não existem mais. Kokabiel contava com ele as noites até o fim.",
+   "espelho_de": "chave_lancamento"
+  },
+  {
+   "id": "estrela_contada",
+   "nome": "A Estrela Contada",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "nivel": 12,
+   "atributos": {
+    "esp": 6,
+    "vit": 4
+   },
+   "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
+   "descricao": "A última estrela do astrolábio, solta. Brilha fraco, sempre apontando para o fundo do Hermon.",
+   "espelho_de": "estilhaco_absinto",
+   "citacao": {
+    "texto": "Apaguei a conta. Agora ninguém sabe quantas noites faltam. Nem eles.",
+    "autor": "Jael, a Escuta"
+   }
+  },
+  {
+   "id": "astrolabio_do_coro",
+   "nome": "Astrolábio do Coro",
+   "tipo": "equipamento",
+   "slot": "amuleto",
+   "raridade": "unico",
+   "nivel": 12,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 2
+   },
+   "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
+   "descricao": "O astrolábio de Kokabiel com o selo do Coro de Sião. Quem o carrega sabe, mais ou menos, quantas noites faltam.",
+   "espelho_de": "chave_segunda_estrela"
+  },
+  {
+   "id": "insignia_da_cerca",
+   "nome": "Insígnia da Cerca",
+   "tipo": "missao",
+   "pilha": 10,
+   "descricao": "Insígnia de latão da Vigília, com a vela dentro da engrenagem, arrancada de um sapador. Zaqueu paga bem por elas.",
+   "espelho_de": "insignia_arrancada"
+  },
+  {
+   "id": "leitura_carta_do_sineiro",
+   "nome": "Carta do Sineiro (decifrada)",
+   "tipo": "leitura",
+   "texto": "Irmão, o sino rachado avisa a hora.\nNa missa da sexta hora o Coro bebe do cálice de Sião.\nO veneno já está na adega, misturado ao vinho das oliveiras.\nQuem nos vende é do Coro e tem nome de anjo. Não confie no cobrador.\nEnquanto houver vela, não é noite. — S.",
+   "espelho_de": "leitura_carta_apostata"
+  },
+  {
+   "id": "carta_do_sineiro",
+   "nome": "Carta do Sineiro",
+   "tipo": "missao",
+   "pilha": 1,
+   "leitura": "leitura_carta_do_sineiro",
+   "descricao": "Carta da Vigília, cifrada. Zaqueu leu em dez minutos: fala de veneno, de um cálice e de um nome do Coro.",
+   "espelho_de": "carta_apostata"
+  },
+  {
+   "id": "coroa_partida",
+   "nome": "Coroa de Ferro Partida",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Metade de uma coroa de ferro presa nas correntes do Trono da Geena. A outra metade ninguém sabe onde está.",
+   "espelho_de": "meia_dragona"
+  },
+  {
+   "id": "divisa_da_geena",
+   "nome": "Divisa da Geena",
+   "tipo": "equipamento",
+   "slot": "acessorio",
+   "raridade": "raro",
+   "nivel": 8,
+   "atributos": {
+    "for": 3,
+    "vit": 3
+   },
+   "efeito": "Desertores da Legião não atacam você primeiro.",
+   "descricao": "A divisa da Legião Blasfema bordada com fio de brasa, como a usavam os que juraram ao general. Tubal tirou do trono vazio.",
+   "espelho_de": "divisa_legiao",
+   "citacao": {
+    "texto": "O trono está vazio. A divisa, não.",
+    "autor": "Tubal, o Malho"
+   }
+  },
+  {
+   "id": "tabuinha_de_argila",
+   "nome": "Tabuinha de Argila",
+   "tipo": "missao",
+   "pilha": 3,
+   "descricao": "Tabuinha de argila com escrita muito antiga. Três delas, juntas, dizem um nome: HNWK.",
+   "espelho_de": "placa_coveiro"
+  },
+  {
+   "id": "folha_do_livro",
+   "nome": "Folha do Livro",
+   "tipo": "missao",
+   "pilha": 5,
+   "descricao": "Folha solta de um livro escrito por uma mão só, sempre a mesma, em séculos diferentes.",
+   "espelho_de": "folha_tombo"
+  },
+  {
+   "id": "leitura_livro_de_henoc",
+   "nome": "O Livro do Escriba (folha primeira)",
+   "tipo": "leitura",
+   "texto": "LIVRO DO ESCRIBA · FOLHA PRIMEIRA\nE aconteceu que nos dias de Jarede desceram duzentos sobre o cume do Hermon, e juraram, e se amarraram por maldição.\nE tomaram mulheres, e as mulheres pariram gigantes, e os gigantes comeram tudo, e depois comeram os homens.\nE os duzentos me pediram que eu escrevesse o pedido deles ao Altíssimo, porque eles já não podiam levantar os olhos.\nEu escrevi. Não foi atendido.\n(A mesma letra, em tinta mais nova, na margem:) Ainda não foi.",
+   "espelho_de": "leitura_livro_tombo",
+   "descricao": "A primeira folha de um livro muito velho, copiada à mão muitas vezes. Fala de duzentos que desceram num monte e de um escriba que escreveu o pedido deles."
+  },
+  {
+   "id": "ultima_linha",
+   "nome": "A Última Linha",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Uma tira de couro com uma única linha escrita, arrancada de um Escriba Emparedado. É a mesma letra das tabuinhas.",
+   "espelho_de": "ultimo_tijolo"
+  },
+  {
+   "id": "pena_do_escriba",
+   "nome": "Pena do Escriba",
+   "tipo": "equipamento",
+   "slot": "acessorio",
+   "raridade": "raro",
+   "nivel": 11,
+   "atributos": {
+    "vit": 4,
+    "esp": 3
+   },
+   "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+   "descricao": "Uma pena de escrever cinzenta, mais leve que deveria. O Escriba deu sem dizer de que ave era.",
+   "espelho_de": "faixas_betania"
+  },
+  {
+   "id": "nome_verdadeiro",
+   "nome": "O Nome Verdadeiro",
+   "tipo": "missao",
+   "pilha": 1,
+   "descricao": "Um som preso num frasco de barro: alguém dizendo um nome muito antigo. Os Ecos do Juramento repetem esse nome entre os duzentos.",
+   "espelho_de": "eco_do_nome"
+  },
+  {
+   "id": "diadema_do_escriba",
+   "nome": "Diadema do Escriba",
+   "tipo": "equipamento",
+   "slot": "cabeca",
+   "raridade": "unico",
+   "nivel": 12,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 4,
+    "esp": 4,
+    "hp": 50
+   },
+   "efeito": "Dano recebido de jogadores reduzido em 14%.",
+   "descricao": "Diadema de bronze escurecido com uma única linha gravada em volta, numa letra mais velha que o dilúvio. O Escriba usou quando andou com Deus. Quando voltou, guardou numa caixa.",
+   "espelho_de": "elmo_rafael",
+   "citacao": {
+    "texto": "Andou com Deus e já não era. Depois voltou, porque o fim travou.",
+    "autor": "Livro do Escriba, última folha"
+   }
+  },
+  {
+   "id": "leitura_juramento_noivas",
+   "nome": "Votos na Parede",
+   "tipo": "leitura",
+   "texto": "Riscado na pedra, com unha:\nEu, filha de homem, tomo por marido um dos duzentos.\nEle me ensinou as ervas e as raízes. Me ensinou a ler o céu.\nMeus filhos cresceram até o teto. Depois veio a água.\nNão me arrependo dele. Me arrependo de ter ensinado meus filhos a ter fome.",
+   "espelho_de": "leitura_confissao_anacleto"
+  },
+  {
+   "id": "leitura_hulda",
+   "nome": "Diário da Hulda",
+   "tipo": "leitura",
+   "texto": "Primeira noite. A Brasa ia apagar. Juntei o óleo de todas as lamparinas da cidade.\nSegunda noite. O Coro me mandou copiar um decreto. Copiei. Não li.\nTerceira noite. Li. NA SEXTA HORA, AFROUXEM-SE AS CORRENTES. Era a letra da Jael, não a minha. A ordem era do Coro.\nNão contei a ninguém. Se o fim travou, uma parte da trava fomos nós.",
+   "espelho_de": "leitura_anselmo"
+  },
+  {
+   "id": "leitura_canto_das_noivas",
+   "nome": "Canto das Noivas",
+   "tipo": "leitura",
+   "texto": "Grandes eram, grandes eram,\nos meninos que eu pari.\nA água subiu até a boca,\ne a boca deles não cabia aqui.\nCanta, irmã, o nome deles,\nque o céu não escreveu.\nCanta mais alto que a chuva:\no que é grande também morreu.",
+   "espelho_de": "leitura_hino_carpideiras"
+  },
+  {
+   "id": "leitura_juramento_duzentos",
+   "nome": "O Juramento dos Duzentos (cópia)",
+   "tipo": "leitura",
+   "texto": "Juramos no Hermon, nos dias de Jarede, e nos amarramos por maldição.\nJuramos de novo no dia do primeiro toque, com as correntes abertas pelo Coro:\nQUE O FIM FIQUE ONDE ESTÁ.\nSe o mundo acabar, voltamos ao fundo. Se o mundo não acabar, ficamos.\nAssinam: Semyaza e cento e noventa e nove.",
+   "espelho_de": "leitura_ordem_zacarias"
+  }
+ ]
+}

@@ -2121,6 +2121,1648 @@
         ]
       },
       "texto_conclusao": "O eco disse \"Rafael\" e se desfez. Simão tirou o chapéu e, pela primeira vez, desenrolou as faixas de linho das costas: duas cicatrizes do ombro à cintura, onde um dia houve asas. Ele não era o homem que voltou da morte. Era o arcanjo que se recusou a deixar o mundo acabar, e pagou por três segundos de impasse com as próprias asas."
+    },
+    {
+      "id": "j01",
+      "titulo": "Os Que Ainda Rezam",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 1,
+      "doador": "sariel_porta",
+      "entrega": "sariel_porta",
+      "requer": [],
+      "resumo": "Derrube os Peregrinos Ressecados no Getsêmani.",
+      "descricao": "ORDEM DA PORTA DOURADA · Nº 1 · ANO 31 DO JUÍZO ADIADO\nAo irmão sem nome. Apresente-se à Porta Dourada.\nOs Peregrinos que vieram ver o fim ainda cavam o Getsêmani atrás de relíquias. Arranham as oliveiras, arranham a muralha. Seis deles. Derrube-os antes da sexta hora.\nNão reze por eles. Eles já rezaram demais.\n— Sariel, Guardiã da Porta",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "peregrino_ressecado",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 300,
+        "ouro": 20,
+        "itens": [
+          {
+            "id": "fita_juizo",
+            "qtd": 1
+          },
+          {
+            "id": "pao_duro",
+            "qtd": 5
+          },
+          {
+            "id": "hostia_negra",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Sariel amarrou a Fita do Juízo no seu pulso com um nó que ninguém sabe desfazer. \"Quem esquece, sangra\", disse. Depois escreveu o seu nome no batente da Porta Dourada, junto de muitos outros riscados.",
+      "espelho_de": "v01"
+    },
+    {
+      "id": "j02",
+      "titulo": "Azeite para a Brasa",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 2,
+      "doador": "hulda_escada",
+      "entrega": "hulda_escada",
+      "requer": [
+        "j01"
+      ],
+      "resumo": "Traga azeite do lagar para a Brasa do Altar.",
+      "descricao": "ANOTAÇÃO DA ESCADA · FOLHA 3\nA Brasa do Altar comeu o último óleo da cisterna. Ela não apaga, mas baixa, e quando baixa os Levantados chegam mais perto da muralha. Os abutres do Hermon furam os odres dos peregrinos caídos e levam o azeite para os ninhos. Cinco odres.\n— Hulda da Escada",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "azeite_do_lagar",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 30,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Hulda despejou o azeite numa concha de bronze e a Brasa subiu meio palmo. \"Foi uma brasa como esta que tocou a boca do profeta\", disse. \"Ele parou de gaguejar. Você ainda gagueja.\"",
+      "espelho_de": "v02"
+    },
+    {
+      "id": "j03",
+      "titulo": "Os Chacais de Josafá",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "sariel_porta",
+      "entrega": "sariel_porta",
+      "requer": [
+        "j02"
+      ],
+      "resumo": "Mate os chacais que descem do Vale de Josafá.",
+      "descricao": "ORDEM DA PORTA DOURADA · Nº 3\nA matilha do Cedrom subiu de novo até a Porta do Esterco. Oito chacais. No vale onde todas as nações serão julgadas, quem come os ossos são eles. Por enquanto.\n— Sariel, Guardiã da Porta",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "chacal_de_josafa",
+          "qtd": 8
+        }
+      ],
+      "recompensas": {
+        "xp": 1260,
+        "ouro": 40,
+        "escolha_por_classe": {
+          "humano": "escopeta_badalada",
+          "mutante": "machado_bonde",
+          "tecnomancer": "cajado_lampiao"
+        }
+      },
+      "texto_conclusao": "Sariel contou os dentes que você trouxe e jogou todos no fogo. \"No Juízo, até os chacais vão dar conta\", disse. \"Hoje, quem dá conta é você.\"",
+      "espelho_de": "v03"
+    },
+    {
+      "id": "j04",
+      "titulo": "Os Que Levantaram Primeiro",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "sariel_porta",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "j03"
+      ],
+      "resumo": "Abata Levantados das Oliveiras, examine os peregrinos ajoelhados e fale com o Escriba.",
+      "descricao": "ORDEM DA PORTA DOURADA · Nº 4\nOs mortos do Monte das Oliveiras levantaram primeiro, como a tradição prometia. Levantaram e ninguém os chamou. Abata seis. Veja três peregrinos ajoelhados na necrópole e me diga se ainda respiram. Depois procure o Escriba no Bosque do Hissopo: ele conta os mortos daqui desde antes de mim.\n— Sariel, Guardiã da Porta",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "levantado_das_oliveiras",
+          "qtd": 6
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "peregrino_de_joelhos",
+          "subzona": "necropole_oliveiras",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "henoc_escriba",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 1890,
+        "ouro": 50,
+        "itens": [
+          {
+            "id": "vela_do_escriba",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "O Escriba anotou os seis num livro de folhas soltas e te deu uma vela de cera escura. \"Os mortos respeitam quem sabe o nome deles\", disse, e voltou a escrever antes que você perguntasse o dele.",
+      "espelho_de": "v04"
+    },
+    {
+      "id": "j05",
+      "titulo": "O Destino da Tábua",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 12,
+      "doador": "sariel_porta",
+      "entrega": "hulda_escada",
+      "requer": [
+        "jc06"
+      ],
+      "resumo": "Decida o que fazer com a Tábua do Juramento.",
+      "descricao": "ORDEM DA PORTA DOURADA · SEM NÚMERO\nVocê desceu ao Fosso e trouxe a Tábua de Semyaza. Duzentos nomes e uma frase: que o fim fique onde está. Hulda quer selar a Tábua para o Coro. Eu quero queimá-la na Brasa. Você trouxe. Você escolhe.\n— Sariel, Guardiã da Porta",
+      "objetivos": [
+        {
+          "tipo": "decidir",
+          "npc": "hulda_escada"
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "destruir",
+          "texto": "Queimar a Tábua na Brasa do Altar (Sariel)",
+          "flags": [
+            "jh_bocal_destruido"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "lasca_da_tabua",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "estudar",
+          "texto": "Selar a Tábua para o Coro de Sião (Hulda)",
+          "flags": [
+            "jh_bocal_estudo_vigilia"
+          ],
+          "recompensas": {
+            "xp": 10710,
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "selo_do_coro",
+                "qtd": 1
+              }
+            ]
+          }
+        }
+      ],
+      "recompensas": {},
+      "texto_conclusao": "A escolha foi registrada no batente da Porta Dourada, ao lado do seu nome.",
+      "espelho_de": "v05"
+    },
+    {
+      "id": "js01",
+      "titulo": "Hissopo de Cova",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "zilpa_hissopo",
+      "entrega": "zilpa_hissopo",
+      "requer": [
+        "j02"
+      ],
+      "resumo": "Traga raízes de hissopo para a Zilpa.",
+      "descricao": "RECEITA DA ZILPA (escrita no avesso de uma oração)\nHissopo de cova: só o que nasce em cima de enterro. Os Levantados das Oliveiras trazem preso nas unhas, de tanto cavar. Quatro raízes. Lavar em água de degelo. Não cheirar.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "raiz_de_hissopo",
+          "qtd": 4
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 25,
+        "itens": [
+          {
+            "id": "cha_de_hissopo",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Zilpa jogou as raízes no caldeirão e ficou um tempo olhando o vapor, como quem espera alguém aparecer nele.",
+      "espelho_de": "s01"
+    },
+    {
+      "id": "js02",
+      "titulo": "Chá para Joás",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "zilpa_hissopo",
+      "entrega": "zilpa_hissopo",
+      "requer": [
+        "js01"
+      ],
+      "resumo": "Leve a infusão da Zilpa ao túmulo do filho dela.",
+      "descricao": "BILHETE DA ZILPA (dobrado em quatro)\nO meu Joás está enterrado na necrópole, debaixo da cruz celta torta. Ele levantou com os outros e não veio para casa. Leve o chá e derrame na pedra. Se ele vier, não deixe ele sofrer. Traga a medalha.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "infusao_de_hissopo",
+          "objeto": "tumulo_de_joas",
+          "subzona": "necropole_oliveiras"
+        },
+        {
+          "tipo": "matar",
+          "alvo": "filho_do_hissopo",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "medalha_de_joas",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "infusao_de_hissopo",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 1500,
+        "ouro": 50,
+        "itens": [
+          {
+            "id": "veu_de_zilpa",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Zilpa pegou a medalha, fechou a mão e não abriu mais naquela noite. De manhã te deu o véu bordado sem dizer nada.",
+      "espelho_de": "s02"
+    },
+    {
+      "id": "js03",
+      "titulo": "Correntes Viram Lâminas",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 6,
+      "doador": "tubal_malho",
+      "entrega": "tubal_malho",
+      "requer": [
+        "j03"
+      ],
+      "resumo": "Traga elos de corrente para a forja do Tubal.",
+      "descricao": "ENCOMENDA DA FORJA DE TUBAL\nSeis elos das correntes antigas que os fornalheiros de Tofete usam no cinto. Ferro que prendeu Vigilante não quebra. Depois, aqueça os elos na fornalha de Tofete, a grande, e traga de volta.\n— Tubal, o Malho (assina com um X em brasa)",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "elo_de_corrente",
+          "qtd": 6
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "forja_de_tofete",
+          "subzona": "necropole_oliveiras",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "elo_de_vigilante",
+              "qtd": 1
+            }
+          ]
+        }
+      ],
+      "recompensas": {
+        "xp": 1980,
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "martelo_de_tubal",
+            "qtd": 1
+          },
+          {
+            "id": "agua_benta_polvora",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "Tubal bateu os elos até virarem cabeça de martelo. \"O ferro lembra o que prendeu\", disse, e gravou o seu nome no cabo.",
+      "espelho_de": "s03"
+    },
+    {
+      "id": "js04",
+      "titulo": "Os Tesouros do Bartimeu",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "bartimeu_brasas",
+      "entrega": "bartimeu_brasas",
+      "requer": [
+        "j01"
+      ],
+      "resumo": "Ache os três esconderijos do Bartimeu.",
+      "descricao": "MAPA DE BARTIMEU (em relevo de cera)\nTrês esconderijos. Um no olival, perto da pedra que sobe. Um no bosque do Escriba. Um na cidade de baixo, trancado. A flauta está num deles. Os outros são seus.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "bau_bartimeu_1",
+          "subzona": "monte_oliveiras",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "bau_bartimeu_2",
+          "subzona": "necropole_oliveiras",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "bau_bartimeu_3",
+          "subzona": "vale_hinom",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "flauta_de_osso",
+          "qtd": 1
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "mapa_de_bartimeu",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 720,
+        "ouro": 80
+      },
+      "texto_conclusao": "Bartimeu passou o dedo na flauta, achou a rachadura e sorriu. \"Ainda toca torto. Como eu.\"",
+      "espelho_de": "s04"
+    },
+    {
+      "id": "js08",
+      "titulo": "Túmulos Abertos",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "henoc_escriba",
+      "entrega": "henoc_escriba",
+      "requer_qualquer": [
+        "j04"
+      ],
+      "resumo": "Feche os túmulos dos profetas que o vento descobriu.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA SOLTA\nO vento de cinza descobre os túmulos dos profetas toda noite. Quando um profeta fica à vista, os Levantados vêm ouvir. Cinco túmulos. A pá é minha. Devolva.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "tumulos_dos_profetas",
+          "subzona": "necropole_oliveiras",
+          "qtd": 5
+        }
+      ],
+      "ao_aceitar_recebe": [
+        {
+          "id": "pa_do_escriba",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "vela_do_escriba",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "O Escriba conferiu a pá, contou as pazadas pelo barro na lâmina e anotou.",
+      "espelho_de": "s08"
+    },
+    {
+      "id": "js09",
+      "titulo": "As Noivas Emparedadas",
+      "tipo": "secundaria",
+      "faccao": "arautos",
+      "nivel": 10,
+      "doador": "rispa_vigilia",
+      "entrega": "rispa_vigilia",
+      "requer": [
+        "jc04"
+      ],
+      "resumo": "Leia os nichos das noivas no Salão.",
+      "descricao": "VIGÍLIA DE RISPA (riscado a carvão numa tábua)\nNo salão do fundo tem nichos com mulheres de pedra. Cada uma escreveu o nome do marido do céu. Leia cinco e me diga os nomes. Alguém tem que guardar.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "nicho_da_noiva",
+          "subzona": "salao_das_noivas",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 4500,
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "pao_de_rispa",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Rispa repetiu os nomes em voz baixa, um por um, e jogou uma pedra na fogueira para cada.",
+      "espelho_de": "s09"
+    },
+    {
+      "id": "jr01",
+      "titulo": "Ronda da Muralha",
+      "tipo": "repetivel",
+      "repete": "diaria",
+      "faccao": "arautos",
+      "nivel": 3,
+      "doador": "sariel_porta",
+      "entrega": "sariel_porta",
+      "requer": [
+        "j03"
+      ],
+      "resumo": "Limpe o Getsêmani para a ronda da noite.",
+      "descricao": "ORDEM DA PORTA DOURADA · RONDA\nDez Peregrinos, cinco abutres. Toda noite. Até o fim terminar.\n— Sariel",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "peregrino_ressecado",
+          "qtd": 10
+        },
+        {
+          "tipo": "matar",
+          "alvo": "abutre_do_hermon",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "xp": 450,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "cha_de_hissopo",
+            "qtd": 2
+          }
+        ]
+      },
+      "texto_conclusao": "Sariel marcou mais um risco no batente. Os riscos já dão a volta na porta.",
+      "espelho_de": "r01"
+    },
+    {
+      "id": "jc01",
+      "titulo": "Velas para os Mortos",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "henoc_escriba",
+      "entrega": "henoc_escriba",
+      "requer_qualquer": [
+        "j04"
+      ],
+      "resumo": "Traga cinza de Tofete para as velas do Escriba.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA 40\nPreciso de seis punhados de cinza gorda das fornalhas. Os porcos de Gadara rolam nela; quando morrem, ela fica no couro. Com cinza de Tofete a vela não apaga no fundo do monte.",
+      "objetivos": [
+        {
+          "tipo": "coletar",
+          "item": "cinza_de_tofete",
+          "qtd": 6
+        }
+      ],
+      "recompensas": {
+        "xp": 2640,
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "vela_do_escriba",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "O Escriba enrolou seis velas na mesma noite e escreveu uma linha em volta de cada pavio. \"Para o que tem lá embaixo\", disse.",
+      "espelho_de": "c01"
+    },
+    {
+      "id": "jc02",
+      "titulo": "O Livro de Contas",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 6,
+      "doador": "henoc_escriba",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "jc01"
+      ],
+      "resumo": "Tome a chave do Capataz de Tofete e o livro da mesa dele.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA 41\nO Capataz de Tofete guarda a Chave de Pã desde que o general sumiu. Os fornalheiros não deixam ninguém chegar. Derrube oito, derrube o Capataz, pegue a chave e o livro de contas da mesa dele.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "fornalheiro_de_tofete",
+          "qtd": 8
+        },
+        {
+          "tipo": "matar",
+          "alvo": "capataz_de_tofete",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "chave_de_pa",
+          "qtd": 1
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "mesa_do_capataz",
+          "subzona": "vale_hinom",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "livro_de_contas_de_tofete",
+              "qtd": 1
+            }
+          ]
+        }
+      ],
+      "recompensas": {
+        "xp": 3480,
+        "ouro": 90,
+        "itens": [
+          {
+            "id": "pao_duro",
+            "qtd": 5
+          }
+        ]
+      },
+      "texto_conclusao": "O Escriba leu a última página do livro e fechou devagar. PARA O FUNDO DO MONTE. \"Alguém lá embaixo encomenda correntes\", disse.",
+      "espelho_de": "c02"
+    },
+    {
+      "id": "jc03",
+      "titulo": "Os Portões do Hades",
+      "tipo": "principal",
+      "faccao": "arautos",
+      "nivel": 7,
+      "doador": "henoc_escriba",
+      "entrega": "automatico",
+      "requer": [
+        "jc02"
+      ],
+      "ao_concluir_inicia": "jc04",
+      "resumo": "Abra a gruta de Pã e desça ao Fosso dos Vigilantes.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA 42\nNa gruta de Pã, nas Fontes do Jordão, um homem disse uma vez que as portas do Hades não prevaleceriam. Não disse que não existiam. Abra. Desça.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "chave_de_pa",
+          "objeto": "porta_de_pa",
+          "subzona": "vale_hinom"
+        },
+        {
+          "tipo": "explorar",
+          "subzona": "minas_dos_gigantes",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 4410,
+        "ouro": 0
+      },
+      "texto_conclusao": "A porta de pedra se abriu para dentro e o ar que subiu era quente, como respiração de bicho grande dormindo.",
+      "espelho_de": "c03"
+    },
+    {
+      "id": "jc04",
+      "titulo": "O Gigante que Sonhou",
+      "tipo": "dungeon",
+      "faccao": "arautos",
+      "nivel": 8,
+      "doador": "automatico",
+      "entrega": "automatico",
+      "requer": [
+        "jc03"
+      ],
+      "resumo": "Derrote Ohya nas Minas dos Gigantes.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA 43 (escrita depois)\nOhya, filho de Semyaza, sonhou com o dilúvio antes de todos e se escondeu no fundo do monte para não afogar. Comeu os escravos que cavavam para ele. Leva no pulso o primeiro selo do Altar.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "ohya_gigante",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "selo_do_sonho",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 5460,
+        "ouro": 150,
+        "itens": [
+          {
+            "id": "manto_de_ohya",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Ohya caiu sentado, como quem acorda de um sonho ruim. O Selo do Sonho estava enrolado no pulso dele, molhado.",
+      "espelho_de": "c04"
+    },
+    {
+      "id": "jc05",
+      "titulo": "Silêncio no Salão das Noivas",
+      "tipo": "dungeon",
+      "faccao": "arautos",
+      "nivel": 10,
+      "doador": "rispa_vigilia",
+      "entrega": "rispa_vigilia",
+      "requer": [
+        "jc04"
+      ],
+      "resumo": "Derrote Naamá, a Noiva dos Vigilantes.",
+      "descricao": "VIGÍLIA DE RISPA\nTem uma mulher lá embaixo que chora os filhos há mais tempo que eu. Ela se chama Naamá. Faz as outras cantarem o nome dos meninos. Faça ela parar. Debaixo do véu tem o segundo selo.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "naama_noiva",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "selo_das_aguas",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 7860,
+        "ouro": 200,
+        "itens": [
+          {
+            "id": "veu_de_naama",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "Quando o canto parou, o salão inteiro ficou mais leve. O Selo das Águas estava debaixo do véu, frio como concha.",
+      "espelho_de": "c05"
+    },
+    {
+      "id": "jc06",
+      "titulo": "O Primeiro Juramento",
+      "tipo": "dungeon",
+      "faccao": "arautos",
+      "nivel": 12,
+      "doador": "rispa_vigilia",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "jc05"
+      ],
+      "resumo": "Abra o Altar, derrote Semyaza e leve a Tábua ao Escriba.",
+      "descricao": "VIGÍLIA DE RISPA\nOs dois selos abrem o Altar do Juramento. Lá está Semyaza, o primeiro dos duzentos. Ele jurou no Hermon antes do dilúvio, e agora jura de novo: que o fim fique onde está. Derrube o juramento. Traga a Tábua ao Escriba.",
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "selo_do_sonho",
+          "objeto": "porta_do_altar",
+          "subzona": "salao_das_noivas"
+        },
+        {
+          "tipo": "usar_item",
+          "item": "selo_das_aguas",
+          "objeto": "porta_do_altar",
+          "subzona": "salao_das_noivas"
+        },
+        {
+          "tipo": "matar",
+          "alvo": "semyaza_juramento",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "tabua_do_juramento",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "falar",
+          "npc": "henoc_escriba",
+          "etapa": 3
+        }
+      ],
+      "recompensas": {
+        "xp": 10710,
+        "ouro": 400
+      },
+      "texto_conclusao": "O Escriba passou a mão sobre os duzentos nomes sem encostar. \"Eu escrevi o pedido deles uma vez\", disse. \"Não foi atendido. Este também não vai ser.\"",
+      "espelho_de": "c06"
+    },
+    {
+      "id": "jd01",
+      "titulo": "Vozes na Estática",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "hulda_escada",
+      "entrega": "jael_escuta",
+      "requer": [
+        "j03"
+      ],
+      "resumo": "Limpe as Escadas de Siloé e procure a Jael no Posto de Escuta.",
+      "descricao": "ANOTAÇÃO DA ESCADA · FOLHA 9\nO posto de escuta do Hermon voltou a falar. A voz é da Jael, uma irmã do Coro que subiu sozinha e não desceu. Ela diz ouvir nomes na estática. Limpe o caminho por Siloé e vá até ela.\n— Hulda da Escada",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "escadas_de_siloe",
+          "qtd": 12
+        },
+        {
+          "tipo": "falar",
+          "npc": "jael_escuta",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "Jael tirou o fone de latão do ouvido e te ofereceu, sem dizer nada. Na estática, alguém contava: um, dois, três... até duzentos, e começava de novo.",
+      "espelho_de": "d01v"
+    },
+    {
+      "id": "jd02",
+      "titulo": "A Antena no Cedro",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 6,
+      "doador": "jael_escuta",
+      "entrega": "jael_escuta",
+      "requer_qualquer": [
+        "jd01"
+      ],
+      "resumo": "Recupere válvulas dos chacais e conserte a antena da Escuta.",
+      "descricao": "BILHETE DA JAEL (caneta de pena, letra apertada)\nOs chacais roeram o cabo e levaram as válvulas para a toca. Cinco válvulas. Troque na antena, a do poste de telégrafo. Quero ouvir mais longe que o Hermon.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "covil_dos_chacais",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "valvula_da_escuta",
+          "qtd": 5
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "antena_da_escuta",
+          "subzona": "cidade_de_davi",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 3480
+      },
+      "texto_conclusao": "A antena estalou e, por um instante, toda a encosta ouviu a contagem: duzentos, e de novo.",
+      "espelho_de": "d02"
+    },
+    {
+      "id": "jd03",
+      "titulo": "O Decreto da Sexta Hora",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 7,
+      "doador": "jael_escuta",
+      "entrega": "jael_escuta",
+      "requer": [
+        "jd02"
+      ],
+      "resumo": "Recupere as páginas do decreto com os Levantados dos cedros.",
+      "descricao": "BILHETE DA JAEL\nOs Levantados dos cedros carregam papéis no peito. Quatro deles têm páginas de um decreto do Coro, o da Sexta Hora. Traga. Eu preciso saber se é a minha letra.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "cedros_partidos",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "pagina_do_decreto",
+          "qtd": 4
+        }
+      ],
+      "recompensas": {
+        "ouro": 100,
+        "itens": [
+          {
+            "id": "leitura_decreto_sexta_hora",
+            "qtd": 1
+          }
+        ],
+        "xp": 4410
+      },
+      "texto_conclusao": "Jael juntou as páginas e leu em voz alta: NA SEXTA HORA DO PRIMEIRO DIA, AFROUXEM-SE AS CORRENTES DOS DUZENTOS. Assinado pelo Coro de Sião. A letra era dela.",
+      "espelho_de": "d03"
+    },
+    {
+      "id": "jd04",
+      "titulo": "O Que a Água Canta",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 8,
+      "doador": "jael_escuta",
+      "entrega": "jael_escuta",
+      "requer": [
+        "jd03"
+      ],
+      "resumo": "Colha água de degelo nas fontes que os sapadores secaram.",
+      "descricao": "BILHETE DA JAEL\nOs sapadores da Vigília represaram as Fontes do Jordão. Onde a água parou, ela canta uma nota baixa. Três frascos. Quero saber que nota é essa.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "acampamento_sapadores",
+          "qtd": 18
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "fontes_secas",
+          "subzona": "fontes_jordao",
+          "qtd": 3,
+          "concede": [
+            {
+              "id": "agua_de_degelo",
+              "qtd": 1
+            }
+          ]
+        },
+        {
+          "tipo": "coletar",
+          "item": "agua_de_degelo",
+          "qtd": 3
+        }
+      ],
+      "recompensas": {
+        "ouro": 120,
+        "itens": [
+          {
+            "id": "orelha_de_jael",
+            "qtd": 1
+          }
+        ],
+        "xp": 5460
+      },
+      "texto_conclusao": "No posto de escuta, os três frascos cantaram juntos. Era a mesma nota da contagem: os Vigilantes estavam debaixo da água também.",
+      "espelho_de": "d04"
+    },
+    {
+      "id": "jd05",
+      "titulo": "As Correntes Partidas",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 10,
+      "doador": "jael_escuta",
+      "entrega": "jael_escuta",
+      "requer": [
+        "jd04"
+      ],
+      "resumo": "Recolha elos partidos dos Vigilantes Acorrentados no cume.",
+      "descricao": "BILHETE DA JAEL\nNo cume, na Neve de Cinza, os Vigilantes Acorrentados guardam as pegadas do juramento. As correntes deles quebraram de dentro para fora. Traga cinco elos. Quero saber quem afrouxou.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "neve_de_cinza",
+          "qtd": 20
+        },
+        {
+          "tipo": "coletar",
+          "item": "elo_partido",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "ouro": 150,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 5
+          }
+        ],
+        "xp": 7860
+      },
+      "texto_conclusao": "Todos os cinco elos tinham a mesma marca: o selo do Coro, batido a frio, por dentro.",
+      "espelho_de": "d05"
+    },
+    {
+      "id": "jd06",
+      "titulo": "A Conta das Noites",
+      "tipo": "principal",
+      "linha": "O Juramento do Hermon",
+      "faccao": "arautos",
+      "nivel": 12,
+      "doador": "jael_escuta",
+      "entrega": "jael_escuta",
+      "requer": [
+        "jd05"
+      ],
+      "resumo": "Abra a Laje do Juramento, derrote Kokabiel e decida o destino do astrolábio.",
+      "descricao": "BILHETE DA JAEL (o último)\nNa Laje do Juramento, no cume, Kokabiel conta as noites que faltam para o fim terminar. Se ninguém contar, o fim não sabe quando chegar. Pegue o astrolábio dele. Depois decidimos.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "laje_do_juramento",
+          "subzona": "cume_hermon",
+          "qtd": 1
+        },
+        {
+          "tipo": "matar",
+          "alvo": "kokabiel_contador",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "coletar",
+          "item": "astrolabio_de_kokabiel",
+          "qtd": 1,
+          "etapa": 2
+        },
+        {
+          "tipo": "decidir",
+          "npc": "jael_escuta",
+          "etapa": 3
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "desarmar",
+          "texto": "Apagar a conta das noites para sempre",
+          "flags": [
+            "jh_ogiva_desarmada"
+          ],
+          "recompensas": {
+            "ouro": 300,
+            "itens": [
+              {
+                "id": "estrela_contada",
+                "qtd": 1
+              }
+            ],
+            "xp": 10710
+          }
+        },
+        {
+          "id": "entregar",
+          "texto": "Levar o astrolábio para o Coro de Sião",
+          "flags": [
+            "jh_ogiva_com_faccao"
+          ],
+          "recompensas": {
+            "ouro": 500,
+            "itens": [
+              {
+                "id": "astrolabio_do_coro",
+                "qtd": 1
+              }
+            ],
+            "xp": 10710
+          }
+        }
+      ],
+      "texto_conclusao": "A escolha foi feita. No posto de escuta, a contagem continuou. Ou parou. Depende de quem escuta.",
+      "recompensas": {},
+      "espelho_de": "d06"
+    },
+    {
+      "id": "je01",
+      "titulo": "Os Estandartes da Geena",
+      "tipo": "principal",
+      "linha": "O Trono da Geena",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "tubal_malho",
+      "entrega": "zaqueu_cobrador",
+      "requer": [
+        "j03"
+      ],
+      "resumo": "Limpe o Getsêmani, examine os estandartes da Legião e procure o Zaqueu.",
+      "descricao": "RECADO DA FORJA DE TUBAL\nTrês estandartes da Legião caíram na Geena e ninguém levantou. Quando estandarte cai e ninguém levanta, é porque ninguém manda. Veja os três. Depois fale com o Zaqueu, o cobrador. Ele sabe quem deve o quê a quem.\n— Tubal",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "getsemani",
+          "qtd": 10
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "estandartes_da_legiao",
+          "subzona": "monte_oliveiras",
+          "qtd": 3
+        },
+        {
+          "tipo": "falar",
+          "npc": "zaqueu_cobrador",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "ouro": 60,
+        "itens": [
+          {
+            "id": "hostia_negra",
+            "qtd": 3
+          }
+        ],
+        "xp": 2640
+      },
+      "texto_conclusao": "Zaqueu ouviu tudo sentado num degrau, com o livro de dívidas no colo. \"Estandarte caído é dívida sem dono\", disse. \"Eu gosto de dívida sem dono.\"",
+      "espelho_de": "e01v"
+    },
+    {
+      "id": "je02",
+      "titulo": "Insígnias da Cerca",
+      "tipo": "principal",
+      "linha": "O Trono da Geena",
+      "faccao": "arautos",
+      "nivel": 6,
+      "doador": "zaqueu_cobrador",
+      "entrega": "zaqueu_cobrador",
+      "requer_qualquer": [
+        "je01"
+      ],
+      "resumo": "Arranque insígnias dos sapadores da Vigília.",
+      "descricao": "LIVRO DE DÍVIDAS DE ZAQUEU · PÁGINA 77\nOs sapadores da Cerca nas Fontes do Jordão estão sendo pagos com ferro da Legião. Cinco insígnias provam. Eu cobro de quem pagou.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "acampamento_sapadores",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "insignia_da_cerca",
+          "qtd": 5
+        }
+      ],
+      "recompensas": {
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "agua_doce",
+            "qtd": 3
+          }
+        ],
+        "xp": 3480
+      },
+      "texto_conclusao": "Zaqueu enfileirou as insígnias e anotou um nome ao lado de cada uma. Nenhum era da Vigília.",
+      "espelho_de": "e02"
+    },
+    {
+      "id": "je03",
+      "titulo": "Veneno no Cálice",
+      "tipo": "principal",
+      "linha": "O Trono da Geena",
+      "faccao": "arautos",
+      "nivel": 7,
+      "doador": "zaqueu_cobrador",
+      "entrega": "zaqueu_cobrador",
+      "requer": [
+        "je02"
+      ],
+      "resumo": "Tome a carta do Sineiro e decida a quem avisar.",
+      "descricao": "LIVRO DE DÍVIDAS DE ZAQUEU · PÁGINA 78\nOs Sineiros dos cedros carregam uma carta cifrada. Fala de um cálice envenenado no altar do Coro. Traga a carta. A dívida é de quem souber primeiro.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "cedros_partidos",
+          "qtd": 15
+        },
+        {
+          "tipo": "coletar",
+          "item": "carta_do_sineiro",
+          "qtd": 1
+        },
+        {
+          "tipo": "decidir",
+          "npc": "zaqueu_cobrador",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "anjos",
+          "texto": "Avisar a Sariel do veneno (os anjos ficam devendo)",
+          "flags": [
+            "jh_avisou_anjos"
+          ],
+          "recompensas": {
+            "ouro": 120,
+            "xp": 4410
+          }
+        },
+        {
+          "id": "demonios",
+          "texto": "Mostrar a carta ao Tubal (os demônios ficam devendo)",
+          "flags": [
+            "jh_avisou_demonios"
+          ],
+          "recompensas": {
+            "ouro": 120,
+            "xp": 4410
+          }
+        },
+        {
+          "id": "silencio",
+          "texto": "Deixar o veneno chegar ao cálice e ver o que acontece",
+          "flags": [
+            "jh_calice_envenenado"
+          ],
+          "recompensas": {
+            "ouro": 200,
+            "xp": 4410
+          }
+        }
+      ],
+      "texto_conclusao": "A escolha foi anotada no livro de Zaqueu, numa coluna que só ele entende.",
+      "recompensas": {},
+      "espelho_de": "e03"
+    },
+    {
+      "id": "je04",
+      "titulo": "O Trono Vazio",
+      "tipo": "principal",
+      "linha": "O Trono da Geena",
+      "faccao": "arautos",
+      "nivel": 8,
+      "doador": "zaqueu_cobrador",
+      "entrega": "tubal_malho",
+      "requer": [
+        "je03"
+      ],
+      "resumo": "Examine o Trono da Geena e traga a coroa partida.",
+      "descricao": "LIVRO DE DÍVIDAS DE ZAQUEU · PÁGINA 79\nNo Trono da Geena, nas Fornalhas de Tofete, alguém deixou metade de uma coroa presa nas correntes. Atravesse a Fenda das Oliveiras, onde os sapadores cavam, e traga a coroa.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "fenda_das_oliveiras",
+          "qtd": 18
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "trono_vazio",
+          "subzona": "monte_oliveiras",
+          "qtd": 1,
+          "concede": [
+            {
+              "id": "coroa_partida",
+              "qtd": 1
+            }
+          ]
+        },
+        {
+          "tipo": "coletar",
+          "item": "coroa_partida",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "ouro": 120,
+        "itens": [
+          {
+            "id": "divisa_da_geena",
+            "qtd": 1
+          }
+        ],
+        "xp": 5460
+      },
+      "texto_conclusao": "Tubal pegou a meia coroa, mediu na própria cabeça e devolveu. \"Não serve em mim. Serve em quem só tem meio corpo.\"",
+      "espelho_de": "e04"
+    },
+    {
+      "id": "je05",
+      "titulo": "Rastro de Brasa",
+      "tipo": "principal",
+      "linha": "O Trono da Geena",
+      "faccao": "arautos",
+      "nivel": 8,
+      "doador": "tubal_malho",
+      "entrega": "tubal_malho",
+      "requer": [
+        "je04",
+        "jc02"
+      ],
+      "resumo": "Siga o rastro de brasa até a Pocilga de Gadara e decida o que fazer com o segredo.",
+      "descricao": "RECADO DA FORJA DE TUBAL\nNa Pocilga de Gadara tem rastro de brasa, de alguém que se arrasta sem pernas. Os porcos estão inquietos. Siga o rastro. Depois me diga se eu conto para a Legião.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "pocilga_de_gadara",
+          "qtd": 12
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "rastro_de_brasas",
+          "subzona": "vale_hinom",
+          "qtd": 3
+        },
+        {
+          "tipo": "decidir",
+          "npc": "sariel_porta",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "espalhar",
+          "texto": "Contar à Legião que o general está vivo",
+          "flags": [
+            "jh_vigilia_espalhou_andras"
+          ],
+          "recompensas": {
+            "ouro": 250,
+            "itens": [
+              {
+                "id": "agua_doce",
+                "qtd": 5
+              }
+            ],
+            "xp": 5460
+          }
+        },
+        {
+          "id": "guardar",
+          "texto": "Guardar o segredo para os Arautos usarem depois",
+          "flags": [
+            "jh_vigilia_guardou_andras"
+          ],
+          "recompensas": {
+            "ouro": 250,
+            "itens": [
+              {
+                "id": "agua_benta_polvora",
+                "qtd": 5
+              }
+            ],
+            "xp": 5460
+          }
+        }
+      ],
+      "texto_conclusao": "A escolha foi feita. Na forja, Tubal martelou até o sol nascer.",
+      "recompensas": {},
+      "espelho_de": "e05v"
+    },
+    {
+      "id": "jf01",
+      "titulo": "Tabuinhas de Argila",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 4,
+      "doador": "zilpa_hissopo",
+      "entrega": "zilpa_hissopo",
+      "requer": [
+        "j04"
+      ],
+      "resumo": "Recolha tabuinhas de argila dos Peregrinos no Getsêmani.",
+      "descricao": "RECEITA DA ZILPA (verso)\nOs Peregrinos do Getsêmani carregam tabuinhas de argila que acham cavando. Três delas, juntas, dizem um nome. Eu quero saber que nome. Não conte ao Escriba.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "getsemani",
+          "qtd": 10
+        },
+        {
+          "tipo": "coletar",
+          "item": "tabuinha_de_argila",
+          "qtd": 3
+        }
+      ],
+      "recompensas": {
+        "xp": 1080,
+        "ouro": 40,
+        "itens": [
+          {
+            "id": "cha_de_hissopo",
+            "qtd": 3
+          }
+        ]
+      },
+      "texto_conclusao": "Zilpa juntou as três tabuinhas e leu devagar, letra por letra: H... N... W... K. \"É um nome sem vogal\", disse. \"Nome de quem não quer ser chamado.\"",
+      "espelho_de": "f01v"
+    },
+    {
+      "id": "jf02",
+      "titulo": "A Pedra que Sobe",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 5,
+      "doador": "zaqueu_cobrador",
+      "entrega": "zaqueu_cobrador",
+      "requer_qualquer": [
+        "jf01"
+      ],
+      "resumo": "Abra caminho pela necrópole e examine a Pedra da Ascensão.",
+      "descricao": "LIVRO DE DÍVIDAS DE ZAQUEU · PÁGINA 12\nNo Monte das Oliveiras tem uma pedra com uma pegada. Dizem que alguém subiu dali para o céu. Eu digo que alguém deve explicações. Abra caminho pela necrópole e veja a pedra.",
+      "objetivos": [
+        {
+          "tipo": "farmar_spot",
+          "spot": "primeiros_a_levantar",
+          "qtd": 12
+        },
+        {
+          "tipo": "interagir",
+          "objeto": "pedra_da_ascensao",
+          "subzona": "necropole_oliveiras",
+          "qtd": 1,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 2640,
+        "ouro": 60
+      },
+      "texto_conclusao": "Na pedra havia duas pegadas, não uma. A segunda era mais antiga, e alguém tinha escrito do lado, em argila: AQUI EU SUBI. AQUI EU VOLTEI.",
+      "espelho_de": "f02"
+    },
+    {
+      "id": "jf03",
+      "titulo": "As Folhas do Livro",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 6,
+      "doador": "zaqueu_cobrador",
+      "entrega": "zaqueu_cobrador",
+      "requer": [
+        "jf02"
+      ],
+      "resumo": "Leia os rolos da escada e recupere folhas do livro com os abutres.",
+      "descricao": "LIVRO DE DÍVIDAS DE ZAQUEU · PÁGINA 13\nNos rolos da Hulda, perto da Cúpula, tem um livro velho copiado mil vezes. A folha primeira está lá. As outras, os abutres levaram. Cinco folhas.",
+      "objetivos": [
+        {
+          "tipo": "interagir",
+          "objeto": "rolos_da_escada",
+          "subzona": "necropole_oliveiras",
+          "qtd": 1
+        },
+        {
+          "tipo": "coletar",
+          "item": "folha_do_livro",
+          "qtd": 5,
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 3480,
+        "ouro": 80,
+        "itens": [
+          {
+            "id": "leitura_livro_de_henoc",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "As folhas eram todas da mesma mão. Não parecida: a mesma. Em pergaminho, em papiro, em papel de jornal.",
+      "espelho_de": "f03"
+    },
+    {
+      "id": "jf04",
+      "titulo": "A Última Linha",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 9,
+      "doador": "rispa_vigilia",
+      "entrega": "rispa_vigilia",
+      "requer": [
+        "jf03",
+        "jc04"
+      ],
+      "resumo": "Derrube Escribas Emparedados e traga a última linha.",
+      "descricao": "VIGÍLIA DE RISPA\nNo Salão das Noivas tem escribas emparedados com os ensinamentos que copiavam. Um deles tem a última linha do livro. Derrube oito. Traga a linha.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "escriba_emparedado",
+          "qtd": 8
+        },
+        {
+          "tipo": "coletar",
+          "item": "ultima_linha",
+          "qtd": 1
+        }
+      ],
+      "recompensas": {
+        "xp": 4200,
+        "ouro": 90
+      },
+      "texto_conclusao": "A linha dizia: E ELE ANDOU COM DEUS, E JÁ NÃO ERA. E DEPOIS VOLTOU, PORQUE O FIM TRAVOU. A letra era a das tabuinhas.",
+      "espelho_de": "f04"
+    },
+    {
+      "id": "jf05",
+      "titulo": "Ele Andou com Deus",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 11,
+      "doador": "henoc_escriba",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "jf04"
+      ],
+      "resumo": "Acenda a vela no túmulo vazio e fale com o Escriba.",
+      "descricao": "VIGÍLIA DE RISPA\nNa necrópole tem um túmulo vazio, preparado há muito tempo para alguém que nunca morreu. Acenda a vela do Escriba lá. Depois vá até ele.",
+      "ao_aceitar_recebe": [
+        {
+          "id": "vela_do_escriba",
+          "qtd": 1
+        }
+      ],
+      "objetivos": [
+        {
+          "tipo": "usar_item",
+          "item": "vela_do_escriba",
+          "objeto": "tumulo_vazio_de_henoc",
+          "subzona": "necropole_oliveiras"
+        },
+        {
+          "tipo": "decidir",
+          "npc": "henoc_escriba",
+          "etapa": 2
+        }
+      ],
+      "escolhas": [
+        {
+          "id": "guardar",
+          "texto": "Guardar o segredo dele",
+          "flags": [
+            "jh_lazaro_segredo_guardado"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 150,
+            "itens": [
+              {
+                "id": "pena_do_escriba",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "perguntar",
+          "texto": "Perguntar o que ele vai escrever quando o fim terminar",
+          "flags": [
+            "jh_lazaro_pediu_cova"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 150,
+            "itens": [
+              {
+                "id": "pena_do_escriba",
+                "qtd": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "contar",
+          "texto": "Contar ao Coro quem ele é",
+          "flags": [
+            "jh_lazaro_revelado"
+          ],
+          "recompensas": {
+            "xp": 8820,
+            "ouro": 400
+          }
+        }
+      ],
+      "texto_conclusao": "A escolha foi feita. O Escriba voltou a escrever, um pouco mais devagar.",
+      "espelho_de": "f05"
+    },
+    {
+      "id": "jf06",
+      "titulo": "O Nome Verdadeiro",
+      "tipo": "principal",
+      "linha": "O Escriba Que Não Morreu",
+      "faccao": "arautos",
+      "nivel": 12,
+      "doador": "rispa_vigilia",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "jf05",
+        "jc06"
+      ],
+      "resumo": "Recolha o nome que os Ecos do Juramento repetem e leve ao Escriba.",
+      "descricao": "VIGÍLIA DE RISPA\nNo Altar do Juramento, os Ecos repetem um nome entre os duzentos. Não é nome de Vigilante. É o nome de quem escreveu por eles. Traga o nome para o dono.",
+      "objetivos": [
+        {
+          "tipo": "matar",
+          "alvo": "eco_do_juramento",
+          "qtd": 10
+        },
+        {
+          "tipo": "coletar",
+          "item": "nome_verdadeiro",
+          "qtd": 1
+        },
+        {
+          "tipo": "falar",
+          "npc": "henoc_escriba",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 12000,
+        "ouro": 500,
+        "itens": [
+          {
+            "id": "diadema_do_escriba",
+            "qtd": 1
+          }
+        ]
+      },
+      "texto_conclusao": "O Escriba ouviu o próprio nome no frasco de barro e fechou os olhos. \"Henoc\", disse. \"Faz tempo que ninguém me chama. Toma o diadema. Eu não vou mais precisar de andar com ninguém.\"",
+      "espelho_de": "f06"
+    },
+    {
+      "id": "jg01",
+      "titulo": "O Livro dos Vencidos",
+      "tipo": "principal",
+      "linha": "O Livro dos Vencidos",
+      "faccao": "arautos",
+      "nivel": 12,
+      "nivel_minimo": 12,
+      "doador": "henoc_escriba",
+      "entrega": "henoc_escriba",
+      "requer": [
+        "jc06",
+        "jf06"
+      ],
+      "resumo": "Vença os chefes até o nível 15 e volte ao Escriba.",
+      "descricao": "CADERNO DO ESCRIBA · FOLHA 44\nCada coisa que você derruba lá embaixo tem um nome, e cada nome entra no livro dos vencidos. Comece por eles. Quando a primeira página encher, volte.",
+      "objetivos": [
+        {
+          "tipo": "chefes_dungeon",
+          "ate_nivel": 15
+        },
+        {
+          "tipo": "falar",
+          "npc": "henoc_escriba",
+          "etapa": 2
+        }
+      ],
+      "recompensas": {
+        "xp": 10700,
+        "ouro": 480
+      },
+      "texto_conclusao": "O Escriba leu a página cheia e virou para a seguinte, em branco. \"Ainda tem muito fim pela frente\", disse.",
+      "ao_aceitar_recebe": [
+        {
+          "id": "livro_dos_vencidos",
+          "qtd": 1
+        }
+      ],
+      "espelho_de": "g01"
     }
   ]
 }

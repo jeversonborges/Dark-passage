@@ -7528,6 +7528,9 @@
    "rolagens_garantidas": 4,
    "raridade_minima": "magico",
    "ouro_mult": 25,
+   "garantido": [
+    "missao:estandarte_roido"
+   ],
    "rolagens": [
     {
      "tag": "equip:faixa2",
@@ -7535,11 +7538,11 @@
     },
     {
      "tag": "joia:refino",
-     "peso": 7.652
+     "peso": 12
     },
     {
      "tag": "lendario:general",
-     "peso": 2.711
+     "peso": 8
     }
    ],
    "reliquias_sugeridas": [
@@ -7559,6 +7562,9 @@
    "rolagens_garantidas": 4,
    "raridade_minima": "magico",
    "ouro_mult": 25,
+   "garantido": [
+    "missao:veu_da_carpideira"
+   ],
    "rolagens": [
     {
      "tag": "equip:faixa2",
@@ -7566,11 +7572,11 @@
     },
     {
      "tag": "joia:refino",
-     "peso": 7.478
+     "peso": 14
     },
     {
      "tag": "lendario:celeste",
-     "peso": 2.644
+     "peso": 8
     }
    ],
    "reliquias_sugeridas": [
@@ -7590,6 +7596,9 @@
    "rolagens_garantidas": 5,
    "raridade_minima": "raro",
    "ouro_mult": 30,
+   "garantido": [
+    "missao:bocal_da_trombeta"
+   ],
    "rolagens": [
     {
      "tag": "equip:faixa2",
@@ -7597,11 +7606,11 @@
     },
     {
      "tag": "joia:refino",
-     "peso": 7.304
+     "peso": 16
     },
     {
      "tag": "lendario:zacarias",
-     "peso": 2.453
+     "peso": 12
     }
    ],
    "reliquias_sugeridas": [
