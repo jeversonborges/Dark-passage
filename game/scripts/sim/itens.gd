@@ -150,7 +150,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 	var b := {"FOR": 0.0, "AGI": 0.0, "VIT": 0.0, "ESP": 0.0, "defesa": 0.0, "hp": 0.0, "dano_plano": 0.0, "critico": 0.0,
 		"velocidade_ataque": 0.0, "roubo_de_vida": 0.0, "excelente": 0.0, "excelente_dano": 0.0, "reduz_dano": 0.0,
 		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": [],
-		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": [], "dano_pct": 0.0}
+		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": [], "dano_pct": 0.0, "perda_xp_menos": 0.0}
 	var conj := {}
 	for s in equip:
 		var it: Dictionary = equip[s]
@@ -200,6 +200,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 				"dano_gelo": b["dano_gelo"] += float(ef["valor"])
 				"defesa_pct_do_item": b["defesa"] += float(d.get("defesa", 0.0)) * ref_def * float(ef["valor"])
 				"invocar": b["invocar"].append(ef)
+				"perda_xp_morte": b["perda_xp_menos"] += float(ef["valor"])   # Balança do Coração: fração da perda de XP ao morrer que some
 		if d.get("efeito") is String: b["efeitos"].append(it["id"])
 		if d.has("conjunto"): conj[d["conjunto"]] = conj.get(d["conjunto"], 0) + 1
 	b["conjuntos"] = conj
