@@ -65,7 +65,7 @@ static func registrar_aba(id: String, titulo: String, construtor: Callable) -> v
 static func aplicar_inicio() -> void:
 	carregar()
 	_criar_buses()
-	for k in ["vsync", "fps_max", "vol_geral", "vol_musica", "vol_ambiente", "vol_efeitos", "vol_interface", "mudo"]: _aplicar(k)
+	for k in ["vsync", "fps_max", "janela", "vol_geral", "vol_musica", "vol_ambiente", "vol_efeitos", "vol_interface", "mudo"]: _aplicar(k)
 
 static func web() -> bool:
 	return OS.has_feature("web")
@@ -83,14 +83,27 @@ static func _aplicar(chave: String) -> void:
 		"vol_efeitos": _volume("Efeitos", float(v("vol_efeitos")))
 		"vol_interface": _volume("Interface", float(v("vol_interface")))
 
+## Resoluções da janela (Vídeo > Tamanho da janela). Só aparecem as que cabem na tela atual.
+const RESOLUCOES := [["1280x720", "1280 × 720 · 720p"], ["1600x900", "1600 × 900 · 900p"],
+	["1920x1080", "1920 × 1080 · Full HD"], ["2560x1440", "2560 × 1440 · 1440p"]]
+
 ## Tamanho da janela (só no modo janela): centralizada na tela onde está.
-static func aplicar_janela() -> void:
-	if web() or DisplayServer.get_name() == "headless" or Tela.cheia(): return
-	var p: PackedStringArray = String(v("janela")).split("x")
+## forcar: aplica mesmo logo depois de sair da tela cheia (Tela.definir), antes de o modo mudar.
+static func aplicar_janela(forcar := false) -> void:
+	if web() or DisplayServer.get_name() == "headless" or (Tela.cheia() and not forcar): return
 	var area := DisplayServer.screen_get_usable_rect(DisplayServer.window_get_current_screen())
+	var p: PackedStringArray = String(v("janela")).split("x")
 	var tam := Vector2i(mini(int(p[0]), area.size.x - 40), mini(int(p[1]), area.size.y - 60))
 	DisplayServer.window_set_size(tam)
 	DisplayServer.window_set_position(area.position + (area.size - tam) / 2)
+
+static func opcoes_janela() -> Array:
+	var area := DisplayServer.screen_get_usable_rect(DisplayServer.window_get_current_screen())
+	var opcoes := []
+	for o in RESOLUCOES:
+		var p: PackedStringArray = o[0].split("x")
+		if int(p[0]) <= area.size.x - 40 and int(p[1]) <= area.size.y - 60: opcoes.append(o)
+	return opcoes if not opcoes.is_empty() else [RESOLUCOES[0]]
 
 static func _criar_buses() -> void:
 	for nome in BUSES.values():
