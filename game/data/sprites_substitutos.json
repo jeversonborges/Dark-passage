@@ -572,5 +572,11 @@
  "familiar_capitao": {
   "usa": "familiar_lider",
   "escala": 0.9
+ },
+ "npc:dulce_gaiola": {
+  "usa": "dalva_ferraz"
+ },
+ "npc:caetano_ninho": {
+  "usa": "conego_barnabe"
  }
 }

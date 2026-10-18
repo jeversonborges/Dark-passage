@@ -482,6 +482,40 @@
       "dialogo": "dlg_joana_pets",
       "aparencia": "Mulher de avental de couro, mangas arregaçadas, mãos cheias de cicatriz de enxerto. Tem um pássaro de cinza pousado no ombro.",
       "personalidade": "Séria, prática, fala da Capela como se fosse uma horta. Acha que todo bicho bem cuidado serve a alguém."
+    },
+    {
+      "id": "dulce_gaiola",
+      "nome": "Dulce Gaiola",
+      "titulo": "Vendedora de Bichos da Vela",
+      "faccao": "vigilia",
+      "classe_visual": "tecnomancer",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "gaiolas_dulce"
+      },
+      "servicos": [
+        "coletor"
+      ],
+      "dialogo": "dlg_dulce_pets",
+      "aparencia": "Mulher miúda de chapéu de palha furado e véu de tela. Tem gaiolas de arame penduradas nos ombros, com bichos dentro.",
+      "personalidade": "Fala baixo, com os bichos mais do que com gente. Vende companhia que junta o que o dono esquece no chão."
+    },
+    {
+      "id": "caetano_ninho",
+      "nome": "Caetano Ninho",
+      "titulo": "Vendedor de Bichos de Jerusalém",
+      "faccao": "arautos",
+      "classe_visual": "anjo",
+      "local": {
+        "subzona": "jerusalem",
+        "ponto": "ninhos_caetano"
+      },
+      "servicos": [
+        "coletor"
+      ],
+      "dialogo": "dlg_caetano_pets",
+      "aparencia": "Homem magro de avental de couro e mangas arregaçadas. Um corvo de cinza pousado no ombro, sempre.",
+      "personalidade": "Sério e prático. Acha que todo bicho bem cuidado serve a alguém, e cobra caro pelo que cuida."
     }
   ]
 }

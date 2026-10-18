@@ -5071,6 +5071,60 @@
           ]
         }
       }
+    },
+    {
+      "id": "dlg_dulce_pets",
+      "npc": "dulce_gaiola",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "texto": "Um bicho que junta por você não cansa, não reclama e não rouba. Só pede comida e tempo."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Quero ver os bichos.",
+              "acoes": [
+                {
+                  "abrir_coletor": true
+                }
+              ]
+            },
+            {
+              "texto": "Depois eu volto."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_caetano_pets",
+      "npc": "caetano_ninho",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": [
+            {
+              "texto": "Esse corvo não é meu, é de quem paga. Quem paga leva o bicho para casa e ele aprende o caminho."
+            }
+          ],
+          "opcoes": [
+            {
+              "texto": "Mostra o que tem.",
+              "acoes": [
+                {
+                  "abrir_coletor": true
+                }
+              ]
+            },
+            {
+              "texto": "Depois eu volto."
+            }
+          ]
+        }
+      }
     }
   ]
 }

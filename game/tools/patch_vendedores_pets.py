@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
-"""Põe os dois vendedores de pets (0.9.6) no mapa inicial, perto da praça de cada lado.
+"""Põe os dois vendedores de pets (0.9.6) nos mapas: Dulce Gaiola na Vela (Vigília) e Caetano Ninho em Jerusalém (Arautos).
 
-Idempotente: quem já está no mapa é deixado como está. Mexe só em data/mapas/area_inicial.json (o que o jogo lê).
+Idempotente: quem já está no mapa é deixado como está. Mexe só em data/mapas/area_inicial.json e
+data/mapas/jerusalem_hermon.json (o que o jogo lê). Os NPCs e as falas vêm de design/missoes/dados (copiados para
+data/design/missoes pelo tools/sync.sh ou pela Prévia).
 Uso:  python3 tools/patch_vendedores_pets.py          (a partir da pasta game/)
 """
 import json
 import math
 import pathlib
 
-MAPA = pathlib.Path(__file__).resolve().parent.parent / "data" / "mapas" / "area_inicial.json"
+MAPAS = pathlib.Path(__file__).resolve().parent.parent / "data" / "mapas"
 
-# (id do NPC, ponto de partida no mapa, direção). Vigília: Acampamento da Vela; Arautos: Capela de São Lázaro.
+# (mapa, id do NPC, ponto de partida, direção). Pontos conferidos pela Prévia.
 VENDEDORES = [
-    ("rute_abelheira", (80.0, 86.0), [1, 0]),
-    ("joana_enxertadeira", (64.0, 122.0), [-1, 0]),
+    ("area_inicial.json", "dulce_gaiola", (88.5, 102.5), [1, 0]),
+    ("jerusalem_hermon.json", "caetano_ninho", (93.5, 46.5), [1, 0]),
 ]
-ALCANCE_LIVRE = 2.0   # não nasce a menos de 2 tiles de outro NPC ou de um vendedor já posto
+ALCANCE_LIVRE = 2.0   # não nasce a menos de 2 tiles de outro NPC
 BUSCA = 10
 
 
@@ -40,16 +42,16 @@ def ponto_livre(mapa: dict, alvo: tuple) -> list:
 
 
 def main() -> None:
-    mapa = json.loads(MAPA.read_text(encoding="utf8"))
-    existentes = {n["id"] for n in mapa["npcs"]}
-    for npc_id, alvo, direcao in VENDEDORES:
-        if npc_id in existentes:
-            print(f"ja existe: {npc_id}")
+    for arq, npc_id, alvo, direcao in VENDEDORES:
+        caminho = MAPAS / arq
+        mapa = json.loads(caminho.read_text(encoding="utf8"))
+        if any(n["id"] == npc_id for n in mapa["npcs"]):
+            print(f"ja existe: {npc_id} em {arq}")
             continue
         pos = ponto_livre(mapa, alvo)
         mapa["npcs"].append({"id": npc_id, "pos": pos, "dir": direcao})
-        print(f"{npc_id} em {pos}")
-    MAPA.write_text(json.dumps(mapa, ensure_ascii=False, separators=(",", ":")), encoding="utf8")
+        caminho.write_text(json.dumps(mapa, ensure_ascii=False, separators=(",", ":")), encoding="utf8")
+        print(f"{npc_id} em {pos} ({arq})")
 
 
 if __name__ == "__main__":
