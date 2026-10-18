@@ -3424,5 +3424,89 @@
   1400,
   40,
   40
+ ],
+ "luvas_musgosas": [
+  440,
+  1400,
+  40,
+  40
+ ],
+ "calcas_de_juncos": [
+  480,
+  1400,
+  40,
+  40
+ ],
+ "botas_de_lama_verde": [
+  520,
+  1400,
+  40,
+  40
+ ],
+ "facao_do_amargo_verde": [
+  560,
+  1400,
+  40,
+  40
+ ],
+ "calcas_do_porao": [
+  600,
+  1400,
+  40,
+  40
+ ],
+ "botas_do_porao": [
+  0,
+  1440,
+  40,
+  40
+ ],
+ "anel_de_bobina_de_radio": [
+  40,
+  1440,
+  40,
+  40
+ ],
+ "luvas_de_indice": [
+  80,
+  1440,
+  40,
+  40
+ ],
+ "calcas_da_estrada": [
+  120,
+  1440,
+  40,
+  40
+ ],
+ "botas_do_passo_lento": [
+  160,
+  1440,
+  40,
+  40
+ ],
+ "espada_de_quem_saiu": [
+  200,
+  1440,
+  40,
+  40
+ ],
+ "botas_de_arena_rachada": [
+  240,
+  1440,
+  40,
+  40
+ ],
+ "botas_de_degrau_alto": [
+  280,
+  1440,
+  40,
+  40
+ ],
+ "calcas_de_gladiador_da_plateia": [
+  320,
+  1440,
+  40,
+  40
  ]
 }
