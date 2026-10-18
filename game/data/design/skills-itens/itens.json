@@ -18645,6 +18645,134 @@
         "32": "assets/icones/itens/32/peitoral_do_guardiao_das_velas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_do_guardiao_das_velas.png"
+    },
+    {
+      "id": "balanca_do_coracao",
+      "nome": "Balança do Coração",
+      "slot": "amuleto",
+      "classes": [],
+      "raridade": "raro",
+      "nivel": 15,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Pesada de latão, com um prato cheio de areia. Nos ritos de Amenti, o coração era pesado contra uma pena.",
+      "efeito": "Raro: +4% de chance de esquiva. Ao morrer, perde menos XP.",
+      "efeitos_mecanicos": [
+        {
+          "tipo": "evasao",
+          "valor": 0.04
+        }
+      ],
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/balanca_do_coracao.png",
+        "40": "assets/icones/itens/40/balanca_do_coracao.png",
+        "32": "assets/icones/itens/32/balanca_do_coracao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/balanca_do_coracao.png"
+    },
+    {
+      "id": "escudo_de_anubis",
+      "nome": "Escudo de Anúbis",
+      "slot": "segunda_mao",
+      "classes": [
+        "warlord",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 18,
+      "tags": [
+        "raro:amenti"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de madeira coberto de couro, com o chacal pintado em ocre.",
+      "efeito": "Raro: +10% da defesa do próprio escudo. Reflete 5% do dano físico recebido.",
+      "defesa": 14,
+      "efeitos_mecanicos": [
+        {
+          "tipo": "defesa_pct_do_item",
+          "valor": 0.1
+        }
+      ],
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_de_anubis.png",
+        "40": "assets/icones/itens/40/escudo_de_anubis.png",
+        "32": "assets/icones/itens/32/escudo_de_anubis.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png"
+    },
+    {
+      "id": "livro_das_cordas_de_ankh",
+      "nome": "Livro das Cordas de Ankh",
+      "categoria": "leitura",
+      "motivo": "papiro",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 1,
+      "raridade": "comum",
+      "tags": [
+        "leitura:cordas_de_ankh"
+      ],
+      "preco": 0,
+      "pilha": 1,
+      "lore": "Rolo de cordas de linho com nós que contam uma história. Quem lê os nós esquece a ordem.",
+      "efeito": "Item de missão, sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/livro_das_cordas_de_ankh.png",
+        "40": "assets/icones/itens/40/livro_das_cordas_de_ankh.png",
+        "32": "assets/icones/itens/32/livro_das_cordas_de_ankh.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/livro_das_cordas_de_ankh.png"
+    },
+    {
+      "id": "papiro_das_carpideiras",
+      "nome": "Papiro das Carpideiras",
+      "categoria": "leitura",
+      "motivo": "papiro",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 1,
+      "raridade": "comum",
+      "tags": [
+        "leitura:carpideiras"
+      ],
+      "preco": 0,
+      "pilha": 1,
+      "lore": "Lamentos copiados em papiro, com as fileiras de mulheres de luto desenhadas nas margens.",
+      "efeito": "Item de missão, sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_096_lote4.json",
+      "icone": {
+        "64": "assets/icones/itens/64/papiro_das_carpideiras.png",
+        "40": "assets/icones/itens/40/papiro_das_carpideiras.png",
+        "32": "assets/icones/itens/32/papiro_das_carpideiras.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/papiro_das_carpideiras.png"
     }
   ]
 }
