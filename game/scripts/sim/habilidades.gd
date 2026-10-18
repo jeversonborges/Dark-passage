@@ -45,6 +45,17 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 	var vfx := e.classe + "/" + id
 	match id:
 		# ---------------------------------------------------------- golpes em alvo
+		"corte_do_eclipse":   # Warlord: meia-lua de 120 graus; o alvo leva o golpe cheio e os outros, sem gerar Ódio
+			sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "alvo": aid, "skill": id, "impacto": func():
+				var a := sim.valido(aid)
+				var dir := (a.pos - e.pos).normalized() if a != null else e.facing
+				var hh := h.duplicate(); hh["raio"] = float(h["alcance"]); hh["cone_graus"] = float(h["arco_graus"])
+				sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "dir": dir, "de": e.id})
+				var primeiro := true
+				for o in alvos_area5(sim, e, hh, "cone", e.pos, dir):
+					sim.aplicar_golpe(e, o, _op(e, h, {"sem_recurso": not primeiro, "empurrao_de": e.pos}))
+					primeiro = false
+			})
 		"lamina_veredito", "golpe_purulento":
 			sim.iniciar_acao(e, {"preparo": prep, "rec": 0.3, "alvo": aid, "skill": id, "impacto": func():
 				var a := sim.valido(aid)
@@ -141,11 +152,12 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 				a.escudo = v; a.escudo_t = float(h["duracao"])
 				sim.emitir("escudo", {"id": a.id, "valor": v, "t": float(h["duracao"])})
 			sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
-		"pacto_rubro", "carapaca", "pele_enxofre", "agua_benta_polvora":
+		"pacto_rubro", "carapaca", "pele_enxofre", "agua_benta_polvora", "juramento_de_odio", "muralha_de_escudo":
 			var bf: Dictionary = h["buff"]
 			var mods := {}
 			for k in bf:
 				if k in ["dano_magico", "dano_recebido"]: mods[k] = float(bf[k])
+				if k == "dano": mods["dano"] = float(bf[k])
 				if k == "reflete_frac": mods["reflete"] = float(bf[k])
 				if k == "dano_extra_elemental": mods["dano"] = float(bf[k])
 			Jogador.add_buff(sim, e, id, float(bf["duracao"]), mods)
@@ -154,7 +166,7 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 			sim.emitir("vfx", {"skill": vfx, "alvo": e.id, "de": e.id, "fica": float(bf["duracao"])})
 			sim.atrasar(float(bf["duracao"]), func(): e.aux.erase("imune_cc"); e.aux.erase("municao_especial"))
 		# ---------------------------------------------------------- skills em área do nível 5 (farm_auto.json; usadas pelo modo automático)
-		"anjo_leque_juizo", "demonio_ceifa_infernal", "mutante_terremoto_putrido", "tecnomancer_tempestade_bobina", "cultista_espinhos_sangue", "humano_coquetel_querosene":
+		"anjo_leque_juizo", "demonio_ceifa_infernal", "mutante_terremoto_putrido", "tecnomancer_tempestade_bobina", "cultista_espinhos_sangue", "humano_coquetel_querosene", "warlord_fenda_na_terra":
 			var forma: String = h.get("forma", "circulo_em_volta")
 			var dir := (ponto - e.pos).normalized() if ponto.distance_to(e.pos) > 0.3 else e.facing
 			if alvo != null and forma == "cone" and ponto.distance_to(e.pos) <= 0.3: dir = (alvo.pos - e.pos).normalized()
@@ -168,7 +180,7 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 				area_nivel5(sim, e, h, forma, centro, dir)
 			})
 		# ---------------------------------------------------------- áreas
-		"halo_ardente", "pulso_anti_divino", "rugido_praga":
+		"halo_ardente", "pulso_anti_divino", "rugido_praga", "marca_do_desprezo":
 			sim.iniciar_acao(e, {"preparo": 0.25, "rec": 0.3, "skill": id, "impacto": func():
 				sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
 				for a in sim.inimigos_de(e, e.pos, float(h["area_raio"])):
@@ -227,12 +239,37 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 			e.invuln_t = float(h.get("invulneravel", 0.3))
 			sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "dir": dir, "de": e.id})
 			sim.deslocar(e, e.pos + dir * float(h["deslocamento"]), 0.32 if id == "rolamento" else 0.4, {"atravessa": h.get("atravessa", false), "tipo": id})
-		"investida_bestial":
+		"investida_bestial", "investida_de_ferro":
 			var dir := (ponto - e.pos).normalized() if ponto.distance_to(e.pos) > 0.3 else e.facing
 			if alvo != null: dir = (alvo.pos - e.pos).normalized()
 			sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "dir": dir, "de": e.id})
 			sim.deslocar(e, e.pos + dir * float(h["deslocamento"]), 0.35, {"tipo": id,
 				"golpeia": _op(e, h, {"area": true, "empurrao_de": e.pos})})
+		# ---------------------------------------------------------- Warlord
+		"redemoinho_de_aco":   # gira a espada: vários pulsos em volta; só o primeiro pulso gera Ódio
+			sim.iniciar_acao(e, {"preparo": 0.1, "rec": 0.3, "skill": id, "anim": "spin", "impacto": func():
+				sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
+				for i in int(h["ticks"]):
+					sim.atrasar(float(i) * float(h["intervalo_tick"]), func():
+						if not e.vivo: return
+						sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
+						for o in sim.inimigos_de(e, e.pos, float(h["area_raio"])):
+							sim.aplicar_golpe(e, o, _op(e, h, {"mult": float(h["mult_por_tick"]), "area": true, "sem_recurso": i > 0, "empurrao_de": e.pos}))
+					)
+			})
+		"estandarte_da_ruina":   # crava o estandarte: a aura de 5 m dura 15 s (estandarte_tick)
+			e.aux["estandarte_t"] = float(h["duracao"]); e.aux["estandarte_raio"] = float(h["aura"]["raio"]); e.aux["estandarte_r"] = 0.0
+			sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
+		"eclipse_do_senhor_da_guerra":   # gasta todo o Ódio: o dano cresce a cada 10 gastos
+			sim.iniciar_acao(e, {"preparo": float(h.get("preparo", 0.8)), "rec": 0.4, "skill": id, "anim": "attack", "impacto": func():
+				var gasto := float(e.aux.get("odio_usado", 0.0))
+				var mult := float(h["mult"]) + float(h["mult_por_10_odio"]) * floorf(gasto / 10.0)
+				sim.emitir("vfx", {"skill": vfx, "pos": e.pos, "de": e.id})
+				var primeiro := true
+				for o in sim.inimigos_de(e, e.pos, float(h["area_raio"])):
+					sim.aplicar_golpe(e, o, _op(e, h, {"mult": mult, "area": true, "nunca_erra": true, "sem_recurso": not primeiro}))
+					primeiro = false
+			})
 		# ---------------------------------------------------------- invocações
 		"servo_carne", "torreta_sentinela":
 			var tipo_inv: String = h["invoca"]
@@ -262,6 +299,21 @@ static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2
 			sim.emitir("surgiu", {"id": inv.id})
 			sim.emitir("vfx", {"skill": vfx, "pos": inv.pos, "de": e.id})
 
+
+## Estandarte da Ruína: enquanto dura, o grupo a 5 m ganha +10% de dano e +3% de roubo de vida; os inimigos perdem 10% de dano.
+## Renova o buff a cada 0,5 s (dura 1 s), para não encher a fila de eventos.
+static func estandarte_tick(sim: WorldSim, e: Ent, dt: float) -> void:
+	var t := float(e.aux.get("estandarte_t", 0.0))
+	if t <= 0.0: return
+	e.aux["estandarte_t"] = t - dt
+	e.aux["estandarte_r"] = float(e.aux.get("estandarte_r", 0.0)) + dt
+	if float(e.aux["estandarte_r"]) < 0.5: return
+	e.aux["estandarte_r"] = 0.0
+	var raio := float(e.aux.get("estandarte_raio", 5.0))
+	for a in sim.aliados_de(e, e.pos, raio):
+		Jogador.add_buff(sim, a, "estandarte_da_ruina", 1.0, {"dano": 0.1, "roubo_vida": 0.03})
+	for o in sim.inimigos_de(e, e.pos, raio):
+		Jogador.add_buff(sim, o, "estandarte_da_ruina_inimigo", 1.0, {"dano": -0.1})
 
 ## Alvos e golpe das skills em área do nível 5. Só o primeiro alvo gera recurso (formulas.json: recurso_em_area).
 static func alvos_area5(sim: WorldSim, e: Ent, h: Dictionary, forma: String, centro: Vector2, dir: Vector2) -> Array:

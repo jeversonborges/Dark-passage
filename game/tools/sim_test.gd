@@ -33,7 +33,7 @@ func lutar(sim: WorldSim, j: Ent, tipo: String) -> void:
 
 func _init() -> void:
 	Defs.carregar()
-	var classes := ["humano", "anjo", "demonio", "cultista", "mutante", "tecnomancer"]
+	var classes := ["humano", "anjo", "demonio", "cultista", "mutante", "tecnomancer", "warlord"]
 	for c in classes:
 		cont.clear()
 		var sim := WorldSim.new(42)

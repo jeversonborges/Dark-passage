@@ -363,7 +363,7 @@ func tip_item(it: Dictionary, contexto := "") -> String:
 	if req != "" and not req.begins_with("Requer"): s += "[color=#ff6a4a]%s[/color]\n" % req
 	var cl = d.get("classes")
 	if cl is Array and cl.size() > 0 and cl.size() < 6:
-		s += "[color=#8a8070]%s[/color]\n" % ", ".join(cl.map(func(x): return {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}.get(x, x)))
+		s += "[color=#8a8070]%s[/color]\n" % ", ".join(cl.map(func(x): return {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante", "warlord": "Warlord"}.get(x, x)))
 	if contexto in ["mochila", "armazem", "loja_compra"]: s += _comparacao(it)
 	match contexto:
 		"loja_compra": s += "[color=#e0b84a]Preço: %d de ouro[/color]" % Itens.preco(it)
@@ -817,7 +817,7 @@ func abrir_personagem() -> void:
 	_limpar(c)
 	var j := _jog()
 	var cls: Dictionary = Defs.CLASSES[j.classe]
-	var nomes := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante"}
+	var nomes := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomante", "warlord": "Warlord"}
 	var t1 := Tema.rotulo(j.nome, 24, Color("#f0dca0"), Tema.FONTE_GOTICA, 3); t1.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; c.add_child(t1)
 	var t2 := Tema.rotulo("%s de nível %d · %s" % [Evolucao.nome_classe(j) if j.evolucao != "" else nomes[j.classe], j.nivel, "Vigília" if j.faccao == "vigilia" else "Arautos do Juízo"], 14, Color("#a89f8c"), Tema.FONTE_ITALICO)
 	t2.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER; c.add_child(t2)
