@@ -833,7 +833,9 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			janelas.atualizar()
 			hud.atualizar_cinto()
 			if tipo == "refino":
-				hud.aviso(("Refino deu certo: " if d.get("ok", false) else "O refino falhou: ") + d.get("nome", ""))
+				janelas.refino_resultado(d)
+				if d.get("quebrou", false): hud.aviso("%s quebrou ao passar do +10." % d.get("nome", ""))
+				else: hud.aviso(("Refino deu certo: +%d " if d.get("ok", false) else "O refino falhou, ficou em +%d: ") % int(d.get("nivel", 0)) + d.get("nome", ""))
 				audio.tocar("itens/refino_sucesso" if d.get("ok", false) else "itens/refino_falha")
 		"bau":
 			var o = objs.get(int(d["id"]))

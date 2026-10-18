@@ -318,7 +318,7 @@ func tip_item(it: Dictionary, contexto := "") -> String:
 	# atributos e defesa em colunas: nome à esquerda, valor à direita
 	var linhas := ""
 	if d.has("defesa") and slot != "arma":
-		linhas += _lin2("Defesa", "[color=#e0b84a]%d[/color]" % roundi(float(d["defesa"]) * (1.0 + 0.08 * int(it.get("refino", 0)))))
+		linhas += _lin2("Defesa", "[color=#e0b84a]%d[/color]" % roundi(float(d["defesa"]) * Itens.fator_defesa(int(it.get("refino", 0)))))
 	if d.has("bloqueio"): linhas += _lin2("Bloqueio", "[color=#e0b84a]%d%%[/color]" % roundi(float(d["bloqueio"]) * 100.0))
 	for src in ["atributos", "atributo_base"]:
 		var at = d.get(src)
@@ -1194,7 +1194,7 @@ func servico(d: Dictionary) -> void:
 	match d["tipo"]:
 		"loja": _abrir_loja(d)
 		"ferreiro":
-			_janela("servico", d.get("titulo", "Forja"), Vector2(420, 480), "esquerda")
+			_janela("servico", d.get("titulo", "Forja"), Vector2(452, 600), "esquerda")
 			_titulo("servico", d.get("titulo", "Forja"))
 			_corpo_ferreiro()
 			abrir_inventario()
@@ -1242,38 +1242,172 @@ func _abrir_loja(d: Dictionary) -> void:
 	c.add_child(Tema.rotulo("Clique compra (Shift compra 10). Botão direito na mochila vende.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
 	abrir_inventario()
 
+# =================================================================== forja (refino)
+var _refino_sel := {}   # item escolhido na forja: {uid, onde}
+var _refino_res := {}   # resultado do último martelo, mandado pelo servidor
+
+## Itens que a forja aceita: o equipado de cada slot e o que está na mochila.
+func _candidatos_refino(j) -> Array:
+	var out: Array = []
+	for s in Itens.SLOTS:
+		if j.equip.has(s) and not j.equip[s].is_empty(): out.append([j.equip[s], s])
+	for it in j.inv:
+		if Itens.equipavel(it): out.append([it, "mochila"])
+	return out
+
 func _corpo_ferreiro() -> void:
 	if not jan.has("servico"): return
 	var c: Control = corpo["servico"]
 	_limpar(c)
 	_fala_servico(c, servico_d)
 	var j := _jog()
-	c.add_child(Tema.rotulo("Lágrima Angélica: +0 a +6, sempre dá certo.\nLágrima Sanguínea: +6 a +15; a chance cai a cada nível e, se falhar, o item perde nível (nunca abaixo de +6). Nada quebra.", 13, Color("#c8bfa8")))
-	c.add_child(Tema.rotulo("Atenção: passar do +10 tem 15% de chance de quebrar o item.", 13, Color("#e0a050"), Tema.FONTE_ITALICO))
+	c.add_child(Tema.rotulo("Angélica: até +6, sempre dá certo. Sanguínea: de +6 a +15, a chance cai a cada nível e uma falha tira nível.", 13, Color("#c8bfa8")))
 	c.add_child(Tema.rotulo("Angélicas: %d    Sanguíneas: %d    Ouro: %d" % [Itens.contar(j.inv, "lagrima_angelica"), Itens.contar(j.inv, "lagrima_sanguinea"), j.ouro], 14, Tema.COR_OURO, Tema.FONTE_TITULO))
-	var sc := ScrollContainer.new(); sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	if not _refino_res.is_empty():
+		var quebrou: bool = _refino_res.get("quebrou", false)
+		var ok: bool = _refino_res.get("ok", false)
+		var nome: String = _refino_res.get("nome", "")
+		var cor := Color("#e8584a") if quebrou else (Color("#b8d98a") if ok else Color("#e0a050"))
+		var txt := "%s se partiu no martelo." % nome
+		if not quebrou: txt = "Deu certo: %s." % nome if ok else "Falhou. Agora é %s." % nome
+		var rl := Tema.rotulo(txt, 15, cor, Tema.FONTE_ITALICO)
+		rl.name = "ResultadoRefino"
+		rl.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		c.add_child(rl)
+	var cand := _candidatos_refino(j)
+	if cand.is_empty():
+		c.add_child(Tema.rotulo("Nada para refinar. Equipe ou traga uma arma ou armadura.", 14, Color("#7d7466"), Tema.FONTE_ITALICO))
+		return
+	var sel: Array = cand[0]
+	for par in cand:
+		if int(par[0]["uid"]) == int(_refino_sel.get("uid", -1)): sel = par
+	_refino_sel = {"uid": int(sel[0]["uid"]), "onde": sel[1]}
+	var sc := ScrollContainer.new()
+	sc.custom_minimum_size = Vector2(0, 140)
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var v := VBoxContainer.new(); v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	v.add_theme_constant_override("separation", 3)
 	sc.add_child(v); c.add_child(sc)
-	var itens: Array = []
-	for s in Itens.SLOTS:
-		if j.equip.has(s): itens.append([j.equip[s], s])
-	for it in j.inv:
-		if Itens.equipavel(it): itens.append([it, "mochila"])
-	if itens.is_empty(): v.add_child(Tema.rotulo("Nada para refinar.", 14, Color("#7d7466"), Tema.FONTE_ITALICO))
-	for par in itens:
+	for par in cand:
 		var it: Dictionary = par[0]
-		var r := int(it.get("refino", 0))
 		var b := Button.new()
+		b.toggle_mode = true
+		b.button_pressed = int(it["uid"]) == int(sel[0]["uid"])
+		Tema.estilo_aba(b, b.button_pressed)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		var ch := "" if r < 6 else "  %d%%" % roundi(100.0 * Jogador.chance_refino(r + 1))
-		b.text = "%s%s   →  +%d%s  (%d ouro)" % [Itens.nome(it), "  [equipado]" if par[1] != "mochila" else "", r + 1, ch, 50 * (r + 1)] if r < 15 else "%s   (máximo)" % Itens.nome(it)
-		b.disabled = r >= 15
+		b.text = Itens.nome(it) + ("  [equipado]" if par[1] != "mochila" else "")
+		b.add_theme_color_override("font_color", Defs.cor_raridade(it.get("raridade", "comum")))
 		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 14)
+		var ic := Tema.icone_item(it["id"])
+		if ic.size() == 2:
+			var at := AtlasTexture.new(); at.atlas = ic[0]; at.region = ic[1]
+			b.icon = at
+			b.add_theme_constant_override("icon_max_width", 28)
 		b.mouse_entered.connect(func(): game.hud.mostrar_tip_item(it, tip_item(it)))
 		b.mouse_exited.connect(func(): game.hud.esconder_tip())
-		b.pressed.connect(func(): game.cmd("refinar", [int(it["uid"]), par[1]]))
+		b.pressed.connect(_escolher_refino.bind(int(it["uid"]), par[1]))
 		v.add_child(b)
+	_detalhe_refino(c, sel[0], sel[1])
+
+func _escolher_refino(uid: int, onde: String) -> void:
+	_refino_sel = {"uid": uid, "onde": onde}
+	_corpo_ferreiro()
+
+## Quadro do item escolhido: nível atual e próximo, atributos antes e depois, custo, chance e o martelo.
+func _detalhe_refino(c: Control, it: Dictionary, onde: String) -> void:
+	var j := _jog()
+	var d := Itens.defn(it["id"])
+	var r := int(it.get("refino", 0))
+	var R: Dictionary = Defs.DROPS["refino_com_lagrimas"]
+	var maximo := int(R.get("maximo", 15))
+	var arma := Itens.slot_de(it) == "arma"
+	var painel := PanelContainer.new()
+	painel.add_theme_stylebox_override("panel", Tema.caixa_menu(8))
+	var v := VBoxContainer.new(); v.add_theme_constant_override("separation", 5)
+	painel.add_child(v); c.add_child(painel)
+	# cabeçalho: o item na moldura da raridade, nome, tipo e o salto de nível
+	var cab := HBoxContainer.new(); cab.add_theme_constant_override("separation", 12)
+	v.add_child(cab)
+	var moldura := PanelContainer.new()
+	var sb: StyleBox = Tema.moldura_item(it.get("raridade", "comum"))
+	moldura.add_theme_stylebox_override("panel", sb if sb else Tema.caixa_menu(4))
+	moldura.custom_minimum_size = Vector2(70, 70)
+	var ic := Tema.icone_item(it["id"], true)
+	if ic.size() == 2:
+		var at := AtlasTexture.new(); at.atlas = ic[0]; at.region = ic[1]
+		var tr := TextureRect.new(); tr.texture = at
+		tr.expand_mode = TextureRect.EXPAND_IGNORE_SIZE; tr.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		tr.custom_minimum_size = Vector2(56, 56)
+		moldura.add_child(tr)
+	cab.add_child(moldura)
+	var nomes := VBoxContainer.new(); nomes.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	cab.add_child(nomes)
+	nomes.add_child(Tema.rotulo(str(d.get("nome", it["id"])), 19, Defs.cor_raridade(it.get("raridade", "comum")), Tema.FONTE_TITULO, 3))
+	var slot := Itens.slot_de(it)
+	nomes.add_child(Tema.rotulo("%s · %s" % [Itens.NOME_SLOT.get(slot, slot), Defs.nome_raridade(it.get("raridade", "comum"))], 13, Tema.COR_TEXTO_FRACO, Tema.FONTE_ITALICO))
+	var salto := "+%d  →  +%d" % [r, r + 1] if r < maximo else "+%d  (máximo)" % r
+	nomes.add_child(Tema.rotulo(salto, 26, Tema.COR_OURO, Tema.FONTE_TITULO, 3))
+	# atributos que o refino mexe: antes e depois
+	if arma:
+		var antes := Itens.dano_arma(it)
+		var prox := it.duplicate(); prox["refino"] = r + 1
+		var depois := Itens.dano_arma(prox)
+		v.add_child(_linha_refino("Dano", "%s~%s  →  %s~%s" % [_num(antes[0]), _num(antes[1]), _num(depois[0]), _num(depois[1])]))
+		v.add_child(_linha_refino("Por nível", "+%d%% de dano" % roundi(100.0 * (Itens.fator_dano(1) - 1.0)), Tema.COR_TEXTO_FRACO))
+	elif d.has("defesa"):
+		var base := float(d["defesa"])
+		v.add_child(_linha_refino("Defesa", "%s  →  %s" % [_num(base * Itens.fator_defesa(r)), _num(base * Itens.fator_defesa(r + 1))]))
+		v.add_child(_linha_refino("Por nível", "+%d%% de defesa" % roundi(100.0 * (Itens.fator_defesa(1) - 1.0)), Tema.COR_TEXTO_FRACO))
+	# chance, o que acontece na falha, custo e o martelo
+	var lim_angelica := int(R["lagrima_angelica"]["ate"])
+	var joia := "lagrima_angelica" if r < lim_angelica else "lagrima_sanguinea"
+	var nome_joia: String = Defs.ITENS[joia]["nome"]
+	var chance := 1.0 if joia == "lagrima_angelica" else Jogador.chance_refino(r + 1)
+	if r < maximo:
+		v.add_child(_linha_refino("Chance", "%d%%" % roundi(100.0 * chance)))
+		if chance < 1.0: v.add_child(_linha_refino("Se falhar", "fica em +%d" % Jogador.nivel_apos_falha(r), Tema.COR_TEXTO_FRACO))
+		var n_joias := Jogador.custo_joias(r)
+		var ouro := 50 * (r + 1)
+		v.add_child(_linha_refino("Custo", "%d %s  ·  %d ouro" % [n_joias, nome_joia, ouro]))
+		var tem := Itens.contar(j.inv, joia)
+		var falta := ""
+		if tem < n_joias: falta = "Faltam %d %s." % [n_joias - tem, nome_joia]
+		elif j.ouro < ouro: falta = "Faltam %d de ouro." % (ouro - j.ouro)
+		if r >= 10:
+			var aviso := Tema.rotulo("Acima do +10: 15% de chance de quebrar o item.", 13, Color("#e0a050"), Tema.FONTE_ITALICO)
+			aviso.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+			v.add_child(aviso)
+		if falta != "": v.add_child(Tema.rotulo(falta, 13, Color("#ff6a4a"), Tema.FONTE_ITALICO))
+		var b := Button.new()
+		b.text = "Martelar a forja" if falta == "" else "Ainda não dá"
+		b.disabled = falta != ""
+		b.add_theme_font_override("font", Tema.FONTE_TITULO); b.add_theme_font_size_override("font_size", 17)
+		b.pressed.connect(_martelar.bind(int(it["uid"]), onde))
+		v.add_child(b)
+	else:
+		v.add_child(Tema.rotulo("Este item já está no máximo.", 13, Color("#a89f8c"), Tema.FONTE_ITALICO))
+
+## Uma batida no martelo: o som da bigorna sai na hora; o resultado vem do servidor (sucesso ou falha).
+func _martelar(uid: int, onde: String) -> void:
+	game.audio.tocar("itens/forja_martelo", null, -2.0)
+	game.cmd("refinar", [uid, onde])
+
+## Número com uma casa decimal e vírgula (1,15 vira 1,2): o refino de item pequeno não some no arredondamento.
+func _num(x: float) -> String:
+	return str(snappedf(x, 0.1)).replace(".", ",")
+
+func _linha_refino(nome: String, valor: String, cor := Tema.COR_OURO) -> HBoxContainer:
+	var h := HBoxContainer.new()
+	var n := Tema.rotulo(nome, 15, Tema.COR_TEXTO_FRACO)
+	n.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	h.add_child(n)
+	h.add_child(Tema.rotulo(valor, 15, cor, Tema.FONTE_TITULO))
+	return h
+
+## Resultado do martelo que chegou do servidor: fica na forja até a próxima batida.
+func refino_resultado(d: Dictionary) -> void:
+	_refino_res = d
+	if aberta("servico") and servico_d.get("tipo") == "ferreiro": _corpo_ferreiro()
 
 func _abrir_armazem(d: Dictionary) -> void:
 	var c := _janela("servico", d.get("titulo", "Armazém"), Vector2(416, 540), "esquerda")

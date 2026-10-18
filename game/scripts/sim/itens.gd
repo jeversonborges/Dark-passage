@@ -157,7 +157,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 		var d := defn(it["id"])
 		var ref := 1.0 + 0.08 * int(it.get("refino", 0))
 		# armadura: o refino pesa mais (balanco.refino_armadura_por_nivel, 18/10)
-		var ref_def := 1.0 + float(Defs.DROPS["balanco"]["refino_armadura_por_nivel"]) * int(it.get("refino", 0))
+		var ref_def := fator_defesa(int(it.get("refino", 0)))
 		if s != "arma" and d.has("defesa"): b["defesa"] += float(d["defesa"]) * ref_def
 		if s == "segunda_mao" and d.has("defesa"): pass
 		b["bloqueio"] += float(d.get("bloqueio", 0.0))
@@ -207,8 +207,15 @@ static func bonus(equip: Dictionary) -> Dictionary:
 static func dano_arma(it: Dictionary) -> Array:
 	var d := defn(it["id"])
 	var dn = d.get("dano", [3, 6])
-	var ref := 1.0 + 0.08 * int(it.get("refino", 0))
+	var ref := fator_dano(int(it.get("refino", 0)))
 	return [float(dn[0]) * ref, float(dn[1]) * ref]
+
+## Quanto o refino multiplica a defesa da armadura (balanco.refino_armadura_por_nivel) e o dano da arma (0,08 por nível).
+static func fator_defesa(refino: int) -> float:
+	return 1.0 + float(Defs.DROPS["balanco"]["refino_armadura_por_nivel"]) * refino
+
+static func fator_dano(refino: int) -> float:
+	return 1.0 + 0.08 * refino
 
 static func pode_usar(it: Dictionary, e: Ent) -> String:
 	var d := defn(it["id"])
