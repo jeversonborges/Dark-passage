@@ -346,6 +346,18 @@
       "corona_do_arauto_calado",
       "foice_do_arauto_calado",
       "cajado_do_sino_parado"
+    ],
+    "lendario:deus": [
+      "deus_cimitarra_de_janes",
+      "deus_malho_de_tubal",
+      "deus_garra_de_ammit",
+      "deus_remo_da_barca_de_ra",
+      "deus_falx_de_azazel",
+      "deus_cajado_das_dez_pragas",
+      "deus_cajado_estrelas_contadas",
+      "deus_escopeta_juramento_quebrado",
+      "deus_bastao_que_virou_serpente",
+      "deus_cetro_do_raio_partido"
     ]
   },
   "cobertura_tags_drops": {
@@ -15604,6 +15616,417 @@
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+    },
+    {
+      "id": "cetro_do_raio_partido",
+      "nome": "Cetro do Raio Partido",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 28,
+      "tags": [
+        "excelente:torre"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Orbe escuro de vidro partido, com um anel de latão girando em volta e um raio preso dentro que nunca apaga.",
+      "efeito": "Excelente: cada skill que acerta deixa uma fagulha no alvo que causa 8% do dano em 2 s.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        62,
+        96
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "esp": 14
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cimitarra_de_janes",
+      "nome": "Cimitarra de Janes, Sentença de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cimitarra dourada com um sol cravado na guarda e penas de cobre presas ao cabo.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "cimitarra_de_janes",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_malho_de_tubal",
+      "nome": "Malho de Tubal-Caim, Martelo de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Malho de pedra com veios de lava e um raio vermelho descendo pela cabeça.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "malho_de_tubal",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_garra_de_ammit",
+      "nome": "Garra de Ammit, Unhas de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Garra de quatro dentes sobre um crânio de ave, com fios de sangue seco.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "garra_de_ammit",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_remo_da_barca_de_ra",
+      "nome": "Remo da Barca de Rá, Remo de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Remo de madeira escura e latão, com um olho pintado e relâmpagos azuis descendo pelo cabo.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "remo_da_barca_de_ra",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_falx_de_azazel",
+      "nome": "Falx de Azazel, Foice de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Foice de corvo com asas roxas e um cristal pendurado no cabo.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "falx_de_azazel",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cajado_das_dez_pragas",
+      "nome": "Cajado das Dez Pragas, Vara de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cajado de ferro com lanternas verdes de peste que escorrem.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "cajado_das_dez_pragas",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cajado_estrelas_contadas",
+      "nome": "Cajado das Estrelas Contadas, Contagem de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina curva com estrelas douradas e faixas azuis de tecido estrelado.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "cajado_estrelas_contadas",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_escopeta_juramento_quebrado",
+      "nome": "Escopeta do Juramento Quebrado, Juramento de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cano de bronze com caveira, cruz de ferro pendurada e fita vermelha.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "escopeta_juramento_quebrado",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_bastao_que_virou_serpente",
+      "nome": "Bastão que Virou Serpente, Serpente de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cajado com crânio cercado de serpentes verdes e névoa de raio.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "bastao_que_virou_serpente",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cetro_do_raio_partido",
+      "nome": "Cetro do Raio Partido, Raio de Deus",
+      "slot": "arma",
+      "classes": [],
+      "raridade": "lendario",
+      "nivel": 1,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Anel de latão com espinhos em volta de um orbe roxo cheio de cristais.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%.",
+      "maos": 1,
+      "dano": [
+        7,
+        11
+      ],
+      "intervalo": 1.05,
+      "variante_de": "cetro_do_raio_partido",
+      "multiplicador_atributos": 1.35,
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
     }
   ]
 }

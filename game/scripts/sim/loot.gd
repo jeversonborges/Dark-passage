@@ -99,6 +99,8 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		if muito_abaixo and tag.begins_with("equip"): continue
 		if tag.begins_with("joia:") and sim.rng.randf() >= f_joias: continue   # joias de refino pela metade
 		var mn := minima
+		# variante Deus (balanco.variante_deus): 0,1% das rolagens de equipamento trocam a base pela arma Deus (x1,35)
+		if tag.begins_with("equip") and sim.rng.randf() < float(Defs.DROPS["balanco"]["variante_deus"]): tag = "lendario:deus"
 		if jog.pity_raro >= int(Defs.DROPS["pity"]["raro_garantido_apos_abates_sem_raro"]) and tag.begins_with("equip"): mn = "raro"
 		var it := item_da_tag(sim, tag, e.nivel, mn, jog)
 		if it.is_empty(): continue
