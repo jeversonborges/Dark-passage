@@ -42,8 +42,10 @@ func _init() -> void:
 		print("slot %d %-28s usou=%s eventos_dano=%s avisos=%s rec=%.1f odio_usado=%s" % [slot, h.get("id", "?"),
 			cont.get("skill", 0), cont.get("dano", 0), str(avisos.slice(0, 2)), j.rec, str(j.aux.get("odio_usado", "-"))])
 	# Ódio decai fora de combate e se mantém em combate
-	j.rec = 60.0; j.em_combate_t = 0.0; rodar(sim, 2.0)
+	j.rec = 60.0; j.em_combate_t = 999.0; rodar(sim, 2.0)
 	print("ódio fora de combate 2 s: %.1f (esperado ~48)" % j.rec)
-	j.rec = 60.0; j.em_combate_t = 0.0
+	j.rec = 60.0; j.em_combate_t = 0.0; rodar(sim, 2.0)
+	print("ódio em combate 2 s: %.1f (esperado 60)" % j.rec)
+	j.em_combate_t = 0.0
 	print("defesa do Warlord com 60 de Ódio: %.3f (bônus %.3f)" % [j.defesa * (1.0 + Regras.defesa_warlord(j)), Regras.defesa_warlord(j)])
 	quit(0)
