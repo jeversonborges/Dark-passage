@@ -13,12 +13,8 @@ static func definir(ligada: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		# volta numa janela de bom tamanho, centralizada na tela onde está
-		var tela := DisplayServer.window_get_current_screen()
-		var area := DisplayServer.screen_get_usable_rect(tela)
-		var tam := Vector2i(mini(1280, area.size.x - 40), mini(720, area.size.y - 60))
-		DisplayServer.window_set_size(tam)
-		DisplayServer.window_set_position(area.position + (area.size - tam) / 2)
+		# volta na resolução escolhida em Vídeo > Tamanho da janela, centralizada na tela onde está
+		Ajustes.aplicar_janela(true)
 	var cfg := ConfigFile.new()
 	cfg.load(CFG)
 	cfg.set_value("video", "tela_cheia", ligada)

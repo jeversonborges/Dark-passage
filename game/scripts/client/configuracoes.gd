@@ -183,8 +183,8 @@ func _aba_video() -> void:
 				Tela.definir(bool(x))
 				if not x: Ajustes.aplicar_janela()
 				mostrar.call_deferred("video"))
-		linha_seletor("Tamanho da janela", "Só vale no modo janela.", "janela",
-			[["1280x720", "1280 × 720"], ["1600x900", "1600 × 900"], ["1920x1080", "1920 × 1080"]], not cheia)
+		linha_seletor("Tamanho da janela", "Só vale no modo janela. Mostra só as resoluções que cabem no seu monitor.", "janela",
+			Ajustes.opcoes_janela(), not cheia)
 		linha_chave("Sincronia vertical", "Evita a imagem rasgando. Desligue se sentir o mouse atrasado.", "vsync")
 		linha_seletor("Limite de quadros", "Menos quadros, PC mais frio e silencioso.", "fps_max",
 			[[30, "30 por segundo"], [60, "60 por segundo"], [120, "120 por segundo"], [144, "144 por segundo"], [0, "Sem limite"]])
