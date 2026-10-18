@@ -3094,5 +3094,281 @@
 2048,
 64,
 64
+],
+"foice_de_cordoalha": [
+256,
+2048,
+64,
+64
+],
+"cajado_de_sino_enferrujado": [
+320,
+2048,
+64,
+64
+],
+"cajado_espiral": [
+384,
+2048,
+64,
+64
+],
+"cajado_da_pupila_de_vidro": [
+448,
+2048,
+64,
+64
+],
+"castical_de_quatro_bracos": [
+512,
+2048,
+64,
+64
+],
+"alabarda_dourada": [
+576,
+2048,
+64,
+64
+],
+"lanca_das_fitas_vermelhas": [
+640,
+2048,
+64,
+64
+],
+"tridente_da_vala": [
+704,
+2048,
+64,
+64
+],
+"maca_do_pulso_azul": [
+768,
+2048,
+64,
+64
+],
+"espada_serrilhada_sem_bandeira": [
+832,
+2048,
+64,
+64
+],
+"capuz_de_musgo_do_amargo": [
+896,
+2048,
+64,
+64
+],
+"coroa_de_espinhos_dourada": [
+960,
+2048,
+64,
+64
+],
+"elmo_cruzado_de_ferro": [
+0,
+2112,
+64,
+64
+],
+"elmo_de_chifres_serrados": [
+64,
+2112,
+64,
+64
+],
+"elmo_do_manto_sangrento": [
+128,
+2112,
+64,
+64
+],
+"lenco_do_sudario": [
+192,
+2112,
+64,
+64
+],
+"carapaca_roxa": [
+256,
+2112,
+64,
+64
+],
+"colete_de_couro_costurado": [
+320,
+2112,
+64,
+64
+],
+"peitoral_de_armadura_gasta": [
+384,
+2112,
+64,
+64
+],
+"peitoral_de_lapis_lazuli": [
+448,
+2112,
+64,
+64
+],
+"peitoral_do_olho_de_bronze": [
+512,
+2112,
+64,
+64
+],
+"manto_da_cruz_dourada": [
+576,
+2112,
+64,
+64
+],
+"bracadeiras_de_ouro_azul": [
+640,
+2112,
+64,
+64
+],
+"garras_de_latao": [
+704,
+2112,
+64,
+64
+],
+"luvas_de_couro_curtido": [
+768,
+2112,
+64,
+64
+],
+"manoplas_de_espinhos": [
+832,
+2112,
+64,
+64
+],
+"calcas_de_coro_mudo": [
+896,
+2112,
+64,
+64
+],
+"perneiras_de_granizo": [
+960,
+2112,
+64,
+64
+],
+"cha_de_hissopo": [
+0,
+2176,
+64,
+64
+],
+"pao_de_cevada": [
+64,
+2176,
+64,
+64
+],
+"vela_do_escriba": [
+128,
+2176,
+64,
+64
+],
+"carne_de_abominacao": [
+192,
+2176,
+64,
+64
+],
+"massa_rugosa": [
+256,
+2176,
+64,
+64
+],
+"tablete_de_pedra_gravada": [
+320,
+2176,
+64,
+64
+],
+"missal_manchado": [
+384,
+2176,
+64,
+64
+],
+"papiro_do_sol_partido": [
+448,
+2176,
+64,
+64
+],
+"livro_dos_pesos": [
+512,
+2176,
+64,
+64
+],
+"amuleto_de_pena_branca": [
+576,
+2176,
+64,
+64
+],
+"bussola_de_contas": [
+640,
+2176,
+64,
+64
+],
+"cartucho_benzido": [
+704,
+2176,
+64,
+64
+],
+"coracao_em_chamas": [
+768,
+2176,
+64,
+64
+],
+"pingente_de_pedra_musgosa": [
+832,
+2176,
+64,
+64
+],
+"terco_de_ossos": [
+896,
+2176,
+64,
+64
+],
+"emblema_da_estrela_vermelha": [
+960,
+2176,
+64,
+64
+],
+"pena_de_asa_dourada": [
+0,
+2240,
+64,
+64
+],
+"anel_da_caveira_dourada": [
+64,
+2240,
+64,
+64
 ]
 }
