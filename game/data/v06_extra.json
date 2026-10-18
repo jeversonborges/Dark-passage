@@ -4292,6 +4292,7 @@
    "drop": "chefe_catacumba"
   },
   "petsuchos": {
+   "escala": 1.8,
    "nome": "Petsuchos, o Crocodilo Sagrado",
    "andar": 1,
    "dungeon": "labirinto_de_hawara",
@@ -4444,6 +4445,7 @@
    "trava": "diaria"
   },
   "esfinge_de_hawara": {
+   "escala": 1.8,
    "nome": "A Esfinge de Hawara",
    "andar": 2,
    "dungeon": "labirinto_de_hawara",
@@ -4579,6 +4581,7 @@
    "trava": "diaria"
   },
   "serket": {
+   "escala": 1.8,
    "nome": "Serket, a Que Faz a Garganta Respirar",
    "andar": 3,
    "dungeon": "labirinto_de_hawara",
@@ -4738,6 +4741,7 @@
    "trava": "diaria"
   },
   "sekhmet": {
+   "escala": 1.8,
    "nome": "Sekhmet, a Leoa Que Bebeu o Sangue",
    "andar": 1,
    "raid": "coracao_endurecido",
@@ -4897,6 +4901,7 @@
    "trava": "semanal"
   },
   "janes": {
+   "escala": 1.8,
    "nome": "Janes e Jambres, os Magos de Faraó",
    "andar": 2,
    "raid": "coracao_endurecido",
@@ -5029,6 +5034,7 @@
    "trava": "semanal"
   },
   "imseti": {
+   "escala": 1.8,
    "nome": "Os Quatro Filhos de Hórus",
    "andar": 3,
    "raid": "coracao_endurecido",
@@ -5141,6 +5147,7 @@
    "trava": "semanal"
   },
   "apofis": {
+   "escala": 1.8,
    "nome": "Apófis, a Serpente Sem Fim",
    "andar": 4,
    "raid": "coracao_endurecido",
@@ -5308,6 +5315,7 @@
    "trava": "semanal"
   },
   "anubis_pesador": {
+   "escala": 1.8,
    "nome": "Anúbis, o Pesador",
    "andar": 5,
    "raid": "coracao_endurecido",
@@ -5437,6 +5445,7 @@
    "trava": "semanal"
   },
   "farao_sem_nome": {
+   "escala": 1.8,
    "nome": "O Faraó Sem Nome",
    "andar": 6,
    "raid": "coracao_endurecido",
