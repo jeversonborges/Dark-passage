@@ -1769,6 +1769,33 @@
         "texto": "Quem ouve o sino parado não se cansa de rezar.",
         "autor": "Irmã Celeste, a Carpideira"
       }
+    },
+    {
+      "id": "cetro_do_raio_partido",
+      "nome": "Cetro do Raio Partido",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 28,
+      "origem": "drop:torre_elite",
+      "chance_sugerida": 0.03,
+      "conjunto": null,
+      "atributos": {
+        "dano": [
+          62,
+          96
+        ],
+        "esp": 14
+      },
+      "efeito": "Excelente: cada skill que acerta deixa uma fagulha no alvo que causa 8% do dano em 2 s.",
+      "descricao": "Orbe escuro de vidro partido, com um anel de latão girando em volta e um raio preso dentro que nunca apaga.",
+      "tags": [
+        "excelente:torre"
+      ]
     }
   ],
   "conjuntos_novos": [
