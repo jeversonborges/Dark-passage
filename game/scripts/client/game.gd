@@ -250,7 +250,9 @@ func _montar_mapa() -> void:
 		var s := _sprite_kit(k, Vector2(p["x"], p["y"]), p.get("espelho", 0) == 1)
 		if s == null: continue
 		if p.get("anel", "") != "" and p.get("anel") != null: props_anel[p["anel"]] = props_anel.get(p["anel"], []) + [s]
-		if p.has("racha"): rachas[p["racha"]] = rachas.get(p["racha"], []) + [s]
+		if p.has("racha"):   # fenda escura e pequena; só acende no aviso do anel (_hermon_aviso)
+			s.modulate = Color(0.42, 0.38, 0.32); s.scale *= 0.55
+			rachas[p["racha"]] = rachas.get(p["racha"], []) + [s]
 		if p.get("chao", 0) == 1: decal.add_child(s)
 		elif p.get("frente", 0) == 1 or k.contains("_frente"): mundo.add_child(s)   # meia-parede da frente: baixa, nunca esconde o personagem
 		else:
