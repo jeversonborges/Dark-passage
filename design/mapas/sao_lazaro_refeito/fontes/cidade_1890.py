@@ -145,7 +145,7 @@ def muro(a, b, orient):
 muro((QX0, QY0), (QX1, QY0), "x"); muro((QX0, QY1), (QX1, QY1), "x"); muro((QX0, QY0), (QX0, QY1), "y"); muro((QX1, QY0), (QX1, QY1), "y")
 for pid, gx, gy, o in PORTOES_XY:
     add("portao_cidade", gx, gy, orient=o, light=L("fogo", 5), ponto="portao_" + pid, passagem=True)
-for (x, y) in [(QX0 + 1.2, QY0 + 1.2), (QX1 - 1.2, QY0 + 1.2), (QX1 - 1.2, QY1 - 1.2), (QX0 + 1.2, QY1 - 1.2), (QX1 - 1.4, 64.0)]:
+for (x, y) in [(QX0 + 1.2, QY0 + 1.2), (QX1 - 1.2, QY0 + 1.2), (QX1 - 1.2, QY1 - 1.2), (QX0 + 4.6, QY1 - 1.2), (QX1 - 1.4, 64.0)]:
     add("torre_vigia", x, y, light=L("arco", 6))
 add("marcador_npc", QX1 - 2.6, 72.6, block=False, invisivel=True, ponto="costelas_cupula", nota="Damião vigia o portão leste", silhueta=False)
 # ruas livres de novo depois dos muros (os portões só bloqueiam nos pilares)

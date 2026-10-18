@@ -194,7 +194,7 @@
    ],
    "lore": "A fila de Não-Julgados parada diante da torre do sino, com o andor no meio, esperando o Juízo. Só revidam: o spot feito para o leque.",
    "missao": "v04 Lacres Inteiros, f02 O Rosto do Padroeiro",
-   "livre": 0.86,
+   "livre": 0.85,
    "dist_trilha": 3.6
   },
   {
@@ -511,7 +511,7 @@
    ],
    "lore": "As sombras que o clarão da bomba gravou no muro da vila descolam à noite e defendem o muro. Na borda da tempestade o contador não para de estalar.",
    "missao": "d05 O Muro das Sombras, d06 Absinto-2",
-   "livre": 0.88,
+   "livre": 0.87,
    "dist_trilha": 14.4
   }
  ],

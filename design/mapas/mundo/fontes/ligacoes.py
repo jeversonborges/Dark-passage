@@ -26,7 +26,7 @@ ESTRADAS = [
         "id": "estrada_dos_peregrinos",
         "a": {"mapa": "jerusalem_hermon", "pos": [101.5, 32.0], "chegada": [101.5, 34.5], "visual": "torre_portao",
               "nome": "Estrada dos Peregrinos · para o Deserto de Absinto (São Lázaro)"},
-        "b": {"mapa": "area_inicial", "pos": [37.5, 125.5], "chegada": [39.5, 125.5], "visual": "placa_rua_enterrada",   # 18/10: fora do portão oeste da Rua de Cima (cidade de 1890)
+        "b": {"mapa": "area_inicial", "pos": [37.5, 123.5], "chegada": [42.5, 123.5], "visual": "placa_rua_enterrada",   # 18/10: fora do portão oeste da Rua de Cima (cidade de 1890)
               "nome": "Estrada dos Peregrinos · para Jerusalém"},
     },
     {   # já existia; só ganha o visual de estrada
