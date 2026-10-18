@@ -4,6 +4,7 @@ class_name Regras
 const PERFIS := {
 	"corpo_a_corpo": ["FOR/6", "FOR/4"],
 	"corpo_a_corpo_agil": ["FOR/6 + AGI/10", "FOR/4 + AGI/10"],
+	"corpo_a_corpo_pesado": ["FOR/6", "FOR/4"],   # Warlord: espada pesada, mesma fórmula da corpo_a_corpo até o Design revisar
 	"distancia": ["AGI/7 + FOR/14", "AGI/4 + FOR/8"],
 	"magico": ["ESP/9", "ESP/4"],
 	"sagrado": ["ESP/10 + FOR/12", "ESP/5 + FOR/8"],
