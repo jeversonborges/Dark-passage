@@ -6905,6 +6905,189 @@
     }
    ],
    "drop": "atlantida_chefe"
+  },
+  "o_perfeito": {
+   "nome": "O Perfeito",
+   "andar": 1,
+   "raid": "saloes_de_amenti",
+   "nivel": 150,
+   "tags": [
+    "celestial",
+    "anjo"
+   ],
+   "hp": 600000,
+   "defesa": 180,
+   "dano_base": 420,
+   "intervalo_ataque": 1.8,
+   "velocidade_mov": 2.2,
+   "postura_max": 2400,
+   "res": {
+    "sagrado": 0.3,
+    "fisico": -0.1
+   },
+   "duracao_alvo_s": 300,
+   "furia_tempo_s": 480,
+   "escala_grupo": {
+    "base": 5,
+    "por_jogador": 0.2,
+    "max": 10
+   },
+   "minimo_jogadores": 1,
+   "conceito": "Proposta de balanceamento, a revisar com o Jefin. Mesmo rosto do líder dos anjos, de propósito.",
+   "fases": [
+    {
+     "n": 1,
+     "hp": [
+      1.0,
+      0.65
+     ],
+     "nome": "A Face Perfeita",
+     "ataques": [
+      {
+       "id": "estocada",
+       "nome": "Lança-Para-Raios",
+       "mult": 1.0,
+       "preparo": 0.6,
+       "alcance": 2.6,
+       "anim": "attack"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.2
+       },
+       "recarga": 7,
+       "anim": "lunge"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Estática",
+       "mult": 1.2,
+       "quantidade": 4,
+       "intervalo": 0.5,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 9,
+       "anim": "cast"
+      }
+     ]
+    },
+    {
+     "n": 2,
+     "hp": [
+      0.65,
+      0.3
+     ],
+     "nome": "O Espelho",
+     "ataques": [
+      {
+       "id": "estocada",
+       "nome": "Lança-Para-Raios",
+       "mult": 1.1,
+       "preparo": 0.6,
+       "alcance": 2.6,
+       "anim": "attack"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.5,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 9,
+        "largura": 1.2
+       },
+       "dupla": true,
+       "angulo_entre": 35,
+       "recarga": 6,
+       "anim": "lunge"
+      },
+      {
+       "id": "varredura",
+       "nome": "Varredura",
+       "mult": 1.5,
+       "preparo": 1.0,
+       "telegrafo": {
+        "forma": "cone",
+        "raio": 6.0,
+        "angulo": 120
+       },
+       "recarga": 8,
+       "anim": "spin"
+      },
+      {
+       "id": "a_fenda_chama",
+       "nome": "A Fenda Chama",
+       "invoca": {
+        "inaudivel": 1,
+        "eco_da_estatica": 2
+       },
+       "uma_vez": true,
+       "anim": "summon"
+      }
+     ]
+    },
+    {
+     "n": 3,
+     "hp": [
+      0.3,
+      0.0
+     ],
+     "nome": "A Perfeição Final",
+     "ataques": [
+      {
+       "id": "marca_do_juizo",
+       "nome": "A Sétima Nota",
+       "mult": 2.2,
+       "preparo": 2.2,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 2.8
+       },
+       "recarga": 8,
+       "anim": "roar"
+      },
+      {
+       "id": "pranto_que_cai",
+       "nome": "Chuva de Estática",
+       "mult": 1.3,
+       "quantidade": 8,
+       "intervalo": 0.4,
+       "preparo": 0.8,
+       "telegrafo": {
+        "forma": "circulo",
+        "raio": 1.4
+       },
+       "recarga": 7,
+       "anim": "cast"
+      },
+      {
+       "id": "lanca_do_juizo",
+       "nome": "Relâmpago Sintonizado",
+       "mult": 1.6,
+       "preparo": 0.9,
+       "telegrafo": {
+        "forma": "linha",
+        "comprimento": 10,
+        "largura": 1.2
+       },
+       "dupla": true,
+       "angulo_entre": 30,
+       "recarga": 6,
+       "anim": "lunge"
+      }
+     ]
+    }
+   ]
   }
  },
  "drops": {
