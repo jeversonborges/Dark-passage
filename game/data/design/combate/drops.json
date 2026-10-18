@@ -1040,6 +1040,500 @@
           "peso": 88
         }
       ]
+    },
+    "chefe_torre_1": {
+      "garantido": [
+        "lendario:zacarias"
+      ],
+      "rolagens_garantidas": 3,
+      "raridade_minima": "magico",
+      "ouro_mult": 20,
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_torre_2": {
+      "garantido": [
+        "lendario:zacarias"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 25,
+      "rolagens": [
+        {
+          "tag": "equip:faixa3",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_torre_3": {
+      "garantido": [
+        "lendario:zacarias"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 25,
+      "rolagens": [
+        {
+          "tag": "equip:faixa3",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_torre_4": {
+      "garantido": [
+        "lendario:zacarias"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 28,
+      "rolagens": [
+        {
+          "tag": "equip:faixa3",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_torre_5": {
+      "garantido": [
+        "lendario:zacarias"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "raro",
+      "ouro_mult": 30,
+      "rolagens": [
+        {
+          "tag": "equip:faixa3",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:zacarias",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_catacumba": {
+      "garantido": [
+        "lendario:cripta"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 28,
+      "rolagens": [
+        {
+          "tag": "equip:faixa3",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:cripta",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_hawara_1": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 30,
+      "rolagens": [
+        {
+          "tag": "equip:faixa4",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa3",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_hawara_2": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "raro",
+      "ouro_mult": 32,
+      "rolagens": [
+        {
+          "tag": "equip:faixa4",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa3",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_hawara_3": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "raro",
+      "ouro_mult": 32,
+      "rolagens": [
+        {
+          "tag": "equip:faixa4",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa3",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_1": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "excelente",
+      "ouro_mult": 35,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_2": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "excelente",
+      "ouro_mult": 35,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_3": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 5,
+      "raridade_minima": "excelente",
+      "ouro_mult": 35,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_4": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 6,
+      "raridade_minima": "excelente",
+      "ouro_mult": 38,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_5": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 6,
+      "raridade_minima": "excelente",
+      "ouro_mult": 38,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_coracao_6": {
+      "garantido": [
+        "lendario:egito"
+      ],
+      "rolagens_garantidas": 6,
+      "raridade_minima": "excelente",
+      "ouro_mult": 40,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:egito",
+          "peso": 3
+        }
+      ]
+    },
+    "drop_ohya": {
+      "garantido": [
+        "lendario:sao_lazaro"
+      ],
+      "rolagens_garantidas": 3,
+      "raridade_minima": "magico",
+      "ouro_mult": 20,
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:sao_lazaro",
+          "peso": 3
+        }
+      ]
+    },
+    "drop_naama": {
+      "garantido": [
+        "lendario:sao_lazaro"
+      ],
+      "rolagens_garantidas": 3,
+      "raridade_minima": "magico",
+      "ouro_mult": 20,
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:sao_lazaro",
+          "peso": 3
+        }
+      ]
+    },
+    "drop_semyaza": {
+      "garantido": [
+        "lendario:sao_lazaro"
+      ],
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "ouro_mult": 22,
+      "rolagens": [
+        {
+          "tag": "equip:faixa2",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:sao_lazaro",
+          "peso": 3
+        }
+      ]
+    },
+    "chefe_perfeito": {
+      "garantido": [
+        "lendario:celeste"
+      ],
+      "rolagens_garantidas": 6,
+      "raridade_minima": "excelente",
+      "ouro_mult": 60,
+      "rolagens": [
+        {
+          "tag": "equip:faixa5",
+          "peso": 80
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 12
+        },
+        {
+          "tag": "joia:refino",
+          "peso": 8
+        },
+        {
+          "tag": "lendario:celeste",
+          "peso": 3
+        }
+      ]
     }
   },
   "baus": {
