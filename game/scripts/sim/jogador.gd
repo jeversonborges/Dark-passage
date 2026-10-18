@@ -1236,7 +1236,7 @@ static func estoque(e: Ent, loja_id: String) -> Array:
 	return ids.filter(func(i): return Defs.ITENS.has(i))
 
 static func abrir_servico(sim: WorldSim, e: Ent, s: Dictionary, npc: Ent) -> void:
-	var d := {"tipo": s["tipo"], "npc": npc.id, "nome": npc.nome}
+	var d := {"tipo": s["tipo"], "npc": npc.id, "nome": npc.nome, "kind": npc.kind}
 	match s["tipo"]:
 		"loja":
 			var l: Dictionary = Defs.LOJAS.get(s["id"], {})
@@ -1279,6 +1279,12 @@ static func vender(sim: WorldSim, e: Ent, uid: int) -> void:
 	sim.emitir_a(e, "ouro", {"valor": v})
 	sim.emitir_a(e, "inventario", {})
 
+## Primeiro material de forja (tag material:forja) da mochila, "" se não houver.
+static func _material_forja(e: Ent) -> String:
+	for it in e.inv:
+		if "material:forja" in Itens.defn(it["id"]).get("tags", []): return it["id"]
+	return ""
+
 ## Refino com lágrimas (drops.json "refino_com_lagrimas"): Angélica +0..+6 sempre dá certo;
 ## Sanguínea +6..+15 com chance caindo; falha tira 1 nível (2 do +11 em diante, nunca abaixo de +6). Nunca quebra.
 static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
@@ -1294,9 +1300,12 @@ static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 	if Itens.contar(e.inv, joia) < n_joias:
 		sim.emitir_a(e, "aviso", {"texto": "Precisa de %d %s." % [n_joias, Defs.ITENS[joia]["nome"]]}); return
 	var custo_ouro := 50 * (r + 1)
-	if e.ouro < custo_ouro:
+	# Tubal (balanço 18/10): um material de forja (Casca de Lava, Cinza de Ossário, Cacho de Cristal Roxo) paga o refino no lugar do ouro
+	var mat := _material_forja(e) if e.aux.get("servico", {}).get("kind", "") == "tubal_malho" else ""
+	if mat == "" and e.ouro < custo_ouro:
 		sim.emitir_a(e, "aviso", {"texto": "O ferreiro cobra %d de ouro." % custo_ouro}); return
-	e.ouro -= custo_ouro
+	if mat != "": Itens.remover(e.inv, mat, 1)
+	else: e.ouro -= custo_ouro
 	Itens.remover(e.inv, joia, n_joias)
 	if r >= 10 and sim.rng.randf() < 0.15:   # acima do +10 o item pode quebrar (15%, Jefin 17/10): a lágrima e o ouro já foram
 		if onde == "mochila": e.inv.erase(it)
