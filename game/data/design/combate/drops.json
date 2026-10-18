@@ -42,7 +42,7 @@
       }
     },
     "excelente": {
-      "cor": "#9cff3a",
+      "cor": "#a66ad8",
       "opcoes_extras": [
         3,
         4
@@ -646,6 +646,9 @@
           "tipo": "amuleto",
           "ideia": "+10% cura feita e recebida; ouve-se um coro baixinho ao curar"
         }
+      ],
+      "garantido": [
+        "missao:veu_da_comunhao"
       ]
     },
     "chefe_zacarias": {
@@ -682,6 +685,9 @@
           "tipo": "anel (Humano/Tecnomancer)",
           "ideia": "golpes criticos silenciam o alvo por 1s"
         }
+      ],
+      "garantido": [
+        "missao:martelo_do_sino_derretido"
       ]
     },
     "chefe_general": {
@@ -712,6 +718,106 @@
           "id": "estandarte_partido",
           "tipo": "arma de haste 2 maos",
           "ideia": "golpe basico tem 12% de chance de erguer um Soldado Caido aliado por 10s"
+        }
+      ],
+      "garantido": [
+        "missao:elmo_da_legiao_sem_general"
+      ]
+    },
+    "jerusalem_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:jerusalem",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 88
+        }
+      ]
+    },
+    "sao_lazaro_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:sao_lazaro",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 88
+        }
+      ]
+    },
+    "sao_lazaro_chefe": {
+      "rolagens_garantidas": 2,
+      "raridade_minima": "magico",
+      "rolagens": [
+        {
+          "tag": "lendario:sao_lazaro",
+          "peso": 10
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 90
+        }
+      ]
+    },
+    "atlantida_elite": {
+      "item_chance": 0.3,
+      "rolagens": [
+        {
+          "tag": "excelente:atlantida",
+          "peso": 14
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 86
+        }
+      ]
+    },
+    "atlantida_chefe": {
+      "rolagens_garantidas": 4,
+      "raridade_minima": "raro",
+      "rolagens": [
+        {
+          "tag": "lendario:atlantida",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ],
+      "garantido": [
+        "missao:cajado_do_engenheiro_herege"
+      ]
+    },
+    "egito_elite": {
+      "item_chance": 0.3,
+      "rolagens": [
+        {
+          "tag": "excelente:egito",
+          "peso": 14
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 86
+        }
+      ]
+    },
+    "egito_chefe": {
+      "rolagens_garantidas": 5,
+      "raridade_minima": "raro",
+      "rolagens": [
+        {
+          "tag": "lendario:egito",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
         }
       ]
     }
