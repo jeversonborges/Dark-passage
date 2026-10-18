@@ -5306,7 +5306,7 @@
     "esp": 99,
     "hp": 9999
    },
-   "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
+   "efeito": "Ataque básico atinge todos os inimigos a 8 m. 10% de chance por golpe de apagar um inimigo comum; chefes perdem 10% da vida máxima. Devolve 100% do dano recebido. Regenera 10% de vida e recurso por segundo. Recarga das skills -90%. Aura: aliados a 10 m ganham +50% de dano e XP; inimigos a 10 m, -50% de dano. Vinculado à conta.",
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/cetro_do_demiurgo.png",
@@ -5314,6 +5314,3511 @@
     "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png"
+  },
+  {
+   "id": "azeite_do_lagar",
+   "nome": "Azeite do Lagar",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A Brasa come qualquer óleo. Este ela come com gosto.",
+    "autor": "Hulda da Escada"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/azeite_do_lagar.png",
+    "40": "assets/icones/itens/40/azeite_do_lagar.png",
+    "32": "assets/icones/itens/32/azeite_do_lagar.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/azeite_do_lagar.png"
+  },
+  {
+   "id": "vela_do_escriba",
+   "nome": "Vela de Cera do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Os mortos respeitam quem sabe o nome deles.",
+    "autor": "o Escriba"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/vela_do_escriba.png",
+    "40": "assets/icones/itens/40/vela_do_escriba.png",
+    "32": "assets/icones/itens/32/vela_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vela_do_escriba.png"
+  },
+  {
+   "id": "lasca_da_tabua",
+   "nome": "Lasca da Tábua",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Queimamos o juramento. O fim deu um passo. Eu senti.",
+    "autor": "Sariel, Guardiã da Porta"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "vit": 6,
+    "esp": 3
+   },
+   "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/lasca_da_tabua.png",
+    "40": "assets/icones/itens/40/lasca_da_tabua.png",
+    "32": "assets/icones/itens/32/lasca_da_tabua.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lasca_da_tabua.png"
+  },
+  {
+   "id": "selo_do_coro",
+   "nome": "Selo do Coro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Guardado não é perdoado. É guardado.",
+    "autor": "Hulda da Escada"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 6,
+    "agi": 3
+   },
+   "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_do_coro.png",
+    "40": "assets/icones/itens/40/selo_do_coro.png",
+    "32": "assets/icones/itens/32/selo_do_coro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_do_coro.png"
+  },
+  {
+   "id": "raiz_de_hissopo",
+   "nome": "Raiz de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/raiz_de_hissopo.png",
+    "40": "assets/icones/itens/40/raiz_de_hissopo.png",
+    "32": "assets/icones/itens/32/raiz_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/raiz_de_hissopo.png"
+  },
+  {
+   "id": "cha_de_hissopo",
+   "nome": "Chá de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Purifica-me com hissopo, e ficarei limpo. Ficar limpo dói.",
+    "autor": "Zilpa, a Hissopeira"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/cha_de_hissopo.png",
+    "40": "assets/icones/itens/40/cha_de_hissopo.png",
+    "32": "assets/icones/itens/32/cha_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cha_de_hissopo.png"
+  },
+  {
+   "id": "infusao_de_hissopo",
+   "nome": "Infusão de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/infusao_de_hissopo.png",
+    "40": "assets/icones/itens/40/infusao_de_hissopo.png",
+    "32": "assets/icones/itens/32/infusao_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/infusao_de_hissopo.png"
+  },
+  {
+   "id": "medalha_de_joas",
+   "nome": "Medalha de Joás",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/medalha_de_joas.png",
+    "40": "assets/icones/itens/40/medalha_de_joas.png",
+    "32": "assets/icones/itens/32/medalha_de_joas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/medalha_de_joas.png"
+  },
+  {
+   "id": "veu_de_zilpa",
+   "nome": "Véu Bordado da Zilpa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ele usava para dormir. Agora você usa para não morrer.",
+    "autor": "Zilpa, a Hissopeira"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "hp": 40
+   },
+   "efeito": "Comida e sopas curam 25% a mais.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_de_zilpa.png",
+    "40": "assets/icones/itens/40/veu_de_zilpa.png",
+    "32": "assets/icones/itens/32/veu_de_zilpa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_de_zilpa.png"
+  },
+  {
+   "id": "elo_de_corrente",
+   "nome": "Elo de Corrente",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_de_corrente.png",
+    "40": "assets/icones/itens/40/elo_de_corrente.png",
+    "32": "assets/icones/itens/32/elo_de_corrente.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_de_corrente.png"
+  },
+  {
+   "id": "elo_de_vigilante",
+   "nome": "Elo de Vigilante",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_de_vigilante.png",
+    "40": "assets/icones/itens/40/elo_de_vigilante.png",
+    "32": "assets/icones/itens/32/elo_de_vigilante.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_de_vigilante.png"
+  },
+  {
+   "id": "martelo_de_tubal",
+   "nome": "Martelo de Tubal",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ferro de Vigilante não enferruja. Só lembra.",
+    "autor": "Tubal, o Malho"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "vit": 3,
+    "for": 2
+   },
+   "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/martelo_de_tubal.png",
+    "40": "assets/icones/itens/40/martelo_de_tubal.png",
+    "32": "assets/icones/itens/32/martelo_de_tubal.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/martelo_de_tubal.png"
+  },
+  {
+   "id": "flauta_de_osso",
+   "nome": "Flauta de Osso",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/flauta_de_osso.png",
+    "40": "assets/icones/itens/40/flauta_de_osso.png",
+    "32": "assets/icones/itens/32/flauta_de_osso.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/flauta_de_osso.png"
+  },
+  {
+   "id": "leitura_mapa_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_mapa_bartimeu.png",
+    "40": "assets/icones/itens/40/leitura_mapa_bartimeu.png",
+    "32": "assets/icones/itens/32/leitura_mapa_bartimeu.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_mapa_bartimeu.png"
+  },
+  {
+   "id": "mapa_de_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/mapa_de_bartimeu.png",
+    "40": "assets/icones/itens/40/mapa_de_bartimeu.png",
+    "32": "assets/icones/itens/32/mapa_de_bartimeu.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/mapa_de_bartimeu.png"
+  },
+  {
+   "id": "pa_do_escriba",
+   "nome": "Pá do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pa_do_escriba.png",
+    "40": "assets/icones/itens/40/pa_do_escriba.png",
+    "32": "assets/icones/itens/32/pa_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pa_do_escriba.png"
+  },
+  {
+   "id": "pao_de_rispa",
+   "nome": "Pão de Rispa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Do começo da sega até a chuva. Eu fico.",
+    "autor": "Rispa, a Que Vigia"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pao_de_rispa.png",
+    "40": "assets/icones/itens/40/pao_de_rispa.png",
+    "32": "assets/icones/itens/32/pao_de_rispa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pao_de_rispa.png"
+  },
+  {
+   "id": "cinza_de_tofete",
+   "nome": "Cinza de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/cinza_de_tofete.png",
+    "40": "assets/icones/itens/40/cinza_de_tofete.png",
+    "32": "assets/icones/itens/32/cinza_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cinza_de_tofete.png"
+  },
+  {
+   "id": "chave_de_pa",
+   "nome": "Chave de Pã",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "PANEAS · PORTA DOS QUE DESCEM",
+    "autor": "inscrição no cordão"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_de_pa.png",
+    "40": "assets/icones/itens/40/chave_de_pa.png",
+    "32": "assets/icones/itens/32/chave_de_pa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_de_pa.png"
+  },
+  {
+   "id": "leitura_contas_de_tofete",
+   "nome": "Contas de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_contas_de_tofete.png",
+    "40": "assets/icones/itens/40/leitura_contas_de_tofete.png",
+    "32": "assets/icones/itens/32/leitura_contas_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_contas_de_tofete.png"
+  },
+  {
+   "id": "livro_de_contas_de_tofete",
+   "nome": "Livro de Contas de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/livro_de_contas_de_tofete.png",
+    "40": "assets/icones/itens/40/livro_de_contas_de_tofete.png",
+    "32": "assets/icones/itens/32/livro_de_contas_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/livro_de_contas_de_tofete.png"
+  },
+  {
+   "id": "selo_do_sonho",
+   "nome": "Selo do Sonho",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sonha com água. É o que eles todos sonham.",
+    "autor": "Rispa, a Que Vigia"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_do_sonho.png",
+    "40": "assets/icones/itens/40/selo_do_sonho.png",
+    "32": "assets/icones/itens/32/selo_do_sonho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_do_sonho.png"
+  },
+  {
+   "id": "manto_de_ohya",
+   "nome": "Manto de Ohya",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sonhei que vinha alguém pequeno. Sonhei errado no tamanho.",
+    "autor": "Ohya, o Gigante que Sonhou"
+   },
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 28,
+   "defesa": 5,
+   "atributos": {
+    "vit": 5,
+    "for": 2
+   },
+   "efeito": "Matar um inimigo recupera 3% do HP.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/manto_de_ohya.png",
+    "40": "assets/icones/itens/40/manto_de_ohya.png",
+    "32": "assets/icones/itens/32/manto_de_ohya.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/manto_de_ohya.png"
+  },
+  {
+   "id": "selo_das_aguas",
+   "nome": "Selo das Águas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_das_aguas.png",
+    "40": "assets/icones/itens/40/selo_das_aguas.png",
+    "32": "assets/icones/itens/32/selo_das_aguas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_das_aguas.png"
+  },
+  {
+   "id": "veu_de_naama",
+   "nome": "Véu de Naamá",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eles eram grandes. Eram meus.",
+    "autor": "Naamá, a Noiva dos Vigilantes"
+   },
+   "raridade": "raro",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 14,
+   "defesa": 3,
+   "atributos": {
+    "esp": 5
+   },
+   "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_de_naama.png",
+    "40": "assets/icones/itens/40/veu_de_naama.png",
+    "32": "assets/icones/itens/32/veu_de_naama.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_de_naama.png"
+  },
+  {
+   "id": "tabua_do_juramento",
+   "nome": "Tábua do Juramento",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Que o fim fique onde está.",
+    "autor": "a frase gravada duzentas vezes"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/tabua_do_juramento.png",
+    "40": "assets/icones/itens/40/tabua_do_juramento.png",
+    "32": "assets/icones/itens/32/tabua_do_juramento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tabua_do_juramento.png"
+  },
+  {
+   "id": "valvula_da_escuta",
+   "nome": "Válvula da Escuta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/valvula_da_escuta.png",
+    "40": "assets/icones/itens/40/valvula_da_escuta.png",
+    "32": "assets/icones/itens/32/valvula_da_escuta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/valvula_da_escuta.png"
+  },
+  {
+   "id": "pagina_do_decreto",
+   "nome": "Página do Decreto",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pagina_do_decreto.png",
+    "40": "assets/icones/itens/40/pagina_do_decreto.png",
+    "32": "assets/icones/itens/32/pagina_do_decreto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pagina_do_decreto.png"
+  },
+  {
+   "id": "leitura_decreto_sexta_hora",
+   "nome": "O Decreto da Sexta Hora (cópia)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_decreto_sexta_hora.png",
+    "40": "assets/icones/itens/40/leitura_decreto_sexta_hora.png",
+    "32": "assets/icones/itens/32/leitura_decreto_sexta_hora.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_decreto_sexta_hora.png"
+  },
+  {
+   "id": "agua_de_degelo",
+   "nome": "Água de Degelo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/agua_de_degelo.png",
+    "40": "assets/icones/itens/40/agua_de_degelo.png",
+    "32": "assets/icones/itens/32/agua_de_degelo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/agua_de_degelo.png"
+  },
+  {
+   "id": "orelha_de_jael",
+   "nome": "Orelha de Latão da Jael",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eles falam baixo. Quem não escuta acha que é vento.",
+    "autor": "Jael, a Escuta"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 2
+   },
+   "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/orelha_de_jael.png",
+    "40": "assets/icones/itens/40/orelha_de_jael.png",
+    "32": "assets/icones/itens/32/orelha_de_jael.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/orelha_de_jael.png"
+  },
+  {
+   "id": "elo_partido",
+   "nome": "Elo Partido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_partido.png",
+    "40": "assets/icones/itens/40/elo_partido.png",
+    "32": "assets/icones/itens/32/elo_partido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_partido.png"
+  },
+  {
+   "id": "astrolabio_de_kokabiel",
+   "nome": "Astrolábio de Kokabiel",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/astrolabio_de_kokabiel.png",
+    "40": "assets/icones/itens/40/astrolabio_de_kokabiel.png",
+    "32": "assets/icones/itens/32/astrolabio_de_kokabiel.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/astrolabio_de_kokabiel.png"
+  },
+  {
+   "id": "estrela_contada",
+   "nome": "A Estrela Contada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Apaguei a conta. Agora ninguém sabe quantas noites faltam. Nem eles.",
+    "autor": "Jael, a Escuta"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "esp": 6,
+    "vit": 4
+   },
+   "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/estrela_contada.png",
+    "40": "assets/icones/itens/40/estrela_contada.png",
+    "32": "assets/icones/itens/32/estrela_contada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estrela_contada.png"
+  },
+  {
+   "id": "astrolabio_do_coro",
+   "nome": "Astrolábio do Coro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 2
+   },
+   "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/astrolabio_do_coro.png",
+    "40": "assets/icones/itens/40/astrolabio_do_coro.png",
+    "32": "assets/icones/itens/32/astrolabio_do_coro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/astrolabio_do_coro.png"
+  },
+  {
+   "id": "insignia_da_cerca",
+   "nome": "Insígnia da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/insignia_da_cerca.png",
+    "40": "assets/icones/itens/40/insignia_da_cerca.png",
+    "32": "assets/icones/itens/32/insignia_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/insignia_da_cerca.png"
+  },
+  {
+   "id": "leitura_carta_do_sineiro",
+   "nome": "Carta do Sineiro (decifrada)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_carta_do_sineiro.png",
+    "40": "assets/icones/itens/40/leitura_carta_do_sineiro.png",
+    "32": "assets/icones/itens/32/leitura_carta_do_sineiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_do_sineiro.png"
+  },
+  {
+   "id": "carta_do_sineiro",
+   "nome": "Carta do Sineiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/carta_do_sineiro.png",
+    "40": "assets/icones/itens/40/carta_do_sineiro.png",
+    "32": "assets/icones/itens/32/carta_do_sineiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carta_do_sineiro.png"
+  },
+  {
+   "id": "coroa_partida",
+   "nome": "Coroa de Ferro Partida",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/coroa_partida.png",
+    "40": "assets/icones/itens/40/coroa_partida.png",
+    "32": "assets/icones/itens/32/coroa_partida.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coroa_partida.png"
+  },
+  {
+   "id": "divisa_da_geena",
+   "nome": "Divisa da Geena",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O trono está vazio. A divisa, não.",
+    "autor": "Tubal, o Malho"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 3,
+    "vit": 3
+   },
+   "efeito": "Desertores da Legião não atacam você primeiro.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/divisa_da_geena.png",
+    "40": "assets/icones/itens/40/divisa_da_geena.png",
+    "32": "assets/icones/itens/32/divisa_da_geena.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/divisa_da_geena.png"
+  },
+  {
+   "id": "tabuinha_de_argila",
+   "nome": "Tabuinha de Argila",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/tabuinha_de_argila.png",
+    "40": "assets/icones/itens/40/tabuinha_de_argila.png",
+    "32": "assets/icones/itens/32/tabuinha_de_argila.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tabuinha_de_argila.png"
+  },
+  {
+   "id": "folha_do_livro",
+   "nome": "Folha do Livro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/folha_do_livro.png",
+    "40": "assets/icones/itens/40/folha_do_livro.png",
+    "32": "assets/icones/itens/32/folha_do_livro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/folha_do_livro.png"
+  },
+  {
+   "id": "leitura_livro_de_henoc",
+   "nome": "O Livro do Escriba (folha primeira)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_livro_de_henoc.png",
+    "40": "assets/icones/itens/40/leitura_livro_de_henoc.png",
+    "32": "assets/icones/itens/32/leitura_livro_de_henoc.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_livro_de_henoc.png"
+  },
+  {
+   "id": "ultima_linha",
+   "nome": "A Última Linha",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/ultima_linha.png",
+    "40": "assets/icones/itens/40/ultima_linha.png",
+    "32": "assets/icones/itens/32/ultima_linha.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/ultima_linha.png"
+  },
+  {
+   "id": "pena_do_escriba",
+   "nome": "Pena do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 11,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 3
+   },
+   "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_do_escriba.png",
+    "40": "assets/icones/itens/40/pena_do_escriba.png",
+    "32": "assets/icones/itens/32/pena_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_do_escriba.png"
+  },
+  {
+   "id": "nome_verdadeiro",
+   "nome": "O Nome Verdadeiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/nome_verdadeiro.png",
+    "40": "assets/icones/itens/40/nome_verdadeiro.png",
+    "32": "assets/icones/itens/32/nome_verdadeiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/nome_verdadeiro.png"
+  },
+  {
+   "id": "diadema_do_escriba",
+   "nome": "Diadema do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Andou com Deus e já não era. Depois voltou, porque o fim travou.",
+    "autor": "Livro do Escriba, última folha"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 4,
+    "esp": 4,
+    "hp": 50
+   },
+   "efeito": "Dano recebido de jogadores reduzido em 14%.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/diadema_do_escriba.png",
+    "40": "assets/icones/itens/40/diadema_do_escriba.png",
+    "32": "assets/icones/itens/32/diadema_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/diadema_do_escriba.png"
+  },
+  {
+   "id": "leitura_juramento_noivas",
+   "nome": "Votos na Parede",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_juramento_noivas.png",
+    "40": "assets/icones/itens/40/leitura_juramento_noivas.png",
+    "32": "assets/icones/itens/32/leitura_juramento_noivas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_juramento_noivas.png"
+  },
+  {
+   "id": "leitura_hulda",
+   "nome": "Diário da Hulda",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_hulda.png",
+    "40": "assets/icones/itens/40/leitura_hulda.png",
+    "32": "assets/icones/itens/32/leitura_hulda.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_hulda.png"
+  },
+  {
+   "id": "leitura_canto_das_noivas",
+   "nome": "Canto das Noivas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_canto_das_noivas.png",
+    "40": "assets/icones/itens/40/leitura_canto_das_noivas.png",
+    "32": "assets/icones/itens/32/leitura_canto_das_noivas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_canto_das_noivas.png"
+  },
+  {
+   "id": "leitura_juramento_duzentos",
+   "nome": "O Juramento dos Duzentos (cópia)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_juramento_duzentos.png",
+    "40": "assets/icones/itens/40/leitura_juramento_duzentos.png",
+    "32": "assets/icones/itens/32/leitura_juramento_duzentos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_juramento_duzentos.png"
+  },
+  {
+   "id": "espada_da_retirada",
+   "nome": "Espada da Retirada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Recuamos em ordem. A espada ficou para trás.",
+    "autor": "Abdiel, Versículo do Sopro 2"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    9,
+    16
+   ],
+   "dano": [
+    9,
+    16
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: cada golpe básico tem 8% de chance de devolver 1 de Graça.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/espada_da_retirada.png",
+    "40": "assets/icones/itens/40/espada_da_retirada.png",
+    "32": "assets/icones/itens/32/espada_da_retirada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/espada_da_retirada.png"
+  },
+  {
+   "id": "elmo_da_retirada",
+   "nome": "Elmo da Retirada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Um elmo que saiu do campo sem ninguém mandar.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 1,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +10% de defesa contra Não-Julgados.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/elmo_da_retirada.png",
+    "40": "assets/icones/itens/40/elmo_da_retirada.png",
+    "32": "assets/icones/itens/32/elmo_da_retirada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elmo_da_retirada.png"
+  },
+  {
+   "id": "peitoral_do_sino_mudo",
+   "nome": "Peitoral do Sino Mudo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ele tocou uma vez e nunca mais. Tudo que é fundido sabe guardar um som.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: recebe 5% menos de dano dos Arautos.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/peitoral_do_sino_mudo.png",
+    "40": "assets/icones/itens/40/peitoral_do_sino_mudo.png",
+    "32": "assets/icones/itens/32/peitoral_do_sino_mudo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/peitoral_do_sino_mudo.png"
+  },
+  {
+   "id": "luvas_de_cera_quente",
+   "nome": "Luvas de Cera Quente",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Cera de lacre não esfria. Quem lacrou, sabe.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 1,
+   "atributos": {
+    "for": 1
+   },
+   "efeito": "Relíquia: golpes ganham +3% de velocidade de ataque.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_de_cera_quente.png",
+    "40": "assets/icones/itens/40/luvas_de_cera_quente.png",
+    "32": "assets/icones/itens/32/luvas_de_cera_quente.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_de_cera_quente.png"
+  },
+  {
+   "id": "calcas_da_retirada",
+   "nome": "Calças da Retirada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Correr não é fugir, é ir buscar a próxima ordem.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +5% de velocidade de movimento.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_da_retirada.png",
+    "40": "assets/icones/itens/40/calcas_da_retirada.png",
+    "32": "assets/icones/itens/32/calcas_da_retirada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_da_retirada.png"
+  },
+  {
+   "id": "botas_do_versiculo",
+   "nome": "Botas do Versículo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Lê-se a cada passo. A última palavra fica sempre na terra.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 4,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 1,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +4% de esquiva.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_do_versiculo.png",
+    "40": "assets/icones/itens/40/botas_do_versiculo.png",
+    "32": "assets/icones/itens/32/botas_do_versiculo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_do_versiculo.png"
+  },
+  {
+   "id": "escopeta_da_vela_acesa",
+   "nome": "Escopeta da Vela Acesa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Enquanto houver vela, não é noite.",
+    "autor": "C. O. Ferrolho"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    11,
+    20
+   ],
+   "dano": [
+    11,
+    20
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: 10% de chance de acertar o segundo alvo com o mesmo tiro.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/escopeta_da_vela_acesa.png",
+    "40": "assets/icones/itens/40/escopeta_da_vela_acesa.png",
+    "32": "assets/icones/itens/32/escopeta_da_vela_acesa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/escopeta_da_vela_acesa.png"
+  },
+  {
+   "id": "chapeu_da_vela_acesa",
+   "nome": "Chapéu da Vela Acesa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem usa esse chapéu não acende a vela, mas sabe onde ela está.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 2,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +8% de chance de crítico com armas de fogo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/chapeu_da_vela_acesa.png",
+    "40": "assets/icones/itens/40/chapeu_da_vela_acesa.png",
+    "32": "assets/icones/itens/32/chapeu_da_vela_acesa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chapeu_da_vela_acesa.png"
+  },
+  {
+   "id": "casaco_da_vela_acesa",
+   "nome": "Casaco da Vela Acesa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A lona foi de um acampamento que não existe mais.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 5,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +6% de resistência ao Amargo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/casaco_da_vela_acesa.png",
+    "40": "assets/icones/itens/40/casaco_da_vela_acesa.png",
+    "32": "assets/icones/itens/32/casaco_da_vela_acesa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/casaco_da_vela_acesa.png"
+  },
+  {
+   "id": "luvas_da_polvora",
+   "nome": "Luvas da Pólvora",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A mão aprende antes do rosto.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 2,
+   "atributos": {
+    "for": 1
+   },
+   "efeito": "Relíquia: recarregar leva 15% menos tempo.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_da_polvora.png",
+    "40": "assets/icones/itens/40/luvas_da_polvora.png",
+    "32": "assets/icones/itens/32/luvas_da_polvora.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_da_polvora.png"
+  },
+  {
+   "id": "calcas_de_vigia",
+   "nome": "Calças de Vigia",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ninguém dorme de calça de vigia. Ela dorme por você.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +4% de vida máxima.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_vigia.png",
+    "40": "assets/icones/itens/40/calcas_de_vigia.png",
+    "32": "assets/icones/itens/32/calcas_de_vigia.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_vigia.png"
+  },
+  {
+   "id": "botas_de_turno",
+   "nome": "Botas de Turno",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Cada noite está escrita no solado.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 2,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +5% de velocidade de movimento fora de combate.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_de_turno.png",
+    "40": "assets/icones/itens/40/botas_de_turno.png",
+    "32": "assets/icones/itens/32/botas_de_turno.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_de_turno.png"
+  },
+  {
+   "id": "martelo_do_sino_derretido",
+   "nome": "Martelo do Sino Derretido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Bronze derrete quando chama alguém.",
+    "autor": "Sineira Sinésia"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    14,
+    26
+   ],
+   "dano": [
+    14,
+    26
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: golpes em área ecoam e atingem o alvo de novo com 40% do dano.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/martelo_do_sino_derretido.png",
+    "40": "assets/icones/itens/40/martelo_do_sino_derretido.png",
+    "32": "assets/icones/itens/32/martelo_do_sino_derretido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/martelo_do_sino_derretido.png"
+  },
+  {
+   "id": "capacete_do_sino_derretido",
+   "nome": "Capacete do Sino Derretido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O sino fundiu com a cabeça de quem o carregou.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: +10% de defesa contra dano físico.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/capacete_do_sino_derretido.png",
+    "40": "assets/icones/itens/40/capacete_do_sino_derretido.png",
+    "32": "assets/icones/itens/32/capacete_do_sino_derretido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/capacete_do_sino_derretido.png"
+  },
+  {
+   "id": "couraca_do_sino_derretido",
+   "nome": "Couraça do Sino Derretido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Não fecha bem, mas segura o que precisa.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 7,
+   "defesa": 7,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: +8% de vida máxima.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_do_sino_derretido.png",
+    "40": "assets/icones/itens/40/couraca_do_sino_derretido.png",
+    "32": "assets/icones/itens/32/couraca_do_sino_derretido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_do_sino_derretido.png"
+  },
+  {
+   "id": "manoplas_do_badalo",
+   "nome": "Manoplas do Badalo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O badalo ainda quer tocar. A mão deixa.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 2,
+   "atributos": {
+    "for": 2
+   },
+   "efeito": "Relíquia: +6% de dano de golpes corporais.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/manoplas_do_badalo.png",
+    "40": "assets/icones/itens/40/manoplas_do_badalo.png",
+    "32": "assets/icones/itens/32/manoplas_do_badalo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/manoplas_do_badalo.png"
+  },
+  {
+   "id": "grevas_do_badalo",
+   "nome": "Grevas do Badalo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O sino pequeno tilinta quando você para.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 5,
+   "defesa": 4,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: +6% de defesa contra área.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/grevas_do_badalo.png",
+    "40": "assets/icones/itens/40/grevas_do_badalo.png",
+    "32": "assets/icones/itens/32/grevas_do_badalo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/grevas_do_badalo.png"
+  },
+  {
+   "id": "botas_de_bronze_frio",
+   "nome": "Botas de Bronze Frio",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Bronze frio não faz barulho, nem quando é pisado.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 9,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: imune a empurrões em alvos pequenos.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_de_bronze_frio.png",
+    "40": "assets/icones/itens/40/botas_de_bronze_frio.png",
+    "32": "assets/icones/itens/32/botas_de_bronze_frio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_de_bronze_frio.png"
+  },
+  {
+   "id": "foice_da_legiao_sem_general",
+   "nome": "Foice da Legião Sem General",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sem general, a Legião aprendeu a cortar sozinha.",
+    "autor": "Corvina"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    13,
+    24
+   ],
+   "dano": [
+    13,
+    24
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: 10% de chance de atordoar por 0,5 s ao acertar.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/foice_da_legiao_sem_general.png",
+    "40": "assets/icones/itens/40/foice_da_legiao_sem_general.png",
+    "32": "assets/icones/itens/32/foice_da_legiao_sem_general.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/foice_da_legiao_sem_general.png"
+  },
+  {
+   "id": "elmo_da_legiao_sem_general",
+   "nome": "Elmo da Legião Sem General",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sem divisa, o elmo não sabe a quem obedece.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: +10% de defesa contra demônios.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/elmo_da_legiao_sem_general.png",
+    "40": "assets/icones/itens/40/elmo_da_legiao_sem_general.png",
+    "32": "assets/icones/itens/32/elmo_da_legiao_sem_general.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elmo_da_legiao_sem_general.png"
+  },
+  {
+   "id": "couraca_sem_divisa",
+   "nome": "Couraça Sem Divisa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem perdeu a divisa ainda carrega o peso dela.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 6,
+   "defesa": 6,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: 5% menos de dano de chefes.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_sem_divisa.png",
+    "40": "assets/icones/itens/40/couraca_sem_divisa.png",
+    "32": "assets/icones/itens/32/couraca_sem_divisa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_sem_divisa.png"
+  },
+  {
+   "id": "garras_da_legiao",
+   "nome": "Garras da Legião",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Não são garras de ninguém. São garras de tropa.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "for": 2
+   },
+   "efeito": "Relíquia: +5% de dano com a foice.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/garras_da_legiao.png",
+    "40": "assets/icones/itens/40/garras_da_legiao.png",
+    "32": "assets/icones/itens/32/garras_da_legiao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/garras_da_legiao.png"
+  },
+  {
+   "id": "calcas_de_desertor",
+   "nome": "Calças de Desertor",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Desertor corre. Quem ficou não tem ritmo.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 4,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: +6% de velocidade de movimento.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_desertor.png",
+    "40": "assets/icones/itens/40/calcas_de_desertor.png",
+    "32": "assets/icones/itens/32/calcas_de_desertor.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_desertor.png"
+  },
+  {
+   "id": "botas_da_legiao",
+   "nome": "Botas da Legião",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O passo ainda é de marcha, mesmo sem ninguém na frente.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 8,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: +4% de esquiva contra Arautos.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_da_legiao.png",
+    "40": "assets/icones/itens/40/botas_da_legiao.png",
+    "32": "assets/icones/itens/32/botas_da_legiao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_da_legiao.png"
+  },
+  {
+   "id": "cajado_do_engenheiro_herege",
+   "nome": "Cajado do Engenheiro Herege",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eu medi o céu com um fio de cobre.",
+    "autor": "Engenheiro Herege, sem nome"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    10,
+    18
+   ],
+   "dano": [
+    10,
+    18
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: cada 5 acertos, a próxima habilidade custa 20% menos de recurso.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_do_engenheiro_herege.png",
+    "40": "assets/icones/itens/40/cajado_do_engenheiro_herege.png",
+    "32": "assets/icones/itens/32/cajado_do_engenheiro_herege.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_do_engenheiro_herege.png"
+  },
+  {
+   "id": "oculos_de_solda_herege",
+   "nome": "Óculos de Solda Herege",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem olha o sol com isso não vê nada, mas vê o fio.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +8% de chance de acertar com torretas.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/oculos_de_solda_herege.png",
+    "40": "assets/icones/itens/40/oculos_de_solda_herege.png",
+    "32": "assets/icones/itens/32/oculos_de_solda_herege.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/oculos_de_solda_herege.png"
+  },
+  {
+   "id": "avental_de_engenheiro_herege",
+   "nome": "Avental de Engenheiro Herege",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Cada bolso é um conserto que não foi feito.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +6% de resistência à eletricidade.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/avental_de_engenheiro_herege.png",
+    "40": "assets/icones/itens/40/avental_de_engenheiro_herege.png",
+    "32": "assets/icones/itens/32/avental_de_engenheiro_herege.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/avental_de_engenheiro_herege.png"
+  },
+  {
+   "id": "luvas_de_bobina",
+   "nome": "Luvas de Bobina",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O fio transmite mais do que a mão.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 1,
+   "atributos": {
+    "for": 1
+   },
+   "efeito": "Relíquia: +5% de velocidade de conjuração.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_de_bobina.png",
+    "40": "assets/icones/itens/40/luvas_de_bobina.png",
+    "32": "assets/icones/itens/32/luvas_de_bobina.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_de_bobina.png"
+  },
+  {
+   "id": "calcas_de_fiacao",
+   "nome": "Calças de Fiação",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A fiação sabe de onde vem a energia, a calça não.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +5% de recurso máximo.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_fiacao.png",
+    "40": "assets/icones/itens/40/calcas_de_fiacao.png",
+    "32": "assets/icones/itens/32/calcas_de_fiacao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_fiacao.png"
+  },
+  {
+   "id": "botas_de_piston",
+   "nome": "Botas de Pistão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Dá um passo a mais que as outras.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 5,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +4% de velocidade de movimento.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_de_piston.png",
+    "40": "assets/icones/itens/40/botas_de_piston.png",
+    "32": "assets/icones/itens/32/botas_de_piston.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_de_piston.png"
+  },
+  {
+   "id": "adaga_calice_da_comunhao",
+   "nome": "Cálice-Adaga da Comunhão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Bebemos o Amargo como vinho.",
+    "autor": "Madre Ivone"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    17,
+    32
+   ],
+   "dano": [
+    17,
+    32
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: cada golpe cura 2% da vida perdida no último minuto.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/adaga_calice_da_comunhao.png",
+    "40": "assets/icones/itens/40/adaga_calice_da_comunhao.png",
+    "32": "assets/icones/itens/32/adaga_calice_da_comunhao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/adaga_calice_da_comunhao.png"
+  },
+  {
+   "id": "veu_da_comunhao",
+   "nome": "Véu da Comunhão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem reza com véu também bebe o que sobra.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +8% de dano de habilidades de sangue.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_da_comunhao.png",
+    "40": "assets/icones/itens/40/veu_da_comunhao.png",
+    "32": "assets/icones/itens/32/veu_da_comunhao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_da_comunhao.png"
+  },
+  {
+   "id": "tunica_do_amargo_bebido",
+   "nome": "Túnica do Amargo Bebido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O Amargo queima por dentro e por fora, é o que a Comunhão diz.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 6,
+   "defesa": 9,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +10% de resistência ao Amargo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/tunica_do_amargo_bebido.png",
+    "40": "assets/icones/itens/40/tunica_do_amargo_bebido.png",
+    "32": "assets/icones/itens/32/tunica_do_amargo_bebido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tunica_do_amargo_bebido.png"
+  },
+  {
+   "id": "luvas_de_sangue_seco",
+   "nome": "Luvas de Sangue Seco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sangue seco é mais pesado que sangue fresco.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "for": 3
+   },
+   "efeito": "Relíquia: +5% de dano com a adaga.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_de_sangue_seco.png",
+    "40": "assets/icones/itens/40/luvas_de_sangue_seco.png",
+    "32": "assets/icones/itens/32/luvas_de_sangue_seco.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_de_sangue_seco.png"
+  },
+  {
+   "id": "calcas_de_procissao",
+   "nome": "Calças de Procissão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Procissão anda, não corre. Mas não para.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 6,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +6% de velocidade de movimento.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_procissao.png",
+    "40": "assets/icones/itens/40/calcas_de_procissao.png",
+    "32": "assets/icones/itens/32/calcas_de_procissao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_procissao.png"
+  },
+  {
+   "id": "sandalias_da_comunhao",
+   "nome": "Sandálias da Comunhão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Pisam leve no chão que o Amargo cobre.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 12,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +4% de esquiva em área.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/sandalias_da_comunhao.png",
+    "40": "assets/icones/itens/40/sandalias_da_comunhao.png",
+    "32": "assets/icones/itens/32/sandalias_da_comunhao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sandalias_da_comunhao.png"
+  },
+  {
+   "id": "gladio_da_cerca",
+   "nome": "Gládio da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Um mercenário não tem bandeira. Tem a cerca.",
+    "autor": "Odete Ferrolho"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    15,
+    28
+   ],
+   "dano": [
+    15,
+    28
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: cada 10 de Ódio gastos, o próximo golpe causa +15% de dano.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/gladio_da_cerca.png",
+    "40": "assets/icones/itens/40/gladio_da_cerca.png",
+    "32": "assets/icones/itens/32/gladio_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/gladio_da_cerca.png"
+  },
+  {
+   "id": "elmo_da_cerca",
+   "nome": "Elmo da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem pagou por ele ficou com o restante do ferro.",
+    "autor": "Mercenário"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 4,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: +10% de defesa quando o Ódio está cheio.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/elmo_da_cerca.png",
+    "40": "assets/icones/itens/40/elmo_da_cerca.png",
+    "32": "assets/icones/itens/32/elmo_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elmo_da_cerca.png"
+  },
+  {
+   "id": "couraca_da_cerca",
+   "nome": "Couraça da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Arame não corta placa, mas acha a fresta.",
+    "autor": "Mercenário"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 8,
+   "defesa": 8,
+   "atributos": {
+    "vit": 2
+   },
+   "efeito": "Relíquia: +8% de bloqueio.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/couraca_da_cerca.png",
+    "40": "assets/icones/itens/40/couraca_da_cerca.png",
+    "32": "assets/icones/itens/32/couraca_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_da_cerca.png"
+  },
+  {
+   "id": "manoplas_da_cerca",
+   "nome": "Manoplas da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Madeira de cerca já segurou muita coisa.",
+    "autor": "Mercenário"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "for": 2
+   },
+   "efeito": "Relíquia: +5% de dano de golpes corporais.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/manoplas_da_cerca.png",
+    "40": "assets/icones/itens/40/manoplas_da_cerca.png",
+    "32": "assets/icones/itens/32/manoplas_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/manoplas_da_cerca.png"
+  },
+  {
+   "id": "grevas_da_cerca",
+   "nome": "Grevas da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Não cedem, nem na lama.",
+    "autor": "Mercenário"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 5,
+   "defesa": 5,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: +6% de vida máxima.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/grevas_da_cerca.png",
+    "40": "assets/icones/itens/40/grevas_da_cerca.png",
+    "32": "assets/icones/itens/32/grevas_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/grevas_da_cerca.png"
+  },
+  {
+   "id": "botas_da_cerca",
+   "nome": "Botas da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem pisa na cerca fica marcado no solado.",
+    "autor": "Mercenário"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 4,
+   "atributos": {
+    "agi": 2
+   },
+   "efeito": "Relíquia: +5% de velocidade de ataque.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_da_cerca.png",
+    "40": "assets/icones/itens/40/botas_da_cerca.png",
+    "32": "assets/icones/itens/32/botas_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_da_cerca.png"
+  },
+  {
+   "id": "cajado_da_trombeta_calada",
+   "nome": "Cajado da Trombeta Calada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A meia nota fica na madeira.",
+    "autor": "Frei Anacleto"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    19,
+    35
+   ],
+   "dano": [
+    19,
+    35
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: a cada inimigo morto, uma torreta próxima ganha 5% de dano por 10 s.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/cajado_da_trombeta_calada.png",
+    "40": "assets/icones/itens/40/cajado_da_trombeta_calada.png",
+    "32": "assets/icones/itens/32/cajado_da_trombeta_calada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cajado_da_trombeta_calada.png"
+  },
+  {
+   "id": "coroa_do_bocal",
+   "nome": "Coroa do Bocal",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem toca com a coroa toca sem som.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 5,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +6% de vida máxima.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/coroa_do_bocal.png",
+    "40": "assets/icones/itens/40/coroa_do_bocal.png",
+    "32": "assets/icones/itens/32/coroa_do_bocal.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coroa_do_bocal.png"
+  },
+  {
+   "id": "manto_da_trombeta",
+   "nome": "Manto da Trombeta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O manto abafa a corneta, e a corneta abafa o manto.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 9,
+   "defesa": 11,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +8% de resistência a efeitos de área.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/manto_da_trombeta.png",
+    "40": "assets/icones/itens/40/manto_da_trombeta.png",
+    "32": "assets/icones/itens/32/manto_da_trombeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/manto_da_trombeta.png"
+  },
+  {
+   "id": "luvas_do_bocal",
+   "nome": "Luvas do Bocal",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Os dedos aprendem a sopro sem tocar.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "for": 3
+   },
+   "efeito": "Relíquia: +5% de velocidade de conjuração.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_do_bocal.png",
+    "40": "assets/icones/itens/40/luvas_do_bocal.png",
+    "32": "assets/icones/itens/32/luvas_do_bocal.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_do_bocal.png"
+  },
+  {
+   "id": "calcas_do_porao",
+   "nome": "Calças do Porão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O porão ensina a enxergar sem luz.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 6,
+   "defesa": 7,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +5% de defesa no escuro.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_do_porao.png",
+    "40": "assets/icones/itens/40/calcas_do_porao.png",
+    "32": "assets/icones/itens/32/calcas_do_porao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_do_porao.png"
+  },
+  {
+   "id": "botas_do_porao",
+   "nome": "Botas do Porão",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sabem andar onde ninguém quer.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 14,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 5,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +4% de esquiva em terreno difícil.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_do_porao.png",
+    "40": "assets/icones/itens/40/botas_do_porao.png",
+    "32": "assets/icones/itens/32/botas_do_porao.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_do_porao.png"
+  },
+  {
+   "id": "bastao_de_amenti",
+   "nome": "Bastão de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Como em cima, assim embaixo.",
+    "autor": "Corpus Hermeticum"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    20,
+    37
+   ],
+   "dano": [
+    20,
+    37
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: 10% de chance de refletir magia recebida de volta ao lançador.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/bastao_de_amenti.png",
+    "40": "assets/icones/itens/40/bastao_de_amenti.png",
+    "32": "assets/icones/itens/32/bastao_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bastao_de_amenti.png"
+  },
+  {
+   "id": "mascara_de_amenti",
+   "nome": "Máscara de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O olho pintado não pisca. Nem os outros.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 5,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +8% de chance de crítico com magia.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/mascara_de_amenti.png",
+    "40": "assets/icones/itens/40/mascara_de_amenti.png",
+    "32": "assets/icones/itens/32/mascara_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/mascara_de_amenti.png"
+  },
+  {
+   "id": "peitoral_de_amenti",
+   "nome": "Peitoral de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Quem leu as inscrições não voltou para contar.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 10,
+   "defesa": 11,
+   "atributos": {
+    "vit": 3
+   },
+   "efeito": "Relíquia: +8% de resistência à magia.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/peitoral_de_amenti.png",
+    "40": "assets/icones/itens/40/peitoral_de_amenti.png",
+    "32": "assets/icones/itens/32/peitoral_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/peitoral_de_amenti.png"
+  },
+  {
+   "id": "luvas_de_linho_de_amenti",
+   "nome": "Luvas de Linho de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Linho de tumba segura sem apertar.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "for": 3
+   },
+   "efeito": "Relíquia: +5% de velocidade de conjuração.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_de_linho_de_amenti.png",
+    "40": "assets/icones/itens/40/luvas_de_linho_de_amenti.png",
+    "32": "assets/icones/itens/32/luvas_de_linho_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_de_linho_de_amenti.png"
+  },
+  {
+   "id": "calcas_de_linho_de_amenti",
+   "nome": "Calças de Linho de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O sal guarda o que o tempo leva.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 6,
+   "defesa": 7,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +6% de vida máxima.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_linho_de_amenti.png",
+    "40": "assets/icones/itens/40/calcas_de_linho_de_amenti.png",
+    "32": "assets/icones/itens/32/calcas_de_linho_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_linho_de_amenti.png"
+  },
+  {
+   "id": "sandalias_de_amenti",
+   "nome": "Sandálias de Amenti",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Pisam leve porque conhecem o caminho.",
+    "autor": "Arautos"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 15,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 5,
+   "atributos": {
+    "agi": 3
+   },
+   "efeito": "Relíquia: +4% de esquiva.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/sandalias_de_amenti.png",
+    "40": "assets/icones/itens/40/sandalias_de_amenti.png",
+    "32": "assets/icones/itens/32/sandalias_de_amenti.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/sandalias_de_amenti.png"
+  },
+  {
+   "id": "machado_da_agua_verde",
+   "nome": "Machado da Água Verde",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O rio quase secou.",
+    "autor": "Tobias, enquanto enche o cantil"
+   },
+   "raridade": "lendario",
+   "slot": "arma",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "dano_sugerido_missoes": [
+    11,
+    20
+   ],
+   "dano": [
+    11,
+    20
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: cada golpe deixa uma poça verde que causa 5% de dano por 3 s.",
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/machado_da_agua_verde.png",
+    "40": "assets/icones/itens/40/machado_da_agua_verde.png",
+    "32": "assets/icones/itens/32/machado_da_agua_verde.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/machado_da_agua_verde.png"
+  },
+  {
+   "id": "capuz_do_rio",
+   "nome": "Capuz do Rio",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O rio segura o capuz, e o capuz segura o rio.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +6% de resistência ao Amargo.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/capuz_do_rio.png",
+    "40": "assets/icones/itens/40/capuz_do_rio.png",
+    "32": "assets/icones/itens/32/capuz_do_rio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/capuz_do_rio.png"
+  },
+  {
+   "id": "colete_da_agua_verde",
+   "nome": "Colete da Água Verde",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Os bolsos sempre têm água, mesmo quando não deveriam.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "peito",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 5,
+   "atributos": {
+    "vit": 1
+   },
+   "efeito": "Relíquia: +6% de vida máxima.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/colete_da_agua_verde.png",
+    "40": "assets/icones/itens/40/colete_da_agua_verde.png",
+    "32": "assets/icones/itens/32/colete_da_agua_verde.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/colete_da_agua_verde.png"
+  },
+  {
+   "id": "luvas_musgosas",
+   "nome": "Luvas Musgosas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O musgo cresce onde a mão suou.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "luvas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 2,
+   "atributos": {
+    "for": 1
+   },
+   "efeito": "Relíquia: +5% de dano com o machado.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/luvas_musgosas.png",
+    "40": "assets/icones/itens/40/luvas_musgosas.png",
+    "32": "assets/icones/itens/32/luvas_musgosas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/luvas_musgosas.png"
+  },
+  {
+   "id": "calcas_de_juncos",
+   "nome": "Calças de Juncos",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Cresce junto com quem caminha pela margem.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "calcas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +5% de velocidade de movimento na margem.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/calcas_de_juncos.png",
+    "40": "assets/icones/itens/40/calcas_de_juncos.png",
+    "32": "assets/icones/itens/32/calcas_de_juncos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/calcas_de_juncos.png"
+  },
+  {
+   "id": "botas_de_lama_verde",
+   "nome": "Botas de Lama Verde",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A lama verde não sai, nem depois do rio.",
+    "autor": "Vigília"
+   },
+   "raridade": "lendario",
+   "slot": "botas",
+   "nivel": 6,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "agi": 1
+   },
+   "efeito": "Relíquia: +4% de esquiva em terreno molhado.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/botas_de_lama_verde.png",
+    "40": "assets/icones/itens/40/botas_de_lama_verde.png",
+    "32": "assets/icones/itens/32/botas_de_lama_verde.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/botas_de_lama_verde.png"
   }
  ]
 }

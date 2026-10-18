@@ -1798,6 +1798,1476 @@
       "tipo": "leitura",
       "texto": "Juramos no Hermon, nos dias de Jarede, e nos amarramos por maldição.\nJuramos de novo no dia do primeiro toque, com as correntes abertas pelo Coro:\nQUE O FIM FIQUE ONDE ESTÁ.\nSe o mundo acabar, voltamos ao fundo. Se o mundo não acabar, ficamos.\nAssinam: Semyaza e cento e noventa e nove.",
       "espelho_de": "leitura_ordem_zacarias"
+    },
+    {
+      "id": "espada_da_retirada",
+      "nome": "Espada da Retirada",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "arma_tipo": "espada",
+      "atributos": {
+        "dano": [
+          9,
+          16
+        ],
+        "agi": 1
+      },
+      "efeito": "Relíquia: cada golpe básico tem 8% de chance de devolver 1 de Graça.",
+      "descricao": "Lâmina que o Coro deixou no campo quando recuou. Ainda tem o sangue de quem a empunhou por último.",
+      "citacao": {
+        "texto": "Recuamos em ordem. A espada ficou para trás.",
+        "autor": "Abdiel, Versículo do Sopro 2"
+      }
+    },
+    {
+      "id": "elmo_da_retirada",
+      "nome": "Elmo da Retirada",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "espada_da_retirada",
+      "atributos": {
+        "defesa": 1,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +10% de defesa contra Não-Julgados.",
+      "descricao": "Elmo de anjo com a viseira presa para trás, como quem saiu do campo sem olhar.",
+      "citacao": {
+        "texto": "Um elmo que saiu do campo sem ninguém mandar.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "peitoral_do_sino_mudo",
+      "nome": "Peitoral do Sino Mudo",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "espada_da_retirada",
+      "atributos": {
+        "defesa": 3,
+        "vit": 1
+      },
+      "efeito": "Relíquia: recebe 5% menos de dano dos Arautos.",
+      "descricao": "Placa de peito fundida de um sino que parou no meio do toque.",
+      "citacao": {
+        "texto": "Ele tocou uma vez e nunca mais. Tudo que é fundido sabe guardar um som.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "luvas_de_cera_quente",
+      "nome": "Luvas de Cera Quente",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "espada_da_retirada",
+      "atributos": {
+        "defesa": 1,
+        "for": 1
+      },
+      "efeito": "Relíquia: golpes ganham +3% de velocidade de ataque.",
+      "descricao": "Luvas com cera de lacre por dentro, ainda mornas.",
+      "citacao": {
+        "texto": "Cera de lacre não esfria. Quem lacrou, sabe.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "calcas_da_retirada",
+      "nome": "Calças da Retirada",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "espada_da_retirada",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +5% de velocidade de movimento.",
+      "descricao": "Calça de tecido de batina, cortada para correr.",
+      "citacao": {
+        "texto": "Correr não é fugir, é ir buscar a próxima ordem.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "botas_do_versiculo",
+      "nome": "Botas do Versículo",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "unico",
+      "nivel": 4,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "espada_da_retirada",
+      "atributos": {
+        "defesa": 1,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +4% de esquiva.",
+      "descricao": "Botas de couro com um versículo costurado na sola.",
+      "citacao": {
+        "texto": "Lê-se a cada passo. A última palavra fica sempre na terra.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "escopeta_da_vela_acesa",
+      "nome": "Escopeta da Vela Acesa",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "arma_tipo": "escopeta",
+      "atributos": {
+        "dano": [
+          11,
+          20
+        ],
+        "agi": 1
+      },
+      "efeito": "Relíquia: 10% de chance de acertar o segundo alvo com o mesmo tiro.",
+      "descricao": "Cano serrado com uma vela presa no guarda-mão. A Vigília não diz para quê.",
+      "citacao": {
+        "texto": "Enquanto houver vela, não é noite.",
+        "autor": "C. O. Ferrolho"
+      }
+    },
+    {
+      "id": "chapeu_da_vela_acesa",
+      "nome": "Chapéu da Vela Acesa",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "escopeta_da_vela_acesa",
+      "atributos": {
+        "defesa": 1,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +8% de chance de crítico com armas de fogo.",
+      "descricao": "Chapéu de aba larga com cera queimada na copa.",
+      "citacao": {
+        "texto": "Quem usa esse chapéu não acende a vela, mas sabe onde ela está.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "casaco_da_vela_acesa",
+      "nome": "Casaco da Vela Acesa",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "escopeta_da_vela_acesa",
+      "atributos": {
+        "defesa": 3,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +6% de resistência ao Amargo.",
+      "descricao": "Sobretudo de couro com um forro de lona de barraca.",
+      "citacao": {
+        "texto": "A lona foi de um acampamento que não existe mais.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "luvas_da_polvora",
+      "nome": "Luvas da Pólvora",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "escopeta_da_vela_acesa",
+      "atributos": {
+        "defesa": 1,
+        "for": 1
+      },
+      "efeito": "Relíquia: recarregar leva 15% menos tempo.",
+      "descricao": "Luvas sem dedos, com manchas de chumbo nas palmas.",
+      "citacao": {
+        "texto": "A mão aprende antes do rosto.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "calcas_de_vigia",
+      "nome": "Calças de Vigia",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "escopeta_da_vela_acesa",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +4% de vida máxima.",
+      "descricao": "Calça de sarja de turno, com bolsos para balas.",
+      "citacao": {
+        "texto": "Ninguém dorme de calça de vigia. Ela dorme por você.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "botas_de_turno",
+      "nome": "Botas de Turno",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "escopeta_da_vela_acesa",
+      "atributos": {
+        "defesa": 1,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +5% de velocidade de movimento fora de combate.",
+      "descricao": "Coturno de couro que já fez oito noites de guarda.",
+      "citacao": {
+        "texto": "Cada noite está escrita no solado.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "martelo_do_sino_derretido",
+      "nome": "Martelo do Sino Derretido",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "maca",
+      "atributos": {
+        "dano": [
+          14,
+          26
+        ],
+        "agi": 2
+      },
+      "efeito": "Relíquia: golpes em área ecoam e atingem o alvo de novo com 40% do dano.",
+      "descricao": "Cabeça de bronze de um sino que derreteu sozinho na Cerca. O cabo ainda tem a marca do badalo.",
+      "citacao": {
+        "texto": "Bronze derrete quando chama alguém.",
+        "autor": "Sineira Sinésia"
+      }
+    },
+    {
+      "id": "capacete_do_sino_derretido",
+      "nome": "Capacete do Sino Derretido",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "martelo_do_sino_derretido",
+      "atributos": {
+        "defesa": 3,
+        "vit": 2
+      },
+      "efeito": "Relíquia: +10% de defesa contra dano físico.",
+      "descricao": "Capacete de bronze escorrido de um lado, como cera de vela.",
+      "citacao": {
+        "texto": "O sino fundiu com a cabeça de quem o carregou.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "couraca_do_sino_derretido",
+      "nome": "Couraça do Sino Derretido",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "martelo_do_sino_derretido",
+      "atributos": {
+        "defesa": 7,
+        "vit": 2
+      },
+      "efeito": "Relíquia: +8% de vida máxima.",
+      "descricao": "Placas de bronze presas com arame, cheias de bolhas.",
+      "citacao": {
+        "texto": "Não fecha bem, mas segura o que precisa.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "manoplas_do_badalo",
+      "nome": "Manoplas do Badalo",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "martelo_do_sino_derretido",
+      "atributos": {
+        "defesa": 3,
+        "for": 2
+      },
+      "efeito": "Relíquia: +6% de dano de golpes corporais.",
+      "descricao": "Luvas de ferro com um pedaço de badalo como nó.",
+      "citacao": {
+        "texto": "O badalo ainda quer tocar. A mão deixa.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "grevas_do_badalo",
+      "nome": "Grevas do Badalo",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "martelo_do_sino_derretido",
+      "atributos": {
+        "defesa": 5,
+        "agi": 2
+      },
+      "efeito": "Relíquia: +6% de defesa contra área.",
+      "descricao": "Grevas de bronze com um sino em miniatura pendurado.",
+      "citacao": {
+        "texto": "O sino pequeno tilinta quando você para.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "botas_de_bronze_frio",
+      "nome": "Botas de Bronze Frio",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 9,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "martelo_do_sino_derretido",
+      "atributos": {
+        "defesa": 3,
+        "agi": 2
+      },
+      "efeito": "Relíquia: imune a empurrões em alvos pequenos.",
+      "descricao": "Botas com solas de placa de sino, pesadas e silenciosas.",
+      "citacao": {
+        "texto": "Bronze frio não faz barulho, nem quando é pisado.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "foice_da_legiao_sem_general",
+      "nome": "Foice da Legião Sem General",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "foice",
+      "atributos": {
+        "dano": [
+          13,
+          24
+        ],
+        "agi": 2
+      },
+      "efeito": "Relíquia: 10% de chance de atordoar por 0,5 s ao acertar.",
+      "descricao": "Foice de cabo longo que ficou com a Legião depois que o general sumiu. Ninguém a reclamou.",
+      "citacao": {
+        "texto": "Sem general, a Legião aprendeu a cortar sozinha.",
+        "autor": "Corvina"
+      }
+    },
+    {
+      "id": "elmo_da_legiao_sem_general",
+      "nome": "Elmo da Legião Sem General",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "foice_da_legiao_sem_general",
+      "atributos": {
+        "defesa": 3,
+        "vit": 2
+      },
+      "efeito": "Relíquia: +10% de defesa contra demônios.",
+      "descricao": "Elmo de demônio com a divisa arrancada, deixando só o buraco.",
+      "citacao": {
+        "texto": "Sem divisa, o elmo não sabe a quem obedece.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "couraca_sem_divisa",
+      "nome": "Couraça Sem Divisa",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "foice_da_legiao_sem_general",
+      "atributos": {
+        "defesa": 6,
+        "vit": 2
+      },
+      "efeito": "Relíquia: 5% menos de dano de chefes.",
+      "descricao": "Peitoral de couro escuro, com a marca de uma divisa descolada.",
+      "citacao": {
+        "texto": "Quem perdeu a divisa ainda carrega o peso dela.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "garras_da_legiao",
+      "nome": "Garras da Legião",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "foice_da_legiao_sem_general",
+      "atributos": {
+        "defesa": 2,
+        "for": 2
+      },
+      "efeito": "Relíquia: +5% de dano com a foice.",
+      "descricao": "Luvas de couro com garras de metal na ponta dos dedos.",
+      "citacao": {
+        "texto": "Não são garras de ninguém. São garras de tropa.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "calcas_de_desertor",
+      "nome": "Calças de Desertor",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "foice_da_legiao_sem_general",
+      "atributos": {
+        "defesa": 4,
+        "agi": 2
+      },
+      "efeito": "Relíquia: +6% de velocidade de movimento.",
+      "descricao": "Calça de couro rasgada, com um pedaço de casaca costurado.",
+      "citacao": {
+        "texto": "Desertor corre. Quem ficou não tem ritmo.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "botas_da_legiao",
+      "nome": "Botas da Legião",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "unico",
+      "nivel": 8,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "foice_da_legiao_sem_general",
+      "atributos": {
+        "defesa": 3,
+        "agi": 2
+      },
+      "efeito": "Relíquia: +4% de esquiva contra Arautos.",
+      "descricao": "Botas de couro com o passo marcado na sola.",
+      "citacao": {
+        "texto": "O passo ainda é de marcha, mesmo sem ninguém na frente.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "cajado_do_engenheiro_herege",
+      "nome": "Cajado do Engenheiro Herege",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "arma_tipo": "cajado",
+      "atributos": {
+        "dano": [
+          10,
+          18
+        ],
+        "agi": 1
+      },
+      "efeito": "Relíquia: cada 5 acertos, a próxima habilidade custa 20% menos de recurso.",
+      "descricao": "Cajado de cobre com uma bobina na ponta. A bobina ainda zumbe quando alguém mente perto dela.",
+      "citacao": {
+        "texto": "Eu medi o céu com um fio de cobre.",
+        "autor": "Engenheiro Herege, sem nome"
+      }
+    },
+    {
+      "id": "oculos_de_solda_herege",
+      "nome": "Óculos de Solda Herege",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "cajado_do_engenheiro_herege",
+      "atributos": {
+        "defesa": 2,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +8% de chance de acertar com torretas.",
+      "descricao": "Lentes de vidro escuro presas por arame de cobre.",
+      "citacao": {
+        "texto": "Quem olha o sol com isso não vê nada, mas vê o fio.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "avental_de_engenheiro_herege",
+      "nome": "Avental de Engenheiro Herege",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "cajado_do_engenheiro_herege",
+      "atributos": {
+        "defesa": 3,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +6% de resistência à eletricidade.",
+      "descricao": "Avental de couro com bolsos cheios de peças de rádio.",
+      "citacao": {
+        "texto": "Cada bolso é um conserto que não foi feito.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "luvas_de_bobina",
+      "nome": "Luvas de Bobina",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "cajado_do_engenheiro_herege",
+      "atributos": {
+        "defesa": 1,
+        "for": 1
+      },
+      "efeito": "Relíquia: +5% de velocidade de conjuração.",
+      "descricao": "Luvas com fios de cobre costurados nos dedos.",
+      "citacao": {
+        "texto": "O fio transmite mais do que a mão.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "calcas_de_fiacao",
+      "nome": "Calças de Fiação",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "cajado_do_engenheiro_herege",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +5% de recurso máximo.",
+      "descricao": "Calça de lona com fios grossos trançados na costura.",
+      "citacao": {
+        "texto": "A fiação sabe de onde vem a energia, a calça não.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "botas_de_piston",
+      "nome": "Botas de Pistão",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 5,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "cajado_do_engenheiro_herege",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +4% de velocidade de movimento.",
+      "descricao": "Botas com um pistão pequeno no calcanhar.",
+      "citacao": {
+        "texto": "Dá um passo a mais que as outras.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "adaga_calice_da_comunhao",
+      "nome": "Cálice-Adaga da Comunhão",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "adaga",
+      "atributos": {
+        "dano": [
+          17,
+          32
+        ],
+        "agi": 3
+      },
+      "efeito": "Relíquia: cada golpe cura 2% da vida perdida no último minuto.",
+      "descricao": "Adaga com cabo de cálice. A lâmina é de vidro escuro cheio de pó verde do Amargo.",
+      "citacao": {
+        "texto": "Bebemos o Amargo como vinho.",
+        "autor": "Madre Ivone"
+      }
+    },
+    {
+      "id": "veu_da_comunhao",
+      "nome": "Véu da Comunhão",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "adaga_calice_da_comunhao",
+      "atributos": {
+        "defesa": 3,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +8% de dano de habilidades de sangue.",
+      "descricao": "Véu de renda manchada de pó verde.",
+      "citacao": {
+        "texto": "Quem reza com véu também bebe o que sobra.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "tunica_do_amargo_bebido",
+      "nome": "Túnica do Amargo Bebido",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "adaga_calice_da_comunhao",
+      "atributos": {
+        "defesa": 6,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +10% de resistência ao Amargo.",
+      "descricao": "Túnica de linho com o peito queimado por pó verde.",
+      "citacao": {
+        "texto": "O Amargo queima por dentro e por fora, é o que a Comunhão diz.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "luvas_de_sangue_seco",
+      "nome": "Luvas de Sangue Seco",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "adaga_calice_da_comunhao",
+      "atributos": {
+        "defesa": 2,
+        "for": 3
+      },
+      "efeito": "Relíquia: +5% de dano com a adaga.",
+      "descricao": "Luvas de pano com manchas que não saem.",
+      "citacao": {
+        "texto": "Sangue seco é mais pesado que sangue fresco.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "calcas_de_procissao",
+      "nome": "Calças de Procissão",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "adaga_calice_da_comunhao",
+      "atributos": {
+        "defesa": 4,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +6% de velocidade de movimento.",
+      "descricao": "Calça de linho para caminhar muito e não cansar.",
+      "citacao": {
+        "texto": "Procissão anda, não corre. Mas não para.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "sandalias_da_comunhao",
+      "nome": "Sandálias da Comunhão",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 12,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "adaga_calice_da_comunhao",
+      "atributos": {
+        "defesa": 3,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +4% de esquiva em área.",
+      "descricao": "Sandálias de couro cru com correias que sobem até o tornozelo.",
+      "citacao": {
+        "texto": "Pisam leve no chão que o Amargo cobre.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "gladio_da_cerca",
+      "nome": "Gládio da Cerca",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "espada",
+      "atributos": {
+        "dano": [
+          15,
+          28
+        ],
+        "agi": 2
+      },
+      "efeito": "Relíquia: cada 10 de Ódio gastos, o próximo golpe causa +15% de dano.",
+      "descricao": "Espada curta de quem guardou a cerca sul por três noites sem trocar. Tem a marca da guarda na guarda.",
+      "citacao": {
+        "texto": "Um mercenário não tem bandeira. Tem a cerca.",
+        "autor": "Odete Ferrolho"
+      }
+    },
+    {
+      "id": "elmo_da_cerca",
+      "nome": "Elmo da Cerca",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "gladio_da_cerca",
+      "atributos": {
+        "defesa": 4,
+        "vit": 2
+      },
+      "efeito": "Relíquia: +10% de defesa quando o Ódio está cheio.",
+      "descricao": "Elmo de ferro com a viseira arranhada pela cerca.",
+      "citacao": {
+        "texto": "Quem pagou por ele ficou com o restante do ferro.",
+        "autor": "Mercenário"
+      }
+    },
+    {
+      "id": "couraca_da_cerca",
+      "nome": "Couraça da Cerca",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "gladio_da_cerca",
+      "atributos": {
+        "defesa": 8,
+        "vit": 2
+      },
+      "efeito": "Relíquia: +8% de bloqueio.",
+      "descricao": "Placas de ferro com marcas de arame farpado.",
+      "citacao": {
+        "texto": "Arame não corta placa, mas acha a fresta.",
+        "autor": "Mercenário"
+      }
+    },
+    {
+      "id": "manoplas_da_cerca",
+      "nome": "Manoplas da Cerca",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "gladio_da_cerca",
+      "atributos": {
+        "defesa": 3,
+        "for": 2
+      },
+      "efeito": "Relíquia: +5% de dano de golpes corporais.",
+      "descricao": "Luvas de ferro com punhos de madeira de cerca.",
+      "citacao": {
+        "texto": "Madeira de cerca já segurou muita coisa.",
+        "autor": "Mercenário"
+      }
+    },
+    {
+      "id": "grevas_da_cerca",
+      "nome": "Grevas da Cerca",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "gladio_da_cerca",
+      "atributos": {
+        "defesa": 5,
+        "agi": 2
+      },
+      "efeito": "Relíquia: +6% de vida máxima.",
+      "descricao": "Grevas de ferro amarradas com arame.",
+      "citacao": {
+        "texto": "Não cedem, nem na lama.",
+        "autor": "Mercenário"
+      }
+    },
+    {
+      "id": "botas_da_cerca",
+      "nome": "Botas da Cerca",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 10,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "gladio_da_cerca",
+      "atributos": {
+        "defesa": 4,
+        "agi": 2
+      },
+      "efeito": "Relíquia: +5% de velocidade de ataque.",
+      "descricao": "Botas de couro com solas de ferro, para pisar em tudo.",
+      "citacao": {
+        "texto": "Quem pisa na cerca fica marcado no solado.",
+        "autor": "Mercenário"
+      }
+    },
+    {
+      "id": "cajado_da_trombeta_calada",
+      "nome": "Cajado da Trombeta Calada",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "cajado",
+      "atributos": {
+        "dano": [
+          19,
+          35
+        ],
+        "agi": 3
+      },
+      "efeito": "Relíquia: a cada inimigo morto, uma torreta próxima ganha 5% de dano por 10 s.",
+      "descricao": "Cajado de latão de uma corneta da quinta trombeta. Está fechado, e ainda assim soa baixo.",
+      "citacao": {
+        "texto": "A meia nota fica na madeira.",
+        "autor": "Frei Anacleto"
+      }
+    },
+    {
+      "id": "coroa_do_bocal",
+      "nome": "Coroa do Bocal",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "cajado_da_trombeta_calada",
+      "atributos": {
+        "defesa": 4,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +6% de vida máxima.",
+      "descricao": "Coroa de latão com o bocal da corneta como fecho.",
+      "citacao": {
+        "texto": "Quem toca com a coroa toca sem som.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "manto_da_trombeta",
+      "nome": "Manto da Trombeta",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "cajado_da_trombeta_calada",
+      "atributos": {
+        "defesa": 9,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +8% de resistência a efeitos de área.",
+      "descricao": "Manto de pano de altar com um pedaço de latão costurado.",
+      "citacao": {
+        "texto": "O manto abafa a corneta, e a corneta abafa o manto.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "luvas_do_bocal",
+      "nome": "Luvas do Bocal",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "cajado_da_trombeta_calada",
+      "atributos": {
+        "defesa": 3,
+        "for": 3
+      },
+      "efeito": "Relíquia: +5% de velocidade de conjuração.",
+      "descricao": "Luvas de couro com fivelas de latão nos dedos.",
+      "citacao": {
+        "texto": "Os dedos aprendem a sopro sem tocar.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "calcas_do_porao",
+      "nome": "Calças do Porão",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "cajado_da_trombeta_calada",
+      "atributos": {
+        "defesa": 6,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +5% de defesa no escuro.",
+      "descricao": "Calça de lã grossa, usada no porão do Abatedouro.",
+      "citacao": {
+        "texto": "O porão ensina a enxergar sem luz.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "botas_do_porao",
+      "nome": "Botas do Porão",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 14,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "cajado_da_trombeta_calada",
+      "atributos": {
+        "defesa": 4,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +4% de esquiva em terreno difícil.",
+      "descricao": "Botas de borracha que já pisaram muita lama.",
+      "citacao": {
+        "texto": "Sabem andar onde ninguém quer.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "bastao_de_amenti",
+      "nome": "Bastão de Amenti",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "arma_tipo": "bastão",
+      "atributos": {
+        "dano": [
+          20,
+          37
+        ],
+        "agi": 3
+      },
+      "efeito": "Relíquia: 10% de chance de refletir magia recebida de volta ao lançador.",
+      "descricao": "Bastão de cedro com um olho de cobre na ponta. Vem de uma tumba que nenhum mapa tem.",
+      "citacao": {
+        "texto": "Como em cima, assim embaixo.",
+        "autor": "Corpus Hermeticum"
+      }
+    },
+    {
+      "id": "mascara_de_amenti",
+      "nome": "Máscara de Amenti",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "bastao_de_amenti",
+      "atributos": {
+        "defesa": 4,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +8% de chance de crítico com magia.",
+      "descricao": "Máscara de linho com um olho pintado de verde.",
+      "citacao": {
+        "texto": "O olho pintado não pisca. Nem os outros.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "peitoral_de_amenti",
+      "nome": "Peitoral de Amenti",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "bastao_de_amenti",
+      "atributos": {
+        "defesa": 10,
+        "vit": 3
+      },
+      "efeito": "Relíquia: +8% de resistência à magia.",
+      "descricao": "Peitoral de cobre fino com inscrições apagadas.",
+      "citacao": {
+        "texto": "Quem leu as inscrições não voltou para contar.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "luvas_de_linho_de_amenti",
+      "nome": "Luvas de Linho de Amenti",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "bastao_de_amenti",
+      "atributos": {
+        "defesa": 3,
+        "for": 3
+      },
+      "efeito": "Relíquia: +5% de velocidade de conjuração.",
+      "descricao": "Luvas de linho de mumificação, sem dedos na ponta.",
+      "citacao": {
+        "texto": "Linho de tumba segura sem apertar.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "calcas_de_linho_de_amenti",
+      "nome": "Calças de Linho de Amenti",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "bastao_de_amenti",
+      "atributos": {
+        "defesa": 6,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +6% de vida máxima.",
+      "descricao": "Calça de linho pesado, com faixas de sal.",
+      "citacao": {
+        "texto": "O sal guarda o que o tempo leva.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "sandalias_de_amenti",
+      "nome": "Sandálias de Amenti",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "unico",
+      "nivel": 15,
+      "origem": "drop:chefe_ou_elite_faixa2",
+      "chance_sugerida": 0.03,
+      "conjunto": "bastao_de_amenti",
+      "atributos": {
+        "defesa": 4,
+        "agi": 3
+      },
+      "efeito": "Relíquia: +4% de esquiva.",
+      "descricao": "Sandálias de palha e couro, com o nome de um deus na tira.",
+      "citacao": {
+        "texto": "Pisam leve porque conhecem o caminho.",
+        "autor": "Arautos"
+      }
+    },
+    {
+      "id": "machado_da_agua_verde",
+      "nome": "Machado da Água Verde",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "arma_tipo": "machado",
+      "atributos": {
+        "dano": [
+          11,
+          20
+        ],
+        "agi": 1
+      },
+      "efeito": "Relíquia: cada golpe deixa uma poça verde que causa 5% de dano por 3 s.",
+      "descricao": "Machado de lâmina de ferro com musgo verde preso na fenda. Veio da margem do Rio Amargo.",
+      "citacao": {
+        "texto": "O rio quase secou.",
+        "autor": "Tobias, enquanto enche o cantil"
+      }
+    },
+    {
+      "id": "capuz_do_rio",
+      "nome": "Capuz do Rio",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "machado_da_agua_verde",
+      "atributos": {
+        "defesa": 2,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +6% de resistência ao Amargo.",
+      "descricao": "Capuz de juncos trançados, úmido e verde.",
+      "citacao": {
+        "texto": "O rio segura o capuz, e o capuz segura o rio.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "colete_da_agua_verde",
+      "nome": "Colete da Água Verde",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "machado_da_agua_verde",
+      "atributos": {
+        "defesa": 4,
+        "vit": 1
+      },
+      "efeito": "Relíquia: +6% de vida máxima.",
+      "descricao": "Colete de couro com bolsos de cantil.",
+      "citacao": {
+        "texto": "Os bolsos sempre têm água, mesmo quando não deveriam.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "luvas_musgosas",
+      "nome": "Luvas Musgosas",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "machado_da_agua_verde",
+      "atributos": {
+        "defesa": 1,
+        "for": 1
+      },
+      "efeito": "Relíquia: +5% de dano com o machado.",
+      "descricao": "Luvas de couro com musgo verde nas juntas.",
+      "citacao": {
+        "texto": "O musgo cresce onde a mão suou.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "calcas_de_juncos",
+      "nome": "Calças de Juncos",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "machado_da_agua_verde",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +5% de velocidade de movimento na margem.",
+      "descricao": "Calça de lona trançada com juncos das margens.",
+      "citacao": {
+        "texto": "Cresce junto com quem caminha pela margem.",
+        "autor": "Vigília"
+      }
+    },
+    {
+      "id": "botas_de_lama_verde",
+      "nome": "Botas de Lama Verde",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "unico",
+      "nivel": 6,
+      "origem": "drop:chefe_ou_elite_faixa1",
+      "chance_sugerida": 0.02,
+      "conjunto": "machado_da_agua_verde",
+      "atributos": {
+        "defesa": 2,
+        "agi": 1
+      },
+      "efeito": "Relíquia: +4% de esquiva em terreno molhado.",
+      "descricao": "Botas de couro com a lama verde do rio ainda na sola.",
+      "citacao": {
+        "texto": "A lama verde não sai, nem depois do rio.",
+        "autor": "Vigília"
+      }
     }
   ]
 }
