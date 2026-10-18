@@ -1,6 +1,6 @@
 class_name EventoHermon
 extends RefCounted
-## Servidor: agenda do evento "O Cume dos Vigilantes", janela de entrada (5 min) e uso do Convite dos Vigilantes.
+## Servidor: agenda do evento "O Cume dos Vigilantes", janela de entrada (2 min) e uso do Convite dos Vigilantes.
 ## Só decide; quem move jogador e cria instância é o servidor.gd (ver LEIAME.md, "Integração").
 ## Horário de Brasília = UTC-3 (sem horário de verão desde 2019).
 
@@ -10,6 +10,8 @@ const MAPA := "cume_dos_vigilantes"
 var ev: Dictionary
 var instancias := {}           # "f<faixa>" -> [{id, jogadores:[ids]}] da subida atual
 var subida_atual := -1         # unix do início da janela em curso (-1 = fechada)
+var forcado := -1             # GM: início manual (unix); -1 = só a agenda
+var inicio_imediato := false  # GM "Início imediato" sem ninguém dentro: começa no primeiro convite usado
 var _ultimo_aviso := {}        # minuto -> unix da subida avisada
 
 func _init(p_ev: Dictionary) -> void:
@@ -28,6 +30,7 @@ func proximo_inicio(agora: int) -> int:
 		for h in ev["agenda"]["diario"]:
 			var u := dia0 + d * 86400 + _hm(h) - FUSO_S
 			if u >= agora and (melhor < 0 or u < melhor): melhor = u
+	if forcado >= agora and (melhor < 0 or forcado < melhor): melhor = forcado   # aberto à mão pelo GM
 	return melhor
 
 ## Início da janela em curso (se a entrada está aberta agora) ou -1.

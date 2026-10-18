@@ -270,7 +270,7 @@ func receber(peer: int, m: Dictionary) -> void:
 				"comecar":   # leva já os inscritos (precisa do mínimo)
 					srv.agrak._hora()
 				"minimo":
-					srv.agrak.minimo = clampi(int(m.get("v", 4)), 1, 20)
+					srv.agrak.minimo = clampi(int(m.get("v", 1)), 1, 20)
 			_ok(peer, "Agrak: %s (mínimo %d)." % [str(m.get("modo", "")), srv.agrak.minimo])
 			_log(peer, "agrak %s" % str(m.get("modo", "")))
 		"hermon":
@@ -279,10 +279,21 @@ func receber(peer: int, m: Dictionary) -> void:
 				"agora": srv.hermon.forcado = agora
 				"5min": srv.hermon.forcado = agora + 300
 				"fechar": srv.hermon.forcado = -1
+				"iniciar": _iniciar_hermon(agora)
 			_ok(peer, "Hermon: %s." % {"agora": "entrada aberta por 5 min", "5min": "abre em 5 min (avisos no chat)", "fechar": "volta à agenda"}.get(str(m.get("modo", "")), "?"))
 			_log(peer, "hermon %s" % str(m.get("modo", "")))
 
 # =================================================================== ajudantes
+## GM "Início imediato": começa já o cume aberto (com quem estiver dentro, mesmo 1). Sem ninguém na entrada,
+## a próxima pessoa que usar o Convite começa o evento na hora.
+func _iniciar_hermon(agora: int) -> void:
+	var abertos := 0
+	for sim in srv.mundos.values():
+		if sim.hermon != null and sim.hermon.estado == "espera":
+			sim.hermon.forcar_inicio(); abertos += 1
+	if abertos == 0: srv.hermon.inicio_imediato = true
+	srv.hermon.forcado = agora
+
 func _ok(peer: int, txt: String) -> void:
 	srv._para(peer, "gm_ok", {"texto": txt})
 

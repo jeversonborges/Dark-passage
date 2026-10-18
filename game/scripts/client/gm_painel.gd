@@ -382,7 +382,7 @@ static func _tempo(s: int) -> String:
 	return "%d:%02d" % [s / 60, s % 60]
 
 static func _agrak_txt() -> String:
-	return "Próxima luta em %s  ·  %d inscritos  ·  mínimo %d" % [_tempo(int(estado.get("agrak_falta", 0))), int(estado.get("agrak_inscritos", 0)), int(estado.get("agrak_min", 4))]
+	return "Próxima luta em %s  ·  %d inscritos  ·  mínimo %d" % [_tempo(int(estado.get("agrak_falta", 0))), int(estado.get("agrak_inscritos", 0)), int(estado.get("agrak_min", 1))]
 
 static func _hermon_txt() -> String:
 	if estado.get("hermon_aberto", false): return "Entrada aberta agora (5 min com o Convite dos Vigilantes)"
@@ -404,13 +404,14 @@ static func _aba_eventos(game, corpo: Control) -> void:
 	ag[1].add_child(_botao("Abrir inscrição (luta em 1 min)", func(): pedir(game, "agrak", {"modo": "abrir"})))
 	ag[1].add_child(_botao("Começar agora com os inscritos", func(): pedir(game, "agrak", {"modo": "comecar"})))
 	var lm := HBoxContainer.new(); lm.add_theme_constant_override("separation", 6)
-	v["amin"] = int(estado.get("agrak_min", 4))
+	v["amin"] = int(estado.get("agrak_min", 1))
 	lm.add_child(_contador("Mínimo", "amin", 1, 20))
 	var bm := _botao("Usar", func(): pedir(game, "agrak", {"modo": "minimo", "v": v["amin"]}), 70); lm.add_child(bm)
 	ag[1].add_child(lm)
 	var hm := _cartao("O Cume dos Vigilantes", _hermon_txt()); _ui["hermon"] = hm[2]
 	hm[0].size_flags_horizontal = Control.SIZE_EXPAND_FILL; h.add_child(hm[0])
 	hm[1].add_child(_botao("Abrir a entrada agora", func(): pedir(game, "hermon", {"modo": "agora"})))
+	hm[1].add_child(_botao("Início imediato", func(): pedir(game, "hermon", {"modo": "iniciar"})))
 	hm[1].add_child(_botao("Abrir em 5 min (com avisos)", func(): pedir(game, "hermon", {"modo": "5min"})))
 	hm[1].add_child(_botao("Voltar à agenda normal", func(): pedir(game, "hermon", {"modo": "fechar"})))
 	var dica := Tema.rotulo("A Torre e as dungeons: use \"Reviver o chefe desta dungeon\" na aba Invocar, de dentro do andar.", 13, Color("#7d7466"), Tema.FONTE_ITALICO)
