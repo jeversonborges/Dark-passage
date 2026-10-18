@@ -137,6 +137,16 @@ def _(v):
     return y
 
 
+@som('itens/lagrima_coro', var=2, lufs=-16, espaco='catedral', mix=0.3, tail=False, desc='lagrima (joia) cai no chao: "aaah" de coro de igreja num acorde maior que abre, com um brilho de sino por cima (1,8 s)')
+def _(v):
+    d = 1.8
+    acorde = [['C4', 'G4', 'C5', 'E5'], ['F4', 'C5', 'F5', 'A5']][v]
+    y = np.zeros((ns(d), 2))
+    y = place(y, choir(acorde, d, 'a', 'soprano', 5, 0.35, 0.5, 0.012, 0.05) * 0.7, 0)
+    y = place(y, pan(bell(hz(acorde[-1]), 1.4, 1.0, 1.2) * 0.12, 0.3), 0.3)
+    return y
+
+
 @som('itens/pocao_beber', var=3, lufs=-19, espaco='quarto', mix=0.08, desc='bebe pocao: rolha + goles')
 def _(v):
     d = 1.2

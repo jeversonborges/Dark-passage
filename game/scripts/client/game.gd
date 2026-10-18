@@ -618,7 +618,7 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 		fx.folha(joia["queda"], n.destino, {})
 		var fb = fx.folha(joia["loop"], n.destino, {"dura": 9999.0})
 		if fb: n.set_meta("feixe", fb)
-		audio.tocar(joia.get("som", "itens/joia_aplicar"), n.destino, -2.0)
+		audio.tocar("itens/lagrima_coro", n.destino, -2.0)   # coro de igreja: a jóia de brilho é sempre uma lágrima
 		return
 	if rar in ["raro", "excelente", "lendario", "conjunto", "demiurgico"]:
 		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto", "demiurgico"] else "item_feixe_raro"
