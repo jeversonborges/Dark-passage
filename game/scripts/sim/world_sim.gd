@@ -103,6 +103,16 @@ func carregar_geometria(id: String) -> void:
 	_ler_grade(id)
 
 # =================================================================== mapa
+## Solta tudo o que o mapa guardou ao ser descarregado (servidor, mapa vazio). Entidades, ações agendadas e
+## controladores guardam lambdas que capturam este próprio mapa: sem limpar, o WorldSim vira ciclo de referência
+## e nunca sai da memória (medido com tools/medir_servidor.gd).
+func descarregar() -> void:
+	agenda.clear(); projeteis.clear(); areas.clear(); telegrafos.clear(); alvos_ia.clear()
+	for e: Ent in ents.values():
+		e.aux.clear(); e.acao = {}; e.deslocando = {}; e.status.clear(); e.buffs.clear()   # lambdas que se prendem à própria entidade
+	ents.clear(); chao.clear(); spawns.clear()
+	chefe = null; hermon = null
+
 func carregar_mapa(id: String) -> void:
 	# limpa tudo menos o jogador
 	var jog := jogador()

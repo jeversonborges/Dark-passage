@@ -258,6 +258,7 @@ func _mundo(id: String) -> WorldSim:
 func _liberar_se_vazio(id: String) -> void:
 	var sim: WorldSim = mundos.get(id)
 	if sim == null or not sim.jogadores().is_empty(): return
+	sim.descarregar()
 	mundos.erase(id)   # o próximo que entrar encontra o mapa como novo (chefes e baús voltam, como no solo)
 	print("[servidor] mapa vazio, descarregado: ", id)
 
