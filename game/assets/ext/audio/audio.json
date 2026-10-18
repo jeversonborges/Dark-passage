@@ -1597,6 +1597,17 @@
    ],
    "duracao_s": 5.56
   },
+  "itens/lagrima_coro": {
+   "desc": "lagrima (joia) cai no chao: \"aaah\" de coro de igreja num acorde maior que abre, com um brilho de sino por cima (1,8 s)",
+   "bus": "sfx",
+   "loop": false,
+   "variacoes": 2,
+   "arquivos": [
+    "sfx/itens/lagrima_coro_1.ogg",
+    "sfx/itens/lagrima_coro_2.ogg"
+   ],
+   "duracao_s": 1.79
+  },
   "itens/moedas": {
    "desc": "pega ouro / moedas",
    "bus": "sfx",
