@@ -1546,5 +1546,53 @@
 1024,
 64,
 64
+],
+"elmo_da_legiao_sem_general": [
+128,
+1024,
+64,
+64
+],
+"elmo_da_retirada": [
+192,
+1024,
+64,
+64
+],
+"capuz_de_granizo": [
+256,
+1024,
+64,
+64
+],
+"coroa_do_arauto_calado": [
+320,
+1024,
+64,
+64
+],
+"diadema_do_escriba": [
+384,
+1024,
+64,
+64
+],
+"escudo_de_duamutef": [
+448,
+1024,
+64,
+64
+],
+"cetro_heka": [
+512,
+1024,
+64,
+64
+],
+"prato_do_coracao": [
+576,
+1024,
+64,
+64
 ]
 }
