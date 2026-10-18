@@ -41,6 +41,13 @@ static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, 
 		it2["qtd"] = sim.rng.randi_range(20, 45)
 	return it2
 
+## Variante Deus (balanco.variante_deus): quando a arma-base cai, esta chance a troca pela versão Deus (atributos x1,35).
+static func _trocar_por_deus(sim: WorldSim, it: Dictionary) -> Dictionary:
+	if it.is_empty(): return it
+	var vid := Itens.deus_de(str(it.get("id", "")))
+	if vid == "" or sim.rng.randf() >= float(Defs.DROPS["balanco"]["variante_deus"]): return it
+	return Itens.novo(vid)
+
 static func _peso(sim: WorldSim, rolagens: Array) -> Dictionary:
 	var tot := 0.0
 	for r in rolagens: tot += float(r["peso"])
@@ -83,7 +90,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
 	for gid in tab.get("garantido", []):
-		var it := item_da_tag(sim, gid, e.nivel, "comum", jog)
+		var it := _trocar_por_deus(sim, item_da_tag(sim, gid, e.nivel, "comum", jog))
 		if not it.is_empty(): sim.soltar_no_chao(it, e.pos, jog.id, e.pos)
 	var n := 0
 	if tab.has("rolagens_garantidas"): n = int(tab["rolagens_garantidas"])
@@ -99,10 +106,8 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		if muito_abaixo and tag.begins_with("equip"): continue
 		if tag.begins_with("joia:") and sim.rng.randf() >= f_joias: continue   # joias de refino pela metade
 		var mn := minima
-		# variante Deus (balanco.variante_deus): 0,1% das rolagens de equipamento trocam a base pela arma Deus (x1,35)
-		if tag.begins_with("equip") and sim.rng.randf() < float(Defs.DROPS["balanco"]["variante_deus"]): tag = "lendario:deus"
 		if jog.pity_raro >= int(Defs.DROPS["pity"]["raro_garantido_apos_abates_sem_raro"]) and tag.begins_with("equip"): mn = "raro"
-		var it := item_da_tag(sim, tag, e.nivel, mn, jog)
+		var it := _trocar_por_deus(sim, item_da_tag(sim, tag, e.nivel, mn, jog))
 		if it.is_empty(): continue
 		if it.get("raridade", "comum") in ["raro", "excelente", "lendario"]: jog.pity_raro = 0
 		sim.soltar_no_chao(it, e.pos, jog.id, e.pos)

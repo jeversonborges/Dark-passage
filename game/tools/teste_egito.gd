@@ -17,6 +17,8 @@ func rodar(sim: WorldSim, seg: float, f: Callable = Callable()) -> void:
 		sim.passo(WorldSim.TICK)
 
 func _init() -> void:
+	var fal := 0
+	var ok := 0
 	Defs.carregar()
 	var lutas := [["hawara_1", 1], ["hawara_2", 1], ["hawara_3", 1], ["coracao_1", 5], ["coracao_2", 5], ["coracao_3", 5], ["coracao_4", 5], ["coracao_5", 5], ["coracao_6", 6]]
 	var classes := ["mutante", "humano", "anjo", "cultista", "tecnomancer", "demonio"]
@@ -68,10 +70,13 @@ func _init() -> void:
 			if not j.vivo: mortos += 1
 		print("[%s] chefe=%s vivo=%s fase=%d escala_hp=%.2f estado=%s jogadores_caidos=%d tele=%d areas=%d avisos=%d derrotado=%s" % [l[0], boss.kind, str(boss.vivo), ch.fase, escala, ch.estado,
 			cont.get("jogador_morreu", 0), cont.get("telegrafo", 0), cont.get("area", 0), cont.get("aviso", 0), str(cont.get("chefe_derrotado", 0))])
+		if boss.vivo or int(cont.get("chefe_derrotado", 0)) <= 0: fal += 1
+		else: ok += 1
 		var vistos := {}
 		for s in log:
 			var k: String = s.left(70)
 			if vistos.has(k): continue
 			vistos[k] = true
 			print(s)
-	quit()
+	print("teste_egito: %s (chefes derrotados: %d, falhas: %d)" % ["OK" if fal == 0 else "FALHA", ok, fal])
+	quit(1 if fal > 0 else 0)
