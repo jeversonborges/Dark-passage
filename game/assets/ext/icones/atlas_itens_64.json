@@ -3388,5 +3388,41 @@
   2240,
   64,
   64
+ ],
+ "calcas_de_areia_fina": [
+  320,
+  2240,
+  64,
+  64
+ ],
+ "botas_de_dunas": [
+  384,
+  2240,
+  64,
+  64
+ ],
+ "luvas_de_linho_de_amenti": [
+  448,
+  2240,
+  64,
+  64
+ ],
+ "calcas_de_linho_de_amenti": [
+  512,
+  2240,
+  64,
+  64
+ ],
+ "sandalias_de_amenti": [
+  576,
+  2240,
+  64,
+  64
+ ],
+ "machado_de_gelo_sujo": [
+  640,
+  2240,
+  64,
+  64
  ]
 }

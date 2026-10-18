@@ -2866,5 +2866,41 @@
   928,
   32,
   32
+ ],
+ "calcas_de_areia_fina": [
+  448,
+  928,
+  32,
+  32
+ ],
+ "botas_de_dunas": [
+  480,
+  928,
+  32,
+  32
+ ],
+ "luvas_de_linho_de_amenti": [
+  0,
+  960,
+  32,
+  32
+ ],
+ "calcas_de_linho_de_amenti": [
+  32,
+  960,
+  32,
+  32
+ ],
+ "sandalias_de_amenti": [
+  64,
+  960,
+  32,
+  32
+ ],
+ "machado_de_gelo_sujo": [
+  96,
+  960,
+  32,
+  32
  ]
 }
