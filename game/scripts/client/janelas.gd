@@ -281,37 +281,58 @@ func _delta(v: int) -> String:
 	return "[color=#8a8070]=[/color]"
 
 # =================================================================== tooltip de item
+## Linha de duas colunas (nome à esquerda, valor alinhado à direita) para a janela de item.
+func _lin2(a: String, b: String) -> String:
+	return "%s\t%s\n" % [a, b]
+
+## Título de seção em versalete dourado (ATRIBUTOS, PROPRIEDADES ESPECIAIS).
+func _titulo_secao(txt: String) -> String:
+	return "\n[font_size=12][b][color=#d9b66a]%s[/color][/b][/font_size]\n" % txt.to_upper()
+
 func tip_item(it: Dictionary, contexto := "") -> String:
 	var d := Itens.defn(it["id"])
 	var j := _jog()
 	var rar: String = it.get("raridade", "comum")
 	var cor := Defs.cor_raridade(rar).to_html(false)
-	var s := "[font_size=17][color=#%s]%s[/color][/font_size]\n" % [cor, Itens.nome(it)]
-	var cat := Itens.categoria(it)
-	var sub: Array = []
 	var slot := Itens.slot_de(it)
-	if slot != "": sub.append(Itens.NOME_SLOT.get(slot if slot != "anel" else "anel1", slot))
-	else: sub.append({"consumivel": "Consumível", "material": "Material", "joia": "Joia", "missao": "Item de missão", "leitura": "Escrito", "chave": "Chave", "bau": "Baú"}.get(cat, cat.capitalize()))
-	if slot != "" or rar != "comum": sub.append(Defs.nome_raridade(rar))
-	s += "[i][color=#a89f8c]%s[/color][/i]\n" % " · ".join(sub)
+	var cat := Itens.categoria(it)
+	# cabeçalho: nome na fonte de título, tipo à esquerda e nível à direita
+	var s := "[b][font_size=22][color=#%s]%s[/color][/font_size][/b]\n" % [cor, Itens.nome(it)]
+	var tipo := ""
+	if slot != "": tipo = Itens.NOME_SLOT.get(slot if slot != "anel" else "anel1", slot)
+	else: tipo = {"consumivel": "Consumível", "material": "Material", "joia": "Joia", "missao": "Item de missão", "leitura": "Escrito", "chave": "Chave", "bau": "Baú"}.get(cat, cat.capitalize())
+	if slot == "arma" and int(d.get("maos", 1)) == 2: tipo += " (2 mãos)"
+	if slot != "" or rar != "comum": tipo += " · " + Defs.nome_raridade(rar)
+	var nv := int(d.get("nivel", 1))
+	var direita := ""
+	if slot != "" and nv > 1: direita = "[color=%s]Nível %d[/color]" % ["#ff6a4a" if j.nivel < nv else "#a89f8c", nv]
+	s += _lin2("[i][color=#a89f8c]%s[/color][/i]" % tipo, direita)
+	s += "[color=#6b5634]────────────────────────────────────[/color]\n"
+	# ataque: número grande, como a arma de referência
 	if slot == "arma":
 		var dn := Itens.dano_arma(it)
-		s += "Dano [b]%d–%d[/b]" % [roundi(dn[0]), roundi(dn[1])]
-		if d.has("intervalo"): s += "   ·   %.2f ataques/s" % (1.0 / float(d["intervalo"]))
-		s += "\n"
-		if int(d.get("maos", 1)) == 2: s += "[color=#a89f8c]Duas mãos[/color]\n"
+		s += _titulo_secao("Ataque")
+		s += "[font_size=24][b][color=#e8584a]%d ~ %d[/color][/b][/font_size]\n" % [roundi(dn[0]), roundi(dn[1])]
+		if d.has("intervalo"): s += _lin2("[color=#a89f8c]Velocidade[/color]", "%.2f/s" % (1.0 / float(d["intervalo"])))
+	# atributos e defesa em colunas: nome à esquerda, valor à direita
+	var linhas := ""
 	if d.has("defesa") and slot != "arma":
-		s += "Defesa [b]%d[/b]\n" % roundi(float(d["defesa"]) * (1.0 + 0.08 * int(it.get("refino", 0))))
-	if d.has("bloqueio"): s += "Bloqueio %d%%\n" % roundi(float(d["bloqueio"]) * 100.0)
+		linhas += _lin2("Defesa", "[color=#e0b84a]%d[/color]" % roundi(float(d["defesa"]) * (1.0 + 0.08 * int(it.get("refino", 0)))))
+	if d.has("bloqueio"): linhas += _lin2("Bloqueio", "[color=#e0b84a]%d%%[/color]" % roundi(float(d["bloqueio"]) * 100.0))
 	for src in ["atributos", "atributo_base"]:
 		var at = d.get(src)
 		if at is Dictionary:
-			for k in at: s += "[color=#9cc8ff]+%d %s[/color]\n" % [int(at[k]), Itens.ATTR.get(k, str(k).to_upper())]
+			for k in at: linhas += _lin2(str(Itens.ATTR.get(k, str(k).to_upper())), "[color=#e0b84a]+%d[/color]" % int(at[k]))
+	if linhas != "":
+		s += _titulo_secao("Atributos")
+		s += linhas
+	# propriedades especiais: opções roladas, efeito de uso e conjunto
+	var props := ""
 	for o in it.get("opcoes", []):
 		var exc: bool = str(o["tipo"]).begins_with("excelente")
-		s += "[color=%s]%s[/color]\n" % ["#9cff3a" if exc else "#9cc8ff", Itens.texto_opcao(o)]
+		props += "[color=#c02a2a]◆[/color] [color=%s]%s[/color]\n" % ["#9cff3a" if exc else "#e8dcc0", Itens.texto_opcao(o)]
 	var ef = d.get("efeito")
-	if ef is String: s += "[color=#e0b84a]%s[/color]\n" % ef
+	if ef is String: props += "[color=#c02a2a]◆[/color] [color=#e0b84a]%s[/color]\n" % ef
 	elif ef is Dictionary:
 		var partes: Array = []
 		if ef.has("cura_hp"): partes.append("Recupera %d de vida%s" % [int(ef["cura_hp"]), (" em %ds" % int(ef["duracao_s"])) if ef.has("duracao_s") else ""])
@@ -323,17 +344,22 @@ func tip_item(it: Dictionary, contexto := "") -> String:
 		if ef.has("arremesso"): partes.append("Arremessa e explode em área")
 		if ef.has("buff"): partes.append("Fortalece por um tempo")
 		if ef.has("repele"): partes.append("Afasta %s" % str(ef["repele"]).replace("_", " "))
-		for p in partes: s += "[color=#c8f08a]%s[/color]\n" % p
+		for p in partes: props += "[color=#c02a2a]◆[/color] [color=#c8f08a]%s[/color]\n" % p
 	if d.has("conjunto"):
 		var cj: Dictionary = {}
 		for c in Defs.ITENS_DOC.get("conjuntos", []):
 			if c is Dictionary and c.get("id") == d["conjunto"]: cj = c
-		s += "[color=#3ad0a0]Conjunto: %s[/color]\n" % cj.get("nome", str(d["conjunto"]).replace("_", " ").capitalize())
+		props += "[color=#c02a2a]◆[/color] [color=#3ad0a0]Conjunto: %s[/color]\n" % cj.get("nome", str(d["conjunto"]).replace("_", " ").capitalize())
+	if props != "":
+		s += _titulo_secao("Propriedades especiais")
+		s += props
+	# lore em itálico e, quando o item tem, a citação em vermelho no fim
 	var lore: String = d.get("lore", d.get("descricao", ""))
-	if lore != "": s += "[i][color=#b8ab90]%s[/color][/i]\n" % lore
+	if lore != "": s += "\n[i][color=#9a9180]%s[/color][/i]\n" % lore
+	var citacao: String = d.get("citacao", "")
+	if citacao != "": s += "[i][color=#b3261e]\"%s\"[/color][/i]\n" % citacao
 	var req := Itens.pode_usar(it, j) if slot != "" else ""
-	var nv := int(d.get("nivel", 1))
-	if slot != "" and nv > 1: s += "[color=%s]Requer nível %d[/color]\n" % ["#ff6a4a" if j.nivel < nv else "#a89f8c", nv]
+	if slot != "" and nv > 1 and j.nivel < nv: s += "[color=#ff6a4a]Requer nível %d[/color]\n" % nv
 	if req != "" and not req.begins_with("Requer"): s += "[color=#ff6a4a]%s[/color]\n" % req
 	var cl = d.get("classes")
 	if cl is Array and cl.size() > 0 and cl.size() < 6:
@@ -353,7 +379,7 @@ func tip_item(it: Dictionary, contexto := "") -> String:
 		"equip": s += "[color=#8a8070]Botão direito tira[/color]"
 		"armazem": s += "[color=#8a8070]Botão direito leva para a mochila[/color]"
 		"troca": s += "[color=#8a8070]Botão direito tira da troca[/color]"
-	return s.strip_edges()
+	return s.strip_edges() + "\n"
 
 func _desenhar_icone(c: CanvasItem, it: Dictionary, r: Rect2, mod := Color.WHITE) -> void:
 	var tm := Tema.icone_mochila(it["id"])
@@ -457,7 +483,7 @@ func _entrada_grade(g: Desenho, ev: InputEvent) -> void:
 		var uid := int(it.get("uid", -1))
 		if uid != g.dados["hover"]:
 			g.dados["hover"] = uid
-			if uid >= 0 and mao.is_empty(): game.hud.mostrar_tip(tip_item(it, onde))
+			if uid >= 0 and mao.is_empty(): game.hud.mostrar_tip_item(it, tip_item(it, onde))
 			else: game.hud.esconder_tip()
 		g.queue_redraw()
 	elif ev is InputEventMouseButton and ev.pressed and onde == "troca_outro":
@@ -633,7 +659,7 @@ func _slot_equip(slot: String) -> Desenho:
 		if ev is InputEventMouseMotion:
 			if not c.dados["hover"]:
 				c.dados["hover"] = true; c.queue_redraw()
-				if not it.is_empty() and mao.is_empty(): game.hud.mostrar_tip(tip_item(it, "equip"))
+				if not it.is_empty() and mao.is_empty(): game.hud.mostrar_tip_item(it, tip_item(it, "equip"))
 				elif it.is_empty() and mao.is_empty(): game.hud.mostrar_tip(_tip_slot_vazio(slot))
 		elif ev is InputEventMouseButton and ev.pressed:
 			if ev.button_index == MOUSE_BUTTON_LEFT:
@@ -1124,7 +1150,7 @@ func _abrir_loja(d: Dictionary) -> void:
 		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 15)
 		var cor := Defs.cor_raridade(it.get("raridade", "comum"))
 		b.add_theme_color_override("font_color", cor if it.get("raridade", "comum") != "comum" else Color("#e8dfc9"))
-		b.mouse_entered.connect(func(): game.hud.mostrar_tip(tip_item(it, "loja_compra")))
+		b.mouse_entered.connect(func(): game.hud.mostrar_tip_item(it, tip_item(it, "loja_compra")))
 		b.mouse_exited.connect(func(): game.hud.esconder_tip())
 		b.pressed.connect(func():
 			var q := 10 if Input.is_key_pressed(KEY_SHIFT) and Itens.pilha(it) > 1 else 1
@@ -1162,7 +1188,7 @@ func _corpo_ferreiro() -> void:
 		b.text = "%s%s   →  +%d%s  (%d ouro)" % [Itens.nome(it), "  [equipado]" if par[1] != "mochila" else "", r + 1, ch, 50 * (r + 1)] if r < 15 else "%s   (máximo)" % Itens.nome(it)
 		b.disabled = r >= 15
 		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 14)
-		b.mouse_entered.connect(func(): game.hud.mostrar_tip(tip_item(it)))
+		b.mouse_entered.connect(func(): game.hud.mostrar_tip_item(it, tip_item(it)))
 		b.mouse_exited.connect(func(): game.hud.esconder_tip())
 		b.pressed.connect(func(): game.cmd("refinar", [int(it["uid"]), par[1]]))
 		v.add_child(b)

@@ -102,6 +102,8 @@ func _ready() -> void:
 				[0.1, "popup", "ajuda"], [0.6, "foto", "m4_ajuda"], [0.1, "popup", "limpar"],
 				[0.1, "popup", "texto"], [0.6, "foto", "m5_texto"], [0.1, "popup", "limpar"],
 				[0.1, "mapa", ""], [0.6, "foto", "m6_mapa"], [0.3, "fim", ""]]
+		"item_tip":   # detalhes de item: relíquia de duas mãos e anel raro com atributo, pela mochila
+			roteiro = [[2.0, "item_tip", "lendario"], [0.4, "foto", "item_lendario"], [0.1, "item_tip", "anel"], [0.4, "foto", "item_anel"], [0.3, "fim", ""]]
 		"so_foto":
 			roteiro = [[float(args.get("espera", "3")), "foto", args.get("nome", "foto")], [0.3, "fim", ""]]
 
@@ -250,6 +252,11 @@ func _process(dt: float) -> void:
 				if m: m.hp_max = 99999.0; m.hp = m.hp_max
 			Jogador.cmd_skill(jogo.sim, j, Jogador.slot_auto(j), -1, j.pos + dir * 3.0)
 		"popup": _popup(p[2])
+		"item_tip":
+			var it: Dictionary = Itens.novo("anel_prego_caixao" if p[2] == "anel" else "lanca_procissao")
+			it["raridade"] = "lendario" if p[2] == "lendario" else ("raro" if p[2] == "anel" else "comum")
+			it["opcoes"] = [] if p[2] != "lendario" else [{"tipo": "dano_plano", "valor": 35}, {"tipo": "atributo", "valor": 25, "attr": "FOR"}, {"tipo": "excelente_golpe", "valor": 0.12}]
+			jogo.hud.mostrar_tip_item(it, jogo.janelas.tip_item(it, "mochila"))
 		"nada": pass
 		"fim": get_tree().quit()
 

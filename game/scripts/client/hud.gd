@@ -43,6 +43,7 @@ var ajuda_ui: Control
 var mapa_ui: Control
 var tooltip: PanelContainer
 var tip_lbl: RichTextLabel
+var tip_estilo: StyleBox            # moldura padrão das dicas (volta depois de um item)
 var ganhos: VBoxContainer
 var chefe_d := {}
 var mult_tremor := 1.0
@@ -1613,6 +1614,7 @@ func _montar_tooltip() -> void:
 		sb = Tema.caixa(Color(0.05, 0.04, 0.035, 0.96), Color(0.55, 0.44, 0.26), 1, 2)
 		sb.set_content_margin_all(10)
 	tooltip.add_theme_stylebox_override("panel", sb)
+	tip_estilo = sb
 	tooltip.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	tip_lbl = RichTextLabel.new()
 	tip_lbl.bbcode_enabled = true
@@ -1635,6 +1637,20 @@ func _montar_tooltip() -> void:
 
 func mostrar_tip(bb: String) -> void:
 	if bb == "": esconder_tip(); return
+	tooltip.add_theme_stylebox_override("panel", tip_estilo)
+	tip_lbl.custom_minimum_size.x = 300
+	tip_lbl.tab_stops = PackedFloat32Array()
+	tip_lbl.text = bb
+	tooltip.visible = true
+	tooltip.reset_size()
+
+## Detalhes de item: moldura gótica tingida pela raridade e texto mais largo (ver janelas.gd tip_item).
+func mostrar_tip_item(it: Dictionary, bb: String) -> void:
+	var sb := Tema.moldura_item(str(it.get("raridade", "comum")))
+	if sb == null: mostrar_tip(bb); return
+	tooltip.add_theme_stylebox_override("panel", sb)
+	tip_lbl.custom_minimum_size.x = 330
+	tip_lbl.tab_stops = PackedFloat32Array([236.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
 	tip_lbl.text = bb
 	tooltip.visible = true
 	tooltip.reset_size()

@@ -1,0 +1,79 @@
+<!doctype html><html><head><meta charset="utf-8">
+<!-- Moldura da janela de detalhes do item (tooltip): ferro gótico com espinhos, cantos ornamentados.
+     Uma só peça (item_moldura, 360x360) em 9-slice, margens 44; o código tinge por raridade (modulate).
+     node shot.js pecas_item.html --pecas saida 1  -> saida/item_moldura.png (escala 2 para o 2x)
+     Precisa das texturas tex_ferro.svg, tex_latao.svg e fonts/ de assets/ui/src/barra (mesmo método do kit). -->
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent;padding:0;width:360px}
+.peca{position:relative;overflow:visible}
+svg{display:block}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+ <defs>
+  <linearGradient id="silG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6dfd2"/><stop offset=".35" stop-color="#8f877b"/><stop offset=".7" stop-color="#3e3932"/><stop offset="1" stop-color="#15120f"/></linearGradient>
+  <linearGradient id="silD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f2ece0"/><stop offset=".45" stop-color="#7d766b"/><stop offset=".8" stop-color="#2c2823"/><stop offset="1" stop-color="#0d0b09"/></linearGradient>
+  <linearGradient id="ferG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2521"/><stop offset=".5" stop-color="#15110e"/><stop offset="1" stop-color="#0a0807"/></linearGradient>
+  <linearGradient id="bronzeG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d58e"/><stop offset=".35" stop-color="#b98240"/><stop offset=".65" stop-color="#5e3a18"/><stop offset="1" stop-color="#c49050"/></linearGradient>
+  <radialGradient id="vinh" cx="50%" cy="45%" r="70%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".75"/></radialGradient>
+  <filter id="grao" x="0" y="0" width="100%" height="100%">
+   <feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7" result="n"/>
+   <feColorMatrix in="n" type="matrix" values="0 0 0 0 .5  0 0 0 0 .45  0 0 0 0 .4  0 0 0 .3 -.04" result="g"/>
+   <feComposite in="g" in2="SourceGraphic" operator="in"/>
+  </filter>
+  <filter id="b1"><feGaussianBlur stdDeviation="1"/></filter>
+  <filter id="b2"><feGaussianBlur stdDeviation="2"/></filter>
+ </defs>
+</svg>
+<div id="tudo" style="display:contents"></div>
+<script>
+const $=id=>document.getElementById(id);
+const W=360,H=360,M=44;
+// espinho: base larga na linha da peça, ponta para fora; ang 0 aponta para cima, positivo = horário
+const espinho=(x,y,ang,len,base)=>`<g transform="translate(${x} ${y}) rotate(${ang})">
+ <path d="M${-base/2} 0 C${-base*.22} ${-len*.35} ${-base*.12} ${-len*.7} 0 ${-len} C${base*.12} ${-len*.7} ${base*.22} ${-len*.35} ${base/2} 0 Z" fill="#000" opacity=".7" transform="translate(1 1.5)"/>
+ <path d="M${-base/2} 0 C${-base*.22} ${-len*.35} ${-base*.12} ${-len*.7} 0 ${-len} C${base*.12} ${-len*.7} ${base*.22} ${-len*.35} ${base/2} 0 Z" fill="url(#silD)" stroke="#070504" stroke-width="1"/>
+ <path d="M0 ${-len*.1} C${-base*.05} ${-len*.45} ${-base*.04} ${-len*.75} 0 ${-len*.92}" fill="none" stroke="#fff6e0" stroke-width=".8" opacity=".5"/>
+ <path d="M${base*.1} ${-len*.05} C${base*.12} ${-len*.4} ${base*.08} ${-len*.7} 0 ${-len*.95}" fill="none" stroke="#000" stroke-width=".7" opacity=".6"/></g>`;
+let H_='';
+{
+ // corpo: ferro escuro com filete de prata por fora e filete de latão por dentro
+ let corpo=`
+  <rect x="${M-14}" y="${M-14}" width="${W-2*M+28}" height="${H-2*M+28}" fill="#000" opacity=".55" filter="url(#b2)" transform="translate(2 4)"/>
+  <rect x="${M-14}" y="${M-14}" width="${W-2*M+28}" height="${H-2*M+28}" fill="url(#ferG)" stroke="url(#silG)" stroke-width="2.4"/>
+  <rect x="${M-14}" y="${M-14}" width="${W-2*M+28}" height="${H-2*M+28}" fill="#fff" filter="url(#grao)" opacity=".25"/>
+  <rect x="${M-8}" y="${M-8}" width="${W-2*M+16}" height="${H-2*M+16}" fill="none" stroke="#000" stroke-width="2.4"/>
+  <rect x="${M-5}" y="${M-5}" width="${W-2*M+10}" height="${H-2*M+10}" fill="none" stroke="url(#bronzeG)" stroke-width="1.4"/>
+  <rect x="${M-3.5}" y="${M-3.5}" width="${W-2*M+7}" height="${H-2*M+7}" fill="none" stroke="#000" stroke-width="1"/>
+  <rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}" fill="#0b0908"/>
+  <rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}" fill="#fff" filter="url(#grao)" opacity=".22"/>
+  <rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}" fill="url(#vinh)"/>`;
+ // espinhos nas bordas: 8 por lado, alternando comprimento; centros em M+(k+.5)*P, P=(W-2M)/8 => repete sem costura
+ const P=(W-2*M)/8;
+ for(let k=0;k<8;k++){
+  const c=M+(k+.5)*P, L=k%2?17:27, B=k%2?8:11;
+  corpo+=espinho(c,M-6,0,L,B);          // topo: aponta para cima
+  corpo+=espinho(c,H-M+6,180,L,B);      // base: aponta para baixo
+  corpo+=espinho(M-6,c,-90,L,B);        // esquerda
+  corpo+=espinho(W-M+6,c,90,L,B);       // direita
+ }
+ // cantos: feixe de três espinhos apontando para fora + medalhão de latão
+ const canto=(x,y,sx,sy)=>{
+  const g=[[-45,40,13],[-18,28,10],[-72,28,10]].map(([a,l,b])=>espinho(0,0,a,l,b)).join('');
+  return `<g transform="translate(${x} ${y}) scale(${sx} ${sy})">${g}
+   <circle cx="0" cy="0" r="8.5" fill="#000" opacity=".6" transform="translate(1 1.5)"/>
+   <circle cx="0" cy="0" r="8" fill="url(#bronzeG)" stroke="#0b0602" stroke-width="1"/>
+   <path d="M-5 0 L0 -4 L5 0 L0 4 Z" fill="#1a0f06" stroke="#f3d58e" stroke-width=".6"/></g>`;
+ };
+ // brasão central no topo e na base: losango de latão com dois espinhos (um só por peça, não se repete na emenda)
+ const brasao=(y,s)=>`<g transform="translate(${W/2} ${y}) scale(1 ${s})">${espinho(0,0,-16,24,9)}${espinho(0,0,16,24,9)}${espinho(0,0,0,30,12)}
+   <path d="M0 -9 L8 0 L0 9 L-8 0 Z" fill="#000" opacity=".6" transform="translate(1 1.5)"/>
+   <path d="M0 -9 L8 0 L0 9 L-8 0 Z" fill="url(#bronzeG)" stroke="#0b0602" stroke-width="1"/>
+   <circle r="2.6" fill="#1a0f06" stroke="#f3d58e" stroke-width=".6"/></g>`;
+ corpo+=brasao(M-22,1)+brasao(H-M+22,-1);
+ corpo+=canto(M-14,M-14,1,1)+canto(W-M+14,M-14,-1,1)+canto(M-14,H-M+14,1,-1)+canto(W-M+14,H-M+14,-1,-1);
+ H_+=`<div class="peca" id="item_moldura" style="width:${W}px;height:${H}px"><svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">${corpo}</svg></div>`;
+}
+$('tudo').innerHTML=H_;
+document.fonts.ready.then(()=>setTimeout(()=>document.title='ready',400));
+</script></body></html>

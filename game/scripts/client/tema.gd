@@ -135,6 +135,15 @@ static func caixa_menu(conteudo := 6) -> StyleBox:
 	var c := caixa(Color(0.09, 0.075, 0.06), Color(0.3, 0.25, 0.17), 1, 2); c.set_content_margin_all(conteudo); c.shadow_size = 0
 	return c
 
+## Moldura da janela de detalhes do item: ferro gótico com espinhos (item_moldura.png, 360x360, margens 44).
+## A peça é uma só: a raridade tinge o ferro (vermelho na Relíquia). Devolve null se a peça não existir.
+static func moldura_item(rar: String) -> StyleBoxTexture:
+	var base := sb_ui("item_moldura", [44, 44, 44, 44], [50, 50, 50, 48])
+	if base == null: return null
+	var sb := base.duplicate() as StyleBoxTexture
+	sb.modulate_color = Color.WHITE.lerp(Defs.cor_raridade(rar), 0.7)
+	return sb
+
 ## Aba de janela (Diário, Automático...): ativa fica em latão, colada ao painel.
 static func estilo_aba(b: Button, ativa: bool) -> void:
 	var n := sb_ui("menu_aba_ativa" if ativa else "menu_aba", [14, 12, 14, 4], [16, 8, 16, 6])
