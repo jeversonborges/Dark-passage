@@ -633,6 +633,10 @@
         {
           "tag": "lendario:celeste",
           "peso": 2.644
+        },
+        {
+          "tag": "lendario:cripta",
+          "peso": 3
         }
       ],
       "reliquias_sugeridas": [
@@ -817,6 +821,118 @@
         },
         {
           "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "deserto_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:deserto_absinto",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa1",
+          "peso": 88
+        }
+      ]
+    },
+    "cripta_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:cripta",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "chefe_celeste_novos": {
+      "rolagens": [
+        {
+          "tag": "lendario:cripta",
+          "peso": 3
+        }
+      ]
+    },
+    "granizo_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:mata_do_granizo",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "torre_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:torre",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "agrak_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:agrak",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "amenti_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:amenti",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 88
+        }
+      ]
+    },
+    "biblioteca_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:biblioteca",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "vem_para_fora_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:vem_para_fora",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa4",
           "peso": 88
         }
       ]

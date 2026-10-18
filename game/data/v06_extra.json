@@ -7091,7 +7091,7 @@
    "item_chance": 0.08,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7116,7 +7116,7 @@
    "item_chance": 0.08,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7141,7 +7141,7 @@
    "item_chance": 0.085,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7166,7 +7166,7 @@
    "item_chance": 0.09,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7191,7 +7191,7 @@
    "item_chance": 0.09,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7218,7 +7218,7 @@
    "ouro_mult": 8,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7239,7 +7239,7 @@
    "item_chance": 0.1,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7264,7 +7264,7 @@
    "item_chance": 0.12,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 52
     },
     {
@@ -7295,7 +7295,7 @@
    ],
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 62
     },
     {
@@ -7331,7 +7331,7 @@
    ],
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 62
     },
     {
@@ -7367,7 +7367,7 @@
    ],
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 62
     },
     {
@@ -7395,7 +7395,7 @@
    "ouro_mult": 50,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7431,7 +7431,7 @@
    "ouro_mult": 60,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7463,7 +7463,7 @@
    "ouro_mult": 70,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7495,7 +7495,7 @@
    "ouro_mult": 80,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7531,7 +7531,7 @@
    "ouro_mult": 90,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
@@ -7567,7 +7567,7 @@
    "ouro_mult": 100,
    "rolagens": [
     {
-     "tag": "equip:faixa3",
+     "tag": "equip:faixa2",
      "peso": 60
     },
     {
