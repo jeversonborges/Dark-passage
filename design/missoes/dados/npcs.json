@@ -457,7 +457,7 @@
       "classe_visual": "humano",
       "local": {
         "subzona": "acampamento_vela",
-        "ponto": "a_definir_pets"
+        "ponto": "praca_vela"
       },
       "servicos": [
         "coletor"
@@ -474,7 +474,7 @@
       "classe_visual": "anjo",
       "local": {
         "subzona": "capela_sao_lazaro",
-        "ponto": "a_definir_pets"
+        "ponto": "praca_capela"
       },
       "servicos": [
         "coletor"
