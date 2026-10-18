@@ -42,10 +42,11 @@ static func deve_pegar(it: Dictionary, f: Dictionary) -> bool:
 	if _eh_material_asa(id): return bool(f["asas"])
 	return bool(f["raridade"].get(str(it.get("raridade", "comum")), true))
 
+## Materiais de criar asas (entregas/asas/dados/asas_itens.json): rolados nos abates, fora da tabela do mob.
+const MATERIAIS_ASA := ["pena_cinzenta", "pele_ressecada", "engrenagem_gasta"]
+
 static func _eh_material_asa(id: String) -> bool:
-	for t in Defs.ITENS.get(id, {}).get("tags", []):
-		if str(t).begins_with("material:"): return true
-	return false
+	return id in MATERIAIS_ASA
 
 ## Muda uma chave do filtro (vinda do comando "coletor"). Valores inválidos são ignorados.
 static func cmd_cfg(sim: WorldSim, e: Ent, chave: String, valor) -> void:
