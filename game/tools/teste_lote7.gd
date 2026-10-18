@@ -1,5 +1,5 @@
 extends SceneTree
-## Lote 7 de itens novos 0.9.7 (18/10): 80 sobras de ícone viram itens, com ícone no atlas e tags de drop ligadas.
+## Lote 7 de itens novos 0.9.7 (18/10): 104 sobras de ícone viram itens, com ícone no atlas e tags de drop ligadas.
 ## Rodar: godot --headless -s tools/teste_lote7.gd
 func _init() -> void:
 	Defs.carregar()
@@ -8,8 +8,8 @@ func _init() -> void:
 	for id in Defs.ITENS:
 		if str(Defs.ITENS[id].get("fonte", "")).contains("lote7") or str(Defs.ITENS[id].get("icone_mochila", "")).contains("elmo_do_manto_sangrento"):
 			ids.append(id)
-	if ids.size() != 80:
-		print("FALHA: %d itens do lote 7 (esperado 80)" % ids.size()); falhas += 1
+	if ids.size() != 104:
+		print("FALHA: %d itens do lote 7 (esperado 104)" % ids.size()); falhas += 1
 	for id in ids:
 		var d: Dictionary = Defs.ITENS[id]
 		if not Defs.ICONES.get("itens_64", {}).has(id): print("FALHA: sem ícone 64 em %s" % id); falhas += 1

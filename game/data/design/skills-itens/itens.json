@@ -19725,6 +19725,879 @@
         "32": "assets/icones/itens/32/manto_dourado_de_arena.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/manto_dourado_de_arena.png"
+    },
+    {
+      "id": "anel_dourado_da_marca",
+      "nome": "Anel Dourado da Marca",
+      "slot": "anel",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "anel",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Ouro gasto, com uma marca funda no aro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 3
+      },
+      "efeito": "Força +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/anel_dourado_da_marca.png",
+        "40": "assets/icones/itens/40/anel_dourado_da_marca.png",
+        "32": "assets/icones/itens/32/anel_dourado_da_marca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_dourado_da_marca.png"
+    },
+    {
+      "id": "medalhao_de_fita_vermelha",
+      "nome": "Medalhão de Fita Vermelha",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Medalhão de latão numa fita vermelha desbotada.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "efeito": "Espírito +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/medalhao_de_fita_vermelha.png",
+        "40": "assets/icones/itens/40/medalhao_de_fita_vermelha.png",
+        "32": "assets/icones/itens/32/medalhao_de_fita_vermelha.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/medalhao_de_fita_vermelha.png"
+    },
+    {
+      "id": "espada_de_aco_velho",
+      "nome": "Espada de Aço Velho",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina longa, com o fio refeito muitas vezes.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "maos": 1,
+      "dano": [
+        36,
+        58
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +5. Dano 36 a 58.",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_de_aco_velho.png",
+        "40": "assets/icones/itens/40/espada_de_aco_velho.png",
+        "32": "assets/icones/itens/32/espada_de_aco_velho.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_de_aco_velho.png"
+    },
+    {
+      "id": "elmo_de_capa_vermelha",
+      "nome": "Elmo de Capa Vermelha",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Elmo fechado, com uma capa vermelha presa na nuca.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 4
+      },
+      "defesa": 18,
+      "efeito": "Vitalidade +4. Defesa 18.",
+      "icone": {
+        "64": "assets/icones/itens/64/elmo_de_capa_vermelha.png",
+        "40": "assets/icones/itens/40/elmo_de_capa_vermelha.png",
+        "32": "assets/icones/itens/32/elmo_de_capa_vermelha.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/elmo_de_capa_vermelha.png"
+    },
+    {
+      "id": "manoplas_de_ferro_gasto",
+      "nome": "Manoplas de Ferro Gasto",
+      "slot": "luvas",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manoplas de placas de ferro, amassadas de tanto uso.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 3
+      },
+      "defesa": 14,
+      "efeito": "Força +3. Defesa 14.",
+      "icone": {
+        "64": "assets/icones/itens/64/manoplas_de_ferro_gasto.png",
+        "40": "assets/icones/itens/40/manoplas_de_ferro_gasto.png",
+        "32": "assets/icones/itens/32/manoplas_de_ferro_gasto.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_ferro_gasto.png"
+    },
+    {
+      "id": "botas_de_cano_alto",
+      "nome": "Botas de Cano Alto",
+      "slot": "botas",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de couro de cano alto, para andar por areia quente.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 3
+      },
+      "defesa": 10,
+      "efeito": "Agilidade +3. Defesa 10.",
+      "icone": {
+        "64": "assets/icones/itens/64/botas_de_cano_alto.png",
+        "40": "assets/icones/itens/40/botas_de_cano_alto.png",
+        "32": "assets/icones/itens/32/botas_de_cano_alto.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/botas_de_cano_alto.png"
+    },
+    {
+      "id": "anel_prateado_do_simbolo",
+      "nome": "Anel Prateado do Símbolo",
+      "slot": "anel",
+      "classes": [
+        "anjo",
+        "humano",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "anel",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Prata fina com um símbolo gasto no topo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 2
+      },
+      "efeito": "Espírito +2.",
+      "icone": {
+        "64": "assets/icones/itens/64/anel_prateado_do_simbolo.png",
+        "40": "assets/icones/itens/40/anel_prateado_do_simbolo.png",
+        "32": "assets/icones/itens/32/anel_prateado_do_simbolo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_prateado_do_simbolo.png"
+    },
+    {
+      "id": "pedra_em_cordao",
+      "nome": "Pedra em Cordão",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "humano",
+        "mutante",
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 20,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Pedra lisa presa num cordão de couro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 2
+      },
+      "efeito": "Vitalidade +2.",
+      "icone": {
+        "64": "assets/icones/itens/64/pedra_em_cordao.png",
+        "40": "assets/icones/itens/40/pedra_em_cordao.png",
+        "32": "assets/icones/itens/32/pedra_em_cordao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pedra_em_cordao.png"
+    },
+    {
+      "id": "botas_do_escriba",
+      "nome": "Botas do Escriba",
+      "slot": "botas",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 34,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Cano alto, com a sola gasta pelas escadas de pedra da cidade.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 4
+      },
+      "defesa": 10,
+      "efeito": "Agilidade +4. Defesa 10.",
+      "icone": {
+        "64": "assets/icones/itens/64/botas_do_escriba.png",
+        "40": "assets/icones/itens/40/botas_do_escriba.png",
+        "32": "assets/icones/itens/32/botas_do_escriba.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/botas_do_escriba.png"
+    },
+    {
+      "id": "anel_com_palmeira",
+      "nome": "Anel com Palmeira",
+      "slot": "anel",
+      "classes": [
+        "anjo",
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "anel",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Aro de bronze com uma palmeira gravada no topo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "efeito": "Espírito +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/anel_com_palmeira.png",
+        "40": "assets/icones/itens/40/anel_com_palmeira.png",
+        "32": "assets/icones/itens/32/anel_com_palmeira.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_com_palmeira.png"
+    },
+    {
+      "id": "amuleto_de_placa_gravada",
+      "nome": "Amuleto de Placa Gravada",
+      "slot": "amuleto",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Placa de ferro com marcas gastas, numa corrente curta.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 4
+      },
+      "efeito": "Espírito +4.",
+      "icone": {
+        "64": "assets/icones/itens/64/amuleto_de_placa_gravada.png",
+        "40": "assets/icones/itens/40/amuleto_de_placa_gravada.png",
+        "32": "assets/icones/itens/32/amuleto_de_placa_gravada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/amuleto_de_placa_gravada.png"
+    },
+    {
+      "id": "luvas_amarelas_de_oficina",
+      "nome": "Luvas Amarelas de Oficina",
+      "slot": "luvas",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de borracha amarela, cheias de remendos de fita.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 2
+      },
+      "defesa": 8,
+      "efeito": "Vitalidade +2. Defesa 8.",
+      "icone": {
+        "64": "assets/icones/itens/64/luvas_amarelas_de_oficina.png",
+        "40": "assets/icones/itens/40/luvas_amarelas_de_oficina.png",
+        "32": "assets/icones/itens/32/luvas_amarelas_de_oficina.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/luvas_amarelas_de_oficina.png"
+    },
+    {
+      "id": "botas_de_sola_grossa",
+      "nome": "Botas de Sola Grossa",
+      "slot": "botas",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Sola grossa de borracha, feita para pisar em cacos.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 3
+      },
+      "defesa": 12,
+      "efeito": "Vitalidade +3. Defesa 12.",
+      "icone": {
+        "64": "assets/icones/itens/64/botas_de_sola_grossa.png",
+        "40": "assets/icones/itens/40/botas_de_sola_grossa.png",
+        "32": "assets/icones/itens/32/botas_de_sola_grossa.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/botas_de_sola_grossa.png"
+    },
+    {
+      "id": "bracadeira_de_cobre",
+      "nome": "Braçadeira de Cobre",
+      "slot": "luvas",
+      "classes": [
+        "humano",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 22,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Faixa de cobre batido, presa no antebraço com tiras de couro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 2
+      },
+      "defesa": 5,
+      "efeito": "Força +2. Defesa 5.",
+      "icone": {
+        "64": "assets/icones/itens/64/bracadeira_de_cobre.png",
+        "40": "assets/icones/itens/40/bracadeira_de_cobre.png",
+        "32": "assets/icones/itens/32/bracadeira_de_cobre.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_cobre.png"
+    },
+    {
+      "id": "pingente_de_lanterna",
+      "nome": "Pingente de Lanterna",
+      "slot": "amuleto",
+      "classes": [
+        "humano",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Lanterna de bolso em miniatura, presa numa corrente. Não acende.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "efeito": "Espírito +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/pingente_de_lanterna.png",
+        "40": "assets/icones/itens/40/pingente_de_lanterna.png",
+        "32": "assets/icones/itens/32/pingente_de_lanterna.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pingente_de_lanterna.png"
+    },
+    {
+      "id": "faca_de_trilha",
+      "nome": "Faca de Trilha",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Faca de lâmina curta, com cabo de couro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 4
+      },
+      "maos": 1,
+      "dano": [
+        22,
+        38
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +4. Dano 22 a 38.",
+      "icone": {
+        "64": "assets/icones/itens/64/faca_de_trilha.png",
+        "40": "assets/icones/itens/40/faca_de_trilha.png",
+        "32": "assets/icones/itens/32/faca_de_trilha.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/faca_de_trilha.png"
+    },
+    {
+      "id": "chapeu_de_vaqueiro_do_amargo",
+      "nome": "Chapéu de Vaqueiro do Amargo",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Chapéu de feltro com aba quebrada, marcado pela poeira verde.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 2,
+        "vit": 2
+      },
+      "defesa": 8,
+      "efeito": "Agilidade +2, Vitalidade +2. Defesa 8.",
+      "icone": {
+        "64": "assets/icones/itens/64/chapeu_de_vaqueiro_do_amargo.png",
+        "40": "assets/icones/itens/40/chapeu_de_vaqueiro_do_amargo.png",
+        "32": "assets/icones/itens/32/chapeu_de_vaqueiro_do_amargo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/chapeu_de_vaqueiro_do_amargo.png"
+    },
+    {
+      "id": "cajado_de_linho",
+      "nome": "Cajado de Linho",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 36,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cajado de madeira envolto em linho, com nós de cera.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 6
+      },
+      "maos": 1,
+      "dano": [
+        28,
+        46
+      ],
+      "intervalo": 1.05,
+      "efeito": "Espírito +6. Dano 28 a 46.",
+      "icone": {
+        "64": "assets/icones/itens/64/cajado_de_linho.png",
+        "40": "assets/icones/itens/40/cajado_de_linho.png",
+        "32": "assets/icones/itens/32/cajado_de_linho.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cajado_de_linho.png"
+    },
+    {
+      "id": "faixa_de_linho_com_gema",
+      "nome": "Faixa de Linho com Gema",
+      "slot": "cabeca",
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Faixa de linho cru, com uma gema verde presa na testa.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5
+      },
+      "defesa": 6,
+      "efeito": "Espírito +5. Defesa 6.",
+      "icone": {
+        "64": "assets/icones/itens/64/faixa_de_linho_com_gema.png",
+        "40": "assets/icones/itens/40/faixa_de_linho_com_gema.png",
+        "32": "assets/icones/itens/32/faixa_de_linho_com_gema.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/faixa_de_linho_com_gema.png"
+    },
+    {
+      "id": "luvas_de_bandagem_de_ritual",
+      "nome": "Luvas de Bandagem de Ritual",
+      "slot": "luvas",
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Bandagens de linho enroladas nas mãos, com cera nos nós.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "defesa": 6,
+      "efeito": "Espírito +3. Defesa 6.",
+      "icone": {
+        "64": "assets/icones/itens/64/luvas_de_bandagem_de_ritual.png",
+        "40": "assets/icones/itens/40/luvas_de_bandagem_de_ritual.png",
+        "32": "assets/icones/itens/32/luvas_de_bandagem_de_ritual.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/luvas_de_bandagem_de_ritual.png"
+    },
+    {
+      "id": "saia_de_linho_com_cinto",
+      "nome": "Saia de Linho com Cinto",
+      "slot": "calcas",
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 32,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Saia de linho pregueado, com cinto de couro e fivela de cobre.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3,
+        "vit": 2
+      },
+      "defesa": 10,
+      "efeito": "Espírito +3, Vitalidade +2. Defesa 10.",
+      "icone": {
+        "64": "assets/icones/itens/64/saia_de_linho_com_cinto.png",
+        "40": "assets/icones/itens/40/saia_de_linho_com_cinto.png",
+        "32": "assets/icones/itens/32/saia_de_linho_com_cinto.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/saia_de_linho_com_cinto.png"
+    },
+    {
+      "id": "bracadeira_de_anubis",
+      "nome": "Braçadeira de Anúbis",
+      "slot": "luvas",
+      "classes": [
+        "cultista",
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Braçadeira de couro com cabeça de chacal gravada no metal.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 4
+      },
+      "defesa": 10,
+      "efeito": "Espírito +4. Defesa 10.",
+      "icone": {
+        "64": "assets/icones/itens/64/bracadeira_de_anubis.png",
+        "40": "assets/icones/itens/40/bracadeira_de_anubis.png",
+        "32": "assets/icones/itens/32/bracadeira_de_anubis.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_anubis.png"
+    },
+    {
+      "id": "amuleto_de_linho_com_ankh",
+      "nome": "Amuleto de Linho com Ankh",
+      "slot": "amuleto",
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 36,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Cordão de linho com uma cruz ansada de bronze.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5
+      },
+      "efeito": "Espírito +5.",
+      "icone": {
+        "64": "assets/icones/itens/64/amuleto_de_linho_com_ankh.png",
+        "40": "assets/icones/itens/40/amuleto_de_linho_com_ankh.png",
+        "32": "assets/icones/itens/32/amuleto_de_linho_com_ankh.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/amuleto_de_linho_com_ankh.png"
+    },
+    {
+      "id": "peitoral_de_bronze_com_manto",
+      "nome": "Peitoral de Bronze com Manto",
+      "slot": "peito",
+      "classes": [
+        "demonio",
+        "humano",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Peitoral de bronze coberto por um manto escuro de lã.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 6
+      },
+      "defesa": 28,
+      "efeito": "Vitalidade +6. Defesa 28.",
+      "icone": {
+        "64": "assets/icones/itens/64/peitoral_de_bronze_com_manto.png",
+        "40": "assets/icones/itens/40/peitoral_de_bronze_com_manto.png",
+        "32": "assets/icones/itens/32/peitoral_de_bronze_com_manto.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_com_manto.png"
     }
   ]
 }

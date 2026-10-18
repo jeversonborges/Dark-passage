@@ -2746,5 +2746,149 @@
 1536,
 64,
 64
+],
+"anel_dourado_da_marca": [
+640,
+1792,
+64,
+64
+],
+"medalhao_de_fita_vermelha": [
+704,
+1792,
+64,
+64
+],
+"espada_de_aco_velho": [
+768,
+1792,
+64,
+64
+],
+"elmo_de_capa_vermelha": [
+832,
+1792,
+64,
+64
+],
+"manoplas_de_ferro_gasto": [
+896,
+1792,
+64,
+64
+],
+"botas_de_cano_alto": [
+960,
+1792,
+64,
+64
+],
+"anel_prateado_do_simbolo": [
+0,
+1856,
+64,
+64
+],
+"pedra_em_cordao": [
+64,
+1856,
+64,
+64
+],
+"botas_do_escriba": [
+128,
+1856,
+64,
+64
+],
+"anel_com_palmeira": [
+192,
+1856,
+64,
+64
+],
+"amuleto_de_placa_gravada": [
+256,
+1856,
+64,
+64
+],
+"luvas_amarelas_de_oficina": [
+320,
+1856,
+64,
+64
+],
+"botas_de_sola_grossa": [
+384,
+1856,
+64,
+64
+],
+"bracadeira_de_cobre": [
+448,
+1856,
+64,
+64
+],
+"pingente_de_lanterna": [
+512,
+1856,
+64,
+64
+],
+"faca_de_trilha": [
+576,
+1856,
+64,
+64
+],
+"chapeu_de_vaqueiro_do_amargo": [
+640,
+1856,
+64,
+64
+],
+"cajado_de_linho": [
+704,
+1856,
+64,
+64
+],
+"faixa_de_linho_com_gema": [
+768,
+1856,
+64,
+64
+],
+"luvas_de_bandagem_de_ritual": [
+832,
+1856,
+64,
+64
+],
+"saia_de_linho_com_cinto": [
+896,
+1856,
+64,
+64
+],
+"bracadeira_de_anubis": [
+960,
+1856,
+64,
+64
+],
+"amuleto_de_linho_com_ankh": [
+0,
+1920,
+64,
+64
+],
+"peitoral_de_bronze_com_manto": [
+64,
+1920,
+64,
+64
 ]
 }
