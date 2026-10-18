@@ -364,5 +364,287 @@
   192,
   64,
   64
+ ],
+ "escudo_do_trono": [
+  832,
+  192,
+  64,
+  64
+ ],
+ "coro_dos_seis_ais": [
+  896,
+  192,
+  64,
+  64
+ ],
+ "levanta_te": [
+  960,
+  192,
+  64,
+  64
+ ],
+ "golpe_de_escudo": [
+  0,
+  256,
+  64,
+  64
+ ],
+ "muralha_negra": [
+  64,
+  256,
+  64,
+  64
+ ],
+ "grito_da_legiao": [
+  128,
+  256,
+  64,
+  64
+ ],
+ "trono_da_legiao": [
+  192,
+  256,
+  64,
+  64
+ ],
+ "espadao_do_general": [
+  256,
+  256,
+  64,
+  64
+ ],
+ "ceifa_da_alma": [
+  320,
+  256,
+  64,
+  64
+ ],
+ "manto_de_sombra": [
+  384,
+  256,
+  64,
+  64
+ ],
+ "marca_do_ceifador": [
+  448,
+  256,
+  64,
+  64
+ ],
+ "espiritos_malignos": [
+  512,
+  256,
+  64,
+  64
+ ],
+ "julgamento_antecipado": [
+  576,
+  256,
+  64,
+  64
+ ],
+ "orbe_coracao": [
+  640,
+  256,
+  64,
+  64
+ ],
+ "grimorio_aberto": [
+  704,
+  256,
+  64,
+  64
+ ],
+ "orbitas_de_sangue": [
+  768,
+  256,
+  64,
+  64
+ ],
+ "chuva_de_estrelas_rubras": [
+  832,
+  256,
+  64,
+  64
+ ],
+ "setimo_versiculo": [
+  896,
+  256,
+  64,
+  64
+ ],
+ "turibulo_do_amargo": [
+  960,
+  256,
+  64,
+  64
+ ],
+ "estilhaco_da_estrela": [
+  0,
+  320,
+  64,
+  64
+ ],
+ "a_plateia": [
+  64,
+  320,
+  64,
+  64
+ ],
+ "enxame_da_podridao": [
+  128,
+  320,
+  64,
+  64
+ ],
+ "absinto_caiu": [
+  192,
+  320,
+  64,
+  64
+ ],
+ "dois_canos": [
+  256,
+  320,
+  64,
+  64
+ ],
+ "abanar_o_cao": [
+  320,
+  320,
+  64,
+  64
+ ],
+ "rifle_de_alavanca": [
+  384,
+  320,
+  64,
+  64
+ ],
+ "forma_vingativa": [
+  448,
+  320,
+  64,
+  64
+ ],
+ "meio_dia": [
+  512,
+  320,
+  64,
+  64
+ ],
+ "arpao_de_corrente": [
+  576,
+  320,
+  64,
+  64
+ ],
+ "rede_de_prata": [
+  640,
+  320,
+  64,
+  64
+ ],
+ "sermao_do_fim": [
+  704,
+  320,
+  64,
+  64
+ ],
+ "virote_da_asa": [
+  768,
+  320,
+  64,
+  64
+ ],
+ "chuva_de_virotes_benzidos": [
+  832,
+  320,
+  64,
+  64
+ ],
+ "noite_da_cacada": [
+  896,
+  320,
+  64,
+  64
+ ],
+ "muro_de_vela": [
+  960,
+  320,
+  64,
+  64
+ ],
+ "machado_do_carrasco": [
+  0,
+  384,
+  64,
+  64
+ ],
+ "corrente_da_arena": [
+  64,
+  384,
+  64,
+  64
+ ],
+ "ave_arena": [
+  128,
+  384,
+  64,
+  64
+ ],
+ "campeao": [
+  192,
+  384,
+  64,
+  64
+ ],
+ "lamina_de_osso": [
+  256,
+  384,
+  64,
+  64
+ ],
+ "segundo_braco": [
+  320,
+  384,
+  64,
+  64
+ ],
+ "forma_colossal": [
+  384,
+  384,
+  64,
+  64
+ ],
+ "sacos_de_acido": [
+  448,
+  384,
+  64,
+  64
+ ],
+ "frenesi_da_carne": [
+  512,
+  384,
+  64,
+  64
+ ],
+ "o_amargo_venceu": [
+  576,
+  384,
+  64,
+  64
+ ],
+ "seis_asas": [
+  640,
+  384,
+  64,
+  64
+ ],
+ "agua_amarga": [
+  704,
+  384,
+  64,
+  64
  ]
 }
