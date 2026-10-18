@@ -102,6 +102,12 @@
     "renascimento_s": 25,
     "_aggro_social": "mobs do mesmo tipo dentro desse raio entram juntos quando um e atacado"
   },
+  "spots": {
+    "_doc": "Spots de farm (0.9.5, Jefin 18/10: 'spot deve ter muito mais nascimento de mob'). Vale para grupos com 'spot' e respawn abaixo de 60 s (elite fica de fora). O mob nasce mesmo com jogador no spot, em célula a pelo menos dist_min_jogador tiles dele.",
+    "respawn_s": 6,
+    "mob_extra": 1,
+    "dist_min_jogador": 3.0
+  },
   "mobs": {
     "corvo_de_cinza": {
       "nome": "Corvo de Cinza",
