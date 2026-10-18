@@ -41,7 +41,6 @@ func _init(p_sim: WorldSim, c: Dictionary, p_ev: Dictionary = {}) -> void:
 			var v := Vector2i(int(c2[0]), int(c2[1]))
 			cels.append(v); disco[v] = a["id"]
 		aneis.append({"id": a["id"], "cai_em": float(a["cai_em"]), "celulas": cels, "avisado": false, "caiu": false})
-	_criar_estatuas()
 
 func definir_nivel(n: int) -> void:
 	nivel_mob = n
@@ -49,6 +48,7 @@ func definir_nivel(n: int) -> void:
 ## Servidor: segundos que faltam para a entrada fechar (a janela é global; a instância só conta).
 func definir_espera(seg: float) -> void:
 	espera_t = maxf(0.0, seg)
+	if estatuas.is_empty(): _criar_estatuas()   # os Vigilantes ajoelhados só existem durante a entrada (fora do evento o mapa fica vazio)
 
 ## GM "Início imediato": fecha a entrada agora (animações e luta já) com quem estiver dentro, mesmo que seja 1.
 func forcar_inicio() -> void:

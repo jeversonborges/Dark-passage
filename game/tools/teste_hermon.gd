@@ -78,6 +78,7 @@ func novo_cume(jogs: Array) -> Array:
 	sim.carregar_mapa("cume_dos_vigilantes#teste-0-1")
 	var ctl: HermonCtl = sim.hermon
 	ctl.definir_nivel(30)
+	ctl.definir_espera(120.0)   # o servidor faz isto ao abrir a instância (convite): aí os Vigilantes ajoelham
 	var out: Array = []
 	var ch: Array = ctl.cfg["chegadas"]
 	for i in jogs.size():
