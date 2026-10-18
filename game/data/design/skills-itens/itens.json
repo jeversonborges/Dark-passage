@@ -20598,6 +20598,2150 @@
         "32": "assets/icones/itens/32/peitoral_de_bronze_com_manto.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_com_manto.png"
+    },
+    {
+      "id": "sino_de_bronze_com_estrela",
+      "nome": "Sino de Bronze com Estrela",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Sino pequeno de bronze, com uma estrela gravada no bojo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "efeito": "Espírito +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/sino_de_bronze_com_estrela.png",
+        "40": "assets/icones/itens/40/sino_de_bronze_com_estrela.png",
+        "32": "assets/icones/itens/32/sino_de_bronze_com_estrela.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/sino_de_bronze_com_estrela.png"
+    },
+    {
+      "id": "lenco_vermelho_de_flores",
+      "nome": "Lenço Vermelho de Flores",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 20,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Lenço de algodão vermelho, com flores brancas bordadas nas pontas.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 2
+      },
+      "defesa": 5,
+      "efeito": "Vitalidade +2. Defesa 5.",
+      "icone": {
+        "64": "assets/icones/itens/64/lenco_vermelho_de_flores.png",
+        "40": "assets/icones/itens/40/lenco_vermelho_de_flores.png",
+        "32": "assets/icones/itens/32/lenco_vermelho_de_flores.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lenco_vermelho_de_flores.png"
+    },
+    {
+      "id": "tridente_de_lodo_verde",
+      "nome": "Tridente de Lodo Verde",
+      "slot": "arma",
+      "classes": [
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Tridente de ferro coberto de lodo verde, que não sai com a água.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "maos": 1,
+      "dano": [
+        30,
+        52
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +5. Dano 30 a 52.",
+      "icone": {
+        "64": "assets/icones/itens/64/tridente_de_lodo_verde.png",
+        "40": "assets/icones/itens/40/tridente_de_lodo_verde.png",
+        "32": "assets/icones/itens/32/tridente_de_lodo_verde.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/tridente_de_lodo_verde.png"
+    },
+    {
+      "id": "medalhao_de_bronze_com_cruz",
+      "nome": "Medalhão de Bronze com Cruz",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "humano",
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Medalhão redondo de bronze, com uma cruz no centro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 2
+      },
+      "efeito": "Espírito +2.",
+      "icone": {
+        "64": "assets/icones/itens/64/medalhao_de_bronze_com_cruz.png",
+        "40": "assets/icones/itens/40/medalhao_de_bronze_com_cruz.png",
+        "32": "assets/icones/itens/32/medalhao_de_bronze_com_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/medalhao_de_bronze_com_cruz.png"
+    },
+    {
+      "id": "faixa_vermelha_de_emblema",
+      "nome": "Faixa Vermelha de Emblema",
+      "slot": "cabeca",
+      "classes": [
+        "humano",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Faixa vermelha de tecido, com um emblema dourado costurado na testa.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 3
+      },
+      "defesa": 8,
+      "efeito": "Vitalidade +3. Defesa 8.",
+      "icone": {
+        "64": "assets/icones/itens/64/faixa_vermelha_de_emblema.png",
+        "40": "assets/icones/itens/40/faixa_vermelha_de_emblema.png",
+        "32": "assets/icones/itens/32/faixa_vermelha_de_emblema.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/faixa_vermelha_de_emblema.png"
+    },
+    {
+      "id": "fita_bege_com_sol_dourado",
+      "nome": "Fita Bege com Sol Dourado",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 22,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Fita de pano bege com um sol dourado bordado.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 2
+      },
+      "efeito": "Espírito +2.",
+      "icone": {
+        "64": "assets/icones/itens/64/fita_bege_com_sol_dourado.png",
+        "40": "assets/icones/itens/40/fita_bege_com_sol_dourado.png",
+        "32": "assets/icones/itens/32/fita_bege_com_sol_dourado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/fita_bege_com_sol_dourado.png"
+    },
+    {
+      "id": "gancho_vermelho_com_brasa",
+      "nome": "Gancho Vermelho com Brasa",
+      "slot": "arma",
+      "classes": [
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 36,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Gancho de ferro vermelho, com uma brasa presa na ponta.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 6
+      },
+      "maos": 1,
+      "dano": [
+        34,
+        60
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +6. Dano 34 a 60.",
+      "icone": {
+        "64": "assets/icones/itens/64/gancho_vermelho_com_brasa.png",
+        "40": "assets/icones/itens/40/gancho_vermelho_com_brasa.png",
+        "32": "assets/icones/itens/32/gancho_vermelho_com_brasa.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/gancho_vermelho_com_brasa.png"
+    },
+    {
+      "id": "etiqueta_de_papel_com_cruz",
+      "nome": "Etiqueta de Papel com Cruz",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Etiqueta de papel amarelada, com uma cruz vermelha impressa.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/etiqueta_de_papel_com_cruz.png",
+        "40": "assets/icones/itens/40/etiqueta_de_papel_com_cruz.png",
+        "32": "assets/icones/itens/32/etiqueta_de_papel_com_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/etiqueta_de_papel_com_cruz.png"
+    },
+    {
+      "id": "estandarte_rasgado_com_cruz",
+      "nome": "Estandarte Rasgado com Cruz",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 30,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pano de estandarte rasgado ao meio, com uma cruz vermelha que ainda se lê.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/estandarte_rasgado_com_cruz.png",
+        "40": "assets/icones/itens/40/estandarte_rasgado_com_cruz.png",
+        "32": "assets/icones/itens/32/estandarte_rasgado_com_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/estandarte_rasgado_com_cruz.png"
+    },
+    {
+      "id": "pena_vermelha_escura",
+      "nome": "Pena Vermelha Escura",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 24,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pena longa, quase preta na ponta, com um brilho avermelhado.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/pena_vermelha_escura.png",
+        "40": "assets/icones/itens/40/pena_vermelha_escura.png",
+        "32": "assets/icones/itens/32/pena_vermelha_escura.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pena_vermelha_escura.png"
+    },
+    {
+      "id": "frasco_prateado_de_alca",
+      "nome": "Frasco Prateado de Alça",
+      "efeito": {
+        "cura_hp_pct": 12
+      },
+      "preco": 30,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco de metal prateado, com alça de arame.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 10,
+      "icone": {
+        "64": "assets/icones/itens/64/frasco_prateado_de_alca.png",
+        "40": "assets/icones/itens/40/frasco_prateado_de_alca.png",
+        "32": "assets/icones/itens/32/frasco_prateado_de_alca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/frasco_prateado_de_alca.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "frasco_amarelo_da_cruz",
+      "nome": "Frasco Amarelo da Cruz",
+      "efeito": {
+        "cura_hp_pct": 18
+      },
+      "preco": 60,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco amarelo de vidro grosso, com uma cruz pintada no bojo.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 22,
+      "icone": {
+        "64": "assets/icones/itens/64/frasco_amarelo_da_cruz.png",
+        "40": "assets/icones/itens/40/frasco_amarelo_da_cruz.png",
+        "32": "assets/icones/itens/32/frasco_amarelo_da_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/frasco_amarelo_da_cruz.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "frasco_azul_com_sal",
+      "nome": "Frasco Azul com Sal",
+      "efeito": {
+        "cura_hp_pct": 14
+      },
+      "preco": 40,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco azul com sal grosso preso na rolha.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 16,
+      "icone": {
+        "64": "assets/icones/itens/64/frasco_azul_com_sal.png",
+        "40": "assets/icones/itens/40/frasco_azul_com_sal.png",
+        "32": "assets/icones/itens/32/frasco_azul_com_sal.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/frasco_azul_com_sal.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pocao_vermelha_enfaixada",
+      "nome": "Poção Vermelha Enfaixada",
+      "efeito": {
+        "cura_hp_pct": 22
+      },
+      "preco": 90,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Garrafa vermelha com o gargalo enrolado em tecido.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 30,
+      "icone": {
+        "64": "assets/icones/itens/64/pocao_vermelha_enfaixada.png",
+        "40": "assets/icones/itens/40/pocao_vermelha_enfaixada.png",
+        "32": "assets/icones/itens/32/pocao_vermelha_enfaixada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pocao_vermelha_enfaixada.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pocao_azul_enfaixada",
+      "nome": "Poção Azul Enfaixada",
+      "efeito": {
+        "cura_hp_pct": 20
+      },
+      "preco": 80,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Garrafa azul com o gargalo enrolado em tecido.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 28,
+      "icone": {
+        "64": "assets/icones/itens/64/pocao_azul_enfaixada.png",
+        "40": "assets/icones/itens/40/pocao_azul_enfaixada.png",
+        "32": "assets/icones/itens/32/pocao_azul_enfaixada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pocao_azul_enfaixada.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "garrafa_verde_da_caveira",
+      "nome": "Garrafa Verde da Caveira",
+      "efeito": {
+        "cura_hp_pct": 16
+      },
+      "preco": 50,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Garrafa verde com uma caveira desenhada no rótulo.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 18,
+      "icone": {
+        "64": "assets/icones/itens/64/garrafa_verde_da_caveira.png",
+        "40": "assets/icones/itens/40/garrafa_verde_da_caveira.png",
+        "32": "assets/icones/itens/32/garrafa_verde_da_caveira.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/garrafa_verde_da_caveira.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pocao_vermelha_amarrada",
+      "nome": "Poção Vermelha Amarrada",
+      "efeito": {
+        "cura_hp_pct": 24
+      },
+      "preco": 110,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco vermelho amarrado com corda de cânhamo.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 36,
+      "icone": {
+        "64": "assets/icones/itens/64/pocao_vermelha_amarrada.png",
+        "40": "assets/icones/itens/40/pocao_vermelha_amarrada.png",
+        "32": "assets/icones/itens/32/pocao_vermelha_amarrada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pocao_vermelha_amarrada.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pocao_azul_amarrada",
+      "nome": "Poção Azul Amarrada",
+      "efeito": {
+        "cura_hp_pct": 22
+      },
+      "preco": 100,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco azul amarrado com corda de cânhamo.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 34,
+      "icone": {
+        "64": "assets/icones/itens/64/pocao_azul_amarrada.png",
+        "40": "assets/icones/itens/40/pocao_azul_amarrada.png",
+        "32": "assets/icones/itens/32/pocao_azul_amarrada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pocao_azul_amarrada.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pocao_de_cristal_azul",
+      "nome": "Poção de Cristal Azul",
+      "efeito": {
+        "cura_hp_pct": 26
+      },
+      "preco": 130,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco azul com um cristal preso dentro do vidro.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 40,
+      "icone": {
+        "64": "assets/icones/itens/64/pocao_de_cristal_azul.png",
+        "40": "assets/icones/itens/40/pocao_de_cristal_azul.png",
+        "32": "assets/icones/itens/32/pocao_de_cristal_azul.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pocao_de_cristal_azul.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "disco_de_ferro_manchado",
+      "nome": "Disco de Ferro Manchado",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 18,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Disco de ferro com uma cruz e manchas escuras no centro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/disco_de_ferro_manchado.png",
+        "40": "assets/icones/itens/40/disco_de_ferro_manchado.png",
+        "32": "assets/icones/itens/32/disco_de_ferro_manchado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/disco_de_ferro_manchado.png"
+    },
+    {
+      "id": "figo_partido",
+      "nome": "Figo Partido",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 12,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Figo seco, partido ao meio, ainda com o caroço à mostra.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/figo_partido.png",
+        "40": "assets/icones/itens/40/figo_partido.png",
+        "32": "assets/icones/itens/32/figo_partido.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/figo_partido.png"
+    },
+    {
+      "id": "pinca_de_metal",
+      "nome": "Pinça de Metal",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 22,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pinça de metal curta, com as pontas gastas.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/pinca_de_metal.png",
+        "40": "assets/icones/itens/40/pinca_de_metal.png",
+        "32": "assets/icones/itens/32/pinca_de_metal.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pinca_de_metal.png"
+    },
+    {
+      "id": "ferramenta_dobrada_de_metal",
+      "nome": "Ferramenta Dobrada de Metal",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 26,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Ferramenta de metal dobrada no meio, sem uso que se reconheça.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/ferramenta_dobrada_de_metal.png",
+        "40": "assets/icones/itens/40/ferramenta_dobrada_de_metal.png",
+        "32": "assets/icones/itens/32/ferramenta_dobrada_de_metal.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/ferramenta_dobrada_de_metal.png"
+    },
+    {
+      "id": "esfera_de_chumbo",
+      "nome": "Esfera de Chumbo",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 24,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Esferas de chumbo empilhadas, pesadas e sem marca.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/esfera_de_chumbo.png",
+        "40": "assets/icones/itens/40/esfera_de_chumbo.png",
+        "32": "assets/icones/itens/32/esfera_de_chumbo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/esfera_de_chumbo.png"
+    },
+    {
+      "id": "vela_de_cera_gasta",
+      "nome": "Vela de Cera Gasta",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 14,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Vela de cera amarela, derretida até a metade.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/vela_de_cera_gasta.png",
+        "40": "assets/icones/itens/40/vela_de_cera_gasta.png",
+        "32": "assets/icones/itens/32/vela_de_cera_gasta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/vela_de_cera_gasta.png"
+    },
+    {
+      "id": "lamina_vermelha_da_cruz",
+      "nome": "Lâmina Vermelha da Cruz",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina longa vermelha, com uma cruz gravada perto do punho.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 6
+      },
+      "maos": 1,
+      "dano": [
+        46,
+        74
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +6. Dano 46 a 74.",
+      "icone": {
+        "64": "assets/icones/itens/64/lamina_vermelha_da_cruz.png",
+        "40": "assets/icones/itens/40/lamina_vermelha_da_cruz.png",
+        "32": "assets/icones/itens/32/lamina_vermelha_da_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lamina_vermelha_da_cruz.png"
+    },
+    {
+      "id": "lamina_curva_sangrenta",
+      "nome": "Lâmina Curva Sangrenta",
+      "slot": "arma",
+      "classes": [
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 36,
+      "tags": [
+        "raro:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Lâmina curva, com o fio sujo de sangue seco.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "maos": 1,
+      "dano": [
+        40,
+        64
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +5. Dano 40 a 64.",
+      "icone": {
+        "64": "assets/icones/itens/64/lamina_curva_sangrenta.png",
+        "40": "assets/icones/itens/40/lamina_curva_sangrenta.png",
+        "32": "assets/icones/itens/32/lamina_curva_sangrenta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lamina_curva_sangrenta.png"
+    },
+    {
+      "id": "espada_dourada_da_estrela",
+      "nome": "Espada Dourada da Estrela",
+      "slot": "arma",
+      "classes": [
+        "anjo",
+        "humano"
+      ],
+      "raridade": "excelente",
+      "nivel": 46,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Espada de lâmina dourada, com uma estrela de metal no cabo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5,
+        "esp": 4
+      },
+      "maos": 1,
+      "dano": [
+        50,
+        80
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +5, Espírito +4. Dano 50 a 80.",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_dourada_da_estrela.png",
+        "40": "assets/icones/itens/40/espada_dourada_da_estrela.png",
+        "32": "assets/icones/itens/32/espada_dourada_da_estrela.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_dourada_da_estrela.png"
+    },
+    {
+      "id": "foice_sangrenta",
+      "nome": "Foice Sangrenta",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 42,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Foice curva com o cabo de madeira manchado de vermelho.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 6
+      },
+      "maos": 1,
+      "dano": [
+        36,
+        60
+      ],
+      "intervalo": 1.05,
+      "efeito": "Espírito +6. Dano 36 a 60.",
+      "icone": {
+        "64": "assets/icones/itens/64/foice_sangrenta.png",
+        "40": "assets/icones/itens/40/foice_sangrenta.png",
+        "32": "assets/icones/itens/32/foice_sangrenta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/foice_sangrenta.png"
+    },
+    {
+      "id": "clava_de_osso_acorrentada",
+      "nome": "Clava de Osso Acorrentada",
+      "slot": "arma",
+      "classes": [
+        "mutante",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 32,
+      "tags": [
+        "raro:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Clava feita de osso, presa a uma corrente curta.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 6
+      },
+      "maos": 1,
+      "dano": [
+        38,
+        62
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +6. Dano 38 a 62.",
+      "icone": {
+        "64": "assets/icones/itens/64/clava_de_osso_acorrentada.png",
+        "40": "assets/icones/itens/40/clava_de_osso_acorrentada.png",
+        "32": "assets/icones/itens/32/clava_de_osso_acorrentada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/clava_de_osso_acorrentada.png"
+    },
+    {
+      "id": "escudo_vermelho_da_caveira",
+      "nome": "Escudo Vermelho da Caveira",
+      "slot": "segunda_mao",
+      "classes": [
+        "humano",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de madeira pintado de vermelho, com uma caveira no centro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 4
+      },
+      "defesa": 22,
+      "efeito": "Vitalidade +4. Defesa 22.",
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_vermelho_da_caveira.png",
+        "40": "assets/icones/itens/40/escudo_vermelho_da_caveira.png",
+        "32": "assets/icones/itens/32/escudo_vermelho_da_caveira.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_vermelho_da_caveira.png"
+    },
+    {
+      "id": "machado_azul_com_gema",
+      "nome": "Machado Azul com Gema",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Machado de lâmina azulada, com uma gema presa no talão.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 7
+      },
+      "maos": 1,
+      "dano": [
+        48,
+        80
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +7. Dano 48 a 80.",
+      "icone": {
+        "64": "assets/icones/itens/64/machado_azul_com_gema.png",
+        "40": "assets/icones/itens/40/machado_azul_com_gema.png",
+        "32": "assets/icones/itens/32/machado_azul_com_gema.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/machado_azul_com_gema.png"
+    },
+    {
+      "id": "adaga_serrilhada",
+      "nome": "Adaga Serrilhada",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Adaga de lâmina serrilhada, feita para rasgar couro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 4
+      },
+      "maos": 1,
+      "dano": [
+        18,
+        30
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +4. Dano 18 a 30.",
+      "icone": {
+        "64": "assets/icones/itens/64/adaga_serrilhada.png",
+        "40": "assets/icones/itens/40/adaga_serrilhada.png",
+        "32": "assets/icones/itens/32/adaga_serrilhada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/adaga_serrilhada.png"
+    },
+    {
+      "id": "pistola_de_cano_duplo",
+      "nome": "Pistola de Cano Duplo",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Pistola de dois canos, um sobre o outro, com a coronha remendada.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 5
+      },
+      "maos": 1,
+      "dano": [
+        40,
+        62
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +5. Dano 40 a 62.",
+      "icone": {
+        "64": "assets/icones/itens/64/pistola_de_cano_duplo.png",
+        "40": "assets/icones/itens/40/pistola_de_cano_duplo.png",
+        "32": "assets/icones/itens/32/pistola_de_cano_duplo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pistola_de_cano_duplo.png"
+    },
+    {
+      "id": "mosquete_com_sino",
+      "nome": "Mosquete com Sino",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 42,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Mosquete longo com um sino de latão preso à boca do cano.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 6
+      },
+      "maos": 1,
+      "dano": [
+        54,
+        80
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +6. Dano 54 a 80.",
+      "icone": {
+        "64": "assets/icones/itens/64/mosquete_com_sino.png",
+        "40": "assets/icones/itens/40/mosquete_com_sino.png",
+        "32": "assets/icones/itens/32/mosquete_com_sino.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/mosquete_com_sino.png"
+    },
+    {
+      "id": "espada_com_fita",
+      "nome": "Espada com Fita",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Espada simples, com uma fita de tecido amarrada no cabo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 4
+      },
+      "maos": 1,
+      "dano": [
+        30,
+        50
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +4. Dano 30 a 50.",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_com_fita.png",
+        "40": "assets/icones/itens/40/espada_com_fita.png",
+        "32": "assets/icones/itens/32/espada_com_fita.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_com_fita.png"
+    },
+    {
+      "id": "besta_de_trilho",
+      "nome": "Besta de Trilho",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 32,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Besta com um trilho de metal ao longo da coronha.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 5
+      },
+      "maos": 1,
+      "dano": [
+        36,
+        56
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +5. Dano 36 a 56.",
+      "icone": {
+        "64": "assets/icones/itens/64/besta_de_trilho.png",
+        "40": "assets/icones/itens/40/besta_de_trilho.png",
+        "32": "assets/icones/itens/32/besta_de_trilho.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/besta_de_trilho.png"
+    },
+    {
+      "id": "haste_espiral_de_metal",
+      "nome": "Haste Espiral de Metal",
+      "slot": "arma",
+      "classes": [
+        "tecnomancer",
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 36,
+      "tags": [
+        "raro:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Haste de metal enrolada em espiral, com a ponta de cobre.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 5
+      },
+      "maos": 1,
+      "dano": [
+        30,
+        52
+      ],
+      "intervalo": 1.05,
+      "efeito": "Espírito +5. Dano 30 a 52.",
+      "icone": {
+        "64": "assets/icones/itens/64/haste_espiral_de_metal.png",
+        "40": "assets/icones/itens/40/haste_espiral_de_metal.png",
+        "32": "assets/icones/itens/32/haste_espiral_de_metal.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/haste_espiral_de_metal.png"
+    },
+    {
+      "id": "luva_eletrica_de_cobre",
+      "nome": "Luva Elétrica de Cobre",
+      "slot": "luvas",
+      "classes": [
+        "tecnomancer",
+        "humano",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luva de couro com placas de cobre nos dedos e fios presos ao punho.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 3
+      },
+      "defesa": 10,
+      "efeito": "Agilidade +3. Defesa 10.",
+      "icone": {
+        "64": "assets/icones/itens/64/luva_eletrica_de_cobre.png",
+        "40": "assets/icones/itens/40/luva_eletrica_de_cobre.png",
+        "32": "assets/icones/itens/32/luva_eletrica_de_cobre.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/luva_eletrica_de_cobre.png"
+    },
+    {
+      "id": "pistola_eletrica",
+      "nome": "Pistola Elétrica",
+      "slot": "arma",
+      "classes": [
+        "tecnomancer",
+        "humano"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Pistola de cano de cobre, com um bulbo de vidro no punho.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 5,
+        "esp": 3
+      },
+      "maos": 1,
+      "dano": [
+        44,
+        68
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +5, Espírito +3. Dano 44 a 68.",
+      "icone": {
+        "64": "assets/icones/itens/64/pistola_eletrica.png",
+        "40": "assets/icones/itens/40/pistola_eletrica.png",
+        "32": "assets/icones/itens/32/pistola_eletrica.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pistola_eletrica.png"
+    },
+    {
+      "id": "fuzil_de_cobre",
+      "nome": "Fuzil de Cobre",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 46,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Fuzil longo de cobre, com a mira de vidro rachada.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "agi": 7
+      },
+      "maos": 1,
+      "dano": [
+        60,
+        92
+      ],
+      "intervalo": 1.05,
+      "efeito": "Agilidade +7. Dano 60 a 92.",
+      "icone": {
+        "64": "assets/icones/itens/64/fuzil_de_cobre.png",
+        "40": "assets/icones/itens/40/fuzil_de_cobre.png",
+        "32": "assets/icones/itens/32/fuzil_de_cobre.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/fuzil_de_cobre.png"
+    },
+    {
+      "id": "tubo_de_vidro_com_volante",
+      "nome": "Tubo de Vidro com Volante",
+      "slot": "arma",
+      "classes": [
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 34,
+      "tags": [
+        "raro:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Tubo de vidro cheio de um líquido verde, com um volante de latão na base.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 6
+      },
+      "maos": 1,
+      "dano": [
+        30,
+        50
+      ],
+      "intervalo": 1.05,
+      "efeito": "Espírito +6. Dano 30 a 50.",
+      "icone": {
+        "64": "assets/icones/itens/64/tubo_de_vidro_com_volante.png",
+        "40": "assets/icones/itens/40/tubo_de_vidro_com_volante.png",
+        "32": "assets/icones/itens/32/tubo_de_vidro_com_volante.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/tubo_de_vidro_com_volante.png"
+    },
+    {
+      "id": "manoplas_de_bronze",
+      "nome": "Manoplas de Bronze",
+      "slot": "luvas",
+      "classes": [
+        "humano",
+        "mutante",
+        "demonio",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 28,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manoplas de placas de bronze, rebitadas sobre couro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 4
+      },
+      "defesa": 14,
+      "efeito": "Força +4. Defesa 14.",
+      "icone": {
+        "64": "assets/icones/itens/64/manoplas_de_bronze.png",
+        "40": "assets/icones/itens/40/manoplas_de_bronze.png",
+        "32": "assets/icones/itens/32/manoplas_de_bronze.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_bronze.png"
+    },
+    {
+      "id": "luvas_palidas_costuradas",
+      "nome": "Luvas Pálidas Costuradas",
+      "slot": "luvas",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 26,
+      "tags": [
+        "raro:cripta"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de tecido claro, com os dedos costurados com linha grossa.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "defesa": 8,
+      "efeito": "Espírito +3. Defesa 8.",
+      "icone": {
+        "64": "assets/icones/itens/64/luvas_palidas_costuradas.png",
+        "40": "assets/icones/itens/40/luvas_palidas_costuradas.png",
+        "32": "assets/icones/itens/32/luvas_palidas_costuradas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/luvas_palidas_costuradas.png"
+    },
+    {
+      "id": "casaco_vermelho_de_ombreiras",
+      "nome": "Casaco Vermelho de Ombreiras",
+      "slot": "peito",
+      "classes": [
+        "humano",
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 40,
+      "tags": [
+        "excelente:sao_lazaro"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Casaco longo e vermelho, com ombreiras de couro duro.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "vit": 5
+      },
+      "defesa": 22,
+      "efeito": "Vitalidade +5. Defesa 22.",
+      "icone": {
+        "64": "assets/icones/itens/64/casaco_vermelho_de_ombreiras.png",
+        "40": "assets/icones/itens/40/casaco_vermelho_de_ombreiras.png",
+        "32": "assets/icones/itens/32/casaco_vermelho_de_ombreiras.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/casaco_vermelho_de_ombreiras.png"
+    },
+    {
+      "id": "manoplas_de_aco_com_brasa",
+      "nome": "Manoplas de Aço com Brasa",
+      "slot": "luvas",
+      "classes": [
+        "demonio",
+        "humano",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 42,
+      "tags": [
+        "excelente:cripta"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manoplas de aço escuro, com uma brasa acesa presa no dorso.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 6
+      },
+      "defesa": 18,
+      "efeito": "Força +6. Defesa 18.",
+      "icone": {
+        "64": "assets/icones/itens/64/manoplas_de_aco_com_brasa.png",
+        "40": "assets/icones/itens/40/manoplas_de_aco_com_brasa.png",
+        "32": "assets/icones/itens/32/manoplas_de_aco_com_brasa.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_aco_com_brasa.png"
+    },
+    {
+      "id": "couro_curtido",
+      "nome": "Couro Curtido",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 16,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Couro grosso curtido em casa, com cheiro de fumaça.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/couro_curtido.png",
+        "40": "assets/icones/itens/40/couro_curtido.png",
+        "32": "assets/icones/itens/32/couro_curtido.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couro_curtido.png"
+    },
+    {
+      "id": "cano_de_metal_com_tira",
+      "nome": "Cano de Metal com Tira",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Cano de metal curto, com uma tira de couro enrolada no meio.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cano_de_metal_com_tira.png",
+        "40": "assets/icones/itens/40/cano_de_metal_com_tira.png",
+        "32": "assets/icones/itens/32/cano_de_metal_com_tira.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cano_de_metal_com_tira.png"
+    },
+    {
+      "id": "pedra_com_cruz",
+      "nome": "Pedra com Cruz",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "humano",
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:jerusalem"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Pedra lisa de rio, com uma cruz talhada na face.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 3
+      },
+      "efeito": "Espírito +3.",
+      "icone": {
+        "64": "assets/icones/itens/64/pedra_com_cruz.png",
+        "40": "assets/icones/itens/40/pedra_com_cruz.png",
+        "32": "assets/icones/itens/32/pedra_com_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pedra_com_cruz.png"
+    },
+    {
+      "id": "pena_dourada_manchada",
+      "nome": "Pena Dourada Manchada",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Pena dourada, com manchas escuras perto da ponta.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "esp": 4
+      },
+      "efeito": "Espírito +4.",
+      "icone": {
+        "64": "assets/icones/itens/64/pena_dourada_manchada.png",
+        "40": "assets/icones/itens/40/pena_dourada_manchada.png",
+        "32": "assets/icones/itens/32/pena_dourada_manchada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pena_dourada_manchada.png"
+    },
+    {
+      "id": "olho_de_vidro_vermelho",
+      "nome": "Olho de Vidro Vermelho",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 26,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Bola de vidro vermelho, presa num fio de bronze.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/olho_de_vidro_vermelho.png",
+        "40": "assets/icones/itens/40/olho_de_vidro_vermelho.png",
+        "32": "assets/icones/itens/32/olho_de_vidro_vermelho.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/olho_de_vidro_vermelho.png"
+    },
+    {
+      "id": "canhao_de_cano_marrom",
+      "nome": "Canhão de Cano Marrom",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "warlord",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Canhão portátil de cano marrom, pesado, com a boca reforçada.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 7
+      },
+      "maos": 1,
+      "dano": [
+        56,
+        88
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +7. Dano 56 a 88.",
+      "icone": {
+        "64": "assets/icones/itens/64/canhao_de_cano_marrom.png",
+        "40": "assets/icones/itens/40/canhao_de_cano_marrom.png",
+        "32": "assets/icones/itens/32/canhao_de_cano_marrom.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/canhao_de_cano_marrom.png"
+    },
+    {
+      "id": "cimitarra_enferrujada",
+      "nome": "Cimitarra Enferrujada",
+      "slot": "arma",
+      "classes": [
+        "mutante",
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 30,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cimitarra com a lâmina manchada de ferrugem, mas ainda afiada.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 5
+      },
+      "maos": 1,
+      "dano": [
+        34,
+        54
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +5. Dano 34 a 54.",
+      "icone": {
+        "64": "assets/icones/itens/64/cimitarra_enferrujada.png",
+        "40": "assets/icones/itens/40/cimitarra_enferrujada.png",
+        "32": "assets/icones/itens/32/cimitarra_enferrujada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cimitarra_enferrujada.png"
+    },
+    {
+      "id": "bau_com_dentes",
+      "nome": "Baú com Dentes",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 28,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Caixa de madeira com pregos de dente de ferro na tampa.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/bau_com_dentes.png",
+        "40": "assets/icones/itens/40/bau_com_dentes.png",
+        "32": "assets/icones/itens/32/bau_com_dentes.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/bau_com_dentes.png"
+    },
+    {
+      "id": "carretel_de_cobre",
+      "nome": "Carretel de Cobre",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 18,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Carretel de cobre com fio enrolado pela metade.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/carretel_de_cobre.png",
+        "40": "assets/icones/itens/40/carretel_de_cobre.png",
+        "32": "assets/icones/itens/32/carretel_de_cobre.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/carretel_de_cobre.png"
+    },
+    {
+      "id": "dente_com_brilho_verde",
+      "nome": "Dente com Brilho Verde",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 22,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Dente longo com um brilho verde que não sai com a limpeza.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/dente_com_brilho_verde.png",
+        "40": "assets/icones/itens/40/dente_com_brilho_verde.png",
+        "32": "assets/icones/itens/32/dente_com_brilho_verde.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/dente_com_brilho_verde.png"
+    },
+    {
+      "id": "raizes_secas_do_amargo",
+      "nome": "Raízes Secas do Amargo",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 14,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Raízes secas, amargas, colhidas nas margens do Rio Amargo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/raizes_secas_do_amargo.png",
+        "40": "assets/icones/itens/40/raizes_secas_do_amargo.png",
+        "32": "assets/icones/itens/32/raizes_secas_do_amargo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/raizes_secas_do_amargo.png"
+    },
+    {
+      "id": "caldo_de_ervas",
+      "nome": "Caldo de Ervas",
+      "efeito": {
+        "cura_hp_pct": 10
+      },
+      "preco": 25,
+      "pilha": 100,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Tigela de caldo ralo, com ervas boiando na superfície.",
+      "tags": [
+        "consumivel:lote13"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 8,
+      "icone": {
+        "64": "assets/icones/itens/64/caldo_de_ervas.png",
+        "40": "assets/icones/itens/40/caldo_de_ervas.png",
+        "32": "assets/icones/itens/32/caldo_de_ervas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/caldo_de_ervas.png",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json"
+    },
+    {
+      "id": "pote_amarelo_de_cera",
+      "nome": "Pote Amarelo de Cera",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 16,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pote de barro com cera amarela endurecida na boca.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/pote_amarelo_de_cera.png",
+        "40": "assets/icones/itens/40/pote_amarelo_de_cera.png",
+        "32": "assets/icones/itens/32/pote_amarelo_de_cera.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pote_amarelo_de_cera.png"
+    },
+    {
+      "id": "placa_de_ferro_enferrujada",
+      "nome": "Placa de Ferro Enferrujada",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Placa de ferro com a superfície tomada pela ferrugem.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/placa_de_ferro_enferrujada.png",
+        "40": "assets/icones/itens/40/placa_de_ferro_enferrujada.png",
+        "32": "assets/icones/itens/32/placa_de_ferro_enferrujada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/placa_de_ferro_enferrujada.png"
+    },
+    {
+      "id": "colher_de_bronze",
+      "nome": "Colher de Bronze",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 16,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Colher de bronze gasta, de cabo longo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/colher_de_bronze.png",
+        "40": "assets/icones/itens/40/colher_de_bronze.png",
+        "32": "assets/icones/itens/32/colher_de_bronze.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/colher_de_bronze.png"
+    },
+    {
+      "id": "gancho_de_ferro",
+      "nome": "Gancho de Ferro",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 18,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Gancho de ferro de carga, com a ponta lisa de uso.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/gancho_de_ferro.png",
+        "40": "assets/icones/itens/40/gancho_de_ferro.png",
+        "32": "assets/icones/itens/32/gancho_de_ferro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/gancho_de_ferro.png"
+    },
+    {
+      "id": "pa_de_ferro",
+      "nome": "Pá de Ferro",
+      "slot": "arma",
+      "classes": [
+        "humano",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 24,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Pá de ferro com cabo de madeira, boa para cavar areia.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "atributos": {
+        "for": 4
+      },
+      "maos": 1,
+      "dano": [
+        24,
+        40
+      ],
+      "intervalo": 1.05,
+      "efeito": "Força +4. Dano 24 a 40.",
+      "icone": {
+        "64": "assets/icones/itens/64/pa_de_ferro.png",
+        "40": "assets/icones/itens/40/pa_de_ferro.png",
+        "32": "assets/icones/itens/32/pa_de_ferro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/pa_de_ferro.png"
+    },
+    {
+      "id": "carretel_de_cobre_com_manivela",
+      "nome": "Carretel de Cobre com Manivela",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 24,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Carretel de cobre com uma manivela de madeira presa ao eixo.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/carretel_de_cobre_com_manivela.png",
+        "40": "assets/icones/itens/40/carretel_de_cobre_com_manivela.png",
+        "32": "assets/icones/itens/32/carretel_de_cobre_com_manivela.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/carretel_de_cobre_com_manivela.png"
+    },
+    {
+      "id": "frasco_verde_vazio",
+      "nome": "Frasco Verde Vazio",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 14,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Frasco verde, sem rolha, com cheiro de remédio.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/frasco_verde_vazio.png",
+        "40": "assets/icones/itens/40/frasco_verde_vazio.png",
+        "32": "assets/icones/itens/32/frasco_verde_vazio.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/frasco_verde_vazio.png"
     }
   ]
 }

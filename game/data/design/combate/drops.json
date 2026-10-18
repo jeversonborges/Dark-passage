@@ -787,6 +787,10 @@
         {
           "tag": "colecao:pedra_gravada",
           "peso": 2
+        },
+        {
+          "tag": "colecao:sucata_fantasia",
+          "peso": 4
         }
       ]
     },
@@ -919,6 +923,10 @@
         {
           "tag": "excelente:vala_dos_caes",
           "peso": 3
+        },
+        {
+          "tag": "consumivel:lote13",
+          "peso": 2
         }
       ]
     },
@@ -936,6 +944,10 @@
         {
           "tag": "material:abominacao",
           "peso": 2
+        },
+        {
+          "tag": "raro:cripta",
+          "peso": 4
         }
       ]
     },
