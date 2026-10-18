@@ -2122,5 +2122,71 @@
 880,
 40,
 40
+],
+"leitura_carta_do_sineiro": [
+80,
+880,
+40,
+40
+],
+"amuleto_de_cascalho_verde": [
+120,
+880,
+40,
+40
+],
+"fragmento_de_vitral_vivo": [
+160,
+880,
+40,
+40
+],
+"tabua_do_juramento": [
+200,
+880,
+40,
+40
+],
+"medalha_de_joas": [
+240,
+880,
+40,
+40
+],
+"livro_de_contas_de_tofete": [
+280,
+880,
+40,
+40
+],
+"escudo_da_cruz_remida": [
+320,
+880,
+40,
+40
+],
+"escudo_de_raizes_vivas": [
+360,
+880,
+40,
+40
+],
+"frasco_de_bilis_dourado": [
+400,
+880,
+40,
+40
+],
+"azeite_de_lavanda_bento": [
+440,
+880,
+40,
+40
+],
+"serra_da_vala": [
+480,
+880,
+40,
+40
 ]
 }
