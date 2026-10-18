@@ -142,7 +142,8 @@ static func preco_venda(it: Dictionary) -> int:
 static func bonus(equip: Dictionary) -> Dictionary:
 	var b := {"FOR": 0.0, "AGI": 0.0, "VIT": 0.0, "ESP": 0.0, "defesa": 0.0, "hp": 0.0, "dano_plano": 0.0, "critico": 0.0,
 		"velocidade_ataque": 0.0, "roubo_de_vida": 0.0, "excelente": 0.0, "excelente_dano": 0.0, "reduz_dano": 0.0,
-		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": []}
+		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": [],
+		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": []}
 	var conj := {}
 	for s in equip:
 		var it: Dictionary = equip[s]
@@ -182,6 +183,16 @@ static func bonus(equip: Dictionary) -> Dictionary:
 				"excelente_dano": b["excelente_dano"] += o["valor"]
 				"excelente_reduz_dano": b["reduz_dano"] += o["valor"]
 				"excelente_ouro": b["ouro"] += o["valor"]
+		# efeitos de Relíquia (efeitos_mecanicos em missoes/itens.json, 18/10): crítico, roubo, evasão, fogo, gelo, defesa do próprio item, invocação
+		for ef in d.get("efeitos_mecanicos", []):
+			match ef["tipo"]:
+				"critico": b["critico"] += float(ef["valor"])
+				"roubo_de_vida": b["roubo_de_vida"] += float(ef["valor"])
+				"evasao": b["evasao"] += float(ef["valor"])
+				"dano_fogo": b["dano_fogo"] += float(ef["valor"])
+				"dano_gelo": b["dano_gelo"] += float(ef["valor"])
+				"defesa_pct_do_item": b["defesa"] += float(d.get("defesa", 0.0)) * ref_def * float(ef["valor"])
+				"invocar": b["invocar"].append(ef)
 		if d.get("efeito") is String: b["efeitos"].append(it["id"])
 		if d.has("conjunto"): conj[d["conjunto"]] = conj.get(d["conjunto"], 0) + 1
 	b["conjuntos"] = conj

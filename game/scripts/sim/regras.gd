@@ -169,6 +169,10 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	if alvo.tipo == "jogador" and rng.randf() < Evolucao.soma(alvo, "bloqueio") + alvo.mod("bloqueio"):
 		r["errou"] = true; r["bloqueio"] = true
 		return r
+	# evasão de item (Relíquia, 18/10): esquiva o golpe mesmo quando não bloqueia
+	if alvo.tipo == "jogador" and rng.randf() < float(alvo.aux.get("bonus", {}).get("evasao", 0.0)):
+		r["errou"] = true; r["evadiu"] = true
+		return r
 	var faixa: Array = op.get("faixa", [atk.dano_min, atk.dano_max])
 	var bruto := rng.randf_range(float(faixa[0]), float(faixa[1])) * float(op.get("mult", 1.0)) + float(op.get("add", 0.0))
 	if atk.aux.get("bonus_prox_t", 0.0) > 0.0 and op.get("skill", "") != "arrancada":
@@ -186,6 +190,7 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	var el: String = op.get("elemento", atk.elemento)
 	dano *= 1.0 - clampf(float(alvo.res.get(el, 0.0)), -1.0, 0.75)
 	dano *= mult_nivel(alvo.nivel, atk.nivel) * mult_vantagem(atk, alvo)
+	if el == "fogo": dano *= 1.0 + float(atk.aux.get("bonus", {}).get("dano_fogo", 0.0))   # Relíquia de fogo (18/10)
 	for k in op.get("bonus_vs", {}):
 		if tem_tag(alvo, k): dano *= float(op["bonus_vs"][k])
 	dano *= Evolucao.mult_golpe(atk, alvo, op)
