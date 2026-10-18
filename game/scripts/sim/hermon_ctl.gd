@@ -2,8 +2,9 @@ class_name HermonCtl
 extends RefCounted
 ## Evento "O Cume dos Vigilantes" (estilo Chaos Castle): roda dentro do WorldSim de uma instância do mapa
 ## cume_dos_vigilantes. Números em data/design/pvp/hermon/dados.json; geometria em mapa["hermon"].
-## Fases: espera (entrada aberta, sem PvP, Vigilantes ajoelhados como estátuas) -> juramento (15 min de
-## sobrevivência, todos contra todos, os anéis do cume caem) -> fim (prêmios e todo mundo volta).
+## Fases: espera (entrada aberta, sem PvP, Vigilantes ajoelhados como estátuas) -> contagem (3 min na tela de
+## todos) -> farm (10 min: os Vigilantes surgem como spot de farm, 3x XP e 0,5% de baú dourado) -> juramento
+## (sobrevivência, todos contra todos, os anéis do cume caem) -> fim (prêmios e todo mundo volta).
 
 const DADOS := "res://data/design/pvp/hermon/dados.json"
 
@@ -11,7 +12,8 @@ var sim: WorldSim
 var cfg: Dictionary            # mapa["hermon"]
 var ev: Dictionary             # dados.json -> evento
 var nivel_mob := 30
-var estado := "espera"         # espera | juramento | fim | cancelado
+var estado := "espera"         # espera | contagem | farm | juramento | fim | cancelado
+var _reposicao := 0.0          # tempo até o próximo Vigilante do spot de farm
 var espera_t := 300.0          # o servidor acerta com o tempo que falta da janela de entrada
 var t := 0.0                   # tempo de juramento
 var fim_t := 0.0
@@ -90,6 +92,16 @@ func passo(dt: float) -> void:
 		"espera":
 			espera_t -= dt
 			if espera_t <= 0.0: _fechar_entrada()
+		"contagem":
+			t += dt
+			var resta := float(ev["farm"]["contagem_s"]) - t
+			if int(resta) != int(resta + dt):   # um aviso por segundo, na tela de todos
+				sim.emitir("hermon", {"fase": "contagem", "resta": ceil(maxf(resta, 0.0))})
+			if resta <= 0.0: _comecar_farm()
+		"farm":
+			t += dt
+			_passo_farm(dt)
+			if t >= float(ev["farm"]["dur_s"]): _comecar_juramento()
 		"juramento":
 			t += dt
 			_passo_aneis()
@@ -109,13 +121,40 @@ func _fechar_entrada() -> void:
 			_mandar_de_volta(j)
 		sim.emitir("hermon", {"fase": "cancelado"})
 		return
+	estado = "contagem"; t = 0.0      # os Vigilantes seguem ajoelhados até a contagem acabar
+	sim.emitir("hermon", {"fase": "contagem", "resta": float(ev["farm"]["contagem_s"])})
+
+func _comecar_farm() -> void:
+	estado = "farm"; t = 0.0; _reposicao = 0.0
+	_acordar_vigilantes(vivos().size())
+	sim.emitir("hermon", {"fase": "farm", "dur": float(ev["farm"]["dur_s"]), "texto": ev["falas"]["comecou_farm"]})
+	sim.emitir("aviso", {"texto": ev["falas"]["comecou_farm"]})
+
+## Spot de farm: enquanto dura, um Vigilante volta a cada reposicao_s até max_vivos. Ninguém briga com ninguém.
+func _passo_farm(dt: float) -> void:
+	_reposicao -= dt
+	if _reposicao > 0.0 or vigilantes_vivos() >= int(ev["farm"]["max_vivos"]): return
+	_reposicao = float(ev["farm"]["reposicao_s"])
+	var livres: Array = []
+	for c in disco:
+		if not abismo.has(c) and sim.andavel(Vector2(c) + Vector2(0.5, 0.5)): livres.append(c)
+	if livres.is_empty(): return
+	var c: Vector2i = livres[sim.rng.randi() % livres.size()]
+	_criar_vigilante(_sortear_tipo(), Vector2(c) + Vector2(0.5, 0.5), "land")
+
+func _comecar_juramento() -> void:
 	estado = "juramento"; t = 0.0
-	for j: Ent in js:
+	for j: Ent in vivos():
 		j.lado_forcado = "h_%d" % j.id     # cada um é o próprio lado
-	_acordar_vigilantes(js.size())
 	sim.emitir("hermon", {"fase": "juramento", "dur": float(ev["sobrevivencia"]["dur_s"]), "texto": ev["falas"]["comecou"],
 		"aneis": _aneis_info()})
 	sim.emitir("aviso", {"texto": ev["falas"]["fechou"]})
+
+## Anjo caído do spot: chance de baú dourado (dados.json, farm.bau).
+func rolar_bau(j: Ent) -> void:
+	if sim.rng.randf() >= float(ev["farm"]["bau"]["chance"]): return
+	Jogador.dar_item(sim, j, Itens.novo(str(ev["farm"]["bau"]["item"]), 1))
+	sim.emitir_a(j, "aviso", {"texto": "Um baú dourado caiu do Vigilante!"})
 
 func _aneis_info() -> Array:
 	var out: Array = []
@@ -161,6 +200,7 @@ func _acordar_vigilantes(n_jog: int) -> void:
 func _criar_vigilante(kind: String, p: Vector2, anim: String) -> Ent:
 	var m := sim.criar_mob(kind, p, nivel_mob)
 	m.aux["vigilante"] = true
+	m.aux["xp_mult"] = float(ev["farm"]["xp_mult"])   # anjos: 3x o XP de um mob do mesmo nível
 	m.aux["anim_entrada"] = anim                 # o cliente toca "rise" ou "land" ao surgir
 	m.casa = p; m.raio_coleira = 99.0; m.raio_vagar = 0.0
 	m.renasce_s = 1e9
@@ -244,8 +284,8 @@ func ao_morrer(e: Ent, killer: Ent) -> bool:
 		if k != null and k.tipo == "jogador" and participantes.has(k.id):
 			participantes[k.id]["pontos"] += int(ev["pontos"].get(e.kind, 1))
 		return false
-	if e.tipo != "jogador" or not participantes.has(e.id):
-		return false
+	if e.tipo != "jogador" or not participantes.has(e.id) or estado != "juramento":
+		return false                     # no spot de farm a morte é a morte comum: não elimina ninguém
 	participantes[e.id]["vivo"] = false
 	e.renascer_t = 1e9                   # não renasce no cume: volta para casa
 	if k != null and k.tipo == "jogador" and k != e and participantes.has(k.id):

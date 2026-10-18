@@ -789,6 +789,7 @@ static func abateu(sim: WorldSim, e: Ent, morto: Ent) -> void:
 		xp = (10.0 + 5.0 * morto.nivel) * (25.0 if not e.flags.has("venceu_" + morto.kind) else 8.0)
 		e.flags["venceu_" + morto.kind] = true
 	xp *= float(Defs.DROPS["balanco"]["xp"])   # balanço 18/10: XP do abate +50%
+	xp *= float(morto.aux.get("xp_mult", 1.0))   # Vigilante do Cume: anjo, 3x
 	var grupo := membros_grupo(sim, e)
 	if grupo.size() > 1:   # grupo: a XP do abate vai para quem está perto (+10% por membro extra), dividida igualmente
 		var parte := int(round(xp * (1.0 + 0.1 * (grupo.size() - 1)) / grupo.size()))
