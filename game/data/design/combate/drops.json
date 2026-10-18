@@ -742,6 +742,10 @@
         {
           "tag": "equip:faixa1",
           "peso": 88
+        },
+        {
+          "tag": "raro:jerusalem",
+          "peso": 4
         }
       ]
     },
@@ -778,6 +782,10 @@
         },
         {
           "tag": "colecao:sino_de_mao",
+          "peso": 2
+        },
+        {
+          "tag": "colecao:pedra_gravada",
           "peso": 2
         }
       ]
@@ -818,6 +826,18 @@
         {
           "tag": "material:forja",
           "peso": 3
+        },
+        {
+          "tag": "raro:atlantida",
+          "peso": 4
+        },
+        {
+          "tag": "colecao:embrulho_selado",
+          "peso": 4
+        },
+        {
+          "tag": "leitura:lote7",
+          "peso": 2
         }
       ]
     },
@@ -887,6 +907,10 @@
         {
           "tag": "equip:faixa1",
           "peso": 88
+        },
+        {
+          "tag": "consumivel:frutos_absinto",
+          "peso": 2
         }
       ]
     },
@@ -900,6 +924,10 @@
         {
           "tag": "equip:faixa2",
           "peso": 88
+        },
+        {
+          "tag": "material:abominacao",
+          "peso": 2
         }
       ]
     },
@@ -960,6 +988,10 @@
         {
           "tag": "equip:faixa4",
           "peso": 88
+        },
+        {
+          "tag": "raro:amenti",
+          "peso": 4
         }
       ]
     },
