@@ -29,7 +29,7 @@
     "cartaz_agrak (Capela de São Lázaro)",
     "npc caim_abel (Barraca do Ogro, área inicial)"
    ],
-   "min_jogadores": 4,
+   "min_jogadores": 1,
    "max_por_arena": 20,
    "acima_do_max": "abre outra instância do mapa agrak",
    "cancelado": "devolve o ouro e avisa no chat do sistema"

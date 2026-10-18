@@ -20,12 +20,12 @@
   "entrada": {
    "item": "convite_dos_vigilantes",
    "como": "clicar (usar) o convite na mochila enquanto a entrada está aberta: o convite é gasto e o jogador sobe ao cume da faixa dele",
-   "janela_s": 300,
+   "janela_s": 120,
    "nivel_min": 15,
    "max_por_cume": 20,
    "acima_do_max": "abre outro cume da mesma faixa (outra instância do mapa)",
-   "min_para_comecar": 2,
-   "cancelado": "se um cume fecha a entrada com menos de 2 jogadores: devolve o convite e manda de volta",
+   "min_para_comecar": 1,
+   "cancelado": "só se o cume fecha a entrada sem ninguém: não há o que devolver. Com 1 ou mais, começa e vai até o fim",
    "fora_da_janela": "usar o convite fora da janela só mostra quanto falta para a próxima subida (não gasta)",
    "proibido_em": [
     "dungeon",

@@ -25,6 +25,14 @@ LAJE = 3.0
 FOGO = [1, .55, .22]; SANTO = [1, .9, .6]; LUA = [.55, .62, .85]
 
 
+MANIFESTO = "/mnt/project-files/assets/ambiente/objetos"   # pasta compartilhada (o repositório tem só parte dos manifestos)
+
+
+def pegada(k):
+    f = os.path.join(MANIFESTO, k + ".json")
+    return json.load(open(f)).get("footprint_tiles", [1, 1]) if os.path.exists(f) else [1, 1]
+
+
 def ruido(x, y, s):
     return (zlib.crc32(f"{s}:{x},{y}".encode()) % 1000) / 1000
 
@@ -77,7 +85,10 @@ def main():
     # ---- a Laje do Juramento: anel de pilares partidos, braseiros sagrados, velas e o lacre no chão
     for k in range(6):
         ang = 2 * math.pi * k / 6 + .26
-        a.prop("pilar_porcelana", CX + 4.1 * math.cos(ang), CY + 4.1 * math.sin(ang), bloqueia=.45, anel="anel_5")
+        px_, py_ = CX + 4.1 * math.cos(ang), CY + 4.1 * math.sin(ang)     # pilar de 2x2: trava a pegada toda
+        a.prop("pilar_porcelana", px_, py_, anel="anel_5")
+        for yy in range(int(py_ - 1), int(py_ + 1)):
+            for xx in range(int(px_ - 1), int(px_ + 1)): a.extra_blk.add((xx, yy))
     for k in range(4):
         ang = 2 * math.pi * k / 4 + math.pi / 4
         a.prop("braseiro_sagrado", CX + 2.3 * math.cos(ang), CY + 2.3 * math.sin(ang), bloqueia=.35, luz=SANTO + [6])
@@ -108,25 +119,55 @@ def main():
         if any(math.dist((x, y), v["pos"]) < 1.6 for v in vig): x, y = CX + (rr - 1.2) * math.cos(ang), CY + (rr - 1.2) * math.sin(ang)
         chegadas.append([round(x, 2), round(y, 2)])
 
-    # ---- props do Cume do Hermon (mesmo vocabulário do mapa aberto): estátuas, asas, elmos, crateras, ossada
-    def livre_de_props(x, y, d):
-        return all(math.dist((x, y), (p["x"], p["y"])) >= d for p in a.props if not p.get("chao")) and \
-               all(math.dist((x, y), v["pos"]) >= 1.4 for v in vig) and all(math.dist((x, y), c) >= 1.4 for c in chegadas)
-    def soltar(kinds, n, rmin, rmax, bloq, dist, seed, chao=False):
-        feitos = t = 0
-        while feitos < n and t < 900:
-            t += 1
-            ang = ruido(t, n, seed + "a") * 2 * math.pi; rr = rmin + (rmax - rmin) * math.sqrt(ruido(t, n, seed + "r"))
-            x, y = CX + rr * math.cos(ang), CY + rr * math.sin(ang)
-            if not a.livre(int(x), int(y)) or not livre_de_props(x, y, dist): continue
-            if any(abs(math.hypot(x - CX, y - CY) - r["raio_min"]) < .8 for r in ANEIS): continue   # longe das fendas
-            k = kinds[(zlib.crc32(f"{seed}{t}".encode())) % len(kinds)]
-            a.prop(k, x, y, bloqueia=bloq, chao=chao, anel=celula_anel.get((int(x), int(y))))
-            feitos += 1
-    soltar(["estatua_anjo_quebrada"], 7, 6.5, 19.5, .6, 5.0, "est")
-    soltar(["ossada_gigante"], 1, 14, 16, .9, 6.0, "oss")
-    soltar(["laje_rolada", "pedra_coberta", "pedra_coberta_2"], 9, 6, 20.5, .5, 3.0, "laje")
-    soltar(["asa_anjo_caida", "elmo_espada_fincada", "cratera_cinza", "penas_espalhadas"], 26, 5.5, 21, 0, 2.2, "chao", chao=True)
+    # ---- o cume: muro baixo de tijolo de lama na beira (a câmera vê o círculo inteiro) e blocos de pedra do Egito
+    # (rochas, colunas tombadas, um paredão). Tudo que se vê trava: a pegada do manifesto é bloqueada toda.
+    def bloqueia(k, x, y, fp=None):
+        fw, fh = fp or pegada(k)
+        for yy in range(int(y - fh/2 + .5), int(y - fh/2 + .5) + fh):
+            for xx in range(int(x - fw/2 + .5), int(x - fw/2 + .5) + fw): a.extra_blk.add((xx, yy))
+    def pode(x, y, fp):
+        fw, fh = fp
+        for yy in range(int(y - fh/2 + .5), int(y - fh/2 + .5) + fh):
+            for xx in range(int(x - fw/2 + .5), int(x - fw/2 + .5) + fw):
+                if not a.livre(xx, yy) or (xx, yy) in a.extra_blk: return False
+                if any(math.dist((xx + .5, yy + .5), v["pos"]) < 1.2 for v in vig): return False
+                if any(math.dist((xx + .5, yy + .5), c) < 1.0 for c in chegadas): return False
+                if any(abs(math.hypot(xx + .5 - CX, yy + .5 - CY) - r["raio_min"]) < 0.9 for r in ANEIS): return False
+        return True
+    def colocar(k, x, y, fp=None):
+        fp = fp or pegada(k)
+        if not pode(x, y, fp): return False
+        a.prop(k, x, y, anel=celula_anel.get((int(x), int(y))))
+        bloqueia(k, x, y, fp); return True
+    # muro na beira interna: a última faixa de células andáveis vira parede (bloqueia, o abismo já está fora)
+    for y in range(H):
+        for x in range(W):
+            if a.blk[y][x]: continue
+            d = math.hypot(x + .5 - CX, y + .5 - CY)
+            if d > raio_borda(math.atan2(y + .5 - CY, x + .5 - CX)) - 1.1:
+                a.prop("muro_lama_a" if (x + y) % 2 else "muro_lama_b", x + .5, y + .5, anel=celula_anel.get((x, y)))
+                a.extra_blk.add((x, y))
+    # blocos de pedra: rochas e colunas tombadas entre os anéis (cada uma com a pegada travada)
+    n_rocha = n_col = n_par = 0
+    for t in range(1500):
+        if n_rocha + n_col + n_par >= 12: break
+        ang = ruido(t, 7, "bloco_a") * 2 * math.pi
+        rr = 17.0 + 3.0 * ruido(t, 9, "bloco_r")
+        x, y = CX + rr * math.cos(ang), CY + rr * math.sin(ang)
+        if n_par < 2 and rr > 19.2 and colocar("paredao_arenito", x, y): n_par += 1; continue
+        if n_col < 4 and colocar("coluna_tombada", x, y): n_col += 1; continue
+        if n_rocha < 6 and colocar("rocha_granito", x, y): n_rocha += 1
+    # asas e elmos no chão, sem bloquear (são sinais, não paredes)
+    for t in range(4000):
+        if sum(1 for p in a.props if p["k"] in ("asa_anjo_caida", "elmo_espada_fincada")) >= 4: break
+        ang = ruido(t, 3, "chao_a") * 2 * math.pi
+        rr = 9.0 + 8.0 * ruido(t, 5, "chao_r")
+        x, y = CX + rr * math.cos(ang), CY + rr * math.sin(ang)
+        k = "asa_anjo_caida" if t % 2 else "elmo_espada_fincada"
+        if all(math.dist((x, y), (p["x"], p["y"])) >= 4.0 for p in a.props if not p.get("chao")) and all(math.dist((x, y), v["pos"]) >= 1.6 for v in vig) \
+                and all(math.dist((x, y), c) >= 1.4 for c in chegadas) and a.livre(int(x), int(y)) \
+                and not any(abs(math.hypot(x - CX, y - CY) - r["raio_min"]) < .8 for r in ANEIS):
+            a.prop(k, x, y, chao=True, anel=celula_anel.get((int(x), int(y))))
     # braseiros de ferro na borda (luz quente local; caem com o anel 1)
     for k in range(6):
         ang = 2 * math.pi * k / 6 + .5

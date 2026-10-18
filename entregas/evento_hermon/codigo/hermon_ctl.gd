@@ -50,6 +50,10 @@ func definir_nivel(n: int) -> void:
 func definir_espera(seg: float) -> void:
 	espera_t = maxf(0.0, seg)
 
+## GM "Início imediato": fecha a entrada agora (animações e luta já) com quem estiver dentro, mesmo que seja 1.
+func forcar_inicio() -> void:
+	if estado == "espera": _fechar_entrada()
+
 # =================================================================== jogadores
 func entrou(j: Ent) -> void:
 	if estado != "espera":
@@ -97,7 +101,7 @@ func passo(dt: float) -> void:
 
 func _fechar_entrada() -> void:
 	var js := vivos()
-	if js.size() < int(ev["entrada"]["min_para_comecar"]):
+	if js.size() < int(ev["entrada"]["min_para_comecar"]):    # 1 jogador já basta (regra do Jefin, 18/10)
 		estado = "cancelado"
 		for j: Ent in js:
 			Jogador.dar_item(sim, j, Itens.novo(ev["entrada"]["item"], 1))

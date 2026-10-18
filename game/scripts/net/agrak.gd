@@ -15,12 +15,12 @@ var avisados := {}          # minutos já avisados nesta rodada
 var t := 0.0
 var levando := -1.0         # > 0: esperando os gladiadores chegarem ao mapa para começar
 var ids_levados: Array = []
-var minimo := 4
+var minimo := 1          # regra do Jefin (18/10): com 1 gladiador a arena começa e vai até o fim
 
 func _ready() -> void:
 	srv = get_parent()
 	cfg = Defs.ler(ARQ).get("evento", {})
-	minimo = int(cfg.get("inscricao", {}).get("min_jogadores", 4))
+	minimo = int(cfg.get("inscricao", {}).get("min_jogadores", 1))
 	for x in OS.get_cmdline_user_args():
 		if x.begins_with("agrak_min="): minimo = maxi(1, int(x.get_slice("=", 1)))
 	_agendar("agrak=agora" in OS.get_cmdline_user_args())

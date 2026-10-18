@@ -601,6 +601,8 @@ func _usar_convite(d: Dictionary, mapa_id: String) -> void:
 	var cume := _mundo(r["instancia"])
 	cume.hermon.definir_nivel(int(r["nivel_mob"]))
 	cume.hermon.definir_espera(float(r["resta"]))
+	if hermon.inicio_imediato:
+		hermon.inicio_imediato = false; cume.hermon.forcar_inicio()
 	var ch: Array = cume.hermon.cfg["chegadas"]
 	var c: Array = ch[cume.hermon.participantes.size() % ch.size()]
 	_para(p, "aviso", {"texto": r["texto"]})

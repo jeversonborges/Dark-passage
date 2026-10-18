@@ -52,10 +52,10 @@ func teste_agenda(ev: Dictionary) -> void:
 	var av := a.avisos(unix("2026-10-16T21:50:00"))
 	ok(av.size() == 1 and "10 min" in av[0], "aviso de 10 min")
 	ok(a.avisos(unix("2026-10-16T21:50:30")).is_empty(), "aviso não repete")
-	var ab := unix("2026-10-16T22:02:00")
+	var ab := unix("2026-10-16T22:01:00")
 	ok(a.avisos(ab).has(ev["falas"]["abriu"]), "aviso de entrada aberta")
-	ok(a.janela_aberta(ab) == unix("2026-10-16T22:00:00") and a.resta_entrada(ab) == 180, "janela aberta, faltam 3 min")
-	ok(a.janela_aberta(unix("2026-10-16T22:05:00")) < 0, "janela fecha aos 5 min")
+	ok(a.janela_aberta(ab) == unix("2026-10-16T22:00:00") and a.resta_entrada(ab) == 60, "janela aberta, faltam 1 min")
+	ok(a.janela_aberta(unix("2026-10-16T22:02:00")) < 0, "janela fecha aos 2 min")
 	r = a.usar_convite(10, ab)
 	ok(not r["ok"] and not r["gasta"], "nível 10 não sobe")
 	r = a.usar_convite(30, ab, "dungeon")
@@ -172,14 +172,15 @@ func teste_espera_e_juramento() -> void:
 	ok(b.renascer_t > 1000, "eliminado não renasce no cume")
 
 func teste_cancelado() -> void:
-	print("[cancelado com 1 jogador]")
+	print("[1 jogador começa e vai até o fim]")
 	var r := novo_cume(["cultista"])
 	var sim: WorldSim = r[0]; var ctl: HermonCtl = r[1]; var j: Ent = r[2][0]
 	ctl.definir_espera(1.0)
 	rodar(sim, 1.5)
-	ok(ctl.estado == "cancelado", "menos de 2: cancelado")
-	ok(Itens.contar(j.inv, "convite_dos_vigilantes") == 1, "convite devolvido")
-	ok(conta("trocar_mapa", func(d): return d.get("_para") == j.id) == 1, "mandado de volta")
+	ok(ctl.estado == "juramento", "1 jogador: o evento começa (regra do Jefin, 18/10)")
+	var r2 := novo_cume(["cultista"])
+	r2[1].forcar_inicio()
+	ok(r2[1].estado == "juramento", "início imediato (GM) com 1 jogador")
 
 func teste_fim_por_tempo() -> void:
 	print("[fim aos 15 min com 2 sobreviventes]")
