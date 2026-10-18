@@ -3286,5 +3286,77 @@
 2176,
 64,
 64
+],
+"cera_vermelha_com_cruz": [
+256,
+2176,
+64,
+64
+],
+"carne_marcada_com_ferro": [
+320,
+2176,
+64,
+64
+],
+"medalhao_de_gota": [
+384,
+2176,
+64,
+64
+],
+"corneta_dourada_amassada": [
+448,
+2176,
+64,
+64
+],
+"rosa_seca_em_papel": [
+512,
+2176,
+64,
+64
+],
+"mapa_rasgado_com_marca": [
+576,
+2176,
+64,
+64
+],
+"lanterna_de_ferro_gasta": [
+640,
+2176,
+64,
+64
+],
+"cristal_rachado": [
+704,
+2176,
+64,
+64
+],
+"cera_vermelha_partida": [
+768,
+2176,
+64,
+64
+],
+"estandarte_dourado_com_serpente": [
+832,
+2176,
+64,
+64
+],
+"placa_de_metal_com_arco": [
+896,
+2176,
+64,
+64
+],
+"gema_dourada_lapidada": [
+960,
+2176,
+64,
+64
 ]
 }

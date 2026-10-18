@@ -16980,6 +16980,7 @@
         "vit": 4
       },
       "defesa": 18,
+      "efeito": "Vitalidade +4. Defesa 18.",
       "icone": {
         "64": "assets/icones/itens/64/elmo_do_manto_sangrento.png",
         "40": "assets/icones/itens/40/elmo_do_manto_sangrento.png",
@@ -17049,6 +17050,7 @@
         "esp": 3
       },
       "defesa": 4,
+      "efeito": "Espírito +3. Defesa 4.",
       "icone": {
         "64": "assets/icones/itens/64/oculos_de_fumaca_de_latao.png",
         "40": "assets/icones/itens/40/oculos_de_fumaca_de_latao.png",
@@ -17082,6 +17084,7 @@
         "for": 3,
         "agi": 2
       },
+      "efeito": "Força +3, Agilidade +2.",
       "icone": {
         "64": "assets/icones/itens/64/cartucho_benzido.png",
         "40": "assets/icones/itens/40/cartucho_benzido.png",
@@ -17116,6 +17119,7 @@
         "esp": 5,
         "vit": 3
       },
+      "efeito": "Espírito +5, Vitalidade +3.",
       "icone": {
         "64": "assets/icones/itens/64/colar_de_usekh.png",
         "40": "assets/icones/itens/40/colar_de_usekh.png",
@@ -17149,6 +17153,7 @@
       "atributos": {
         "esp": 4
       },
+      "efeito": "Espírito +4.",
       "icone": {
         "64": "assets/icones/itens/64/pingente_da_serpente_de_sobek.png",
         "40": "assets/icones/itens/40/pingente_da_serpente_de_sobek.png",
@@ -17182,6 +17187,7 @@
       "atributos": {
         "esp": 3
       },
+      "efeito": "Espírito +3.",
       "icone": {
         "64": "assets/icones/itens/64/bussola_de_contas.png",
         "40": "assets/icones/itens/40/bussola_de_contas.png",
@@ -17218,6 +17224,7 @@
         "for": 5,
         "vit": 4
       },
+      "efeito": "Força +5, Vitalidade +4.",
       "icone": {
         "64": "assets/icones/itens/64/emblema_da_estrela_vermelha.png",
         "40": "assets/icones/itens/40/emblema_da_estrela_vermelha.png",
@@ -17251,6 +17258,7 @@
         "esp": 3
       },
       "defesa": 14,
+      "efeito": "Espírito +3. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/ombreiras_de_engrenagem.png",
         "40": "assets/icones/itens/40/ombreiras_de_engrenagem.png",
@@ -17284,6 +17292,7 @@
         "esp": 3,
         "vit": 2
       },
+      "efeito": "Espírito +3, Vitalidade +2.",
       "icone": {
         "64": "assets/icones/itens/64/amuleto_de_pena_branca.png",
         "40": "assets/icones/itens/40/amuleto_de_pena_branca.png",
@@ -17414,6 +17423,7 @@
         "esp": 3,
         "agi": 2
       },
+      "efeito": "Espírito +3, Agilidade +2.",
       "icone": {
         "64": "assets/icones/itens/64/pena_de_asa_dourada.png",
         "40": "assets/icones/itens/40/pena_de_asa_dourada.png",
@@ -17447,6 +17457,7 @@
       "atributos": {
         "esp": 4
       },
+      "efeito": "Espírito +4.",
       "icone": {
         "64": "assets/icones/itens/64/anel_do_cerebro_vitrificado.png",
         "40": "assets/icones/itens/40/anel_do_cerebro_vitrificado.png",
@@ -17480,6 +17491,7 @@
       "atributos": {
         "agi": 3
       },
+      "efeito": "Agilidade +3.",
       "icone": {
         "64": "assets/icones/itens/64/anel_do_alvo_vermelho.png",
         "40": "assets/icones/itens/40/anel_do_alvo_vermelho.png",
@@ -17627,6 +17639,7 @@
         "vit": 4
       },
       "defesa": 20,
+      "efeito": "Espírito +6, Vitalidade +4. Defesa 20.",
       "icone": {
         "64": "assets/icones/itens/64/coroa_de_serpente.png",
         "40": "assets/icones/itens/40/coroa_de_serpente.png",
@@ -17662,6 +17675,7 @@
         "esp": 3
       },
       "defesa": 6,
+      "efeito": "Vitalidade +3, Espírito +3. Defesa 6.",
       "icone": {
         "64": "assets/icones/itens/64/cinturao_de_ametista.png",
         "40": "assets/icones/itens/40/cinturao_de_ametista.png",
@@ -17696,6 +17710,7 @@
         "vit": 3,
         "for": 3
       },
+      "efeito": "Vitalidade +3, Força +3.",
       "icone": {
         "64": "assets/icones/itens/64/escaravelho_de_latao.png",
         "40": "assets/icones/itens/40/escaravelho_de_latao.png",
@@ -17730,6 +17745,7 @@
         "vit": 8
       },
       "defesa": 26,
+      "efeito": "Vitalidade +8. Defesa 26.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_escamas_douradas.png",
         "40": "assets/icones/itens/40/peitoral_de_escamas_douradas.png",
@@ -17764,6 +17780,7 @@
         "agi": 3
       },
       "defesa": 20,
+      "efeito": "Agilidade +3. Defesa 20.",
       "icone": {
         "64": "assets/icones/itens/64/carapaca_roxa.png",
         "40": "assets/icones/itens/40/carapaca_roxa.png",
@@ -17803,6 +17820,7 @@
         80
       ],
       "intervalo": 1.05,
+      "efeito": "Espírito +10. Dano 48 a 80.",
       "icone": {
         "64": "assets/icones/itens/64/castical_de_quatro_bracos.png",
         "40": "assets/icones/itens/40/castical_de_quatro_bracos.png",
@@ -17842,6 +17860,7 @@
         70
       ],
       "intervalo": 1.05,
+      "efeito": "Força +6. Dano 44 a 70.",
       "icone": {
         "64": "assets/icones/itens/64/lanca_das_fitas_vermelhas.png",
         "40": "assets/icones/itens/40/lanca_das_fitas_vermelhas.png",
@@ -17962,6 +17981,7 @@
         "vit": 3
       },
       "defesa": 14,
+      "efeito": "Vitalidade +3. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/estandarte_azul_da_vela.png",
         "40": "assets/icones/itens/40/estandarte_azul_da_vela.png",
@@ -18001,6 +18021,7 @@
         56
       ],
       "intervalo": 1.05,
+      "efeito": "Espírito +8. Dano 34 a 56.",
       "icone": {
         "64": "assets/icones/itens/64/cajado_espiral.png",
         "40": "assets/icones/itens/40/cajado_espiral.png",
@@ -18035,6 +18056,7 @@
         "vit": 4
       },
       "defesa": 24,
+      "efeito": "Vitalidade +4. Defesa 24.",
       "icone": {
         "64": "assets/icones/itens/64/escudo_de_lava_solidificada.png",
         "40": "assets/icones/itens/40/escudo_de_lava_solidificada.png",
@@ -18068,6 +18090,7 @@
         "esp": 3
       },
       "defesa": 22,
+      "efeito": "Espírito +3. Defesa 22.",
       "icone": {
         "64": "assets/icones/itens/64/escudo_do_batismo_azul.png",
         "40": "assets/icones/itens/40/escudo_do_batismo_azul.png",
@@ -18102,6 +18125,7 @@
         "esp": 4
       },
       "defesa": 18,
+      "efeito": "Espírito +4. Defesa 18.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_do_orbe_roxo.png",
         "40": "assets/icones/itens/40/peitoral_do_orbe_roxo.png",
@@ -18136,6 +18160,7 @@
         "vit": 3
       },
       "defesa": 14,
+      "efeito": "Vitalidade +3. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_costelas.png",
         "40": "assets/icones/itens/40/peitoral_de_costelas.png",
@@ -18170,6 +18195,7 @@
         "agi": 3
       },
       "defesa": 8,
+      "efeito": "Agilidade +3. Defesa 8.",
       "icone": {
         "64": "assets/icones/itens/64/bracadeira_de_gema_verde.png",
         "40": "assets/icones/itens/40/bracadeira_de_gema_verde.png",
@@ -18288,6 +18314,7 @@
         "for": 4,
         "vit": 2
       },
+      "efeito": "Força +4, Vitalidade +2.",
       "icone": {
         "64": "assets/icones/itens/64/insignia_do_tridente.png",
         "40": "assets/icones/itens/40/insignia_do_tridente.png",
@@ -18326,6 +18353,7 @@
         84
       ],
       "intervalo": 1.05,
+      "efeito": "Força +7. Dano 50 a 84.",
       "icone": {
         "64": "assets/icones/itens/64/tridente_da_vala.png",
         "40": "assets/icones/itens/40/tridente_da_vala.png",
@@ -18416,6 +18444,7 @@
         "for": 4
       },
       "defesa": 14,
+      "efeito": "Força +4. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/bracadeiras_de_ouro_azul.png",
         "40": "assets/icones/itens/40/bracadeiras_de_ouro_azul.png",
@@ -18450,6 +18479,7 @@
         "vit": 3
       },
       "defesa": 12,
+      "efeito": "Vitalidade +3. Defesa 12.",
       "icone": {
         "64": "assets/icones/itens/64/manto_de_juba.png",
         "40": "assets/icones/itens/40/manto_de_juba.png",
@@ -18484,6 +18514,7 @@
         "esp": 2
       },
       "defesa": 6,
+      "efeito": "Espírito +2. Defesa 6.",
       "icone": {
         "64": "assets/icones/itens/64/lenco_do_sudario.png",
         "40": "assets/icones/itens/40/lenco_do_sudario.png",
@@ -18518,6 +18549,7 @@
         "esp": 5
       },
       "defesa": 14,
+      "efeito": "Espírito +5. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/nemes_de_ouro_e_lapis.png",
         "40": "assets/icones/itens/40/nemes_de_ouro_e_lapis.png",
@@ -18552,6 +18584,7 @@
         "vit": 6
       },
       "defesa": 30,
+      "efeito": "Vitalidade +6. Defesa 30.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_lapis_lazuli.png",
         "40": "assets/icones/itens/40/peitoral_de_lapis_lazuli.png",
@@ -18586,6 +18619,7 @@
         "vit": 4
       },
       "defesa": 22,
+      "efeito": "Vitalidade +4. Defesa 22.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_bronze_verde.png",
         "40": "assets/icones/itens/40/peitoral_de_bronze_verde.png",
@@ -18620,6 +18654,7 @@
         "for": 4,
         "vit": 3
       },
+      "efeito": "Força +4, Vitalidade +3.",
       "icone": {
         "64": "assets/icones/itens/64/sinete_da_coroa_partida.png",
         "40": "assets/icones/itens/40/sinete_da_coroa_partida.png",
@@ -18778,6 +18813,7 @@
         "vit": 4
       },
       "defesa": 20,
+      "efeito": "Vitalidade +4. Defesa 20.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_do_guardiao_das_velas.png",
         "40": "assets/icones/itens/40/peitoral_do_guardiao_das_velas.png",
@@ -22770,6 +22806,342 @@
         "32": "assets/icones/itens/32/frasco_verde_vazio.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/frasco_verde_vazio.png"
+    },
+    {
+      "id": "cera_vermelha_com_cruz",
+      "nome": "Cera Vermelha com Cruz",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pedaço de cera vermelha, com uma cruz pressionada na face.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cera_vermelha_com_cruz.png",
+        "40": "assets/icones/itens/40/cera_vermelha_com_cruz.png",
+        "32": "assets/icones/itens/32/cera_vermelha_com_cruz.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cera_vermelha_com_cruz.png"
+    },
+    {
+      "id": "carne_marcada_com_ferro",
+      "nome": "Carne Marcada com Ferro",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pedaço de carne seca com uma marca de ferro queimada na superfície.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/carne_marcada_com_ferro.png",
+        "40": "assets/icones/itens/40/carne_marcada_com_ferro.png",
+        "32": "assets/icones/itens/32/carne_marcada_com_ferro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/carne_marcada_com_ferro.png"
+    },
+    {
+      "id": "medalhao_de_gota",
+      "nome": "Medalhão de Gota",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Medalhão de metal em forma de gota, com o fecho quebrado.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/medalhao_de_gota.png",
+        "40": "assets/icones/itens/40/medalhao_de_gota.png",
+        "32": "assets/icones/itens/32/medalhao_de_gota.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/medalhao_de_gota.png"
+    },
+    {
+      "id": "corneta_dourada_amassada",
+      "nome": "Corneta Dourada Amassada",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Corneta de metal dourado, amassada de um lado, sem boquilha.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/corneta_dourada_amassada.png",
+        "40": "assets/icones/itens/40/corneta_dourada_amassada.png",
+        "32": "assets/icones/itens/32/corneta_dourada_amassada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/corneta_dourada_amassada.png"
+    },
+    {
+      "id": "rosa_seca_em_papel",
+      "nome": "Rosa Seca em Papel",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Rosa seca presa numa folha de papel dobrada.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/rosa_seca_em_papel.png",
+        "40": "assets/icones/itens/40/rosa_seca_em_papel.png",
+        "32": "assets/icones/itens/32/rosa_seca_em_papel.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/rosa_seca_em_papel.png"
+    },
+    {
+      "id": "mapa_rasgado_com_marca",
+      "nome": "Mapa Rasgado com Marca",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pedaço de papel rasgado, com uma marca de tinta vermelha.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/mapa_rasgado_com_marca.png",
+        "40": "assets/icones/itens/40/mapa_rasgado_com_marca.png",
+        "32": "assets/icones/itens/32/mapa_rasgado_com_marca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/mapa_rasgado_com_marca.png"
+    },
+    {
+      "id": "lanterna_de_ferro_gasta",
+      "nome": "Lanterna de Ferro Gasta",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Lanterna de ferro gasta pelo uso, com um cristal opaco preso no topo.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/lanterna_de_ferro_gasta.png",
+        "40": "assets/icones/itens/40/lanterna_de_ferro_gasta.png",
+        "32": "assets/icones/itens/32/lanterna_de_ferro_gasta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lanterna_de_ferro_gasta.png"
+    },
+    {
+      "id": "cristal_rachado",
+      "nome": "Cristal Rachado",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Cristal de cor apagada, com uma rachadura que atravessa o centro.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cristal_rachado.png",
+        "40": "assets/icones/itens/40/cristal_rachado.png",
+        "32": "assets/icones/itens/32/cristal_rachado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cristal_rachado.png"
+    },
+    {
+      "id": "cera_vermelha_partida",
+      "nome": "Cera Vermelha Partida",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Placa de cera vermelha partida ao meio, sem marca reconhecível.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/cera_vermelha_partida.png",
+        "40": "assets/icones/itens/40/cera_vermelha_partida.png",
+        "32": "assets/icones/itens/32/cera_vermelha_partida.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cera_vermelha_partida.png"
+    },
+    {
+      "id": "estandarte_dourado_com_serpente",
+      "nome": "Estandarte Dourado com Serpente",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Pedaço de estandarte dourado com uma serpente bordada em fio de metal.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/estandarte_dourado_com_serpente.png",
+        "40": "assets/icones/itens/40/estandarte_dourado_com_serpente.png",
+        "32": "assets/icones/itens/32/estandarte_dourado_com_serpente.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/estandarte_dourado_com_serpente.png"
+    },
+    {
+      "id": "placa_de_metal_com_arco",
+      "nome": "Placa de Metal com Arco",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Placa de metal com um arco gravado, gasta nas bordas.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/placa_de_metal_com_arco.png",
+        "40": "assets/icones/itens/40/placa_de_metal_com_arco.png",
+        "32": "assets/icones/itens/32/placa_de_metal_com_arco.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/placa_de_metal_com_arco.png"
+    },
+    {
+      "id": "gema_dourada_lapidada",
+      "nome": "Gema Dourada Lapidada",
+      "categoria": "material",
+      "motivo": "colecao",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 20,
+      "raridade": "raro",
+      "tags": [
+        "colecao:sucata_fantasia"
+      ],
+      "preco": 20,
+      "pilha": 50,
+      "lore": "Gema dourada lapidada à mão, com as faces desgastadas.",
+      "efeito": "Material de coleção. Sem efeito de combate.",
+      "fonte": "design/skills-itens/itens_novos_097_lote7.json",
+      "icone": {
+        "64": "assets/icones/itens/64/gema_dourada_lapidada.png",
+        "40": "assets/icones/itens/40/gema_dourada_lapidada.png",
+        "32": "assets/icones/itens/32/gema_dourada_lapidada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/gema_dourada_lapidada.png"
     }
   ]
 }
