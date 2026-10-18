@@ -16,6 +16,7 @@ var t := 0.0
 var levando := -1.0         # > 0: esperando os gladiadores chegarem ao mapa para começar
 var ids_levados: Array = []
 var minimo := 1          # regra do Jefin (18/10): com 1 gladiador a arena começa e vai até o fim
+var aberta_manual := false  # a agenda só abre a lista; quem começa a luta é o GM (Painel F8)
 
 func _ready() -> void:
 	srv = get_parent()
@@ -49,6 +50,7 @@ func _agendar(ja := false) -> void:
 		if inicio != 0: break
 
 func aberta() -> bool:
+	if aberta_manual: return true
 	var falta := inicio - _agora()
 	return falta > 0 and falta <= int(cfg.get("inscricao", {}).get("abre_min_antes", 10)) * 60
 
@@ -66,7 +68,16 @@ func _process(dt: float) -> void:
 			avisados[m] = true
 			_sistema("O Agrak abre em %d minuto%s. Inscrição no Cartaz do Agrak ou com Caim e Abel (nível %d, %d de ouro). Inscritos: %d." %
 				[int(m), "" if int(m) == 1 else "s", _nivel_min(), _custo(), inscritos.size()])
-	if falta <= 0: _hora()
+	if falta <= 0: _aguardar_gm()
+
+## Na hora da agenda: a lista fica aberta e a luta espera o GM (pedido do Jefin, 18/10: "quando o ADM mandar").
+func _aguardar_gm() -> void:
+	aberta_manual = true
+	_agendar()
+	_sistema("O Agrak está com a lista aberta: inscrição no Cartaz do Agrak ou com Caim e Abel. A luta começa quando um GM der o sinal.")
+
+func _quando() -> String:
+	return "quando um GM der o sinal" if aberta_manual else "em %s" % _falta_txt()
 
 func _nivel_min() -> int: return int(cfg.get("inscricao", {}).get("nivel_min", 25))
 func _custo() -> int: return int(cfg.get("inscricao", {}).get("custo_ouro", 100))
@@ -90,7 +101,7 @@ func pedido(peer: int, a: String) -> void:
 			_aviso(peer, "Você saiu da lista do Agrak. O ouro voltou.")
 		return
 	if peer in inscritos:
-		_aviso(peer, "Você já está na lista. A luta começa em %s." % _falta_txt()); return
+		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return
 	if not aberta():
 		_aviso(peer, "A lista do Agrak abre %d minutos antes da luta. Próxima: %s (horário de Brasília)." % [int(cfg.get("inscricao", {}).get("abre_min_antes", 10)), _hora_txt()]); return
 	if e.nivel < _nivel_min():
@@ -99,7 +110,7 @@ func pedido(peer: int, a: String) -> void:
 		_aviso(peer, "A entrada custa %d de ouro." % _custo()); return
 	e.ouro -= _custo()
 	inscritos.append(peer)
-	_aviso(peer, "Seu nome está na lista do Agrak. A luta começa em %s." % _falta_txt(), "#ffb070")
+	_aviso(peer, "Seu nome está na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
 
 func _falta_txt() -> String:
 	var s := maxi(0, inicio - _agora())
@@ -111,6 +122,7 @@ func _hora_txt() -> String:
 
 ## Na hora: cancela com menos do mínimo (devolve o ouro); senão leva até 20 para o mapa agrak.
 func _hora() -> void:
+	aberta_manual = false
 	var lista: Array = inscritos.filter(func(p): return srv.sessoes.has(p) and srv.sessoes[p]["jog"] != null)
 	inscritos.clear()
 	_agendar()
