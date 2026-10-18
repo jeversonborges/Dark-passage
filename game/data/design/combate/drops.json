@@ -910,6 +910,32 @@
           "peso": 88
         }
       ]
+    },
+    "biblioteca_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:biblioteca",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa2",
+          "peso": 88
+        }
+      ]
+    },
+    "vem_para_fora_elite": {
+      "item_chance": 0.25,
+      "rolagens": [
+        {
+          "tag": "excelente:vem_para_fora",
+          "peso": 12
+        },
+        {
+          "tag": "equip:faixa4",
+          "peso": 88
+        }
+      ]
     }
   },
   "baus": {

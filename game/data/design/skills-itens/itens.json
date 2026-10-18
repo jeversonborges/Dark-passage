@@ -343,7 +343,9 @@
       "veu_de_luto",
       "rosario_do_coro",
       "relicario_da_trombeta_calada",
-      "corona_do_arauto_calado"
+      "corona_do_arauto_calado",
+      "foice_do_arauto_calado",
+      "cajado_do_sino_parado"
     ]
   },
   "cobertura_tags_drops": {
@@ -13267,8 +13269,8 @@
         1,
         2
       ],
-      "lore": "Véu de crepe negro, pesado de cera. A Carpideira usou até a última lágrima; este ficou para o próximo.",
-      "efeito": "Relíquia: ao matar, solta um lamento em cone que deixa os alvos lentos por 3 s.",
+      "lore": "Véu de crepe negro, bordado com lágrimas de cera prateada. Uma gota de vidro vermelho pende da testa e cai até o peito. A Carpideira usou até a última lágrima; este ficou para o próximo.",
+      "efeito": "Relíquia: ao matar, solta um lamento em cone que deixa os alvos lentos por 3 s e cura 1% da sua vida máxima por alvo atingido.",
       "fonte": "design/skills-itens/itens_novos_096.json",
       "defesa": 6,
       "atributos": {
@@ -13457,8 +13459,8 @@
         1,
         2
       ],
-      "lore": "Contas de osso de um rosário que foi passado de mão em mão no coro. Cada conta tem um nome riscado.",
-      "efeito": "Relíquia: +10% de cura feita e recebida; ouve-se um coro baixinho ao curar.",
+      "lore": "Contas de osso, cada uma com um nome riscado. Um crucifixo de latão cheio de cera pende do fio de ouro; a cruz acende fraco quando você cura.",
+      "efeito": "Relíquia: +10% de cura feita e recebida; ao curar, ouve-se um coro baixinho e a conta da cura brilha por 1 s.",
       "fonte": "design/skills-itens/itens_novos_096.json",
       "atributos": {
         "esp": 4,
@@ -14780,7 +14782,7 @@
         1,
         2
       ],
-      "lore": "Relicário de bronze com uma trombeta dentro. Tocada uma vez, ninguém se lembra de quem tocou.",
+      "lore": "Relicário de bronze com tampa de dobradiça. Ao abrir, sai uma trombeta em miniatura de latão com uma chama fraca dentro do bocal. Tocada uma vez, ninguém se lembra de quem tocou.",
       "efeito": "Relíquia: a cada 20 s, o próximo golpe ressoa e atordoa o alvo por 1 s.",
       "fonte": "design/skills-itens/itens_novos_096.json",
       "atributos": {
@@ -14817,7 +14819,7 @@
         1,
         2
       ],
-      "lore": "Coroa de arame de cobre, quebrada num lado, usada por quem toca o último sino.",
+      "lore": "Arame de cobre quebrado de um lado, com um sininho pendurado no aro e pedaços de vidro de vela presos nas voltas. Usada por quem toca o último sino.",
       "efeito": "Relíquia: +6% de dano; ao receber dano letal, fica com 1 de vida por 1 s (uma vez a cada 60 s).",
       "fonte": "design/skills-itens/itens_novos_096.json",
       "defesa": 110,
@@ -14831,6 +14833,709 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "pena_de_tinta_dura",
+      "nome": "Pena de Tinta Dura",
+      "slot": "arma",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Pena de ganso com tinta seca no bico. Ainda risca quando alguém pede para escrever.",
+      "efeito": "Excelente: 8% de chance de a skill economizar 5% de recurso.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        60,
+        92
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "esp": 12
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "chapeu_de_bibliotecario",
+      "nome": "Chapéu de Bibliotecário",
+      "slot": "cabeca",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Chapéu de feltro com um lacre de cera quebrado na aba.",
+      "efeito": "Excelente: +4% de dano mágico contra alvos que usam magia.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 26,
+      "atributos": {
+        "esp": 8
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "manto_de_folhas_soltas",
+      "nome": "Manto de Folhas Soltas",
+      "slot": "peito",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manto de lã com folhas de papel costuradas por dentro. Farfalham quando você anda.",
+      "efeito": "Excelente: +3% de cura recebida.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 44,
+      "atributos": {
+        "esp": 9
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "luvas_de_indice",
+      "nome": "Luvas de Índice",
+      "slot": "luvas",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Luvas de couro fino, com as pontas dos dedos gastas de virar página.",
+      "efeito": "Excelente: suas skills custam 4% menos de recurso.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 24,
+      "atributos": {
+        "esp": 6
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_de_estante",
+      "nome": "Calças de Estante",
+      "slot": "calcas",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de veludo gasto, com o pó de uma estante inteira.",
+      "efeito": "Excelente: +4% de velocidade de conjuração.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 34,
+      "atributos": {
+        "agi": 4
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_passo_mudo",
+      "nome": "Botas de Passo Mudo",
+      "slot": "botas",
+      "classes": [
+        "anjo",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de camurça com a sola de feltro. Quem usa anda como quem entra numa sala de leitura.",
+      "efeito": "Excelente: não faz barulho ao andar; +3% de esquiva.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 28,
+      "atributos": {
+        "agi": 6
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "anel_de_marcador",
+      "nome": "Anel de Marcador",
+      "slot": "anel",
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 37,
+      "tags": [
+        "raro:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Anel de latão com um marcador de fita gravado, sem nome.",
+      "efeito": "Raro: +2% de chance de drop de joia de refino.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "atributos": {
+        "esp": 5
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/anel_prego_caixao.png",
+        "40": "assets/icones/itens/40/anel_prego_caixao.png",
+        "32": "assets/icones/itens/32/anel_prego_caixao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "amuleto_de_fita_de_cetim",
+      "nome": "Amuleto de Fita de Cetim",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 38,
+      "tags": [
+        "excelente:biblioteca"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Fita de cetim vermelho, desbotada, presa a um medalhão de latão.",
+      "efeito": "Excelente: +5% de recurso máximo.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "atributos": {
+        "esp": 10,
+        "vit": 4
+      },
+      "conjunto": "capa_da_biblioteca_fechada",
+      "icone": {
+        "64": "assets/icones/itens/64/colar_dentes.png",
+        "40": "assets/icones/itens/40/colar_dentes.png",
+        "32": "assets/icones/itens/32/colar_dentes.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "espada_de_quem_saiu",
+      "nome": "Espada de Quem Saiu",
+      "slot": "arma",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Espada de guerra tirada do cinto de um homem que cruzou a fronteira e não voltou para buscá-la.",
+      "efeito": "Excelente: 7% de chance de o golpe devolver 5% da vida perdida.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        84,
+        130
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "for": 14
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "elmo_de_quem_saiu",
+      "nome": "Elmo de Quem Saiu",
+      "slot": "cabeca",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Elmo de aço com a viseira virada para trás, como quem olha para a frente sem medo.",
+      "efeito": "Excelente: +5% de defesa contra inimigos de nível igual ou maior.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 46,
+      "atributos": {
+        "for": 6
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_cabeca.png",
+        "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
+        "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "couraca_da_fronteira",
+      "nome": "Couraça da Fronteira",
+      "slot": "peito",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Couraça de placas de ferro, com o nome da fronteira martelado no peito.",
+      "efeito": "Excelente: recebe 4% menos de dano de chefes.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 76,
+      "atributos": {
+        "vit": 12
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_peito.png",
+        "40": "assets/icones/itens/40/batina_remendada_peito.png",
+        "32": "assets/icones/itens/32/batina_remendada_peito.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "manoplas_de_quem_saiu",
+      "nome": "Manoplas de Quem Saiu",
+      "slot": "luvas",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Manoplas de couro e ferro, com o cabo da espada marcado de tanto apertar.",
+      "efeito": "Excelente: +4% de dano crítico.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 40,
+      "atributos": {
+        "for": 8
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_luvas.png",
+        "40": "assets/icones/itens/40/batina_remendada_luvas.png",
+        "32": "assets/icones/itens/32/batina_remendada_luvas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "calcas_da_estrada",
+      "nome": "Calças da Estrada",
+      "slot": "calcas",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Calça de couro de viagem, com bolsos de munição e um mapa dobrado dentro.",
+      "efeito": "Excelente: +5% de velocidade de movimento fora de combate.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 60,
+      "atributos": {
+        "vit": 9
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_calcas.png",
+        "40": "assets/icones/itens/40/batina_remendada_calcas.png",
+        "32": "assets/icones/itens/32/batina_remendada_calcas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "botas_de_fronteira",
+      "nome": "Botas de Fronteira",
+      "slot": "botas",
+      "classes": [
+        "warlord",
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Botas de cano alto com a sola de aço, gastas pela estrada de terra.",
+      "efeito": "Excelente: +3% de esquiva; não escorrega em terreno de areia.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "defesa": 48,
+      "atributos": {
+        "agi": 8
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/batina_remendada_botas.png",
+        "40": "assets/icones/itens/40/batina_remendada_botas.png",
+        "32": "assets/icones/itens/32/batina_remendada_botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "anel_de_passagem",
+      "nome": "Anel de Passagem",
+      "slot": "anel",
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 43,
+      "tags": [
+        "raro:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Anel de ferro com uma palavra de passagem gravada. Só serve para quem já saiu.",
+      "efeito": "Raro: +2% de dano contra alvos de classe diferente.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "atributos": {
+        "for": 4
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/anel_prego_caixao.png",
+        "40": "assets/icones/itens/40/anel_prego_caixao.png",
+        "32": "assets/icones/itens/32/anel_prego_caixao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/anel_prego_caixao.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "amuleto_do_caminhante",
+      "nome": "Amuleto do Caminhante",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:vem_para_fora"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Pedra de rio polida, do tamanho de um ovo, presa num cordão de couro.",
+      "efeito": "Excelente: +3% de velocidade de movimento.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "atributos": {
+        "vit": 10,
+        "agi": 4
+      },
+      "conjunto": "roupa_de_quem_saiu",
+      "icone": {
+        "64": "assets/icones/itens/64/colar_dentes.png",
+        "40": "assets/icones/itens/40/colar_dentes.png",
+        "32": "assets/icones/itens/32/colar_dentes.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/colar_dentes.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "foice_do_arauto_calado",
+      "nome": "Foice do Arauto Calado",
+      "slot": "arma",
+      "classes": [
+        "demonio",
+        "warlord"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Cabo de osso escuro com lâmina em forma de sino fundido, a borda com cera vermelha escorrendo. Ao girar, a lâmina não faz som.",
+      "efeito": "Relíquia: golpes críticos deixam o alvo em silêncio por 2 s; a cada 10 s, o próximo golpe acerta duas vezes.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        150,
+        230
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "for": 18
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "cajado_do_sino_parado",
+      "nome": "Cajado do Sino Parado",
+      "slot": "arma",
+      "classes": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "lendario",
+      "nivel": 66,
+      "tags": [
+        "lendario:cripta"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Haste de madeira preta, com um sino de bronze mudo na ponta, fitas de linho e cera de vela presas. Um olho pintado no bojo do sino acompanha o alvo.",
+      "efeito": "Relíquia: skills de área deixam um eco de sino que cura 3% da vida máxima dos aliados a cada 4 s, por 8 s.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        130,
+        200
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "esp": 22
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true
     }
   ]
