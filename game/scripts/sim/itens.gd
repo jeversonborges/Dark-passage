@@ -149,7 +149,9 @@ static func bonus(equip: Dictionary) -> Dictionary:
 		if it.is_empty(): continue
 		var d := defn(it["id"])
 		var ref := 1.0 + 0.08 * int(it.get("refino", 0))
-		if s != "arma" and d.has("defesa"): b["defesa"] += float(d["defesa"]) * ref
+		# armadura: o refino pesa mais (balanco.refino_armadura_por_nivel, 18/10)
+		var ref_def := 1.0 + float(Defs.DROPS["balanco"]["refino_armadura_por_nivel"]) * int(it.get("refino", 0))
+		if s != "arma" and d.has("defesa"): b["defesa"] += float(d["defesa"]) * ref_def
 		if s == "segunda_mao" and d.has("defesa"): pass
 		b["bloqueio"] += float(d.get("bloqueio", 0.0))
 		b["dano_magico_extra"] += float(d.get("dano_magico_extra", 0.0)) * ref
@@ -164,7 +166,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 			for k in bf:
 				if k == "res":
 					for el in bf["res"]: b["res"][el] = b["res"].get(el, 0.0) + float(bf["res"][el])
-				elif k == "defesa": b["defesa"] += float(bf[k]) * ref
+				elif k == "defesa": b["defesa"] += float(bf[k]) * ref_def
 				elif b.has(k): b[k] += float(bf[k])
 		for o in it.get("opcoes", []):
 			match o["tipo"]:

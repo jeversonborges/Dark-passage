@@ -4503,9 +4503,16 @@
    "faccao": "vigilia",
    "atributos": {
     "vit": 3,
-    "for": 2
+    "for": 2,
+    "hp": 6
    },
    "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "critico",
+     "valor": 0.01
+    }
+   ],
    "categoria": "acessorio",
    "icone": {
     "64": "assets/icones/itens/64/badalo_de_guerra.png",
@@ -4543,6 +4550,12 @@
     "hp": 40
    },
    "efeito": "Comida e sopas curam 25% a mais.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "roubo_de_vida",
+     "valor": 0.02
+    }
+   ],
    "categoria": "acessorio",
    "icone": {
     "64": "assets/icones/itens/64/lenco_cardo.png",
@@ -4574,7 +4587,8 @@
    "faccao": "arautos",
    "atributos": {
     "esp": 3,
-    "agi": 2
+    "agi": 2,
+    "hp": 6
    },
    "efeito": "Cura recebida aumenta 10%.",
    "categoria": "acessorio",
@@ -4608,7 +4622,8 @@
    "faccao": "arautos",
    "atributos": {
     "esp": 4,
-    "vit": 1
+    "vit": 1,
+    "hp": 6
    },
    "efeito": "Dano contra jogadores e NPCs da Vigília aumenta 5%.",
    "categoria": "acessorio",
@@ -4641,12 +4656,18 @@
    "classes": null,
    "faccao": null,
    "defesa_sugerida_missoes": 28,
-   "defesa": 5,
+   "defesa": 6,
    "atributos": {
     "vit": 5,
     "for": 2
    },
    "efeito": "Matar um inimigo recupera 3% do HP.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "defesa_pct_do_item",
+     "valor": 0.1
+    }
+   ],
    "categoria": "armadura",
    "icone": {
     "64": "assets/icones/itens/64/dragonas_general.png",
@@ -4680,11 +4701,17 @@
    "classes": null,
    "faccao": null,
    "defesa_sugerida_missoes": 14,
-   "defesa": 4,
+   "defesa": 10,
    "atributos": {
     "esp": 5
    },
    "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "defesa_pct_do_item",
+     "valor": 0.3
+    }
+   ],
    "categoria": "armadura",
    "icone": {
     "64": "assets/icones/itens/64/veu_carpideira.png",
@@ -4716,9 +4743,16 @@
    "faccao": "vigilia",
    "atributos": {
     "vit": 6,
-    "esp": 3
+    "esp": 3,
+    "hp": 35
    },
    "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "evasao",
+     "valor": 0.03
+    }
+   ],
    "categoria": "acessorio",
    "icone": {
     "64": "assets/icones/itens/64/estilhaco_lacre.png",
@@ -4750,7 +4784,8 @@
    "faccao": "vigilia",
    "atributos": {
     "esp": 6,
-    "agi": 3
+    "agi": 3,
+    "hp": 35
    },
    "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
    "categoria": "acessorio",
@@ -4784,7 +4819,8 @@
    "faccao": "arautos",
    "atributos": {
     "esp": 6,
-    "vit": 3
+    "vit": 3,
+    "hp": 35
    },
    "efeito": "Curas e escudos que você lança são 12% mais fortes. Ao morrer, uma vez a cada 10 min, volta com 20% de HP.",
    "categoria": "acessorio",
@@ -4818,9 +4854,16 @@
    "faccao": "arautos",
    "atributos": {
     "for": 5,
-    "agi": 4
+    "agi": 4,
+    "hp": 35
    },
    "efeito": "Inimigos derrubados deixam 15% mais ouro. Roubo de vida de 4% em alvos abaixo de 30% de HP.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "critico",
+     "valor": 0.03
+    }
+   ],
    "categoria": "acessorio",
    "icone": {
     "64": "assets/icones/itens/64/etiqueta_branca.png",
@@ -4861,14 +4904,20 @@
     26
    ],
    "dano": [
-    12,
-    22
+    22,
+    32
    ],
    "intervalo": 1.2,
    "atributos": {
     "for": 3
    },
    "efeito": "Golpes têm 10% de chance de puxar o alvo para perto.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "critico",
+     "valor": 0.05
+    }
+   ],
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/gancho_capataz.png",
@@ -4909,8 +4958,8 @@
     38
    ],
    "dano": [
-    13,
-    24
+    21,
+    32
    ],
    "intervalo": 1.15,
    "atributos": {
@@ -4918,6 +4967,12 @@
     "vit": 3
    },
    "efeito": "Ataques causam sangramento. Ao matar um inimigo, ganha +5% de dano por 8 s (acumula 3 vezes).",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "dano_fogo",
+     "valor": 0.1
+    }
+   ],
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/estandarte_legiao.png",
@@ -4958,14 +5013,24 @@
     24
    ],
    "dano": [
-    15,
-    28
+    20,
+    33
    ],
    "intervalo": 1.1,
    "atributos": {
     "esp": 8
    },
    "efeito": "Ao matar um inimigo, um crânio canta e cura aliados próximos em 5% do HP.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "invocar",
+     "alvo": "morto_vivo",
+     "qtd": 2,
+     "duracao_s": 20,
+     "recarga_s": 90,
+     "status": "proposta: sem invocacao de jogador no codigo"
+    }
+   ],
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/bacula_femur.png",
@@ -4998,12 +5063,18 @@
    "classes": null,
    "faccao": null,
    "defesa_sugerida_missoes": 22,
-   "defesa": 4,
+   "defesa": 9,
    "atributos": {
     "esp": 6,
     "vit": 4
    },
    "efeito": "Emite luz própria em volta do personagem (raio pequeno). Não-Julgados e mortos-vivos recebem 15% a mais de dano seu.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "critico",
+     "valor": 0.03
+    }
+   ],
    "categoria": "armadura",
    "icone": {
     "64": "assets/icones/itens/64/halo_incandescente.png",
@@ -5267,9 +5338,16 @@
    "faccao": null,
    "atributos": {
     "vit": 4,
-    "esp": 2
+    "esp": 2,
+    "hp": 18
    },
    "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+   "efeitos_mecanicos": [
+    {
+     "tipo": "evasao",
+     "valor": 0.02
+    }
+   ],
    "categoria": "acessorio",
    "icone": {
     "64": "assets/icones/itens/64/contador_isaura.png",
@@ -5301,7 +5379,8 @@
    "faccao": null,
    "atributos": {
     "esp": 6,
-    "vit": 4
+    "vit": 4,
+    "hp": 35
    },
    "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
    "categoria": "acessorio",
@@ -5336,7 +5415,8 @@
    "atributos": {
     "for": 4,
     "agi": 4,
-    "vit": 2
+    "vit": 2,
+    "hp": 35
    },
    "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
    "categoria": "acessorio",
@@ -5370,7 +5450,8 @@
    "faccao": null,
    "atributos": {
     "for": 3,
-    "vit": 3
+    "vit": 3,
+    "hp": 18
    },
    "efeito": "Desertores da Legião não atacam você primeiro.",
    "categoria": "acessorio",
@@ -5500,7 +5581,8 @@
    "faccao": null,
    "atributos": {
     "vit": 4,
-    "esp": 3
+    "esp": 3,
+    "hp": 18
    },
    "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
    "categoria": "acessorio",
@@ -8372,7 +8454,7 @@
   },
   {
    "id": "convite_dos_vigilantes",
-   "nome": "Convite dos Vigilantes",
+   "nome": "Convite dos Irin",
    "fonte": "design/missoes/dados/itens.json",
    "motivo": "papel",
    "tint": "pano",
@@ -9304,7 +9386,8 @@
    "faccao": "arautos",
    "atributos": {
     "vit": 6,
-    "esp": 3
+    "esp": 3,
+    "hp": 35
    },
    "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
    "categoria": "acessorio",
@@ -9338,7 +9421,8 @@
    "faccao": "arautos",
    "atributos": {
     "esp": 6,
-    "agi": 3
+    "agi": 3,
+    "hp": 35
    },
    "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
    "categoria": "acessorio",
@@ -9530,7 +9614,8 @@
    "faccao": "arautos",
    "atributos": {
     "vit": 3,
-    "for": 2
+    "for": 2,
+    "hp": 6
    },
    "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
    "categoria": "acessorio",
@@ -9775,7 +9860,7 @@
    "classes": null,
    "faccao": null,
    "defesa_sugerida_missoes": 28,
-   "defesa": 5,
+   "defesa": 6,
    "atributos": {
     "vit": 5,
     "for": 2
@@ -9831,7 +9916,7 @@
    "classes": null,
    "faccao": null,
    "defesa_sugerida_missoes": 14,
-   "defesa": 3,
+   "defesa": 6,
    "atributos": {
     "esp": 5
    },
@@ -9971,7 +10056,8 @@
    "faccao": null,
    "atributos": {
     "vit": 4,
-    "esp": 2
+    "esp": 2,
+    "hp": 18
    },
    "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
    "categoria": "acessorio",
@@ -10045,7 +10131,8 @@
    "faccao": null,
    "atributos": {
     "esp": 6,
-    "vit": 4
+    "vit": 4,
+    "hp": 35
    },
    "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
    "categoria": "acessorio",
@@ -10076,7 +10163,8 @@
    "atributos": {
     "for": 4,
     "agi": 4,
-    "vit": 2
+    "vit": 2,
+    "hp": 35
    },
    "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
    "categoria": "acessorio",
@@ -10190,7 +10278,8 @@
    "faccao": null,
    "atributos": {
     "for": 3,
-    "vit": 3
+    "vit": 3,
+    "hp": 18
    },
    "efeito": "Desertores da Legião não atacam você primeiro.",
    "categoria": "acessorio",
@@ -10300,7 +10389,8 @@
    "faccao": null,
    "atributos": {
     "vit": 4,
-    "esp": 3
+    "esp": 3,
+    "hp": 18
    },
    "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
    "categoria": "acessorio",
@@ -10491,7 +10581,6 @@
     "hp": 9999
    },
    "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
-   "vinculado": true,
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/cetro_do_demiurgo.png",
@@ -10499,6 +10588,33 @@
     "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png"
+  },
+  {
+   "id": "bau_dourado",
+   "nome": "Baú Dourado",
+   "efeito": {
+    "abre": true
+   },
+   "preco": 0,
+   "pilha": 20,
+   "motivo": "bau",
+   "tint": "ouro",
+   "lore": "Um baú de latão dourado, lacrado com cera. Quem o abre nunca conta o que tinha dentro.",
+   "tags": [
+    "bau:dourado"
+   ],
+   "categoria": "bau",
+   "icone": {
+    "64": "assets/icones/itens/64/bau_de_ferro.png",
+    "40": "assets/icones/itens/40/bau_de_ferro.png",
+    "32": "assets/icones/itens/32/bau_de_ferro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/bau_de_ferro.png",
+   "grade": [
+    1,
+    1
+   ],
+   "_doc": "18/10: ícone provisório (baú de ferro) até a arte própria entrar em entregas/arte_itens/LISTA.md. Abre pelo inventário e dá equipamento de Excelente para cima."
   }
  ]
 }
