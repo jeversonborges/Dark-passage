@@ -1099,7 +1099,8 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 				"cada_tick": func(_a): sim.curar(e, por_s, e)})
 		else: sim.curar(e, total, e)
 	if ef.has("recurso_pct"):
-		if e.classe == "cultista": sim.curar(e, e.hp_max * float(ef["recurso_pct"]) * 0.5, e)
+		if e.classe == "cultista":   # o recurso do Cultista é a vida: só o ganho vira cura; a perda (Coração de Vidro) não se aplica
+			if float(ef["recurso_pct"]) > 0.0: sim.curar(e, e.hp_max * float(ef["recurso_pct"]) * 0.5, e)
 		else: e.rec = clampf(e.rec + e.rec_max * float(ef["recurso_pct"]), 0.0, e.rec_max)   # negativo: Coração de Vidro tira recurso
 		e.aux["cd_pocao"] = CD_POCAO
 	if ef.has("remove"):
