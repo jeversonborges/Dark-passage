@@ -329,7 +329,8 @@
       "peitoral_de_amenti",
       "luvas_de_linho_de_amenti",
       "calcas_de_linho_de_amenti",
-      "sandalias_de_amenti"
+      "sandalias_de_amenti",
+      "ampulheta_do_juizo_travado"
     ],
     "lendario:egito": [
       "adaga_calice_da_comunhao",
@@ -16298,6 +16299,338 @@
         "32": "assets/icones/itens/32/azeite_de_lavanda_bento.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/azeite_de_lavanda_bento.png"
+    },
+    {
+      "id": "emblema_da_cerca",
+      "nome": "Emblema da Cerca",
+      "slot": "amuleto",
+      "classes": [
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "tags": [
+        "raro:sao_lazaro"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Disco de ferro com estacas soldadas em volta. Foi tirado da cerca do Acampamento da Vela quando a cerca mudou de lado.",
+      "efeito": "Raro: +3% de dano contra alvos que você está prendendo com a cerca.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "defesa": 5,
+      "atributos": {
+        "vit": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/emblema_da_cerca.png",
+        "40": "assets/icones/itens/40/emblema_da_cerca.png",
+        "32": "assets/icones/itens/32/emblema_da_cerca.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/emblema_da_cerca.png"
+    },
+    {
+      "id": "escudo_do_coro_dourado",
+      "nome": "Escudo do Coro Dourado",
+      "slot": "segunda_mao",
+      "classes": [
+        "anjo"
+      ],
+      "raridade": "excelente",
+      "nivel": 30,
+      "tags": [
+        "excelente:jerusalem"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Escudo de aço com a estrela de latão no centro. Vinha de um coro que cantava de costas para a porta.",
+      "efeito": "Excelente: 5% de chance, ao ser atingido, de devolver 2 de Graça.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "defesa": 23,
+      "atributos": {
+        "vit": 4
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/escudo_do_coro_dourado.png",
+        "40": "assets/icones/itens/40/escudo_do_coro_dourado.png",
+        "32": "assets/icones/itens/32/escudo_do_coro_dourado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escudo_do_coro_dourado.png"
+    },
+    {
+      "id": "ampulheta_do_juizo_travado",
+      "nome": "Ampulheta do Juízo Travado",
+      "slot": "amuleto",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "lendario",
+      "nivel": 44,
+      "tags": [
+        "lendario:atlantida"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Ampulheta de vidro roxo com areia parada no meio. O Juízo travou, e a areia ficou pela metade.",
+      "efeito": "Lendário: a cada 20 s, a próxima skill tem o recurso devolvido pela metade.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "esp": 8,
+        "vit": 6
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/ampulheta_do_juizo_travado.png",
+        "40": "assets/icones/itens/40/ampulheta_do_juizo_travado.png",
+        "32": "assets/icones/itens/32/ampulheta_do_juizo_travado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/ampulheta_do_juizo_travado.png"
+    },
+    {
+      "id": "lanterna_do_cranio_verde",
+      "nome": "Lanterna do Crânio Verde",
+      "slot": "amuleto",
+      "classes": [
+        "cultista",
+        "mutante"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Crânio dentro de gaiola de ferro, com fogo verde. A luz não aquece.",
+      "efeito": "Excelente: sua aura ilumina 3 m; inimigos dentro dela ficam 5% mais lentos.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "for": 3,
+        "vit": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/lanterna_do_cranio_verde.png",
+        "40": "assets/icones/itens/40/lanterna_do_cranio_verde.png",
+        "32": "assets/icones/itens/32/lanterna_do_cranio_verde.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/lanterna_do_cranio_verde.png"
+    },
+    {
+      "id": "cinto_de_caveira",
+      "nome": "Cinto de Caveira",
+      "slot": "calcas",
+      "classes": [
+        "demonio"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "armadura",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        2
+      ],
+      "lore": "Couro de cinto com caveira de chifres na fivela e um pano vermelho pendurado.",
+      "efeito": "Excelente: +5% de vida máxima.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "vit": 4,
+        "for": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/cinto_de_caveira.png",
+        "40": "assets/icones/itens/40/cinto_de_caveira.png",
+        "32": "assets/icones/itens/32/cinto_de_caveira.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cinto_de_caveira.png"
+    },
+    {
+      "id": "ampulheta_da_trombeta",
+      "nome": "Ampulheta da Trombeta Calada",
+      "slot": "amuleto",
+      "classes": [
+        "tecnomancer",
+        "humano"
+      ],
+      "raridade": "excelente",
+      "nivel": 54,
+      "tags": [
+        "excelente:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Ampulheta de vidro vermelho com chifres de bronze. A areia cai para cima.",
+      "efeito": "Excelente: a cada 30 s, a próxima torreta criada ganha 10% de dano.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "esp": 3,
+        "agi": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/ampulheta_da_trombeta.png",
+        "40": "assets/icones/itens/40/ampulheta_da_trombeta.png",
+        "32": "assets/icones/itens/32/ampulheta_da_trombeta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/ampulheta_da_trombeta.png"
+    },
+    {
+      "id": "medalhao_do_sol_de_latao",
+      "nome": "Medalhão do Sol de Latão",
+      "slot": "amuleto",
+      "classes": [
+        "anjo",
+        "cultista"
+      ],
+      "raridade": "excelente",
+      "nivel": 44,
+      "tags": [
+        "excelente:atlantida"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Medalhão de latão com um rosto de sol no centro e raios pontudos. A face está gasta de tanto ser tocada.",
+      "efeito": "Excelente: +3% de dano sagrado.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "esp": 3,
+        "vit": 2
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/medalhao_do_sol_de_latao.png",
+        "40": "assets/icones/itens/40/medalhao_do_sol_de_latao.png",
+        "32": "assets/icones/itens/32/medalhao_do_sol_de_latao.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/medalhao_do_sol_de_latao.png"
+    },
+    {
+      "id": "astrolabio_do_deserto",
+      "nome": "Astrolábio do Deserto",
+      "slot": "amuleto",
+      "classes": [
+        "tecnomancer",
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 40,
+      "tags": [
+        "raro:egito"
+      ],
+      "categoria": "acessorio",
+      "motivo": "colar",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Astrolábio de latão com o céu do deserto gravado no anel. Tem uma estrela a menos do que deveria.",
+      "efeito": "Raro: +2% de chance de acerto em skills de longa distância.",
+      "fonte": "design/skills-itens/itens_novos_096_lote3.json",
+      "atributos": {
+        "esp": 3
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/astrolabio_do_deserto.png",
+        "40": "assets/icones/itens/40/astrolabio_do_deserto.png",
+        "32": "assets/icones/itens/32/astrolabio_do_deserto.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/astrolabio_do_deserto.png"
+    },
+    {
+      "id": "livro_do_olho_roxo",
+      "nome": "Livro do Olho Roxo",
+      "efeito": {
+        "xp_pct": 10,
+        "uma_vez": true
+      },
+      "preco": 60,
+      "pilha": 1,
+      "motivo": "leitura",
+      "tint": "pano",
+      "lore": "Livro de capa de couro com espinhos e um olho roxo no centro. Quem o abre diz que o olho pisca.",
+      "tags": [
+        "consumivel:xp"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 38,
+      "icone": {
+        "64": "assets/icones/itens/64/livro_do_olho_roxo.png",
+        "40": "assets/icones/itens/40/livro_do_olho_roxo.png",
+        "32": "assets/icones/itens/32/livro_do_olho_roxo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/livro_do_olho_roxo.png"
+    },
+    {
+      "id": "coracao_de_vidro",
+      "nome": "Coração de Vidro",
+      "efeito": {
+        "cura_hp_pct": 20,
+        "recurso_pct": -0.05
+      },
+      "preco": 45,
+      "pilha": 50,
+      "motivo": "pocao",
+      "tint": "vermelho",
+      "lore": "Frasco de vidro vermelho com forma de coração e asas de morcego. Sangra por dentro quando agitado.",
+      "tags": [
+        "consumivel:cura"
+      ],
+      "categoria": "consumivel",
+      "grade": [
+        1,
+        1
+      ],
+      "nivel": 30,
+      "icone": {
+        "64": "assets/icones/itens/64/coracao_de_vidro.png",
+        "40": "assets/icones/itens/40/coracao_de_vidro.png",
+        "32": "assets/icones/itens/32/coracao_de_vidro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coracao_de_vidro.png"
     }
   ]
 }
