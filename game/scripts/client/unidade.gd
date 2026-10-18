@@ -108,7 +108,7 @@ func iniciar(g, e: Ent) -> void:
 	if e.tipo == "jogador":
 		kind = e.classe
 		var spr_evo: String = Evolucao.defn(e.evolucao).get("sprite", e.evolucao) if e.evolucao != "" else ""
-		if e.aux.get("forma", "") == "forma_colossal" and Defs.SPR.has("abominacao_colossal"): kind = "abominacao_colossal"
+		if e.aux.get("forma", "") == "forma_abominacao" and Defs.SPR.has("abominacao_colossal"): kind = "abominacao_colossal"
 		elif spr_evo != "" and Defs.SPR.has(spr_evo): kind = spr_evo
 	elif e.tipo == "npc": kind = "npc:" + e.kind
 	elif e.tipo == "invocacao": kind = e.kind

@@ -88,6 +88,7 @@ static func atributo(e: Ent, k: String) -> float:
 # =================================================================== barra de skills
 ## Skills da classe base + as da evolução (cópias marcadas com "_evo").
 static func habilidades(e: Ent) -> Array:
+	if e.aux.get("kit", "") != "": return _kit(e)
 	var base: Array = Defs.CLASSES[e.classe]["habilidades"]
 	if e.evolucao == "": return base
 	if not _skills_cache.has(e.evolucao):
@@ -100,8 +101,27 @@ static func habilidades(e: Ent) -> Array:
 		_skills_cache[e.evolucao] = lst
 	return base + _skills_cache[e.evolucao]
 
+## Barra de um kit ligado (Forma Abominável): só a skill de alternar e o kit, sem a barra normal.
+static func _kit(e: Ent) -> Array:
+	var k := "kit_" + str(e.aux["kit"])
+	if not _skills_cache.has(k):
+		var lst: Array = []
+		for h in de(e).get("habilidades", []):
+			if h.get("alterna", false): lst.append(_copia_evo(h, e))
+		for h in de(e).get(k, []): lst.append(_copia_evo(h, e))
+		_skills_cache[k] = lst
+	return _skills_cache[k]
+
+static func _copia_evo(h: Dictionary, e: Ent) -> Dictionary:
+	var c: Dictionary = h.duplicate(true)
+	c["_evo"] = e.evolucao
+	return c
+
 static func montar_slots(e: Ent) -> void:
 	e.skills_slots = []
+	if e.aux.get("kit", "") != "":
+		for h in _kit(e): e.skills_slots.append(h["id"])
+		return
 	for h in Defs.CLASSES[e.classe]["habilidades"]: e.skills_slots.append(h["id"])
 	if e.evolucao == "": return
 	while e.skills_slots.size() < SLOT_EVO: e.skills_slots.append("")
@@ -194,13 +214,42 @@ static func _invocar(sim: WorldSim, e: Ent, kind: String, nome: String, dur: flo
 		sim.ents[inv.id] = inv
 		sim.emitir("surgiu", {"id": inv.id})
 
+## Liga ou desliga uma forma sem prazo (buff de 99999 s, tirado à mão). Ligada, a barra vira o kit e o buff deixa 30% mais lento.
+static func _alternar_forma(sim: WorldSim, e: Ent, h: Dictionary) -> void:
+	var id: String = h["id"]
+	if e.aux.get("forma", "") == id:
+		for b in e.buffs.duplicate():
+			if b["id"] == id: e.buffs.erase(b)
+		e.escala = _escala_base(e)
+		e.aux.erase("forma"); e.aux.erase("kit")
+		montar_slots(e)
+		Regras.recalc_jogador(e)
+		sim.emitir("forma", {"id": e.id, "forma": id, "on": false, "escala": e.escala})
+	else:
+		Jogador.add_buff(sim, e, id, 99999.0, _buff_mods(h.get("buff", {})))
+		e.aux["escala_base"] = e.escala
+		e.escala = float(h.get("escala", 1.0)) * e.escala
+		e.aux["forma"] = id; e.aux["kit"] = "abominacao"
+		montar_slots(e)
+		Regras.recalc_jogador(e)
+		_vfx(sim, e, h, {"pos": e.pos, "fica": 1.0})
+		sim.emitir("forma", {"id": e.id, "forma": id, "on": true, "escala": e.escala, "t": 0.0})
+	sim.emitir_a(e, "stats", {"id": e.id})
+
+static func _escala_base(e: Ent) -> float:
+	return float(e.aux.get("escala_base", 1.0))
+
 ## Solta uma skill da evolução. Chamado por Habilidades.usar quando a skill tem "_evo".
 static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> void:
 	var id: String = h["id"]
 	var prep := maxf(float(h.get("preparo", h.get("conjuracao", h.get("canalizacao", 0.0)))) * mult(e, "conjuracao_mult"), 0.18)
 	var aid := alvo.id if alvo != null else -1
 	var dur := float(h.get("duracao", 0.0))
-	# ------------------------------------------------ transformações (Forma Vingativa, Forma Colossal)
+	# ------------------------------------------------ forma que liga e desliga (Forma Abominável): troca a barra inteira
+	if h.get("alterna", false):
+		_alternar_forma(sim, e, h)
+		return
+	# ------------------------------------------------ transformações (Forma Vingativa)
 	if h.get("transformacao", false):
 		var mods := _buff_mods(h.get("buff", {}))
 		Jogador.add_buff(sim, e, id, dur, mods)

@@ -185,6 +185,17 @@ func _testar(classe: String, caminho_idx: int) -> void:
 			if absf(forma_hp / hp0 - 3.0) > 0.05: falha(tag + ": Forma Colossal deu hp x%.2f" % (forma_hp / hp0))
 			if absf(forma_vel - 0.45) > 0.01: falha(tag + ": Forma Colossal bate a %.2f" % forma_vel)
 			if absf(forma_esc - 1.8 * esc0) > 0.01: falha(tag + ": Forma Colossal escala %.2f" % forma_esc)
+		if h.get("alterna", false):   # Forma Abominável: liga troca a barra pelo kit e anda 30% mais devagar; desliga volta
+			var vel_on := j.vel
+			if not j.aux.has("kit"): falha(tag + ": %s não trocou a barra" % h["id"])
+			if j.skills_slots.size() != 7: falha(tag + ": kit com %d slots" % j.skills_slots.size())
+			rodar(sim, 1.5)
+			Jogador.cmd_skill(sim, j, 0, alvo_m.id, alvo_m.pos)   # desliga: na barra do kit, a forma é o slot 0
+			rodar(sim, 0.2)
+			if j.aux.has("kit") or j.aux.has("forma"): falha(tag + ": %s não desligou" % h["id"])
+			if j.skills_slots[Evolucao.SLOT_EVO + 3] != "forma_abominacao" or j.skills_slots[Evolucao.SLOT_EVO + 4] != "frenesi_da_carne": falha(tag + ": barra não voltou ao normal")
+			if absf(vel_on / j.vel - 0.7) > 0.01: falha(tag + ": forma deu velocidade %.2f (esperado 0,70)" % (vel_on / j.vel))
+			continue
 		if h.get("transformacao", false):
 			rodar(sim, float(h["duracao"]))
 			if absf(j.escala - esc0) > 0.01 or j.aux.has("forma"): falha(tag + ": %s não terminou" % h["id"])

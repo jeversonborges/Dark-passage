@@ -1039,24 +1039,19 @@
         },
         {
           "nivel": 45,
-          "id": "forma_colossal",
-          "nome": "Forma Colossal",
-          "custo": 80,
-          "recarga": 90.0,
-          "duracao": 20,
-          "transformacao": true,
-          "escala": 1.8,
+          "id": "forma_abominacao",
+          "nome": "Forma Abominável",
+          "custo": 0,
+          "recarga": 1.0,
+          "alterna": true,
           "buff": {
-            "hp_mult": 3.0,
-            "dano_mult": 3.5,
-            "velocidade_ataque": 0.45,
-            "area_ataque_basico": 2.5,
-            "velocidade_mult": 0.8,
-            "imune_controle": true
+            "velocidade_mult": 0.7
           },
-          "sensacao": "golpe_pesado",
+          "sensacao": "buff",
           "vfx": "abominacao_forma_colossal",
-          "descricao": "A carne se rompe e ele vira um monstro gigante de tentáculos por 20 s: HP triplicado e dano 3,5x, com cada golpe acertando tudo em 2,5 m. Em troca bate devagar (0,45 ataque por segundo), anda mais lento e não pode ser controlado."
+          "icone_folha": true,
+          "descricao": "Liga e desliga. Ligada, a barra de skills troca toda pelo kit de horror corporal, sem limite de tempo, e o Abominação anda 30% mais devagar. Desligada, volta à barra normal.",
+          "escala": 1.4
         },
         {
           "id": "frenesi_da_carne",
@@ -1073,7 +1068,92 @@
           "custo_hp_por_s": 0.01,
           "sensacao": "buff"
         }
-      ]
+      ],
+      "kit_abominacao": [
+        {
+          "id": "tentaculos",
+          "nome": "Tentáculos",
+          "custo": 10,
+          "recarga": 3.0,
+          "mult": 1.4,
+          "alcance": 4,
+          "area_raio": 2.5,
+          "efeito": {
+            "preso": 0.6
+          },
+          "sensacao": "area",
+          "icone_arte": "S7_09"
+        },
+        {
+          "id": "garras",
+          "nome": "Garras",
+          "custo": 8,
+          "recarga": 2.0,
+          "mult": 1.8,
+          "forma": "cone",
+          "cone_graus": 120,
+          "raio": 2.2,
+          "sangramento": {
+            "duracao": 4,
+            "dano_por_s_mult": 0.2
+          },
+          "sensacao": "golpe_pesado",
+          "icone_arte": "S5_10"
+        },
+        {
+          "id": "bocas",
+          "nome": "Bocas",
+          "custo": 12,
+          "recarga": 5.0,
+          "mult": 2.0,
+          "alcance": 2.0,
+          "cura_mult": 0.4,
+          "sensacao": "golpe_pesado",
+          "icone_arte": "S7_08"
+        },
+        {
+          "id": "vomito_acido",
+          "nome": "Vômito Ácido",
+          "custo": 18,
+          "recarga": 9.0,
+          "mult": 1.5,
+          "forma": "cone",
+          "cone_graus": 90,
+          "raio": 4,
+          "elemento": "acido",
+          "efeito": {
+            "corroer_defesa": 0.15
+          },
+          "duracao": 6,
+          "sensacao": "area",
+          "icone_arte": "S7_07"
+        },
+        {
+          "id": "olho",
+          "nome": "Olho Que Tudo Vê",
+          "custo": 15,
+          "recarga": 14.0,
+          "alcance": 7,
+          "mult": 0.8,
+          "dano_recebido_extra": 0.2,
+          "duracao": 8,
+          "sensacao": "debuff",
+          "icone_arte": "S7_05"
+        },
+        {
+          "id": "devorar",
+          "nome": "Devorar",
+          "custo": 20,
+          "recarga": 20.0,
+          "alcance": 2.5,
+          "mult": 2.6,
+          "execucao_abaixo_hp": 0.25,
+          "cura_mult": 0.3,
+          "sensacao": "golpe_pesado",
+          "icone_arte": "S7_06"
+        }
+      ],
+      "_doc": "Forma Abominável (alterna=true) troca a barra inteira pelo kit_abominacao enquanto ligada. Substitui a antiga Forma Colossal (decisão do coordenador, 2026-10-18)."
     },
     "mechanicus": {
       "classe_base": "tecnomancer",
