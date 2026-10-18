@@ -3226,5 +3226,41 @@
   2112,
   64,
   64
+ ],
+ "chapeu_da_vela_acesa": [
+  640,
+  2112,
+  64,
+  64
+ ],
+ "casaco_da_vela_acesa": [
+  704,
+  2112,
+  64,
+  64
+ ],
+ "luvas_da_polvora": [
+  768,
+  2112,
+  64,
+  64
+ ],
+ "calcas_de_vigia": [
+  832,
+  2112,
+  64,
+  64
+ ],
+ "botas_de_turno": [
+  896,
+  2112,
+  64,
+  64
+ ],
+ "martelo_do_sino_derretido": [
+  960,
+  2112,
+  64,
+  64
  ]
 }

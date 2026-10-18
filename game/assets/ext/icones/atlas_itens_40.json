@@ -3226,5 +3226,41 @@
   1320,
   40,
   40
+ ],
+ "chapeu_da_vela_acesa": [
+  400,
+  1320,
+  40,
+  40
+ ],
+ "casaco_da_vela_acesa": [
+  440,
+  1320,
+  40,
+  40
+ ],
+ "luvas_da_polvora": [
+  480,
+  1320,
+  40,
+  40
+ ],
+ "calcas_de_vigia": [
+  520,
+  1320,
+  40,
+  40
+ ],
+ "botas_de_turno": [
+  560,
+  1320,
+  40,
+  40
+ ],
+ "martelo_do_sino_derretido": [
+  600,
+  1320,
+  40,
+  40
  ]
 }
