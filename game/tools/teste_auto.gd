@@ -37,7 +37,7 @@ func _init() -> void:
 		Comandos.executar(sim, p, "auto_cfg", ["juntar", "tudo"])
 		var cfg := Jogador.cfg_auto(p)
 		if float(cfg["raio"]) != 10.0 or absf(float(cfg["vida"]) - 0.6) > 0.001: falhas += 1; print("FALHA: cfg ", cfg)
-		p.pos = sim.celula_livre_perto(Vector2(84, 115))
+		p.pos = sim.celula_livre_perto(Vector2(114, 114))
 		rodar(sim, 0.5)
 		var v0 := Itens.contar(p.inv, "pocao_vida_p")
 		var o0 := p.ouro
