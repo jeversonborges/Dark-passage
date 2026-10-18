@@ -77,9 +77,11 @@ def main():
     # ---- fendas nas divisas (acendem 20 s antes da queda; tag "racha" = anel que cai do lado de fora dela)
     for i, r in enumerate(ANEIS):
         rr = r["raio_min"]
-        n = max(8, int(2 * math.pi * rr / 2.2))
+        # fendas esparsas: trechos de racha, não um trilho contínuo (4 tiles de cada, pulam conforme o sorteio)
+        n = max(6, int(2 * math.pi * rr / 5.5))
         for k in range(n):
-            ang = 2 * math.pi * (k + .5 * (i % 2)) / n
+            if zlib.crc32(f"f{i}_{k}".encode()) % 100 < 35: continue
+            ang = 2 * math.pi * (k + .5 * (i % 2)) / n + .05 * math.sin(k * 1.7)
             a.prop("fenda", CX + rr * math.cos(ang), CY + rr * math.sin(ang), chao=True, racha=r["id"])
 
     # ---- a Laje do Juramento: anel de pilares partidos, braseiros sagrados, velas e o lacre no chão
