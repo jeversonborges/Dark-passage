@@ -763,6 +763,10 @@
         {
           "tag": "consumivel:azeite_bento",
           "peso": 4
+        },
+        {
+          "tag": "raro:sao_lazaro",
+          "peso": 4
         }
       ]
     },
@@ -790,6 +794,14 @@
         {
           "tag": "equip:faixa2",
           "peso": 86
+        },
+        {
+          "tag": "consumivel:xp",
+          "peso": 3
+        },
+        {
+          "tag": "consumivel:cura",
+          "peso": 3
         }
       ]
     },
@@ -820,6 +832,10 @@
         {
           "tag": "equip:faixa2",
           "peso": 86
+        },
+        {
+          "tag": "raro:egito",
+          "peso": 4
         }
       ]
     },

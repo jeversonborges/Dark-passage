@@ -1085,6 +1085,12 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 				"cada_tick": func(_a): sim.curar(e, por_s * bonus_comida, e)})
 		else: sim.curar(e, float(ef["cura_hp"]) * bonus_comida, e)
 		e.aux["cd_pocao"] = CD_POCAO
+	if ef.has("xp_pct"):   # Livro do Olho Roxo: 10% do XP do nível, uma vez por personagem
+		if e.flags.has("livro_olho_roxo"):
+			usou = false; sim.emitir_a(e, "aviso", {"texto": "Você já leu este livro."})
+		else:
+			e.flags["livro_olho_roxo"] = true
+			ganhar_xp(sim, e, int(Defs.xp_para_proximo(e.nivel) * float(ef["xp_pct"]) / 100.0), "livro")
 	if ef.has("cura_hp_pct"):
 		var total := e.hp_max * float(ef["cura_hp_pct"]) / 100.0
 		if ef.has("duracao_s"):   # Frasco de Bílis Dourado: a cura vem ao longo do tempo
@@ -1094,7 +1100,7 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 		else: sim.curar(e, total, e)
 	if ef.has("recurso_pct"):
 		if e.classe == "cultista": sim.curar(e, e.hp_max * float(ef["recurso_pct"]) * 0.5, e)
-		else: e.rec = minf(e.rec_max, e.rec + e.rec_max * float(ef["recurso_pct"]))
+		else: e.rec = clampf(e.rec + e.rec_max * float(ef["recurso_pct"]), 0.0, e.rec_max)   # negativo: Coração de Vidro tira recurso
 		e.aux["cd_pocao"] = CD_POCAO
 	if ef.has("remove"):
 		for s in ef["remove"]:
