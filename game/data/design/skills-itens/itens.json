@@ -15604,6 +15604,538 @@
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+    },
+    {
+      "id": "cetro_do_raio_partido",
+      "nome": "Cetro do Raio Partido",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "excelente",
+      "nivel": 28,
+      "tags": [
+        "excelente:torre"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Orbe escuro de vidro partido, com um anel de latão girando em volta e um raio preso dentro que nunca apaga.",
+      "efeito": "Excelente: cada skill que acerta deixa uma fagulha no alvo que causa 8% do dano em 2 s.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        62,
+        96
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "esp": 14
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cimitarra_de_janes",
+      "nome": "Cimitarra de Janes, Sentença de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 61,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "humano",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        107,
+        177
+      ],
+      "dano": [
+        92,
+        171
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "for": 35,
+        "agi": 20
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Golpes contra conjuradores interrompem e silenciam 1 s (recarga 10 s).",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/cimitarra_de_janes.png",
+        "40": "assets/icones/itens/40/cimitarra_de_janes.png",
+        "32": "assets/icones/itens/32/cimitarra_de_janes.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cimitarra_de_janes.png",
+      "variante_de": "cimitarra_de_janes",
+      "multiplicador_atributos": 1.35,
+      "lore": "Cimitarra dourada com um sol cravado na guarda e penas de cobre presas ao cabo.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_malho_de_tubal",
+      "nome": "Malho de Tubal-Caim, Martelo de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Malho bom não tem nome. Esse tem. Desconfie.",
+        "autor": "Tubal"
+      },
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 25,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "mutante"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        42,
+        70
+      ],
+      "dano": [
+        42,
+        77
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "for": 16,
+        "vit": 11
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Golpe pesado: a cada 4 s, o próximo ataque derruba o alvo por 1 s.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/malho_de_tubal.png",
+        "40": "assets/icones/itens/40/malho_de_tubal.png",
+        "32": "assets/icones/itens/32/malho_de_tubal.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/malho_de_tubal.png",
+      "variante_de": "malho_de_tubal",
+      "multiplicador_atributos": 1.35,
+      "lore": "Malho de pedra com veios de lava e um raio vermelho descendo pela cabeça.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_garra_de_ammit",
+      "nome": "Garra de Ammit, Unhas de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 64,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "humano",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        112,
+        185
+      ],
+      "dano": [
+        97,
+        180
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "for": 36,
+        "agi": 22
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Matar um inimigo cura 4% da vida máxima.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/garra_de_ammit.png",
+        "40": "assets/icones/itens/40/garra_de_ammit.png",
+        "32": "assets/icones/itens/32/garra_de_ammit.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/garra_de_ammit.png",
+      "variante_de": "garra_de_ammit",
+      "multiplicador_atributos": 1.35,
+      "lore": "Garra de quatro dentes sobre um crânio de ave, com fios de sangue seco.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_remo_da_barca_de_ra",
+      "nome": "Remo da Barca de Rá, Remo de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 63,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "humano",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        110,
+        182
+      ],
+      "dano": [
+        96,
+        177
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "for": 35,
+        "vit": 22
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Golpes em área empurram os inimigos 1 m e dão 5% de defesa por inimigo atingido.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/remo_da_barca_de_ra.png",
+        "40": "assets/icones/itens/40/remo_da_barca_de_ra.png",
+        "32": "assets/icones/itens/32/remo_da_barca_de_ra.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/remo_da_barca_de_ra.png",
+      "variante_de": "remo_da_barca_de_ra",
+      "multiplicador_atributos": 1.35,
+      "lore": "Remo de madeira escura e latão, com um olho pintado e relâmpagos azuis descendo pelo cabo.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_falx_de_azazel",
+      "nome": "Falx de Azazel, Foice de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Ensinei o ferro. Não ensinei o que fazer com ele. Isso vocês aprenderam sozinhos.",
+        "autor": "Azazel"
+      },
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 25,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "demonio"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        40,
+        66
+      ],
+      "dano": [
+        42,
+        77
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "for": 16,
+        "agi": 8
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Acertos em alvos abaixo de 30% do HP causam +25% de dano.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/falx_de_azazel.png",
+        "40": "assets/icones/itens/40/falx_de_azazel.png",
+        "32": "assets/icones/itens/32/falx_de_azazel.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/falx_de_azazel.png",
+      "variante_de": "falx_de_azazel",
+      "multiplicador_atributos": 1.35,
+      "lore": "Foice de corvo com asas roxas e um cristal pendurado no cabo.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cajado_das_dez_pragas",
+      "nome": "Cajado das Dez Pragas, Vara de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 65,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        114,
+        188
+      ],
+      "dano": [
+        99,
+        182
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "esp": 36,
+        "vit": 22
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. A cada 10 skills usadas, a próxima solta uma praga aleatória no alvo (sangue, piolhos, peste ou trevas).",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/cajado_das_dez_pragas.png",
+        "40": "assets/icones/itens/40/cajado_das_dez_pragas.png",
+        "32": "assets/icones/itens/32/cajado_das_dez_pragas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cajado_das_dez_pragas.png",
+      "variante_de": "cajado_das_dez_pragas",
+      "multiplicador_atributos": 1.35,
+      "lore": "Cajado de ferro com lanternas verdes de peste que escorrem.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cajado_estrelas_contadas",
+      "nome": "Cajado das Estrelas Contadas, Contagem de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Faltam menos noites do que vocês pensam. Faltam mais do que eu queria.",
+        "autor": "Kokabiel"
+      },
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 25,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "cultista"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        34,
+        58
+      ],
+      "dano": [
+        42,
+        77
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "esp": 22
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. A cada 6 s, a próxima magia também derruba uma estrela no alvo (40% do dano, em área pequena).",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/cajado_estrelas_contadas.png",
+        "40": "assets/icones/itens/40/cajado_estrelas_contadas.png",
+        "32": "assets/icones/itens/32/cajado_estrelas_contadas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/cajado_estrelas_contadas.png",
+      "variante_de": "cajado_estrelas_contadas",
+      "multiplicador_atributos": 1.35,
+      "lore": "Lâmina curva com estrelas douradas e faixas azuis de tecido estrelado.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_escopeta_juramento_quebrado",
+      "nome": "Escopeta do Juramento Quebrado, Juramento de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Juramento é coisa de anjo. Eu trouxe munição.",
+        "autor": "Testemunha anônima"
+      },
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 25,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "humano"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        36,
+        60
+      ],
+      "dano": [
+        42,
+        77
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "agi": 16,
+        "for": 5
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. O primeiro tiro depois de 4 s sem atirar empurra o alvo para trás com força.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/escopeta_juramento_quebrado.png",
+        "40": "assets/icones/itens/40/escopeta_juramento_quebrado.png",
+        "32": "assets/icones/itens/32/escopeta_juramento_quebrado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/escopeta_juramento_quebrado.png",
+      "variante_de": "escopeta_juramento_quebrado",
+      "multiplicador_atributos": 1.35,
+      "lore": "Cano de bronze com caveira, cruz de ferro pendurada e fita vermelha.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_bastao_que_virou_serpente",
+      "nome": "Bastão que Virou Serpente, Serpente de Deus",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 61,
+      "tags": [
+        "lendario:deus"
+      ],
+      "classes": [
+        "cultista",
+        "anjo",
+        "tecnomancer"
+      ],
+      "faccao": null,
+      "dano_sugerido_missoes": [
+        107,
+        177
+      ],
+      "dano": [
+        92,
+        171
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "esp": 35,
+        "agi": 20
+      },
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. 15% de chance de a skill invocar uma serpente por 6 s que copia 30% do seu dano.",
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/bastao_que_virou_serpente.png",
+        "40": "assets/icones/itens/40/bastao_que_virou_serpente.png",
+        "32": "assets/icones/itens/32/bastao_que_virou_serpente.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/bastao_que_virou_serpente.png",
+      "variante_de": "bastao_que_virou_serpente",
+      "multiplicador_atributos": 1.35,
+      "lore": "Cajado com crânio cercado de serpentes verdes e névoa de raio.",
+      "icone_provisorio": true
+    },
+    {
+      "id": "deus_cetro_do_raio_partido",
+      "nome": "Cetro do Raio Partido, Raio de Deus",
+      "slot": "arma",
+      "classes": [
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "lendario",
+      "nivel": 28,
+      "tags": [
+        "lendario:deus"
+      ],
+      "categoria": "arma",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "lore": "Anel de latão com espinhos em volta de um orbe roxo cheio de cristais.",
+      "efeito": "Relíquia de Deus: atributos e efeito da arma base sobem 35%. Excelente: cada skill que acerta deixa uma fagulha no alvo que causa 8% do dano em 2 s.",
+      "fonte": "design/skills-itens/itens_novos_096.json",
+      "maos": 1,
+      "dano": [
+        84,
+        130
+      ],
+      "intervalo": 1.05,
+      "atributos": {
+        "esp": 19
+      },
+      "icone": {
+        "64": "assets/icones/itens/64/espada_vigilia_rachada.png",
+        "40": "assets/icones/itens/40/espada_vigilia_rachada.png",
+        "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
+      "icone_provisorio": true,
+      "variante_de": "cetro_do_raio_partido",
+      "multiplicador_atributos": 1.35
     }
   ]
 }

@@ -12,6 +12,12 @@ const ATTR := {"for": "FOR", "agi": "AGI", "vit": "VIT", "esp": "ESP"}
 
 static var _uid := 1
 
+## Id da versão Deus de uma arma-base ("" se não tiver).
+static func deus_de(base: String) -> String:
+	for id in Defs.ITENS:
+		if str(Defs.ITENS[id].get("variante_de", "")) == base: return id
+	return ""
+
 static func defn(id: String) -> Dictionary:
 	return Defs.ITENS.get(id, {})
 
