@@ -10620,7 +10620,7 @@
         "esp": 99,
         "hp": 9999
       },
-      "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
+      "efeito": "Ataque básico atinge todos os inimigos a 8 m. 10% de chance por golpe de apagar um inimigo comum; chefes perdem 10% da vida máxima. Devolve 100% do dano recebido. Regenera 10% de vida e recurso por segundo. Recarga das skills -90%. Aura: aliados a 10 m ganham +50% de dano e XP; inimigos a 10 m, -50% de dano. Vinculado à conta.",
       "categoria": "arma",
       "icone": {
         "64": "assets/icones/itens/64/cetro_do_demiurgo.png",
