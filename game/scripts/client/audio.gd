@@ -47,7 +47,7 @@ func _process(dt: float) -> void:
 
 ## Som posicional em loop (forja do ferreiro, aura do Cetro do Demiurgo). Quem toca chama TODO quadro com a posição
 ## de tela; o volume cai com a distância ao jogador e, se ninguém pedir por 0,5 s, o loop para sozinho.
-func loop_em(chave: String, nome: String, pos_tela: Vector2, vol_db := 0.0) -> void:
+func loop_em(chave: String, nome: String, pos_tela: Vector2, vol_db := 0.0, alcance := 1100.0) -> void:
 	if mudo or nome == "" or not sons.has(nome): return
 	var bus: String = sons[nome].get("bus", "ambiente")
 	var l: Dictionary = loops.get(chave, {})
@@ -61,13 +61,13 @@ func loop_em(chave: String, nome: String, pos_tela: Vector2, vol_db := 0.0) -> v
 		l = {"p": p, "nome": nome, "t": t}; loops[chave] = l
 	l["t"] = t
 	var d := pos_tela.distance_to(ouvinte)
-	(l["p"] as AudioStreamPlayer).volume_db = -60.0 if d > 1100.0 else float(vol.get(bus, 0.0)) + vol_db - d / 1100.0 * 18.0
+	(l["p"] as AudioStreamPlayer).volume_db = -60.0 if d > alcance else float(vol.get(bus, 0.0)) + vol_db - d / alcance * 18.0
 
 func loop_fim(chave: String) -> void:
 	if loops.has(chave): loops[chave]["p"].queue_free(); loops.erase(chave)
 
 ## Efeito sonoro. pos_tela opcional: atenua com a distância ao jogador.
-func tocar(nome: String, pos_tela = null, vol_db := 0.0, pitch_var := 0.05) -> void:
+func tocar(nome: String, pos_tela = null, vol_db := 0.0, pitch_var := 0.05, alcance := 1100.0) -> void:
 	if mudo or nome == "": return
 	if _ultimo.get(nome, -1.0) > t - 0.045: return
 	_ultimo[nome] = t
@@ -78,8 +78,8 @@ func tocar(nome: String, pos_tela = null, vol_db := 0.0, pitch_var := 0.05) -> v
 	var db := float(vol.get(bus, 0.0)) + vol_db
 	if pos_tela != null:
 		var d := (pos_tela as Vector2).distance_to(ouvinte)
-		if d > 1100.0: return
-		db -= d / 1100.0 * 18.0
+		if d > alcance: return
+		db -= d / alcance * 18.0
 	var p: AudioStreamPlayer = null
 	for q in pool:
 		if not q.playing: p = q; break

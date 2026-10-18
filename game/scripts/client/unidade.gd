@@ -84,6 +84,7 @@ var dur_unica := 0.0
 var ajoelhado := false        # /ajoelhar: fica abaixado até andar ou agir
 # Armas visíveis (assets/armas): corpo sem arma + uma camada por silhueta, desenhada por cima do corpo.
 const DIRS_ARMA := ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]
+const ALCANCE_FORJA := 420.0    # a forja (martelo e fole) só se ouve de perto; o resto do jogo usa 1100 px
 var _armas := {}       # slot -> Sprite2D (arma, segunda_mao)
 var _camadas := {}     # silhueta -> {json, tex, mask}
 var _kind_armas := ""  # classe com pasta em assets/armas (vazio: sem camadas)
@@ -326,14 +327,14 @@ func _som_do_quadro(total: int, n: int) -> void:
 	if total > _quadro_total and not q.is_empty() and is_visible_in_tree():
 		for i in range(_quadro_total + 1, mini(total, _quadro_total + n) + 1):   # quadros cruzados desde a última chamada
 			var nome := str(q.get(str(i % n), ""))
-			if nome != "": game.audio.tocar(nome, position)
+			if nome != "": game.audio.tocar(nome, position, 0.0, 0.05, ALCANCE_FORJA)
 	_quadro_total = total
 
 ## Loop posicional ("sons": {"loop": "ambiente/forja"}): pedido todo quadro enquanto a unidade está na tela;
 ## o Audio atenua pela distância ao jogador e para o loop sozinho quando ninguém mais pede.
 func _som_em_loop() -> void:
 	var loop := str(sons.get("loop", ""))
-	if loop != "" and not morto and is_visible_in_tree(): game.audio.loop_em("npc_%d" % id, loop, position, -6.0)
+	if loop != "" and not morto and is_visible_in_tree(): game.audio.loop_em("npc_%d" % id, loop, position, -6.0, ALCANCE_FORJA)
 
 func _exit_tree() -> void:
 	if sons.has("loop") and is_instance_valid(game) and game.audio != null: game.audio.loop_fim("npc_%d" % id)
