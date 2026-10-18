@@ -100,7 +100,7 @@ def main():
     # ---- os duzentos ajoelhados (posições dos Vigilantes): em círculos, virados para a laje, por área de anel
     vig = []
     raios = [20.0, 18.0, 15.0, 11.0, 7.0]
-    nos = [16, 14, 12, 10, 8]       # 60 lugares; o controle usa os primeiros N, espalhados
+    nos = [13, 11, 10, 9, 7]       # 50 lugares (teto do inicio_max); o controle usa os primeiros N, espalhados
     for rr, n in zip(raios, nos):
         for k in range(n):
             ang = 2 * math.pi * (k + .37 * rr) / n
@@ -183,7 +183,7 @@ def main():
 
     m = a.exportar(ceu={"escuro": 0.3, "cor": [0.72, 0.72, 0.82], "neblina": [0.26, 0.27, 0.32]},
                    spawn=chegadas[0])
-    m["pisos"] = dict(G.PISOS, h="marmore_templo", f="terra_fenda")
+    m["pisos"] = dict(G.PISOS, h="marmore_templo", f="cinza")
     m["exterior"] = True
     m["sem_penalidade"] = True
     aneis = []
