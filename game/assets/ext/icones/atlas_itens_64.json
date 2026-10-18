@@ -1540,5 +1540,539 @@
 1024,
 64,
 64
+],
+"fragmento_alma": [
+64,
+1024,
+64,
+64
+],
+"lagrima_anjo": [
+128,
+1024,
+64,
+64
+],
+"botas_da_setima_hora": [
+192,
+1024,
+64,
+64
+],
+"braceletes_de_sobek": [
+256,
+1024,
+64,
+64
+],
+"braceletes_do_ureu": [
+320,
+1024,
+64,
+64
+],
+"coroa_de_sobek": [
+384,
+1024,
+64,
+64
+],
+"peitoral_de_sobek": [
+448,
+1024,
+64,
+64
+],
+"diadema_do_enigma": [
+512,
+1024,
+64,
+64
+],
+"nemes_do_farao": [
+576,
+1024,
+64,
+64
+],
+"escama_dourada_de_sobek": [
+640,
+1024,
+64,
+64
+],
+"escama_do_caos": [
+704,
+1024,
+64,
+64
+],
+"faixas_do_embalsamador": [
+768,
+1024,
+64,
+64
+],
+"garras_da_esfinge": [
+832,
+1024,
+64,
+64
+],
+"juba_da_leoa": [
+896,
+1024,
+64,
+64
+],
+"luvas_de_dalva": [
+960,
+1024,
+64,
+64
+],
+"luvas_da_imitacao": [
+0,
+1088,
+64,
+64
+],
+"manto_de_ohya": [
+64,
+1088,
+64,
+64
+],
+"manto_dos_magos_de_farao": [
+128,
+1088,
+64,
+64
+],
+"mascara_do_chacal": [
+192,
+1088,
+64,
+64
+],
+"pschent_do_farao": [
+256,
+1088,
+64,
+64
+],
+"peitoral_de_ouro": [
+320,
+1088,
+64,
+64
+],
+"couraca_de_quitina": [
+384,
+1088,
+64,
+64
+],
+"arco_de_qebehsenuef": [
+448,
+1088,
+64,
+64
+],
+"arpao_do_juncal": [
+512,
+1088,
+64,
+64
+],
+"bastao_que_virou_serpente": [
+576,
+1088,
+64,
+64
+],
+"malho_de_tubal": [
+640,
+1088,
+64,
+64
+],
+"martelo_de_tubal": [
+704,
+1088,
+64,
+64
+],
+"cajado_da_cheia": [
+768,
+1088,
+64,
+64
+],
+"cajado_das_dez_pragas": [
+832,
+1088,
+64,
+64
+],
+"cajado_estrelas_contadas": [
+896,
+1088,
+64,
+64
+],
+"balanca_de_barnabe": [
+960,
+1088,
+64,
+64
+],
+"cetro_was_do_pesador": [
+0,
+1152,
+64,
+64
+],
+"cetro_dos_quatro": [
+64,
+1152,
+64,
+64
+],
+"cetro_que_abre_a_garganta": [
+128,
+1152,
+64,
+64
+],
+"cimitarra_de_janes": [
+192,
+1152,
+64,
+64
+],
+"escopeta_juramento_quebrado": [
+256,
+1152,
+64,
+64
+],
+"espada_primeiro_juramento": [
+320,
+1152,
+64,
+64
+],
+"falx_de_azazel": [
+384,
+1152,
+64,
+64
+],
+"ferrao_de_bronze": [
+448,
+1152,
+64,
+64
+],
+"garra_de_ammit": [
+512,
+1152,
+64,
+64
+],
+"khopesh_de_ramesses": [
+576,
+1152,
+64,
+64
+],
+"lamina_da_pergunta": [
+640,
+1152,
+64,
+64
+],
+"astrolabio_do_coro": [
+704,
+1152,
+64,
+64
+],
+"anel_da_nomarca": [
+768,
+1152,
+64,
+64
+],
+"anel_de_jambres": [
+832,
+1152,
+64,
+64
+],
+"anel_raiz_arvore_mae": [
+896,
+1152,
+64,
+64
+],
+"anel_de_sinete_real": [
+960,
+1152,
+64,
+64
+],
+"anel_do_primogenito": [
+0,
+1216,
+64,
+64
+],
+"ankh_de_serket": [
+64,
+1216,
+64,
+64
+],
+"argola_do_deus_crocodilo": [
+128,
+1216,
+64,
+64
+],
+"astrolabio_de_kokabiel": [
+192,
+1216,
+64,
+64
+],
+"pagina_do_decreto": [
+256,
+1216,
+64,
+64
+],
+"mapa_de_bartimeu": [
+320,
+1216,
+64,
+64
+],
+"azeite_do_lagar": [
+384,
+1216,
+64,
+64
+],
+"vaso_de_imseti": [
+448,
+1216,
+64,
+64
+],
+"brasa_viva": [
+512,
+1216,
+64,
+64
+],
+"chave_de_pa": [
+576,
+1216,
+64,
+64
+],
+"carta_do_sineiro": [
+640,
+1216,
+64,
+64
+],
+"selo_do_sonho": [
+704,
+1216,
+64,
+64
+],
+"cinta_de_latao": [
+768,
+1216,
+64,
+64
+],
+"glifo_da_resposta": [
+832,
+1216,
+64,
+64
+],
+"badalo_de_bronze": [
+896,
+1216,
+64,
+64
+],
+"olho_de_horus": [
+960,
+1216,
+64,
+64
+],
+"olho_que_apaga": [
+0,
+1280,
+64,
+64
+],
+"orelha_de_jael": [
+64,
+1280,
+64,
+64
+],
+"pena_de_maat_viva": [
+128,
+1280,
+64,
+64
+],
+"pena_de_ibis": [
+192,
+1280,
+64,
+64
+],
+"saquinho_sementes_salvas": [
+256,
+1280,
+64,
+64
+],
+"selo_das_aguas": [
+320,
+1280,
+64,
+64
+],
+"selo_dos_doze_patios": [
+384,
+1280,
+64,
+64
+],
+"binoculo_de_plantao": [
+448,
+1280,
+64,
+64
+],
+"cartucho_sem_nome": [
+512,
+1280,
+64,
+64
+],
+"colar_usekh": [
+576,
+1280,
+64,
+64
+],
+"colar_de_ouro_de_sobek": [
+640,
+1280,
+64,
+64
+],
+"disco_do_sol_terco": [
+704,
+1280,
+64,
+64
+],
+"insignia_da_cerca": [
+768,
+1280,
+64,
+64
+],
+"corrente_casa_de_maquinas": [
+832,
+1280,
+64,
+64
+],
+"escama_palida": [
+896,
+1280,
+64,
+64
+],
+"letra_raspada_oricalco": [
+960,
+1280,
+64,
+64
+],
+"cinza_de_tofete": [
+0,
+1344,
+64,
+64
+],
+"coracao_do_farao": [
+64,
+1344,
+64,
+64
+],
+"coroa_partida": [
+128,
+1344,
+64,
+64
+],
+"elo_partido": [
+192,
+1344,
+64,
+64
+],
+"elo_de_corrente": [
+256,
+1344,
+64,
+64
+],
+"elo_de_vigilante": [
+320,
+1344,
+64,
+64
+],
+"engrenagem_oricalco": [
+384,
+1344,
+64,
+64
+],
+"ferrao_de_serket": [
+448,
+1344,
+64,
+64
+],
+"ficha_sangue": [
+512,
+1344,
+64,
+64
+],
+"flauta_de_osso": [
+576,
+1344,
+64,
+64
 ]
 }

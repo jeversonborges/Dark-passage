@@ -1006,5 +1006,545 @@
 400,
 40,
 40
+],
+"botas_da_setima_hora": [
+320,
+400,
+40,
+40
+],
+"braceletes_de_sobek": [
+360,
+400,
+40,
+40
+],
+"braceletes_do_ureu": [
+400,
+400,
+40,
+40
+],
+"coroa_de_sobek": [
+440,
+400,
+40,
+40
+],
+"peitoral_de_sobek": [
+480,
+400,
+40,
+40
+],
+"diadema_do_enigma": [
+520,
+400,
+40,
+40
+],
+"nemes_do_farao": [
+560,
+400,
+40,
+40
+],
+"escama_dourada_de_sobek": [
+600,
+400,
+40,
+40
+],
+"escama_do_caos": [
+0,
+440,
+40,
+40
+],
+"faixas_do_embalsamador": [
+40,
+440,
+40,
+40
+],
+"garras_da_esfinge": [
+80,
+440,
+40,
+40
+],
+"juba_da_leoa": [
+120,
+440,
+40,
+40
+],
+"luvas_de_dalva": [
+160,
+440,
+40,
+40
+],
+"luvas_da_imitacao": [
+200,
+440,
+40,
+40
+],
+"manto_de_ohya": [
+240,
+440,
+40,
+40
+],
+"manto_dos_magos_de_farao": [
+280,
+440,
+40,
+40
+],
+"mascara_do_chacal": [
+320,
+440,
+40,
+40
+],
+"pschent_do_farao": [
+360,
+440,
+40,
+40
+],
+"peitoral_de_ouro": [
+400,
+440,
+40,
+40
+],
+"couraca_de_quitina": [
+440,
+440,
+40,
+40
+],
+"arco_de_qebehsenuef": [
+480,
+440,
+40,
+40
+],
+"arpao_do_juncal": [
+520,
+440,
+40,
+40
+],
+"bastao_que_virou_serpente": [
+560,
+440,
+40,
+40
+],
+"malho_de_tubal": [
+600,
+440,
+40,
+40
+],
+"martelo_de_tubal": [
+0,
+480,
+40,
+40
+],
+"cajado_da_cheia": [
+40,
+480,
+40,
+40
+],
+"cajado_das_dez_pragas": [
+80,
+480,
+40,
+40
+],
+"cajado_estrelas_contadas": [
+120,
+480,
+40,
+40
+],
+"balanca_de_barnabe": [
+160,
+480,
+40,
+40
+],
+"cetro_was_do_pesador": [
+200,
+480,
+40,
+40
+],
+"cetro_dos_quatro": [
+240,
+480,
+40,
+40
+],
+"cetro_que_abre_a_garganta": [
+280,
+480,
+40,
+40
+],
+"cimitarra_de_janes": [
+320,
+480,
+40,
+40
+],
+"escopeta_juramento_quebrado": [
+360,
+480,
+40,
+40
+],
+"espada_primeiro_juramento": [
+400,
+480,
+40,
+40
+],
+"falx_de_azazel": [
+440,
+480,
+40,
+40
+],
+"ferrao_de_bronze": [
+480,
+480,
+40,
+40
+],
+"garra_de_ammit": [
+520,
+480,
+40,
+40
+],
+"khopesh_de_ramesses": [
+560,
+480,
+40,
+40
+],
+"lamina_da_pergunta": [
+600,
+480,
+40,
+40
+],
+"astrolabio_do_coro": [
+0,
+520,
+40,
+40
+],
+"pena_que_ficou": [
+40,
+520,
+40,
+40
+],
+"anel_da_nomarca": [
+80,
+520,
+40,
+40
+],
+"anel_de_jambres": [
+120,
+520,
+40,
+40
+],
+"anel_raiz_arvore_mae": [
+160,
+520,
+40,
+40
+],
+"anel_de_sinete_real": [
+200,
+520,
+40,
+40
+],
+"anel_do_primogenito": [
+240,
+520,
+40,
+40
+],
+"ankh_de_serket": [
+280,
+520,
+40,
+40
+],
+"argola_do_deus_crocodilo": [
+320,
+520,
+40,
+40
+],
+"astrolabio_de_kokabiel": [
+360,
+520,
+40,
+40
+],
+"pagina_do_decreto": [
+400,
+520,
+40,
+40
+],
+"mapa_de_bartimeu": [
+440,
+520,
+40,
+40
+],
+"azeite_do_lagar": [
+480,
+520,
+40,
+40
+],
+"vaso_de_imseti": [
+520,
+520,
+40,
+40
+],
+"brasa_viva": [
+560,
+520,
+40,
+40
+],
+"chave_de_pa": [
+600,
+520,
+40,
+40
+],
+"carta_de_simao": [
+0,
+560,
+40,
+40
+],
+"carta_do_sineiro": [
+40,
+560,
+40,
+40
+],
+"selo_do_sonho": [
+80,
+560,
+40,
+40
+],
+"cinta_de_latao": [
+120,
+560,
+40,
+40
+],
+"glifo_da_resposta": [
+160,
+560,
+40,
+40
+],
+"badalo_de_bronze": [
+200,
+560,
+40,
+40
+],
+"olho_de_horus": [
+240,
+560,
+40,
+40
+],
+"olho_que_apaga": [
+280,
+560,
+40,
+40
+],
+"orelha_de_jael": [
+320,
+560,
+40,
+40
+],
+"pena_de_maat_viva": [
+360,
+560,
+40,
+40
+],
+"pena_de_ibis": [
+400,
+560,
+40,
+40
+],
+"saquinho_sementes_salvas": [
+440,
+560,
+40,
+40
+],
+"selo_das_aguas": [
+480,
+560,
+40,
+40
+],
+"selo_dos_doze_patios": [
+520,
+560,
+40,
+40
+],
+"binoculo_de_plantao": [
+560,
+560,
+40,
+40
+],
+"cartucho_sem_nome": [
+600,
+560,
+40,
+40
+],
+"colar_usekh": [
+0,
+600,
+40,
+40
+],
+"colar_de_ouro_de_sobek": [
+40,
+600,
+40,
+40
+],
+"disco_do_sol_terco": [
+80,
+600,
+40,
+40
+],
+"insignia_da_cerca": [
+120,
+600,
+40,
+40
+],
+"corrente_casa_de_maquinas": [
+160,
+600,
+40,
+40
+],
+"escama_palida": [
+200,
+600,
+40,
+40
+],
+"faixa_de_linho_rafael": [
+240,
+600,
+40,
+40
+],
+"letra_raspada_oricalco": [
+280,
+600,
+40,
+40
+],
+"cinza_de_tofete": [
+320,
+600,
+40,
+40
+],
+"coracao_do_farao": [
+360,
+600,
+40,
+40
+],
+"coroa_partida": [
+400,
+600,
+40,
+40
+],
+"elo_partido": [
+440,
+600,
+40,
+40
+],
+"elo_de_corrente": [
+480,
+600,
+40,
+40
+],
+"elo_de_vigilante": [
+520,
+600,
+40,
+40
+],
+"engrenagem_oricalco": [
+560,
+600,
+40,
+40
+],
+"ferrao_de_serket": [
+600,
+600,
+40,
+40
+],
+"ficha_sangue": [
+0,
+640,
+40,
+40
+],
+"flauta_de_osso": [
+40,
+640,
+40,
+40
 ]
 }
