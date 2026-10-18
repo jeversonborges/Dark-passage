@@ -117,6 +117,7 @@ func carregar_mapa(id: String) -> void:
 	if mapa.get("id", "") == "area_inicial": _ajustar_spawns_novato()
 	for s in mapa.get("spawns", []): _criar_spawn(s)
 	if mapa.has("chefe"): chefe = ChefeCtl.new(self, mapa["chefe"])
+	elif mapa.has("agrak"): chefe = AgrakCtl.new(self)   # a arena do Agrak: sem ela o evento não tem o que mostrar
 	if mapa.has("hermon"): hermon = HermonCtl.new(self, mapa["hermon"])
 	emitir("mapa", {"id": id})
 
