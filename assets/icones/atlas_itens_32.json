@@ -2387,12 +2387,6 @@
 32,
 32
 ],
-"coroa_de_serpente_de_amenti": [
-448,
-768,
-32,
-32
-],
 "cinturao_de_ametista": [
 480,
 768,
@@ -2744,6 +2738,12 @@
 "manto_dourado_de_arena": [
 288,
 896,
+32,
+32
+],
+"coroa_de_serpente": [
+448,
+768,
 32,
 32
 ]

@@ -17595,8 +17595,8 @@
       "icone_mochila": "assets/icones/itens/mochila/casulo_vermelho.png"
     },
     {
-      "id": "coroa_de_serpente_de_amenti",
-      "nome": "Coroa de Serpente de Amenti",
+      "id": "coroa_de_serpente",
+      "nome": "Coroa de Serpente",
       "slot": "cabeca",
       "classes": [
         "demonio",
@@ -17623,11 +17623,11 @@
       },
       "defesa": 20,
       "icone": {
-        "64": "assets/icones/itens/64/coroa_de_serpente_de_amenti.png",
-        "40": "assets/icones/itens/40/coroa_de_serpente_de_amenti.png",
-        "32": "assets/icones/itens/32/coroa_de_serpente_de_amenti.png"
+        "64": "assets/icones/itens/64/coroa_de_serpente.png",
+        "40": "assets/icones/itens/40/coroa_de_serpente.png",
+        "32": "assets/icones/itens/32/coroa_de_serpente.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coroa_de_serpente_de_amenti.png"
+      "icone_mochila": "assets/icones/itens/mochila/coroa_de_serpente.png"
     },
     {
       "id": "cinturao_de_ametista",
@@ -18799,12 +18799,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Renda antiga, de uma igreja que já não existe. Os fios ainda guardam cheiro de cera.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 2
       },
       "defesa": 6,
+      "efeito": "Espírito +2. Defesa 6.",
       "icone": {
         "64": "assets/icones/itens/64/veu_de_renda_velha.png",
         "40": "assets/icones/itens/40/veu_de_renda_velha.png",
@@ -18833,12 +18834,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Ferro batido à mão para uma cruzada que terminou em cinzas.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 4
       },
       "defesa": 20,
+      "efeito": "Vitalidade +4. Defesa 20.",
       "icone": {
         "64": "assets/icones/itens/64/elmo_cruzado_de_ferro.png",
         "40": "assets/icones/itens/40/elmo_cruzado_de_ferro.png",
@@ -18868,12 +18870,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Faixas de ferro rebitadas sobre couro velho.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 5
       },
       "defesa": 24,
+      "efeito": "Vitalidade +5. Defesa 24.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_faixas_de_ferro.png",
         "40": "assets/icones/itens/40/peitoral_de_faixas_de_ferro.png",
@@ -18902,7 +18905,7 @@
         1,
         3
       ],
-      "lore": "",
+      "lore": "A lâmina ainda tem folha de ouro, mesmo com ferrugem por baixo.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 6
@@ -18913,6 +18916,7 @@
         70
       ],
       "intervalo": 1.05,
+      "efeito": "Força +6. Dano 44 a 70.",
       "icone": {
         "64": "assets/icones/itens/64/alabarda_dourada.png",
         "40": "assets/icones/itens/40/alabarda_dourada.png",
@@ -18941,13 +18945,14 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Ouro sobre espinhos, para quem cobra o sofrimento alheio.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 6,
         "vit": 3
       },
       "defesa": 10,
+      "efeito": "Espírito +6, Vitalidade +3. Defesa 10.",
       "icone": {
         "64": "assets/icones/itens/64/coroa_de_espinhos_dourada.png",
         "40": "assets/icones/itens/40/coroa_de_espinhos_dourada.png",
@@ -18976,12 +18981,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Manto com cruz de ouro nas costas, desbotado pelo sol do deserto.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 3
       },
       "defesa": 12,
+      "efeito": "Espírito +3. Defesa 12.",
       "icone": {
         "64": "assets/icones/itens/64/manto_da_cruz_dourada.png",
         "40": "assets/icones/itens/40/manto_da_cruz_dourada.png",
@@ -19009,12 +19015,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Chifres limados em serra, feitos para abrir caminho.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 5
       },
       "defesa": 18,
+      "efeito": "Força +5. Defesa 18.",
       "icone": {
         "64": "assets/icones/itens/64/elmo_de_chifres_serrados.png",
         "40": "assets/icones/itens/40/elmo_de_chifres_serrados.png",
@@ -19043,12 +19050,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Espinhos de osso presos ao couro, para quem bate de perto.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 5
       },
       "defesa": 12,
+      "efeito": "Força +5. Defesa 12.",
       "icone": {
         "64": "assets/icones/itens/64/manoplas_de_espinhos.png",
         "40": "assets/icones/itens/40/manoplas_de_espinhos.png",
@@ -19077,7 +19085,7 @@
         1,
         3
       ],
-      "lore": "",
+      "lore": "Cabeça de ferro com um anel azul que não sai com a limpeza.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 5
@@ -19088,6 +19096,7 @@
         64
       ],
       "intervalo": 1.05,
+      "efeito": "Força +5. Dano 40 a 64.",
       "icone": {
         "64": "assets/icones/itens/64/maca_do_pulso_azul.png",
         "40": "assets/icones/itens/40/maca_do_pulso_azul.png",
@@ -19116,7 +19125,7 @@
         1,
         3
       ],
-      "lore": "",
+      "lore": "Cajado com uma pedra de vidro na ponta, lixada pela areia.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 9
@@ -19127,6 +19136,7 @@
         56
       ],
       "intervalo": 1.05,
+      "efeito": "Espírito +9. Dano 34 a 56.",
       "icone": {
         "64": "assets/icones/itens/64/cajado_da_pupila_de_vidro.png",
         "40": "assets/icones/itens/40/cajado_da_pupila_de_vidro.png",
@@ -19155,12 +19165,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Faixas de linho pintadas à mão, presas com cobre.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 5
       },
       "defesa": 12,
+      "efeito": "Espírito +5. Defesa 12.",
       "icone": {
         "64": "assets/icones/itens/64/mascara_de_faixas_sagradas.png",
         "40": "assets/icones/itens/40/mascara_de_faixas_sagradas.png",
@@ -19189,12 +19200,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Bronze gasto pelas areias, com um desenho redondo gravado no peito.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 6
       },
       "defesa": 28,
+      "efeito": "Vitalidade +6. Defesa 28.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_do_olho_de_bronze.png",
         "40": "assets/icones/itens/40/peitoral_do_olho_de_bronze.png",
@@ -19223,12 +19235,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Musgo das margens do Rio Amargo, costurado em lã.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 3
       },
       "defesa": 8,
+      "efeito": "Vitalidade +3. Defesa 8.",
       "icone": {
         "64": "assets/icones/itens/64/capuz_de_musgo_do_amargo.png",
         "40": "assets/icones/itens/40/capuz_de_musgo_do_amargo.png",
@@ -19258,12 +19271,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Garrafas vazias presas ao colete, para carregar água do Amargo.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 4
       },
       "defesa": 16,
+      "efeito": "Vitalidade +4. Defesa 16.",
       "icone": {
         "64": "assets/icones/itens/64/colete_de_garrafas_do_amargo.png",
         "40": "assets/icones/itens/40/colete_de_garrafas_do_amargo.png",
@@ -19294,12 +19308,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Lenço de pano cru com musgo verde, que não sai na lavagem.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 2
       },
       "defesa": 5,
+      "efeito": "Vitalidade +2. Defesa 5.",
       "icone": {
         "64": "assets/icones/itens/64/lenco_musgoso_do_amargo.png",
         "40": "assets/icones/itens/40/lenco_musgoso_do_amargo.png",
@@ -19330,12 +19345,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Couro grosso costurado à mão, com remendos de outro couro.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 3
       },
       "defesa": 14,
+      "efeito": "Vitalidade +3. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/colete_de_couro_costurado.png",
         "40": "assets/icones/itens/40/colete_de_couro_costurado.png",
@@ -19366,12 +19382,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Couro curtido ao sol, duro como casca.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 2
       },
       "defesa": 6,
+      "efeito": "Força +2. Defesa 6.",
       "icone": {
         "64": "assets/icones/itens/64/luvas_de_couro_curtido.png",
         "40": "assets/icones/itens/40/luvas_de_couro_curtido.png",
@@ -19401,11 +19418,12 @@
         1,
         1
       ],
-      "lore": "",
+      "lore": "Pedra lisa com musgo, amarrada em corda.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 3
       },
+      "efeito": "Espírito +3.",
       "icone": {
         "64": "assets/icones/itens/64/pingente_de_pedra_musgosa.png",
         "40": "assets/icones/itens/40/pingente_de_pedra_musgosa.png",
@@ -19435,7 +19453,7 @@
         1,
         3
       ],
-      "lore": "",
+      "lore": "Cajado com sino de latão, enferrujado e sem badalo.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 5
@@ -19446,6 +19464,7 @@
         30
       ],
       "intervalo": 1.05,
+      "efeito": "Espírito +5. Dano 18 a 30.",
       "icone": {
         "64": "assets/icones/itens/64/cajado_de_sino_enferrujado.png",
         "40": "assets/icones/itens/40/cajado_de_sino_enferrujado.png",
@@ -19474,13 +19493,14 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Véu com correntes finas e gotas de vidro.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 5,
         "vit": 2
       },
       "defesa": 8,
+      "efeito": "Espírito +5, Vitalidade +2. Defesa 8.",
       "icone": {
         "64": "assets/icones/itens/64/veu_de_correntes_de_lagrimas.png",
         "40": "assets/icones/itens/40/veu_de_correntes_de_lagrimas.png",
@@ -19509,12 +19529,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Batina preta com cálice de ouro bordado no peito.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 6
       },
       "defesa": 16,
+      "efeito": "Espírito +6. Defesa 16.",
       "icone": {
         "64": "assets/icones/itens/64/batina_do_calice_dourado.png",
         "40": "assets/icones/itens/40/batina_do_calice_dourado.png",
@@ -19544,11 +19565,12 @@
         1,
         1
       ],
-      "lore": "",
+      "lore": "Contas de osso num fio de couro.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 2
       },
+      "efeito": "Espírito +2.",
       "icone": {
         "64": "assets/icones/itens/64/terco_de_ossos.png",
         "40": "assets/icones/itens/40/terco_de_ossos.png",
@@ -19578,11 +19600,12 @@
         1,
         1
       ],
-      "lore": "",
+      "lore": "Anel de ouro com caveira e arcos gravados.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 3
       },
+      "efeito": "Força +3.",
       "icone": {
         "64": "assets/icones/itens/64/anel_da_caveira_dourada.png",
         "40": "assets/icones/itens/40/anel_da_caveira_dourada.png",
@@ -19613,12 +19636,13 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Placa de armadura com marcas de tiro e de arranhão.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "vit": 5
       },
       "defesa": 26,
+      "efeito": "Vitalidade +5. Defesa 26.",
       "icone": {
         "64": "assets/icones/itens/64/peitoral_de_armadura_gasta.png",
         "40": "assets/icones/itens/40/peitoral_de_armadura_gasta.png",
@@ -19648,13 +19672,14 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Coroa de ouro de arena, com a pátina da areia.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "for": 4,
         "vit": 3
       },
       "defesa": 10,
+      "efeito": "Força +4, Vitalidade +3. Defesa 10.",
       "icone": {
         "64": "assets/icones/itens/64/coroa_dourada_de_arena.png",
         "40": "assets/icones/itens/40/coroa_dourada_de_arena.png",
@@ -19685,13 +19710,14 @@
         1,
         2
       ],
-      "lore": "",
+      "lore": "Manto com bordas de ouro, feito para ser visto de longe.",
       "fonte": "design/skills-itens/itens_novos_097_lote7.json",
       "atributos": {
         "esp": 4,
         "vit": 3
       },
       "defesa": 14,
+      "efeito": "Espírito +4, Vitalidade +3. Defesa 14.",
       "icone": {
         "64": "assets/icones/itens/64/manto_dourado_de_arena.png",
         "40": "assets/icones/itens/40/manto_dourado_de_arena.png",
