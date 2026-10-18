@@ -23,6 +23,8 @@ static func criar(sim: WorldSim, classe: String, nome: String, salvo: Dictionary
 	if salvo.is_empty():
 		var arma := _arma_inicial(classe)
 		if arma != "": e.equip["arma"] = Itens.novo(arma)
+		var asa_basica := "asa_basica_" + classe   # Anjo e Demônio já nascem voando (asas do próprio modelo)
+		if Defs.ITENS.has(asa_basica): e.equip["asa"] = Itens.novo(asa_basica)
 		e.inv = []
 		# kit inicial do farm_auto.json: 20 de vida e 10 de recurso (o Cultista paga em HP: mais vida no lugar)
 		for it in [["pocao_vida_p", 20], ["pocao_recurso_p", 10] if classe != "cultista" else ["pocao_vida_p", 10]]:
@@ -1318,6 +1320,9 @@ static func carregar(e: Ent, s: Dictionary) -> void:
 			it["id"] = {"lagrima_anjo": "lagrima_angelica", "fragmento_alma": "lagrima_sanguinea"}.get(it["id"], it["id"])   # joias antigas (até a 0.8.x)
 	for k in e.equip:
 		e.equip[k]["uid"] = int(e.equip[k]["uid"]); e.equip[k]["refino"] = int(e.equip[k].get("refino", 0))
+	var asa_basica := "asa_basica_" + e.classe   # personagem de antes das asas: Anjo e Demônio recebem a básica
+	if Defs.ITENS.has(asa_basica) and not e.equip.has("asa") and Itens.contar(e.inv, asa_basica) == 0 and Itens.contar(e.armazem, asa_basica) == 0:
+		e.equip["asa"] = Itens.novo(asa_basica)
 	e.missoes = s.get("missoes", {}); e.flags = s.get("flags", {}); e.vistas = s.get("vistas", {})
 	Biblioteca.restaurar(e)
 	for mid in e.missoes:

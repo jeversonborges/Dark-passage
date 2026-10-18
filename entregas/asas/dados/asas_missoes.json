@@ -1,0 +1,450 @@
+{
+ "_doc": "Missões de asa do Pedro, o Exilado (pós 0.9.3). Objetivo novo 'ouro' (jogo.patch: missoes.gd). aplicar_dados.py junta em design/missoes/dados/missoes.json.",
+ "missoes": [
+  {
+   "id": "asa_anjo_1_receita",
+   "titulo": "Penas de Quem Não Voa",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 10,
+   "nivel_minimo": 10,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [],
+   "resumo": "Pedro faz a asa de nível 1 se você trouxer tudo.",
+   "descricao": "Pedro precisa de penas de verdade, não de travesseiro: corvo, abutre, querubim. E de lágrimas, porque asa sem lágrima não levanta.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "pena_cinzenta",
+     "qtd": 40
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_angelica",
+     "qtd": 20
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 10000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_anjo_1",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Pedro amarra a última pena com os dentes. \"Bate devagar no começo. Quem bate forte cai forte.\""
+  },
+  {
+   "id": "asa_anjo_2_receita",
+   "titulo": "O Vigia Que Caiu",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 30,
+   "nivel_minimo": 30,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_anjo_1_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 2 se você trouxer tudo.",
+   "descricao": "Para a segunda asa, Pedro quer a primeira de volta, mais penas, lágrimas de sangue e uma prova: Baraquiel, o que respondeu do alto da torre, tem que parar de responder.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_anjo_1",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "pena_cinzenta",
+     "qtd": 120
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "baraquiel",
+     "qtd": 1
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 80000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_anjo_2",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Ele rebita placas de latão no osso e põe brasa em cada rebite. \"Agora ela aguenta cair de uma torre. Eu testei com a dele.\""
+  },
+  {
+   "id": "asa_anjo_3_receita",
+   "titulo": "O Coro Partido",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 70,
+   "nivel_minimo": 70,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_anjo_2_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 3 se você trouxer tudo.",
+   "descricao": "A última asa de penas pede tudo: a segunda asa, penas de um bando inteiro, lágrimas de sangue, e a balança de Anúbis parada no meio da pesagem.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_anjo_2",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "pena_cinzenta",
+     "qtd": 250
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "anubis_pesador",
+     "qtd": 1
+    },
+    {
+     "tipo": "matar",
+     "alvo": "guardiao_falcao",
+     "qtd": 200
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 400000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_anjo_3",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Dois pares, um em cima do outro. Quando o vento entra, o de baixo canta. Pedro não pergunta a letra. Você também não sabe."
+  },
+  {
+   "id": "asa_demonio_1_receita",
+   "titulo": "Couro Que Ainda Lembra",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 10,
+   "nivel_minimo": 10,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [],
+   "resumo": "Pedro faz a asa de nível 1 se você trouxer tudo.",
+   "descricao": "Pele de demônio, seca no sol, das que ainda esquentam na mão. Pedro estica no osso e costura com lágrima.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "pele_ressecada",
+     "qtd": 40
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_angelica",
+     "qtd": 20
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 10000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_demonio_1",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Ele dobra a asa, abre de novo e escuta o rangido. \"Está viva o bastante. Não conta para a Legião onde você arrumou.\""
+  },
+  {
+   "id": "asa_demonio_2_receita",
+   "titulo": "A Legião Sem Sangue",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 30,
+   "nivel_minimo": 30,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_demonio_1_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 2 se você trouxer tudo.",
+   "descricao": "Couro grosso, lágrimas de sangue e trezentos legionários a menos no mundo. A primeira asa entra no fogo para virar a segunda.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_demonio_1",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "pele_ressecada",
+     "qtd": 120
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "centuriao_sem_bandeira",
+     "qtd": 150
+    },
+    {
+     "tipo": "matar",
+     "alvo": "bombardeiro_legiao",
+     "qtd": 150
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 80000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_demonio_2",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Pedro crava ganchos de açougue nas juntas. \"O Abatedouro também voa. Só não conta para o Carniça.\""
+  },
+  {
+   "id": "asa_demonio_3_receita",
+   "titulo": "A Legião Blasfema",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 70,
+   "nivel_minimo": 70,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_demonio_2_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 3 se você trouxer tudo.",
+   "descricao": "Pele de demônio velho, lágrimas de sangue e a serpente sem fim cortada em algum lugar do meio. Pedro só abre a forja depois disso.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_demonio_2",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "pele_ressecada",
+     "qtd": 250
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "apofis",
+     "qtd": 1
+    },
+    {
+     "tipo": "matar",
+     "alvo": "cria_de_apofis",
+     "qtd": 200
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 400000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_demonio_3",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "A membrana racha em brasa a cada batida. \"A Legião perdeu o general\", diz Pedro, \"não as asas. Agora uma delas é sua.\""
+  },
+  {
+   "id": "asa_mecanica_1_receita",
+   "titulo": "Fogo Verde nas Costas",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 10,
+   "nivel_minimo": 10,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [],
+   "resumo": "Pedro faz a asa de nível 1 se você trouxer tudo.",
+   "descricao": "Engrenagens de qualquer coisa que já girou. Pedro monta um foguete de cada lado e um tanque de Amargo no meio.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "engrenagem_gasta",
+     "qtd": 40
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_angelica",
+     "qtd": 20
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 10000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_mecanica_1",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "A chama acende verde e o rio inteiro fica da cor dela. Pedro ri alto. \"Não respire quando acender. Nem quando apagar.\""
+  },
+  {
+   "id": "asa_mecanica_2_receita",
+   "titulo": "A Voz no Fio",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 30,
+   "nivel_minimo": 30,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_mecanica_1_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 2 se você trouxer tudo.",
+   "descricao": "Pedro precisa de engrenagens, lágrimas de sangue e silêncio na torre de rádio: o Telegrafista e os guarda-fios que ainda escutam por ele.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_mecanica_1",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "engrenagem_gasta",
+     "qtd": 120
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "o_telegrafista",
+     "qtd": 1
+    },
+    {
+     "tipo": "matar",
+     "alvo": "guarda_fios",
+     "qtd": 100
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 80000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_mecanica_2",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Ele monta as lâminas de chapa num braço de pistão e dá corda. \"Abre como pena. Fecha como guilhotina. Cuidado com os dedos.\""
+  },
+  {
+   "id": "asa_mecanica_3_receita",
+   "titulo": "O Silo",
+   "tipo": "secundaria",
+   "faccao": "ambas",
+   "nivel": 70,
+   "nivel_minimo": 70,
+   "doador": "pedro_exilado",
+   "entrega": "pedro_exilado",
+   "requer": [
+    "asa_mecanica_2_receita"
+   ],
+   "resumo": "Pedro faz a asa de nível 3 se você trouxer tudo.",
+   "descricao": "Pedro diz que as melhores peças estão no Egito, dentro de esfinges que andam, e no túmulo de um faraó que esqueceu o próprio nome.",
+   "objetivos": [
+    {
+     "tipo": "coletar",
+     "item": "asa_mecanica_2",
+     "qtd": 1,
+     "nota": "a asa anterior, na mochila (não equipada)"
+    },
+    {
+     "tipo": "coletar",
+     "item": "engrenagem_gasta",
+     "qtd": 250
+    },
+    {
+     "tipo": "coletar",
+     "item": "lagrima_sanguinea",
+     "qtd": 20
+    },
+    {
+     "tipo": "matar",
+     "alvo": "farao_sem_nome",
+     "qtd": 1
+    },
+    {
+     "tipo": "matar",
+     "alvo": "esfinge_carneiro",
+     "qtd": 200
+    },
+    {
+     "tipo": "ouro",
+     "qtd": 400000
+    }
+   ],
+   "recompensas": {
+    "itens": [
+     {
+      "id": "asa_mecanica_3",
+      "qtd": 1
+     }
+    ]
+   },
+   "texto_conclusao": "Ele aperta o último parafuso e fica olhando para o tanque. \"Essas peças vieram do silo de São Lázaro. Queimam o mesmo verde que caiu do céu. Use melhor do que eles usaram.\""
+  }
+ ]
+}

@@ -41,6 +41,8 @@ static func _obj_feito(jog: Ent, mid: String, i: int, npc_ignora: String) -> boo
 	match o["tipo"]:
 		"coletar":
 			return Itens.contar(jog.inv, o["item"]) >= int(o.get("qtd", 1))
+		"ouro":   # paga na entrega (asas do Pedro)
+			return jog.ouro >= int(o.get("qtd", 1))
 		"chefes_dungeon":   # Livro dos Vencidos: todos os chefes de dungeon até o nível pedido (o espelho conta)
 			var cd := _chefes_feitos(jog, int(o.get("ate_nivel", 0)))
 			return cd[0] >= cd[1]
@@ -65,6 +67,7 @@ static func progresso(jog: Ent, mid: String, i: int) -> Array:
 	var prog: Array = jog.missoes.get(mid, {}).get("prog", [])
 	var tot := int(o.get("qtd", 1))
 	if o["tipo"] == "coletar": return [mini(Itens.contar(jog.inv, o["item"]), tot), tot]
+	if o["tipo"] == "ouro": return [mini(jog.ouro, tot), tot]
 	if o["tipo"] == "chefes_dungeon": return _chefes_feitos(jog, int(o.get("ate_nivel", 0)))
 	return [mini(int(prog[i]) if i < prog.size() else 0, tot), tot]
 
@@ -108,6 +111,7 @@ static func concluir(sim: WorldSim, jog: Ent, mid: String, escolha: String = "")
 			return
 	for o in d["objetivos"]:
 		if o["tipo"] == "coletar": Itens.remover(jog.inv, o["item"], int(o.get("qtd", 1)))
+		if o["tipo"] == "ouro": jog.ouro -= int(o.get("qtd", 1))
 	var rec: Dictionary = d.get("recompensas", {}).duplicate(true)
 	for e in d.get("escolhas", []):
 		if e["id"] == escolha:
@@ -305,7 +309,10 @@ static func texto_objetivo(o: Dictionary) -> String:
 		"matar":
 			var nm: String = Defs.MON_TXT.get(o["alvo"], {}).get("nome", Defs.MOBS.get(o["alvo"], {}).get("nome", o["alvo"]))
 			return "Mate %s" % nm if q <= 1 else "Mate %d × %s" % [q, nm]
-		"coletar": return "Consiga %s" % Defs.ITENS.get(o["item"], {}).get("nome", o["item"])
+		"coletar":
+			var nmi: String = Defs.ITENS.get(o["item"], {}).get("nome", o["item"])
+			return "Consiga %s" % nmi if q <= 1 else "Consiga %d × %s" % [q, nmi]
+		"ouro": return "Traga %d de ouro" % q
 		"interagir":
 			var nm2: String = Defs.OBJETOS.get(o.get("objeto", ""), {}).get("nome", Defs.BAUS_HIST.get(o.get("objeto", ""), {}).get("nome", str(o.get("objeto", "")).replace("_", " ")))
 			return "Examine %s" % nm2

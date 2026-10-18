@@ -1,0 +1,521 @@
+{
+ "_doc": "Itens do sistema de asas (pós 0.9.3). aplicar_dados.py junta em design/skills-itens/fontes/itens_data.py -> itens.json.",
+ "itens": [
+  {
+   "id": "asa_basica_anjo",
+   "nome": "Asas Caídas",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 0,
+   "nivel": 1,
+   "defesa": 4,
+   "bonus_fixo": {
+    "dano_pct": 0.03,
+    "reduz_dano": 0.03
+   },
+   "raridade": "comum",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Caíram junto com ele. Ainda batem por hábito.",
+   "visual": null,
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_basica_anjo.png",
+    "40": "assets/icones/itens/40/asa_basica_anjo.png",
+    "32": "assets/icones/itens/32/asa_basica_anjo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_basica_anjo.png",
+   "vinculado": true,
+   "classes": [
+    "anjo"
+   ],
+   "nota": "visual = asas do modelo da classe (sem camada)"
+  },
+  {
+   "id": "asa_basica_demonio",
+   "nome": "Asas Rasgadas",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "demonio",
+   "tier": 0,
+   "nivel": 1,
+   "defesa": 4,
+   "bonus_fixo": {
+    "dano_pct": 0.03,
+    "reduz_dano": 0.03
+   },
+   "raridade": "comum",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Couro velho de outra guerra. Rasgou em todas.",
+   "visual": null,
+   "tags": [
+    "asa:demonio"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_basica_demonio.png",
+    "40": "assets/icones/itens/40/asa_basica_demonio.png",
+    "32": "assets/icones/itens/32/asa_basica_demonio.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_basica_demonio.png",
+   "vinculado": true,
+   "classes": [
+    "demonio"
+   ],
+   "nota": "visual = asas do modelo da classe (sem camada)"
+  },
+  {
+   "id": "asa_anjo_1",
+   "nome": "Asas do Penitente",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 1,
+   "nivel": 10,
+   "defesa": 12,
+   "bonus_fixo": {
+    "dano_pct": 0.08,
+    "reduz_dano": 0.08
+   },
+   "raridade": "raro",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Penas de corvo e de abutre, amarradas uma a uma com tira de couro. Voam por teimosia.",
+   "visual": "asa_anjo_1",
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_anjo_1.png",
+    "40": "assets/icones/itens/40/asa_anjo_1.png",
+    "32": "assets/icones/itens/32/asa_anjo_1.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_anjo_1.png"
+  },
+  {
+   "id": "asa_anjo_2",
+   "nome": "Asas do Vigia Caído",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 2,
+   "nivel": 30,
+   "defesa": 30,
+   "bonus_fixo": {
+    "dano_pct": 0.16,
+    "reduz_dano": 0.16,
+    "hp": 150
+   },
+   "raridade": "excelente",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Placas de latão rebitadas no osso e brasa nos rebites. Quem caiu de vigia aprende a cair devagar.",
+   "visual": "asa_anjo_2",
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_anjo_2.png",
+    "40": "assets/icones/itens/40/asa_anjo_2.png",
+    "32": "assets/icones/itens/32/asa_anjo_2.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_anjo_2.png"
+  },
+  {
+   "id": "asa_anjo_3",
+   "nome": "Asas do Coro Partido",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 3,
+   "nivel": 70,
+   "defesa": 60,
+   "bonus_fixo": {
+    "dano_pct": 0.24,
+    "reduz_dano": 0.24,
+    "hp": 400
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Dois pares. O de baixo canta quando o vento entra. Ninguém mais lembra a letra.",
+   "visual": "asa_anjo_3",
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_anjo_3.png",
+    "40": "assets/icones/itens/40/asa_anjo_3.png",
+    "32": "assets/icones/itens/32/asa_anjo_3.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_anjo_3.png"
+  },
+  {
+   "id": "asa_demonio_1",
+   "nome": "Asas de Couro Seco",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "demonio",
+   "tier": 1,
+   "nivel": 10,
+   "defesa": 12,
+   "bonus_fixo": {
+    "dano_pct": 0.11,
+    "reduz_dano": 0.06
+   },
+   "raridade": "raro",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Pele de demônio esticada no osso e curtida no sol do Absinto. Range quando abre.",
+   "visual": "asa_demonio_1",
+   "tags": [
+    "asa:demonio"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_demonio_1.png",
+    "40": "assets/icones/itens/40/asa_demonio_1.png",
+    "32": "assets/icones/itens/32/asa_demonio_1.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_demonio_1.png"
+  },
+  {
+   "id": "asa_demonio_2",
+   "nome": "Asas do Carniceiro",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "demonio",
+   "tier": 2,
+   "nivel": 30,
+   "defesa": 30,
+   "bonus_fixo": {
+    "dano_pct": 0.22,
+    "reduz_dano": 0.12,
+    "hp": 150
+   },
+   "raridade": "excelente",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Ganchos de açougue cravados na junta e corrente na borda. O Abatedouro também voa.",
+   "visual": "asa_demonio_2",
+   "tags": [
+    "asa:demonio"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_demonio_2.png",
+    "40": "assets/icones/itens/40/asa_demonio_2.png",
+    "32": "assets/icones/itens/32/asa_demonio_2.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_demonio_2.png"
+  },
+  {
+   "id": "asa_demonio_3",
+   "nome": "Asas da Legião Blasfema",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "demonio",
+   "tier": 3,
+   "nivel": 70,
+   "defesa": 60,
+   "bonus_fixo": {
+    "dano_pct": 0.33,
+    "reduz_dano": 0.18,
+    "hp": 400
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "A membrana racha em brasa a cada batida. A Legião perdeu o general, não as asas.",
+   "visual": "asa_demonio_3",
+   "tags": [
+    "asa:demonio"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_demonio_3.png",
+    "40": "assets/icones/itens/40/asa_demonio_3.png",
+    "32": "assets/icones/itens/32/asa_demonio_3.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_demonio_3.png"
+  },
+  {
+   "id": "asa_mecanica_1",
+   "nome": "Mochila de Foguetes",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "mecanica",
+   "tier": 1,
+   "nivel": 10,
+   "defesa": 12,
+   "bonus_fixo": {
+    "dano_pct": 0.08,
+    "reduz_dano": 0.06,
+    "velocidade_ataque": 0.04
+   },
+   "raridade": "raro",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Um foguete de latão de cada lado e um tanque de Amargo no meio. A chama sai verde. Não respire.",
+   "visual": "asa_mecanica_1",
+   "tags": [
+    "asa:mecanica"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_mecanica_1.png",
+    "40": "assets/icones/itens/40/asa_mecanica_1.png",
+    "32": "assets/icones/itens/32/asa_mecanica_1.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_mecanica_1.png"
+  },
+  {
+   "id": "asa_mecanica_2",
+   "nome": "Asas de Lata",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "mecanica",
+   "tier": 2,
+   "nivel": 30,
+   "defesa": 30,
+   "bonus_fixo": {
+    "dano_pct": 0.16,
+    "reduz_dano": 0.12,
+    "hp": 150,
+    "velocidade_ataque": 0.08
+   },
+   "raridade": "excelente",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Lâminas de chapa num braço de pistão, abrindo como pena. Dois foguetes por lado.",
+   "visual": "asa_mecanica_2",
+   "tags": [
+    "asa:mecanica"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_mecanica_2.png",
+    "40": "assets/icones/itens/40/asa_mecanica_2.png",
+    "32": "assets/icones/itens/32/asa_mecanica_2.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_mecanica_2.png"
+  },
+  {
+   "id": "asa_mecanica_3",
+   "nome": "Asas do Silo",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "mecanica",
+   "tier": 3,
+   "nivel": 70,
+   "defesa": 60,
+   "bonus_fixo": {
+    "dano_pct": 0.24,
+    "reduz_dano": 0.18,
+    "hp": 400,
+    "velocidade_ataque": 0.12
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Foram peças do silo de São Lázaro. Agora queimam o mesmo verde que caiu do céu.",
+   "visual": "asa_mecanica_3",
+   "tags": [
+    "asa:mecanica"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_mecanica_3.png",
+    "40": "assets/icones/itens/40/asa_mecanica_3.png",
+    "32": "assets/icones/itens/32/asa_mecanica_3.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_mecanica_3.png"
+  },
+  {
+   "id": "asa_andras",
+   "nome": "Asa Partida de Andras",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "demonio",
+   "tier": 2,
+   "nivel": 30,
+   "defesa": 34,
+   "bonus_fixo": {
+    "dano_pct": 0.2,
+    "reduz_dano": 0.12,
+    "hp": 150,
+    "roubo_de_vida": 0.02
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Uma inteira, outra cortada no meio pelo bonde da Odete. Ele se arrastou com elas por três dias.",
+   "visual": "asa_andras",
+   "tags": [
+    "asa:demonio"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_andras.png",
+    "40": "assets/icones/itens/40/asa_andras.png",
+    "32": "assets/icones/itens/32/asa_andras.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_andras.png",
+   "fonte": "chefe:general_partido"
+  },
+  {
+   "id": "asa_carpideira",
+   "nome": "Véu da Carpideira",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 2,
+   "nivel": 30,
+   "defesa": 34,
+   "bonus_fixo": {
+    "dano_pct": 0.15,
+    "reduz_dano": 0.16,
+    "hp": 150,
+    "res": {
+     "sagrado": 0.1
+    }
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Penas pretas de luto e um véu de crepe. Pingam lágrimas frias que não molham o chão.",
+   "visual": "asa_carpideira",
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_carpideira.png",
+    "40": "assets/icones/itens/40/asa_carpideira.png",
+    "32": "assets/icones/itens/32/asa_carpideira.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_carpideira.png",
+   "fonte": "chefe:irma_celeste"
+  },
+  {
+   "id": "asa_zacarias",
+   "nome": "Asas da Trombeta Calada",
+   "slot": "asa",
+   "categoria": "asa",
+   "tipo_asa": "anjo",
+   "tier": 3,
+   "nivel": 70,
+   "defesa": 64,
+   "bonus_fixo": {
+    "dano_pct": 0.27,
+    "reduz_dano": 0.2,
+    "hp": 400,
+    "critico": 0.03
+   },
+   "raridade": "lendario",
+   "grade": [
+    3,
+    2
+   ],
+   "lore": "Três trombetas presas no osso de cada asa. Nenhuma toca. Todas estão prontas.",
+   "visual": "asa_zacarias",
+   "tags": [
+    "asa:anjo"
+   ],
+   "icone": {
+    "64": "assets/icones/itens/64/asa_zacarias.png",
+    "40": "assets/icones/itens/40/asa_zacarias.png",
+    "32": "assets/icones/itens/32/asa_zacarias.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/asa_zacarias.png",
+   "fonte": "chefe:zacarias_arauto"
+  },
+  {
+   "id": "pena_cinzenta",
+   "nome": "Pena Cinzenta",
+   "categoria": "material",
+   "pilha": 250,
+   "grade": [
+    1,
+    1
+   ],
+   "tags": [
+    "material:pena_cinzenta"
+   ],
+   "lore": "Corvo, abutre, querubim: no Absinto a pena é a mesma cinza.",
+   "motivo": "pena",
+   "tint": "cinza",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_cinzenta.png",
+    "40": "assets/icones/itens/40/pena_cinzenta.png",
+    "32": "assets/icones/itens/32/pena_cinzenta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_cinzenta.png"
+  },
+  {
+   "id": "pele_ressecada",
+   "nome": "Pele Ressecada",
+   "categoria": "material",
+   "pilha": 250,
+   "grade": [
+    1,
+    1
+   ],
+   "tags": [
+    "material:pele_ressecada"
+   ],
+   "lore": "Couro de demônio seco no sol. Ainda esquenta na mão.",
+   "motivo": "couro",
+   "tint": "sangue",
+   "icone": {
+    "64": "assets/icones/itens/64/pele_ressecada.png",
+    "40": "assets/icones/itens/40/pele_ressecada.png",
+    "32": "assets/icones/itens/32/pele_ressecada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pele_ressecada.png"
+  },
+  {
+   "id": "engrenagem_gasta",
+   "nome": "Engrenagem Gasta",
+   "categoria": "material",
+   "pilha": 250,
+   "grade": [
+    1,
+    1
+   ],
+   "tags": [
+    "material:engrenagem_gasta"
+   ],
+   "lore": "Dente quebrado, eixo torto. O Pedro aproveita tudo.",
+   "motivo": "engrenagem",
+   "tint": "latao",
+   "icone": {
+    "64": "assets/icones/itens/64/engrenagem_gasta.png",
+    "40": "assets/icones/itens/40/engrenagem_gasta.png",
+    "32": "assets/icones/itens/32/engrenagem_gasta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/engrenagem_gasta.png"
+  }
+ ]
+}

@@ -736,5 +736,92 @@
       "_doc": "momento de recompensa: a sala acende vela por vela antes do bau abrir"
     }
   },
-  "_revisao_1610": "Revisao 16/10/2026: reliquia por abate passa a ~4,5% no Capataz, ~8% no Filho de Cardo e 11% a 14% nos chefes (era 11,5%, 28% e 28% a 47%); joia:refino nos chefes 8% por rolagem; tirados os itens garantidos que nao existiam (estandarte_roido, veu_da_carpideira, bocal_da_trombeta, coracao_de_cardo). Faixas 3 a 5 de opcoes criadas."
+  "_revisao_1610": "Revisao 16/10/2026: reliquia por abate passa a ~4,5% no Capataz, ~8% no Filho de Cardo e 11% a 14% nos chefes (era 11,5%, 28% e 28% a 47%); joia:refino nos chefes 8% por rolagem; tirados os itens garantidos que nao existiam (estandarte_roido, veu_da_carpideira, bocal_da_trombeta, coracao_de_cardo). Faixas 3 a 5 de opcoes criadas.",
+  "materiais_asa": {
+    "_doc": "Rolagem pessoal por abate, fora da tabela do mob. Chance pela tag do mob (vale a maior). Mesmos multiplicadores das lágrimas.",
+    "itens": {
+      "pena_cinzenta": {
+        "tags": {
+          "voador": 0.02,
+          "celestial": 0.008
+        }
+      },
+      "pele_ressecada": {
+        "tags": {
+          "demonio": 0.015
+        }
+      },
+      "engrenagem_gasta": {
+        "tags": {
+          "construto": 0.025,
+          "cultista": 0.012,
+          "inaudivel": 0.012,
+          "humano": 0.005
+        }
+      }
+    },
+    "mult": {
+      "spot": 1.25,
+      "elite": 3,
+      "chefe": 5
+    },
+    "mob_muito_abaixo": "não solta material se o mob estiver 10+ níveis abaixo do jogador"
+  },
+  "asas_de_chefe": {
+    "_doc": "Asa pronta, rara, rolada a cada abate do chefe (loot pessoal).",
+    "general_partido": [
+      {
+        "item": "asa_andras",
+        "chance": 0.004
+      }
+    ],
+    "irma_celeste": [
+      {
+        "item": "asa_carpideira",
+        "chance": 0.004
+      }
+    ],
+    "zacarias_arauto": [
+      {
+        "item": "asa_zacarias",
+        "chance": 0.0025
+      }
+    ],
+    "baraquiel": [
+      {
+        "item": "asa_anjo_2",
+        "chance": 0.005
+      }
+    ],
+    "o_telegrafista": [
+      {
+        "item": "asa_mecanica_2",
+        "chance": 0.005
+      }
+    ],
+    "malaquias_ouvinte_cego": [
+      {
+        "item": "asa_demonio_2",
+        "chance": 0.005
+      }
+    ],
+    "anubis_pesador": [
+      {
+        "item": "asa_anjo_3",
+        "chance": 0.002
+      }
+    ],
+    "apofis": [
+      {
+        "item": "asa_demonio_3",
+        "chance": 0.002
+      }
+    ],
+    "farao_sem_nome": [
+      {
+        "item": "asa_mecanica_3",
+        "chance": 0.002
+      }
+    ]
+  }
 }

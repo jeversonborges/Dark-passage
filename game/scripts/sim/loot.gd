@@ -79,6 +79,7 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		var pid := "pocao_vida_p" if r0 < 50.0 else ("pocao_recurso_p" if r0 < 90.0 else ("pocao_vida_m" if r0 < 96.0 else "pocao_recurso_m"))
 		if Defs.ITENS.has(pid): sim.soltar_no_chao(Itens.novo(pid), e.pos, jog.id, e.pos)
 	_rolar_lagrimas(sim, e, jog, tab_id)
+	_rolar_materiais_asa(sim, e, jog)
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
 	for gid in tab.get("garantido", []):
@@ -123,6 +124,29 @@ static func _rolar_lagrimas(sim: WorldSim, e: Ent, jog: Ent, tab_id) -> void:
 		if id == "lagrima_angelica" and str(tab_id) == "cripta_celestial": p *= float(m.get("angelica_de_celestial", 1.0))
 		if Defs.ITENS.has(id) and sim.rng.randf() < p:
 			sim.soltar_no_chao(Itens.novo(id), e.pos, jog.id, e.pos)
+
+## Materiais de asa (drops.json "materiais_asa"): pena de ave, pele de demônio, engrenagem; rolagem pessoal pela tag do mob.
+## Chefes rolam também a asa pronta da tabela "asas_de_chefe".
+static func _rolar_materiais_asa(sim: WorldSim, e: Ent, jog: Ent) -> void:
+	var M: Dictionary = Defs.DROPS.get("materiais_asa", {})
+	if not M.is_empty() and jog.nivel - e.nivel < 10:
+		var mm: Dictionary = M.get("mult", {})
+		var mult := 1.0
+		if e.tipo == "chefe": mult *= float(mm.get("chefe", 1.0))
+		elif e.arquetipo == "elite" or e.arquetipo == "raro": mult *= float(mm.get("elite", 1.0))
+		if e.tipo == "monstro" and (str(e.aux.get("spot", "")) != "" or sim.spot_em(e.pos) != ""): mult *= float(mm.get("spot", 1.0))
+		var tags: Array = e.tags if not e.tags.is_empty() else Defs.MOBS.get(e.kind, {}).get("tags", [])
+		for id in M["itens"]:
+			var p := 0.0
+			var por_tag: Dictionary = M["itens"][id]["tags"]
+			for t in tags:
+				p = maxf(p, float(por_tag.get(t, 0.0)))
+			if p > 0.0 and Defs.ITENS.has(id) and sim.rng.randf() < p * mult:
+				sim.soltar_no_chao(Itens.novo(id), e.pos, jog.id, e.pos)
+	if e.tipo == "chefe":
+		for a in Defs.DROPS.get("asas_de_chefe", {}).get(e.kind, []):
+			if Defs.ITENS.has(a["item"]) and sim.rng.randf() < float(a["chance"]):
+				sim.soltar_no_chao(Itens.novo(a["item"]), e.pos, jog.id, e.pos)
 
 static func _soltar_ouro(sim: WorldSim, g: int, p: Vector2, jog: Ent) -> void:
 	if g <= 0: return

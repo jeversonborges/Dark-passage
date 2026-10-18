@@ -21,6 +21,8 @@ static func visual_armas(e: Ent) -> Dictionary:
 	for slot in ["arma", "segunda_mao"]:
 		var it: Dictionary = e.equip.get(slot, {})
 		if not it.is_empty(): out[slot] = {"id": str(it["id"]), "ref": int(it.get("refino", 0))}
+	var asa: Dictionary = e.equip.get("asa", {})   # asa equipável (assets/asas): o cliente troca o corpo e desenha a camada
+	if not asa.is_empty(): out["asa"] = {"id": str(asa["id"])}
 	return out
 
 static func recalc_jogador(e: Ent) -> void:
@@ -44,6 +46,7 @@ static func recalc_jogador(e: Ent) -> void:
 	var mn := Defs.expr(perfil[0], NOMES_ATTR, vals) + float(arma["min"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
 	var mx := Defs.expr(perfil[1], NOMES_ATTR, vals) + float(arma["max"]) + float(b["dano_plano"]) + float(b["dano_magico_extra"])
 	var dm := Evolucao.mult(e, "dano_mult") * (Evolucao.mult(e, "dano_magico_mult") if c["perfil_dano"] == "magico" else 1.0)
+	dm *= 1.0 + float(b["dano_pct"])   # asas (bonus_fixo.dano_pct)
 	mn *= dm; mx *= dm
 	e.dano_min = mn; e.dano_max = maxf(mx, mn)
 	if c["perfil_dano"] == "hibrido":
