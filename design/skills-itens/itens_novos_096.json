@@ -253,8 +253,8 @@
         "defesa": 6,
         "esp": 5
       },
-      "efeito": "Relíquia: ao matar, solta um lamento em cone que deixa os alvos lentos por 3 s.",
-      "descricao": "Véu de crepe negro, pesado de cera. A Carpideira usou até a última lágrima; este ficou para o próximo.",
+      "efeito": "Relíquia: ao matar, solta um lamento em cone que deixa os alvos lentos por 3 s e cura 1% da sua vida máxima por alvo atingido.",
+      "descricao": "Véu de crepe negro, bordado com lágrimas de cera prateada. Uma gota de vidro vermelho pende da testa e cai até o peito. A Carpideira usou até a última lágrima; este ficou para o próximo.",
       "tags": [
         "lendario:cripta"
       ],
@@ -382,8 +382,8 @@
         "esp": 4,
         "vit": 3
       },
-      "efeito": "Relíquia: +10% de cura feita e recebida; ouve-se um coro baixinho ao curar.",
-      "descricao": "Contas de osso de um rosário que foi passado de mão em mão no coro. Cada conta tem um nome riscado.",
+      "efeito": "Relíquia: +10% de cura feita e recebida; ao curar, ouve-se um coro baixinho e a conta da cura brilha por 1 s.",
+      "descricao": "Contas de osso, cada uma com um nome riscado. Um crucifixo de latão cheio de cera pende do fio de ouro; a cruz acende fraco quando você cura.",
       "tags": [
         "lendario:cripta"
       ],
@@ -1668,7 +1668,7 @@
         "vit": 10
       },
       "efeito": "Relíquia: a cada 20 s, o próximo golpe ressoa e atordoa o alvo por 1 s.",
-      "descricao": "Relicário de bronze com uma trombeta dentro. Tocada uma vez, ninguém se lembra de quem tocou.",
+      "descricao": "Relicário de bronze com tampa de dobradiça. Ao abrir, sai uma trombeta em miniatura de latão com uma chama fraca dentro do bocal. Tocada uma vez, ninguém se lembra de quem tocou.",
       "tags": [
         "lendario:cripta"
       ],
@@ -1698,13 +1698,76 @@
         "esp": 12
       },
       "efeito": "Relíquia: +6% de dano; ao receber dano letal, fica com 1 de vida por 1 s (uma vez a cada 60 s).",
-      "descricao": "Coroa de arame de cobre, quebrada num lado, usada por quem toca o último sino.",
+      "descricao": "Arame de cobre quebrado de um lado, com um sininho pendurado no aro e pedaços de vidro de vela presos nas voltas. Usada por quem toca o último sino.",
       "tags": [
         "lendario:cripta"
       ],
       "citacao": {
         "texto": "Quem chega ao fim do arame ainda tem o aro.",
         "autor": "Zacarias, o Arauto da Trombeta Calada"
+      }
+    },
+    {
+      "id": "foice_do_arauto_calado",
+      "nome": "Foice do Arauto Calado",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio",
+        "warlord"
+      ],
+      "raridade": "unico",
+      "nivel": 66,
+      "origem": "drop:chefe_zacarias",
+      "chance_sugerida": 0.01,
+      "conjunto": null,
+      "atributos": {
+        "dano": [
+          150,
+          230
+        ],
+        "for": 18
+      },
+      "efeito": "Relíquia: golpes críticos deixam o alvo em silêncio por 2 s; a cada 10 s, o próximo golpe acerta duas vezes.",
+      "descricao": "Cabo de osso escuro com lâmina em forma de sino fundido, a borda com cera vermelha escorrendo. Ao girar, a lâmina não faz som.",
+      "tags": [
+        "lendario:cripta"
+      ],
+      "citacao": {
+        "texto": "O sino não toca, mas corta.",
+        "autor": "Zacarias, o Arauto da Trombeta Calada"
+      }
+    },
+    {
+      "id": "cajado_do_sino_parado",
+      "nome": "Cajado do Sino Parado",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "anjo",
+        "cultista",
+        "tecnomancer"
+      ],
+      "raridade": "unico",
+      "nivel": 66,
+      "origem": "drop:chefe_celeste",
+      "chance_sugerida": 0.01,
+      "conjunto": null,
+      "atributos": {
+        "dano": [
+          130,
+          200
+        ],
+        "esp": 22
+      },
+      "efeito": "Relíquia: skills de área deixam um eco de sino que cura 3% da vida máxima dos aliados a cada 4 s, por 8 s.",
+      "descricao": "Haste de madeira preta, com um sino de bronze mudo na ponta, fitas de linho e cera de vela presas. Um olho pintado no bojo do sino acompanha o alvo.",
+      "tags": [
+        "lendario:cripta"
+      ],
+      "citacao": {
+        "texto": "Quem ouve o sino parado não se cansa de rezar.",
+        "autor": "Irmã Celeste, a Carpideira"
       }
     }
   ],
