@@ -41,7 +41,7 @@ func _ready() -> void:
 				[0.1, "forja_sel", ""], [0.6, "foto", "forja_2_sel"], [0.3, "fim", ""]]
 		"vendedor_pets":   # vendedor de pets: cartões com o pet, depois um comprado no slot Pet do inventário
 			roteiro = [[2.5, "preparar_pets", ""], [0.2, "abrir_pets", ""], [1.2, "foto", "pets_1_vendedor"],
-				[0.2, "comprar_pet", "cervo_de_lume"], [0.4, "janela", "inventario"], [1.0, "foto", "pets_2_slot"], [0.3, "fim", ""]]
+				[0.2, "comprar_pet", "cervo_de_lume"], [1.0, "foto", "pets_2_slot"], [0.3, "fim", ""]]
 		"chefe":
 			roteiro = [[1.5, "forte", ""], [0.1, "lutar_chefe", ""], [6.0, "foto", "c1"], [6.0, "foto", "c2"], [8.0, "foto", "c3"], [0.5, "fim", ""]]
 		"tour":
@@ -159,6 +159,7 @@ func _process(dt: float) -> void:
 			_preparar_menu()
 			jogo.jog.ouro = 20000
 		"abrir_pets":
+			jogo.jog.aux["servico"] = {"tipo": "coletor", "npc": jogo.jog.id}   # o que o servidor põe ao falar com o NPC
 			jogo.janelas.servico({"tipo": "coletor", "titulo": "Dulce Gaiola", "fala": "Eles sabem onde estão as coisas boas. Só falta alguém que pague.", "npc": jogo.jog.id})
 		"comprar_pet":
 			jogo.cmd("coletor", ["comprar", p[2]])
