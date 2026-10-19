@@ -263,15 +263,16 @@ func receber(peer: int, m: Dictionary) -> void:
 					srv._para(p, "gm_anuncio", {"texto": txt})
 			_log(peer, "aviso: " + txt)
 		"agrak":
+			var r_agrak := ""
 			match str(m.get("modo", "")):
-				"abrir":   # inscrição aberta, luta em 1 minuto (Cartaz do Agrak ou Caim e Abel)
+				"abrir":   # inscrição aberta; a luta espera o GM dar o sinal ("Começar agora") quando a contagem acabar
 					srv.agrak._agendar(true)
-					srv.agrak._sistema("Um GM abriu o Agrak: inscrição no Cartaz do Agrak ou com Caim e Abel. A luta começa em 1 minuto.")
+					srv.agrak._sistema("Um GM abriu o Agrak: inscrição no Cartaz do Agrak ou com Caim e Abel. A luta começa quando um GM der o sinal.")
 				"comecar":   # leva já os inscritos (precisa do mínimo)
-					srv.agrak._hora()
+					r_agrak = "Agrak: " + srv.agrak._hora()
 				"minimo":
 					srv.agrak.minimo = clampi(int(m.get("v", 1)), 1, 20)
-			_ok(peer, "Agrak: %s (mínimo %d)." % [str(m.get("modo", "")), srv.agrak.minimo])
+			_ok(peer, r_agrak if r_agrak != "" else "Agrak: %s (mínimo %d)." % [str(m.get("modo", "")), srv.agrak.minimo])
 			_log(peer, "agrak %s" % str(m.get("modo", "")))
 		"hermon":
 			var agora := int(Time.get_unix_time_from_system())

@@ -121,25 +121,27 @@ func _hora_txt() -> String:
 	return "%02d:%02d" % [d["hour"], d["minute"]]
 
 ## Na hora: cancela com menos do mínimo (devolve o ouro); senão leva até 20 para o mapa agrak.
-func _hora() -> void:
+## Devolve o texto para o painel GM, para ele saber o que aconteceu (antes ficava mudo).
+func _hora() -> String:
 	aberta_manual = false
 	var lista: Array = inscritos.filter(func(p): return srv.sessoes.has(p) and srv.sessoes[p]["jog"] != null)
 	inscritos.clear()
 	_agendar()
+	if lista.is_empty(): return "não começou: ninguém na lista."
 	if lista.size() < minimo:
 		for p in lista:
 			srv.sessoes[p]["jog"].ouro += _custo()
 			_aviso(p, "O Agrak foi cancelado: gladiadores de menos. O ouro voltou.")
 		if not lista.is_empty(): _sistema("O Agrak de hoje foi cancelado: a plateia veio, os gladiadores não.")
-		return
+		return "cancelado: %d na lista, mínimo %d. Ouro devolvido." % [lista.size(), minimo]
 	var maxn := int(cfg.get("inscricao", {}).get("max_por_arena", 20))
 	if srv.mundos.has(MAPA) and srv.mundos[MAPA].chefe != null and srv.mundos[MAPA].chefe.etapa_i >= 0:
-		maxn = 0   # ainda tem um Agrak rodando
+		return "não começou: ainda tem um Agrak rodando."
 	for i in range(maxn, lista.size()):   # acima do máximo (uma arena por vez nesta versão): devolve
 		srv.sessoes[lista[i]]["jog"].ouro += _custo()
 		_aviso(lista[i], "O Agrak lotou antes do seu nome. O ouro voltou; tente na próxima.")
 	lista = lista.slice(0, maxn)
-	if lista.is_empty(): return
+	if lista.is_empty(): return "não começou: ninguém na lista."
 	var ent: Array = Defs.ler("res://data/mapas/%s.json" % MAPA).get("agrak", {}).get("entrada_fosso", [23, 13.5])
 	ids_levados.clear()
 	for p in lista:
@@ -152,6 +154,7 @@ func _hora() -> void:
 		srv.movimentos.append([e.id, MAPA, Vector2(ent[0], ent[1])])
 	_sistema("O AGRAK COMEÇOU! %d gladiadores na areia." % ids_levados.size())
 	levando = 1.0
+	return "começou com %d gladiadores." % ids_levados.size()
 
 func _comecar_arena() -> void:
 	levando = -1.0
