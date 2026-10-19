@@ -4,5 +4,23 @@
     "repo": "majidmanzarpour/blender-game-skills",
     "commit": "f0ef293",
     "trecho": "linhas 78, 119, 132-135: galope, locomoção em clipes in-place com velocidade marcada"
+  },
+  {
+    "arquivo": "animation_arjun988.md",
+    "repo": "arjun988/blender-skills",
+    "commit": "8f778d2",
+    "trecho": "tabela de poses-chave de walk, run e idle; blocking → splining; NLA para export"
+  },
+  {
+    "arquivo": "walk_cycle_arjun988.md",
+    "repo": "arjun988/blender-skills",
+    "commit": "8f778d2",
+    "trecho": "breakdown do ciclo de andar"
+  },
+  {
+    "arquivo": "combat_arjun988.md",
+    "repo": "arjun988/blender-skills",
+    "commit": "8f778d2",
+    "trecho": "timing de animação de combate"
   }
 ]
