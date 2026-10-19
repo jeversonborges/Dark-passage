@@ -724,7 +724,7 @@ func _soltar_em_slot(slot: String) -> void:
 		var sd := Itens.slot_de(mao["it"])
 		var alvo := slot
 		if sd == "anel" and slot in ["anel1", "anel2"]: alvo = slot
-		elif sd != slot: game.hud.aviso("Não vai aí."); mao = {}; return
+		elif sd != slot and not Itens.na_segunda_mao(j.classe, mao["it"], slot): game.hud.aviso("Não vai aí."); mao = {}; return
 		game.cmd("equipar", [int(mao["it"]["uid"]), alvo])
 	mao = {}
 

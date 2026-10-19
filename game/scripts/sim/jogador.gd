@@ -650,13 +650,35 @@ static func _basico_humano(sim: WorldSim, e: Ent, al: Ent, op: Dictionary) -> vo
 		e.cd_basico = iv
 		op["faixa"] = e.aux.get("tiro", [4, 7]); op["sensacao"] = "tiro_pesado"; op["postura"] = float(sec["postura"])
 		if e.aux.has("municao_especial"): op["elemento"] = e.aux["municao_especial"]; op["mult"] = 1.2
+		op["mult"] = float(op.get("mult", 1.0)) * float(c["leque"]["mult_por_projetil"])
+		var duplo := segunda_arma_de_fogo(e)
 		sim.iniciar_acao(e, {"preparo": 0.12 + float(c["perfil_hibrido"]["tempo_troca_s"]) * (1.0 if e.aux.get("arma_mao", "") != "tiro" else 0.0),
 			"rec": maxf(0.05, iv * 0.55), "alvo": alvo_id, "anim": "shoot", "impacto": func():
-			e.municao -= 1
-			sim.emitir("vfx", {"nome": "disparo_cano", "de": e.id, "alvo": alvo_id})
-			sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": alvo_id, "vfx": "projetil_bala", "perfura": e.aux.has("tiros_atravessam")}, op)
+				var dir := e.facing
+				_leque_humano(sim, e, alvo_id, dir, op, sec)
+				if duplo:   # a segunda arma dispara logo depois, na mesma direção
+					sim.atrasar(float(c["dupla_arma"]["segundo_leque_depois_s"]), func():
+						if e.vivo and e.municao > 0: _leque_humano(sim, e, alvo_id, dir, op, sec))
 		})
 	e.aux["arma_mao"] = "espada" if espada else "tiro"
+
+## Leque do Humano (0.9.8.2): uma salva de escopeta. A bala do centro mira no alvo; as outras abrem no cone à frente. Gasta 1 de munição.
+static func _leque_humano(sim: WorldSim, e: Ent, alvo_id: int, dir: Vector2, op: Dictionary, sec: Dictionary) -> void:
+	var lq: Dictionary = Defs.CLASSES["humano"]["leque"]
+	var n := int(lq["projeteis"])
+	var cone := deg_to_rad(float(lq["cone_graus"]))
+	var alcance := float(Defs.CLASSES["humano"]["alcance_basico"]["tiro"])
+	e.municao -= 1
+	sim.emitir("vfx", {"nome": "disparo_cano", "de": e.id, "alvo": alvo_id})
+	for i in n:
+		var ang := (float(i) - float(n - 1) * 0.5) * cone / maxf(1.0, float(n - 1))
+		var mira := alvo_id if i == n / 2 and sim.valido(alvo_id) != null else -1
+		sim.lancar(e, {"vel": float(sec["projetil_vel"]), "alvo": mira, "dir": dir.rotated(ang), "alcance": alcance,
+			"vfx": "projetil_bala", "perfura": e.aux.has("tiros_atravessam")}, op)
+
+## Humano com pistola ou escopeta de uma mão na 2ª mão: cada básico dá dois leques (0.9.8.2).
+static func segunda_arma_de_fogo(e: Ent) -> bool:
+	return e.classe == "humano" and Itens.arma_de_fogo_uma_mao(e.equip.get("segunda_mao", {}))
 
 # =================================================================== habilidades
 static func skill_def(e: Ent, slot: int) -> Dictionary:
@@ -1152,6 +1174,8 @@ static func add_buff(sim: WorldSim, e: Ent, id: String, dur: float, mods: Dictio
 static func slot_para(e: Ent, it: Dictionary) -> String:
 	var s := Itens.slot_de(it)
 	if s == "anel": return "anel2" if e.equip.has("anel1") and not e.equip.has("anel2") else "anel1"
+	if Itens.arma_de_fogo_uma_mao(it) and e.classe == "humano" and Itens.arma_de_fogo_uma_mao(e.equip.get("arma", {})) and not e.equip.has("segunda_mao"):
+		return "segunda_mao"   # Humano com uma arma na mão: a segunda arma de fogo vai para a outra mão
 	return s
 
 static func equipar(sim: WorldSim, e: Ent, uid: int, slot: String) -> void:
@@ -1162,7 +1186,7 @@ static func equipar(sim: WorldSim, e: Ent, uid: int, slot: String) -> void:
 		sim.emitir_a(e, "aviso", {"texto": erro}); return
 	var s := slot if slot != "" else slot_para(e, it)
 	if Itens.slot_de(it) == "anel" and not s in ["anel1", "anel2"]: s = "anel1"
-	elif Itens.slot_de(it) != "anel" and s != Itens.slot_de(it): return
+	elif Itens.slot_de(it) != "anel" and s != Itens.slot_de(it) and not Itens.na_segunda_mao(e.classe, it, s): return
 	var d := Itens.defn(it["id"])
 	e.inv.erase(it)
 	var tirar: Array = []

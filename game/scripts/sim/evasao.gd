@@ -70,6 +70,7 @@ static func evadir(sim: WorldSim, e: Ent, ponto: Vector2) -> void:
 	var h := defn(e)
 	var dir := (ponto - e.pos).normalized() if ponto.distance_to(e.pos) > 0.3 else e.facing
 	if dir == Vector2.ZERO: dir = Vector2(0, 1)
+	if h.get("direcao", "") == "tras" and e.facing != Vector2.ZERO: dir = -e.facing   # Humano: pula para trás, de onde olha (0.9.8.2)
 	# paga a carga; a recarga só começa a contar se ainda não estava contando
 	var n := cargas(e) - 1
 	e.aux["ev_cargas"] = n

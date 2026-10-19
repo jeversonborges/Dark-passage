@@ -509,6 +509,11 @@ func _aplicar_armas() -> void:
 		sp.texture = q["tex"]
 		sp.region_rect = q["rect"]
 		sp.position = corpo.position + q["offset"] * esc
+		sp.flip_h = false
+		if slot == "segunda_mao" and ent and ent.classe == "humano":   # 2ª arma de fogo do Humano: espelho da outra mão, sem sprite novo (0.9.8.2)
+			var r: Rect2 = q["rect"]
+			sp.flip_h = true
+			sp.position = corpo.position + Vector2(float(meta["frame"][0]) - q["offset"].x - r.size.x, q["offset"].y) * esc
 		sp.scale = Vector2(esc, esc)
 		var mat_arma: ShaderMaterial = sp.material
 		mat_arma.set_shader_parameter("mascara", q["mask"])

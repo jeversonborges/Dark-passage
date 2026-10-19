@@ -55,6 +55,18 @@ static func categoria(it: Dictionary) -> String:
 static func slot_de(it: Dictionary) -> String:
 	return str(defn(it["id"]).get("slot", "")) if defn(it["id"]).get("slot") != null else ""
 
+const ARMAS_DE_FOGO_UMA_MAO := ["pistola", "escopeta"]
+
+## Arma de atirar de uma mão (0.9.8.2): o Humano leva uma na 2ª mão, além da que segura.
+static func arma_de_fogo_uma_mao(it: Dictionary) -> bool:
+	if it.is_empty(): return false
+	var d := defn(it["id"])
+	return str(d.get("tipo", "")) in ARMAS_DE_FOGO_UMA_MAO and int(d.get("maos", 1)) == 1
+
+## Pode ir para a 2ª mão? Só o Humano, e só com arma de fogo de uma mão.
+static func na_segunda_mao(classe: String, it: Dictionary, slot: String) -> bool:
+	return slot == "segunda_mao" and classe == "humano" and arma_de_fogo_uma_mao(it)
+
 static func equipavel(it: Dictionary) -> bool:
 	return slot_de(it) != ""
 
