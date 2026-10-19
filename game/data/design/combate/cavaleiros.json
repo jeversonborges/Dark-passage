@@ -18,13 +18,13 @@
       "nome": "Jerusalém, a Cidade Santa",
       "mapa": "jerusalem_hermon",
       "voo": [[-6, 46], [40, 44], [80, 44]],
-      "pouso": [97, 46]
+      "pouso": [86, 67]
     },
     "acampamento_vela": {
       "nome": "Acampamento da Vela",
       "mapa": "area_inicial",
       "voo": [],
-      "pouso": [74, 103]
+      "pouso": [102, 103]
     },
     "capela_sao_lazaro": {
       "nome": "Capela de São Lázaro",
