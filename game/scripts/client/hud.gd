@@ -43,6 +43,7 @@ var ajuda_ui: Control
 var mapa_ui: Control
 var tooltip: PanelContainer
 var tip_lbl: RichTextLabel
+var tip_icone: TextureRect            # ícone do item à esquerda do texto (só nas dicas de item)
 var tip_estilo: StyleBox            # moldura padrão das dicas (volta depois de um item)
 var ganhos: VBoxContainer
 var chefe_d := {}
@@ -1643,7 +1644,14 @@ func _montar_tooltip() -> void:
 	tip_lbl.add_theme_font_size_override("normal_font_size", 14)
 	tip_lbl.add_theme_font_size_override("italics_font_size", 13)
 	tip_lbl.add_theme_font_size_override("bold_font_size", 14)
-	tooltip.add_child(tip_lbl)
+	tip_icone = TextureRect.new(); tip_icone.custom_minimum_size = Vector2(44, 44)
+	tip_icone.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED; tip_icone.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	tip_icone.size_flags_vertical = Control.SIZE_SHRINK_BEGIN   # ícone no topo, ao lado do nome
+	tip_icone.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tip_icone.visible = false
+	var fila := HBoxContainer.new(); fila.add_theme_constant_override("separation", 8)
+	fila.add_child(tip_icone); fila.add_child(tip_lbl)
+	tooltip.add_child(fila)
 	tooltip.visible = false
 	tooltip.z_index = 100
 	var cl := CanvasLayer.new(); cl.layer = 30; add_child(cl)
@@ -1656,6 +1664,7 @@ func mostrar_tip(bb: String) -> void:
 	tooltip.add_theme_stylebox_override("panel", tip_estilo)
 	tip_lbl.custom_minimum_size.x = 300
 	tip_lbl.tab_stops = PackedFloat32Array()
+	tip_icone.visible = false
 	tip_lbl.text = bb
 	tooltip.visible = true
 	tooltip.reset_size()
@@ -1667,10 +1676,15 @@ func mostrar_tip_item(it: Dictionary, bb: String) -> void:
 	sb.bg_color = Color(0, 0, 0, 0.86)
 	sb.border_color = Color(0.75, 0.68, 0.5).lerp(Defs.cor_raridade(str(it.get("raridade", "comum"))), 0.6)
 	sb.set_border_width_all(1); sb.set_corner_radius_all(2)
-	sb.set_content_margin_all(8)
+	sb.set_content_margin_all(6)
 	tooltip.add_theme_stylebox_override("panel", sb)
-	tip_lbl.custom_minimum_size.x = 230   # 0.9.8: ~30% menor (antes 330), com fonte menor
-	tip_lbl.tab_stops = PackedFloat32Array([160.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
+	tip_lbl.custom_minimum_size.x = 190   # cartão pequeno: nome em cima, atributos em linhas curtas
+	tip_lbl.tab_stops = PackedFloat32Array([110.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
+	var ic := Tema.icone_item(it["id"], true)   # arte pintada do atlas; a da mochila é a forma da grade
+	if ic.size() == 2:
+		var at := AtlasTexture.new(); at.atlas = ic[0]; at.region = ic[1]; tip_icone.texture = at
+	else: tip_icone.texture = Tema.icone_mochila(str(it["id"]))
+	tip_icone.visible = tip_icone.texture != null
 	tip_lbl.text = bb
 	tooltip.visible = true
 	tooltip.reset_size()

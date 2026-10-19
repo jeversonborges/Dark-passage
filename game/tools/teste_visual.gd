@@ -24,6 +24,8 @@ func _ready() -> void:
 				[0.1, "mapa", ""], [0.5, "foto", "5_mapa"], [0.1, "mapa", ""],
 				[0.1, "npc", ""], [2.5, "foto", "6_dialogo"],
 				[0.5, "fim", ""]]
+		"dica":   # cartão de item (hud.mostrar_tip_item): lendário com opções e um anel
+			roteiro = [[2.0, "item_tip", "lendario"], [0.4, "foto", "dica_1_lendario"], [0.1, "item_tip", "anel"], [0.4, "foto", "dica_2_anel"], [0.3, "fim", ""]]
 		"menu":   # menu do personagem: equipamento, melhorias na mochila, comparação e a arca
 			roteiro = [[2.0, "preparar_menu", ""], [0.2, "janela", "inventario"], [0.2, "abrir_arca", ""], [1.0, "foto", "menu_1"],
 				[0.1, "tip_melhoria", ""], [0.5, "foto", "menu_2_tip"], [0.1, "tip_slot", ""], [0.5, "foto", "menu_3_slot"],
