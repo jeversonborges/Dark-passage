@@ -149,4 +149,8 @@ json.dump({"versao":"0.2","aviso":AVISO,
   "grade_mochila":"células de 30 px (UI); grade = [largura, altura]",
   "conjuntos":[{k:v for k,v in c.items() if k != "pecas"} | {"pecas":[f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS],
   "pools_lendarios":I.POOLS_LENDARIOS, "cobertura_tags_drops":cobertura, "itens":itens}, open(f"{OUT}/itens.json","w"), ensure_ascii=False, indent=1)
+# pets coletores: slot pet, sem ícone até a thread de ícones gerar
+for pet in I.PETS:
+    itens.append(dict(id=pet["id"], nome=pet["nome"], slot="pet", categoria="pet", tipo="pet", raridade=pet["raridade"], nivel=pet["nivel"], classes=[], tags=[], motivo="pet", tint=pet["tint"], emissivo=None, grade=[1,1], lore=pet["lore"], atributos={"especie": pet["especie"]}, filtro_coleta=pet["filtro_coleta"], preco=0, pilha=1, vinculado=False))
+
 print(len(skills), "skills;", len(itens), "itens"); print({t: len(v) for t, v in cobertura.items()})

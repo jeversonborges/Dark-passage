@@ -154,3 +154,10 @@ POOLS_LENDARIOS = {
   "lendario:celeste":  ["bacula_femur", "veu_carpideira"],
   "lendario:zacarias": ["halo_incandescente"],
 }
+
+PETS = [  # pets coletores (slot pet): atributo especie e filtro_coleta, sem ícone ainda (thread de ícones gera depois)
+  dict(id='pet_cao_de_vala', nome='Cão de Vala', nivel=1, raridade='magico', especie='cao_de_vala', filtro_coleta='tudo', tint='ferro', lore='Vira-lata da vala, magro e de olho vivo. Junta o que encontrar pelo caminho.'),
+  dict(id='pet_corvo_de_cinza', nome='Corvo de Cinza', nivel=10, raridade='magico', especie='corvo_de_cinza', filtro_coleta='raridade_minima:raro', tint='ferro', lore='Penas sujas de fuligem. Só pega o que brilha de verdade.'),
+  dict(id='pet_cervo_de_lume', nome='Cervo de Lume', nivel=20, raridade='excelente', especie='cervo_de_lume', filtro_coleta='ouro', tint='ouro', lore='Galhada de cobre e um brilho de lamparina. Anda atrás do dinheiro.'),
+  dict(id='pet_serpente_do_eden', nome='Serpente do Éden', nivel=25, raridade='excelente', especie='serpente_do_eden', filtro_coleta='pocoes', tint='verde', lore='Escama úmida, língua de latão. Guarda as poções como se fossem ovos.'),
+]
