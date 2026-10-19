@@ -10686,9 +10686,7 @@
         "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
-      "tipos_arma": [
-        "magica"
-      ]
+      "classes": ["anjo", "cultista", "demonio", "humano", "mutante", "tecnomancer", "warlord"]
     },
     {
       "id": "bau_dourado",
