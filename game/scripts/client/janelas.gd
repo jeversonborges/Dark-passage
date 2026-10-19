@@ -27,7 +27,8 @@ const POS_EQUIP := {
 	"arma": Rect2(60, 4, 52, 124), "anel1": Rect2(60, 134, 52, 52),
 	"segunda_mao": Rect2(268, 4, 52, 124), "anel2": Rect2(268, 134, 52, 52),
 	"amuleto": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52),
-	"asa": Rect2(146, 182, 88, 52)}   # asa (3x2 na mochila): embaixo do retrato, entre os anéis
+	"asa": Rect2(146, 182, 88, 52),   # asa (3x2 na mochila): embaixo do retrato, entre os anéis
+	"montaria": Rect2(4, 190, 52, 40)}   # montaria: abaixo das calças; clicar nela desmonta (desequipar)
 const AREA_EQUIP := Vector2(380, 236)
 var _ganho_cache := {}        # uid -> quanto o Poder sobe ao equipar (cache por atualização do inventário)
 var _poder_cache := -1

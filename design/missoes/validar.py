@@ -17,6 +17,8 @@ sub |= {f["id"] for d in locais["dungeons"] for f in d["andares"]}
 NPC = {n["id"]: n for n in npcs["npcs"]}
 MON = {m["id"]: m for m in mons["monstros"]}
 IT = {i["id"]: i for i in itens["itens"]}
+# itens gerados (skills-itens) entram também: montarias (0.9.8) e demais itens de catálogo
+IT.update({i["id"]: i for i in json.load(open(os.path.join(D, "..", "..", "skills-itens", "itens.json"), encoding="utf-8"))["itens"]})
 MS = {q["id"]: q for q in missoes["missoes"]}
 DL = {d["id"]: d for d in dlgs["dialogos"]}
 OB = {o["id"] for o in objs["objetos"]} | {b["id"] for b in objs["baus"]}

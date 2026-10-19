@@ -128,6 +128,48 @@
         "hostia_negra"
       ],
       "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Anoto tudo."
+    },
+    {
+      "id": "loja_montarias_vela",
+      "npc": "vendedor_montarias_vela",
+      "nome": "Estábulo da Vela",
+      "itens": [
+        "montaria_cavalo_esqueleto",
+        "montaria_corcel_cavaleiro_negro",
+        "montaria_leao_branco_thoth",
+        "montaria_lobo_guerra",
+        "montaria_touro_guerra",
+        "montaria_javali_blindado"
+      ],
+      "fala_ao_abrir": "Bicho bom não se compra com pressa. Escolhe o seu."
+    },
+    {
+      "id": "loja_montarias_capela",
+      "npc": "vendedor_montarias_capela",
+      "nome": "Cavalariça da Capela",
+      "itens": [
+        "montaria_cavalo_esqueleto",
+        "montaria_corcel_cavaleiro_negro",
+        "montaria_leao_branco_thoth",
+        "montaria_lobo_guerra",
+        "montaria_touro_guerra",
+        "montaria_javali_blindado"
+      ],
+      "fala_ao_abrir": "Os cavalos da Capela foram benzidos. Os seus, não sei. Ninguém sabe."
+    },
+    {
+      "id": "loja_montarias_jerusalem",
+      "npc": "vendedor_montarias_jerusalem",
+      "nome": "Curral de Jerusalém",
+      "itens": [
+        "montaria_cavalo_esqueleto",
+        "montaria_corcel_cavaleiro_negro",
+        "montaria_leao_branco_thoth",
+        "montaria_lobo_guerra",
+        "montaria_touro_guerra",
+        "montaria_javali_blindado"
+      ],
+      "fala_ao_abrir": "Monta quem aguenta. Eu só vendo o lombo."
     }
   ],
   "ferreiros": [

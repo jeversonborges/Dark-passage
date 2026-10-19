@@ -95,6 +95,8 @@ static var _ancoras_asa := {}   # assets/ext/asas/ancoras.json: classe -> anim -
 static var _asas_cache := {}    # id visual -> {json, tex, frente}
 var _kind := ""                 # classe/evolução desenhada (chave das pastas)
 var _asa_id := ""               # item de asa equipado agora (de ent.vis)
+var _montaria_id := ""          # montaria montada agora (de ent.vis)
+var _kind_base := ""            # classe/evolução sem a montaria: volta a ele ao desmontar
 var _asa := {}                  # camada ativa (vazio: sem asa por camada)
 var asa_tras := Sprite2D.new()
 var asa_frente := Sprite2D.new()
@@ -113,6 +115,9 @@ func iniciar(g, e: Ent) -> void:
 	elif e.tipo == "npc": kind = "npc:" + e.kind
 	elif e.tipo == "invocacao": kind = e.kind
 	elif e.tipo == "objeto" and Defs.SPR.has(str(e.aux.get("visual", ""))): kind = e.aux["visual"]   # estátua viva (Vigilante ajoelhado)
+	_kind_base = kind
+	_montaria_id = _id_montaria()
+	kind = _kind_com_montaria(kind)
 	info = Defs.sprite(kind)
 	if e.tipo == "npc" and not Defs.SPR.has(kind):
 		var s: Dictionary = Defs.SPR_SUBST.get(kind, {})
@@ -253,6 +258,7 @@ func morrer() -> void:
 func _process(dt: float) -> void:
 	tempo += dt
 	if ent != null and ent.tipo == "jogador" and _id_asa() != _asa_id: _trocar_asa()
+	if ent != null and ent.tipo == "jogador" and _id_montaria() != _montaria_id: _trocar_montaria()
 	if congelado_t > 0.0:
 		congelado_t -= dt
 		_atualizar_flash(dt)
@@ -431,6 +437,36 @@ func _carregar_asa(vis: String) -> bool:
 	return true
 
 ## Equipou ou tirou a asa: troca a folha do corpo (voo) e as camadas, sem recriar a unidade.
+## Id da montaria no slot montaria (ent.vis, público: os outros jogadores também veem).
+func _id_montaria() -> String:
+	if ent == null or ent.tipo != "jogador": return ""
+	return str((ent.vis as Dictionary).get("montaria", {}).get("id", ""))
+
+## Sprite da montaria montada (campo "montaria" do item). Sem arte no jogo ainda, o personagem segue com o próprio corpo.
+func _kind_com_montaria(base: String) -> String:
+	var id := _id_montaria()
+	if id == "": return base
+	var sp := str(Defs.ITENS.get(id, {}).get("montaria", {}).get("sprite", ""))
+	return sp if Defs.SPR.has(sp) else base
+
+## Monta ou desmonta: o corpo vira o da montaria (ou volta ao da classe). Armas ficam de fora enquanto a montaria não tem camadas.
+func _trocar_montaria() -> void:
+	_montaria_id = _id_montaria()
+	var kind := _kind_com_montaria(_kind_base)
+	info = Defs.sprite(kind)
+	meta = info["meta"]
+	escala_base = float(info.get("escala", 1.0)) * float(meta.get("escala", 1.0))
+	_kind = kind
+	_camadas = {}
+	_kind_armas = ""; _raiz_armas = ""
+	_carregar_corpo_armado(kind)
+	altura_px = float(meta["frame"][1]) * 0.55 * escala_base
+	if not _kind_armas.is_empty() and _armas.is_empty(): _montar_armas()
+	var nome := anim if anim != "" else "idle"
+	anim = ""
+	_definir_anim(nome)
+	_aplicar_frame()
+
 func _trocar_asa() -> void:
 	_asa_id = _id_asa()
 	meta = info["meta"]

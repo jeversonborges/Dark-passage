@@ -5,9 +5,9 @@ const MOCHILA_W := 12
 const MOCHILA_H := 6
 const ARMAZEM_W := 12
 const ARMAZEM_H := 12
-const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2", "asa"]
+const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2", "asa", "montaria"]
 const NOME_SLOT := {"arma": "Arma", "segunda_mao": "2ª mão", "cabeca": "Cabeça", "peito": "Peito", "luvas": "Luvas",
-	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel", "asa": "Asa"}
+	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel", "asa": "Asa", "montaria": "Montaria"}
 const ATTR := {"for": "FOR", "agi": "AGI", "vit": "VIT", "esp": "ESP"}
 
 static var _uid := 1

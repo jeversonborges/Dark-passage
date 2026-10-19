@@ -24,6 +24,8 @@ static func visual_armas(e: Ent) -> Dictionary:
 		if not it.is_empty(): out[slot] = {"id": str(it["id"]), "ref": int(it.get("refino", 0))}
 	var asa: Dictionary = e.equip.get("asa", {})   # asa equipável (assets/asas): o cliente troca o corpo e desenha a camada
 	if not asa.is_empty(): out["asa"] = {"id": str(asa["id"])}
+	var mont: Dictionary = e.equip.get("montaria", {})   # montaria (0.9.8): o cliente troca o sprite pelo da montaria
+	if not mont.is_empty(): out["montaria"] = {"id": str(mont["id"])}
 	return out
 
 static func recalc_jogador(e: Ent) -> void:
@@ -75,6 +77,8 @@ static func recalc_jogador(e: Ent) -> void:
 	if e.classe == "mutante":
 		for r in Defs.FORM["vantagem_cruzada"]["mutante"]["resiste"]: e.res[r] = e.res.get(r, 0.0) + 0.3
 	e.vel = float(Defs.MOBS_BASE["velocidade_mov_jogador"]) * (1.0 + e.mod("vel"))
+	var mont: Dictionary = e.equip.get("montaria", {})
+	if not mont.is_empty(): e.vel *= float(Itens.defn(mont["id"]).get("montaria", {}).get("vel_mult", 1.0))
 	# recurso
 	var rc: Dictionary = c["recurso"]
 	match e.classe:

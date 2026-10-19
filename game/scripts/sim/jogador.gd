@@ -555,6 +555,7 @@ static func cmd_atacar(sim: WorldSim, e: Ent, alvo_id: int) -> void:
 	var al := sim.valido(alvo_id)
 	if al == null or not e.vivo or not e.eh_inimigo_de(al): return
 	desligar_auto(sim, e)
+	desmontar(sim, e)   # atacar a pé: a montaria vai para a mochila
 	e.aux.erase("interagir"); e.aux.erase("pegar")
 	if not e.interagindo.is_empty(): cancelar_canal(sim, e)
 	e.alvo = alvo_id
@@ -770,6 +771,7 @@ static func ao_acertar(sim: WorldSim, e: Ent, alvo: Ent, r: Dictionary, op: Dict
 			e.rec = novo
 
 static func ao_ser_atingido(sim: WorldSim, e: Ent, atk: Ent, dano: float, r: Dictionary) -> void:
+	desmontar(sim, e)   # apanhar derruba da montaria
 	if e.classe == "mutante":
 		e.rec = minf(e.rec_max, e.rec + dano / e.hp_max * 100.0)
 	if e.classe == "warlord":
@@ -1061,9 +1063,21 @@ static func pegar_chao(sim: WorldSim, e: Ent, id: int) -> void:
 	sim.emitir_a(e, "som_evento", {"ev": "moedas" if it["id"] == "_ouro" else "pegar"})
 	dar_item(sim, e, it)
 
+## Montarias (0.9.8): o slot "montaria" troca o sprite do personagem e dá o ganho de velocidade (Regras.recalc_jogador).
+static func montar(sim: WorldSim, e: Ent, uid: int) -> void:
+	var it := Itens.por_uid(e.inv, uid)
+	if it.is_empty() or not e.vivo or Itens.categoria(it) != "montaria": return
+	if e.aux.get("servico", {}).size() > 0 or e.aux.has("dialogo"): return
+	equipar(sim, e, uid, "montaria")
+
+## Desmonta: a montaria volta para a mochila. Chamado ao atacar, ao apanhar e pelo comando desmontar.
+static func desmontar(sim: WorldSim, e: Ent) -> void:
+	if e.equip.has("montaria"): desequipar(sim, e, "montaria")
+
 static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 	var it := Itens.por_uid(e.inv, uid)
 	if it.is_empty() or not e.vivo: return
+	if Itens.categoria(it) == "montaria": montar(sim, e, uid); return
 	var d := Itens.defn(it["id"])
 	var cat := Itens.categoria(it)
 	if cat == "leitura" or d.get("tipo_missao") == "leitura":

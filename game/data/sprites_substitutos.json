@@ -578,5 +578,14 @@
  },
  "npc:caetano_ninho": {
   "usa": "conego_barnabe"
- }
+ },
+  "npc:vendedor_montarias_vela": {
+    "usa": "zilpa_hissopo"
+  },
+  "npc:vendedor_montarias_capela": {
+    "usa": "zilpa_hissopo"
+  },
+  "npc:vendedor_montarias_jerusalem": {
+    "usa": "zilpa_hissopo"
+  }
 }

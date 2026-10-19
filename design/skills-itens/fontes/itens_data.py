@@ -72,6 +72,18 @@ ACESSORIOS = [  # bases genéricas: raridade rolada
   dict(id="rosario_ossos", nome="Rosário de Ossos", slot="amuleto", nivel=9, faixa=2, grade=[1,1], motivo="rosario", tint="osso", atributo_base={"esp":3}, lore="Cinquenta e nove contas de osso de dedo. A sexagésima é sua, quando chegar a hora."),
 ]
 
+# Montarias (0.9.8): slot "montaria". vel_mult multiplica a velocidade do jogador; sprite = chave do sprites.json
+# (a arte vem da thread de montarias; sem ela o personagem segue com o próprio corpo). Preços e velocidades: provisórios.
+# Os 4 Cavalos do Apocalipse não entram aqui: caem em evento e não são vendidos.
+MONTARIAS = [
+  dict(id="montaria_cavalo_esqueleto", nome="Cavalo Esqueleto", nivel=10, preco=600, vel_mult=1.30, tint="osso", motivo="montaria", lore="Os ossos ainda lembram de galopar. A carne só atrapalhava."),
+  dict(id="montaria_lobo_guerra", nome="Lobo de Guerra", nivel=15, preco=900, vel_mult=1.35, tint="cinza", motivo="montaria", lore="Criado no cativeiro das trincheiras. Obedece ao cheiro de sangue e a mais nada."),
+  dict(id="montaria_javali_blindado", nome="Javali Blindado", nivel=15, preco=800, vel_mult=1.25, tint="ferro", motivo="montaria", lore="Placas de latão no lombo e um chifre que já atravessou muita porta."),
+  dict(id="montaria_touro_guerra", nome="Touro de Guerra", nivel=20, preco=900, vel_mult=1.25, tint="ferro_negro", motivo="montaria", lore="Puxava o bonde antes da guerra. Agora puxa a guerra."),
+  dict(id="montaria_corcel_cavaleiro_negro", nome="Corcel do Cavaleiro Negro", nivel=25, preco=1200, vel_mult=1.40, tint="sangue", motivo="montaria", lore="Da cavalaria que jurou não voltar. O corcel voltou sozinho."),
+  dict(id="montaria_leao_branco_thoth", nome="Leão Branco do Thoth", nivel=30, preco=1500, vel_mult=1.40, tint="marfim", motivo="montaria", lore="Guarda a porta de Thoth e aceita quem souber a palavra. Poucos sabem."),
+]
+
 CONSUMIVEIS = [
   dict(id="pocao_vida_p", tag="consumivel:pocao_vida_p", nome="Frasco de Sangue Pequeno", efeito={"cura_hp":120}, preco=6, pilha=100, motivo="pocao", tint="vermelho", lore="Ninguém pergunta de quem é."),
   dict(id="pocao_vida_m", tag="consumivel:pocao_vida_m", nome="Frasco de Sangue Médio", efeito={"cura_hp":300}, preco=18, pilha=100, nivel=8, motivo="pocao_grande", tint="vermelho", lore="Coagulado no fundo. Agite antes de beber."),

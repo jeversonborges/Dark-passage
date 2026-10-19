@@ -516,6 +516,54 @@
       "dialogo": "dlg_caetano_pets",
       "aparencia": "Homem magro de avental de couro e mangas arregaçadas. Um corvo de cinza pousado no ombro, sempre.",
       "personalidade": "Sério e prático. Acha que todo bicho bem cuidado serve a alguém, e cobra caro pelo que cuida."
+    },
+    {
+      "id": "vendedor_montarias_vela",
+      "nome": "Caetano Ninho",
+      "titulo": "Tratador de Montarias",
+      "faccao": "vigilia",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "acampamento_vela",
+        "ponto": "estabulo_vela"
+      },
+      "servicos": [],
+      "dialogo": "dlg_montarias_vela",
+      "aparencia": "Homem baixo de botas de couro molhadas, sempre com um cabresto no ombro.",
+      "personalidade": "Direto, de poucas palavras, e sempre com um cavalo para olhar.",
+      "historia": "Cuida dos bichos de quem chega à cidade. Não pergunta de onde veio o cavalo."
+    },
+    {
+      "id": "vendedor_montarias_capela",
+      "nome": "Joel Arreio",
+      "titulo": "Tratador de Montarias",
+      "faccao": "arautos",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "capela_sao_lazaro",
+        "ponto": "pulpito_montarias"
+      },
+      "servicos": [],
+      "dialogo": "dlg_montarias_capela",
+      "aparencia": "Homem magro de batina cortada na altura do joelho, com arreio pendurado no ombro.",
+      "personalidade": "Direto, de poucas palavras, e sempre com um cavalo para olhar.",
+      "historia": "Cuida dos bichos de quem chega à cidade. Não pergunta de onde veio o cavalo."
+    },
+    {
+      "id": "vendedor_montarias_jerusalem",
+      "nome": "Samuel Cabresto",
+      "titulo": "Tratador de Montarias",
+      "faccao": "neutro",
+      "classe_visual": "humano",
+      "local": {
+        "subzona": "jerusalem",
+        "ponto": "curral_jerusalem"
+      },
+      "servicos": [],
+      "dialogo": "dlg_montarias_jerusalem",
+      "aparencia": "Velho de chapéu de feltro e mãos calejadas de rédea.",
+      "personalidade": "Direto, de poucas palavras, e sempre com um cavalo para olhar.",
+      "historia": "Cuida dos bichos de quem chega à cidade. Não pergunta de onde veio o cavalo."
     }
   ]
 }

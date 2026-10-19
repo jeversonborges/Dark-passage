@@ -5125,6 +5125,114 @@
           ]
         }
       }
+    },
+    {
+      "id": "dlg_montarias_vela",
+      "npc": "vendedor_montarias_vela",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bicho para andar mais rápido. Escolhe o que aguenta o seu peso.",
+          "opcoes": [
+            {
+              "texto": "Quero ver o estoque.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_montarias_vela"
+                }
+              ]
+            },
+            {
+              "texto": "Como eu monto?",
+              "ir": "como"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "como": {
+          "fala": "Clique duas vezes na montaria da mochila para montar. Atacar ou apanhar derruba você. Para desmontar, tire a montaria do slot dela.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_montarias_capela",
+      "npc": "vendedor_montarias_capela",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bicho para andar mais rápido. Escolhe o que aguenta o seu peso.",
+          "opcoes": [
+            {
+              "texto": "Quero ver o estoque.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_montarias_capela"
+                }
+              ]
+            },
+            {
+              "texto": "Como eu monto?",
+              "ir": "como"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "como": {
+          "fala": "Clique duas vezes na montaria da mochila para montar. Atacar ou apanhar derruba você. Para desmontar, tire a montaria do slot dela.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "dlg_montarias_jerusalem",
+      "npc": "vendedor_montarias_jerusalem",
+      "inicio": "raiz",
+      "nos": {
+        "raiz": {
+          "fala": "Bicho para andar mais rápido. Escolhe o que aguenta o seu peso.",
+          "opcoes": [
+            {
+              "texto": "Quero ver o estoque.",
+              "acoes": [
+                {
+                  "abrir_loja": "loja_montarias_jerusalem"
+                }
+              ]
+            },
+            {
+              "texto": "Como eu monto?",
+              "ir": "como"
+            },
+            {
+              "texto": "Até mais."
+            }
+          ]
+        },
+        "como": {
+          "fala": "Clique duas vezes na montaria da mochila para montar. Atacar ou apanhar derruba você. Para desmontar, tire a montaria do slot dela.",
+          "opcoes": [
+            {
+              "texto": "Voltar.",
+              "ir": "raiz"
+            }
+          ]
+        }
+      }
     }
   ]
 }

@@ -81,6 +81,9 @@ for c in I.CONJUNTOS:
 for a in I.ACESSORIOS:
     a = dict(a); f = a.pop("faixa"); add("acessorio", a, raridade="rolada", tags=[f"equip:faixa{f}"])
 for a in I.CONSUMIVEIS: add("consumivel", dict(a, tags=[a.pop("tag")] if "tag" in a else []))
+for a in I.MONTARIAS:
+    a = dict(a); vm = a.pop("vel_mult")
+    add("montaria", dict(a, slot="montaria", raridade="comum", pilha=1, tags=[], montaria={"vel_mult": vm, "sprite": a["id"]}))
 for a in I.MATERIAIS: add("material", dict(a, tags=[a.pop("tag")], pilha=99))
 for a in I.JOIAS: add("joia", dict(a, tags=[a.pop("tag")], raridade="excelente", pilha=20))
 for a in I.CHAVES_BAUS:

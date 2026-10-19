@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor", "montar", "desmontar"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -28,6 +28,10 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _int(a, 0): Jogador.usar_item(sim, e, a[0])
 		"equipar":
 			if _int(a, 0) and _str(a, 1): Jogador.equipar(sim, e, a[0], a[1])
+		"montar":
+			if _int(a, 0): Jogador.montar(sim, e, a[0])
+		"desmontar":
+			Jogador.desmontar(sim, e)
 		"desequipar":
 			if not _str(a, 0): return
 			var x: int = a[1] if _int(a, 1) else -1
