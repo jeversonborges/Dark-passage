@@ -513,7 +513,8 @@
             "agressivo_raio_tiles": 6,
             "teleporte_recarga_s": 5,
             "_doc": "Proteger: ataca quem bate no dono ou no familiar. Agressivo: tambem ataca monstros a ate 6 tiles do dono. Passivo: nao ataca. Atacar: o alvo do dono, em qualquer modo. Teleportar: volta para o lado do dono."
-          }
+          },
+          "_doc_cura": "Jefin 2026-10-18 (default do coordenador): a cura de 10% do dano causado vai para o Cultista (dono), nao para o pet."
         }
       }
     },

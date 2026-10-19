@@ -1,6 +1,6 @@
 extends SceneTree
 ## Teste headless do familiar 0.9.3: forma por nível, ataque em área, 3x vida/defesa (apanha e morre),
-## volta sozinho em 30 s com o evento "reviveu", cura 10% do dano do dono e modos da barra do pet.
+## volta sozinho em 30 s com o evento "reviveu", cura 10% do dano que o dono causa (no dono) e modos da barra do pet.
 
 func _init() -> void:
 	Defs.carregar()
@@ -29,11 +29,11 @@ func _init() -> void:
 				for m in mobs: sim.aplicar_golpe(m, j, {"mult": 1.0, "nunca_erra": true})
 			sim.passo(WorldSim.TICK)
 		var area := atingidos.size()
-		# 2) cura: o familiar ferido recupera 10% do dano do dono
-		fam.hp = fam.hp_max * 0.5
-		var antes := fam.hp
+		# 2) cura: o Cultista ferido recupera 10% do dano que causa
+		j.hp = j.hp_max * 0.5
+		var antes := j.hp
 		sim.aplicar_golpe(j, mobs[0], {"mult": 1.0, "nunca_erra": true})
-		r["curou"] = fam.hp > antes
+		r["curou"] = j.hp > antes
 		# 3) passivo: não ataca
 		Comandos.executar(sim, j, "pet", ["passivo"])
 		for i in 30: sim.passo(WorldSim.TICK)   # deixa cair o cuspe que já estava no ar
