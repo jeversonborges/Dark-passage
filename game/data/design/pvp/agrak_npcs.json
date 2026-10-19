@@ -130,6 +130,52 @@
     "agrak_arma_mutante",
     "agrak_arma_tecnomancer"
    ]
+  },
+  {
+   "id": "loja_sariel_pvp",
+   "npc": "sariel_porta",
+   "nome": "Banca de Sangue da Porta Dourada",
+   "moeda": "ficha_sangue",
+   "precos": {
+    "armadura": 4,
+    "arma": 10
+   },
+   "itens": [
+    "agrak_elmo",
+    "agrak_peito",
+    "agrak_luvas",
+    "agrak_calcas",
+    "agrak_botas",
+    "agrak_arma_anjo",
+    "agrak_arma_cultista",
+    "agrak_arma_demonio",
+    "agrak_arma_humano",
+    "agrak_arma_mutante",
+    "agrak_arma_tecnomancer"
+   ]
+  },
+  {
+   "id": "loja_zaqueu_pvp",
+   "npc": "zaqueu_vendedor",
+   "nome": "Banca de Sangue do Balcão",
+   "moeda": "ficha_sangue",
+   "precos": {
+    "armadura": 4,
+    "arma": 10
+   },
+   "itens": [
+    "agrak_elmo",
+    "agrak_peito",
+    "agrak_luvas",
+    "agrak_calcas",
+    "agrak_botas",
+    "agrak_arma_anjo",
+    "agrak_arma_cultista",
+    "agrak_arma_demonio",
+    "agrak_arma_humano",
+    "agrak_arma_mutante",
+    "agrak_arma_tecnomancer"
+   ]
   }
  ],
  "objetos": [
