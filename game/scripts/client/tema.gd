@@ -77,7 +77,7 @@ static func icone_skill(classe: String, id: String, grande := false) -> Array:
 	var tab: Dictionary = ICONES.get(chave, {})
 	var k := classe + "_" + id
 	var sk: Dictionary = Defs.skill(classe, id)
-	if not tab.has(k) and sk.has("id"): k = sk["id"]
+	if not tab.has(k): k = str(sk.get("id", id))   # kit da forma (garras, tentáculos...) não está em skills.json: id puro
 	if tab.has(k):
 		var r: Array = tab[k]
 		return [_atlas_tex(chave), Rect2(r[0], r[1], r[2], r[3])]
