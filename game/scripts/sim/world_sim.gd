@@ -904,7 +904,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	return r
 
 func aplicar_dano_puro(alvo: Ent, valor: float, elem: String, atk: Ent, estilo: String = "dano_tempo") -> void:
-	if not alvo.vivo or alvo.invuln_t > 0.0: return
+	if not alvo.vivo or alvo.invuln_t > 0.0 or alvo.aux.get("coletor", false): return   # pet coletor não toma dano (0.9.6)
 	var v := maxi(1, roundi(valor * (1.0 - clampf(float(alvo.res.get(elem, 0.0)), -1.0, 0.75))))
 	if alvo.tipo == "jogador" and atk != null and atk.tipo == "monstro": v = maxi(1, roundi(v * fator_novato(alvo)))
 	alvo.hp -= v
