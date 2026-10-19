@@ -236,6 +236,13 @@ func zona_segura(p: Vector2) -> bool:
 		if zz["id"] == z: return zz.get("seguro", false)
 	return false
 
+## Arena PvP de evento (zonas[].pvp_evento: o Agrak, o Cume dos Vigilantes). Poção aqui cura só metade.
+func zona_pvp_evento(p: Vector2) -> bool:
+	var z := zona_em(p)
+	for zz in zona_ids:
+		if zz["id"] == z: return zz.get("pvp_evento", false)
+	return false
+
 func definir_bloqueio(celulas: Array, valor: int) -> void:
 	for c in celulas:
 		var v := Vector2i(int(c[0]), int(c[1]))

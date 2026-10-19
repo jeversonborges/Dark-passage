@@ -1078,13 +1078,15 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 		sim.emitir_a(e, "aviso", {"texto": "Não dá para usar isto assim."}); return
 	if e.aux.get("cd_pocao", 0.0) > 0.0 and (ef.has("cura_hp") or ef.has("recurso_pct")): return
 	var bonus_comida := 1.25 if "lenco_cardo" in e.aux.get("bonus", {}).get("efeitos", []) and d.get("tipo") == "consumivel" else 1.0
+	var fator_arena := 0.5 if sim.zona_pvp_evento(e.pos) else 1.0   # arena PvP de evento: poção cura só metade (só HP)
 	var usou := true
 	if ef.has("cura_hp"):
+		var cura := float(ef["cura_hp"]) * bonus_comida * fator_arena
 		if ef.has("duracao_s"):
-			var por_s := float(ef["cura_hp"]) / float(ef["duracao_s"])
+			var por_s := cura / float(ef["duracao_s"])
 			sim.criar_area({"pos": e.pos, "raio": 0.0, "dur": float(ef["duracao_s"]), "tick": 1.0, "tipo": "regen",
-				"cada_tick": func(_a): sim.curar(e, por_s * bonus_comida, e)})
-		else: sim.curar(e, float(ef["cura_hp"]) * bonus_comida, e)
+				"cada_tick": func(_a): sim.curar(e, por_s, e)})
+		else: sim.curar(e, cura, e)
 		e.aux["cd_pocao"] = CD_POCAO
 	if ef.has("xp_pct"):   # Livro do Olho Roxo: 10% do XP do nível, uma vez por personagem
 		if e.flags.has("livro_olho_roxo"):
@@ -1093,7 +1095,7 @@ static func usar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 			e.flags["livro_olho_roxo"] = true
 			ganhar_xp(sim, e, int(Defs.xp_para_proximo(e.nivel) * float(ef["xp_pct"]) / 100.0), "livro")
 	if ef.has("cura_hp_pct"):
-		var total := e.hp_max * float(ef["cura_hp_pct"]) / 100.0
+		var total := e.hp_max * float(ef["cura_hp_pct"]) / 100.0 * fator_arena
 		if ef.has("duracao_s"):   # Frasco de Bílis Dourado: a cura vem ao longo do tempo
 			var por_s := total / float(ef["duracao_s"])
 			sim.criar_area({"pos": e.pos, "raio": 0.0, "dur": float(ef["duracao_s"]), "tick": 1.0, "tipo": "regen",
