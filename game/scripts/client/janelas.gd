@@ -1908,6 +1908,9 @@ func _abrir_coletor(d: Dictionary) -> void:
 
 func coletor_mudou() -> void:
 	if aberta("servico") and servico_d.get("tipo") == "coletor": _corpo_coletor()
+	if jan.has("inventario"):   # o pet novo chega um instante depois: redesenha o slot Pet do inventário aberto
+		get_tree().create_timer(0.3).timeout.connect(func():
+			for n in corpo["inventario"].get_child(0).get_children(): n.queue_redraw())
 
 func _corpo_coletor() -> void:
 	if not jan.has("servico"): return
