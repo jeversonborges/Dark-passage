@@ -832,7 +832,7 @@ func _marcadores(c: CanvasItem, cen: Vector2, cm: Vector2, k: float, raio: float
 				if e.id != j.id: c.draw_circle(p, 3.6, Color(0.05, 0.1, 0.15)); c.draw_circle(p, 2.8, Color(0.55, 0.85, 1.0))
 			"npc":
 				var mk := Missoes.marcador_npc(j, e.kind)
-				if mk != "": _txt(c, p + Vector2(0, 5), mk, 14, Color(1, 0.82, 0.25) if mk == "!" else Color(0.75, 0.95, 0.4), Tema.FONTE_GOTICA, 0, 2)
+				if mk != "": _txt(c, p + Vector2(0, 5), mk, 16, Color(1, 0.82, 0.25) if mk == "!" else Color(0.6, 0.86, 1.0), Tema.FONTE_GOTICA, 0, 2)
 				else: c.draw_circle(p, 2.5, Color(0.95, 0.85, 0.5))
 			"objeto":
 				if e.kind == "bau" and not e.aux.get("aberto", false) and game.objs.has(e.id) and game.objs[e.id].visible:
@@ -936,7 +936,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 			"voce": c.draw_colored_polygon(PackedVector2Array([p2 + Vector2(6, 0), p2 + Vector2(-4, 4), p2 + Vector2(-2, 0), p2 + Vector2(-4, -4)]), Color.WHITE)
 			"estrela": _estrela(c, p2, 7.0, Color(1.0, 0.82, 0.3))
 			"!": _txt(c, p2 + Vector2(0, 5), "!", 15, Color(1, 0.82, 0.25), Tema.FONTE_GOTICA, 0, 2)
-			"?": _txt(c, p2 + Vector2(0, 5), "?", 15, Color(0.75, 0.95, 0.4), Tema.FONTE_GOTICA, 0, 2)
+			"?": _txt(c, p2 + Vector2(0, 5), "?", 15, Color(0.6, 0.86, 1.0), Tema.FONTE_GOTICA, 0, 2)
 			"chefe": c.draw_circle(p2, 4.5, Color(0.1, 0, 0)); c.draw_circle(p2, 3.5, Color(1.0, 0.25, 0.1))
 			"mob": c.draw_circle(p2, 2.6, Color(0.85, 0.15, 0.1))
 			"neutro": c.draw_circle(p2, 2.6, Color(0.9, 0.78, 0.2))

@@ -328,6 +328,7 @@ func _process(dt: float) -> void:
 	sombra.queue_redraw()
 
 var realce_t := 0.0
+var destaque := 0.0   # NPC com missão (! ou ?): a figura clareia e pulsa, para chamar o olho de longe
 ## Hover: contorno colorido + clarear. Jogador: realce leve sempre (não some no escuro).
 func _atualizar_realce(dt: float) -> void:
 	var alvo := 0.0
@@ -336,6 +337,7 @@ func _atualizar_realce(dt: float) -> void:
 	var chefe: bool = ent != null and ent.tipo == "chefe" and not morto
 	var base := 0.12 if ent != null and ent.tipo == "jogador" else (0.18 if chefe else 0.0)
 	if ent != null and "vigilante" in ent.kind: base = 0.45 if ent.tipo == "objeto" else 0.22   # Hermon: estátua de cinza / anjo caído legível na nevasca
+	base += destaque * (0.2 + 0.08 * sin(tempo * 6.0))
 	mat.set_shader_parameter("realce", base + realce_t * 0.35)
 	var c := cor_anel if hover or not selecionado else cor_sel
 	c.a = c.a * realce_t
