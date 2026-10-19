@@ -8,21 +8,15 @@
         "classe": "anjo",
         "id": "anjo_leque_juizo",
         "elemento": "sagrado",
-        "mult": 1.3,
+        "mult": 1.2,
         "custo": 18,
-        "recarga": 2.2,
-        "extra": {
-          "chao_em_chamas_s": 2.0,
-          "queimadura": {
-            "duracao": 2,
-            "dano_por_s_mult": 0.15
-          }
-        },
-        "nome": "Leque do Juizo",
+        "recarga": 3.0,
+        "extra": {},
+        "nome": "Chuva de Estrelas",
         "area": {
-          "forma": "cone",
-          "cone_graus": 100,
-          "raio": 3.5
+          "forma": "circulo_no_mouse",
+          "raio": 2.6,
+          "alcance": 7
         }
       },
       {

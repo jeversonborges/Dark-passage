@@ -264,14 +264,14 @@ sk(id="tecnomancer_maquina_juizo_reverso", classe="tecnomancer", nome="Máquina 
 # Feitas para FARMAR em spots e para o MODO AUTOMÁTICO: área grande, recarga curta, custo que esvazia o recurso
 # em ~20 s de uso contínuo a partir do cheio (ver 'economia_auto'). Números PROVISÓRIOS até a thread Design do combate fechar mana e poções.
 NIVEL5 = dict(nivel=5, area_nivel5=True, provisorio=True)
-sk(id="anjo_leque_juizo", classe="anjo", nome="Leque do Juízo", tipo="area", **NIVEL5,
-   custo=16, recarga=1.6, conjuracao=0.35, alcance=0, area="leque 100° à frente, 3.5 tiles", duracao=2.0, elemento="sagrado", escala=["ESP","FOR"],
-   formato_area={"forma":"cone","angulo_graus":100,"raio_tiles":3.5,"origem":"personagem","direcao":"mouse"},
-   dano={"golpe_espada_mult":1.3,"fogo_mult_por_alvo":0.9,"queimadura_sagrada":{"duracao_s":2.0,"dano_por_s_mult":0.1}},
-   efeitos=["golpe de espada no alvo da frente", "fogo divino queima tudo no leque", "+15% de dano em tag:praga (mutantes e pragas)", "só o 1º alvo gera Graça"],
-   descricao="O Anjo desce a espada e o golpe não para na lâmina: o ar à frente pega fogo branco e se abre como um leque de penas em brasa.",
-   fx="arco da espada + chamas brancas e douradas abrindo em leque do chão para frente + penas queimando no ar", som="lâmina pesada + whoosh de fogo + coro curto",
-   economia_auto={"recurso_max_nivel5":"~120 Graça", "gasto_por_s":10.0, "ganho_por_s":"~4 (1,5 regen + golpe no 1º alvo)", "dura_do_cheio_s":20})
+sk(id="anjo_leque_juizo", classe="anjo", nome="Chuva de Estrelas", tipo="area", **NIVEL5,
+   custo=18, recarga=3.0, conjuracao=0.3, alcance=7, area="círculo de 2.6 tiles no ponto do mouse", duracao=1.2, elemento="sagrado", escala=["ESP","FOR"],
+   formato_area={"forma":"circulo","raio_tiles":2.6,"origem":"ponto_alvo","direcao":"mouse"},
+   dano={"mult":1.2, "estrelas":4},
+   efeitos=["4 estrelas de luz caem do céu sobre o ponto do mouse", "impacto dourado em cada alvo da área", "+15% de dano em tag:praga (mutantes e pragas)", "só o 1º alvo gera Graça"],
+   descricao="O Anjo ergue a espada e o céu responde: estrelas de luz descem em diagonal e explodem na cabeça dos inimigos, uma após a outra, até a área virar um clarão dourado.",
+   fx="4 estrelas em diagonal descendo do topo da tela + flash branco-dourado no impacto + mini-explosão de luz na posição do mob", som="sino curto + assobio de estrela + estalo de luz",
+   economia_auto={"recurso_max_nivel5":"~120 Graça", "gasto_por_s":6.0, "ganho_por_s":"~4 (1,5 regen + golpe no 1º alvo)", "dura_do_cheio_s":20})
 sk(id="cultista_espinhos_sangue", classe="cultista", nome="Espinhos de Sangue", tipo="area", **NIVEL5,
    custo="5% HP", recarga=1.8, conjuracao=0.5, alcance=7, area="círculo de 2.2 tiles no ponto do mouse", duracao=0.6, elemento="sangue", escala=["ESP"],
    formato_area={"forma":"circulo","raio_tiles":2.2,"origem":"ponto_alvo","alcance_max_tiles":7},

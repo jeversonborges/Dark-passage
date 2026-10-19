@@ -246,15 +246,14 @@ def humano_arrancada(E):
 def _leque(cx, cy, r, a0, a1, cor, op=.55):
     p0 = (cx + r*math.cos(math.radians(a0)), cy + r*math.sin(math.radians(a0))); p1 = (cx + r*math.cos(math.radians(a1)), cy + r*math.sin(math.radians(a1)))
     return f'<path d="M{cx} {cy} L{p0[0]:.1f} {p0[1]:.1f} A{r} {r} 0 0 1 {p1[0]:.1f} {p1[1]:.1f} Z" fill="{cor}" opacity="{op}" filter="url(#gl)"/>'
+def _estrela(x, y, r, cor):
+    return f'<path d="M{x} {y-r} Q{x} {y} {x+r} {y} Q{x} {y} {x} {y+r} Q{x} {y} {x-r} {y} Q{x} {y} {x} {y-r} Z" fill="{cor}" stroke="#7a5a1e" stroke-width=".8"/>'
 def anjo_leque_juizo(E):
-    chamas = ""
-    for a in range(-92, 8, 12):
-        r = math.radians(a); ux, uy = math.cos(r), math.sin(r); px, py = -uy, ux
-        bx, by = 12 + 20*ux, 52 + 20*uy
-        chamas += f'<path d="M{bx+3*px:.1f} {by+3*py:.1f} Q{bx+14*ux+5*px:.1f} {by+14*uy+5*py:.1f} {bx+26*ux:.1f} {by+26*uy:.1f} Q{bx+12*ux-5*px:.1f} {by+12*uy-5*py:.1f} {bx-3*px:.1f} {by-3*py:.1f} Z" fill="url(#gO)" stroke="#5a3a10" stroke-width=".8"/>'
-        chamas += f'<path d="M{bx+6*ux:.1f} {by+6*uy:.1f} L{bx+18*ux:.1f} {by+18*uy:.1f}" stroke="#fff8e0" stroke-width="1.2"/>'
-    return f'''{_leque(12,52,50,-98,12,E,.28)}{chamas}{gl("M12 52 m0 -46 A46 46 0 0 1 58 52", E, 1.8)}
- {espada(20,44,45,0.82,E,("#fff4cc","#e8c46a","#7a5a1e"))}{gl("M4 44 Q14 18 42 10", "#ffffff", 2)}{dot(12,52,3,"#fff8e0")}'''
+    # Chuva de Estrelas (id mantido): estrelas descendo em diagonal e clarão de impacto no alvo
+    rastros = "".join(gl(f"M{x} {y} L{x-12} {y+12}", E, 1.2) for x, y in ((50, 6), (58, 16), (40, 10)))
+    estrelas = _estrela(50, 14, 9, "#fff4cc") + _estrela(38, 26, 6.5, "#fff4cc") + _estrela(58, 32, 5, "#e8c46a") + _estrela(30, 8, 4.5, "#fff8e0")
+    return f'''{rastros}{estrelas}{gl("M22 46 m-12 0 a12 12 0 1 0 24 0 a12 12 0 1 0 -24 0", E, 1.6)}
+ <ellipse cx="22" cy="46" rx="7" ry="4" fill="#fff4cc" opacity=".7" filter="url(#gl)"/>{_estrela(22, 46, 8, "#ffffff")}{dot(22,46,2,"#fff8e0")}'''
 def cultista_espinhos_sangue(E):
     espinhos = "".join(f'<path d="M{x-3.4*s} {y} L{x} {y-16*s} L{x+3.4*s} {y} Z" fill="url(#gS)" {o}/><path d="M{x-1} {y-2} L{x} {y-13*s}" stroke="#ff9a8a" stroke-width="1"/>' for x,y,s in ((20,44,0.8),(44,44,0.8),(32,40,1.15),(25,52,1),(39,52,1),(32,56,0.7),(14,52,0.6),(50,52,0.6)))
     return f'''<ellipse cx="32" cy="48" rx="26" ry="11" fill="#3a0604" {o}/><ellipse cx="32" cy="48" rx="26" ry="11" fill="none" stroke="{E}" stroke-width="1.6" filter="url(#gl)"/>
