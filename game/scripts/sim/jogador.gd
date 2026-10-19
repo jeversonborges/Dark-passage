@@ -1173,6 +1173,7 @@ static func equipar(sim: WorldSim, e: Ent, uid: int, slot: String) -> void:
 	for t in tirar:
 		if Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, t) > 0:
 			sim.soltar_no_chao(t, e.pos, e.id, e.pos)
+	if s == "pet": Coletor.trocar(sim, e)   # 0.9.7: o pet equipado é o que anda com o dono
 	Regras.recalc_jogador(e)
 	var cat := Itens.categoria(it)
 	sim.emitir_a(e, "som_evento", {"ev": "equipar_arma" if s == "arma" else ("equipar_joia" if cat == "acessorio" else "equipar_armadura")})
@@ -1188,6 +1189,7 @@ static func desequipar(sim: WorldSim, e: Ent, slot: String, x: int = -1, y: int 
 		if p.x < 0: sim.emitir_a(e, "aviso", {"texto": "Mochila cheia."}); return
 		it["x"] = p.x; it["y"] = p.y; e.inv.append(it)
 	e.equip.erase(slot)
+	if slot == "pet": Coletor.trocar(sim, e)
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
 

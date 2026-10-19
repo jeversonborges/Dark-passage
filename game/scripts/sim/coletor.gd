@@ -1,13 +1,15 @@
 class_name Coletor
 ## Pet coletor (0.9.6, Jefin 2026-10-18): um animal que anda com o dono e junta do chão os drops que o filtro deixa
 ## passar. Comprado com o vendedor de pets (Vigília e Arautos). Não ataca, não é alvo, não ganha XP e não solta nada.
-## Espécies são os animais de assets/monstros que viram pet. A escolha e o filtro ficam em dono.aux["coletor"] (vão no save).
+## 0.9.7 (Jefin 2026-10-19, estilo MU): cada espécie é um item de pet (slot "pet"). Equipado, invoca o pet; o filtro de
+## coleta fica no próprio item. Vai para o baú, e dá para ter vários. Não ataca, não é alvo, não ganha XP.
+## Espécies são os animais de assets/monstros que viram pet.
 
 const ESPECIES := {
-	"cao_de_vala": {"nome": "Cão de Vala", "preco": 4000},
-	"corvo_de_cinza": {"nome": "Corvo de Cinza", "preco": 3000},
-	"cervo_de_lume": {"nome": "Cervo de Lume", "preco": 8000},
-	"serpente_do_eden": {"nome": "Serpente do Éden", "preco": 6000},
+	"cao_de_vala": {"nome": "Cão de Vala", "preco": 4000, "item": "pet_cao_vala"},
+	"corvo_de_cinza": {"nome": "Corvo de Cinza", "preco": 3000, "item": "pet_corvo_cinza"},
+	"cervo_de_lume": {"nome": "Cervo de Lume", "preco": 8000, "item": "pet_cervo_lume"},
+	"serpente_do_eden": {"nome": "Serpente do Éden", "preco": 6000, "item": "pet_serpente_eden"},
 }
 const RARIDADES := ["comum", "magico", "raro", "excelente", "lendario"]   ## lendario é a Relíquia (vermelho)
 const POCOES := ["pocao_vida_m", "pocao_vida_p", "tonico_graxa", "hostia_negra", "caldo_cardo_comum", "pao_duro",
@@ -23,10 +25,22 @@ static func filtro_padrao() -> Dictionary:
 	for r in RARIDADES: raridade[r] = true
 	return {"raridade": raridade, "pocoes": true, "joias": {}, "asas": true, "baus": true}
 
-## Configuração do dono: {"especie": id ou "", "filtro": {...}}. Cria o padrão na primeira vez.
+## Espécie de um item de pet ("" se não for item de pet).
+static func especie_do_item(id: String) -> String:
+	for esp in ESPECIES:
+		if ESPECIES[esp]["item"] == id: return esp
+	return ""
+
+## O item de pet equipado no slot "pet" ({} se não há).
+static func pet_equipado(dono: Ent) -> Dictionary:
+	return dono.equip.get("pet", {})
+
+## Configuração do pet equipado: {"especie": id ou "", "filtro": {...}}. O filtro é o do próprio item (por referência).
 static func cfg(dono: Ent) -> Dictionary:
-	if not (dono.aux.get("coletor") is Dictionary): dono.aux["coletor"] = {"especie": "", "filtro": filtro_padrao()}
-	return dono.aux["coletor"]
+	var it := pet_equipado(dono)
+	if it.is_empty(): return {"especie": "", "filtro": filtro_padrao()}
+	if not (it.get("filtro") is Dictionary): it["filtro"] = filtro_padrao()
+	return {"especie": especie_do_item(str(it["id"])), "filtro": it["filtro"]}
 
 static func filtro(dono: Ent) -> Dictionary:
 	return cfg(dono)["filtro"]
@@ -72,19 +86,37 @@ static func comprar(sim: WorldSim, e: Ent, esp: String) -> void:
 	var preco := int(ESPECIES[esp]["preco"])
 	if e.ouro < preco:
 		sim.emitir_a(e, "aviso", {"texto": "Ouro insuficiente."}); sim.emitir_a(e, "som_evento", {"ev": "erro"}); return
+	var it := Itens.novo(ESPECIES[esp]["item"])
+	it["filtro"] = filtro_padrao()
+	if Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it) > 0:
+		sim.emitir_a(e, "aviso", {"texto": "Mochila cheia."}); return
 	e.ouro -= preco
 	sim.emitir_a(e, "ouro", {"valor": -preco})
 	sim.emitir_a(e, "som_evento", {"ev": "comprar"})
-	cfg(e)["especie"] = esp
-	_tirar(sim, e)
-	garantir(sim, e)
+	sim.emitir_a(e, "inventario", {})
 	sim.emitir_a(e, "coletor", {})
 
-## Manda o pet embora (o filtro fica salvo).
+## Manda o pet embora: tira o item do slot "pet" e o põe na mochila (o filtro vai junto).
 static func dispensar(sim: WorldSim, e: Ent) -> void:
-	cfg(e)["especie"] = ""
-	_tirar(sim, e)
+	if pet_equipado(e).is_empty(): return
+	Jogador.desequipar(sim, e, "pet")
 	sim.emitir_a(e, "coletor", {})
+
+## Troca de pet equipado (ou tirou/pôs): o pet da cena sai e nasce o da espécie que está equipada agora.
+static func trocar(sim: WorldSim, dono: Ent) -> void:
+	_tirar(sim, dono)
+	garantir(sim, dono)
+
+## Saves antigos guardavam o pet em dono.aux["coletor"]. Vira um item de pet na mochila, uma vez.
+static func migrar(dono: Ent) -> void:
+	var antigo = dono.aux.get("coletor")
+	if not (antigo is Dictionary): return
+	var esp := str(antigo.get("especie", ""))
+	if not ESPECIES.has(esp): dono.aux.erase("coletor"); return
+	var it := Itens.novo(ESPECIES[esp]["item"])
+	it["filtro"] = antigo.get("filtro", filtro_padrao())
+	if Itens.guardar(dono.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it) > 0: return   # mochila cheia: tenta de novo na próxima entrada
+	dono.aux.erase("coletor")
 
 static func _meu(sim: WorldSim, dono: Ent) -> Ent:
 	var pet: Ent = sim.ents.get(int(dono.aux.get("coletor_id", -1)))
@@ -98,6 +130,7 @@ static func _tirar(sim: WorldSim, dono: Ent) -> void:
 
 ## Põe o pet da espécie escolhida ao lado do dono, se ele ainda não está neste mapa. Chamado ao entrar no mapa.
 static func garantir(sim: WorldSim, dono: Ent) -> void:
+	migrar(dono)
 	var esp := str(cfg(dono)["especie"])
 	if not ESPECIES.has(esp) or _meu(sim, dono) != null: return
 	var pet := Ent.new()

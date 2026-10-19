@@ -27,7 +27,8 @@ const POS_EQUIP := {
 	"arma": Rect2(60, 4, 52, 124), "anel1": Rect2(60, 134, 52, 52),
 	"segunda_mao": Rect2(268, 4, 52, 124), "anel2": Rect2(268, 134, 52, 52),
 	"amuleto": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52),
-	"asa": Rect2(146, 182, 88, 52)}   # asa (3x2 na mochila): embaixo do retrato, entre os anéis
+	"asa": Rect2(146, 182, 88, 52),   # asa (3x2 na mochila): embaixo do retrato, entre os anéis
+	"pet": Rect2(324, 190, 52, 40)}   # pet (0.9.7): canto de baixo, depois das botas
 const AREA_EQUIP := Vector2(380, 236)
 var _ganho_cache := {}        # uid -> quanto o Poder sobe ao equipar (cache por atualização do inventário)
 var _poder_cache := -1
@@ -1762,9 +1763,9 @@ func _corpo_coletor() -> void:
 	_limpar(c)
 	_fala_servico(c, servico_d)
 	var j := _jog()
-	var cfg: Dictionary = j.aux.get("coletor", {})
-	var atual: String = cfg.get("especie", "")
-	var f: Dictionary = cfg.get("filtro", Coletor.filtro_padrao())
+	var pet: Dictionary = j.equip.get("pet", {})   # 0.9.7: o pet é o item equipado no slot "pet"
+	var atual: String = Coletor.especie_do_item(str(pet.get("id", "")))
+	var f: Dictionary = pet.get("filtro", Coletor.filtro_padrao())
 	var sc := ScrollContainer.new(); sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var v := VBoxContainer.new(); v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
