@@ -1,4 +1,4 @@
-# Cavalos do Apocalipse (montarias com armadura): Cavalo da Conquista e Cavalo da Peste.
+# Cavalos do Apocalipse (montarias com armadura): Cavalo da Perdição (Conquista) e Cavalo do Lamento (Peste).
 # Mesmo esqueleto de cavalo do Cavalo Esqueleto (cavalo_esqueleto.py), com barda de placas, sela e estribos.
 # Conquista: branco e imponente, barda dourada com rebites e faixa azuis, coroa de ouro na cabeça
 #   (único emissivo: os olhos de ouro).
