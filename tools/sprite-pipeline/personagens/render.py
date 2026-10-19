@@ -28,10 +28,10 @@ else: acts, flash_frames = anims.caster_anims(arm, info.get("extra"), info.get("
 if flash and not flash_frames: flash_frames = [0]*8
 if flash and not isinstance(flash_frames, dict): flash_frames = {"attack": flash_frames}
 
-# arma na mão (machado do Mutante): o modelo 3D segue o osso da mão em cada quadro e direção. A referência é a pose
-# de repouso (quadro 1 da parada): ali a arma fica vertical, cabo para baixo, lâmina para cima, com a origem ARMA_OFF
-# acima do pulso (a pegada fica no cabo, como no print aprovado).
-ARMA_OFF, ARMA_ROT = (0, 0, .15), (0, 0, 0)
+# arma na mão (machado do Mutante): o modelo 3D segue a posição da mão em cada quadro e direção, com a orientação de
+# repouso (vertical, cabo para baixo, lâmina para cima). A origem fica ARMA_OFF acima do pulso (pegada no cabo).
+ARMA_OFF = (0, 0, .15)
+ARMA_ROT = tuple(float(v) for v in os.environ.get("ARMA_ROT", "0,0,0").split(","))
 arma_objs = []
 if info.get("arma"):
     antes = set(bpy.data.objects)
@@ -45,12 +45,11 @@ if info.get("arma"):
     osso_mao = arm.pose.bones["hand.R"]
     arm.animation_data_create(); arm.animation_data.action = acts["idle"]
     sc.frame_set(1); bpy.context.view_layer.update()
-    inv_repouso = osso_mao.matrix.inverted()
-    w_repouso = Matrix.Translation(osso_mao.matrix.translation + Vector(ARMA_OFF)) @ Euler(
-        tuple(math.radians(v) for v in ARMA_ROT)).to_matrix().to_4x4()
+    rot_arma = Euler(tuple(math.radians(v) for v in ARMA_ROT)).to_matrix().to_4x4()
     def segue_mao():
+        # só a posição segue a mão: a arma mantém a orientação do repouso (lâmina para cima) em todos os quadros
         bpy.context.view_layer.update()
-        mao.matrix_world = arm.matrix_world @ (osso_mao.matrix @ inv_repouso @ w_repouso)
+        mao.matrix_world = arm.matrix_world @ (Matrix.Translation(osso_mao.matrix.translation + Vector(ARMA_OFF)) @ rot_arma)
 
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam)
 cam.data.type = 'ORTHO'; cam.data.ortho_scale = PX/PPU
