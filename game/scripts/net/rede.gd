@@ -6,7 +6,7 @@ signal mensagem(m: Dictionary)   # servidor -> este cliente
 signal caiu(motivo: String)
 
 const PORTA := 7777
-const VERSAO := "0.9.8"                    # cliente e servidor precisam bater (o servidor recusa outra)
+const VERSAO := "0.9.8.1"                    # cliente e servidor precisam bater (o servidor recusa outra)
 const ONLINE := "darkpassage.com.br"       # servidor oficial (a VPS)
 const ONLINE_IP := "213.109.169.186"       # se o DNS do domínio falhar, vai direto no IP
 const MAX_MSG_SEG := 60                    # mais que isso por segundo (média de 2 s) derruba a conexão

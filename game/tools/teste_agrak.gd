@@ -97,7 +97,7 @@ func _init() -> void:
 	rodar(sim, 2.0)
 	checar(ctl.etapa == "coroacao" and ctl.vencedor == js[0].id, "coroação de Glad0 (%s, vencedor %d)" % [ctl.etapa, ctl.vencedor])
 	checar(cont.get("morte_pvp", 0) >= 2, "mortes PvP anunciadas (%d)" % cont.get("morte_pvp", 0))
-	checar(Itens.contar(js[0].inv, "ficha_sangue") == 1, "vencedor ganhou 1 Ficha de Sangue")
+	checar(Itens.contar(js[0].inv, "ficha_sangue") == 3, "vencedor ganhou 3 Fichas de Sangue: 1 da vitória + 1 por abate (%d)" % Itens.contar(js[0].inv, "ficha_sangue"))
 	rodar(sim, 16.0)
 	checar(cont.get("agrak_fim", 0) == 1, "evento encerrou")
 	checar(cont.get("trocar_mapa", 0) >= 4, "todos devolvidos para onde estavam (%d)" % cont.get("trocar_mapa", 0))
