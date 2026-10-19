@@ -61,5 +61,6 @@ def _(rng):
             c.blob('rubro', 48 + math.cos(a) * 28, 56 + math.sin(a) * 14, 1.8 * fade + .5, .8 * fade * (1 - t * .3))
         c.ring('sangue', 48, 56, 28, .7, .5 * (1 - t) + .15, sy=.5)
         hx, hy = 48 + math.cos(head) * 28, 56 + math.sin(head) * 14
+        c.line('rubro', 48 + math.cos(head) * 4, 56 + math.sin(head) * 2, hx, hy, 1.8, .95, w1=.6)   # lâmina girando no eixo
         c.blob('faisca', hx, hy, 2.0, 1.0)
     return f
