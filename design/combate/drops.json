@@ -572,8 +572,8 @@
     "chances": {
       "comum": 0.1,
       "verde": 0.05,
-      "magico": 0.005,
-      "excelente": 0.005,
+      "magico": 0.02,
+      "excelente": 0.01,
       "raro": 0.0001,
       "laranja": 1e-05
     },

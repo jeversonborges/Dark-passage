@@ -14,7 +14,7 @@ func _init() -> void:
 		if a != "": baixo[a] += 1
 		var b := Itens.rolar_raridade_mob(rng, 35)
 		if b != "": alto[b] += 1
-	var esperado := {"comum": 0.10, "verde": 0.05, "magico": 0.005, "excelente": 0.005, "raro": 0.0001, "laranja": 0.00001}
+	var esperado := {"comum": 0.10, "verde": 0.05, "magico": 0.02, "excelente": 0.01, "raro": 0.0001, "laranja": 0.00001}
 	for r in esperado:
 		var p := baixo[r] / float(n)
 		print("nivel 20 %-9s %.5f (esperado %.5f)" % [r, p, esperado[r]])
@@ -22,7 +22,7 @@ func _init() -> void:
 		var dp := sqrt(esperado[r] * (1.0 - esperado[r]) / n)
 		if absf(p - esperado[r]) > maxf(6.0 * dp, 0.000002): print("FALHA: %s fora do esperado" % r); falhas += 1
 	if alto["comum"] != 0: print("FALHA: nivel 35 deu branco"); falhas += 1
-	var fator := (0.10 + 0.05 + 0.005 + 0.005 + 0.0001 + 0.00001) / (0.05 + 0.005 + 0.005 + 0.0001 + 0.00001)
+	var fator := (0.10 + 0.05 + 0.02 + 0.01 + 0.0001 + 0.00001) / (0.05 + 0.02 + 0.01 + 0.0001 + 0.00001)
 	var pv := alto["verde"] / float(n)
 	print("nivel 35 verde %.4f (esperado %.4f)" % [pv, 0.05 * fator])
 	if absf(pv - 0.05 * fator) > 0.002: print("FALHA: verde acima de 30 fora da redistribuicao"); falhas += 1
