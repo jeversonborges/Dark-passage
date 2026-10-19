@@ -114,7 +114,7 @@
    "nome": "Banca de Sangue do Agrak",
    "moeda": "ficha_sangue",
    "precos": {
-    "armadura": 4,
+    "armadura": 5,
     "arma": 10
    },
    "itens": [
@@ -137,7 +137,7 @@
    "nome": "Banca de Sangue da Porta Dourada",
    "moeda": "ficha_sangue",
    "precos": {
-    "armadura": 4,
+    "armadura": 5,
     "arma": 10
    },
    "itens": [
@@ -160,7 +160,7 @@
    "nome": "Banca de Sangue do Balcão",
    "moeda": "ficha_sangue",
    "precos": {
-    "armadura": 4,
+    "armadura": 5,
     "arma": 10
    },
    "itens": [
