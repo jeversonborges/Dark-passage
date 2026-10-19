@@ -1131,6 +1131,7 @@ func _sob_mouse() -> void:
 		var e: Ent = sim.ents.get(id)
 		if e == null or not e.vivo or not v.visible or e.tipo == "jogador": continue
 		if e.tipo == "objeto" and not e.alvejavel: continue
+		if e.aux.get("coletor", false): continue   # pet coletor: sem alvo, sem nome, sem barra
 		var larg: float = maxf(30.0 * v.escala_base * e.escala, 28.0)
 		var alt: float = maxf(v.altura_px * e.escala, 80.0)
 		var r := Rect2(v.position.x - larg - 24, v.position.y - alt - 30, (larg + 24) * 2, alt + 50)
@@ -1620,6 +1621,7 @@ func _desenhar_sobre() -> void:
 					var tit: String = e.aux.get("titulo", "")
 					if tit != "": _nome(topo + Vector2(0, 14), tit, Color("#a89f8c"), 11, Tema.FONTE_ITALICO)
 			"monstro", "invocacao":
+				if e.aux.get("coletor", false): continue   # pet coletor (0.9.6): sem nome e sem barra de vida
 				var ferido := e.hp < e.hp_max - 0.5
 				if id == hover_id or id == jog.alvo or ferido or e.arquetipo in ["elite", "raro"] or Ajustes.v("barras_sempre"):
 					var larg := 44.0
