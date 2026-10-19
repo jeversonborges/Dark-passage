@@ -626,7 +626,8 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 		if f: n.set_meta("feixe", f)
 	audio.tocar("itens/drop_excelente" if rar in ["excelente", "lendario", "demiurgico"] else ("itens/drop_metal" if not n.ouro else "itens/moedas"), n.destino, -4.0)
 
-func _item_chao_sumiu(id: int) -> void:
+## Some do chão. Com "voa_ate" (o pet pegou), o item sobe e encolhe até o dono antes de sumir.
+func _item_chao_sumiu(id: int, voa_ate = null) -> void:
 	var n = itens_chao.get(id)
 	itens_chao.erase(id)
 	if n == null: return
@@ -634,6 +635,13 @@ func _item_chao_sumiu(id: int) -> void:
 	if n.has_meta("feixe"):
 		var f = n.get_meta("feixe")
 		if is_instance_valid(f): f.queue_free()
+	if voa_ate is Vector2:
+		var t: Tween = n.create_tween().set_parallel(true)
+		t.tween_property(n, "position", Iso.to_screen(voa_ate) + Vector2(0, -60), 0.28).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		t.tween_property(n, "scale", Vector2(0.3, 0.3), 0.28)
+		t.tween_property(n, "modulate:a", 0.0, 0.28)
+		t.chain().tween_callback(n.queue_free)
+		return
 	n.queue_free()
 
 # =================================================================== eventos do servidor
@@ -689,7 +697,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			fx.raio(a, b, Defs.cor(d.get("cor", "#8ad8ff")), d.get("coluna", false))
 		"chao_novo": _item_chao(int(d["id"]), d.get("de", d["pos"]), d["pos"])
 		"chao_sumiu":
-			_item_chao_sumiu(int(d["id"]))
+			_item_chao_sumiu(int(d["id"]), d.get("para") if d.get("pet", false) and int(d.get("por", -1)) == jog.id else null)
 			if d.get("pego", false) and int(d.get("por", jog.id)) == jog.id: audio.tocar("ui/pegar_item", null, -4.0)
 		"status": _status(d)
 		"alerta":

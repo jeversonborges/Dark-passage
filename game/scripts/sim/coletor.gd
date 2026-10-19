@@ -178,6 +178,6 @@ static func _pegar(sim: WorldSim, dono: Ent, id: int) -> void:
 	if c.is_empty(): return
 	var it: Dictionary = c["item"]
 	sim.chao.erase(id)
-	sim.emitir("chao_sumiu", {"id": id, "pego": true, "por": dono.id})
+	sim.emitir("chao_sumiu", {"id": id, "pego": true, "por": dono.id, "pet": true, "para": dono.pos})
 	sim.emitir_a(dono, "som_evento", {"ev": "moedas" if it["id"] == "_ouro" else "pegar"})
 	Jogador.dar_item(sim, dono, it)
