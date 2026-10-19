@@ -22,5 +22,17 @@
     "repo": "arjun988/blender-skills",
     "commit": "8f778d2",
     "trecho": "timing de animação de combate"
+  },
+  {
+    "arquivo": "muybridge_horse_in_motion.jpg",
+    "repo": "Eadweard Muybridge, The Horse in Motion (Sallie Gardner, 1878)",
+    "commit": "",
+    "trecho": "domínio público; 12 frames clássicos de galope com fase de suspensão; proporção real de perfil"
+  },
+  {
+    "arquivo": "horse_video.mp4",
+    "repo": "vídeo enviado pelo Jefin (origem e licença não confirmadas)",
+    "commit": "",
+    "trecho": "referência de movimento real de cavalo para comparar walk, trot, canter e gallop; frames gerados por fps=10 (ver video_frames/README.md)"
   }
 ]
