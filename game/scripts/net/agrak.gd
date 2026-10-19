@@ -66,8 +66,8 @@ func _process(dt: float) -> void:
 	for m in cfg.get("inscricao", {}).get("avisos_min", [10, 5, 1]):
 		if falta <= int(m) * 60 and falta > int(m) * 60 - 5 and not avisados.has(m):
 			avisados[m] = true
-			_sistema("O Agrak abre em %d minuto%s. Inscrição no Cartaz do Agrak ou com Caim e Abel (nível %d, %d de ouro). Inscritos: %d." %
-				[int(m), "" if int(m) == 1 else "s", _nivel_min(), _custo(), inscritos.size()])
+			_sistema("O Agrak abre em %d minuto%s. Entrada com o Bilhete do Agrak, da Sariel ou do Zaqueu (nível %d). Inscritos: %d." %
+				[int(m), "" if int(m) == 1 else "s", _nivel_min(), inscritos.size()])
 	if falta <= 0: _aguardar_gm()
 
 ## Na hora da agenda: a lista fica aberta e a luta espera o GM (pedido do Jefin, 18/10: "quando o ADM mandar").
@@ -96,9 +96,31 @@ func pedido(peer: int, a: String) -> void:
 	if a == "sair":
 		if peer in inscritos:
 			inscritos.erase(peer)
-			_aviso(peer, "Você saiu da lista do Agrak. O bilhete continua com você.")
+			_devolver(peer)
+			_aviso(peer, "Você saiu da lista do Agrak. O bilhete voltou para a mochila.")
 		return
 	_aviso(peer, "A entrada no Agrak agora é pelo Bilhete do Agrak, vendido pela Sariel e pelo Zaqueu.")
+
+## O Bilhete do Agrak entra na lista sem ouro. Se a lista não aceitar, o bilhete não é gasto (ver servidor.gd).
+func usar_bilhete(peer: int) -> bool:
+	if peer < 0 or not srv.sessoes.has(peer): return false
+	var e: Ent = srv.sessoes[peer]["jog"]
+	if e == null: return false
+	if peer in inscritos:
+		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return false
+	if not aberta():
+		_aviso(peer, "A lista do Agrak abre %d minutos antes da luta. Próxima: %s (horário de Brasília)." % [int(cfg.get("inscricao", {}).get("abre_min_antes", 10)), _hora_txt()]); return false
+	if e.nivel < _nivel_min():
+		_aviso(peer, "O Agrak só aceita gladiadores do nível %d para cima." % _nivel_min()); return false
+	inscritos.append(peer)
+	_aviso(peer, "Seu bilhete entrou na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
+	return true
+
+## Quem não lutou recebe o bilhete de volta (mochila cheia: o preço dele em ouro).
+func _devolver(peer: int) -> void:
+	var e: Ent = srv.sessoes[peer]["jog"]
+	if Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, Itens.novo("bilhete_agrak", 1)) > 0: e.ouro += _custo()
+	srv._para(peer, "inventario", {})
 
 func _falta_txt() -> String:
 	var s := maxi(0, inicio - _agora())
@@ -108,7 +130,7 @@ func _hora_txt() -> String:
 	var d := Time.get_datetime_dict_from_unix_time(inicio + FUSO_H * 3600)
 	return "%02d:%02d" % [d["hour"], d["minute"]]
 
-## Na hora: cancela com menos do mínimo (devolve o ouro); senão leva até 20 para o mapa agrak.
+## Na hora: cancela com menos do mínimo (devolve o bilhete); senão leva até 20 para o mapa agrak.
 ## Devolve o texto para o painel GM, para ele saber o que aconteceu (antes ficava mudo).
 func _hora() -> String:
 	aberta_manual = false
@@ -118,16 +140,16 @@ func _hora() -> String:
 	if lista.is_empty(): return "não começou: ninguém na lista."
 	if lista.size() < minimo:
 		for p in lista:
-			srv.sessoes[p]["jog"].ouro += _custo()
-			_aviso(p, "O Agrak foi cancelado: gladiadores de menos. O ouro voltou.")
+			_devolver(p)
+			_aviso(p, "O Agrak foi cancelado: gladiadores de menos. O bilhete voltou para a mochila.")
 		if not lista.is_empty(): _sistema("O Agrak de hoje foi cancelado: a plateia veio, os gladiadores não.")
-		return "cancelado: %d na lista, mínimo %d. Ouro devolvido." % [lista.size(), minimo]
+		return "cancelado: %d na lista, mínimo %d. Bilhetes devolvidos." % [lista.size(), minimo]
 	var maxn := int(cfg.get("inscricao", {}).get("max_por_arena", 20))
 	if srv.mundos.has(MAPA) and srv.mundos[MAPA].chefe != null and srv.mundos[MAPA].chefe.etapa_i >= 0:
 		return "não começou: ainda tem um Agrak rodando."
 	for i in range(maxn, lista.size()):   # acima do máximo (uma arena por vez nesta versão): devolve
-		srv.sessoes[lista[i]]["jog"].ouro += _custo()
-		_aviso(lista[i], "O Agrak lotou antes do seu nome. O ouro voltou; tente na próxima.")
+		_devolver(lista[i])
+		_aviso(lista[i], "O Agrak lotou antes do seu nome. O bilhete voltou; tente na próxima.")
 	lista = lista.slice(0, maxn)
 	if lista.is_empty(): return "não começou: ninguém na lista."
 	var ent: Array = Defs.ler("res://data/mapas/%s.json" % MAPA).get("agrak", {}).get("entrada_fosso", [23, 13.5])
