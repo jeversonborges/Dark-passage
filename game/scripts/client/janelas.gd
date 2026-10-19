@@ -1954,25 +1954,31 @@ func _cartao_pet(esp: String, atual: bool) -> Control:
 	col.alignment = BoxContainer.ALIGNMENT_CENTER
 	h.add_child(col)
 	col.add_child(Tema.rotulo(Coletor.ESPECIES[esp]["nome"] + ("  · atual" if atual else ""), 16, Color("#f0dca0"), Tema.FONTE_TITULO, 2))
-	col.add_child(Tema.rotulo("%d ouro" % Coletor.ESPECIES[esp]["preco"], 11, Color("#a89f8c"), Tema.FONTE_TEXTO))
+	col.add_child(Tema.rotulo("%d ouro" % Coletor.ESPECIES[esp]["preco"], 10, Color("#a89f8c"), Tema.FONTE_TEXTO))
 	var b := Button.new(); b.text = "Comprar"; b.custom_minimum_size = Vector2(0, 26)
 	b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 13)
 	b.pressed.connect(func(): game.cmd("coletor", ["comprar", esp]))
 	col.add_child(b)
 	return p
 
-## Primeiro quadro do idle (lado S) de um pet, centralizado e quadrado dentro de r.
+var _recorte_pet := {}   # espécie -> pedaço do primeiro quadro idle onde o pet está de fato
+
+## Primeiro quadro do idle (lado S) de um pet, recortado pelo que é pixel de verdade e ampliado para a caixa r.
 func _desenhar_pet(g: CanvasItem, kind: String, r: Rect2) -> void:
 	var meta: Dictionary = Defs.SPR.get(kind, {})
 	if meta.is_empty(): return
 	var tex := Tema.tex(meta["anims"]["idle"]["file"])
 	if tex == null: return
-	var fs: Array = meta["frame"]
-	var fw := float(fs[0]); var fh := float(fs[1])
-	var src := Rect2(fw * 0.05, fh * 0.05, fw * 0.9, fh * 0.9)   # a figura fica no meio do quadro; o resto é margem
-	var lado := minf(r.size.x, r.size.y) - 6.0
-	var dest := Rect2(r.position + (r.size - Vector2(lado, lado)) * 0.5, Vector2(lado, lado))
-	g.draw_texture_rect_region(tex, dest, src)
+	if not _recorte_pet.has(kind):
+		var fs: Array = meta["frame"]
+		var quadro := Rect2i(0, 0, int(fs[0]), int(fs[1]))
+		var usado := tex.get_image().get_region(quadro).get_used_rect()
+		_recorte_pet[kind] = Rect2(Rect2i(usado.grow(2)).intersection(quadro))
+	var src: Rect2 = _recorte_pet[kind]
+	var escala := minf(r.size.x / src.size.x, r.size.y / src.size.y)
+	var tam := src.size * escala
+	g.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST   # pixel art: sem borrão ao ampliar
+	g.draw_texture_rect_region(tex, Rect2(r.position + (r.size - tam) * 0.5, tam), src)
 
 const RARIDADE_NOME_COLETOR := {"comum": "Branco", "verde": "Verde", "magico": "Azul", "excelente": "Roxo", "raro": "Amarelo", "laranja": "Laranja", "lendario": "Relíquia"}
 
