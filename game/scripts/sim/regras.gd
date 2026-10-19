@@ -211,6 +211,11 @@ static func golpe(atk: Ent, alvo: Ent, op: Dictionary, rng: RandomNumberGenerato
 	if alvo.tem("marcado"): dano *= 1.15
 	if alvo.quebrado_t > 0.0: dano *= 1.0 + float(Defs.EFEITOS["postura"]["quebrado_dano_recebido_extra"])
 	if alvo.tipo == "jogador": dano *= 1.0 - float(alvo.aux.get("bonus", {}).get("reduz_dano", 0.0))
+	# PvP (Penitente, tier 1): só entre jogadores. Dano em jogador passa por fora da defesa (vem depois da mitigação);
+	# o alvo recebe menos de jogador: dano_recebido_jogadores é negativo (-0.04 por peça).
+	if atk.tipo == "jogador" and alvo.tipo == "jogador":
+		dano *= 1.0 + float(atk.aux.get("bonus", {}).get("dano_em_jogadores", 0.0))
+		dano *= 1.0 + float(alvo.aux.get("bonus", {}).get("dano_recebido_jogadores", 0.0))
 	# recursos que dão dano
 	if atk.classe == "mutante": dano *= 1.0 + floorf(atk.rec / 10.0) * 0.02
 	if atk.classe == "warlord": dano *= 1.0 + floorf(atk.rec / 20.0) * 0.03

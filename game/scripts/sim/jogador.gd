@@ -1266,6 +1266,16 @@ static func comprar(sim: WorldSim, e: Ent, id: String, qtd: int = 1) -> void:
 	var it := Itens.novo(id, qtd)
 	if Defs.ITENS[id].get("raridade", "") == "rolada":
 		it = Itens.gerar_equip(id, sim.rng, "comum", 1); it["raridade"] = "comum"; it["opcoes"] = []; it["refino"] = 0
+	var l: Dictionary = Defs.LOJAS.get(serv["id"], {})
+	if l.has("moeda"):   # loja de moeda (Penitente): preço por categoria, paga em fichas
+		var pf := int(l.get("precos", {}).get(Itens.categoria(it), 0)) * qtd
+		if Itens.contar(e.inv, l["moeda"]) < pf:
+			sim.emitir_a(e, "aviso", {"texto": "Faltam fichas."}); sim.emitir_a(e, "som_evento", {"ev": "erro"}); return
+		Itens.remover(e.inv, l["moeda"], pf)
+		dar_item(sim, e, it)
+		sim.emitir_a(e, "som_evento", {"ev": "comprar"})
+		sim.emitir_a(e, "inventario", {})
+		return
 	var p := Itens.preco(it) * qtd
 	if e.ouro < p:
 		sim.emitir_a(e, "aviso", {"texto": "Ouro insuficiente."}); sim.emitir_a(e, "som_evento", {"ev": "erro"}); return
