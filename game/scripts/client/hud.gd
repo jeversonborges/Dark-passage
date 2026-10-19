@@ -656,7 +656,15 @@ func _desenhar_alvo(c: Painel) -> void:
 	if e == null or not e.vivo or e.tipo in ["npc", "jogador"] or (e.tipo == "objeto" and not e.alvejavel): return
 	if e.tipo == "objeto" and e.kind != "pilha_de_mortos": return
 	var r := Rect2(40, 0, 320, 48)
-	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.88), Color(0.42, 0.34, 0.2), 2, 3), r)
+	# 0.9.8: quatro estilos de barra, pela categoria: comum, elite (moldura de ouro), especial (azul, brilho e losango)
+	var borda := Color(0.42, 0.34, 0.2)
+	if e.arquetipo == "elite": borda = Color(0.85, 0.66, 0.25)
+	elif e.arquetipo == "raro":
+		borda = Color(0.5, 0.72, 1.0)
+		c.draw_circle(Vector2(r.position.x + 14, 24), 26.0, Color(0.5, 0.72, 1.0, 0.09))
+		var d := Vector2(r.position.x + 14, 24)
+		c.draw_colored_polygon(PackedVector2Array([d + Vector2(0, -6), d + Vector2(6, 0), d + Vector2(0, 6), d + Vector2(-6, 0)]), Color(0.6, 0.8, 1.0))
+	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.88), borda, 2, 3), r)
 	var cn := Color("#e8dfc9")
 	if e.arquetipo == "elite": cn = Color("#e0b84a")
 	elif e.arquetipo == "raro": cn = Color("#7fb8ff")

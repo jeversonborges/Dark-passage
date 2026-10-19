@@ -1309,7 +1309,8 @@ func _painel_lixo() -> Control:
 	box.add_child(Tema.rotulo("Vender lixo: marque as raridades", 14, Color("#e8dfc9"), Tema.FONTE_TEXTO))
 	var fl := HFlowContainer.new()
 	var marcas := {}
-	for r in ["comum", "magico", "raro", "excelente", "lendario", "demiurgico"]:
+	for r in Defs.DROPS["raridades"]:   # as raridades que o drop define (0.9.8: uma cor por tier)
+		if not Defs.DROPS["raridades"][r] is Dictionary: continue
 		var cb := CheckBox.new()
 		cb.text = Defs.nome_raridade(r)
 		cb.button_pressed = r == "comum"

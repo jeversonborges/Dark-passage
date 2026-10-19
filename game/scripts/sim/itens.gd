@@ -312,7 +312,6 @@ static func achar_lugar(lista: Array, w: int, h: int, it: Dictionary) -> Vector2
 ## ou [] se não coubesse tudo: nesse caso a mochila fica como estava.
 const ORDEM_TIPO := ["arma", "segunda_mao", "cabeca", "peito", "calcas", "luvas", "botas", "asa", "amuleto", "anel",
 	"consumivel", "material", "joia", "leitura", "chave", "montaria", "bau", "missao"]
-const ORDEM_RARIDADE := ["demiurgico", "lendario", "excelente", "raro", "magico", "comum"]
 
 static func organizar(lista: Array, w: int, h: int) -> Array:
 	var por_id := {}
@@ -339,8 +338,12 @@ static func organizar(lista: Array, w: int, h: int) -> Array:
 static func _chave_ordem(it: Dictionary) -> String:
 	var t := slot_de(it) if equipavel(it) else categoria(it)
 	var tipo := ORDEM_TIPO.find(t)
-	var rar := ORDEM_RARIDADE.find(str(it.get("raridade", "comum")))
-	return "%02d%02d%s%08d" % [99 if tipo < 0 else tipo, 99 if rar < 0 else rar, Itens.nome(it), int(it["uid"])]
+	var rar := -1 - _rank_raridade(str(it.get("raridade", "comum")))   # mais raro primeiro
+	return "%02d%02d%s%08d" % [99 if tipo < 0 else tipo, 99 + rar, Itens.nome(it), int(it["uid"])]
+
+## Posição da raridade na ordem do drop (comum = 0, a última é a mais rara).
+static func _rank_raridade(r: String) -> int:
+	return maxi(0, Defs.DROPS["raridades"].keys().find(r))
 
 ## Coloca na lista (empilhando quando dá). Devolve a quantidade que NÃO coube.
 static func guardar(lista: Array, w: int, h: int, it: Dictionary) -> int:
