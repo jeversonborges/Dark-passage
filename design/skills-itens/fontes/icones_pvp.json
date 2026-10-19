@@ -19,9 +19,9 @@
   "arma_pvp_anjo": "pvp/gladiador_demoniaco/espada",
   "arma_pvp_mutante": "pvp/gladiador_demoniaco/machado",
   "arma_pvp_cultista": "pvp/gladiador_demoniaco/cetro",
-  "arma_pvp_humano": "pvp/gladiador_demoniaco/foice_arco",
+  "arma_pvp_humano": "pvp/gladiador_demoniaco/escopeta",
   "arma_pvp_warlord": "pvp/gladiador_demoniaco/estandarte",
-  "arma_pvp_tecnomancer": "pvp/gladiador_demoniaco/mosquete",
+  "arma_pvp_tecnomancer": "pvp/gladiador_demoniaco/foice_arco",
   "arma_pvp_demonio": "pvp/gladiador_demoniaco/foice_longa"
  }
 }

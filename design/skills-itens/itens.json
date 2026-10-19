@@ -7313,7 +7313,7 @@
   },
   {
    "id": "arma_pvp_humano",
-   "nome": "Besta do Gladiador Demoníaco",
+   "nome": "Escopeta do Gladiador Demoníaco",
    "fonte": "design/missoes/dados/itens.json",
    "motivo": "besta",
    "tint": "madeira",
@@ -7342,15 +7342,15 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/foice_arco.png",
-    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/foice_arco.png",
-    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/foice_arco.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escopeta.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escopeta.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escopeta.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_humano.png"
   },
   {
    "id": "arma_pvp_tecnomancer",
-   "nome": "Cajado-Antena do Gladiador Demoníaco",
+   "nome": "Arco-Foice do Gladiador Demoníaco",
    "fonte": "design/missoes/dados/itens.json",
    "motivo": "cajado_antena",
    "tint": "latao",
@@ -7379,9 +7379,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/mosquete.png",
-    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/mosquete.png",
-    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/mosquete.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/foice_arco.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/foice_arco.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/foice_arco.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_tecnomancer.png"
   },

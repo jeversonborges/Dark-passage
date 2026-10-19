@@ -2220,7 +2220,7 @@
     },
     {
       "id": "arma_pvp_humano",
-      "nome": "Besta do Gladiador Demoníaco",
+      "nome": "Escopeta do Gladiador Demoníaco",
       "tipo": "equipamento",
       "slot": "arma",
       "classe": [
@@ -2242,7 +2242,7 @@
     },
     {
       "id": "arma_pvp_tecnomancer",
-      "nome": "Cajado-Antena do Gladiador Demoníaco",
+      "nome": "Arco-Foice do Gladiador Demoníaco",
       "tipo": "equipamento",
       "slot": "arma",
       "classe": [
