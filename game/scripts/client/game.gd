@@ -870,6 +870,7 @@ func _ataque(d: Dictionary) -> void:
 	elif e != null and e.kind == "cao_de_vala" and d.get("nome", "") == "bote": nome = "leap"
 	elif e != null and e.kind == "porco_pestilento" and d.get("nome", "") == "investida": nome = "scrape"   # cava o chão enquanto o telegrafo enche
 	elif e != null and e.kind == "filho_de_cardo" and d.get("nome", "") == "brotar": nome = "burrow"
+	elif e != null and e.tipo == "jogador" and d.get("skill", "") == "redemoinho_de_aco": nome = "ajoelhar"   # Redemoinho: ajoelha enquanto a espada gira
 	elif e != null and e.tipo == "jogador" and d.get("skill", "") != "": nome = "attack"
 	if nome == "scrape" and v._sheet("scrape").size() > 0:
 		v.tocar("scrape", maxf(0.25, float(d.get("preparo", 0.9))))

@@ -205,6 +205,7 @@ func evasao(estilo: String, dur: float) -> void:
 ## Toca uma animação de ação uma vez (attack, shoot, spin, dash, hit, death, eat...). dur: segundos (ajusta o fps).
 func tocar(nome: String, dur := 0.0) -> void:
 	if morto and nome != "death": return
+	if nome == "ajoelhar": ajoelhar_por(maxf(dur, 1.3)); return   # sem folha própria: abaixa o corpo pelo giro da espada
 	var a := _sheet(nome)
 	if a.is_empty():
 		if nome == "evasao": a = _sheet("dash"); nome = "dash"   # personagem sem a folha nova: o dash (Humano) ou nada
@@ -236,6 +237,12 @@ func _aplicar_frame() -> void:
 func ajoelhar() -> void:
 	if morto: return
 	ajoelhado = true; anim_unica = ""; _definir_anim("idle"); frame = 0
+
+## Abaixa o corpo por dur segundos e levanta sozinho (só se não tiver andado ou agido antes).
+func ajoelhar_por(dur: float) -> void:
+	ajoelhar()
+	get_tree().create_timer(dur).timeout.connect(func():
+		if is_instance_valid(self) and ajoelhado and not morto: ajoelhado = false; _definir_anim("idle"))
 
 func piscar(ms: float) -> void:
 	flash_t = ms / 1000.0; flash_dur = maxf(0.03, flash_t)
