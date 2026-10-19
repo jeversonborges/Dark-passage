@@ -1,740 +1,746 @@
 {
- "anjo_lamina_veredito": [
-  0,
-  0,
-  32,
-  32
- ],
- "anjo_toque_graca": [
-  32,
-  0,
-  32,
-  32
- ],
- "anjo_leque_juizo": [
-  64,
-  0,
-  32,
-  32
- ],
- "anjo_halo_ardente": [
-  96,
-  0,
-  32,
-  32
- ],
- "anjo_sentenca": [
-  128,
-  0,
-  32,
-  32
- ],
- "anjo_asas_ascensao": [
-  160,
-  0,
-  32,
-  32
- ],
- "anjo_trombeta_juizo": [
-  0,
-  32,
-  32,
-  32
- ],
- "cultista_sangria": [
-  32,
-  32,
-  32,
-  32
- ],
- "cultista_pacto_rubro": [
-  64,
-  32,
-  32,
-  32
- ],
- "cultista_espinhos_sangue": [
-  96,
-  32,
-  32,
-  32
- ],
- "cultista_servo_carne": [
-  128,
-  32,
-  32,
-  32
- ],
- "cultista_chuva_cinzas": [
-  160,
-  32,
-  32,
-  32
- ],
- "cultista_profecia_sombria": [
-  0,
-  64,
-  32,
-  32
- ],
- "cultista_setimo_selo": [
-  32,
-  64,
-  32,
-  32
- ],
- "mutante_golpe_purulento": [
-  64,
-  64,
-  32,
-  32
- ],
- "mutante_rugido_praga": [
-  96,
-  64,
-  32,
-  32
- ],
- "mutante_terremoto_putrido": [
-  128,
-  64,
-  32,
-  32
- ],
- "mutante_carapaca": [
-  160,
-  64,
-  32,
-  32
- ],
- "mutante_investida_bestial": [
-  0,
-  96,
-  32,
-  32
- ],
- "mutante_regeneracao_profana": [
-  32,
-  96,
-  32,
-  32
- ],
- "mutante_forma_besta": [
-  64,
-  96,
-  32,
-  32
- ],
- "demonio_garra_abismo": [
-  96,
-  96,
-  32,
-  32
- ],
- "demonio_corrente_danacao": [
-  128,
-  96,
-  32,
-  32
- ],
- "demonio_ceifa_infernal": [
-  160,
-  96,
-  32,
-  32
- ],
- "demonio_passo_sombrio": [
-  0,
-  128,
-  32,
-  32
- ],
- "demonio_pele_enxofre": [
-  32,
-  128,
-  32,
-  32
- ],
- "demonio_banquete": [
-  64,
-  128,
-  32,
-  32
- ],
- "demonio_portao_inferno": [
-  96,
-  128,
-  32,
-  32
- ],
- "humano_tiro_certeiro": [
-  128,
-  128,
-  32,
-  32
- ],
- "humano_corte_largo": [
-  160,
-  128,
-  32,
-  32
- ],
- "humano_coquetel_querosene": [
-  0,
-  160,
-  32,
-  32
- ],
- "humano_arrancada": [
-  32,
-  160,
-  32,
-  32
- ],
- "humano_rajada": [
-  64,
-  160,
-  32,
-  32
- ],
- "humano_agua_benta_polvora": [
-  96,
-  160,
-  32,
-  32
- ],
- "humano_armadilha_prata": [
-  128,
-  160,
-  32,
-  32
- ],
- "humano_ultimo_suspiro": [
-  160,
-  160,
-  32,
-  32
- ],
- "tecnomancer_arco_voltaico": [
-  0,
-  192,
-  32,
-  32
- ],
- "tecnomancer_torreta_sentinela": [
-  32,
-  192,
-  32,
-  32
- ],
- "tecnomancer_tempestade_bobina": [
-  64,
-  192,
-  32,
-  32
- ],
- "tecnomancer_nanoreparo": [
-  96,
-  192,
-  32,
-  32
- ],
- "tecnomancer_campo_forca": [
-  128,
-  192,
-  32,
-  32
- ],
- "tecnomancer_pulso_antidivino": [
-  160,
-  192,
-  32,
-  32
- ],
- "tecnomancer_maquina_juizo_reverso": [
-  0,
-  224,
-  32,
-  32
- ],
- "warlord_corte_do_eclipse": [
-  32,
-  224,
-  32,
-  32
- ],
- "warlord_juramento_de_odio": [
-  64,
-  224,
-  32,
-  32
- ],
- "warlord_fenda_na_terra": [
-  96,
-  224,
-  32,
-  32
- ],
- "warlord_investida_de_ferro": [
-  128,
-  224,
-  32,
-  32
- ],
- "warlord_marca_do_desprezo": [
-  160,
-  224,
-  32,
-  32
- ],
- "warlord_muralha_de_escudo": [
-  0,
-  256,
-  32,
-  32
- ],
- "warlord_redemoinho_de_aco": [
-  32,
-  256,
-  32,
-  32
- ],
- "warlord_coroa_de_ferro": [
-  64,
-  256,
-  32,
-  32
- ],
- "warlord_estandarte_da_ruina": [
-  96,
-  256,
-  32,
-  32
- ],
- "warlord_eclipse_do_senhor_da_guerra": [
-  128,
-  256,
-  32,
-  32
- ],
- "montante_do_sol": [
-  160,
-  96,
-  32,
-  32
- ],
- "estandarte_da_hoste": [
-  192,
-  96,
-  32,
-  32
- ],
- "provocacao_celeste": [
-  224,
-  96,
-  32,
-  32
- ],
- "sete_espadas_do_juizo": [
-  256,
-  96,
-  32,
-  32
- ],
- "queda_do_arcanjo": [
-  288,
-  96,
-  32,
-  32
- ],
- "fogo_que_nao_consome": [
-  320,
-  96,
-  32,
-  32
- ],
- "rodas_de_olhos": [
-  352,
-  96,
-  32,
-  32
- ],
- "cultista_familiar_pacto": [
-  384,
-  96,
-  32,
-  32
- ],
- "escudo_do_trono": [
-  416,
-  96,
-  32,
-  32
- ],
- "coro_dos_seis_ais": [
-  448,
-  96,
-  32,
-  32
- ],
- "levanta_te": [
-  480,
-  96,
-  32,
-  32
- ],
- "golpe_de_escudo": [
-  0,
-  128,
-  32,
-  32
- ],
- "muralha_negra": [
-  32,
-  128,
-  32,
-  32
- ],
- "grito_da_legiao": [
-  64,
-  128,
-  32,
-  32
- ],
- "trono_da_legiao": [
-  96,
-  128,
-  32,
-  32
- ],
- "espadao_do_general": [
-  128,
-  128,
-  32,
-  32
- ],
- "ceifa_da_alma": [
-  160,
-  128,
-  32,
-  32
- ],
- "manto_de_sombra": [
-  192,
-  128,
-  32,
-  32
- ],
- "marca_do_ceifador": [
-  224,
-  128,
-  32,
-  32
- ],
- "espiritos_malignos": [
-  256,
-  128,
-  32,
-  32
- ],
- "julgamento_antecipado": [
-  288,
-  128,
-  32,
-  32
- ],
- "orbe_coracao": [
-  320,
-  128,
-  32,
-  32
- ],
- "grimorio_aberto": [
-  352,
-  128,
-  32,
-  32
- ],
- "orbitas_de_sangue": [
-  384,
-  128,
-  32,
-  32
- ],
- "chuva_de_estrelas_rubras": [
-  416,
-  128,
-  32,
-  32
- ],
- "setimo_versiculo": [
-  448,
-  128,
-  32,
-  32
- ],
- "turibulo_do_amargo": [
-  480,
-  128,
-  32,
-  32
- ],
- "estilhaco_da_estrela": [
-  0,
-  160,
-  32,
-  32
- ],
- "a_plateia": [
-  32,
-  160,
-  32,
-  32
- ],
- "enxame_da_podridao": [
-  64,
-  160,
-  32,
-  32
- ],
- "absinto_caiu": [
-  96,
-  160,
-  32,
-  32
- ],
- "dois_canos": [
-  128,
-  160,
-  32,
-  32
- ],
- "abanar_o_cao": [
-  160,
-  160,
-  32,
-  32
- ],
- "rifle_de_alavanca": [
-  192,
-  160,
-  32,
-  32
- ],
- "forma_vingativa": [
-  224,
-  160,
-  32,
-  32
- ],
- "meio_dia": [
-  256,
-  160,
-  32,
-  32
- ],
- "arpao_de_corrente": [
-  288,
-  160,
-  32,
-  32
- ],
- "rede_de_prata": [
-  320,
-  160,
-  32,
-  32
- ],
- "sermao_do_fim": [
-  352,
-  160,
-  32,
-  32
- ],
- "virote_da_asa": [
-  384,
-  160,
-  32,
-  32
- ],
- "chuva_de_virotes_benzidos": [
-  416,
-  160,
-  32,
-  32
- ],
- "noite_da_cacada": [
-  448,
-  160,
-  32,
-  32
- ],
- "muro_de_vela": [
-  480,
-  160,
-  32,
-  32
- ],
- "machado_do_carrasco": [
-  0,
-  192,
-  32,
-  32
- ],
- "corrente_da_arena": [
-  32,
-  192,
-  32,
-  32
- ],
- "ave_arena": [
-  64,
-  192,
-  32,
-  32
- ],
- "campeao": [
-  96,
-  192,
-  32,
-  32
- ],
- "lamina_de_osso": [
-  128,
-  192,
-  32,
-  32
- ],
- "segundo_braco": [
-  160,
-  192,
-  32,
-  32
- ],
- "forma_colossal": [
-  192,
-  192,
-  32,
-  32
- ],
- "sacos_de_acido": [
-  224,
-  192,
-  32,
-  32
- ],
- "frenesi_da_carne": [
-  256,
-  192,
-  32,
-  32
- ],
- "o_amargo_venceu": [
-  288,
-  192,
-  32,
-  32
- ],
- "seis_asas": [
-  320,
-  192,
-  32,
-  32
- ],
- "agua_amarga": [
-  352,
-  192,
-  32,
-  32
- ],
- "martelo_de_bobina": [
-  384,
-  192,
-  32,
-  32
- ],
- "exoesqueleto": [
-  416,
-  192,
-  32,
-  32
- ],
- "bomba_atomica": [
-  448,
-  192,
-  32,
-  32
- ],
- "dobre_de_finados": [
-  480,
-  192,
-  32,
-  32
- ],
- "bracos_servos": [
-  0,
-  224,
-  32,
-  32
- ],
- "orgao_de_vapor": [
-  32,
-  224,
-  32,
-  32
- ],
- "torreta_relicario": [
-  64,
-  224,
-  32,
-  32
- ],
- "legiao_de_servos": [
-  96,
-  224,
-  32,
-  32
- ],
- "engrenagem_sagrada": [
-  128,
-  224,
-  32,
-  32
- ],
- "canhao_sino": [
-  160,
-  224,
-  32,
-  32
- ],
- "trono_vazio": [
-  192,
-  224,
-  32,
-  32
- ],
- "tres_aureolas": [
-  224,
-  224,
-  32,
-  32
- ],
- "colheita": [
-  256,
-  224,
-  32,
-  32
- ],
- "balas_bentas": [
-  288,
-  224,
-  32,
-  32
- ],
- "trofeu": [
-  320,
-  224,
-  32,
-  32
- ]
+"a_plateia": [
+0,
+0,
+32,
+32
+],
+"abanar_o_cao": [
+32,
+0,
+32,
+32
+],
+"absinto_caiu": [
+64,
+0,
+32,
+32
+],
+"agua_amarga": [
+96,
+0,
+32,
+32
+],
+"anjo_asas_ascensao": [
+128,
+0,
+32,
+32
+],
+"anjo_halo_ardente": [
+160,
+0,
+32,
+32
+],
+"anjo_lamina_veredito": [
+192,
+0,
+32,
+32
+],
+"anjo_leque_juizo": [
+224,
+0,
+32,
+32
+],
+"anjo_sentenca": [
+256,
+0,
+32,
+32
+],
+"anjo_toque_graca": [
+288,
+0,
+32,
+32
+],
+"anjo_trombeta_juizo": [
+320,
+0,
+32,
+32
+],
+"arpao_de_corrente": [
+352,
+0,
+32,
+32
+],
+"ave_arena": [
+384,
+0,
+32,
+32
+],
+"balas_bentas": [
+416,
+0,
+32,
+32
+],
+"bomba_atomica": [
+448,
+0,
+32,
+32
+],
+"bracos_servos": [
+480,
+0,
+32,
+32
+],
+"campeao": [
+0,
+32,
+32,
+32
+],
+"canhao_sino": [
+32,
+32,
+32,
+32
+],
+"ceifa_da_alma": [
+64,
+32,
+32,
+32
+],
+"chuva_de_estrelas_rubras": [
+96,
+32,
+32,
+32
+],
+"chuva_de_virotes_benzidos": [
+128,
+32,
+32,
+32
+],
+"colheita": [
+160,
+32,
+32,
+32
+],
+"coro_dos_seis_ais": [
+192,
+32,
+32,
+32
+],
+"corrente_da_arena": [
+224,
+32,
+32,
+32
+],
+"cultista_chuva_cinzas": [
+256,
+32,
+32,
+32
+],
+"cultista_espinhos_sangue": [
+288,
+32,
+32,
+32
+],
+"cultista_familiar_pacto": [
+320,
+32,
+32,
+32
+],
+"cultista_pacto_rubro": [
+352,
+32,
+32,
+32
+],
+"cultista_profecia_sombria": [
+384,
+32,
+32,
+32
+],
+"cultista_sangria": [
+416,
+32,
+32,
+32
+],
+"cultista_servo_carne": [
+448,
+32,
+32,
+32
+],
+"cultista_setimo_selo": [
+480,
+32,
+32,
+32
+],
+"demonio_banquete": [
+0,
+64,
+32,
+32
+],
+"demonio_ceifa_infernal": [
+32,
+64,
+32,
+32
+],
+"demonio_corrente_danacao": [
+64,
+64,
+32,
+32
+],
+"demonio_garra_abismo": [
+96,
+64,
+32,
+32
+],
+"demonio_passo_sombrio": [
+128,
+64,
+32,
+32
+],
+"demonio_pele_enxofre": [
+160,
+64,
+32,
+32
+],
+"demonio_portao_inferno": [
+192,
+64,
+32,
+32
+],
+"dobre_de_finados": [
+224,
+64,
+32,
+32
+],
+"dois_canos": [
+256,
+64,
+32,
+32
+],
+"engrenagem_sagrada": [
+288,
+64,
+32,
+32
+],
+"enxame_da_podridao": [
+320,
+64,
+32,
+32
+],
+"escudo_do_trono": [
+352,
+64,
+32,
+32
+],
+"espadao_do_general": [
+384,
+64,
+32,
+32
+],
+"espiritos_malignos": [
+416,
+64,
+32,
+32
+],
+"estandarte_da_hoste": [
+448,
+64,
+32,
+32
+],
+"estilhaco_da_estrela": [
+480,
+64,
+32,
+32
+],
+"exoesqueleto": [
+0,
+96,
+32,
+32
+],
+"fogo_que_nao_consome": [
+32,
+96,
+32,
+32
+],
+"forma_colossal": [
+64,
+96,
+32,
+32
+],
+"forma_vingativa": [
+96,
+96,
+32,
+32
+],
+"frenesi_da_carne": [
+128,
+96,
+32,
+32
+],
+"golpe_de_escudo": [
+160,
+96,
+32,
+32
+],
+"grimorio_aberto": [
+192,
+96,
+32,
+32
+],
+"grito_da_legiao": [
+224,
+96,
+32,
+32
+],
+"humano_agua_benta_polvora": [
+256,
+96,
+32,
+32
+],
+"humano_armadilha_prata": [
+288,
+96,
+32,
+32
+],
+"humano_arrancada": [
+320,
+96,
+32,
+32
+],
+"humano_coquetel_querosene": [
+352,
+96,
+32,
+32
+],
+"humano_corte_largo": [
+384,
+96,
+32,
+32
+],
+"humano_rajada": [
+416,
+96,
+32,
+32
+],
+"humano_tiro_certeiro": [
+448,
+96,
+32,
+32
+],
+"humano_ultimo_suspiro": [
+480,
+96,
+32,
+32
+],
+"julgamento_antecipado": [
+0,
+128,
+32,
+32
+],
+"lamina_de_osso": [
+32,
+128,
+32,
+32
+],
+"legiao_de_servos": [
+64,
+128,
+32,
+32
+],
+"levanta_te": [
+96,
+128,
+32,
+32
+],
+"machado_do_carrasco": [
+128,
+128,
+32,
+32
+],
+"manto_de_sombra": [
+160,
+128,
+32,
+32
+],
+"marca_do_ceifador": [
+192,
+128,
+32,
+32
+],
+"martelo_de_bobina": [
+224,
+128,
+32,
+32
+],
+"meio_dia": [
+256,
+128,
+32,
+32
+],
+"montante_do_sol": [
+288,
+128,
+32,
+32
+],
+"muralha_negra": [
+320,
+128,
+32,
+32
+],
+"muro_de_vela": [
+352,
+128,
+32,
+32
+],
+"mutante_carapaca": [
+384,
+128,
+32,
+32
+],
+"mutante_forma_besta": [
+416,
+128,
+32,
+32
+],
+"mutante_golpe_purulento": [
+448,
+128,
+32,
+32
+],
+"mutante_investida_bestial": [
+480,
+128,
+32,
+32
+],
+"mutante_regeneracao_profana": [
+0,
+160,
+32,
+32
+],
+"mutante_rugido_praga": [
+32,
+160,
+32,
+32
+],
+"mutante_terremoto_putrido": [
+64,
+160,
+32,
+32
+],
+"noite_da_cacada": [
+96,
+160,
+32,
+32
+],
+"o_amargo_venceu": [
+128,
+160,
+32,
+32
+],
+"orbe_coracao": [
+160,
+160,
+32,
+32
+],
+"orbitas_de_sangue": [
+192,
+160,
+32,
+32
+],
+"orgao_de_vapor": [
+224,
+160,
+32,
+32
+],
+"provocacao_celeste": [
+256,
+160,
+32,
+32
+],
+"queda_do_arcanjo": [
+288,
+160,
+32,
+32
+],
+"rede_de_prata": [
+320,
+160,
+32,
+32
+],
+"rifle_de_alavanca": [
+352,
+160,
+32,
+32
+],
+"rodas_de_olhos": [
+384,
+160,
+32,
+32
+],
+"sacos_de_acido": [
+416,
+160,
+32,
+32
+],
+"segundo_braco": [
+448,
+160,
+32,
+32
+],
+"seis_asas": [
+480,
+160,
+32,
+32
+],
+"sermao_do_fim": [
+0,
+192,
+32,
+32
+],
+"sete_espadas_do_juizo": [
+32,
+192,
+32,
+32
+],
+"setimo_versiculo": [
+64,
+192,
+32,
+32
+],
+"tecnomancer_arco_voltaico": [
+96,
+192,
+32,
+32
+],
+"tecnomancer_campo_forca": [
+128,
+192,
+32,
+32
+],
+"tecnomancer_maquina_juizo_reverso": [
+160,
+192,
+32,
+32
+],
+"tecnomancer_nanoreparo": [
+192,
+192,
+32,
+32
+],
+"tecnomancer_pulso_antidivino": [
+224,
+192,
+32,
+32
+],
+"tecnomancer_rosario_voltaico": [
+256,
+192,
+32,
+32
+],
+"tecnomancer_tempestade_bobina": [
+288,
+192,
+32,
+32
+],
+"tecnomancer_torreta_sentinela": [
+320,
+192,
+32,
+32
+],
+"torreta_relicario": [
+352,
+192,
+32,
+32
+],
+"tres_aureolas": [
+384,
+192,
+32,
+32
+],
+"trofeu": [
+416,
+192,
+32,
+32
+],
+"trono_da_legiao": [
+448,
+192,
+32,
+32
+],
+"trono_vazio": [
+480,
+192,
+32,
+32
+],
+"turibulo_do_amargo": [
+0,
+224,
+32,
+32
+],
+"virote_da_asa": [
+32,
+224,
+32,
+32
+],
+"warlord_coroa_de_ferro": [
+64,
+224,
+32,
+32
+],
+"warlord_corte_do_eclipse": [
+96,
+224,
+32,
+32
+],
+"warlord_eclipse_do_senhor_da_guerra": [
+128,
+224,
+32,
+32
+],
+"warlord_estandarte_da_ruina": [
+160,
+224,
+32,
+32
+],
+"warlord_fenda_na_terra": [
+192,
+224,
+32,
+32
+],
+"warlord_investida_de_ferro": [
+224,
+224,
+32,
+32
+],
+"warlord_juramento_de_odio": [
+256,
+224,
+32,
+32
+],
+"warlord_marca_do_desprezo": [
+288,
+224,
+32,
+32
+],
+"warlord_muralha_de_escudo": [
+320,
+224,
+32,
+32
+],
+"warlord_redemoinho_de_aco": [
+352,
+224,
+32,
+32
+]
 }
