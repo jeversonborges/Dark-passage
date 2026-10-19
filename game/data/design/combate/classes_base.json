@@ -843,7 +843,7 @@
           "recarga": 5.0,
           "mult": 2.4,
           "critico_extra": 0.2,
-          "alcance": 9,
+          "alcance": 18,
           "conjuracao": 0.3,
           "postura": 30,
           "empurrao": 0.6,
@@ -923,7 +923,7 @@
           "projeteis": 5,
           "cone_graus": 50,
           "mult_por_projetil": 0.6,
-          "alcance": 6,
+          "alcance": 12,
           "postura_por_projetil": 8,
           "empurrao": 0.4,
           "sensacao": "area",
@@ -971,9 +971,19 @@
         "espada": "corpo_a_corpo",
         "tiro": "distancia"
       },
+      "leque": {
+        "_doc": "0.9.8.2 (Jefin, 19/10): o básico à distância é um LEQUE de escopeta, não um tiro só. Cada projétil sai 0,7x (dano base -30%); a bala do centro mira no alvo e as outras abrem em cone.",
+        "projeteis": 3,
+        "cone_graus": 24,
+        "mult_por_projetil": 0.7
+      },
+      "dupla_arma": {
+        "_doc": "0.9.8.2: com uma segunda arma de fogo de uma mão na 2ª mão (pistola ou escopeta), cada básico dá DOIS leques em sequência, um por arma. Gasta 1 de munição por leque.",
+        "segundo_leque_depois_s": 0.14
+      },
       "alcance_basico": {
         "espada": 1.6,
-        "tiro": 7
+        "tiro": 14
       },
       "arma_secundaria": {
         "nome": "Escopeta de Cano Serrado",

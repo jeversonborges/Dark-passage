@@ -15,6 +15,9 @@ func _ready() -> void:
 		jogo.hud.visible = false
 	var r: String = args.get("roteiro", "geral")
 	match r:
+		"humano_duas_armas":   # Humano com uma escopeta em cada mão (0.9.8.2): leque duplo e espelho da 2ª arma
+			roteiro = [[2.5, "duas_armas", ""], [0.1, "lutar", ""], [0.45, "foto", "1_duas_armas_a"], [0.2, "foto", "2_duas_armas_b"],
+				[0.25, "foto", "3_duas_armas_c"], [0.5, "fim", ""]]
 		"geral":
 			roteiro = [
 				[2.5, "foto", "1_chegada"],
@@ -132,6 +135,15 @@ func _process(dt: float) -> void:
 			var img := get_viewport().get_texture().get_image()
 			img.save_png(pasta + "/" + p[2] + ".png")
 			print("foto ", p[2])
+		"duas_armas":   # uma arma de fogo de uma mão em cada mão (só para o teste do Humano)
+			var id := ""
+			for k in Defs.ITENS:
+				if Itens.arma_de_fogo_uma_mao(Itens.novo(k)): id = k; break
+			for s in ["arma", "segunda_mao"]:
+				var it := Itens.novo(id)
+				Itens.guardar(jogo.jog.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it)
+				Jogador.equipar(jogo.sim, jogo.jog, it["uid"], s)
+			print("armas: ", jogo.jog.equip.keys())
 		"janela": jogo.janelas.alternar(p[2])
 		"nivel_30":
 			var jg = jogo.jog
