@@ -1,0 +1,21 @@
+{
+ "name": "faisca_cabo",
+ "cat": "armas_pvp",
+ "frames": 12,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  20,
+  20
+ ],
+ "layer": "frente",
+ "desc": "Faísca do Cabo: centelhas de brasa saltam do cabo e do guarda-mão quando a arma é segurada.",
+ "char": null,
+ "title": "Faísca do Cabo",
+ "resumo": "Centelhas de brasa saltam do cabo e do guarda-mão quando a arma é segurada.",
+ "frame_w": 40,
+ "frame_h": 40,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "faisca_cabo.png"
+}
