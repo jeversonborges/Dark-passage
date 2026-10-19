@@ -485,9 +485,6 @@
     {
       "id": "espada_vigilia_rachada",
       "nome": "Espada de Vigília Rachada",
-      "classes": [
-        "anjo"
-      ],
       "tipo": "espada",
       "slot": "arma",
       "maos": 1,
@@ -525,9 +522,6 @@
     {
       "id": "escudo_porta_capela",
       "nome": "Escudo de Porta de Capela",
-      "classes": [
-        "anjo"
-      ],
       "tipo": "escudo",
       "slot": "segunda_mao",
       "maos": 1,
@@ -560,9 +554,6 @@
     {
       "id": "lanca_procissao",
       "nome": "Lança de Procissão",
-      "classes": [
-        "anjo"
-      ],
       "tipo": "lanca",
       "slot": "arma",
       "maos": 2,
@@ -598,9 +589,6 @@
     {
       "id": "espada_sineiro",
       "nome": "Espada do Sineiro",
-      "classes": [
-        "anjo"
-      ],
       "tipo": "espada",
       "slot": "arma",
       "maos": 1,
@@ -636,9 +624,6 @@
     {
       "id": "adaga_ritual_cega",
       "nome": "Adaga Ritual Cega",
-      "classes": [
-        "cultista"
-      ],
       "tipo": "adaga",
       "slot": "arma",
       "maos": 1,
@@ -676,9 +661,6 @@
     {
       "id": "cajado_vertebras",
       "nome": "Cajado de Vértebras",
-      "classes": [
-        "cultista"
-      ],
       "tipo": "cajado",
       "slot": "arma",
       "maos": 2,
@@ -714,9 +696,6 @@
     {
       "id": "grimorio_acorrentado",
       "nome": "Grimório Acorrentado",
-      "classes": [
-        "cultista"
-      ],
       "tipo": "grimorio",
       "slot": "segunda_mao",
       "maos": 1,
@@ -748,9 +727,6 @@
     {
       "id": "adaga_ossuario",
       "nome": "Adaga do Ossuário",
-      "classes": [
-        "cultista"
-      ],
       "tipo": "adaga",
       "slot": "arma",
       "maos": 1,
@@ -786,9 +762,6 @@
     {
       "id": "machado_placa_transito",
       "nome": "Machado de Placa de Trânsito",
-      "classes": [
-        "mutante"
-      ],
       "tipo": "machado",
       "slot": "arma",
       "maos": 2,
@@ -826,9 +799,6 @@
     {
       "id": "punhos_sucata",
       "nome": "Punhos de Sucata",
-      "classes": [
-        "mutante"
-      ],
       "tipo": "punhos",
       "slot": "arma",
       "maos": 2,
@@ -864,10 +834,6 @@
     {
       "id": "cutelo_matadouro",
       "nome": "Cutelo do Matadouro",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "tipo": "machado",
       "slot": "arma",
       "maos": 1,
@@ -903,9 +869,6 @@
     {
       "id": "garras_ossario",
       "nome": "Garras do Ossário",
-      "classes": [
-        "mutante"
-      ],
       "tipo": "punhos",
       "slot": "arma",
       "maos": 2,
@@ -941,9 +904,6 @@
     {
       "id": "foice_serrilhada",
       "nome": "Foice Serrilhada",
-      "classes": [
-        "demonio"
-      ],
       "tipo": "foice",
       "slot": "arma",
       "maos": 2,
@@ -981,9 +941,6 @@
     {
       "id": "espada_serrilhada",
       "nome": "Espada Serrilhada",
-      "classes": [
-        "demonio"
-      ],
       "tipo": "espada",
       "slot": "arma",
       "maos": 1,
@@ -1019,9 +976,6 @@
     {
       "id": "corrente_gancho",
       "nome": "Corrente com Gancho",
-      "classes": [
-        "demonio"
-      ],
       "tipo": "corrente",
       "slot": "arma",
       "maos": 1,
@@ -1057,9 +1011,6 @@
     {
       "id": "foice_sepultura",
       "nome": "Foice de Sepultura",
-      "classes": [
-        "demonio"
-      ],
       "tipo": "foice",
       "slot": "arma",
       "maos": 2,
@@ -1095,9 +1046,6 @@
     {
       "id": "besta_sucata",
       "nome": "Besta de Sucata",
-      "classes": [
-        "humano"
-      ],
       "tipo": "besta",
       "slot": "arma",
       "maos": 2,
@@ -1133,9 +1081,6 @@
     {
       "id": "espada_larga_sucata",
       "nome": "Espada Larga de Sucata",
-      "classes": [
-        "humano"
-      ],
       "tipo": "espada_larga",
       "slot": "arma",
       "maos": 1,
@@ -1171,9 +1116,6 @@
     {
       "id": "escopeta_cano_serrado",
       "nome": "Escopeta de Cano Serrado",
-      "classes": [
-        "humano"
-      ],
       "tipo": "escopeta",
       "slot": "arma",
       "maos": 1,
@@ -1211,9 +1153,6 @@
     {
       "id": "espada_larga_carrasco",
       "nome": "Espada Larga do Carrasco",
-      "classes": [
-        "humano"
-      ],
       "tipo": "espada_larga",
       "slot": "arma",
       "maos": 1,
@@ -1249,9 +1188,6 @@
     {
       "id": "montante_vigilia",
       "nome": "Montante da Vigília",
-      "classes": [
-        "humano"
-      ],
       "tipo": "espada_larga",
       "slot": "arma",
       "maos": 2,
@@ -1287,9 +1223,6 @@
     {
       "id": "escopeta_cano_duplo",
       "nome": "Escopeta de Cano Duplo",
-      "classes": [
-        "humano"
-      ],
       "tipo": "escopeta",
       "slot": "arma",
       "maos": 2,
@@ -1325,9 +1258,6 @@
     {
       "id": "mosquete_pederneira",
       "nome": "Mosquete de Pederneira",
-      "classes": [
-        "humano"
-      ],
       "tipo": "mosquete",
       "slot": "arma",
       "maos": 2,
@@ -1363,9 +1293,6 @@
     {
       "id": "besta_repeticao",
       "nome": "Besta de Repetição",
-      "classes": [
-        "humano"
-      ],
       "tipo": "besta",
       "slot": "arma",
       "maos": 2,
@@ -1401,9 +1328,6 @@
     {
       "id": "cajado_antena_torto",
       "nome": "Cajado-Antena Torto",
-      "classes": [
-        "tecnomancer"
-      ],
       "tipo": "cajado",
       "slot": "arma",
       "maos": 2,
@@ -1435,15 +1359,13 @@
       "arma_de": "tecnomancer:arma_inicial",
       "fonte_numeros": "design/combate/classes_base.json",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "luva_voltaica",
       "nome": "Luva Voltaica",
-      "classes": [
-        "tecnomancer"
-      ],
       "tipo": "luva",
       "slot": "arma",
       "maos": 1,
@@ -1473,15 +1395,13 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "pistola_raios",
       "nome": "Pistola de Raios",
-      "classes": [
-        "tecnomancer"
-      ],
       "tipo": "pistola",
       "slot": "arma",
       "maos": 1,
@@ -1511,15 +1431,13 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "cajado_valvulas",
       "nome": "Cajado de Válvulas",
-      "classes": [
-        "tecnomancer"
-      ],
       "tipo": "cajado",
       "slot": "arma",
       "maos": 2,
@@ -1549,7 +1467,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -1558,11 +1477,6 @@
       "slot": "cabeca",
       "conjunto": "batina_remendada",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1585,8 +1499,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1595,11 +1509,6 @@
       "slot": "peito",
       "conjunto": "batina_remendada",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1622,8 +1531,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1632,11 +1541,6 @@
       "slot": "luvas",
       "conjunto": "batina_remendada",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1659,8 +1563,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1669,11 +1573,6 @@
       "slot": "calcas",
       "conjunto": "batina_remendada",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1696,8 +1595,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1706,11 +1605,6 @@
       "slot": "botas",
       "conjunto": "batina_remendada",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1733,8 +1627,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1743,12 +1637,6 @@
       "slot": "cabeca",
       "conjunto": "couro_sobrevivente",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1771,9 +1659,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1782,12 +1670,6 @@
       "slot": "peito",
       "conjunto": "couro_sobrevivente",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1810,9 +1692,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1821,12 +1703,6 @@
       "slot": "luvas",
       "conjunto": "couro_sobrevivente",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1849,9 +1725,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1860,12 +1736,6 @@
       "slot": "calcas",
       "conjunto": "couro_sobrevivente",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1888,9 +1758,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1899,12 +1769,6 @@
       "slot": "botas",
       "conjunto": "couro_sobrevivente",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 2,
       "raridade": "rolada",
       "tags": [
@@ -1927,9 +1791,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -1938,11 +1802,6 @@
       "slot": "cabeca",
       "conjunto": "placas_sino",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 3,
       "raridade": "rolada",
       "tags": [
@@ -1974,11 +1833,6 @@
       "slot": "peito",
       "conjunto": "placas_sino",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 3,
       "raridade": "rolada",
       "tags": [
@@ -2010,11 +1864,6 @@
       "slot": "luvas",
       "conjunto": "placas_sino",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 3,
       "raridade": "rolada",
       "tags": [
@@ -2046,11 +1895,6 @@
       "slot": "calcas",
       "conjunto": "placas_sino",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 3,
       "raridade": "rolada",
       "tags": [
@@ -2082,11 +1926,6 @@
       "slot": "botas",
       "conjunto": "placas_sino",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 3,
       "raridade": "rolada",
       "tags": [
@@ -2118,11 +1957,6 @@
       "slot": "cabeca",
       "conjunto": "coro_mudo",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2145,8 +1979,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2155,11 +1989,6 @@
       "slot": "peito",
       "conjunto": "coro_mudo",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2182,8 +2011,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2192,11 +2021,6 @@
       "slot": "luvas",
       "conjunto": "coro_mudo",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2219,8 +2043,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2229,11 +2053,6 @@
       "slot": "calcas",
       "conjunto": "coro_mudo",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2256,8 +2075,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2266,11 +2085,6 @@
       "slot": "botas",
       "conjunto": "coro_mudo",
       "peso": "leve",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2293,8 +2107,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2303,12 +2117,6 @@
       "slot": "cabeca",
       "conjunto": "couraca_acougueiro_oco",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2331,9 +2139,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2342,12 +2150,6 @@
       "slot": "peito",
       "conjunto": "couraca_acougueiro_oco",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2370,9 +2172,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2381,12 +2183,6 @@
       "slot": "luvas",
       "conjunto": "couraca_acougueiro_oco",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2409,9 +2205,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2420,12 +2216,6 @@
       "slot": "calcas",
       "conjunto": "couraca_acougueiro_oco",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2448,9 +2238,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2459,12 +2249,6 @@
       "slot": "botas",
       "conjunto": "couraca_acougueiro_oco",
       "peso": "medio",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "demonio"
-      ],
       "nivel": 10,
       "raridade": "rolada",
       "tags": [
@@ -2487,9 +2271,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -2498,11 +2282,6 @@
       "slot": "cabeca",
       "conjunto": "juramento_quebrado",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 11,
       "raridade": "rolada",
       "tags": [
@@ -2534,11 +2313,6 @@
       "slot": "peito",
       "conjunto": "juramento_quebrado",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 11,
       "raridade": "rolada",
       "tags": [
@@ -2570,11 +2344,6 @@
       "slot": "luvas",
       "conjunto": "juramento_quebrado",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 11,
       "raridade": "rolada",
       "tags": [
@@ -2606,11 +2375,6 @@
       "slot": "calcas",
       "conjunto": "juramento_quebrado",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 11,
       "raridade": "rolada",
       "tags": [
@@ -2642,11 +2406,6 @@
       "slot": "botas",
       "conjunto": "juramento_quebrado",
       "peso": "pesado",
-      "classes": [
-        "anjo",
-        "demonio",
-        "mutante"
-      ],
       "nivel": 11,
       "raridade": "rolada",
       "tags": [
@@ -4503,9 +4262,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "humano"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         14,
@@ -4549,9 +4305,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         16,
@@ -4595,9 +4348,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         10,
@@ -4619,7 +4369,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -4641,9 +4392,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "anjo"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         13,
@@ -4688,9 +4436,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "demonio"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         15,
@@ -4734,9 +4479,6 @@
       "slot": "arma",
       "nivel": 3,
       "tags": [],
-      "classes": [
-        "cultista"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         9,
@@ -4934,7 +4676,6 @@
       "slot": "peito",
       "nivel": 8,
       "tags": [],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 28,
       "defesa": 6,
@@ -4989,7 +4730,6 @@
       "tags": [
         "lendario:celeste"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 14,
       "defesa": 10,
@@ -5190,10 +4930,6 @@
       "tags": [
         "lendario:capataz"
       ],
-      "classes": [
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         18,
@@ -5245,11 +4981,6 @@
       "nivel": 8,
       "tags": [
         "lendario:general"
-      ],
-      "classes": [
-        "demonio",
-        "mutante",
-        "anjo"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -5305,11 +5036,6 @@
       "tags": [
         "lendario:celeste"
       ],
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         16,
@@ -5341,8 +5067,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -5366,7 +5092,6 @@
       "tags": [
         "lendario:zacarias"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 22,
       "defesa": 9,
@@ -5947,7 +5672,6 @@
       "slot": "cabeca",
       "nivel": 12,
       "tags": [],
-      "classes": null,
       "faccao": null,
       "atributos": {
         "for": 5,
@@ -6554,7 +6278,6 @@
       "tags": [
         "lendario:pesador_de_almas"
       ],
-      "classes": null,
       "faccao": null,
       "atributos": {
         "esp": 26,
@@ -6592,7 +6315,6 @@
       "tags": [
         "lendario:farao_ramesses"
       ],
-      "classes": null,
       "faccao": null,
       "dano_sugerido_missoes": [
         118,
@@ -6638,7 +6360,6 @@
       "tags": [
         "lendario:pesador_de_almas"
       ],
-      "classes": null,
       "faccao": null,
       "dano_sugerido_missoes": [
         104,
@@ -6717,7 +6438,6 @@
       "tags": [
         "lendario:petsuchos"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 51,
       "defesa": 39,
@@ -6756,11 +6476,6 @@
       "tags": [
         "lendario:petsuchos"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         89,
@@ -6784,8 +6499,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/arpao_do_juncal.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -6804,11 +6519,6 @@
       "nivel": 51,
       "tags": [
         "lendario:petsuchos"
-      ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -6833,8 +6543,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_da_cheia.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -6854,7 +6564,6 @@
       "tags": [
         "lendario:esfinge_de_hawara"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 37,
       "defesa": 19,
@@ -6960,11 +6669,6 @@
       "tags": [
         "lendario:esfinge_de_hawara"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         93,
@@ -6988,8 +6692,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lamina_da_pergunta.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7008,11 +6712,6 @@
       "nivel": 54,
       "tags": [
         "lendario:serket"
-      ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -7037,8 +6736,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/ferrao_de_bronze.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7057,11 +6756,6 @@
       "nivel": 54,
       "tags": [
         "lendario:serket"
-      ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -7086,8 +6780,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_que_abre_a_garganta.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -7107,7 +6801,6 @@
       "tags": [
         "lendario:serket"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 54,
       "defesa": 41,
@@ -7179,7 +6872,6 @@
       "tags": [
         "lendario:sekhmet"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 42,
       "defesa": 22,
@@ -7218,11 +6910,6 @@
       "tags": [
         "lendario:sekhmet"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         105,
@@ -7246,8 +6933,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/presas_do_massacre.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7267,7 +6954,6 @@
       "tags": [
         "lendario:sekhmet"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 54,
       "defesa": 27,
@@ -7373,11 +7059,6 @@
       "tags": [
         "lendario:janes"
       ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         107,
@@ -7401,8 +7082,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bastao_que_virou_serpente.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -7455,7 +7136,6 @@
       "tags": [
         "lendario:janes"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 61,
       "defesa": 47,
@@ -7528,11 +7208,6 @@
       "tags": [
         "lendario:janes"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         107,
@@ -7556,8 +7231,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cimitarra_de_janes.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7577,7 +7252,6 @@
       "tags": [
         "lendario:imseti"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 43,
       "defesa": 22,
@@ -7616,11 +7290,6 @@
       "tags": [
         "lendario:imseti"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         108,
@@ -7644,8 +7313,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/arco_de_qebehsenuef.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7665,7 +7334,6 @@
       "tags": [
         "lendario:imseti"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 56,
       "defesa": 28,
@@ -7737,11 +7405,6 @@
       "tags": [
         "lendario:imseti"
       ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         108,
@@ -7765,8 +7428,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_dos_quatro.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -7786,7 +7449,6 @@
       "tags": [
         "lendario:apofis"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 63,
       "defesa": 48,
@@ -7858,11 +7520,6 @@
       "tags": [
         "lendario:apofis"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         110,
@@ -7886,8 +7543,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/remo_da_barca_de_ra.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -7906,11 +7563,6 @@
       "nivel": 63,
       "tags": [
         "lendario:apofis"
-      ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -7935,8 +7587,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/brasa_da_proa.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -7990,7 +7642,6 @@
       "tags": [
         "lendario:anubis_pesador"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 45,
       "defesa": 23,
@@ -8062,7 +7713,6 @@
       "tags": [
         "lendario:anubis_pesador"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 58,
       "defesa": 29,
@@ -8135,11 +7785,6 @@
       "tags": [
         "lendario:anubis_pesador"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         112,
@@ -8163,8 +7808,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/garra_de_ammit.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -8183,11 +7828,6 @@
       "nivel": 65,
       "tags": [
         "lendario:farao_sem_nome"
-      ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -8212,8 +7852,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_das_dez_pragas.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -8232,11 +7872,6 @@
       "nivel": 65,
       "tags": [
         "lendario:farao_sem_nome"
-      ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -8261,8 +7896,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/khopesh_do_coracao_duro.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -8315,7 +7950,6 @@
       "tags": [
         "lendario:farao_sem_nome"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 46,
       "defesa": 23,
@@ -8388,7 +8022,6 @@
       "tags": [
         "lendario:regalia_de_sobek"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 33,
       "defesa": 19,
@@ -8428,7 +8061,6 @@
       "tags": [
         "lendario:regalia_de_sobek"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 47,
       "defesa": 40,
@@ -8573,7 +8205,6 @@
       "tags": [
         "lendario:regalia_do_farao"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 39,
       "defesa": 22,
@@ -8613,7 +8244,6 @@
       "tags": [
         "lendario:regalia_do_farao"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 56,
       "defesa": 47,
@@ -8826,7 +8456,6 @@
       "tags": [
         "lendario:regalia_do_farao"
       ],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 50,
       "defesa": 28,
@@ -8989,9 +8618,6 @@
       "tags": [
         "lendario:hermon"
       ],
-      "classes": [
-        "anjo"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         30,
@@ -9039,9 +8665,6 @@
       "tags": [
         "lendario:hermon"
       ],
-      "classes": [
-        "cultista"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         34,
@@ -9087,9 +8710,6 @@
       "nivel": 25,
       "tags": [
         "lendario:hermon"
-      ],
-      "classes": [
-        "demonio"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -9138,9 +8758,6 @@
       "tags": [
         "lendario:hermon"
       ],
-      "classes": [
-        "humano"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         36,
@@ -9187,9 +8804,6 @@
       "nivel": 25,
       "tags": [
         "lendario:hermon"
-      ],
-      "classes": [
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -9238,9 +8852,6 @@
       "tags": [
         "lendario:hermon"
       ],
-      "classes": [
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         28,
@@ -9263,7 +8874,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bobina_de_baraquiel.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -9393,9 +9005,6 @@
       "slot": "arma",
       "nivel": 1,
       "tags": [],
-      "classes": [
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         15,
@@ -9421,7 +9030,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/chave_mestra_primarca.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -10370,7 +9980,6 @@
       "slot": "peito",
       "nivel": 8,
       "tags": [],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 28,
       "defesa": 6,
@@ -10431,7 +10040,6 @@
       "slot": "cabeca",
       "nivel": 10,
       "tags": [],
-      "classes": null,
       "faccao": null,
       "defesa_sugerida_missoes": 14,
       "defesa": 6,
@@ -10963,7 +10571,6 @@
       "slot": "cabeca",
       "nivel": 12,
       "tags": [],
-      "classes": null,
       "faccao": null,
       "atributos": {
         "for": 4,
@@ -11085,15 +10692,6 @@
       "slot": "arma",
       "nivel": 1,
       "tags": [],
-      "classes": [
-        "anjo",
-        "cultista",
-        "demonio",
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "faccao": null,
       "dano": [
         777,
@@ -11117,9 +10715,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
       "tipos_arma": [
+        "distancia",
         "fisica",
-        "magica",
-        "distancia"
+        "magica"
       ]
     },
     {
@@ -11153,9 +10751,6 @@
       "id": "espada_da_retirada",
       "nome": "Espada da Retirada",
       "slot": "arma",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11196,9 +10791,6 @@
       "id": "elmo_da_retirada",
       "nome": "Elmo da Retirada",
       "slot": "cabeca",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11235,9 +10827,6 @@
       "id": "peitoral_do_sino_mudo",
       "nome": "Peitoral do Sino Mudo",
       "slot": "peito",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11274,9 +10863,6 @@
       "id": "luvas_de_cera_quente",
       "nome": "Luvas de Cera Quente",
       "slot": "luvas",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11313,9 +10899,6 @@
       "id": "calcas_da_retirada",
       "nome": "Calças da Retirada",
       "slot": "calcas",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11352,9 +10935,6 @@
       "id": "botas_do_versiculo",
       "nome": "Botas do Versículo",
       "slot": "botas",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -11391,9 +10971,6 @@
       "id": "escopeta_da_vela_acesa",
       "nome": "Escopeta da Vela Acesa",
       "slot": "arma",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11434,9 +11011,6 @@
       "id": "chapeu_da_vela_acesa",
       "nome": "Chapéu da Vela Acesa",
       "slot": "cabeca",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11473,9 +11047,6 @@
       "id": "casaco_da_vela_acesa",
       "nome": "Casaco da Vela Acesa",
       "slot": "peito",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11512,9 +11083,6 @@
       "id": "luvas_da_polvora",
       "nome": "Luvas da Pólvora",
       "slot": "luvas",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11551,9 +11119,6 @@
       "id": "calcas_de_vigia",
       "nome": "Calças de Vigia",
       "slot": "calcas",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11590,9 +11155,6 @@
       "id": "botas_de_turno",
       "nome": "Botas de Turno",
       "slot": "botas",
-      "classes": [
-        "humano"
-      ],
       "raridade": "lendario",
       "nivel": 8,
       "tags": [
@@ -11629,9 +11191,6 @@
       "id": "martelo_do_sino_derretido",
       "nome": "Martelo do Sino Derretido",
       "slot": "arma",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11672,9 +11231,6 @@
       "id": "capacete_do_sino_derretido",
       "nome": "Capacete do Sino Derretido",
       "slot": "cabeca",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11711,9 +11267,6 @@
       "id": "couraca_do_sino_derretido",
       "nome": "Couraça do Sino Derretido",
       "slot": "peito",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11750,9 +11303,6 @@
       "id": "manoplas_do_badalo",
       "nome": "Manoplas do Badalo",
       "slot": "luvas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11789,9 +11339,6 @@
       "id": "grevas_do_badalo",
       "nome": "Grevas do Badalo",
       "slot": "calcas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11828,9 +11375,6 @@
       "id": "botas_de_bronze_frio",
       "nome": "Botas de Bronze Frio",
       "slot": "botas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "lendario",
       "nivel": 36,
       "tags": [
@@ -11867,9 +11411,6 @@
       "id": "foice_da_legiao_sem_general",
       "nome": "Foice da Legião Sem General",
       "slot": "arma",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -11910,9 +11451,6 @@
       "id": "elmo_da_legiao_sem_general",
       "nome": "Elmo da Legião Sem General",
       "slot": "cabeca",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -11949,9 +11487,6 @@
       "id": "couraca_sem_divisa",
       "nome": "Couraça Sem Divisa",
       "slot": "peito",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -11988,9 +11523,6 @@
       "id": "garras_da_legiao",
       "nome": "Garras da Legião",
       "slot": "luvas",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -12027,9 +11559,6 @@
       "id": "calcas_de_desertor",
       "nome": "Calças de Desertor",
       "slot": "calcas",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -12066,9 +11595,6 @@
       "id": "botas_da_legiao",
       "nome": "Botas da Legião",
       "slot": "botas",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 58,
       "tags": [
@@ -12105,9 +11631,6 @@
       "id": "cajado_do_engenheiro_herege",
       "nome": "Cajado do Engenheiro Herege",
       "slot": "arma",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12141,16 +11664,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "oculos_de_solda_herege",
       "nome": "Óculos de Solda Herege",
       "slot": "cabeca",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12187,9 +11708,6 @@
       "id": "avental_de_engenheiro_herege",
       "nome": "Avental de Engenheiro Herege",
       "slot": "peito",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12226,9 +11744,6 @@
       "id": "luvas_de_bobina",
       "nome": "Luvas de Bobina",
       "slot": "luvas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12265,9 +11780,6 @@
       "id": "calcas_de_fiacao",
       "nome": "Calças de Fiação",
       "slot": "calcas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12304,9 +11816,6 @@
       "id": "botas_de_piston",
       "nome": "Botas de Pistão",
       "slot": "botas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -12343,9 +11852,6 @@
       "id": "adaga_calice_da_comunhao",
       "nome": "Cálice-Adaga da Comunhão",
       "slot": "arma",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12386,9 +11892,6 @@
       "id": "veu_da_comunhao",
       "nome": "Véu da Comunhão",
       "slot": "cabeca",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12425,9 +11928,6 @@
       "id": "tunica_do_amargo_bebido",
       "nome": "Túnica do Amargo Bebido",
       "slot": "peito",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12464,9 +11964,6 @@
       "id": "luvas_de_sangue_seco",
       "nome": "Luvas de Sangue Seco",
       "slot": "luvas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12503,9 +12000,6 @@
       "id": "calcas_de_procissao",
       "nome": "Calças de Procissão",
       "slot": "calcas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12542,9 +12036,6 @@
       "id": "sandalias_da_comunhao",
       "nome": "Sandálias da Comunhão",
       "slot": "botas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -12581,9 +12072,6 @@
       "id": "gladio_da_cerca",
       "nome": "Gládio da Cerca",
       "slot": "arma",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12624,9 +12112,6 @@
       "id": "elmo_da_cerca",
       "nome": "Elmo da Cerca",
       "slot": "cabeca",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12663,9 +12148,6 @@
       "id": "couraca_da_cerca",
       "nome": "Couraça da Cerca",
       "slot": "peito",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12702,9 +12184,6 @@
       "id": "manoplas_da_cerca",
       "nome": "Manoplas da Cerca",
       "slot": "luvas",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12741,9 +12220,6 @@
       "id": "grevas_da_cerca",
       "nome": "Grevas da Cerca",
       "slot": "calcas",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12780,9 +12256,6 @@
       "id": "botas_da_cerca",
       "nome": "Botas da Cerca",
       "slot": "botas",
-      "classes": [
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 11,
       "tags": [
@@ -12819,9 +12292,6 @@
       "id": "cajado_da_trombeta_calada",
       "nome": "Cajado da Trombeta Calada",
       "slot": "arma",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -12855,16 +12325,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "coroa_do_bocal",
       "nome": "Coroa do Bocal",
       "slot": "cabeca",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -12901,9 +12369,6 @@
       "id": "manto_da_trombeta",
       "nome": "Manto da Trombeta",
       "slot": "peito",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -12940,9 +12405,6 @@
       "id": "luvas_do_bocal",
       "nome": "Luvas do Bocal",
       "slot": "luvas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -12979,9 +12441,6 @@
       "id": "calcas_do_porao",
       "nome": "Calças do Porão",
       "slot": "calcas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -13018,9 +12477,6 @@
       "id": "botas_do_porao",
       "nome": "Botas do Porão",
       "slot": "botas",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -13057,9 +12513,6 @@
       "id": "bastao_de_amenti",
       "nome": "Bastão de Amenti",
       "slot": "arma",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13100,9 +12553,6 @@
       "id": "mascara_de_amenti",
       "nome": "Máscara de Amenti",
       "slot": "cabeca",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13139,9 +12589,6 @@
       "id": "peitoral_de_amenti",
       "nome": "Peitoral de Amenti",
       "slot": "peito",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13178,9 +12625,6 @@
       "id": "luvas_de_linho_de_amenti",
       "nome": "Luvas de Linho de Amenti",
       "slot": "luvas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13217,9 +12661,6 @@
       "id": "calcas_de_linho_de_amenti",
       "nome": "Calças de Linho de Amenti",
       "slot": "calcas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13256,9 +12697,6 @@
       "id": "sandalias_de_amenti",
       "nome": "Sandálias de Amenti",
       "slot": "botas",
-      "classes": [
-        "cultista"
-      ],
       "raridade": "lendario",
       "nivel": 44,
       "tags": [
@@ -13295,9 +12733,6 @@
       "id": "machado_da_agua_verde",
       "nome": "Machado da Água Verde",
       "slot": "arma",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13338,9 +12773,6 @@
       "id": "capuz_do_rio",
       "nome": "Capuz do Rio",
       "slot": "cabeca",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13377,9 +12809,6 @@
       "id": "colete_da_agua_verde",
       "nome": "Colete da Água Verde",
       "slot": "peito",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13416,9 +12845,6 @@
       "id": "luvas_musgosas",
       "nome": "Luvas Musgosas",
       "slot": "luvas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13455,9 +12881,6 @@
       "id": "calcas_de_juncos",
       "nome": "Calças de Juncos",
       "slot": "calcas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13494,9 +12917,6 @@
       "id": "botas_de_lama_verde",
       "nome": "Botas de Lama Verde",
       "slot": "botas",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 70,
       "tags": [
@@ -13533,10 +12953,6 @@
       "id": "facao_do_amargo_verde",
       "nome": "Facão do Amargo Verde",
       "slot": "arma",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13571,18 +12987,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "lenco_do_absinto",
       "nome": "Lenço do Absinto",
       "slot": "cabeca",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13612,18 +13024,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "colete_de_sela_gasta",
       "nome": "Colete de Sela Gasta",
       "slot": "peito",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13653,18 +13061,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_rédea",
       "nome": "Luvas de Rédea",
       "slot": "luvas",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13694,18 +13098,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "calcas_de_areia_fina",
       "nome": "Calças de Areia Fina",
       "slot": "calcas",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13735,18 +13135,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "botas_de_dunas",
       "nome": "Botas de Dunas",
       "slot": "botas",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 4,
       "tags": [
@@ -13776,8 +13172,8 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -13868,10 +13264,6 @@
       "id": "cajado_do_sino_quebrado",
       "nome": "Cajado do Sino Quebrado",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -13906,19 +13298,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "veu_de_luto",
       "nome": "Véu de Luto",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "lendario",
       "nivel": 12,
       "tags": [
@@ -13948,18 +13335,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "batina_da_trombeta",
       "nome": "Batina da Trombeta",
       "slot": "peito",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -13996,10 +13379,6 @@
       "id": "luvas_de_cera_fria",
       "nome": "Luvas de Cera Fria",
       "slot": "luvas",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -14036,10 +13415,6 @@
       "id": "calcas_de_coro_mudo",
       "nome": "Calças do Coro Mudo",
       "slot": "calcas",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -14076,10 +13451,6 @@
       "id": "botas_do_passo_lento",
       "nome": "Botas do Passo Lento",
       "slot": "botas",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 10,
       "tags": [
@@ -14199,10 +13570,6 @@
       "id": "machado_de_gelo_sujo",
       "nome": "Machado de Gelo Sujo",
       "slot": "arma",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14244,10 +13611,6 @@
       "id": "capuz_de_granizo",
       "nome": "Capuz de Granizo",
       "slot": "cabeca",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14284,10 +13647,6 @@
       "id": "gibao_de_couro_de_bode",
       "nome": "Gibão de Couro de Bode",
       "slot": "peito",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14324,10 +13683,6 @@
       "id": "manoplas_de_raiz",
       "nome": "Manoplas de Raiz",
       "slot": "luvas",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14364,10 +13719,6 @@
       "id": "perneiras_de_granizo",
       "nome": "Perneiras de Granizo",
       "slot": "calcas",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14404,10 +13755,6 @@
       "id": "botas_de_crampons_cegos",
       "nome": "Botas de Crampons Cegos",
       "slot": "botas",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 18,
       "tags": [
@@ -14527,10 +13874,6 @@
       "id": "antena_de_cajado",
       "nome": "Antena de Cajado",
       "slot": "arma",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14565,17 +13908,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "capacete_de_operador",
       "nome": "Capacete de Operador",
       "slot": "cabeca",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14613,10 +13953,6 @@
       "id": "jaqueta_de_fio_cobre",
       "nome": "Jaqueta de Fio Cobre",
       "slot": "peito",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14654,10 +13990,6 @@
       "id": "luvas_de_isolante",
       "nome": "Luvas de Isolante",
       "slot": "luvas",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14695,10 +14027,6 @@
       "id": "calcas_de_operador_da_torre",
       "nome": "Calças de Operador",
       "slot": "calcas",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14736,10 +14064,6 @@
       "id": "botas_de_degrau_alto",
       "nome": "Botas de Degrau Alto",
       "slot": "botas",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 26,
       "tags": [
@@ -14860,10 +14184,6 @@
       "id": "espada_da_arquibancada",
       "nome": "Espada da Arquibancada",
       "slot": "arma",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -14898,18 +14218,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "chapeu_de_arena",
       "nome": "Chapéu de Arena",
       "slot": "cabeca",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -14939,18 +14255,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "gibao_de_arquibancada",
       "nome": "Gibão de Arquibancada",
       "slot": "peito",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -14980,18 +14292,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_porrete",
       "nome": "Luvas de Porrete",
       "slot": "luvas",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -15021,18 +14329,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "calcas_de_gladiador_da_plateia",
       "nome": "Calças de Gladiador",
       "slot": "calcas",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -15062,18 +14366,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "botas_de_arena_rachada",
       "nome": "Botas de Arena Rachada",
       "slot": "botas",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 32,
       "tags": [
@@ -15103,8 +14403,8 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -15194,10 +14494,6 @@
       "id": "cajado_de_linho_ritual",
       "nome": "Cajado de Linho Ritual",
       "slot": "arma",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15239,10 +14535,6 @@
       "id": "diadema_de_linho",
       "nome": "Diadema de Linho",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15272,18 +14564,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "sobrepeliz_de_amenti",
       "nome": "Sobrepeliz de Amenti",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15313,18 +14601,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_bandagem",
       "nome": "Luvas de Bandagem",
       "slot": "luvas",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15354,18 +14638,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "calcas_de_linho_ritual",
       "nome": "Calças de Linho Ritual",
       "slot": "calcas",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15395,18 +14675,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "sandalias_de_linho",
       "nome": "Sandálias de Linho",
       "slot": "botas",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 54,
       "tags": [
@@ -15436,8 +14712,8 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -15568,11 +14844,6 @@
       "id": "corona_do_arauto_calado",
       "nome": "Coroa do Arauto Calado",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "demonio",
-        "warlord"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -15609,10 +14880,6 @@
       "id": "pena_de_tinta_dura",
       "nome": "Pena de Tinta Dura",
       "slot": "arma",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15647,18 +14914,14 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "chapeu_de_bibliotecario",
       "nome": "Chapéu de Bibliotecário",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15688,18 +14951,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "manto_de_folhas_soltas",
       "nome": "Manto de Folhas Soltas",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15729,18 +14988,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_indice",
       "nome": "Luvas de Índice",
       "slot": "luvas",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15770,18 +15025,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "calcas_de_estante",
       "nome": "Calças de Estante",
       "slot": "calcas",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15811,18 +15062,14 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "botas_de_passo_mudo",
       "nome": "Botas de Passo Mudo",
       "slot": "botas",
-      "classes": [
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -15852,8 +15099,8 @@
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
       "icone_provisorio": true,
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -15943,10 +15190,6 @@
       "id": "espada_de_quem_saiu",
       "nome": "Espada de Quem Saiu",
       "slot": "arma",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -15988,10 +15231,6 @@
       "id": "elmo_de_quem_saiu",
       "nome": "Elmo de Quem Saiu",
       "slot": "cabeca",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -16028,10 +15267,6 @@
       "id": "couraca_da_fronteira",
       "nome": "Couraça da Fronteira",
       "slot": "peito",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -16068,10 +15303,6 @@
       "id": "manoplas_de_quem_saiu",
       "nome": "Manoplas de Quem Saiu",
       "slot": "luvas",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -16108,10 +15339,6 @@
       "id": "calcas_da_estrada",
       "nome": "Calças da Estrada",
       "slot": "calcas",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -16148,10 +15375,6 @@
       "id": "botas_de_fronteira",
       "nome": "Botas de Fronteira",
       "slot": "botas",
-      "classes": [
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -16271,10 +15494,6 @@
       "id": "foice_do_arauto_calado",
       "nome": "Foice do Arauto Calado",
       "slot": "arma",
-      "classes": [
-        "demonio",
-        "warlord"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -16315,11 +15534,6 @@
       "id": "cajado_do_sino_parado",
       "nome": "Cajado do Sino Parado",
       "slot": "arma",
-      "classes": [
-        "anjo",
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "lendario",
       "nivel": 66,
       "tags": [
@@ -16353,16 +15567,13 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "espada_serrilhada_sem_bandeira",
       "nome": "Espada Serrilhada Sem Bandeira",
-      "classes": [
-        "warlord"
-      ],
       "tipo": "espada",
       "slot": "arma",
       "maos": 1,
@@ -16398,9 +15609,6 @@
     {
       "id": "escudo_ferro_pintado",
       "nome": "Escudo de Ferro Pintado",
-      "classes": [
-        "warlord"
-      ],
       "tipo": "escudo",
       "slot": "segunda_mao",
       "maos": 1,
@@ -16434,10 +15642,6 @@
       "id": "cetro_do_raio_partido",
       "nome": "Cetro do Raio Partido",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 28,
       "tags": [
@@ -16471,8 +15675,8 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -16491,11 +15695,6 @@
       "nivel": 61,
       "tags": [
         "lendario:deus"
-      ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -16524,8 +15723,8 @@
       "lore": "Cimitarra dourada com um sol cravado na guarda e penas de cobre presas ao cabo.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -16548,9 +15747,6 @@
       "nivel": 25,
       "tags": [
         "lendario:deus"
-      ],
-      "classes": [
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -16599,11 +15795,6 @@
       "tags": [
         "lendario:deus"
       ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         112,
@@ -16631,8 +15822,8 @@
       "lore": "Garra de quatro dentes sobre um crânio de ave, com fios de sangue seco.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -16651,11 +15842,6 @@
       "nivel": 63,
       "tags": [
         "lendario:deus"
-      ],
-      "classes": [
-        "humano",
-        "demonio",
-        "mutante"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -16684,8 +15870,8 @@
       "lore": "Remo de madeira escura e latão, com um olho pintado e relâmpagos azuis descendo pelo cabo.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -16708,9 +15894,6 @@
       "nivel": 25,
       "tags": [
         "lendario:deus"
-      ],
-      "classes": [
-        "demonio"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -16759,11 +15942,6 @@
       "tags": [
         "lendario:deus"
       ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         114,
@@ -16791,8 +15969,8 @@
       "lore": "Cajado de ferro com lanternas verdes de peste que escorrem.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
@@ -16815,9 +15993,6 @@
       "nivel": 25,
       "tags": [
         "lendario:deus"
-      ],
-      "classes": [
-        "cultista"
       ],
       "faccao": null,
       "dano_sugerido_missoes": [
@@ -16869,9 +16044,6 @@
       "tags": [
         "lendario:deus"
       ],
-      "classes": [
-        "humano"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         36,
@@ -16919,11 +16091,6 @@
       "tags": [
         "lendario:deus"
       ],
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "faccao": null,
       "dano_sugerido_missoes": [
         107,
@@ -16951,18 +16118,14 @@
       "lore": "Cajado com crânio cercado de serpentes verdes e névoa de raio.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "deus_cetro_do_raio_partido",
       "nome": "Cetro do Raio Partido, Raio de Deus",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "lendario",
       "nivel": 28,
       "tags": [
@@ -16998,17 +16161,14 @@
       "variante_de": "cetro_do_raio_partido",
       "multiplicador_atributos": 1.35,
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "escudo_da_cruz_remida",
       "nome": "Escudo da Cruz Remida",
       "slot": "segunda_mao",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 24,
       "tags": [
@@ -17043,9 +16203,6 @@
       "id": "escudo_de_raizes_vivas",
       "nome": "Escudo de Raízes Vivas",
       "slot": "segunda_mao",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -17080,9 +16237,6 @@
       "id": "serra_da_vala",
       "nome": "Serra da Vala",
       "slot": "arma",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 20,
       "tags": [
@@ -17211,9 +16365,6 @@
       "id": "escudo_do_coro_dourado",
       "nome": "Escudo do Coro Dourado",
       "slot": "segunda_mao",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 30,
       "tags": [
@@ -17318,9 +16469,6 @@
       "id": "cinto_de_caveira",
       "nome": "Cinto de Caveira",
       "slot": "calcas",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -17742,10 +16890,6 @@
       "id": "escudo_de_anubis",
       "nome": "Escudo de Anúbis",
       "slot": "segunda_mao",
-      "classes": [
-        "warlord",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 18,
       "tags": [
@@ -17839,10 +16983,6 @@
       "id": "elmo_do_manto_sangrento",
       "nome": "Elmo do Manto Sangrento",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 36,
       "tags": [
@@ -17877,10 +17017,6 @@
       "id": "luvas_do_lacre_partido",
       "nome": "Luvas do Lacre Partido",
       "slot": "luvas",
-      "classes": [
-        "demonio",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 30,
       "tags": [
@@ -17915,10 +17051,6 @@
       "id": "oculos_de_fumaca_de_latao",
       "nome": "Óculos de Fumaça de Latão",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 20,
       "tags": [
@@ -18128,9 +17260,6 @@
       "id": "ombreiras_de_engrenagem",
       "nome": "Ombreiras de Engrenagem",
       "slot": "peito",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -18510,10 +17639,6 @@
       "id": "coroa_de_serpente",
       "nome": "Coroa de Serpente",
       "slot": "cabeca",
-      "classes": [
-        "demonio",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 50,
       "tags": [
@@ -18542,18 +17667,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coroa_de_serpente.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "cinturao_de_ametista",
       "nome": "Cinturão de Ametista",
       "slot": "calcas",
-      "classes": [
-        "tecnomancer",
-        "cultista"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -18624,10 +17745,6 @@
       "id": "peitoral_de_escamas_douradas",
       "nome": "Peitoral de Escamas Douradas",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 46,
       "tags": [
@@ -18655,18 +17772,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_escamas_douradas.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "carapaca_roxa",
       "nome": "Carapaça Roxa",
       "slot": "peito",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 40,
       "tags": [
@@ -18701,10 +17814,6 @@
       "id": "castical_de_quatro_bracos",
       "nome": "Castiçal de Quatro Braços",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -18737,18 +17846,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/castical_de_quatro_bracos.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "lanca_das_fitas_vermelhas",
       "nome": "Lança das Fitas Vermelhas",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 36,
       "tags": [
@@ -18781,18 +17886,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lanca_das_fitas_vermelhas.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "garras_de_latao",
       "nome": "Garras de Latão",
       "slot": "luvas",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -18833,9 +17934,6 @@
       "id": "foice_de_cordoalha",
       "nome": "Foice de Cordoalha",
       "slot": "arma",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -18881,10 +17979,6 @@
       "id": "estandarte_azul_da_vela",
       "nome": "Estandarte Azul da Vela",
       "slot": "segunda_mao",
-      "classes": [
-        "warlord",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -18912,18 +18006,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/estandarte_azul_da_vela.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "cajado_espiral",
       "nome": "Cajado Espiral",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 40,
       "tags": [
@@ -18956,18 +18046,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_espiral.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "escudo_de_lava_solidificada",
       "nome": "Escudo de Lava Solidificada",
       "slot": "segunda_mao",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -19002,9 +18088,6 @@
       "id": "escudo_do_batismo_azul",
       "nome": "Escudo do Batismo Azul",
       "slot": "segunda_mao",
-      "classes": [
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 36,
       "tags": [
@@ -19039,10 +18122,6 @@
       "id": "peitoral_do_orbe_roxo",
       "nome": "Peitoral do Orbe Roxo",
       "slot": "peito",
-      "classes": [
-        "tecnomancer",
-        "cultista"
-      ],
       "raridade": "raro",
       "nivel": 38,
       "tags": [
@@ -19077,10 +18156,6 @@
       "id": "peitoral_de_costelas",
       "nome": "Peitoral de Costelas",
       "slot": "peito",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 24,
       "tags": [
@@ -19115,10 +18190,6 @@
       "id": "bracadeira_de_gema_verde",
       "nome": "Braçadeira de Gema Verde",
       "slot": "luvas",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 26,
       "tags": [
@@ -19146,8 +18217,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_gema_verde.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -19273,9 +18344,6 @@
       "id": "tridente_da_vala",
       "nome": "Tridente da Vala",
       "slot": "arma",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -19371,10 +18439,6 @@
       "id": "bracadeiras_de_ouro_azul",
       "nome": "Braçadeiras de Ouro Azul",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -19402,18 +18466,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bracadeiras_de_ouro_azul.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "manto_de_juba",
       "nome": "Manto de Juba",
       "slot": "peito",
-      "classes": [
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -19448,10 +18508,6 @@
       "id": "lenco_do_sudario",
       "nome": "Lenço do Sudário",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 20,
       "tags": [
@@ -19479,18 +18535,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lenco_do_sudario.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "nemes_de_ouro_e_lapis",
       "nome": "Nemes de Ouro e Lápis",
       "slot": "cabeca",
-      "classes": [
-        "cultista",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 46,
       "tags": [
@@ -19518,18 +18570,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/nemes_de_ouro_e_lapis.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "peitoral_de_lapis_lazuli",
       "nome": "Peitoral de Lápis-Lazúli",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 48,
       "tags": [
@@ -19557,18 +18605,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_lapis_lazuli.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "peitoral_de_bronze_verde",
       "nome": "Peitoral de Bronze Verde",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 36,
       "tags": [
@@ -19596,8 +18640,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_verde.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -19761,12 +18805,6 @@
       "id": "peitoral_do_guardiao_das_velas",
       "nome": "Peitoral do Guardião das Velas",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 32,
       "tags": [
@@ -19794,19 +18832,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_do_guardiao_das_velas.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "veu_de_renda_velha",
       "nome": "Véu de Renda Velha",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 22,
       "tags": [
@@ -19834,18 +18868,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/veu_de_renda_velha.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "elmo_cruzado_de_ferro",
       "nome": "Elmo Cruzado de Ferro",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 34,
       "tags": [
@@ -19873,19 +18903,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/elmo_cruzado_de_ferro.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "peitoral_de_faixas_de_ferro",
       "nome": "Peitoral de Faixas de Ferro",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -19913,18 +18938,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_faixas_de_ferro.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "alabarda_dourada",
       "nome": "Alabarda Dourada",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 40,
       "tags": [
@@ -19957,18 +18978,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/alabarda_dourada.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "coroa_de_espinhos_dourada",
       "nome": "Coroa de Espinhos Dourada",
       "slot": "cabeca",
-      "classes": [
-        "demonio",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -19997,18 +19014,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coroa_de_espinhos_dourada.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "manto_da_cruz_dourada",
       "nome": "Manto da Cruz Dourada",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -20036,17 +19049,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/manto_da_cruz_dourada.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "elmo_de_chifres_serrados",
       "nome": "Elmo de Chifres Serrados",
       "slot": "cabeca",
-      "classes": [
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -20081,10 +19091,6 @@
       "id": "manoplas_de_espinhos",
       "nome": "Manoplas de Espinhos",
       "slot": "luvas",
-      "classes": [
-        "demonio",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 36,
       "tags": [
@@ -20119,10 +19125,6 @@
       "id": "maca_do_pulso_azul",
       "nome": "Maça do Pulso Azul",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -20155,18 +19157,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/maca_do_pulso_azul.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "cajado_da_pupila_de_vidro",
       "nome": "Cajado da Pupila de Vidro",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 46,
       "tags": [
@@ -20199,18 +19197,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_da_pupila_de_vidro.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "mascara_de_faixas_sagradas",
       "nome": "Máscara de Faixas Sagradas",
       "slot": "cabeca",
-      "classes": [
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -20245,10 +19239,6 @@
       "id": "peitoral_do_olho_de_bronze",
       "nome": "Peitoral do Olho de Bronze",
       "slot": "peito",
-      "classes": [
-        "demonio",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 48,
       "tags": [
@@ -20276,18 +19266,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_do_olho_de_bronze.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "capuz_de_musgo_do_amargo",
       "nome": "Capuz de Musgo do Amargo",
       "slot": "cabeca",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -20315,19 +19301,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/capuz_de_musgo_do_amargo.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "colete_de_garrafas_do_amargo",
       "nome": "Colete de Garrafas do Amargo",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 26,
       "tags": [
@@ -20355,20 +19336,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/colete_de_garrafas_do_amargo.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "lenco_musgoso_do_amargo",
       "nome": "Lenço Musgoso do Amargo",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 22,
       "tags": [
@@ -20396,21 +19371,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lenco_musgoso_do_amargo.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "colete_de_couro_costurado",
       "nome": "Colete de Couro Costurado",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 20,
       "tags": [
@@ -20438,21 +19407,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/colete_de_couro_costurado.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_couro_curtido",
       "nome": "Luvas de Couro Curtido",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 18,
       "tags": [
@@ -20480,9 +19443,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luvas_de_couro_curtido.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -20524,11 +19487,6 @@
       "id": "cajado_de_sino_enferrujado",
       "nome": "Cajado de Sino Enferrujado",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -20561,18 +19519,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_de_sino_enferrujado.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "veu_de_correntes_de_lagrimas",
       "nome": "Véu de Correntes de Lágrimas",
       "slot": "cabeca",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -20601,18 +19555,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/veu_de_correntes_de_lagrimas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "batina_do_calice_dourado",
       "nome": "Batina do Cálice Dourado",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -20640,8 +19590,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_do_calice_dourado.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -20718,12 +19668,6 @@
       "id": "peitoral_de_armadura_gasta",
       "nome": "Peitoral de Armadura Gasta",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 32,
       "tags": [
@@ -20751,19 +19695,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_armadura_gasta.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "coroa_dourada_de_arena",
       "nome": "Coroa Dourada de Arena",
       "slot": "cabeca",
-      "classes": [
-        "demonio",
-        "humano",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -20792,20 +19731,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/coroa_dourada_de_arena.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "manto_dourado_de_arena",
       "nome": "Manto Dourado de Arena",
       "slot": "peito",
-      "classes": [
-        "anjo",
-        "demonio",
-        "humano",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 46,
       "tags": [
@@ -20834,9 +19767,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/manto_dourado_de_arena.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -20914,11 +19847,6 @@
       "id": "espada_de_aco_velho",
       "nome": "Espada de Aço Velho",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -20951,19 +19879,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_de_aco_velho.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "elmo_de_capa_vermelha",
       "nome": "Elmo de Capa Vermelha",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -20991,19 +19914,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/elmo_de_capa_vermelha.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "manoplas_de_ferro_gasto",
       "nome": "Manoplas de Ferro Gasto",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -21031,20 +19949,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/manoplas_de_ferro_gasto.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "botas_de_cano_alto",
       "nome": "Botas de Cano Alto",
       "slot": "botas",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -21072,9 +19984,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/botas_de_cano_alto.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -21152,11 +20064,6 @@
       "id": "botas_do_escriba",
       "nome": "Botas do Escriba",
       "slot": "botas",
-      "classes": [
-        "anjo",
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 34,
       "tags": [
@@ -21184,8 +20091,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/botas_do_escriba.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -21260,12 +20167,6 @@
       "id": "luvas_amarelas_de_oficina",
       "nome": "Luvas Amarelas de Oficina",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 24,
       "tags": [
@@ -21293,20 +20194,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luvas_amarelas_de_oficina.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "botas_de_sola_grossa",
       "nome": "Botas de Sola Grossa",
       "slot": "botas",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 26,
       "tags": [
@@ -21334,18 +20230,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/botas_de_sola_grossa.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "bracadeira_de_cobre",
       "nome": "Braçadeira de Cobre",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 22,
       "tags": [
@@ -21415,11 +20307,6 @@
       "id": "faca_de_trilha",
       "nome": "Faca de Trilha",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -21452,19 +20339,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/faca_de_trilha.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "chapeu_de_vaqueiro_do_amargo",
       "nome": "Chapéu de Vaqueiro do Amargo",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -21493,19 +20375,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/chapeu_de_vaqueiro_do_amargo.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "cajado_de_linho",
       "nome": "Cajado de Linho",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "tecnomancer",
-        "anjo"
-      ],
       "raridade": "raro",
       "nivel": 36,
       "tags": [
@@ -21538,19 +20415,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_de_linho.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "faixa_de_linho_com_gema",
       "nome": "Faixa de Linho com Gema",
       "slot": "cabeca",
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -21578,19 +20450,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/faixa_de_linho_com_gema.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "luvas_de_bandagem_de_ritual",
       "nome": "Luvas de Bandagem de Ritual",
       "slot": "luvas",
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -21618,20 +20485,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luvas_de_bandagem_de_ritual.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "saia_de_linho_com_cinto",
       "nome": "Saia de Linho com Cinto",
       "slot": "calcas",
-      "classes": [
-        "cultista",
-        "anjo",
-        "tecnomancer",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 32,
       "tags": [
@@ -21660,18 +20521,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/saia_de_linho_com_cinto.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "bracadeira_de_anubis",
       "nome": "Braçadeira de Anúbis",
       "slot": "luvas",
-      "classes": [
-        "cultista",
-        "anjo"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -21699,8 +20556,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_anubis.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -21742,11 +20599,6 @@
       "id": "peitoral_de_bronze_com_manto",
       "nome": "Peitoral de Bronze com Manto",
       "slot": "peito",
-      "classes": [
-        "demonio",
-        "humano",
-        "cultista"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -21774,9 +20626,9 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_com_manto.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
@@ -21818,12 +20670,6 @@
       "id": "lenco_vermelho_de_flores",
       "nome": "Lenço Vermelho de Flores",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 20,
       "tags": [
@@ -21851,18 +20697,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lenco_vermelho_de_flores.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "tridente_de_lodo_verde",
       "nome": "Tridente de Lodo Verde",
       "slot": "arma",
-      "classes": [
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -21937,11 +20780,6 @@
       "id": "faixa_vermelha_de_emblema",
       "nome": "Faixa Vermelha de Emblema",
       "slot": "cabeca",
-      "classes": [
-        "humano",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -21969,8 +20807,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/faixa_vermelha_de_emblema.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -22012,10 +20850,6 @@
       "id": "gancho_vermelho_com_brasa",
       "nome": "Gancho Vermelho com Brasa",
       "slot": "arma",
-      "classes": [
-        "demonio",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 36,
       "tags": [
@@ -22559,11 +21393,6 @@
       "id": "lamina_vermelha_da_cruz",
       "nome": "Lâmina Vermelha da Cruz",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -22596,18 +21425,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lamina_vermelha_da_cruz.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "lamina_curva_sangrenta",
       "nome": "Lâmina Curva Sangrenta",
       "slot": "arma",
-      "classes": [
-        "demonio",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 36,
       "tags": [
@@ -22647,10 +21472,6 @@
       "id": "espada_dourada_da_estrela",
       "nome": "Espada Dourada da Estrela",
       "slot": "arma",
-      "classes": [
-        "anjo",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 46,
       "tags": [
@@ -22684,18 +21505,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_dourada_da_estrela.png",
       "tipos_arma": [
-        "magica",
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "foice_sangrenta",
       "nome": "Foice Sangrenta",
       "slot": "arma",
-      "classes": [
-        "cultista",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -22736,10 +21553,6 @@
       "id": "clava_de_osso_acorrentada",
       "nome": "Clava de Osso Acorrentada",
       "slot": "arma",
-      "classes": [
-        "mutante",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 32,
       "tags": [
@@ -22779,11 +21592,6 @@
       "id": "escudo_vermelho_da_caveira",
       "nome": "Escudo Vermelho da Caveira",
       "slot": "segunda_mao",
-      "classes": [
-        "humano",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -22811,19 +21619,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_vermelho_da_caveira.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "machado_azul_com_gema",
       "nome": "Machado Azul com Gema",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -22856,19 +21659,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/machado_azul_com_gema.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "adaga_serrilhada",
       "nome": "Adaga Serrilhada",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 26,
       "tags": [
@@ -22901,18 +21699,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/adaga_serrilhada.png",
       "tipos_arma": [
+        "distancia",
         "fisica",
-        "distancia"
+        "magica"
       ]
     },
     {
       "id": "pistola_de_cano_duplo",
       "nome": "Pistola de Cano Duplo",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -22945,18 +21740,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_de_cano_duplo.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "mosquete_com_sino",
       "nome": "Mosquete com Sino",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -22989,19 +21780,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/mosquete_com_sino.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "espada_com_fita",
       "nome": "Espada com Fita",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -23034,18 +21820,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_com_fita.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "besta_de_trilho",
       "nome": "Besta de Trilho",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 32,
       "tags": [
@@ -23078,17 +21860,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/besta_de_trilho.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "haste_espiral_de_metal",
       "nome": "Haste Espiral de Metal",
       "slot": "arma",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 36,
       "tags": [
@@ -23121,18 +21900,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/haste_espiral_de_metal.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "luva_eletrica_de_cobre",
       "nome": "Luva Elétrica de Cobre",
       "slot": "luvas",
-      "classes": [
-        "tecnomancer",
-        "humano",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 38,
       "tags": [
@@ -23160,19 +21935,15 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luva_eletrica_de_cobre.png",
       "tipos_armadura": [
-        "placas",
         "malha",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "pistola_eletrica",
       "nome": "Pistola Elétrica",
       "slot": "arma",
-      "classes": [
-        "tecnomancer",
-        "humano"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -23206,17 +21977,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_eletrica.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "fuzil_de_cobre",
       "nome": "Fuzil de Cobre",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 46,
       "tags": [
@@ -23249,17 +22017,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/fuzil_de_cobre.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "tubo_de_vidro_com_volante",
       "nome": "Tubo de Vidro com Volante",
       "slot": "arma",
-      "classes": [
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 34,
       "tags": [
@@ -23292,19 +22057,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/tubo_de_vidro_com_volante.png",
       "tipos_arma": [
-        "distancia"
+        "distancia",
+        "magica"
       ]
     },
     {
       "id": "manoplas_de_bronze",
       "nome": "Manoplas de Bronze",
       "slot": "luvas",
-      "classes": [
-        "humano",
-        "mutante",
-        "demonio",
-        "warlord"
-      ],
       "raridade": "raro",
       "nivel": 28,
       "tags": [
@@ -23332,19 +22092,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/manoplas_de_bronze.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "luvas_palidas_costuradas",
       "nome": "Luvas Pálidas Costuradas",
       "slot": "luvas",
-      "classes": [
-        "anjo",
-        "cultista",
-        "tecnomancer"
-      ],
       "raridade": "raro",
       "nivel": 26,
       "tags": [
@@ -23372,19 +22127,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luvas_palidas_costuradas.png",
       "tipos_armadura": [
-        "placas",
-        "pano"
+        "pano",
+        "placas"
       ]
     },
     {
       "id": "casaco_vermelho_de_ombreiras",
       "nome": "Casaco Vermelho de Ombreiras",
       "slot": "peito",
-      "classes": [
-        "humano",
-        "warlord",
-        "demonio"
-      ],
       "raridade": "excelente",
       "nivel": 40,
       "tags": [
@@ -23412,19 +22162,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/casaco_vermelho_de_ombreiras.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
       "id": "manoplas_de_aco_com_brasa",
       "nome": "Manoplas de Aço com Brasa",
       "slot": "luvas",
-      "classes": [
-        "demonio",
-        "humano",
-        "warlord"
-      ],
       "raridade": "excelente",
       "nivel": 42,
       "tags": [
@@ -23452,8 +22197,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/manoplas_de_aco_com_brasa.png",
       "tipos_armadura": [
-        "placas",
-        "malha"
+        "malha",
+        "placas"
       ]
     },
     {
@@ -23614,11 +22359,6 @@
       "id": "canhao_de_cano_marrom",
       "nome": "Canhão de Cano Marrom",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "warlord",
-        "mutante"
-      ],
       "raridade": "excelente",
       "nivel": 44,
       "tags": [
@@ -23651,18 +22391,14 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/canhao_de_cano_marrom.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
       "id": "cimitarra_enferrujada",
       "nome": "Cimitarra Enferrujada",
       "slot": "arma",
-      "classes": [
-        "mutante",
-        "humano"
-      ],
       "raridade": "raro",
       "nivel": 30,
       "tags": [
@@ -23695,8 +22431,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cimitarra_enferrujada.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
@@ -23955,10 +22691,6 @@
       "id": "pa_de_ferro",
       "nome": "Pá de Ferro",
       "slot": "arma",
-      "classes": [
-        "humano",
-        "mutante"
-      ],
       "raridade": "raro",
       "nivel": 24,
       "tags": [
@@ -23991,8 +22723,8 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pa_de_ferro.png",
       "tipos_arma": [
-        "fisica",
-        "distancia"
+        "distancia",
+        "fisica"
       ]
     },
     {
