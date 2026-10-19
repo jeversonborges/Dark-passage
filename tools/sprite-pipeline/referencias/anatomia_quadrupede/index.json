@@ -40,5 +40,11 @@
     "repo": "Eadweard Muybridge, The Horse in Motion (Sallie Gardner, 1878)",
     "commit": "",
     "trecho": "domínio público; 12 frames clássicos de galope com fase de suspensão; proporção real de perfil"
+  },
+  {
+    "arquivo": "modelagem_cavalo_tutorial.mp4",
+    "repo": "tutorial em vídeo de modelagem de cavalo em Blender, colado pelo Jefin (origem e licença não confirmadas); recodificado a 640x360 sem áudio",
+    "commit": "",
+    "trecho": "técnica: modelar o cavalo sobre desenho de referência (imagem de fundo), malha por partes (cabeça, pescoço, corpo, pernas), depois subdivisão"
   }
 ]
