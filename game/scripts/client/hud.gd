@@ -1637,6 +1637,7 @@ func _montar_tooltip() -> void:
 	tip_lbl.add_theme_font_override("bold_font", Tema.FONTE_TITULO)
 	tip_lbl.add_theme_font_size_override("normal_font_size", 14)
 	tip_lbl.add_theme_font_size_override("italics_font_size", 13)
+	tip_lbl.add_theme_font_size_override("bold_font_size", 14)
 	tooltip.add_child(tip_lbl)
 	tooltip.visible = false
 	tooltip.z_index = 100
@@ -1659,8 +1660,8 @@ func mostrar_tip_item(it: Dictionary, bb: String) -> void:
 	var sb := Tema.moldura_item(str(it.get("raridade", "comum")))
 	if sb == null: mostrar_tip(bb); return
 	tooltip.add_theme_stylebox_override("panel", sb)
-	tip_lbl.custom_minimum_size.x = 330
-	tip_lbl.tab_stops = PackedFloat32Array([236.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
+	tip_lbl.custom_minimum_size.x = 230   # 0.9.8: ~30% menor (antes 330), com fonte menor
+	tip_lbl.tab_stops = PackedFloat32Array([160.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
 	tip_lbl.text = bb
 	tooltip.visible = true
 	tooltip.reset_size()
