@@ -27,15 +27,20 @@
     "ataques": [
      {
       "id": "metralhadoras_juizo",
-      "mult": 0.35,
+      "tipo": "zona_giratoria",
+      "forma_zona": "leque",
+      "angulo_graus": 60,
+      "alcance_tiles": 8,
+      "intervalo_tick": 0.5,
+      "mult_por_tick": 0.35,
       "escala": "ESP",
-      "rajada_projeteis": 5,
-      "intervalo_rajada": 2.5,
-      "intervalo_tiro_s": 0.15,
-      "recuo_visual": true,
-      "splash_raio": 0.0,
+      "velocidade_giro_graus_s": 120,
+      "gira_para": "alvo mais proximo",
+      "visivel": "decal no chão e marcadores de impacto",
+      "esquivavel": "quem sair da zona antes do tick nao leva dano",
       "elemento": "fisico",
-      "fx": "cartuchos e faiscas, recuo no braco"
+      "fx": "canos girando com faiscas, decal no chao, cartuchos caindo",
+      "som": "zumbido de motor que sobe ao varrer"
      },
      {
       "id": "descarga_visor",
