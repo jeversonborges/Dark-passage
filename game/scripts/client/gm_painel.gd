@@ -4,8 +4,8 @@ class_name GmPainel
 ## F7 teleporta o GM para o ponto do mouse. Abas: Jogadores, Invocar, Itens e nível, Eventos, Viajar.
 
 const ABAS := [["jogadores", "Jogadores"], ["invocar", "Invocar"], ["itens", "Itens e nível"], ["eventos", "Eventos"], ["viajar", "Viajar"]]
-const RARIDADES := ["", "comum", "magico", "raro", "excelente"]
-const NOME_RAR := {"": "do item", "comum": "comum", "magico": "mágico", "raro": "raro", "excelente": "excelente"}
+const RARIDADES := ["", "comum", "verde", "magico", "excelente", "raro", "laranja"]
+const NOME_RAR := {"": "do item", "comum": "branco", "verde": "verde", "magico": "azul", "excelente": "roxo", "raro": "amarelo", "laranja": "laranja"}
 const NOME_CLASSE := {"anjo": "Anjo", "demonio": "Demônio", "cultista": "Cultista", "humano": "Humano", "mutante": "Mutante", "tecnomancer": "Tecnomancer", "warlord": "Warlord"}
 const COR_TITULO := Color("#e0c890")
 const COR_SECAO := Color("#c9a860")

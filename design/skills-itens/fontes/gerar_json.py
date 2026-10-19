@@ -125,6 +125,18 @@ for m in mis:
         d["tipo_missao"] = m["tipo"]
         add({"missao":"missao","consumivel":"consumivel","leitura":"leitura","montaria":"montaria"}[m["tipo"]], d)
 
+# 0.9.8 (Jefin 19/10): tipos de equipamento. Armadura = Pano/Malha/Placas; arma = física/mágica/distância.
+# A peça ganha os tipos das classes que a usam (união, sem classe = todos) e perde a lista "classes": quem equipa é o tipo.
+TIPOS_EQ = base["tipos_equipamento"]
+def _tipos(cat, classes):
+    if not classes: return sorted(TIPOS_EQ[cat])
+    return sorted(t for t, ids in TIPOS_EQ[cat].items() if any(c in ids for c in classes))
+for it in itens:
+    if it.get("categoria") == "armadura" and it.get("slot") in ("cabeca", "peito", "luvas", "calcas", "botas"):
+        it["tipos_armadura"] = _tipos("armadura", it.get("classes")); it.pop("classes", None)
+    elif it.get("slot") in ("arma", "segunda_mao"):
+        it["tipos_arma"] = _tipos("arma", it.get("classes")); it.pop("classes", None)
+
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}

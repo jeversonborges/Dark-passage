@@ -4,28 +4,50 @@
   "raridades": {
     "_doc": "Cores no estilo Ferrugem Sagrada. Nome do item no chao e no tooltip usa a cor; Raro para cima tem feixe de luz no chao (cor da raridade) e som proprio.",
     "comum": {
-      "cor": "#b8afa0",
+      "cor": "#ece6d4",
       "opcoes_extras": 0,
       "feixe": false,
-      "peso_base": 7000
+      "peso_base": 7000,
+      "nome_exibido": "Branco"
+    },
+    "verde": {
+      "nome_exibido": "Verde",
+      "cor": "#3fbf4a",
+      "opcoes_extras": 0,
+      "feixe": false,
+      "peso_base": 1500,
+      "_doc": "0.9.8: raridade nova entre branco e azul"
     },
     "magico": {
-      "cor": "#6f9fc9",
+      "cor": "#3a7bd5",
       "opcoes_extras": [
         1,
         2
       ],
       "feixe": false,
-      "peso_base": 2400
+      "peso_base": 2400,
+      "nome_exibido": "Azul"
     },
     "raro": {
-      "cor": "#c99a3e",
+      "cor": "#e6c229",
       "opcoes_extras": [
         2,
         3
       ],
       "feixe": true,
-      "peso_base": 520
+      "peso_base": 520,
+      "nome_exibido": "Amarelo"
+    },
+    "laranja": {
+      "nome_exibido": "Laranja",
+      "cor": "#ff8c1a",
+      "opcoes_extras": [
+        3,
+        4
+      ],
+      "feixe": true,
+      "peso_base": 30,
+      "_doc": "0.9.8: raridade nova entre amarelo e vermelho; so cai em drop raro (mob comum 0,001%)"
     },
     "excelente": {
       "cor": "#9cff3a",
@@ -36,10 +58,11 @@
       "opcao_excelente_garantida": true,
       "feixe": true,
       "peso_base": 70,
-      "_doc": "verde estilo MU: sempre tem 1 opcao excelente (golpe excelente %, dano +%, reduz dano %, HP +%, ouro +%)"
+      "_doc": "verde estilo MU: sempre tem 1 opcao excelente (golpe excelente %, dano +%, reduz dano %, HP +%, ouro +%)",
+      "nome_exibido": "Roxo"
     },
     "lendario": {
-      "nome_exibido": "Reliquia",
+      "nome_exibido": "Relíquia",
       "cor": "#c8302a",
       "unico": true,
       "feixe": true,
@@ -543,5 +566,17 @@
       "ouro_mult": 15,
       "_doc": "momento de recompensa: a sala acende vela por vela antes do bau abrir"
     }
+  },
+  "chance_mob_comum": {
+    "_doc": "Chance ABSOLUTA por abate de mob comum (rasteiro, normal, bruto, atirador, conjurador) de cair um equipamento de cada raridade. Um sorteio so: o que sobra e nada. O pool e qualquer equipamento base do jogo (raridade 'rolada'), nao so o da tag do mob. Acima de nivel_sem_branco o branco some e a chance dele se redistribui, na mesma proporcao, entre as raridades de cima.",
+    "chances": {
+      "comum": 0.1,
+      "verde": 0.05,
+      "magico": 0.02,
+      "excelente": 0.01,
+      "raro": 0.0001,
+      "laranja": 1e-05
+    },
+    "nivel_sem_branco": 30
   }
 }

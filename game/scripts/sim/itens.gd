@@ -70,35 +70,43 @@ static func faixa(nivel_mob: int, rng: RandomNumberGenerator) -> int:
 	if nivel_mob > 7: return 2
 	return 1 + rng.randi_range(0, 1)
 
-## bonus_azul_verde: multiplica a chance de Mágico (azul) e Excelente (verde) em drops de mob comum; o que sobra vai para Comum e Raro, na mesma proporção.
-static func rolar_raridade(rng: RandomNumberGenerator, minima: String, bonus_azul_verde: float = 1.0) -> String:
-	var ordem := ["comum", "magico", "raro", "excelente"]
+## Sorteio de raridade por minima (drops de bau, chefe, elite e tabelas). Ordem do mais comum ao mais raro (branco, verde, azul, roxo, amarelo, laranja).
+static func rolar_raridade(rng: RandomNumberGenerator, minima: String) -> String:
+	var ordem := ["comum", "verde", "magico", "excelente", "raro", "laranja"]
 	var pesos := []
 	var tot := 0.0
 	for r in ordem:
 		var p := float(Defs.DROPS["raridades"][r]["peso_base"]) if ordem.find(r) >= ordem.find(minima) else 0.0
 		pesos.append(p); tot += p
-	if bonus_azul_verde != 1.0 and tot > 0.0:
-		var pr := []
-		var alvo := 0.0
-		var resto := 0.0
-		for i in ordem.size():
-			pr.append(pesos[i] / tot)
-			if ordem[i] == "magico" or ordem[i] == "excelente": alvo += pr[i]
-			else: resto += pr[i]
-		if alvo > 0.0 and resto > 0.0:
-			var novo_alvo := minf(alvo * bonus_azul_verde, 0.999)
-			var fator_resto := (1.0 - novo_alvo) / resto
-			for i in ordem.size():
-				if ordem[i] == "magico" or ordem[i] == "excelente": pr[i] *= bonus_azul_verde
-				else: pr[i] *= fator_resto
-			pesos = pr
-			tot = 1.0
 	var x := rng.randf() * tot
 	for i in ordem.size():
 		x -= pesos[i]
 		if x <= 0.0: return ordem[i]
 	return minima
+
+## Drop de mob comum (drops.json "chance_mob_comum"): chance ABSOLUTA por abate de cada raridade, um sorteio so.
+## Acima de nivel_sem_branco o branco some e a chance dele se redistribui, na mesma proporcao, entre as raridades de cima.
+## Devolve "" quando nada cai.
+static func rolar_raridade_mob(rng: RandomNumberGenerator, nivel_mob: int) -> String:
+	var cfg: Dictionary = Defs.DROPS["chance_mob_comum"]
+	var ch: Dictionary = cfg["chances"]
+	var fator := 1.0
+	if nivel_mob > int(cfg["nivel_sem_branco"]):
+		var acima := 0.0
+		for r in ch:
+			if r != "comum": acima += float(ch[r])
+		fator = (acima + float(ch["comum"])) / acima
+	var x := rng.randf()
+	# do mais raro para o mais comum: cada faixa de sorteio tem a chance absoluta da sua raridade
+	for r in ["laranja", "raro", "excelente", "magico", "verde", "comum"]:
+		var p := float(ch.get(r, 0.0))
+		if r == "comum":
+			p = 0.0 if nivel_mob > int(cfg["nivel_sem_branco"]) else p
+		else:
+			p *= fator
+		if x < p: return r
+		x -= p
+	return ""
 
 static func rolar_refino(rng: RandomNumberGenerator) -> int:
 	var ch: Dictionary = Defs.DROPS["nivel_de_refino_no_drop"]["chances"]
@@ -124,12 +132,12 @@ static func _opcao(tipo: String, f: int, rng: RandomNumberGenerator) -> Dictiona
 	return o
 
 ## Gera um equipamento base com raridade, opções e refino.
-static func gerar_equip(id: String, rng: RandomNumberGenerator, minima: String, f: int, bonus_azul_verde: float = 1.0) -> Dictionary:
+static func gerar_equip(id: String, rng: RandomNumberGenerator, minima: String, f: int, forcada: String = "") -> Dictionary:
 	var it := novo(id)
 	var d := defn(id)
 	if d.get("raridade", "rolada") != "rolada":
 		return it
-	var r := rolar_raridade(rng, minima, bonus_azul_verde)
+	var r := forcada if forcada != "" else rolar_raridade(rng, minima)
 	it["raridade"] = r
 	it["refino"] = rolar_refino(rng)
 	var rr: Dictionary = Defs.DROPS["raridades"][r]
@@ -156,7 +164,7 @@ static func preco(it: Dictionary) -> int:
 	if d.has("preco"): return int(d["preco"])
 	var nv := int(d.get("nivel", 1))
 	var base := 12 + nv * 9
-	var mult: float = {"comum": 1.0, "magico": 2.2, "raro": 5.0, "excelente": 10.0, "lendario": 25.0}.get(it.get("raridade", "comum"), 1.0)
+	var mult: float = {"comum": 1.0, "verde": 1.5, "magico": 2.2, "excelente": 10.0, "raro": 5.0, "laranja": 40.0, "lendario": 25.0}.get(it.get("raridade", "comum"), 1.0)
 	match categoria(it):
 		"missao", "leitura": return 0
 		"material": return 4
@@ -251,7 +259,18 @@ static func pode_usar(it: Dictionary, e: Ent) -> String:
 		return "Só para a %s." % ("Vigília" if d["faccao"] == "vigilia" else "Arautos do Juízo")
 	if int(d.get("nivel", 1)) > e.nivel:
 		return "Requer nível %d." % int(d["nivel"])
+	if not _tipo_ok(d, "tipos_armadura", "armadura", e) or not _tipo_ok(d, "tipos_arma", "arma", e):
+		return "Esse tipo de equipamento não é para a sua classe."
 	return ""
+
+## Tipo de equipamento (drops.json / classes_base.json tipos_equipamento): a classe, ou a evolução que ela escolheu, precisa estar num dos tipos da peça.
+static func _tipo_ok(d: Dictionary, campo: String, cat: String, e: Ent) -> bool:
+	if not d.has(campo): return true
+	var quem: String = e.evolucao if e.evolucao != "" else e.classe
+	var mapa: Dictionary = Defs.TIPOS_EQUIP.get(cat, {})
+	for t in d[campo]:
+		if quem in mapa.get(t, []): return true
+	return false
 
 # ------------------------------------------------------------------ grade da mochila
 static func _ocupado(lista: Array, w: int, h: int, ignora: int = -1) -> Array:

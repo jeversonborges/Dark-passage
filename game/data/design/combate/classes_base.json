@@ -1366,5 +1366,64 @@
     "media_dano_arma": "5 + 1.2*nivel_requerido",
     "spread_min_max": 0.6,
     "defesa_armadura_completa": "1.5*nivel_requerido"
+  },
+  "tipos_equipamento": {
+    "armadura": {
+      "placas": [
+        "mutante",
+        "demonio",
+        "warlord",
+        "anjo",
+        "lorde_das_trevas",
+        "ceifador",
+        "arcanjo",
+        "serafim",
+        "mechanicus"
+      ],
+      "malha": [
+        "humano",
+        "pistoleiro",
+        "cacador_de_anjos",
+        "gladiador",
+        "abominacao"
+      ],
+      "pano": [
+        "cultista",
+        "tecnomancer",
+        "arquimago",
+        "profeta_do_amargo",
+        "engenheiro_herege"
+      ]
+    },
+    "arma": {
+      "fisica": [
+        "mutante",
+        "demonio",
+        "warlord",
+        "gladiador",
+        "abominacao",
+        "lorde_das_trevas",
+        "ceifador"
+      ],
+      "magica": [
+        "cultista",
+        "anjo",
+        "arquimago",
+        "profeta_do_amargo",
+        "arcanjo",
+        "serafim",
+        "tecnomancer",
+        "mechanicus",
+        "engenheiro_herege"
+      ],
+      "distancia": [
+        "humano",
+        "pistoleiro",
+        "cacador_de_anjos",
+        "tecnomancer",
+        "mechanicus",
+        "engenheiro_herege"
+      ]
+    }
   }
 }

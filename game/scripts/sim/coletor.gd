@@ -9,7 +9,7 @@ const ESPECIES := {
 	"cervo_de_lume": {"nome": "Cervo de Lume", "preco": 8000},
 	"serpente_do_eden": {"nome": "Serpente do Éden", "preco": 6000},
 }
-const RARIDADES := ["comum", "magico", "raro", "excelente", "lendario"]   ## lendario é a Relíquia (vermelho)
+const RARIDADES := ["comum", "verde", "magico", "excelente", "raro", "laranja", "lendario"]   ## lendario é a Relíquia (vermelho)
 const POCOES := ["pocao_vida_m", "pocao_vida_p", "tonico_graxa", "hostia_negra", "caldo_cardo_comum", "pao_duro",
 		"pocao_recurso_m", "pocao_recurso_p"]
 const SEGUE_DIST := 2.5       ## acima disso o pet anda até o dono
