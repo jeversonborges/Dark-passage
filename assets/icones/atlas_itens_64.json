@@ -3370,5 +3370,77 @@
 2240,
 64,
 64
+],
+"deus_cimitarra_de_janes": [
+128,
+2240,
+64,
+64
+],
+"deus_malho_de_tubal": [
+192,
+2240,
+64,
+64
+],
+"deus_garra_de_ammit": [
+256,
+2240,
+64,
+64
+],
+"deus_remo_da_barca_de_ra": [
+320,
+2240,
+64,
+64
+],
+"deus_falx_de_azazel": [
+384,
+2240,
+64,
+64
+],
+"deus_cajado_das_dez_pragas": [
+448,
+2240,
+64,
+64
+],
+"deus_cajado_estrelas_contadas": [
+512,
+2240,
+64,
+64
+],
+"deus_escopeta_juramento_quebrado": [
+576,
+2240,
+64,
+64
+],
+"deus_bastao_que_virou_serpente": [
+640,
+2240,
+64,
+64
+],
+"deus_cetro_do_raio_partido": [
+704,
+2240,
+64,
+64
+],
+"brasa_da_proa": [
+768,
+2240,
+64,
+64
+],
+"bobina_de_baraquiel": [
+832,
+2240,
+64,
+64
 ]
 }
