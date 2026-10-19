@@ -452,6 +452,7 @@ func _desenhar_grade(g: Desenho) -> void:
 		if it.get("raridade", "comum") != "comum": g.draw_rect(r, Color(cor.r, cor.g, cor.b, 0.45), false, 1.0)
 		var na_troca: bool = g.dados["onde"] == "mochila" and _na_troca(int(it["uid"]))
 		_desenhar_icone(g, it, r.grow(-1), Color(1, 1, 1, 0.3) if na_troca else Color.WHITE)
+		if BRILHO_PEDRA.has(it["id"]) and not na_troca: _brilho_pedra(g, r, BRILHO_PEDRA[it["id"]], int(it["uid"]))
 		if na_troca: g.draw_rect(r, Color(0.85, 0.68, 0.3, 0.7), false, 1.0)
 		if seta and g.dados["onde"] == "mochila" and not na_troca and ganho(it) > 0:
 			g.draw_texture(seta, Vector2(r.end.x - 15, r.position.y + 1), Color(1, 1, 1, pulso))
@@ -469,6 +470,27 @@ func _desenhar_grade(g: Desenho) -> void:
 		var c0 := _canto_mao(g)
 		var ok := Itens.cabe_em(lista, W, H, mao["it"], c0.x, c0.y, int(mao["it"]["uid"]))
 		g.draw_rect(Rect2(c0.x * CEL, c0.y * CEL, gr2.x * CEL, gr2.y * CEL), Color(0.3, 0.8, 0.3, 0.25) if ok else Color(0.9, 0.2, 0.15, 0.25))
+
+## Itens que brilham como pedra preciosa (0.9.8): a cor de cada lágrima. Quem brilha é a lista, não o JSON.
+const BRILHO_PEDRA := {"lagrima_angelica": Color("#f6e7b0"), "lagrima_sanguinea": Color("#c0304a")}
+
+## Brilho de pedra: uma faixa de luz que cruza a gema, uma cintilação e a borda que pisca suave.
+func _brilho_pedra(g: CanvasItem, r: Rect2, tom: Color, seed_: int) -> void:
+	var t := Time.get_ticks_msec() * 0.001
+	var fase := fposmod(t * 0.45 + float(seed_ % 17) * 0.11, 1.6) / 1.6   # cada item na sua hora
+	var x := r.position.x - r.size.x * 0.4 + fase * r.size.x * 1.8
+	var x0 := maxf(x, r.position.x)
+	var x1 := minf(x + r.size.x * 0.22, r.end.x)
+	if x1 > x0:
+		g.draw_rect(Rect2(x0, r.position.y, x1 - x0, r.size.y), Color(tom.r, tom.g, tom.b, 0.28))
+	var borda := 0.35 + 0.25 * sin(t * 2.2 + float(seed_ % 5))
+	g.draw_rect(r.grow(-1), Color(tom.r, tom.g, tom.b, borda), false, 1.0)
+	var c := r.position + r.size * Vector2(0.3 + 0.4 * fposmod(float(seed_ * 13), 1.0), 0.35 + 0.3 * fposmod(float(seed_ * 7), 1.0))
+	var piscar := maxf(0.0, sin(t * 3.1 + float(seed_ % 11)))
+	if piscar > 0.8:
+		var a := (piscar - 0.8) * 5.0
+		g.draw_line(c + Vector2(-3, 0), c + Vector2(3, 0), Color(1, 1, 1, a), 1.0)
+		g.draw_line(c + Vector2(0, -3), c + Vector2(0, 3), Color(1, 1, 1, a), 1.0)
 
 func _canto_mao(g: Desenho) -> Vector2i:
 	var gr := Itens.grade(mao["it"])
