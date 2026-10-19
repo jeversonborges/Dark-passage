@@ -60,3 +60,8 @@ Sai com código 1 se passar do máximo ou se algum objeto estiver sem material.
 ## 6. Onde ficam os repositórios de referência
 
 `tools/sprite-pipeline/vendor/`, com commit e licença em `vendor/SOURCES.md`. São cópias para consulta, não dependência de execução.
+
+## 7. Próximas frentes já mapeadas
+
+- **Fogo, fumaça e partículas (`vfx-fx`, arjun988):** o efeito atual de fumaça em `tools/vfx/` sai como bolinhas. A skill cobre Mantaflow, flipbook e cartão de malha para jogo. Ganho previsto: renderizar flipbook do Mantaflow e integrar no `tools/vfx/`. Fica para a próxima frente, não para o cavalo.
+- **Godot (`referencias/godot/godot_arjun988.md`):** regras de GDScript tipado, TileMapLayer e sinais, para quem toca `game/`. Texto colado pelo Jefin, com corte na seção final.
