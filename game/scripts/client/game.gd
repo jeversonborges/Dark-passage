@@ -620,7 +620,7 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 		if fb: n.set_meta("feixe", fb)
 		audio.tocar("itens/lagrima_coro", n.destino, -2.0)   # coro de igreja: a jóia de brilho é sempre uma lágrima
 		return
-	if rar in ["raro", "excelente", "lendario", "conjunto", "demiurgico"]:
+	if rar in ["raro", "laranja", "excelente", "lendario", "conjunto", "demiurgico"]:
 		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto", "demiurgico"] else "item_feixe_raro"
 		var f = fx.folha(nome, n.destino, {"dura": 9999.0, "cor": n.cor.lightened(0.2)})
 		if f: n.set_meta("feixe", f)

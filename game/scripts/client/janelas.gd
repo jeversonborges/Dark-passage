@@ -1789,7 +1789,7 @@ func _corpo_coletor() -> void:
 	_coletor_marca(v, "Baús dourados", f["baus"], ["baus"])
 	v.add_child(Tema.rotulo("Ouro sempre é juntado.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
 
-const RARIDADE_NOME_COLETOR := {"comum": "Comum", "magico": "Mágico", "raro": "Raro", "excelente": "Excelente", "lendario": "Relíquia"}
+const RARIDADE_NOME_COLETOR := {"comum": "Branco", "verde": "Verde", "magico": "Azul", "excelente": "Roxo", "raro": "Amarelo", "laranja": "Laranja", "lendario": "Relíquia"}
 
 func _coletor_marca(v: VBoxContainer, txt: String, marcado: bool, chave: Array) -> void:
 	var cb := CheckBox.new(); cb.text = txt; cb.button_pressed = marcado
