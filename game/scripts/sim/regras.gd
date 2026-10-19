@@ -64,7 +64,7 @@ static func recalc_jogador(e: Ent) -> void:
 	e.critico = minf(float(Defs.FORM["critico"]["chance_max"]), 0.05 + A * 0.0008 + float(b["critico"]) + e.mod("critico") + Evolucao.soma(e, "critico"))
 	e.crit_mult = float(Defs.FORM["critico"]["mult_por_classe"].get(e.classe, Defs.FORM["critico"]["mult"])) * Evolucao.mult(e, "dano_critico_mult")
 	e.excelente = minf(0.25, float(b["excelente"]))
-	e.vel_ataque = minf(2.0, (1.0 + A * 0.004 + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque")) * Evolucao.mult(e, "velocidade_ataque_mult"))
+	e.vel_ataque = minf(2.0, (1.0 + A * 0.004 + float(c["velocidade_ataque_base"]) + float(b["velocidade_ataque"]) + e.mod("velocidade_ataque")) * Evolucao.mult(e, "velocidade_ataque_mult"))
 	if e.mod("vel_ataque_fixa") > 0.0: e.vel_ataque = e.mod("vel_ataque_fixa")   # transformações (Forma Vingativa 2.3, Forma Colossal 0.45)
 	e.intervalo = float(arma["intervalo"]) / e.vel_ataque
 	e.alcance = (float(c["alcance_basico"]["espada"]) if c["alcance_basico"] is Dictionary else float(c["alcance_basico"])) * Evolucao.mult(e, "alcance_mult")

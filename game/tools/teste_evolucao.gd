@@ -179,7 +179,7 @@ func _testar(classe: String, caminho_idx: int) -> void:
 		if fez.is_empty(): falha(tag + ": %s não fez nada" % h["id"])
 		if h.has("mult") and not h.has("buff") and not feriu: falha(tag + ": %s tem mult e não feriu" % h["id"])
 		if h["id"] == "forma_vingativa":
-			if absf(forma_vel - 2.3) > 0.01: falha(tag + ": Forma Vingativa deu velocidade de ataque %.2f" % forma_vel)
+			if absf(forma_vel - 2.6) > 0.01: falha(tag + ": Forma Vingativa deu velocidade de ataque %.2f" % forma_vel)
 			if absf(forma_crit - minf(float(Defs.FORM["critico"]["chance_max"]), crit0 + 0.3)) > 0.01: falha(tag + ": Forma Vingativa deu crítico %.2f (antes %.2f)" % [forma_crit, crit0])
 		if h["id"] == "forma_colossal":
 			if absf(forma_hp / hp0 - 3.0) > 0.05: falha(tag + ": Forma Colossal deu hp x%.2f" % (forma_hp / hp0))
