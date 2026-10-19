@@ -763,7 +763,7 @@
           "duracao": 15,
           "transformacao": true,
           "buff": {
-            "velocidade_ataque": 2.3,
+            "velocidade_ataque": 2.6,
             "critico": 0.3,
             "tiros_atravessam": true
           },

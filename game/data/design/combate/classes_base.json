@@ -30,6 +30,7 @@
         "por_nivel": 2.0,
         "por_vit": 3.0
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "sagrado",
       "elemento_ataque": "sagrado",
       "alcance_basico": 1.3,
@@ -165,6 +166,7 @@
         "por_nivel": 2.0,
         "por_vit": 3.0
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "magico",
       "elemento_ataque": "sangue",
       "alcance_basico": 6,
@@ -541,6 +543,7 @@
         "por_nivel": 3.0,
         "por_vit": 4.0
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "corpo_a_corpo",
       "elemento_ataque": "fisico",
       "alcance_basico": 1.3,
@@ -677,6 +680,7 @@
         "por_nivel": 2.5,
         "por_vit": 3.0
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "corpo_a_corpo_agil",
       "elemento_ataque": "fisico",
       "alcance_basico": 1.3,
@@ -803,6 +807,7 @@
         "por_nivel": 2.2,
         "por_vit": 2.8
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "hibrido",
       "elemento_ataque": "fisico",
       "arma_inicial": {
@@ -1007,6 +1012,7 @@
         "por_nivel": 2.0,
         "por_vit": 2.5
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "magico",
       "elemento_ataque": "eletrico",
       "alcance_basico": 6,
@@ -1166,6 +1172,7 @@
         "por_nivel": 2.8,
         "por_vit": 3.2
       },
+      "velocidade_ataque_base": 0.3,
       "perfil_dano": "corpo_a_corpo_pesado",
       "elemento_ataque": "fisico",
       "alcance_basico": 1.4,
