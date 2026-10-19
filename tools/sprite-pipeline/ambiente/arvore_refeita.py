@@ -1,11 +1,14 @@
 # Árvore morta refeita em low-poly, no estilo Ferrugem Sagrada (fosco, sujo, faces planas).
 # Mesma pegada do kit (3x3 tiles), âncora na base e mesmo render do kit, para trocar no jogo
-# sem mexer no mapa. Gera 8 direções da versão antiga (assets.py, arvore_morta) e da nova.
+# sem mexer no mapa. Exporta as partes separadas (skills/dark-passage-isometric-world, seção 4):
+#   base   = tronco, raízes, galhos baixos e corda (sólido, ordenável no mundo)
+#   copa   = galhos altos e ramos (overhead: some quando o player passa por baixo)
+# Todas as camadas compartilham o mesmo quadro e âncora, então se sobrepõem sem deslocamento.
 # Uso: blender -b -P arvore_refeita.py -- <pasta_de_saida>
 # Orçamento: prop (skills_lib.ORCAMENTO), meta da thread 500 a 2000 tris; conta tris no log.
 # Materiais: casca fosca, rugosidade alta, sem clearcoat (REFERENCIAS.md, seção 5).
 import bpy, bmesh, math, os, sys, random, json
-from mathutils import Vector
+from mathutils import Vector, Matrix
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTES = os.path.join(HERE, "..", "..", "..", "assets", "ambiente", "fontes")
@@ -18,6 +21,7 @@ from skills_lib import orcamento
 LADOS_TRONCO = 8
 LADOS_GALHO = 6
 LADOS_RAMO = 5
+ALTURA_COPA = 2.6   # galhos cujo ponto de partida passa disto ficam na camada copa
 
 def tubo(bm, pts, lados, mat_idx=0, fechado=False, rnd=None, ruido=.07, ponta_quebrada=False):
     """Tubo de anéis por pts = [(centro, raio), ...]. Faces planas, sem subdivisão.
@@ -70,18 +74,32 @@ GALHOS = [
 ]
 RAIZES = [.0, 1.57, 3.14, 4.71]   # quatro raízes saindo da base
 
+def _rot(axis, ang):
+    return Matrix.Rotation(ang, 3, axis.normalized())
+
+def _malha(nome, bm, mats):
+    me = bpy.data.meshes.new(nome)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
+    bm.to_mesh(me); bm.free()
+    ob = bpy.data.objects.new(nome, me)
+    bpy.context.scene.collection.objects.link(ob)
+    for mt in mats: me.materials.append(mt)
+    for p in me.polygons: p.use_smooth = False
+    return ob
+
 def arvore_nova(seed=7):
-    """Versão nova: tronco de 8 lados, galhos de 6 lados e ramos finos de 5, com corda de enforcado."""
+    """Versão nova em duas camadas: (base, copa). Tronco de 8 lados, galhos de 6, ramos de 5.
+    A corda de enforcado fica na base (está na altura do player)."""
     rnd = random.Random(seed)
-    me = bpy.data.meshes.new("arvore_morta_lp")
-    bm = bmesh.new()
-    tubo(bm, TRONCO, LADOS_TRONCO, 0, rnd=rnd, ruido=.08, ponta_quebrada=True)
+    bm_base, bm_copa = bmesh.new(), bmesh.new()
+    tubo(bm_base, TRONCO, LADOS_TRONCO, 0, rnd=rnd, ruido=.08, ponta_quebrada=True)
     for ang in RAIZES:
         d = Vector((math.cos(ang + rnd.uniform(-.3, .3)), math.sin(ang + rnd.uniform(-.3, .3)), 0))
-        tubo(bm, [(d*.2 + Vector((0, 0, .2)), .24), (d*.7 + Vector((0, 0, .06)), .11), (d*1.25 + Vector((0, 0, .01)), .03)],
+        tubo(bm_base, [(d*.2 + Vector((0, 0, .2)), .24), (d*.7 + Vector((0, 0, .06)), .11), (d*1.25 + Vector((0, 0, .01)), .03)],
              LADOS_RAMO, 0, rnd=rnd, ruido=.12)
     for g in GALHOS:
-        tubo(bm, [(Vector(c), r) for c, r in g], LADOS_GALHO, 0, rnd=rnd)
+        bm = bm_base if g[0][0][2] < ALTURA_COPA else bm_copa
+        tubo(bm, g, LADOS_GALHO, 0, rnd=rnd)
         # ramos finos saindo do meio e da ponta de cada galho
         for idx in (1, len(g)-1):
             p0, r0 = g[idx]
@@ -91,40 +109,21 @@ def arvore_nova(seed=7):
                 axis = Vector((0, 0, 1)).cross(d) if abs(d.z) < .9 else Vector((1, 0, 0))
                 nd = (_rot(axis, ang) @ d); nd.z += .2; nd.normalize()
                 L = rnd.uniform(.3, .55)
-                q = Vector(p0) + nd*L*.5
-                tubo(bm, [(Vector(p0), r0*.8), (q, .03), (Vector(p0) + nd*L, .008)], LADOS_RAMO, 0, rnd=rnd)
-    # corda de enforcado presa ao galho 0
-    tubo(bm, [((1.5, .2, 2.9), .014), ((1.5, .2, 2.2), .012), ((1.5, .2, 1.62), .012)], 4, 1, rnd=None)
+                tubo(bm, [(Vector(p0), r0*.8), (Vector(p0) + nd*L*.5, .03), (Vector(p0) + nd*L, .008)], LADOS_RAMO, 0, rnd=rnd)
+    # corda de enforcado presa ao galho 0 (camada base)
+    tubo(bm_base, [((1.5, .2, 2.9), .014), ((1.5, .2, 2.2), .012), ((1.5, .2, 1.62), .012)], 4, 1, rnd=None)
     laço = [((1.5 + .085*math.cos(2*math.pi*k/8), .2, 1.5 + .085*math.sin(2*math.pi*k/8)), .012) for k in range(8)]
-    tubo(bm, laço, 4, 1, fechado=True)
-    bmesh.ops.recalc_face_normals(bm, faces=bm.faces[:])
-    bm.to_mesh(me); bm.free()
-    ob = bpy.data.objects.new("arvore_morta_lp", me)
-    bpy.context.scene.collection.objects.link(ob)
-    me.materials.append(K.mat_wood("casca_lp", (.085, .062, .045)))
-    me.materials.append(K.mat_solid("corda", (.1, .08, .05), 0, .9))
-    for p in me.polygons: p.use_smooth = False
-    return ob
+    tubo(bm_base, laço, 4, 1, fechado=True)
+    casca = K.mat_wood("casca_lp", (.085, .062, .045))
+    corda = K.mat_solid("corda", (.1, .08, .05), 0, .9)
+    return _malha("arvore_base", bm_base, [casca, corda]), _malha("arvore_copa", bm_copa, [casca])
 
-def _rot(axis, ang):
-    from mathutils import Matrix
-    return Matrix.Rotation(ang, 3, axis.normalized())
-
-def tris(ob):
-    dg = bpy.context.evaluated_depsgraph_get()
-    ev = ob.evaluated_get(dg); me = ev.to_mesh(); me.calc_loop_triangles()
-    n = len(me.loop_triangles); ev.to_mesh_clear(); return n
-
-def render_dir(tag, build, ang, out, samples=64):
-    """Uma direção: cena nova, objeto girado em torno da base (origem) e render no enquadramento do kit."""
-    K._cache.clear(); K.DUST = (.26, .19, .115); K.CLAMP = True
-    K.reset(); K.make_cam(); K.lights(False)
-    bpy.context.scene.cycles.use_denoising = False   # o blender do apt não tem OpenImageDenoise
-    K.shadow_catcher()
-    objs = build()
-    for o in objs: o.rotation_euler.z = math.radians(ang)
-    bpy.context.view_layer.update()
-    return K.render_asset(f"{out}/{tag}", objs, samples=samples)
+def tris(obs):
+    dg = bpy.context.evaluated_depsgraph_get(); n = 0
+    for ob in obs:
+        ev = ob.evaluated_get(dg); me = ev.to_mesh(); me.calc_loop_triangles()
+        n += len(me.loop_triangles); ev.to_mesh_clear()
+    return n
 
 def antiga():
     """Objetos antigos (assets.py, arvore_morta) em volta da origem."""
@@ -132,15 +131,44 @@ def antiga():
     A.REG["arvore_morta"]["fn"](A.M())
     return [o for o in bpy.data.objects if o not in before and o.type == 'MESH']
 
+def render_antiga(tag, ang, out, samples=64):
+    K._cache.clear(); K.DUST = (.26, .19, .115); K.CLAMP = True
+    K.reset(); K.make_cam(); K.lights(False)
+    bpy.context.scene.cycles.use_denoising = False   # o blender do apt não tem OpenImageDenoise
+    K.shadow_catcher()
+    objs = antiga()
+    for o in objs: o.rotation_euler.z = math.radians(ang)
+    bpy.context.view_layer.update()
+    return K.render_asset(f"{out}/{tag}", objs, samples=samples)
+
+def render_nova(out, ang, samples=64):
+    """Renderiza as duas camadas da árvore nova no mesmo quadro (mesma âncora e mesmo tamanho)."""
+    K._cache.clear(); K.DUST = (.26, .19, .115); K.CLAMP = True
+    K.reset(); K.make_cam(); K.lights(False)
+    bpy.context.scene.cycles.use_denoising = False
+    K.shadow_catcher()
+    base, copa = arvore_nova()
+    for o in (base, copa): o.rotation_euler.z = math.radians(ang)
+    bpy.context.view_layer.update()
+    pts = K.project_bounds([base, copa])     # quadro comum às duas camadas, com a sombra inteira dentro
+    extra = pts + K.shadow_pts(pts)
+    metas = {}
+    for nome, ob, outro in (("base", base, copa), ("copa", copa, base)):
+        outro.hide_render = True
+        metas[nome] = K.render_asset(f"{out}/nova_{nome}_{ang}", [ob], samples=samples, shadows=False, extra=extra)
+        outro.hide_render = False
+    return metas
+
 if __name__ == "__main__":
     argv = sys.argv[sys.argv.index("--") + 1:]
     out = argv[0]; os.makedirs(out, exist_ok=True)
     lo, hi = orcamento("prop")
-    meta = {"antiga": {}, "nova": {}}
+    meta = {"antiga": {}, "nova_base": {}, "nova_copa": {}}
     for k in range(8):
         ang = 45*k
-        meta["antiga"][k] = render_dir(f"antiga_{k}", antiga, ang, out)
-        meta["nova"][k] = render_dir(f"nova_{k}", lambda: [arvore_nova()], ang, out)
+        meta["antiga"][k] = render_antiga(f"antiga_{k}", ang, out)
+        m = render_nova(out, ang)
+        meta["nova_base"][k] = m["base"]; meta["nova_copa"][k] = m["copa"]
         print("OK direcao", k, flush=True)
     K._cache.clear(); K.reset(); K.make_cam(); K.lights(False)
     n_tris = tris(arvore_nova())

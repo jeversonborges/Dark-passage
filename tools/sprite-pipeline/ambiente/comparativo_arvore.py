@@ -22,15 +22,17 @@ H = MARGEM_TOPO + CELL_H * LIN
 img = Image.new("RGB", (W, H), FUNDO)
 d = ImageDraw.Draw(img)
 d.text((30, 24), "Árvore morta: antiga x refeita em low-poly", font=f_tit, fill=(245, 232, 205))
-d.text((30, 72), "Esquerda: kit atual (assets.py)   ·   Direita: refeita, 1 002 tris, casca fosca", font=f_rot, fill=(235, 220, 195))
+d.text((30, 72), "Esquerda: kit atual (assets.py)   ·   Direita: refeita, 1 002 tris, base + copa (camadas)", font=f_rot, fill=(235, 220, 195))
 
 for k in range(8):
     cx0 = (k % COL) * CELL_W
     cy0 = MARGEM_TOPO + (k // COL) * CELL_H
     d.text((cx0 + 20, cy0 + 12), ROTULOS[k], font=f_rot, fill=(255, 240, 210))
-    for chave, dx in (("antiga", CELL_W*.27), ("nova", CELL_W*.66)):
+    # nova = camada base e copa no mesmo quadro, sobrepostas; ambas usam a âncora da base
+    camadas = (("antiga", "antiga", CELL_W*.27), ("nova_base", "nova", CELL_W*.66), ("nova_copa", "nova", CELL_W*.66))
+    for chave, arq, dx in camadas:
         m = meta[chave][str(k)]
-        spr = Image.open(os.path.join(src, f"{chave}_{k}_raw.png")).convert("RGBA")
+        spr = Image.open(os.path.join(src, f"{arq}_{k}_raw.png" if chave == "antiga" else f"{chave}_{k}_raw.png")).convert("RGBA")
         spr = spr.resize((int(spr.width*ESC), int(spr.height*ESC)), Image.LANCZOS)
         ax, ay = m["anchor"][0]*ESC, m["anchor"][1]*ESC
         img.paste(spr, (int(cx0 + dx - ax), int(cy0 + CELL_H*.82 - ay)), spr)
