@@ -5,7 +5,7 @@ static func tabela_por_nivel(nivel: int) -> String:
 	return "inicial_humanoide" if nivel < 6 else "cripta_humanoide"
 
 ## Escolhe um item que satisfaz uma tag de drop.
-static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, jog: Ent, bonus_azul_verde: float = 1.0) -> Dictionary:
+static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, jog: Ent) -> Dictionary:
 	if tag.begins_with("equip:"):
 		var ids: Array = Defs.POR_TAG.get(tag, [])
 		# prefere itens que a classe do jogador usa (70%)
@@ -22,7 +22,7 @@ static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, 
 			x -= float(Defs.ITENS[i].get("peso_drop", 1.0))
 			if x <= 0.0: id = i; break
 		var f := 1 if tag.ends_with("1") else 2
-		return Itens.gerar_equip(id, sim.rng, minima, f, bonus_azul_verde)
+		return Itens.gerar_equip(id, sim.rng, minima, f)
 	if tag.begins_with("lendario:"):
 		var pool: Array = Defs.ITENS_DOC["pools_lendarios"].get(tag, [])
 		if pool.is_empty(): return {}
@@ -90,16 +90,36 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	_rolar_materiais_asa(sim, e, jog)
 	if tab.is_empty(): return
 	var muito_abaixo := jog.nivel - e.nivel >= 6
+	# chefe de andar com curva própria: um item garantido, sorteado por raridade_pesos (vermelho só em 5%)
+	if tab.has("raridade_pesos"):
+		var rar := _sorteia_pesos(sim, tab["raridade_pesos"])
+		var it_p := {}
+		if rar == "lendario":
+			for r in tab["rolagens"]:
+				if str(r["tag"]).begins_with("lendario:"): it_p = item_da_tag(sim, str(r["tag"]), e.nivel, "comum", jog); break
+		else:
+			it_p = _equip_qualquer(sim, rar, e.nivel)
+		it_p = _trocar_por_deus(sim, it_p)
+		if not it_p.is_empty(): sim.soltar_no_chao(it_p, e.pos, jog.id, e.pos)
 	for gid in tab.get("garantido", []):
+		# item de missão vermelho só cai se alguma missão ativa precisa dele; lendario: só com a chance de vermelho
+		if gid.begins_with("missao:"):
+			var mi: String = gid.substr(7)
+			if str(Defs.ITENS.get(mi, {}).get("raridade", "")) == "lendario" and not Missoes.precisa_item_qualquer(jog, mi): continue
+		elif gid.begins_with("lendario:") and not _vermelho_sai(sim, tab): continue
 		var it := _trocar_por_deus(sim, item_da_tag(sim, gid, e.nivel, "comum", jog))
 		if not it.is_empty(): sim.soltar_no_chao(it, e.pos, jog.id, e.pos)
 	var n := 0
 	if tab.has("rolagens_garantidas"): n = int(tab["rolagens_garantidas"])
 	elif sim.rng.randf() < float(tab.get("item_chance", 0.0)): n = 1
 	var minima: String = tab.get("raridade_minima", "comum")
-	# azul (Mágico) e verde (Excelente) +40% só em mob comum: não vale para elite, raro nem chefe
-	var bonus_comum := float(Defs.DROPS["balanco"].get("azul_verde_mob_comum", 1.0)) if _mob_comum(e) else 1.0
 	jog.pity_raro += 1
+	# mob comum: equipamento sai por chance absoluta de raridade (chance_mob_comum), de qualquer item equipavel
+	if _mob_comum(e):
+		var rar := Itens.rolar_raridade_mob(sim.rng, e.nivel)
+		if rar != "":
+			var eq := _equip_qualquer(sim, rar, e.nivel)
+			if not eq.is_empty(): sim.soltar_no_chao(_trocar_por_deus(sim, eq), e.pos, jog.id, e.pos)
 	var f_itens := float(Defs.DROPS["balanco"]["itens_de_mob"])   # balanço 18/10: cada rolagem de item tem 65% (drop mais baixo)
 	var f_joias := float(Defs.DROPS["balanco"]["joias"])
 	for i in n:
@@ -107,13 +127,52 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		var r := _peso(sim, tab["rolagens"])
 		var tag: String = r["tag"]
 		if muito_abaixo and tag.begins_with("equip"): continue
+		if _mob_comum(e) and tag.begins_with("equip"): continue   # o equipamento de mob comum vem da chance_mob_comum acima
+		if tab.has("raridade_pesos") and tag.begins_with("equip"): continue   # chefe de andar: o equipamento vem de raridade_pesos
+		if tag.begins_with("lendario:") and not _vermelho_sai(sim, tab): continue
 		if tag.begins_with("joia:") and sim.rng.randf() >= f_joias: continue   # joias de refino pela metade
 		var mn := minima
 		if jog.pity_raro >= int(Defs.DROPS["pity"]["raro_garantido_apos_abates_sem_raro"]) and tag.begins_with("equip"): mn = "raro"
-		var it := _trocar_por_deus(sim, item_da_tag(sim, tag, e.nivel, mn, jog, bonus_comum))
+		var it := _trocar_por_deus(sim, item_da_tag(sim, tag, e.nivel, mn, jog))
 		if it.is_empty(): continue
 		if it.get("raridade", "comum") in ["raro", "excelente", "lendario"]: jog.pity_raro = 0
 		sim.soltar_no_chao(it, e.pos, jog.id, e.pos)
+
+## Vermelho sai quando a tabela é de raid (vermelho_garantido) ou pela chance de balanco.lendario_chance.
+static func _vermelho_sai(sim: WorldSim, tab: Dictionary) -> bool:
+	return bool(tab.get("vermelho_garantido", false)) or sim.rng.randf() < float(Defs.DROPS["balanco"].get("lendario_chance", 1.0))
+
+## Sorteia uma chave de um dicionário de pesos (ex.: {"magico": 40, "lendario": 5}).
+static func _sorteia_pesos(sim: WorldSim, pesos: Dictionary) -> String:
+	var tot := 0.0
+	for k in pesos: tot += float(pesos[k])
+	var x := sim.rng.randf() * tot
+	for k in pesos:
+		x -= float(pesos[k])
+		if x <= 0.0: return str(k)
+	return str(pesos.keys()[0])
+
+## Pool de equipamento base (qualquer item equipavel, sem variante Deus, sem vinculado), sorteado com peso_drop.
+static func _equip_qualquer(sim: WorldSim, rar: String, nivel_mob: int) -> Dictionary:
+	var ids := []
+	for i in Defs.ITENS:
+		var d: Dictionary = Defs.ITENS[i]
+		var fixa := str(d.get("raridade", "rolada")) != "rolada"
+		# raridade fixa (ex.: as espadas roxas) só cai no sorteio roxo e até o nível do mob
+		if fixa and (rar != "excelente" or int(d.get("nivel", 1)) > nivel_mob): continue
+		if str(d.get("slot", "")) == "" or d.has("variante_de"): continue
+		if Itens.vinculado(Itens.novo(i)): continue
+		ids.append(i)
+	if ids.is_empty(): return {}
+	var tot := 0.0
+	for i in ids: tot += float(Defs.ITENS[i].get("peso_drop", 1.0))
+	var x := sim.rng.randf() * tot
+	var id: String = ids[ids.size() - 1]
+	for i in ids:
+		x -= float(Defs.ITENS[i].get("peso_drop", 1.0))
+		if x <= 0.0: id = i; break
+	if str(Defs.ITENS[id].get("raridade", "rolada")) != "rolada": return Itens.novo(id)
+	return Itens.gerar_equip(id, sim.rng, "comum", Itens.faixa(nivel_mob, sim.rng), rar)
 
 static func _mob_comum(e: Ent) -> bool:
 	return e.tipo == "monstro" and e.arquetipo in ["rasteiro", "normal", "bruto", "atirador", "conjurador"]

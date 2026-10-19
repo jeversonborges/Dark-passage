@@ -61,11 +61,11 @@ var status_jog := {}          # s -> fim
 
 const MENU := ["personagem", "mochila", "habilidades", "missoes", "mapa", "menu"]
 const MENU_JANELA := {"personagem": "personagem", "mochila": "inventario", "habilidades": "habilidades", "missoes": "missoes"}
-const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "habilidades": "Habilidades (K)", "missoes": "Missões (J)", "mapa": "Mapa (M)", "menu": "Menu (Esc)"}
+const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "habilidades": "Livro de Skills (K)", "missoes": "Missões (J)", "mapa": "Mapa (M)", "menu": "Menu (Esc)"}
 const CINTO := [["vida", "Q"], ["recurso", "W"], ["antidoto", "E"], ["vela", "R"]]
 const CINTO_PAD := ["pocao_vida", "pocao_recurso", "antidoto", "vela"]   # ações do controle de cada slot do cinto
 const STATUS_NOME := {"atordoado": "Atordoado", "lento": "Lento", "queimadura": "Queimando", "sangramento": "Sangrando", "veneno": "Envenenado",
-	"agarrado": "Agarrado", "silenciado": "Silenciado", "derrubado": "Derrubado", "medo": "Medo", "cego": "Cego", "enraizado": "Preso"}
+	"agarrado": "Agarrado", "silenciado": "Silenciado", "derrubado": "Derrubado", "medo": "Medo", "cego": "Cego", "enraizado": "Preso", "marcado_pelo_general": "Marcado pelo General"}
 
 func _ready() -> void:
 	layer = 10
@@ -133,14 +133,12 @@ func _montar_barra() -> void:
 	barra.dentro = func(p: Vector2) -> bool:
 		if _evasao_rect().has_point(p): return true
 		if p.y > 66 and p.x > 0 and p.x < 1280: return true
-		if _n_slots() > 10 and p.y > 30 and p.x > 218 and p.x < 222 + 48 * (_n_slots() - 10): return true
 		return p.distance_to(Vector2(78, 78)) < 66 or p.distance_to(Vector2(1202, 78)) < 66
 	barra.entrada = _entrada_barra
 	barra.mouse_exited.connect(func(): hover_slot = -1; hover_cinto = -1; hover_menu = -1; esconder_tip())
 	raiz.add_child(barra)
 
 func _slot_rect(i: int) -> Rect2:
-	if i >= Evolucao.SLOT_EVO: return Rect2(222 + 48 * (i - Evolucao.SLOT_EVO), 34, 44, 44)   # fileira da evolução (Shift+1..5)
 	return Rect2(222 + 54 * i, 90, 52, 52)
 
 ## Slot da esquiva (botão direito): acima da barra, à esquerda do orbe do recurso.
@@ -148,7 +146,7 @@ func _evasao_rect() -> Rect2:
 	return Rect2(1082, 14, 48, 48)
 
 func _n_slots() -> int:
-	return maxi(10, game.jog.skills_slots.size()) if game.jog else 10
+	return Evolucao.N_SLOTS
 
 func _cinto_rect(i: int) -> Rect2:
 	return Rect2(792 + 52 * i, 94, 46, 46)
@@ -300,8 +298,7 @@ func _desenhar_barra(c: Painel) -> void:
 		elif i == hover_slot: mold = "slot_hover"
 		elif not h.is_empty() and j.buffer_skill.get("slot", -1) == i: mold = "slot_ativo"
 		c.draw_texture_rect(Tema.ui(mold), r, false)
-		if i < 10: _tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % ((i + 1) % 10), "skill_%d" % (i + 1))
-		elif not h.is_empty(): _txt(c, r.position + Vector2(4, 9), "⇧%d" % (i - 9), 8, Color("#d8c08a"), Tema.FONTE_PIXEL, -1, 2)
+		_tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % (i + 1), "skill_%d" % (i + 1))
 		if not h.is_empty() and Jogador.skill_no_auto(j, i): _selo_auto(c, r)
 	_desenhar_evasao(c, j)
 	# modo automático (tecla Z): "AUTO" dourado sobre a barra de skills e moldura pulsando no slot da skill automática
@@ -311,7 +308,7 @@ func _desenhar_barra(c: Painel) -> void:
 		c.draw_arc(ca, 9.0, t * 3.0, t * 3.0 + TAU * 0.75, 18, Color(0.94, 0.78, 0.32, pulso), 2.0)
 		c.draw_circle(ca, 3.0, Color(0.94, 0.78, 0.32, pulso))
 		_txt(c, Vector2(540, 56), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso), Tema.FONTE_TITULO, 0, 4)
-		for sa in mini(10, j.skills_slots.size()):
+		for sa in j.skills_slots.size():
 			if Jogador.skill_no_auto(j, sa):
 				c.draw_rect(_slot_rect(sa).grow(1.0 + 2.0 * pulso), Color(0.98, 0.8, 0.3, 0.5 + 0.4 * pulso), false, 2.0)
 	# cinto
@@ -368,9 +365,8 @@ func _posicionar_pet() -> void:
 	var j := _jog()
 	pet_ui.visible = j != null and j.classe == "cultista" and _meu_pet() != null
 	if not pet_ui.visible: return
-	var sobe := 48.0 if _n_slots() > 10 else 0.0   # com a fileira da evolução (Shift+1..5), a barra do pet sobe
 	pet_ui.offset_left = -640 + 185; pet_ui.offset_right = pet_ui.offset_left + 387
-	pet_ui.offset_top = -147 - sobe; pet_ui.offset_bottom = pet_ui.offset_top + 63
+	pet_ui.offset_top = -147; pet_ui.offset_bottom = pet_ui.offset_top + 63
 
 func _entrada_pet(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion:
@@ -621,10 +617,11 @@ func _desenhar_retrato_simples(c: Painel, j: Ent) -> void:
 func _desenhar_buffs(c: Painel, j: Ent, y: float) -> void:
 	var x := 0.0
 	var agora := []
-	for b in j.buffs: agora.append([b["id"], float(b["t"]), Color(0.4, 0.75, 0.35)])
+	for b in j.buffs: agora.append([b["id"], float(b["t"]), Color(0.4, 0.75, 0.35), int(b.get("pilhas", 0))])
 	for s in j.status: agora.append([s, float(j.status[s].get("t", 0.0)), Color(0.85, 0.25, 0.2)])
 	for a in agora:
 		var nome: String = STATUS_NOME.get(a[0], Defs.ITENS.get(a[0], {}).get("nome", str(a[0]).replace("_", " ").capitalize()))
+		if a.size() > 3 and a[3] > 0: nome += " x%d (+%d%%)" % [a[3], a[3] * 3]   # Marcado pelo General: pilhas e dano extra
 		var w := Tema.FONTE_TEXTO.get_string_size(nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x + 30
 		var rr := Rect2(x, y, w, 18)
 		c.draw_rect(rr, Color(0.06, 0.05, 0.04, 0.85))
@@ -656,7 +653,15 @@ func _desenhar_alvo(c: Painel) -> void:
 	if e == null or not e.vivo or e.tipo in ["npc", "jogador"] or (e.tipo == "objeto" and not e.alvejavel): return
 	if e.tipo == "objeto" and e.kind != "pilha_de_mortos": return
 	var r := Rect2(40, 0, 320, 48)
-	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.88), Color(0.42, 0.34, 0.2), 2, 3), r)
+	# 0.9.8: quatro estilos de barra, pela categoria: comum, elite (moldura de ouro), especial (azul, brilho e losango)
+	var borda := Color(0.42, 0.34, 0.2)
+	if e.arquetipo == "elite": borda = Color(0.85, 0.66, 0.25)
+	elif e.arquetipo == "raro":
+		borda = Color(0.5, 0.72, 1.0)
+		c.draw_circle(Vector2(r.position.x + 14, 24), 26.0, Color(0.5, 0.72, 1.0, 0.09))
+		var d := Vector2(r.position.x + 14, 24)
+		c.draw_colored_polygon(PackedVector2Array([d + Vector2(0, -6), d + Vector2(6, 0), d + Vector2(0, 6), d + Vector2(-6, 0)]), Color(0.6, 0.8, 1.0))
+	c.draw_style_box(Tema.caixa(Color(0.07, 0.055, 0.045, 0.88), borda, 2, 3), r)
 	var cn := Color("#e8dfc9")
 	if e.arquetipo == "elite": cn = Color("#e0b84a")
 	elif e.arquetipo == "raro": cn = Color("#7fb8ff")
@@ -675,9 +680,10 @@ func _desenhar_chefe(c: Painel, b: Ent) -> void:
 	var r := Rect2(-80, 0, 560, 70)
 	c.draw_style_box(Tema.caixa(Color(0.06, 0.03, 0.03, 0.92), Color(0.55, 0.16, 0.1), 2, 3), r)
 	var tit: String = chefe_d.get("nome", b.nome)
-	_txt(c, Vector2(200, 28), tit, 26, Color("#ffcf9a"), Tema.FONTE_GOTICA, 0, 4)
+	_txt(c, Vector2(200, 28), tit, 17, Color("#ffcf9a"), Tema.FONTE_GOTICA, 0, 3)   # 0.9.8: menor, para não tapar a fala do chefe
 	var nf: String = chefe_d.get("nome_fase", "")
 	_txt(c, Vector2(462, 22), ("Fase %d" % int(chefe_d.get("fase", 1))) + ((" · " + nf) if nf != "" else ""), 11, Color("#c8a080"), Tema.FONTE_ITALICO, 1, 2)
+	c.draw_rect(r.grow(-4), Color(0.55, 0.16, 0.1, 0.7), false, 1.0)   # 0.9.8: moldura interna do chefe de área
 	var br := Rect2(-62, 36, 524, 14)
 	_barra(c, br, b.frac_hp(), Color(0.62, 0.06, 0.04))
 	for m in chefe_d.get("marcas", []):
@@ -822,7 +828,7 @@ func _marcadores(c: CanvasItem, cen: Vector2, cm: Vector2, k: float, raio: float
 				if e.id != j.id: c.draw_circle(p, 3.6, Color(0.05, 0.1, 0.15)); c.draw_circle(p, 2.8, Color(0.55, 0.85, 1.0))
 			"npc":
 				var mk := Missoes.marcador_npc(j, e.kind)
-				if mk != "": _txt(c, p + Vector2(0, 5), mk, 14, Color(1, 0.82, 0.25) if mk == "!" else Color(0.75, 0.95, 0.4), Tema.FONTE_GOTICA, 0, 2)
+				if mk != "": _txt(c, p + Vector2(0, 5), mk, 16, Color(1, 0.82, 0.25) if mk == "!" else Color(0.6, 0.86, 1.0), Tema.FONTE_GOTICA, 0, 2)
 				else: c.draw_circle(p, 2.5, Color(0.95, 0.85, 0.5))
 			"objeto":
 				if e.kind == "bau" and not e.aux.get("aberto", false) and game.objs.has(e.id) and game.objs[e.id].visible:
@@ -899,7 +905,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 		var p := _mundo_para_mini(somas[i][0] / float(somas[i][1]), cen, cm, k)
 		var conhecida: bool = j.vistas.has(zonas[i]["id"]) or zonas[i]["id"] == j.zona or Demiurgo.tem(j)   # Olho do Demiurgo: o mapa inteiro
 		var niv = zonas[i].get("nivel")
-		_txt(c, p, zonas[i]["nome"], 15, Color("#f6e2a8") if conhecida else Color("#a49a86"), Tema.FONTE_TITULO, 0, 5)
+		_txt(c, p, zonas[i]["nome"], 11, Color("#f6e2a8") if conhecida else Color("#a49a86"), Tema.FONTE_TITULO, 0, 5)
 		if niv is Array: _txt(c, p + Vector2(0, 15), "nível %d–%d" % [int(niv[0]), int(niv[1])], 11, Color("#c8b890") if conhecida else Color("#8a8070"), Tema.FONTE_ITALICO, 0, 3)
 		elif zonas[i].get("seguro", false): _txt(c, p + Vector2(0, 15), "área segura", 11, Color("#a8d890"), Tema.FONTE_ITALICO, 0, 3)
 	# passagens: para onde levam (a cripta e os chefes ficam atrás delas)
@@ -926,7 +932,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 			"voce": c.draw_colored_polygon(PackedVector2Array([p2 + Vector2(6, 0), p2 + Vector2(-4, 4), p2 + Vector2(-2, 0), p2 + Vector2(-4, -4)]), Color.WHITE)
 			"estrela": _estrela(c, p2, 7.0, Color(1.0, 0.82, 0.3))
 			"!": _txt(c, p2 + Vector2(0, 5), "!", 15, Color(1, 0.82, 0.25), Tema.FONTE_GOTICA, 0, 2)
-			"?": _txt(c, p2 + Vector2(0, 5), "?", 15, Color(0.75, 0.95, 0.4), Tema.FONTE_GOTICA, 0, 2)
+			"?": _txt(c, p2 + Vector2(0, 5), "?", 15, Color(0.6, 0.86, 1.0), Tema.FONTE_GOTICA, 0, 2)
 			"chefe": c.draw_circle(p2, 4.5, Color(0.1, 0, 0)); c.draw_circle(p2, 3.5, Color(1.0, 0.25, 0.1))
 			"mob": c.draw_circle(p2, 2.6, Color(0.85, 0.15, 0.1))
 			"neutro": c.draw_circle(p2, 2.6, Color(0.9, 0.78, 0.2))
@@ -1628,6 +1634,7 @@ func _montar_tooltip() -> void:
 	tip_lbl.add_theme_font_override("bold_font", Tema.FONTE_TITULO)
 	tip_lbl.add_theme_font_size_override("normal_font_size", 14)
 	tip_lbl.add_theme_font_size_override("italics_font_size", 13)
+	tip_lbl.add_theme_font_size_override("bold_font_size", 14)
 	tooltip.add_child(tip_lbl)
 	tooltip.visible = false
 	tooltip.z_index = 100
@@ -1647,11 +1654,15 @@ func mostrar_tip(bb: String) -> void:
 
 ## Detalhes de item: moldura gótica tingida pela raridade e texto mais largo (ver janelas.gd tip_item).
 func mostrar_tip_item(it: Dictionary, bb: String) -> void:
-	var sb := Tema.moldura_item(str(it.get("raridade", "comum")))
-	if sb == null: mostrar_tip(bb); return
+	# 0.9.8: card simples (como Halls of Torment): fundo preto translúcido e moldura fina na cor da raridade
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0, 0, 0, 0.86)
+	sb.border_color = Color(0.75, 0.68, 0.5).lerp(Defs.cor_raridade(str(it.get("raridade", "comum"))), 0.6)
+	sb.set_border_width_all(1); sb.set_corner_radius_all(2)
+	sb.set_content_margin_all(8)
 	tooltip.add_theme_stylebox_override("panel", sb)
-	tip_lbl.custom_minimum_size.x = 330
-	tip_lbl.tab_stops = PackedFloat32Array([236.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
+	tip_lbl.custom_minimum_size.x = 230   # 0.9.8: ~30% menor (antes 330), com fonte menor
+	tip_lbl.tab_stops = PackedFloat32Array([160.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
 	tip_lbl.text = bb
 	tooltip.visible = true
 	tooltip.reset_size()

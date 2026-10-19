@@ -1,0 +1,21 @@
+{
+ "name": "wl_redemoinho_de_aco",
+ "cat": "warlord",
+ "frames": 12,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  56
+ ],
+ "layer": "frente",
+ "desc": "Redemoinho de Aço: rastro circular fechado e vermelho girando em volta do Warlord, com a faísca na ponta da lâmina.",
+ "char": null,
+ "title": "Redemoinho de Aço",
+ "resumo": "Rastro circular fechado e vermelho girando em volta do Warlord, com a faísca na ponta da lâmina.",
+ "frame_w": 96,
+ "frame_h": 96,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "wl_redemoinho_de_aco.png"
+}

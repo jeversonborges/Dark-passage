@@ -573,10 +573,12 @@ static func cmd_pegar(sim: WorldSim, e: Ent, chao_id: int) -> void:
 	e.aux["pegar"] = chao_id
 	sim.ir_para(e, sim.chao[chao_id]["pos"])
 
-static func cmd_ponto(sim: WorldSim, e: Ent, stat: String) -> void:
-	if e.pontos <= 0 or not e.stats.has(stat): return
-	e.pontos -= 1
-	e.stats[stat] = float(e.stats[stat]) + float(Defs.FORM["peso_por_ponto"])
+## Gasta até `qtd` pontos num atributo (o botão +1 manda 1; o campo numérico manda o que foi digitado).
+static func cmd_ponto(sim: WorldSim, e: Ent, stat: String, qtd: int = 1) -> void:
+	var n := mini(clampi(qtd, 1, 9999), e.pontos)
+	if n <= 0 or not e.stats.has(stat): return
+	e.pontos -= n
+	e.stats[stat] = float(e.stats[stat]) + float(Defs.FORM["peso_por_ponto"]) * n
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "stats", {"id": e.id})
 
@@ -1273,6 +1275,35 @@ static func comprar(sim: WorldSim, e: Ent, id: String, qtd: int = 1) -> void:
 	sim.emitir_a(e, "som_evento", {"ev": "comprar"})
 	sim.emitir_a(e, "ouro", {"valor": -p})
 
+## Organizar a mochila (0.9.8): junta pilhas e refaz a grade por tipo. Se não coubesse tudo, não mexe em nada.
+## `onde` é "mochila" ou "armazem" (o baú do Armazém tem a mesma grade e a mesma ocupação por tipo).
+static func organizar(sim: WorldSim, e: Ent, onde: String = "mochila") -> void:
+	var lista: Array = e.armazem if onde == "armazem" else e.inv
+	var W := Itens.ARMAZEM_W if onde == "armazem" else Itens.MOCHILA_W
+	var H := Itens.ARMAZEM_H if onde == "armazem" else Itens.MOCHILA_H
+	var nova := Itens.organizar(lista, W, H)
+	if nova.is_empty() and not lista.is_empty():
+		sim.emitir_a(e, "aviso", {"texto": "Não coube tudo na grade; ficou como estava."}); return
+	lista.clear(); lista.append_array(nova)
+	sim.emitir_a(e, "inventario", {})
+
+## Vende de uma vez as peças das raridades marcadas (só no vendedor; vinculado e missão ficam).
+static func vender_lixo(sim: WorldSim, e: Ent, raridades: Array) -> void:
+	if e.aux.get("servico", {}).get("tipo") != "loja": return
+	var total := 0; var n := 0
+	for it in e.inv.duplicate():
+		if not str(it.get("raridade", "comum")) in raridades: continue
+		var v := Itens.preco_venda(it)
+		if v <= 0 or Itens.categoria(it) == "missao" or Itens.vinculado(it): continue
+		e.inv.erase(it); total += v; n += 1
+	if n == 0:
+		sim.emitir_a(e, "aviso", {"texto": "Nada para vender nas raridades marcadas."}); return
+	e.ouro += total
+	sim.emitir_a(e, "som_evento", {"ev": "vender"})
+	sim.emitir_a(e, "ouro", {"valor": total})
+	sim.emitir_a(e, "aviso", {"texto": "%d peças vendidas por %d de ouro." % [n, total]})
+	sim.emitir_a(e, "inventario", {})
+
 static func vender(sim: WorldSim, e: Ent, uid: int) -> void:
 	if e.aux.get("servico", {}).get("tipo") != "loja": return
 	var it := Itens.por_uid(e.inv, uid)
@@ -1367,12 +1398,13 @@ static func salvar(e: Ent, sim: WorldSim) -> Dictionary:
 		"ouro": e.ouro, "municao": e.municao, "inv": e.inv, "equip": e.equip, "armazem": e.armazem, "missoes": e.missoes,
 		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if Defs.eh_mapa_casa(sim.mapa_id) else Defs.mapa_casa(e.faccao),
 		"pos": [e.pos.x, e.pos.y] if Defs.eh_mapa_casa(sim.mapa_id) else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
-		"auto": cfg_auto(e), "talentos": talentos(e)}
+		"auto": cfg_auto(e), "talentos": talentos(e), "hotbar_skills": e.hotbar_skills}
 
 static func carregar(e: Ent, s: Dictionary) -> void:
 	e.nivel = int(s.get("nivel", 1)); e.xp = int(s.get("xp", 0)); e.pontos = int(s.get("pontos", 0))
 	e.evolucao = str(s.get("evolucao", ""))
 	if e.evolucao != "" and Evolucao.defn(e.evolucao).get("classe_base", "") != e.classe: e.evolucao = ""   # save adulterado ou JSON mudou
+	e.hotbar_skills = Array(s.get("hotbar_skills", []))   # o Livro de Skills; Evolucao.montar_slots confere cada id
 	for k in s.get("stats", {}): e.stats[k] = float(s["stats"][k])
 	e.ouro = int(s.get("ouro", 0)); e.municao = int(s.get("municao", 0))
 	e.inv = s.get("inv", []); e.equip = s.get("equip", {}); e.armazem = s.get("armazem", [])

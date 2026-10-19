@@ -190,7 +190,7 @@ func receber(peer: int, m: Dictionary) -> void:
 			var feitos := 0
 			if Itens.equipavel(Itens.novo(id2)):
 				for i in mini(qtd, 20):
-					var it := Itens.gerar_equip(id2, sim2.rng, rar, 3) if rar in ["comum", "magico", "raro", "excelente"] else Itens.novo(id2)
+					var it := Itens.gerar_equip(id2, sim2.rng, rar, 3) if rar in ["comum", "verde", "magico", "excelente", "raro", "laranja"] else Itens.novo(id2)
 					if refino > 0: it["refino"] = refino
 					Jogador.dar_item(sim2, al2, it); feitos += 1
 			else:

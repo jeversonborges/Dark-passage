@@ -7,7 +7,7 @@ class_name Evolucao
 const STATUS := {"atordoar": "atordoado", "provocar": "provocado", "preso": "enraizado", "enraizar": "enraizado",
 	"lentidao": "lento", "silencio": "silenciado", "marcado": "marcado", "cegueira": "cegueira", "cegueira_inimigos": "cegueira",
 	"medo": "atordoado", "medo_fracos": "atordoado", "derrubar_voo": "derrubado"}
-const SLOT_EVO := 10      # as skills da evolução ficam nos slots 10..14 (segunda fileira da barra, Shift+1..5)
+const N_SLOTS := 9        # a barra tem 9 slots (teclas 1..9); base, evolução e kit disputam esses slots pelo livro
 
 static var _skills_cache := {}
 
@@ -85,10 +85,10 @@ static func soma(e: Ent, chave: String) -> float:
 static func atributo(e: Ent, k: String) -> float:
 	return soma(e, k)
 
-# =================================================================== barra de skills
-## Skills da classe base + as da evolução (cópias marcadas com "_evo").
+# =================================================================== barra de skills (Livro de Skills)
+## Todas as skills que o personagem tem no livro: a classe base, as da evolução (cópias marcadas com "_evo")
+## e, com a Forma Abominável ligada, o kit dela.
 static func habilidades(e: Ent) -> Array:
-	if e.aux.get("kit", "") != "": return _kit(e)
 	var base: Array = Defs.CLASSES[e.classe]["habilidades"]
 	if e.evolucao == "": return base
 	if not _skills_cache.has(e.evolucao):
@@ -99,20 +99,21 @@ static func habilidades(e: Ent) -> Array:
 			if e.classe == "cultista": c["custo"] = float(h.get("custo", 0)) * 0.0025   # o Cultista paga em fração do HP
 			lst.append(c)
 		_skills_cache[e.evolucao] = lst
-	return base + _skills_cache[e.evolucao]
+	var todas: Array = base + _skills_cache[e.evolucao]
+	if e.aux.get("kit", "") != "": todas += _kit(e)
+	return todas
 
-## Barra de um kit ligado (Forma Abominável): só a skill de alternar e o kit, sem a barra normal.
+## Kit de uma forma ligada (Forma Abominável): as skills extras dela, que entram no livro enquanto a forma durar.
 static func _kit(e: Ent) -> Array:
 	var k := "kit_" + str(e.aux["kit"])
 	if not _skills_cache.has(k):
 		var lst: Array = []
-		var nivel_forma := 0
+		var nivel_forma := 0   # o kit libera junto com a forma
 		for h in de(e).get("habilidades", []):
-			if h.get("alterna", false):
-				lst.append(_copia_evo(h, e)); nivel_forma = int(h.get("nivel", 0))
+			if h.get("alterna", false): nivel_forma = int(h.get("nivel", 0))
 		for h in de(e).get(k, []):
 			var c := _copia_evo(h, e)
-			if not c.has("nivel"): c["nivel"] = nivel_forma   # o kit libera junto com a forma
+			if not c.has("nivel"): c["nivel"] = nivel_forma
 			lst.append(c)
 		_skills_cache[k] = lst
 	return _skills_cache[k]
@@ -122,15 +123,69 @@ static func _copia_evo(h: Dictionary, e: Ent) -> Dictionary:
 	c["_evo"] = e.evolucao
 	return c
 
+## Ids de tudo que cabe no livro agora.
+static func pool(e: Ent) -> Array:
+	var out: Array = []
+	for h in habilidades(e): out.append(h["id"])
+	return out
+
+## A skill de alternar a forma (Forma Abominável), ou "". Ela fica sempre na barra, senão não se desliga a forma.
+static func alternar_id(e: Ent) -> String:
+	for h in de(e).get("habilidades", []):
+		if h.get("alterna", false): return str(h["id"])
+	return ""
+
+## Os 9 slots da barra: a escolha do jogador (e.hotbar_skills); o que não foi escolhido, ou ficou sem skill,
+## é preenchido com o que o livro tem, na ordem dele (base, evolução, kit).
+static func hotbar(e: Ent) -> Array:
+	var disp := pool(e)
+	var out: Array = []
+	for i in N_SLOTS:
+		var id := str(e.hotbar_skills[i]) if i < e.hotbar_skills.size() else ""
+		out.append(id if id in disp and not id in out else "")
+	var alt := alternar_id(e)
+	if alt != "" and not alt in out: out[N_SLOTS - 1] = alt
+	for id in disp:
+		if id in out: continue
+		var v := out.find("")
+		if v == -1: break
+		out[v] = id
+	return out
+
 static func montar_slots(e: Ent) -> void:
-	e.skills_slots = []
-	if e.aux.get("kit", "") != "":
-		for h in _kit(e): e.skills_slots.append(h["id"])
-		return
-	for h in Defs.CLASSES[e.classe]["habilidades"]: e.skills_slots.append(h["id"])
-	if e.evolucao == "": return
-	while e.skills_slots.size() < SLOT_EVO: e.skills_slots.append("")
-	for h in de(e).get("habilidades", []): e.skills_slots.append(h["id"])
+	e.skills_slots = hotbar(e)
+
+## Livro de Skills: põe a skill no slot escolhido (1 a 9). Se ela já estava na barra, troca de lugar com o que estava lá.
+static func cmd_hotbar(sim: WorldSim, e: Ent, slot: int, id: String) -> void:
+	var h := {}
+	for x in habilidades(e):
+		if x["id"] == id: h = x; break
+	if h.is_empty() or h.get("passiva", false):
+		sim.emitir_a(e, "aviso", {"texto": "Essa skill não está no seu livro."}); return
+	if int(h.get("nivel", 0)) > e.nivel:
+		sim.emitir_a(e, "aviso", {"texto": "Volte no nível %d." % int(h["nivel"])}); return
+	var cur := hotbar(e)
+	var alt := alternar_id(e)
+	if alt != "" and cur[slot] == alt and id != alt:
+		sim.emitir_a(e, "aviso", {"texto": "A skill de alternar a forma fica sempre na barra."}); return
+	var j := cur.find(id)
+	if j != -1: cur[j] = cur[slot]
+	cur[slot] = id
+	e.hotbar_skills = cur
+	montar_slots(e)
+	sim.emitir_a(e, "hotbar", {"id": e.id})
+
+## Ao ligar a forma, o kit entra na barra nos slots de baixo (sem tirar a skill de alternar). O jogador troca depois no livro.
+static func _encaixar_kit(e: Ent) -> void:
+	var cur := hotbar(e)
+	var alt := alternar_id(e)
+	var pos := N_SLOTS - 1
+	for h in _kit(e):
+		if h["id"] in cur: continue
+		while pos >= 0 and cur[pos] == alt: pos -= 1
+		if pos < 0: break
+		cur[pos] = h["id"]; pos -= 1
+	e.hotbar_skills = cur
 
 static func tipo(h: Dictionary) -> String:
 	if h.get("transformacao", false) or h.has("buff") or h.get("sensacao", "") == "buff": return "proprio"
@@ -235,6 +290,7 @@ static func _alternar_forma(sim: WorldSim, e: Ent, h: Dictionary) -> void:
 		e.aux["escala_base"] = e.escala
 		e.escala = float(h.get("escala", 1.0)) * e.escala
 		e.aux["forma"] = id; e.aux["kit"] = "abominacao"
+		_encaixar_kit(e)
 		montar_slots(e)
 		Regras.recalc_jogador(e)
 		_vfx(sim, e, h, {"pos": e.pos, "fica": 1.0})

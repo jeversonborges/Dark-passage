@@ -620,7 +620,7 @@ func _item_chao(id: int, de: Vector2, pos: Vector2) -> void:
 		if fb: n.set_meta("feixe", fb)
 		audio.tocar("itens/lagrima_coro", n.destino, -2.0)   # coro de igreja: a jóia de brilho é sempre uma lágrima
 		return
-	if rar in ["raro", "excelente", "lendario", "conjunto", "demiurgico"]:
+	if rar in ["raro", "laranja", "excelente", "lendario", "conjunto", "demiurgico"]:
 		var nome := "item_feixe_lendario" if rar in ["lendario", "conjunto", "demiurgico"] else "item_feixe_raro"
 		var f = fx.folha(nome, n.destino, {"dura": 9999.0, "cor": n.cor.lightened(0.2)})
 		if f: n.set_meta("feixe", f)
@@ -805,6 +805,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 		"ouro": hud.log_msg("%s%d de ouro" % ["+" if int(d["valor"]) >= 0 else "−", absi(int(d["valor"]))], Tema.COR_OURO)
 		"aviso": hud.aviso(d.get("texto", ""))
 		"auto_cfg": janelas.auto_mudou()
+		"hotbar": janelas.livro_mudou()
 		"talentos": janelas.talentos_mudou(); janelas.atualizar()
 		"grupo": hud.grupo_atualizar(d.get("membros", []))
 		"convite": hud.convite_mostrar(d)
@@ -870,6 +871,7 @@ func _ataque(d: Dictionary) -> void:
 	elif e != null and e.kind == "cao_de_vala" and d.get("nome", "") == "bote": nome = "leap"
 	elif e != null and e.kind == "porco_pestilento" and d.get("nome", "") == "investida": nome = "scrape"   # cava o chão enquanto o telegrafo enche
 	elif e != null and e.kind == "filho_de_cardo" and d.get("nome", "") == "brotar": nome = "burrow"
+	elif e != null and e.tipo == "jogador" and d.get("skill", "") == "redemoinho_de_aco": nome = "ajoelhar"   # Redemoinho: ajoelha enquanto a espada gira
 	elif e != null and e.tipo == "jogador" and d.get("skill", "") != "": nome = "attack"
 	if nome == "scrape" and v._sheet("scrape").size() > 0:
 		v.tocar("scrape", maxf(0.25, float(d.get("preparo", 0.9))))
@@ -1131,6 +1133,7 @@ func _sob_mouse() -> void:
 		var e: Ent = sim.ents.get(id)
 		if e == null or not e.vivo or not v.visible or e.tipo == "jogador": continue
 		if e.tipo == "objeto" and not e.alvejavel: continue
+		if e.aux.get("coletor", false): continue   # pet coletor: sem alvo, sem nome, sem barra
 		var larg: float = maxf(30.0 * v.escala_base * e.escala, 28.0)
 		var alt: float = maxf(v.altura_px * e.escala, 80.0)
 		var r := Rect2(v.position.x - larg - 24, v.position.y - alt - 30, (larg + 24) * 2, alt + 50)
@@ -1208,8 +1211,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 	elif ev is InputEventKey and ev.pressed and not ev.echo:
 		match ev.keycode:
 			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
-				if ev.shift_pressed and ev.keycode <= KEY_5: usar_skill(Evolucao.SLOT_EVO + ev.keycode - KEY_1)   # skills da evolução
-				else: usar_skill(ev.keycode - KEY_1)
+				usar_skill(ev.keycode - KEY_1)
 			KEY_Q: cmd("pocao", ["vida"])
 			KEY_W: cmd("pocao", ["recurso"])
 			KEY_E: cmd("pocao", ["antidoto"])
@@ -1610,25 +1612,31 @@ func _desenhar_sobre() -> void:
 		match e.tipo:
 			"npc":
 				var marca := Missoes.marcador_npc(jog, e.kind)
+				v.destaque = 1.0 if marca != "" else 0.0
 				if marca != "":
-					var a: float = 0.85 + 0.15 * sin(t * 4.0)
-					var cor2 := Color(1.0, 0.82, 0.25, a) if marca == "!" else Color(0.75, 0.95, 0.4, a)
-					sobre.draw_string_outline(Tema.FONTE_GOTICA, topo + Vector2(-7, -16 - 3 * sin(t * 3.0)), marca, HORIZONTAL_ALIGNMENT_LEFT, -1, 34, 6, Color(0, 0, 0, 0.9))
-					sobre.draw_string(Tema.FONTE_GOTICA, topo + Vector2(-7, -16 - 3 * sin(t * 3.0)), marca, HORIZONTAL_ALIGNMENT_LEFT, -1, 34, cor2)
+					# pulso de 1 s (1.0 ↔ ~1.12), halo atrás da letra e flutuando acima da cabeça
+					var pulso := 0.5 + 0.5 * sin(t * TAU)
+					var cor_m := Color(1.0, 0.82, 0.25) if marca == "!" else Color(0.6, 0.86, 1.0)
+					var sobe := 26.0 + 6.0 * sin(t * 3.0)
+					var ponto := topo + Vector2(0, -sobe)
+					sobre.draw_circle(ponto + Vector2(0, -8), 18.0 + 4.0 * pulso, Color(cor_m.r, cor_m.g, cor_m.b, 0.12 + 0.1 * pulso))
+					sobre.draw_circle(ponto + Vector2(0, -8), 11.0, Color(cor_m.r, cor_m.g, cor_m.b, 0.22))
+					Unidade._elipse(sobre, v.position, Iso.elipse(0.7 + 0.05 * pulso), Color(cor_m.r, cor_m.g, cor_m.b, 0.35 + 0.25 * pulso), false, 2.0)
+					var tam := int(round(40.0 * (1.0 + 0.12 * pulso)))
+					var pos_txt := ponto + Vector2(-tam * 0.22, 0)
+					sobre.draw_string_outline(Tema.FONTE_GOTICA, pos_txt, marca, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, 8, Color(0, 0, 0, 0.95))
+					sobre.draw_string(Tema.FONTE_GOTICA, pos_txt, marca, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, Color(cor_m.r, cor_m.g, cor_m.b, 1.0))
 				if id == hover_id or mostrar_nomes or e.pos.distance_to(jog.pos) < 5.0:
 					_nome(topo, e.nome, Color("#f0dca0"), 13)
 					var tit: String = e.aux.get("titulo", "")
 					if tit != "": _nome(topo + Vector2(0, 14), tit, Color("#a89f8c"), 11, Tema.FONTE_ITALICO)
 			"monstro", "invocacao":
+				if e.aux.get("coletor", false): continue   # pet coletor (0.9.6): sem nome e sem barra de vida
 				var ferido := e.hp < e.hp_max - 0.5
 				if id == hover_id or id == jog.alvo or ferido or e.arquetipo in ["elite", "raro"] or Ajustes.v("barras_sempre"):
-					var larg := 44.0
 					var cor_b := Color(0.75, 0.12, 0.08) if e.tipo == "monstro" else Color(0.3, 0.7, 0.3)
 					if e.tipo == "monstro" and e.aux.get("neutro", false) and e.estado in ["ocioso", "vagar", "voltar"]: cor_b = Color(0.85, 0.7, 0.15)
-					sobre.draw_rect(Rect2(topo.x - larg * 0.5 - 1, topo.y - 1, larg + 2, 6), Color(0, 0, 0, 0.8))
-					sobre.draw_rect(Rect2(topo.x - larg * 0.5, topo.y, larg * e.frac_hp(), 4), cor_b)
-					if e.postura < e.postura_max and e.postura_max > 0:
-						sobre.draw_rect(Rect2(topo.x - larg * 0.5, topo.y + 5, larg * (1.0 - e.postura / e.postura_max), 2), Color(0.85, 0.65, 0.2))
+					_barra_mob(sobre, topo, e, cor_b)
 				if id == hover_id or id == jog.alvo or mostrar_nomes or e.arquetipo in ["elite", "raro"]:
 					var cn := Color("#ff8a72")    # vermelho: ataca quem chegar perto
 					if e.aux.get("neutro", false): cn = Color("#f2d65a")   # amarelo: neutro, só reage se apanhar
@@ -1680,6 +1688,26 @@ func _desenhar_sobre() -> void:
 		if r.position.y + r.size.y < n.position.y - 44:   # subiu: um fio liga o nome ao item
 			sobre.draw_line(Vector2(n.position.x, r.end.y), n.position + Vector2(0, -30), Color(n.cor.r, n.cor.g, n.cor.b, 0.35), 1.0)
 		n.rotulo_r = _rotulo_item(p, n.nome, n.cor, id == hover_chao)
+
+## Barra sobre a cabeça (0.9.8), em 4 estilos por categoria: comum (simples), elite (moldura de ouro e
+## segmento amarelo de postura), especial (moldura azul, brilho e losango de categoria) e chefe (moldura dupla).
+func _barra_mob(sobre: CanvasItem, topo: Vector2, e: Ent, cor_b: Color) -> void:
+	var larg := 52.0
+	var x0 := topo.x - larg * 0.5
+	var moldura := Color(0.05, 0.04, 0.03, 0.9)
+	var borda := Color(0.42, 0.34, 0.2, 0.9)
+	match e.arquetipo:
+		"elite": borda = Color(0.85, 0.66, 0.25, 0.95)
+		"raro":
+			borda = Color(0.5, 0.72, 1.0, 0.95)
+			sobre.draw_circle(topo + Vector2(0, 2), larg * 0.62, Color(0.5, 0.72, 1.0, 0.10))
+			var l := Vector2(x0 - 7, topo.y + 2)
+			sobre.draw_colored_polygon(PackedVector2Array([l + Vector2(0, -4), l + Vector2(4, 0), l + Vector2(0, 4), l + Vector2(-4, 0)]), Color(0.6, 0.8, 1.0))
+	sobre.draw_rect(Rect2(x0 - 1, topo.y - 1, larg + 2, 7), moldura)
+	sobre.draw_rect(Rect2(x0 - 1, topo.y - 1, larg + 2, 7), borda, false, 1.0)
+	sobre.draw_rect(Rect2(x0, topo.y, larg * e.frac_hp(), 5), cor_b)
+	if e.postura < e.postura_max and e.postura_max > 0:
+		sobre.draw_rect(Rect2(x0, topo.y + 6, larg * (1.0 - e.postura / e.postura_max), 2), Color(0.85, 0.65, 0.2))
 
 func _nome(p: Vector2, txt: String, cor: Color, tam := 13, fonte: Font = null) -> void:
 	var fo := fonte if fonte else Tema.FONTE_TITULO

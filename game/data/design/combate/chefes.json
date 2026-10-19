@@ -24,9 +24,9 @@
         "infernal",
         "demonio"
       ],
-      "hp": 2430,
+      "hp": 2070,
       "defesa": 22,
-      "dano_base": 40,
+      "dano_base": 33,
       "intervalo_ataque": 1.8,
       "velocidade_mov": 1.6,
       "postura_max": 300,
@@ -35,11 +35,18 @@
         "sagrado": -0.2,
         "veneno": 0.3
       },
-      "duracao_alvo_s": 128,
+      "duracao_alvo_s": 95,
       "furia_tempo_s": 240,
       "visual": "So o tronco: se arrasta com os bracos enormes, a parte de baixo e um toco cauterizado em brasa com tripas de corrente arrastando. Usa o estandarte quebrado do proprio exercito como arma. Dragonas de general podres nos ombros.",
       "arena": "Vala da Grande Batalha: fosso 14x14 tiles cheio de ossos e armaduras velhas, com 6 Pilhas de Mortos espalhadas (cadaveres de guerreiros).",
       "fala_entrada": "Mais um soldado... Eu comandei mil de voces. Comi todos. Senta. O jantar e voce.",
+      "passiva": {
+        "nome": "Marcado pelo General",
+        "_doc": "cada golpe que acerta o jogador soma uma pilha; cada pilha aumenta em 3% o dano que o JOGADOR toma (nao o do General). Dez segundos sem acertar zera. Teto de pilhas e escolha de design (Prévia/coordenação).",
+        "por_golpe": 0.03,
+        "reset_s": 10.0,
+        "max_pilhas": 10
+      },
       "mecanica_central": {
         "nome": "Pilhas de Mortos",
         "regra": "Ele se cura e fica mais forte devorando cadaveres. Cada Pilha de Mortos e um objeto com HP que o jogador pode destruir (fogo e sagrado dao dano dobrado). Pilha destruida nao pode ser comida. Assim o jogador escolhe: bater no chefe ou negar a comida dele.",
@@ -88,7 +95,13 @@
                 "raio": 2.6,
                 "angulo": 100
               },
-              "recarga": 7
+              "recarga": 7,
+              "zona_azul": {
+                "frente": 1.2,
+                "lado": 0.9,
+                "raio": 0.7
+              },
+              "dano_fora_azul_mult": 3.0
             },
             {
               "id": "arrasto",
@@ -102,7 +115,13 @@
               "deslocamento": 6,
               "empurrao_px": 20,
               "recarga": 9,
-              "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar"
+              "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar",
+              "zona_azul": {
+                "frente": 2.5,
+                "lado": 0.35,
+                "raio": 0.3
+              },
+              "dano_fora_azul_mult": 3.0
             },
             {
               "id": "devorar",
@@ -236,7 +255,7 @@
         "vira_devagar": "gira no maximo 120 graus por segundo: dar a volta nele e uma forma de fugir dos cones",
         "sem_pulo": true
       },
-      "_ajuste_jefin_2026_10_11": "Jefin achou facil: HP e dano_base +35% (1800->2430, 30->40). Todos os ataques escalam junto porque usam mult x dano_base."
+      "_doc_zona": "zona_azul: circulo azul (frente/lado relativos ao chefe, no sentido do golpe) dentro da area vermelha. Quem esta nele no impacto nao toma dano. dano_fora_azul_mult: multiplica o dano de quem esta na vermelha e fora da azul. Vomito de brasa e banquete ainda sem zona."
     },
     "irma_celeste": {
       "nome": "Irma Celeste, a Carpideira",

@@ -205,6 +205,7 @@ func evasao(estilo: String, dur: float) -> void:
 ## Toca uma animação de ação uma vez (attack, shoot, spin, dash, hit, death, eat...). dur: segundos (ajusta o fps).
 func tocar(nome: String, dur := 0.0) -> void:
 	if morto and nome != "death": return
+	if nome == "ajoelhar": ajoelhar_por(maxf(dur, 1.3)); return   # sem folha própria: abaixa o corpo pelo giro da espada
 	var a := _sheet(nome)
 	if a.is_empty():
 		if nome == "evasao": a = _sheet("dash"); nome = "dash"   # personagem sem a folha nova: o dash (Humano) ou nada
@@ -236,6 +237,12 @@ func _aplicar_frame() -> void:
 func ajoelhar() -> void:
 	if morto: return
 	ajoelhado = true; anim_unica = ""; _definir_anim("idle"); frame = 0
+
+## Abaixa o corpo por dur segundos e levanta sozinho (só se não tiver andado ou agido antes).
+func ajoelhar_por(dur: float) -> void:
+	ajoelhar()
+	get_tree().create_timer(dur).timeout.connect(func():
+		if is_instance_valid(self) and ajoelhado and not morto: ajoelhado = false; _definir_anim("idle"))
 
 func piscar(ms: float) -> void:
 	flash_t = ms / 1000.0; flash_dur = maxf(0.03, flash_t)
@@ -321,6 +328,7 @@ func _process(dt: float) -> void:
 	sombra.queue_redraw()
 
 var realce_t := 0.0
+var destaque := 0.0   # NPC com missão (! ou ?): a figura clareia e pulsa, para chamar o olho de longe
 ## Hover: contorno colorido + clarear. Jogador: realce leve sempre (não some no escuro).
 func _atualizar_realce(dt: float) -> void:
 	var alvo := 0.0
@@ -329,6 +337,7 @@ func _atualizar_realce(dt: float) -> void:
 	var chefe: bool = ent != null and ent.tipo == "chefe" and not morto
 	var base := 0.12 if ent != null and ent.tipo == "jogador" else (0.18 if chefe else 0.0)
 	if ent != null and "vigilante" in ent.kind: base = 0.45 if ent.tipo == "objeto" else 0.22   # Hermon: estátua de cinza / anjo caído legível na nevasca
+	base += destaque * (0.2 + 0.08 * sin(tempo * 6.0))
 	mat.set_shader_parameter("realce", base + realce_t * 0.35)
 	var c := cor_anel if hover or not selecionado else cor_sel
 	c.a = c.a * realce_t

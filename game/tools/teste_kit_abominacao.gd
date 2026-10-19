@@ -28,19 +28,25 @@ func _init() -> void:
 	if slot_forma < 0: falha("forma_abominacao fora da barra"); quit(1); return
 	Jogador.cmd_skill(sim, j, slot_forma, -1, j.pos); rodar(sim, 1.2)
 	if not j.aux.has("kit"): falha("a forma não ligou")
-	print("barra do kit: ", j.skills_slots)
-	for slot in range(1, j.skills_slots.size()):
-		var id: String = j.skills_slots[slot]
+	print("barra com a forma ligada: ", j.skills_slots)
+	var kit: Array = []
+	for h in Evolucao._kit(j): kit.append(str(h["id"]))
+	if kit.size() != 6: falha("kit com %d skills" % kit.size())
+	var slot_teste := 0 if slot_forma != 0 else 1
+	for id in kit:
+		Evolucao.cmd_hotbar(sim, j, slot_teste, id)   # Livro de Skills: põe a skill do kit na barra
+		if j.skills_slots[slot_teste] != id: falha("%s não entrou na barra pelo livro" % id); continue
 		for o: Ent in sim.ents.values():
 			if o.tipo in ["monstro", "invocacao"] and o.pos.distance_to(j.pos) < 30.0: sim.remover(o.id)
 		var m := sim.criar_mob(Defs.MOBS.keys()[0], sim.celula_livre_perto(j.pos + Vector2(1.5, 0.0)), 70)
 		m.hp_max = 1e7; m.hp = 1e7; m.dano_min = 0.0; m.dano_max = 0.0
 		j.rec = 9999.0; j.cds.clear(); if not j.vivo: Jogador.renascer(sim, j)
-		Jogador.cmd_skill(sim, j, slot, m.id, m.pos); rodar(sim, 4.0)
+		Jogador.cmd_skill(sim, j, slot_teste, m.id, m.pos); rodar(sim, 4.0)
 		var feriu := m.hp < 1e7
 		print("  %-14s %s" % [id, "feriu" if feriu else "NÃO feriu"])
-		if not feriu and id != "olho": falha("%s não feriu" % id)
-	Jogador.cmd_skill(sim, j, 0, -1, j.pos); rodar(sim, 1.2)
+		if not feriu: falha("%s não feriu" % id)
+	slot_forma = j.skills_slots.find("forma_abominacao")
+	Jogador.cmd_skill(sim, j, slot_forma, -1, j.pos); rodar(sim, 1.2)
 	if j.aux.has("kit"): falha("a forma não desligou")
 	print("RESULTADO: ", "OK" if falhas == 0 else "%d falhas" % falhas)
 	quit(1 if falhas else 0)

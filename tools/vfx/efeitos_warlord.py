@@ -48,3 +48,19 @@ def _(rng):
             c.blob('sangue', x + sway * (k / 5), bot, 1.6, .7)
         c.blob('rubro', 32 + sway, 24, 2.6, .9 * bell(t, .5, 1))
     return f
+
+
+@effect('wl_redemoinho_de_aco', 'warlord', (96, 96), 12, fps=18, anchor=(48, 56), loop=False,
+        desc='Redemoinho de Aço: rastro circular fechado e vermelho girando em volta do Warlord, com a faísca na ponta da lâmina.')
+def _(rng):
+    def f(c, t, i):
+        head = TAU * t
+        for k in range(64):           # rastro fechado: a cabeça é o ponto mais forte e a cauda dá a volta inteira
+            a = head - k * (TAU / 64)
+            fade = (1 - k / 64) ** 1.3
+            c.blob('rubro', 48 + math.cos(a) * 28, 56 + math.sin(a) * 14, 1.8 * fade + .5, .8 * fade * (1 - t * .3))
+        c.ring('sangue', 48, 56, 28, .7, .5 * (1 - t) + .15, sy=.5)
+        hx, hy = 48 + math.cos(head) * 28, 56 + math.sin(head) * 14
+        c.line('rubro', 48 + math.cos(head) * 4, 56 + math.sin(head) * 2, hx, hy, 1.8, .95, w1=.6)   # lâmina girando no eixo
+        c.blob('faisca', hx, hy, 2.0, 1.0)
+    return f

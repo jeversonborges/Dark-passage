@@ -644,7 +644,24 @@ func criar_telegrafo(e: Ent, d: Dictionary, a: Dictionary) -> int:
 	telegrafos.append(tg)
 	emitir("telegrafo", {"id": tid, "forma": t["forma"], "origem": tg["origem"], "dir": dir, "p": t, "dur": tg["dur"],
 		"segue": tg["segue"], "dono": e.id})
+	if d.has("zona_azul"): tg["zona_tid"] = _mostrar_zona_azul(e, tg)
 	return tid
+
+## Zona azul (chefes.json > zona_azul): o único ponto seguro dentro da área vermelha. Quem estiver nela no
+## impacto não toma dano; quem estiver na vermelha e fora da azul leva dano_fora_azul_mult.
+func _centro_zona_azul(tg: Dictionary) -> Vector2:
+	var z: Dictionary = tg["def"]["zona_azul"]
+	var dir: Vector2 = tg["dir"]
+	return tg["origem"] + dir * float(z["frente"]) + dir.orthogonal() * float(z["lado"])
+
+func _mostrar_zona_azul(e: Ent, tg: Dictionary) -> int:
+	var zid := novo_id()
+	emitir("telegrafo", {"id": zid, "forma": "circulo", "origem": _centro_zona_azul(tg), "dir": tg["dir"],
+		"p": {"raio": float(tg["def"]["zona_azul"]["raio"]), "seguro": true}, "dur": tg["dur"], "segue": -1, "dono": e.id})
+	return zid
+
+func _na_zona_azul(tg: Dictionary, alvo: Ent) -> bool:
+	return alvo.pos.distance_to(_centro_zona_azul(tg)) <= float(tg["def"]["zona_azul"]["raio"]) + alvo.raio
 
 func achar_tele(tid: int) -> Dictionary:
 	for t in telegrafos:
@@ -656,6 +673,7 @@ func remover_telegrafo(tid: int) -> void:
 		if t["id"] == tid:
 			telegrafos.erase(t)
 			emitir("telegrafo_fim", {"id": tid, "cancelado": true})
+			if t.has("zona_tid"): emitir("telegrafo_fim", {"id": t["zona_tid"], "cancelado": true})
 			return
 
 func disparar_telegrafo(tid: int) -> void:
@@ -668,9 +686,14 @@ func disparar_telegrafo(tid: int) -> void:
 		return
 	telegrafos.erase(tg)
 	emitir("telegrafo_fim", {"id": tid, "impacto": true})
+	if tg.has("zona_tid"): emitir("telegrafo_fim", {"id": tg["zona_tid"], "impacto": true})
 	if dono == null or not dono.vivo: return
 	for alvo in alvos_na_forma(dono, tg):
-		aplicar_golpe(dono, alvo, tg["op"])
+		var op: Dictionary = tg["op"]
+		if tg.get("def", {}).has("zona_azul"):
+			if _na_zona_azul(tg, alvo): continue
+			op = op.duplicate(); op["mult"] = float(op["mult"]) * float(tg["def"].get("dano_fora_azul_mult", 1.0))
+		aplicar_golpe(dono, alvo, op)
 	if tg["op"].has("ao_impacto"): (tg["op"]["ao_impacto"] as Callable).call(tg)
 
 func _passo_telegrafos(dt: float) -> void:
@@ -846,6 +869,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	var sens: String = op.get("sensacao", "golpe_leve")
 	emitir("dano", {"id": alvo.id, "de": atk.id, "valor": dano, "estilo": estilo, "sens": sens, "elem": op.get("elemento", atk.elemento),
 		"crit": r["crit"], "exc": r["exc"], "hp": alvo.hp, "hp_max": alvo.hp_max})
+	if atk.tipo == "chefe" and alvo.tipo == "jogador": ChefeCtl.marcar_golpe(self, atk, alvo)   # Andras: cada acerto soma pilha no jogador
 	# ameaça
 	if alvo.tipo in ["monstro", "chefe"]:
 		var mult: float = Defs.FORM["aggro"]["mult_classe"].get(atk.classe, 1.0) * float(atk.aux.get("ameaca_mult", 1.0))
@@ -880,7 +904,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	return r
 
 func aplicar_dano_puro(alvo: Ent, valor: float, elem: String, atk: Ent, estilo: String = "dano_tempo") -> void:
-	if not alvo.vivo or alvo.invuln_t > 0.0: return
+	if not alvo.vivo or alvo.invuln_t > 0.0 or alvo.aux.get("coletor", false): return   # pet coletor não toma dano (0.9.6)
 	var v := maxi(1, roundi(valor * (1.0 - clampf(float(alvo.res.get(elem, 0.0)), -1.0, 0.75))))
 	if alvo.tipo == "jogador" and atk != null and atk.tipo == "monstro": v = maxi(1, roundi(v * fator_novato(alvo)))
 	alvo.hp -= v

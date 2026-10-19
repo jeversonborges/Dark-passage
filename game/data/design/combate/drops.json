@@ -4,22 +4,32 @@
   "raridades": {
     "_doc": "Cores no estilo Ferrugem Sagrada. Nome do item no chao e no tooltip usa a cor; Raro para cima tem feixe de luz no chao (cor da raridade) e som proprio.",
     "comum": {
-      "cor": "#b8afa0",
+      "cor": "#ece6d4",
       "opcoes_extras": 0,
       "feixe": false,
-      "peso_base": 7000
+      "peso_base": 7000,
+      "nome_exibido": "Branco"
+    },
+    "verde": {
+      "nome_exibido": "Verde",
+      "cor": "#3fbf4a",
+      "opcoes_extras": 0,
+      "feixe": false,
+      "peso_base": 1500,
+      "_doc": "0.9.8: raridade nova entre branco e azul"
     },
     "magico": {
-      "cor": "#6f9fc9",
+      "cor": "#3a7bd5",
       "opcoes_extras": [
         1,
         2
       ],
       "feixe": false,
-      "peso_base": 2400
+      "peso_base": 2400,
+      "nome_exibido": "Azul"
     },
     "raro": {
-      "cor": "#c99a3e",
+      "cor": "#e6c229",
       "opcoes_extras": [
         2,
         3
@@ -39,7 +49,19 @@
           "roubo_de_vida": 0.01
         },
         "status": "dado; mecanica ainda nao implementada em itens.gd"
-      }
+      },
+      "nome_exibido": "Amarelo"
+    },
+    "laranja": {
+      "nome_exibido": "Laranja",
+      "cor": "#ff8c1a",
+      "opcoes_extras": [
+        3,
+        4
+      ],
+      "feixe": true,
+      "peso_base": 30,
+      "_doc": "0.9.8: raridade nova entre amarelo e vermelho; so cai em drop raro (mob comum 0,001%)"
     },
     "excelente": {
       "cor": "#a66ad8",
@@ -66,10 +88,11 @@
           "dano_fogo": 0.05
         },
         "status": "dado; mecanica ainda nao implementada em itens.gd"
-      }
+      },
+      "nome_exibido": "Roxo"
     },
     "lendario": {
-      "nome_exibido": "Reliquia",
+      "nome_exibido": "Relíquia",
       "cor": "#c8302a",
       "unico": true,
       "feixe": true,
@@ -78,11 +101,11 @@
     },
     "primordial": {
       "nome_exibido": "Lendário",
-      "cor": "#a05cff",
+      "cor": "#20c9b8",
       "unico": true,
       "feixe": true,
       "peso_base": 0,
-      "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
+      "_doc": "turquesa (0.9.8, antes roxo); acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
     },
     "demiurgico": {
       "nome_exibido": "Demiúrgico",
@@ -657,7 +680,14 @@
       ],
       "garantido": [
         "missao:veu_da_comunhao"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "chefe_zacarias": {
       "rolagens_garantidas": 5,
@@ -696,7 +726,14 @@
       ],
       "garantido": [
         "missao:martelo_do_sino_derretido"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "chefe_general": {
       "rolagens_garantidas": 4,
@@ -730,7 +767,14 @@
       ],
       "garantido": [
         "missao:elmo_da_legiao_sem_general"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "jerusalem_elite": {
       "item_chance": 0.25,
@@ -1221,7 +1265,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_hawara_2": {
       "garantido": [
@@ -1247,7 +1292,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_hawara_3": {
       "garantido": [
@@ -1273,7 +1319,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_1": {
       "garantido": [
@@ -1299,7 +1346,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_2": {
       "garantido": [
@@ -1325,7 +1373,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_3": {
       "garantido": [
@@ -1351,7 +1400,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_4": {
       "garantido": [
@@ -1377,7 +1427,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_5": {
       "garantido": [
@@ -1403,7 +1454,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_6": {
       "garantido": [
@@ -1429,7 +1481,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "drop_ohya": {
       "garantido": [
@@ -1533,7 +1586,8 @@
           "tag": "lendario:celeste",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     }
   },
   "baus": {
@@ -1615,7 +1669,8 @@
       "nivel_chefe_top": 45,
       "_doc": "chefe_top = chefe de nível igual ou acima de nivel_chefe_top (a Egito e o Gadiro)."
     },
-    "azul_verde_mob_comum": 1.4
+    "lendario_chance": 0.05,
+    "_lendario_chance_doc": "Chance de vermelho sair quando a tabela pede um (rolagem lendario: ou garantido lendario:). Tabela com vermelho_garantido pula. Itens de missao vermelhos caem só com a missao ativa que precisa deles."
   },
   "materiais_asa": {
     "_doc": "Rolagem pessoal por abate, fora da tabela do mob. Chance pela tag do mob (vale a maior). Mesmos multiplicadores das lágrimas.",
@@ -1703,5 +1758,17 @@
         "chance": 0.002
       }
     ]
+  },
+  "chance_mob_comum": {
+    "_doc": "Chance ABSOLUTA por abate de mob comum (rasteiro, normal, bruto, atirador, conjurador) de cair um equipamento de cada raridade. Um sorteio so: o que sobra e nada. O pool e qualquer equipamento base do jogo (raridade 'rolada'), nao so o da tag do mob. Acima de nivel_sem_branco o branco some e a chance dele se redistribui, na mesma proporcao, entre as raridades de cima.",
+    "chances": {
+      "comum": 0.1,
+      "verde": 0.05,
+      "magico": 0.02,
+      "excelente": 0.01,
+      "raro": 0.0001,
+      "laranja": 1e-05
+    },
+    "nivel_sem_branco": 30
   }
 }
