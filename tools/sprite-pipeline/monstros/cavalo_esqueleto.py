@@ -11,6 +11,15 @@ INFO = {"px": 256, "target_z": .9, "rim": (.7, .85, .4), "colors": 40, "samples"
         "fps": {"idle": 6, "walk": 10}, "loops": ("idle", "walk")}
 
 BACK = 1.22
+
+# Variantes (render: cavalo_esqueleto:corcel_negro). O padrão é o Cavalo Esqueleto de barda de ferro.
+VARIANTS = {
+    "corcel_negro": {"hide": (.06, .05, .05), "bone": (.2, .18, .16), "iron": (.05, .05, .055),
+                     "steel": (.16, .15, .15), "mane": (.03, .025, .025)},
+}
+V = {}
+def set_variant(name):
+    V.clear(); V.update(VARIANTS[name]); V["name"] = name
 def bones():
     B = quad_bones(sh=1.2, hip=1.12, y_sh=-.72, y_hip=.66, w=.15, wh=.14, back=BACK, neck=(-.95, 1.55),
                    head=(-1.42, 1.22), jaw=((-1.0, 1.2), (-1.3, 1.13)), tail=((.98, 1.2), (1.08, .9)))
@@ -25,12 +34,12 @@ def bones():
     return B
 
 def build():
-    hide = stained("ca_couro", (.3, .24, .17), stain=(.2, .05, .02), amount=.5, scale=6, rough=.65, grime=1.0, dirt=.4)
-    bone = stained("ca_osso", (.5, .45, .36), stain=(.2, .05, .02), amount=.45, scale=7, rough=.7, grime=.6)
-    mane = mat("ca_crina", (.08, .06, .05), 0, .85, dirt=.6)
+    hide = stained("ca_couro", V.get("hide", (.3, .24, .17)), stain=(.2, .05, .02), amount=.5, scale=6, rough=.65, grime=1.0, dirt=.4)
+    bone = stained("ca_osso", V.get("bone", (.5, .45, .36)), stain=(.2, .05, .02), amount=.45, scale=7, rough=.7, grime=.6)
+    mane = mat("ca_crina", V.get("mane", (.08, .06, .05)), 0, .85, dirt=.6)
     leather = stained("ca_sela", (.13, .07, .04), stain=(.2, .03, .01), amount=.5, scale=4, rough=.4, grime=.8)
-    iron = stained("ca_ferro", (.12, .1, .09), stain=(.3, .1, .03), amount=.55, scale=6, metal=.8, rough=.5, grime=.5)
-    steel = stained("ca_aco", (.42, .4, .38), stain=(.25, .05, .02), amount=.45, scale=6, metal=.95, rough=.32, grime=.35)
+    iron = stained("ca_ferro", V.get("iron", (.12, .1, .09)), stain=(.3, .1, .03), amount=.55, scale=6, metal=.8, rough=.5, grime=.5)
+    steel = stained("ca_aco", V.get("steel", (.42, .4, .38)), stain=(.25, .05, .02), amount=.45, scale=6, metal=.95, rough=.32, grime=.35)
     eye = mat("ca_brasa", (1, .42, .1), emit=(1, .42, .1), strength=12)
     hole = mat("ca_buraco", (.01, .006, .005), 0, .9)
 
