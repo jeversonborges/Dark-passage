@@ -5,7 +5,7 @@ import json, os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REF = os.path.join(HERE, "referencias")
-TEMAS = ("anatomia_quadrupede", "locomocao", "materiais_foscos", "rigging", "lowpoly", "armaduras")
+TEMAS = ("anatomia_quadrupede", "locomocao", "materiais_foscos", "rigging", "lowpoly", "armaduras", "armas")
 
 # Orçamento de triângulos por tipo de asset (padrão, em triângulos). Montarias e chefes no topo.
 ORCAMENTO = {
