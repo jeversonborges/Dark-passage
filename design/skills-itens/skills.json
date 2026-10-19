@@ -70,14 +70,16 @@
     "nivel": 1,
     "custo": 12,
     "recarga": 4.0,
-    "mult": 1.8,
+    "mult": 2.16,
     "elemento": "sagrado",
     "alcance": 1.4,
     "postura": 30,
     "bonus_vs": {
      "tag:praga": 1.25
     },
-    "sensacao": "golpe_pesado"
+    "sensacao": "golpe_pesado",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -400,7 +402,7 @@
     "nivel": 1,
     "custo": 0.03,
     "recarga": 2.5,
-    "mult": 1.2,
+    "mult": 1.44,
     "alcance": 7,
     "projetil_vel": 10,
     "efeito": {
@@ -411,7 +413,9 @@
     },
     "elemento": "sangue",
     "postura": 10,
-    "sensacao": "projetil"
+    "sensacao": "projetil",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -841,7 +845,7 @@
     "custo": 0,
     "gera": 10,
     "recarga": 5.0,
-    "mult": 1.7,
+    "mult": 2.04,
     "alcance": 1.4,
     "efeito": {
      "veneno": {
@@ -851,7 +855,9 @@
     },
     "elemento": "veneno",
     "postura": 35,
-    "sensacao": "golpe_pesado"
+    "sensacao": "golpe_pesado",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -1173,11 +1179,13 @@
     "gera": 18,
     "recarga": 3.5,
     "golpes": 3,
-    "mult_por_golpe": 0.65,
+    "mult_por_golpe": 0.715,
     "intervalo_golpes": 0.12,
     "alcance": 1.4,
     "postura_por_golpe": 10,
-    "sensacao": "combo"
+    "sensacao": "combo",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -1487,13 +1495,15 @@
     "nivel": 1,
     "custo": 20,
     "recarga": 5.0,
-    "mult": 2.0,
+    "mult": 2.4,
     "critico_extra": 0.2,
     "alcance": 9,
     "conjuracao": 0.3,
     "postura": 30,
     "empurrao": 0.6,
-    "sensacao": "tiro_pesado"
+    "sensacao": "tiro_pesado",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -1510,7 +1520,7 @@
    "tipo": "area",
    "nivel": 3,
    "custo": 25,
-   "recarga": 6.0,
+   "recarga": 7.0,
    "conjuracao": 0.0,
    "alcance": 0,
    "area": 2,
@@ -1520,6 +1530,10 @@
     "FOR",
     "AGI"
    ],
+   "dano": {
+    "pct_arma": 110,
+    "base": 8
+   },
    "efeitos": [
     "gira a espada larga e corta 360° em volta (raio 2 tiles)",
     "empurra um pouco os inimigos atingidos",
@@ -1528,23 +1542,7 @@
    "descricao": "Quando cercam o caçador, ele planta os pés e gira o corpo inteiro. A espada larga corta em 360° e joga todo mundo para fora do círculo.",
    "fx": "anel de corte prateado girando em volta do personagem + faíscas e respingo de sangue nos atingidos",
    "som": "lâmina cortando o ar em giro + impacto pesado",
-   "combate": {
-    "id": "corte_largo",
-    "nome": "Corte Giratorio",
-    "nivel": 3,
-    "custo": 25,
-    "recarga": 6.0,
-    "mult": 1.4,
-    "arco_graus": 360,
-    "alcance": 0,
-    "postura": 35,
-    "empurrao": 1.0,
-    "_doc": "pedido do Jefin: slash da espada larga girando 360 graus em volta do corpo, acerta todos os inimigos ao redor e empurra para fora. Giro de 0.45s com rastro de lamina (golpe_corte em circulo); hit-stop uma vez so para todos os alvos",
-    "sensacao": "area",
-    "area_raio": 2.0,
-    "empurrao_a_partir_do_centro": true
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/humano_corte_largo.png",
@@ -1653,30 +1651,7 @@
    "descricao": "Não tem poder nenhum, só pernas e uma lâmina larga. Atravessa a fila de inimigos antes que eles entendam o que passou.",
    "fx": "rastro de silhueta escura + sobretudo esvoaçando + corte em cada alvo + poeira no início e no fim",
    "som": "passos rápidos + lâmina cortando em sequência",
-   "combate": {
-    "id": "arrancada",
-    "nome": "Arrancada",
-    "nivel": 6,
-    "custo": 20,
-    "recarga": 5.0,
-    "cargas": 2,
-    "deslocamento": 4,
-    "duracao_s": 0.18,
-    "invulneravel": 0.2,
-    "atravessa_inimigos": true,
-    "proximo_ataque_extra": 0.3,
-    "janela_bonus_s": 2.0,
-    "vai_para": "ponto sob o mouse",
-    "_doc": "pedido do Jefin: dash COM espada. Avanca 4 tiles com a espada larga estendida a frente e corta todos os inimigos no caminho (linha de 1.2 tile de largura, cada um uma vez, empurrados para os lados). 0.2s de invulnerabilidade no inicio; o proximo golpe ou tiro em 2s causa +30%. Animacao: pose de espada estendida no avanco, sobretudo esvoacando, rastro de silhueta escura, golpe_corte em cada alvo e esquiva_poeira no inicio e no fim. Hit-stop curto (40ms) em cada alvo sem parar o dash.",
-    "sensacao": "investida",
-    "substitui": "rolamento",
-    "mult": 0.9,
-    "largura_corte": 1.2,
-    "acerta_cada_inimigo_uma_vez": true,
-    "postura": 20,
-    "empurrao_lateral": 0.5
-   },
-   "fonte_numeros": "design/combate/classes_base.json",
+   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/humano_arrancada.png",
@@ -1890,14 +1865,16 @@
     "nivel": 1,
     "custo": 15,
     "recarga": 3.0,
-    "mult": 1.4,
+    "mult": 1.68,
     "saltos": 3,
     "queda_por_salto": 0.25,
     "raio_salto": 3,
     "alcance": 7,
     "elemento": "eletrico",
     "postura": 12,
-    "sensacao": "raio"
+    "sensacao": "raio",
+    "splash_raio": 1.2,
+    "splash_mult": 0.5
    },
    "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
@@ -2171,18 +2148,6 @@
     "raio_salto_tiles": 3.5,
     "origem": "alvo_do_mouse"
    },
-   "dano": {
-    "mult": 1.6,
-    "queda_por_salto": 0.12,
-    "mult_por_alvo": [
-     1.6,
-     1.41,
-     1.24,
-     1.09,
-     0.96,
-     0.84
-    ]
-   },
    "efeitos": [
     "raio que salta de inimigo em inimigo, até 6 alvos, sem repetir nenhum",
     "cada salto perde 12% do dano",
@@ -2193,7 +2158,24 @@
    "descricao": "Seis contas de cobre num fio de latão, benzidas por ninguém. O Tecnomancer reza o terço ao contrário e a bobina responde: o raio pula de peito em peito como quem conta pecados.",
    "fx": "raio azul-claro grosso saltando entre os alvos em sequência rápida (0.06 s por salto), uma conta de cobre acesa sobre cada alvo atingido, faíscas no chão",
    "som": "estalo elétrico forte + estalos menores em cadeia, cada um um tom acima",
-   "fonte_numeros": "provisório (suprema, fora da 1ª entrega)",
+   "combate": {
+    "id": "rosario_voltaico",
+    "nome": "Rosário Voltaico",
+    "nivel": 16,
+    "custo": 34,
+    "recarga": 4.0,
+    "mult": 1.6,
+    "saltos": 5,
+    "queda_por_salto": 0.12,
+    "raio_salto": 3.5,
+    "alcance": 7,
+    "elemento": "eletrico",
+    "postura": 14,
+    "chance_paralisar": 0.15,
+    "paralisar_s": 0.5,
+    "sensacao": "raio"
+   },
+   "fonte_numeros": "design/combate/classes_base.json",
    "provisorio": true,
    "icone": {
     "64": "assets/icones/skills/64/tecnomancer_rosario_voltaico.png",

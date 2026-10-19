@@ -127,7 +127,7 @@ static func montar_mob(e: Ent, m: Dictionary, nivel: int) -> void:
 
 static func xp_mob(e: Ent) -> float:
 	var arq: Dictionary = Defs.MOBS_BASE["arquetipos"].get(e.arquetipo, {"xp": 1.0})
-	return (10.0 + 5.0 * e.nivel) * float(arq.get("xp", 1.0))
+	return (10.0 + 5.0 * e.nivel) * float(arq.get("xp", 1.0)) * float(Defs.PROG["xp_mob"]["mult_abate"])   # 0.9.8: abate de mob e spot ×1.4
 
 static func mod_xp_nivel(nivel_mob: int, nivel_jog: int) -> float:
 	var d := nivel_mob - nivel_jog
