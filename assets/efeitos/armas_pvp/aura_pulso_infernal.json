@@ -1,0 +1,21 @@
+{
+ "name": "aura_pulso_infernal",
+ "cat": "armas_pvp",
+ "frames": 16,
+ "fps": 12,
+ "loop": true,
+ "anchor": [
+  40,
+  36
+ ],
+ "layer": "frente",
+ "desc": "Aura Pulso Infernal: anel de calor vermelho que pulsa em volta da arma, com brasas dourada nas bordas.",
+ "char": null,
+ "title": "Aura Pulso Infernal",
+ "resumo": "Anel de calor vermelho que pulsa em volta da arma, com brasas dourada nas bordas.",
+ "frame_w": 80,
+ "frame_h": 64,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "aura_pulso_infernal.png"
+}

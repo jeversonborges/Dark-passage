@@ -32,6 +32,10 @@ try:
     import efeitos_demiurgo  # noqa
 except ImportError:
     pass
+try:
+    import efeitos_armas_pvp  # noqa
+except ImportError:
+    pass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.abspath(os.path.join(HERE, '..', '..', 'assets', 'efeitos'))

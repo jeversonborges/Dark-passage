@@ -424,6 +424,90 @@
   "sheet": "anjo/anjo_trombeta_juizo.png"
  },
  {
+  "name": "aura_pulso_infernal",
+  "cat": "armas_pvp",
+  "frames": 16,
+  "fps": 12,
+  "loop": true,
+  "anchor": [
+   40,
+   36
+  ],
+  "layer": "frente",
+  "desc": "Aura Pulso Infernal: anel de calor vermelho que pulsa em volta da arma, com brasas dourada nas bordas.",
+  "char": null,
+  "title": "Aura Pulso Infernal",
+  "resumo": "Anel de calor vermelho que pulsa em volta da arma, com brasas dourada nas bordas.",
+  "frame_w": 80,
+  "frame_h": 64,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "armas_pvp/aura_pulso_infernal.png"
+ },
+ {
+  "name": "brasa_lamina",
+  "cat": "armas_pvp",
+  "frames": 20,
+  "fps": 14,
+  "loop": true,
+  "anchor": [
+   24,
+   36
+  ],
+  "layer": "frente",
+  "desc": "Brasa da Lâmina: lava escorre pelo gume da arma em gotas incandescentes que caem e se apagam.",
+  "char": null,
+  "title": "Brasa da Lâmina",
+  "resumo": "Lava escorre pelo gume da arma em gotas incandescentes que caem e se apagam.",
+  "frame_w": 48,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 3,
+  "sheet": "armas_pvp/brasa_lamina.png"
+ },
+ {
+  "name": "faisca_cabo",
+  "cat": "armas_pvp",
+  "frames": 12,
+  "fps": 14,
+  "loop": true,
+  "anchor": [
+   20,
+   20
+  ],
+  "layer": "frente",
+  "desc": "Faísca do Cabo: centelhas de brasa saltam do cabo e do guarda-mão quando a arma é segurada.",
+  "char": null,
+  "title": "Faísca do Cabo",
+  "resumo": "Centelhas de brasa saltam do cabo e do guarda-mão quando a arma é segurada.",
+  "frame_w": 40,
+  "frame_h": 40,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "armas_pvp/faisca_cabo.png"
+ },
+ {
+  "name": "trail_sweep_infernal",
+  "cat": "armas_pvp",
+  "frames": 10,
+  "fps": 18,
+  "loop": false,
+  "anchor": [
+   48,
+   52
+  ],
+  "layer": "frente",
+  "desc": "Rastro do Golpe Infernal: arco de fogo vermelho e fio dourado que a lâmina deixa no ataque.",
+  "char": null,
+  "title": "Rastro do Golpe Infernal",
+  "resumo": "Arco de fogo vermelho e fio dourado que a lâmina deixa no ataque.",
+  "frame_w": 96,
+  "frame_h": 72,
+  "cols": 8,
+  "rows": 2,
+  "sheet": "armas_pvp/trail_sweep_infernal.png"
+ },
+ {
   "name": "aura_anjo",
   "cat": "auras",
   "frames": 16,

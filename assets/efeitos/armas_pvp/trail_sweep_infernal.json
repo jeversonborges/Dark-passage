@@ -1,0 +1,21 @@
+{
+ "name": "trail_sweep_infernal",
+ "cat": "armas_pvp",
+ "frames": 10,
+ "fps": 18,
+ "loop": false,
+ "anchor": [
+  48,
+  52
+ ],
+ "layer": "frente",
+ "desc": "Rastro do Golpe Infernal: arco de fogo vermelho e fio dourado que a lâmina deixa no ataque.",
+ "char": null,
+ "title": "Rastro do Golpe Infernal",
+ "resumo": "Arco de fogo vermelho e fio dourado que a lâmina deixa no ataque.",
+ "frame_w": 96,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 2,
+ "sheet": "trail_sweep_infernal.png"
+}

@@ -1,0 +1,21 @@
+{
+ "name": "brasa_lamina",
+ "cat": "armas_pvp",
+ "frames": 20,
+ "fps": 14,
+ "loop": true,
+ "anchor": [
+  24,
+  36
+ ],
+ "layer": "frente",
+ "desc": "Brasa da Lâmina: lava escorre pelo gume da arma em gotas incandescentes que caem e se apagam.",
+ "char": null,
+ "title": "Brasa da Lâmina",
+ "resumo": "Lava escorre pelo gume da arma em gotas incandescentes que caem e se apagam.",
+ "frame_w": 48,
+ "frame_h": 72,
+ "cols": 8,
+ "rows": 3,
+ "sheet": "brasa_lamina.png"
+}
