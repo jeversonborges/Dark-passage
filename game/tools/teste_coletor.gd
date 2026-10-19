@@ -64,7 +64,7 @@ func _init() -> void:
 	if n_nao != 0: falhas += 1; print("FALHA: pet pegou poção que o filtro recusa")
 	if pet_id >= 0 and sim.ents.has(pet_id) and sim.ents[pet_id].pos.distance_to(p.pos) > Coletor.SEGUE_MAX: falhas += 1; print("FALHA: pet não segue o dono")
 	# invulnerável: golpe e dano por tempo não tocam o pet (hp 1, então qualquer dano mataria)
-	var pet_vivo := sim.ents.get(pet_id)
+	var pet_vivo: Ent = sim.ents.get(pet_id)
 	if pet_vivo != null:
 		sim.aplicar_golpe(p, pet_vivo, {"dano": 999.0})
 		sim.aplicar_dano_puro(pet_vivo, 999.0, "fogo", p)
