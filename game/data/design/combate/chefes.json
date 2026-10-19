@@ -24,9 +24,9 @@
         "infernal",
         "demonio"
       ],
-      "hp": 1800,
+      "hp": 2070,
       "defesa": 22,
-      "dano_base": 30,
+      "dano_base": 33,
       "intervalo_ataque": 1.8,
       "velocidade_mov": 1.6,
       "postura_max": 300,
@@ -95,7 +95,13 @@
                 "raio": 2.6,
                 "angulo": 100
               },
-              "recarga": 7
+              "recarga": 7,
+              "zona_azul": {
+                "frente": 1.2,
+                "lado": 0.9,
+                "raio": 0.7
+              },
+              "dano_fora_azul_mult": 3.0
             },
             {
               "id": "arrasto",
@@ -109,7 +115,13 @@
               "deslocamento": 6,
               "empurrao_px": 20,
               "recarga": 9,
-              "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar"
+              "_doc": "crava as maos e se joga para frente; e como ele cobre distancia, ja que se move devagar",
+              "zona_azul": {
+                "frente": 2.5,
+                "lado": 0.35,
+                "raio": 0.3
+              },
+              "dano_fora_azul_mult": 3.0
             },
             {
               "id": "devorar",
@@ -242,7 +254,8 @@
         "rastro": "deixa rastro de sangue escuro e brasa que some em 3s (so visual)",
         "vira_devagar": "gira no maximo 120 graus por segundo: dar a volta nele e uma forma de fugir dos cones",
         "sem_pulo": true
-      }
+      },
+      "_doc_zona": "zona_azul: circulo azul (frente/lado relativos ao chefe, no sentido do golpe) dentro da area vermelha. Quem esta nele no impacto nao toma dano. dano_fora_azul_mult: multiplica o dano de quem esta na vermelha e fora da azul. Vomito de brasa e banquete ainda sem zona."
     },
     "irma_celeste": {
       "nome": "Irma Celeste, a Carpideira",

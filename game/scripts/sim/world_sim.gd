@@ -644,7 +644,24 @@ func criar_telegrafo(e: Ent, d: Dictionary, a: Dictionary) -> int:
 	telegrafos.append(tg)
 	emitir("telegrafo", {"id": tid, "forma": t["forma"], "origem": tg["origem"], "dir": dir, "p": t, "dur": tg["dur"],
 		"segue": tg["segue"], "dono": e.id})
+	if d.has("zona_azul"): tg["zona_tid"] = _mostrar_zona_azul(e, tg)
 	return tid
+
+## Zona azul (chefes.json > zona_azul): o único ponto seguro dentro da área vermelha. Quem estiver nela no
+## impacto não toma dano; quem estiver na vermelha e fora da azul leva dano_fora_azul_mult.
+func _centro_zona_azul(tg: Dictionary) -> Vector2:
+	var z: Dictionary = tg["def"]["zona_azul"]
+	var dir: Vector2 = tg["dir"]
+	return tg["origem"] + dir * float(z["frente"]) + dir.orthogonal() * float(z["lado"])
+
+func _mostrar_zona_azul(e: Ent, tg: Dictionary) -> int:
+	var zid := novo_id()
+	emitir("telegrafo", {"id": zid, "forma": "circulo", "origem": _centro_zona_azul(tg), "dir": tg["dir"],
+		"p": {"raio": float(tg["def"]["zona_azul"]["raio"]), "seguro": true}, "dur": tg["dur"], "segue": -1, "dono": e.id})
+	return zid
+
+func _na_zona_azul(tg: Dictionary, alvo: Ent) -> bool:
+	return alvo.pos.distance_to(_centro_zona_azul(tg)) <= float(tg["def"]["zona_azul"]["raio"]) + alvo.raio
 
 func achar_tele(tid: int) -> Dictionary:
 	for t in telegrafos:
@@ -656,6 +673,7 @@ func remover_telegrafo(tid: int) -> void:
 		if t["id"] == tid:
 			telegrafos.erase(t)
 			emitir("telegrafo_fim", {"id": tid, "cancelado": true})
+			if t.has("zona_tid"): emitir("telegrafo_fim", {"id": t["zona_tid"], "cancelado": true})
 			return
 
 func disparar_telegrafo(tid: int) -> void:
@@ -668,9 +686,14 @@ func disparar_telegrafo(tid: int) -> void:
 		return
 	telegrafos.erase(tg)
 	emitir("telegrafo_fim", {"id": tid, "impacto": true})
+	if tg.has("zona_tid"): emitir("telegrafo_fim", {"id": tg["zona_tid"], "impacto": true})
 	if dono == null or not dono.vivo: return
 	for alvo in alvos_na_forma(dono, tg):
-		aplicar_golpe(dono, alvo, tg["op"])
+		var op: Dictionary = tg["op"]
+		if tg.get("def", {}).has("zona_azul"):
+			if _na_zona_azul(tg, alvo): continue
+			op = op.duplicate(); op["mult"] = float(op["mult"]) * float(tg["def"].get("dano_fora_azul_mult", 1.0))
+		aplicar_golpe(dono, alvo, op)
 	if tg["op"].has("ao_impacto"): (tg["op"]["ao_impacto"] as Callable).call(tg)
 
 func _passo_telegrafos(dt: float) -> void:
