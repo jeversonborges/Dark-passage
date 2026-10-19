@@ -28,11 +28,11 @@ Em "Ferrugem Sagrada": aço enferrujado, bronze oxidado, placas soltas com remen
 ## Comportamento
 
 - **Segue** o Mechanicus a 2 tiles. Anda devagar (mais lento que o jogador), para quando ele para.
-- **Ataque automático** no alvo do Mechanicus ou no inimigo mais próximo em alcance de 8 tiles. Alterna dois golpes:
+- **Incontrolável** (regra do Jefin): o jogador não escolhe alvo e não dá comando. Ataca o inimigo mais próximo num raio de 10 tiles e troca de alvo livremente sempre que outro ficar mais perto. Alterna dois golpes:
   - **Canhão de Ferrugem:** projétil pesado, mult 2.4 (ESP), splash de raio 1.5 tile, 1 tiro a cada 3 s.
   - **Descarga do visor:** raio curto e largo na frente, mult 1.1, a cada 5 s.
 - **Pisão ao andar:** a cada 4 passos (ou 4 s andando), bate no chão numa área de raio 2 tiles. Mult 0.9, 20% de chance de atordoar 0.5 s. A tela treme (leve).
-- **Inimigos** atacam o robô quando ele estiver no alcance deles, mas ele não puxa mobs que não estavam em combate. Ele não aumenta o aggro de grupos neutros (regra "menos Diablo").
+- **Quem ele ataca:** qualquer inimigo no raio, inclusive mobs que já estão em combate com outros. Mobs neutros parados não são atacados. O robô **não chama vizinhos** para a briga: puxada em cadeia quebra a regra "menos Diablo, mais WoW". Esse é o risco da ulti: ele pode arrastar uma luta que o jogador não queria.
 - **Fim:** some ao acabar a duração ou quando o HP próprio zera. Ao sumir, solta fumaça e uma faísca no chão. Se morrer, a recarga começa do mesmo jeito.
 - Não funciona em área segura (cidade). Só uma invocação do tipo por Mechanicus.
 

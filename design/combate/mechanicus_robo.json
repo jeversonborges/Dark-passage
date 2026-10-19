@@ -21,7 +21,9 @@
     "hp_por_nivel": 40,
     "regen": 0,
     "distancia_seguir_tiles": 2,
-    "alcance_ataque_tiles": 8,
+    "controle": "incontrolavel: sem alvo escolhido pelo jogador, sem comando do dono",
+    "alvo": "inimigo mais proximo no raio, troca livre ao surgir outro mais perto",
+    "alcance_ataque_tiles": 10,
     "ataques": [
      {
       "id": "canhao_ferrugem",
@@ -47,7 +49,7 @@
      "atordoar_s": 0.5,
      "elemento": "fisico"
     },
-    "aggro": "nao puxa mobs fora de combate"
+    "aggro": "ataca inimigos no raio, inclusive mobs em combate; nao ataca neutros parados; nao chama vizinhos"
    },
    "area_segura": "nao invoca",
    "sensacao": "invocacao",
