@@ -817,8 +817,8 @@ func _atualizar_inventario() -> void:
 	var numeros := [["DANO", "%d–%d" % [roundi(j.dano_min), roundi(j.dano_max)]], ["DEFESA", "%d" % roundi(j.defesa)], ["CRÍTICO", "%d%%" % roundi(j.critico * 100.0)]]
 	for par in numeros:
 		var v := VBoxContainer.new(); v.add_theme_constant_override("separation", -3)
-		var rot := Tema.rotulo(par[0], 10, Color("#a89f8c"), Tema.FONTE_PIXEL); rot.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		var val := Tema.rotulo(par[1], 16, Color("#f0dca0"), Tema.FONTE_TITULO, 2); val.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		var rot := Tema.rotulo(par[0], 8, Color("#a89f8c"), Tema.FONTE_PIXEL); rot.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		var val := Tema.rotulo(par[1], 12, Color("#f0dca0"), Tema.FONTE_TITULO, 2); val.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		v.add_child(rot); v.add_child(val); linha.add_child(v)
 	der.add_child(linha)
 	if j.pontos > 0:
