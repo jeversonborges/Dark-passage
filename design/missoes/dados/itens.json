@@ -1798,6 +1798,50 @@
       "tipo": "leitura",
       "texto": "Juramos no Hermon, nos dias de Jarede, e nos amarramos por maldição.\nJuramos de novo no dia do primeiro toque, com as correntes abertas pelo Coro:\nQUE O FIM FIQUE ONDE ESTÁ.\nSe o mundo acabar, voltamos ao fundo. Se o mundo não acabar, ficamos.\nAssinam: Semyaza e cento e noventa e nove.",
       "espelho_de": "leitura_ordem_zacarias"
+    },
+    {
+      "id": "montaria_fome",
+      "nome": "Cavalo da Agonia",
+      "tipo": "montaria",
+      "pilha": 1,
+      "descricao": "Montaria do Cavaleiro da Fome. Magra até os ossos, come o capim e a própria rédea.",
+      "citacao": {
+        "texto": "O cavalo não come, mas o cavaleiro sempre tem fome.",
+        "autor": "Despacho da Vela"
+      }
+    },
+    {
+      "id": "montaria_guerra",
+      "nome": "Cavalo da Danação",
+      "tipo": "montaria",
+      "pilha": 1,
+      "descricao": "Montaria do Cavaleiro da Guerra. Ferrada de chumbo e coberta de fuligem.",
+      "citacao": {
+        "texto": "Quem ouve o casco na duna não espera o segundo.",
+        "autor": "Versículo do Coro"
+      }
+    },
+    {
+      "id": "montaria_conquista",
+      "nome": "Cavalo da Perdição",
+      "tipo": "montaria",
+      "pilha": 1,
+      "descricao": "Montaria do Cavaleiro da Conquista. Sela de couro cru e um arco preso ao arção.",
+      "citacao": {
+        "texto": "Chega antes da notícia, e fica depois do último.",
+        "autor": "Caderno do Coveiro"
+      }
+    },
+    {
+      "id": "montaria_peste",
+      "nome": "Cavalo do Lamento",
+      "tipo": "montaria",
+      "pilha": 1,
+      "descricao": "Montaria do Cavaleiro da Peste. Respira fumaça verde e deixa rastro de pó amarelo.",
+      "citacao": {
+        "texto": "Onde ele pisa, a tosse vem depois.",
+        "autor": "Rádio São Lázaro"
+      }
     }
   ]
 }

@@ -1,0 +1,36 @@
+{
+  "_doc": "Evento Os Cavaleiros do Apocalipse. O GM abre pelo Painel (F8). Cada capital recebe os quatro juntos (Agonia, Danação, Perdição, Lamento). Em Jerusalém eles voam por cima da cidade antes de descer. Derrotar um cavaleiro dá a chance de cair a montaria dele. Coordenadas de pouso e de voo são de primeira estimativa: conferir no mapa e ajustar aqui. Os mobs estão em combate/mobs.json (cavaleiro_*). Os ids das montarias são provisórios até a thread das montarias entregar os itens.",
+  "versao": "0.1",
+  "nivel": 30,
+  "chance_montaria": 0.10,
+  "duracao_s": 900,
+  "velocidade_voo": 9.0,
+  "formacao": [[0, 0], [-1.6, -1.2], [1.6, -1.2], [0, 1.8]],
+  "cavaleiros": ["cavaleiro_fome", "cavaleiro_guerra", "cavaleiro_conquista", "cavaleiro_peste"],
+  "montarias": {
+    "cavaleiro_fome": "montaria_fome",
+    "cavaleiro_guerra": "montaria_guerra",
+    "cavaleiro_conquista": "montaria_conquista",
+    "cavaleiro_peste": "montaria_peste"
+  },
+  "capitais": {
+    "jerusalem": {
+      "nome": "Jerusalém, a Cidade Santa",
+      "mapa": "jerusalem_hermon",
+      "voo": [[-6, 46], [40, 44], [80, 44]],
+      "pouso": [97, 46]
+    },
+    "acampamento_vela": {
+      "nome": "Acampamento da Vela",
+      "mapa": "area_inicial",
+      "voo": [],
+      "pouso": [74, 103]
+    },
+    "capela_sao_lazaro": {
+      "nome": "Capela de São Lázaro",
+      "mapa": "area_inicial",
+      "voo": [],
+      "pouso": [118, 62]
+    }
+  }
+}

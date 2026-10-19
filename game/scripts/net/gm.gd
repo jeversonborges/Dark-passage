@@ -282,6 +282,10 @@ func receber(peer: int, m: Dictionary) -> void:
 				"iniciar": _iniciar_hermon(agora)
 			_ok(peer, "Hermon: %s." % {"agora": "entrada aberta por 5 min", "5min": "abre em 5 min (avisos no chat)", "fechar": "volta à agenda"}.get(str(m.get("modo", "")), "?"))
 			_log(peer, "hermon %s" % str(m.get("modo", "")))
+		"cavaleiros":   # Os Cavaleiros do Apocalipse: os quatro descem sobre as capitais (design/combate/cavaleiros.json)
+			if str(m.get("modo", "")) == "iniciar": _iniciar_cavaleiros()
+			_ok(peer, "Os Cavaleiros do Apocalipse: chamados.")
+			_log(peer, "cavaleiros %s" % str(m.get("modo", "")))
 
 # =================================================================== ajudantes
 ## GM "Início imediato": começa já o cume aberto (com quem estiver dentro, mesmo 1). Sem ninguém na entrada,
@@ -293,6 +297,18 @@ func _iniciar_hermon(agora: int) -> void:
 			sim.hermon.forcar_inicio(); abertos += 1
 	if abertos == 0: srv.hermon.inicio_imediato = true
 	srv.hermon.forcado = agora
+
+## GM "Chamar os Cavaleiros": cada capital recebe o seu grupo de quatro, ao mesmo tempo.
+func _iniciar_cavaleiros() -> void:
+	var ev: Dictionary = Defs.ler("res://data/design/combate/cavaleiros.json")
+	for cid in ev.get("capitais", {}):
+		var sim: WorldSim = srv._mundo(str(ev["capitais"][cid]["mapa"]))
+		var c := CavaleirosCtl.new(sim, str(cid), ev)
+		sim.cavaleiros.append(c)
+		c.iniciar()
+	for p in srv.sessoes:
+		if srv.sessoes[p]["jog"] != null:
+			srv._para(p, "chat", {"canal": "sistema", "texto": "Os Cavaleiros do Apocalipse cruzam os céus. Agonia, Danação, Perdição e Lamento descem sobre as capitais."})
 
 func _ok(peer: int, txt: String) -> void:
 	srv._para(peer, "gm_ok", {"texto": txt})

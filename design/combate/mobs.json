@@ -902,6 +902,195 @@
         }
       ],
       "drop": null
+    },
+    "cavaleiro_fome": {
+      "nome": "Cavaleiro da Agonia",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "fome"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Cavalga magro e faminto. Morde e arranca carne de quem está perto (sangramento). Voa por cima da cidade antes de descer.",
+      "ataques": [
+        {
+          "id": "mordida",
+          "mult": 1.1,
+          "preparo": 0.6,
+          "a_cada": 3,
+          "efeito": {
+            "sangramento": {
+              "duracao": 5,
+              "dano_por_s_mult": 0.15
+            }
+          }
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_guerra": {
+      "nome": "Cavaleiro da Danação",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "guerra"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Empunha a espada larga e corta em arco. A cada terceiro golpe investe contra o alvo.",
+      "ataques": [
+        {
+          "id": "golpe_arco",
+          "mult": 1.2,
+          "preparo": 0.7
+        },
+        {
+          "id": "investida",
+          "mult": 1.6,
+          "preparo": 0.9
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_conquista": {
+      "nome": "Cavaleiro da Perdição",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "conquista"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Arco de chifre em punho. Dispara a flecha que zune antes de cada golpe corpo a corpo.",
+      "ataques": [
+        {
+          "id": "chifrada",
+          "mult": 1.0,
+          "preparo": 0.6
+        },
+        {
+          "id": "flecha",
+          "mult": 1.3,
+          "preparo": 0.8
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_peste": {
+      "nome": "Cavaleiro do Lamento",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "peste"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Lanterna de peste na mão. Ao morrer solta nuvem de veneno; a cada golpe espalha a praga.",
+      "ataques": [
+        {
+          "id": "arranhao",
+          "mult": 1.0,
+          "preparo": 0.5
+        },
+        {
+          "id": "nuvem_praga",
+          "mult": 1.1,
+          "preparo": 0.8,
+          "a_cada": 4,
+          "efeito": {
+            "veneno": {
+              "duracao": 6,
+              "dano_por_s_mult": 0.2
+            }
+          }
+        }
+      ],
+      "drop": null
     }
   }
 }

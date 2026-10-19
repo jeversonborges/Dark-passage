@@ -23142,6 +23142,102 @@
         "32": "assets/icones/itens/32/gema_dourada_lapidada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/gema_dourada_lapidada.png"
+    },
+    {
+      "id": "montaria_fome",
+      "nome": "Cavalo da Agonia",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "O cavalo não come, mas o cavaleiro sempre tem fome.",
+        "autor": "Despacho da Vela"
+      },
+      "tipo_missao": "montaria",
+      "categoria": "montaria",
+      "icone": {
+        "64": "assets/icones/itens/64/montaria_fome.png",
+        "40": "assets/icones/itens/40/montaria_fome.png",
+        "32": "assets/icones/itens/32/montaria_fome.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/montaria_fome.png"
+    },
+    {
+      "id": "montaria_guerra",
+      "nome": "Cavalo da Danação",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Quem ouve o casco na duna não espera o segundo.",
+        "autor": "Versículo do Coro"
+      },
+      "tipo_missao": "montaria",
+      "categoria": "montaria",
+      "icone": {
+        "64": "assets/icones/itens/64/montaria_guerra.png",
+        "40": "assets/icones/itens/40/montaria_guerra.png",
+        "32": "assets/icones/itens/32/montaria_guerra.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/montaria_guerra.png"
+    },
+    {
+      "id": "montaria_conquista",
+      "nome": "Cavalo da Perdição",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Chega antes da notícia, e fica depois do último.",
+        "autor": "Caderno do Coveiro"
+      },
+      "tipo_missao": "montaria",
+      "categoria": "montaria",
+      "icone": {
+        "64": "assets/icones/itens/64/montaria_conquista.png",
+        "40": "assets/icones/itens/40/montaria_conquista.png",
+        "32": "assets/icones/itens/32/montaria_conquista.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/montaria_conquista.png"
+    },
+    {
+      "id": "montaria_peste",
+      "nome": "Cavalo do Lamento",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "papel",
+      "tint": "pano",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "citacao": {
+        "texto": "Onde ele pisa, a tosse vem depois.",
+        "autor": "Rádio São Lázaro"
+      },
+      "tipo_missao": "montaria",
+      "categoria": "montaria",
+      "icone": {
+        "64": "assets/icones/itens/64/montaria_peste.png",
+        "40": "assets/icones/itens/40/montaria_peste.png",
+        "32": "assets/icones/itens/32/montaria_peste.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/montaria_peste.png"
     }
   ]
 }

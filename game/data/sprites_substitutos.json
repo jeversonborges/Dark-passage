@@ -578,5 +578,9 @@
  },
  "npc:caetano_ninho": {
   "usa": "conego_barnabe"
- }
+ },
+  "cavaleiro_fome": {"usa": "cavalo_fome"},
+  "cavaleiro_guerra": {"usa": "cavalo_guerra"},
+  "cavaleiro_conquista": {"usa": "cavalo_conquista"},
+  "cavaleiro_peste": {"usa": "cavalo_peste"}
 }
