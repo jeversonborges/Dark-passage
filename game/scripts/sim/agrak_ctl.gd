@@ -582,6 +582,8 @@ func _eliminar(e: Ent) -> void:
 	var killer: Ent = sim.ents.get(int(e.aux.get("ultimo_agressor", -1)))
 	if killer != null and killer.tipo == "jogador" and etapa == "ultimo_de_pe":
 		sim.emitir("morte_pvp", {"killer": killer.id, "vitima": e.id})
+		Jogador.dar_item(sim, killer, Itens.novo("ficha_sangue", 1))   # +1 ficha por abate de jogador (Agrak)
+		sim.emitir_a(killer, "inventario", {})
 		_fala("caim", "%s DERRUBOU %s!" % [_nome(killer), _nome(e)], "anunciar")
 	elif fim_t < 0.0:
 		_fala("abel", "Menos um. %s vai assistir do camarote." % e.nome, "rir")
