@@ -408,6 +408,7 @@ static func _drop_para_juntar(sim: WorldSim, e: Ent, centro: Vector2, raio: floa
 	for c: Dictionary in sim.chao.values():
 		if c["pos"].distance_to(centro) > raio + 1.0 or c["id"] in nao_cabe: continue
 		if c["dono"] != e.id and c["t"] < dono_s: continue
+		if c.get("jogado_fora", false): continue   # o que o jogador jogou fora fica no chão
 		var it: Dictionary = c["item"]
 		if it["id"] != "_ouro":
 			if modo == "ouro": continue
@@ -1209,7 +1210,8 @@ static func soltar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 	if Itens.categoria(it) == "missao" or Itens.vinculado(it):
 		sim.emitir_a(e, "aviso", {"texto": "Item de missão: melhor não jogar fora."}); return
 	e.inv.erase(it)
-	sim.soltar_no_chao(it, e.pos, e.id, e.pos)
+	var cid := sim.soltar_no_chao(it, e.pos, e.id, e.pos)
+	sim.chao[cid]["jogado_fora"] = true   # o pet coletor não pega de volta o que o dono jogou fora
 	sim.emitir_a(e, "som_evento", {"ev": "soltar"})
 	sim.emitir_a(e, "inventario", {})
 

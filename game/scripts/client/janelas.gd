@@ -505,6 +505,11 @@ func _item_em(lista: Array, c: Vector2i) -> Dictionary:
 
 func _entrada_grade(g: Desenho, ev: InputEvent) -> void:
 	var onde: String = g.dados["onde"]
+	if ev is InputEventMouseButton and ev.pressed and ev.button_index in [MOUSE_BUTTON_WHEEL_UP, MOUSE_BUTTON_WHEEL_DOWN]:
+		var sc := g.get_parent().get_parent() if g.get_parent() else null   # a grade fica num CenterContainer dentro da rolagem
+		if sc is ScrollContainer:
+			sc.scroll_vertical += CEL * (-1 if ev.button_index == MOUSE_BUTTON_WHEEL_UP else 1)
+			g.accept_event(); return
 	var lista := _lista(onde)
 	if ev is InputEventMouseMotion:
 		var c := Vector2i(floori(ev.position.x / CEL), floori(ev.position.y / CEL))

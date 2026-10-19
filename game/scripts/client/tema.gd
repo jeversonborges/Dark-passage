@@ -222,9 +222,11 @@ static func tema_janelas() -> Theme:
 	t.set_stylebox("grabber_area", "VScrollBar", sb)
 	t.set_stylebox("grabber", "VScrollBar", sb)
 	var sbs := StyleBoxFlat.new(); sbs.bg_color = Color(0.08, 0.06, 0.05)
+	sbs.content_margin_left = 5; sbs.content_margin_right = 5   # sem margem a barra ficava com 0 px de largura
 	t.set_stylebox("scroll", "VScrollBar", sbs)
 	var tri := sb_ui("menu_rolagem_trilho", [0, 8, 0, 8]); var peg := sb_ui("menu_rolagem_pegador", [0, 12, 0, 12])
 	if tri and peg:
+		tri.content_margin_left = 5; tri.content_margin_right = 5   # largura da barra (a textura sozinha dava 0 px)
 		t.set_stylebox("scroll", "VScrollBar", tri)
 		for e in ["grabber", "grabber_highlight", "grabber_pressed"]: t.set_stylebox(e, "VScrollBar", peg)
 	return t
