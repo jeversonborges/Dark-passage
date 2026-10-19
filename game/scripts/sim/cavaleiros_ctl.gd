@@ -47,6 +47,7 @@ func iniciar() -> void:
 		var e := sim.criar_mob(str(ev["cavaleiros"][i]), inicio + _off(i), nivel)
 		e.alvejavel = false
 		e.casa = pouso + _off(i)
+		e.aux["bando"] = "cavaleiros_%d" % get_instance_id()   # os quatro reagem juntos (ia.gd, _mesmo_bando)
 		ids.append(e.id)
 		posto[e.id] = i
 	etapa = 1
@@ -92,6 +93,9 @@ func passo(dt: float) -> void:
 func ao_morrer(e: Ent, killer: Ent) -> void:
 	if not ids.has(e.id): return
 	ids.erase(e.id)
+	for v in _vivos():   # quando um cai, o grupo inteiro vem para cima de quem matou
+		if killer != null: v.ameaca[killer.id] = v.ameaca.get(killer.id, 0.0) + 1.0
+		IA.acordar(sim, v, killer)
 	if killer == null or killer.tipo != "jogador": return
 	var montaria := str(ev.get("montarias", {}).get(e.kind, ""))
 	if not Defs.ITENS.has(montaria):

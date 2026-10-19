@@ -1,9 +1,9 @@
 {
   "_doc": "Monstros comuns, elite e raro. Nomes canonicos vindos da thread Missoes, NPCs e historia. Os atributos saem da curva base pelo nivel, vezes o multiplicador do arquetipo, vezes o ajuste do mob. Tempos em s, distancias em tiles.",
-  "versao": "0.1",
+  "versao": "0.2",
   "curva_base": {
     "_doc": "Mob 'normal' no nivel L.",
-    "hp": "32 + 7*L",
+    "hp": "41.6 + 9.1*L",
     "dano_min": "5 + 1.6*L",
     "dano_max": "8 + 2.2*L",
     "defesa": "2 + 1.5*L",
@@ -11,9 +11,10 @@
     "velocidade_mov": 2.4,
     "xp": "10 + 5*L",
     "ouro": [
-      "2*L",
-      "5*L"
-    ]
+      "2.6*L",
+      "6.5*L"
+    ],
+    "_v02": "v0.2 (Jefin 2026-10-15): HP dos monstros +30% (era 32 + 7*L) e ouro +30% (era 2*L a 5*L), para o gasto de pocao por minuto nao subir junto com o tempo de abate. Chefes nao mudam (HP proprio em chefes.json)."
   },
   "velocidade_mov_jogador": 3.2,
   "arquetipos": {
@@ -41,8 +42,9 @@
       "defesa": 1.4,
       "intervalo": 2.4,
       "mov": 0.8,
-      "xp": 2.0,
-      "postura": "bruto"
+      "xp": 2.4,
+      "postura": "bruto",
+      "_v02": "xp 2.0 -> 2.4: com HP 2.2x e dano 1.8x o bruto pagava menos XP por HP que o normal (0.91); agora paga 1.09, premio pelo risco."
     },
     "atirador": {
       "hp": 0.8,
@@ -99,6 +101,12 @@
     "aggro_social": 4,
     "renascimento_s": 25,
     "_aggro_social": "mobs do mesmo tipo dentro desse raio entram juntos quando um e atacado"
+  },
+  "spots": {
+    "_doc": "Spots de farm (0.9.5, Jefin 18/10: 'spot deve ter muito mais nascimento de mob'). Vale para grupos com 'spot' e respawn abaixo de 60 s (elite fica de fora). O mob nasce mesmo com jogador no spot, em célula a pelo menos dist_min_jogador tiles dele.",
+    "respawn_s": 6,
+    "mob_extra": 1,
+    "dist_min_jogador": 3.0
   },
   "mobs": {
     "corvo_de_cinza": {
@@ -196,7 +204,7 @@
       ],
       "arquetipo": "rasteiro",
       "ajuste": {
-        "hp": 1.3,
+        "hp": 1.1,
         "dano": 1.2
       },
       "tags": [
@@ -230,7 +238,8 @@
           "recarga": 8
         }
       ],
-      "drop": "inicial_animal"
+      "drop": "inicial_animal",
+      "_v02": "ajuste de HP 1.3 -> 1.1 (com o +30% geral ficava esponja demais para um rasteiro de 0.6 de XP; Fosso dos Caes rendia 19% menos que a Procissao)."
     },
     "nao_julgado": {
       "nome": "Nao-Julgado",

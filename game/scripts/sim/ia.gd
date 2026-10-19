@@ -22,11 +22,16 @@ static func acordar(sim: WorldSim, e: Ent, por: Ent) -> void:
 		sim.emitir("alerta", {"id": e.id})
 		var social := minf(float(e.ia.get("aggro_social", 4)), 3.0 if e.aux.get("neutro", false) else 5.0)
 		for o in sim.ents.values():
-			if o != e and o.tipo == "monstro" and o.kind == e.kind and o.vivo and o.estado in ["ocioso", "vagar"] and o.pos.distance_to(e.pos) <= social \
+			if o != e and o.tipo == "monstro" and (o.kind == e.kind or _mesmo_bando(e, o)) and o.vivo and o.estado in ["ocioso", "vagar"] and o.pos.distance_to(e.pos) <= social \
 				and (o.spawn_ref == e.spawn_ref or not e.aux.get("neutro", false)):
 				if por != null: o.ameaca[por.id] = 0.5
 				o.estado = "alerta"; o.ia_t = 0.4 + sim.rng.randf() * 0.3
 				sim.emitir("alerta", {"id": o.id})
+
+## Bando de espécies diferentes que reage junto (os Cavaleiros do Apocalipse): aux["bando"] igual e não vazio.
+static func _mesmo_bando(a: Ent, b: Ent) -> bool:
+	var k := str(a.aux.get("bando", ""))
+	return k != "" and k == str(b.aux.get("bando", ""))
 
 static func _alvo_maior_ameaca(sim: WorldSim, e: Ent) -> Ent:
 	if e.tem("provocado"):

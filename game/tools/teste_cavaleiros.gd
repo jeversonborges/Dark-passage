@@ -47,6 +47,8 @@ func _init() -> void:
 	sim.matar(primeiro, j)
 	checar(c.ids.size() == n_antes - 1, "um cavaleiro morto sai do grupo")
 	checar(not c.ids.has(primeiro.id), "o morto não conta mais")
+	var reagiram := c.ids.all(func(id): var v: Ent = sim.valido(id); return v != null and v.ameaca.has(j.id))
+	checar(reagiram, "os outros cavaleiros (espécies diferentes) partem para cima de quem matou")
 	# com o item definido, a montaria cai no chão do assassino
 	Defs.ITENS["montaria_fome"] = {"id": "montaria_fome", "nome": "Cavalo da Fome", "tipo": "montaria"}
 	var chao_antes := sim.chao.size()
