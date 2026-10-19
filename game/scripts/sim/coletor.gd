@@ -2,6 +2,7 @@ class_name Coletor
 ## Pet coletor (0.9.6, Jefin 2026-10-18): um animal que anda com o dono e junta do chão os drops que o filtro deixa
 ## passar. Comprado com o vendedor de pets (Vigília e Arautos). Não ataca, não é alvo, não ganha XP e não solta nada.
 ## Espécies são os animais de assets/monstros que viram pet. A escolha e o filtro ficam em dono.aux["coletor"] (vão no save).
+## O filtro se ajusta no Modo Automático (Shift+Z), na seção do pet (0.9.8).
 
 const ESPECIES := {
 	"cao_de_vala": {"nome": "Cão de Vala", "preco": 4000},
@@ -15,32 +16,48 @@ const POCOES := ["pocao_vida_m", "pocao_vida_p", "tonico_graxa", "hostia_negra",
 const SEGUE_DIST := 2.5       ## acima disso o pet anda até o dono
 const SEGUE_MAX := 12.0       ## acima disso teleporta para perto do dono
 const RAIO_JUNTAR := 7.0      ## drops até essa distância do dono entram na conta
-const ALCANCE_PEGAR := 0.9
+const ALCANCE_PEGAR := 2.0    ## o pet junta do que está até 2 tiles dele, sem andar até cada drop
+const PEGAR_POR_PASSO := 5    ## até 5 itens por passo (Jefin 2026-10-19: "ele pegar de 5 em 5")
 
 ## Filtro padrão: junta tudo. O jogador desmarca o que não quer.
+## Armaduras e armas têm chave própria e raridade mínima ("armadura_min", "arma_min"); saves antigos ganham o padrão.
 static func filtro_padrao() -> Dictionary:
-	var raridade := {}
-	for r in RARIDADES: raridade[r] = true
-	return {"raridade": raridade, "pocoes": true, "joias": {}, "asas": true, "baus": true}
+	return {"ouro": true, "armaduras": true, "armadura_min": "comum", "armas": true, "arma_min": "comum",
+		"pocoes": true, "missao": true, "joias": {}, "asas": true, "baus": true}
 
 ## Configuração do dono: {"especie": id ou "", "filtro": {...}}. Cria o padrão na primeira vez.
 static func cfg(dono: Ent) -> Dictionary:
 	if not (dono.aux.get("coletor") is Dictionary): dono.aux["coletor"] = {"especie": "", "filtro": filtro_padrao()}
-	return dono.aux["coletor"]
+	var c: Dictionary = dono.aux["coletor"]
+	var f := filtro_padrao()
+	var salvo: Dictionary = c.get("filtro", {})
+	for k in f: if salvo.has(k): f[k] = salvo[k]
+	c["filtro"] = f
+	return c
 
 static func filtro(dono: Ent) -> Dictionary:
 	return cfg(dono)["filtro"]
 
-## O item passa no filtro? Ouro passa sempre. Poção, joia, material de asa e baú dourado têm a sua chave;
-## o resto segue a raridade (comum, mágico, raro, excelente, relíquia).
+## O item passa no filtro? Cada grupo tem a sua chave: ouro, poção, joia, material de asa, baú dourado, itens de missão
+## (missão, chave, leitura), armadura e acessório (com raridade mínima), arma (com raridade mínima). O resto passa.
 static func deve_pegar(it: Dictionary, f: Dictionary) -> bool:
 	var id: String = it["id"]
-	if id == "_ouro": return true
+	if id == "_ouro": return bool(f["ouro"])
 	if id == "bau_dourado": return bool(f["baus"])
 	if id in POCOES: return bool(f["pocoes"])
 	if id in Defs.POR_TAG.get("joia:refino", []): return bool(f["joias"].get(id, true))
 	if _eh_material_asa(id): return bool(f["asas"])
-	return bool(f["raridade"].get(str(it.get("raridade", "comum")), true))
+	var cat := Itens.categoria(it)
+	if cat == "armadura" or cat == "acessorio": return bool(f["armaduras"]) and _na_raridade_minima(it, str(f["armadura_min"]))
+	if cat == "arma": return bool(f["armas"]) and _na_raridade_minima(it, str(f["arma_min"]))
+	if cat in ["missao", "chave", "leitura"]: return bool(f["missao"])
+	return true
+
+## Raridade do item é a mínima ou acima. Raridade fora da escala (demiúrgico, conjunto) passa.
+static func _na_raridade_minima(it: Dictionary, minima: String) -> bool:
+	var i := RARIDADES.find(str(it.get("raridade", "comum")))
+	if i < 0: return true
+	return i >= RARIDADES.find(minima)
 
 ## Materiais de criar asas (entregas/asas/dados/asas_itens.json): rolados nos abates, fora da tabela do mob.
 const MATERIAIS_ASA := ["pena_cinzenta", "pele_ressecada", "engrenagem_gasta"]
@@ -52,14 +69,14 @@ static func _eh_material_asa(id: String) -> bool:
 static func cmd_cfg(sim: WorldSim, e: Ent, chave: String, valor) -> void:
 	var f := filtro(e)
 	match chave:
-		"raridade":   # [raridade, marcado]
-			if not (valor is Array and valor.size() == 2 and str(valor[0]) in RARIDADES and valor[1] is bool): return
-			f["raridade"][str(valor[0])] = valor[1]
+		"armadura_min", "arma_min":   # raridade mínima de armadura e de arma
+			if not (valor is String and valor in RARIDADES): return
+			f[chave] = valor
 		"joia":   # [id da joia ou lágrima, marcado]
 			if not (valor is Array and valor.size() == 2 and str(valor[0]) in Defs.POR_TAG.get("joia:refino", [])
 					and valor[1] is bool): return
 			f["joias"][str(valor[0])] = valor[1]
-		"pocoes", "asas", "baus":
+		"ouro", "armaduras", "armas", "pocoes", "missao", "asas", "baus":
 			if not valor is bool: return
 			f[chave] = valor
 		_: return
@@ -113,7 +130,8 @@ static func garantir(sim: WorldSim, dono: Ent) -> void:
 	sim.ents[pet.id] = pet
 	dono.aux["coletor_id"] = pet.id
 
-## Um passo do pet: anda com o dono, vai até o drop mais perto que passa no filtro e o leva para a mochila do dono.
+## Um passo do pet: anda com o dono e junta até PEGAR_POR_PASSO drops que passam no filtro e estão ao seu alcance.
+## Se não há nenhum ao alcance, anda até o mais perto; sem drops, segue o dono.
 static func passo(sim: WorldSim, pet: Ent, dt: float) -> void:
 	var dono: Ent = sim.ents.get(pet.dono)
 	if dono == null or not dono.vivo or dono.tipo != "jogador": return
@@ -121,11 +139,14 @@ static func passo(sim: WorldSim, pet: Ent, dt: float) -> void:
 	var d := pet.pos.distance_to(dono.pos)
 	if d > SEGUE_MAX:
 		pet.pos = sim.celula_livre_perto(dono.pos + Vector2(-1.2, 0.6)); pet.caminho.clear(); return
+	var pegou := 0
 	var alvo := _proximo(sim, dono, pet)
+	while not alvo.is_empty() and pegou < PEGAR_POR_PASSO and pet.pos.distance_to(alvo["pos"]) <= ALCANCE_PEGAR:
+		_pegar(sim, dono, int(alvo["id"])); pegou += 1
+		alvo = _proximo(sim, dono, pet)
+	if pegou > 0: pet.caminho.clear()
 	if not alvo.is_empty():
-		if pet.pos.distance_to(alvo["pos"]) <= ALCANCE_PEGAR:
-			_pegar(sim, dono, int(alvo["id"])); pet.caminho.clear()
-		elif pet.caminho.is_empty():
+		if pet.pos.distance_to(alvo["pos"]) > ALCANCE_PEGAR and pet.caminho.is_empty():
 			sim.ir_para(pet, alvo["pos"])
 	elif d > SEGUE_DIST and pet.caminho.is_empty():
 		sim.ir_para(pet, dono.pos + Vector2(-1.2, 0.6))

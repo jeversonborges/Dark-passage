@@ -102,6 +102,8 @@ func _ready() -> void:
 		"auto":   # modo automático novo: skills marcadas na barra, farm no spot e a janela de ajustes (Shift+Z)
 			roteiro = [[2.0, "ir", Vector2(84, 115)], [0.1, "forte", ""], [0.3, "auto_marcar", [0, 3]], [0.2, "auto_ligar", ""],
 				[7.0, "foto", "a1_farm"], [0.2, "janela", "auto"], [0.6, "foto", "a2_janela"], [0.3, "fim", ""]]
+		"pet":   # painel de auto com a seção do pet coletor (filtros de ouro, armadura, arma, poção, missão)
+			roteiro = [[2.0, "preparar_pet", ""], [0.2, "janela", "auto"], [0.8, "foto", "p1_auto_pet"], [0.2, "janela", "petfiltro"], [0.8, "foto", "p2_filtro_pet"], [0.3, "fim", ""]]
 		"talentos":
 			roteiro = [[2.0, "forte", ""], [0.2, "talentos_por", ""], [0.3, "janela", "talentos"], [0.8, "foto", "t1_arvore"], [0.3, "fim", ""]]
 		"molduras":   # caixas soltas no kit Ferrugem Sagrada: convite, troca, inspeção, menu do jogador, ajuda, texto e mapa
@@ -143,6 +145,11 @@ func _process(dt: float) -> void:
 				if not h.get("passiva", false) and int(h["nivel"]) <= jogo.jog.nivel: hs.append(h["id"])
 			for k in 3: for id in hs.slice(0, 2): jogo.cmd("talento", [id])
 		"preparar_menu": _preparar_menu()
+		"preparar_pet":
+			var jp: Ent = jogo.jog
+			jp.ouro = 20000
+			jp.aux["servico"] = {"tipo": "coletor"}
+			jogo.cmd("coletor", ["comprar", "cao_de_vala"])
 		"preparar_forja":
 			_preparar_menu()
 			var j: Ent = jogo.jog

@@ -138,6 +138,7 @@ func alternar(nome: String) -> void:
 		"missoes": abrir_missoes()
 		"menu": abrir_menu()
 		"auto": abrir_auto()
+		"petfiltro": abrir_pet_coletor()
 		"talentos": abrir_talentos()
 		"teleporte": abrir_teleporte()
 		"revista": abrir_revista()
@@ -1878,10 +1879,37 @@ func abrir_auto() -> void:
 	var bp := _auto_botao("Fora do Z: %s" % ("bebe sozinho" if ps else "só na mão"), func(): game.cmd("auto_cfg", ["pocao_sempre", not ps]))
 	bp.tooltip_text = "Bebe poção sozinho em combate mesmo com o automático desligado."
 	po.add_child(bp)
+	c.add_child(_auto_botao("Pet coletor: o que ele junta", func(): abrir_pet_coletor()))
 	var lig: bool = j.aux.get("auto", false)
 	var bz := _auto_botao("Desligar o automático (Z)" if lig else "Ligar o automático aqui (Z)", func(): game.cmd("auto", [not lig]); fechar("auto"))
 	bz.add_theme_color_override("font_color", Color("#f0dca0"))
 	c.add_child(bz)
+
+## Janela do filtro do pet coletor (0.9.8), aberta pelo botão no Modo Automático: o que ele junta do chão,
+## com raridade mínima em armas e armaduras.
+func abrir_pet_coletor() -> void:
+	var c := _janela("petfiltro", "PET COLETOR", Vector2(470, 400), "esquerda")
+	_limpar(c)
+	_secao_pet_coletor(c, _jog())
+
+func _secao_pet_coletor(c: Container, j: Ent) -> void:
+	var pet_cfg: Dictionary = j.aux.get("coletor", {})
+	var f := Coletor.filtro_padrao()
+	f.merge(pet_cfg.get("filtro", {}), true)
+	if str(pet_cfg.get("especie", "")) == "":
+		c.add_child(Tema.rotulo("Sem pet: compre um no vendedor de pets. O filtro fica salvo.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
+	var g := GridContainer.new(); g.columns = 2
+	g.add_theme_constant_override("h_separation", 12); g.add_theme_constant_override("v_separation", 4)
+	c.add_child(g)
+	_coletor_marca(g, "Pegar ouro", f["ouro"], ["ouro"])
+	_coletor_marca(g, "Poções de vida e recurso", f["pocoes"], ["pocoes"])
+	_coletor_marca(g, "Itens de missão", f["missao"], ["missao"])
+	_coletor_marca(g, "Baús dourados", f["baus"], ["baus"])
+	_coletor_marca(g, "Materiais de asas", f["asas"], ["asas"])
+	for id in Defs.POR_TAG.get("joia:refino", []):
+		_coletor_marca(g, Defs.ITENS.get(id, {}).get("nome", id), f["joias"].get(id, true), ["joia", id])
+	_coletor_raridade(c, "Armaduras", f["armaduras"], "armaduras", "armadura_min", str(f["armadura_min"]))
+	_coletor_raridade(c, "Armas", f["armas"], "armas", "arma_min", str(f["arma_min"]))
 
 func _auto_secao(txt: String) -> Control:
 	var l := Tema.rotulo(txt.to_upper(), 13, Color("#c9a860"), Tema.FONTE_TITULO, 2)
@@ -1898,6 +1926,8 @@ func _abrir_coletor(d: Dictionary) -> void:
 
 func coletor_mudou() -> void:
 	if aberta("servico") and servico_d.get("tipo") == "coletor": _corpo_coletor()
+	auto_mudou()
+	if aberta("petfiltro"): abrir_pet_coletor()
 
 func _corpo_coletor() -> void:
 	if not jan.has("servico"): return
@@ -1907,7 +1937,6 @@ func _corpo_coletor() -> void:
 	var j := _jog()
 	var cfg: Dictionary = j.aux.get("coletor", {})
 	var atual: String = cfg.get("especie", "")
-	var f: Dictionary = cfg.get("filtro", Coletor.filtro_padrao())
 	var sc := ScrollContainer.new(); sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var v := VBoxContainer.new(); v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1922,25 +1951,31 @@ func _corpo_coletor() -> void:
 		v.add_child(b)
 	if atual != "":
 		v.add_child(_auto_botao("Dispensar o pet (o filtro fica salvo)", func(): game.cmd("coletor", ["dispensar"])))
-	v.add_child(Tema.rotulo("O que ele junta", 13, Color("#c8bfa8")))
-	for r in Coletor.RARIDADES:
-		_coletor_marca(v, RARIDADE_NOME_COLETOR[r], f["raridade"].get(r, true), ["raridade", r])
-	_coletor_marca(v, "Poções de vida e recurso", f["pocoes"], ["pocoes"])
-	for id in Defs.POR_TAG.get("joia:refino", []):
-		_coletor_marca(v, Defs.ITENS.get(id, {}).get("nome", id), f["joias"].get(id, true), ["joia", id])
-	_coletor_marca(v, "Materiais de asas", f["asas"], ["asas"])
-	_coletor_marca(v, "Baús dourados", f["baus"], ["baus"])
-	v.add_child(Tema.rotulo("Ouro sempre é juntado.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
+	v.add_child(Tema.rotulo("O que ele junta se ajusta no Modo Automático (Shift+Z).", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
 
 const RARIDADE_NOME_COLETOR := {"comum": "Branco", "verde": "Verde", "magico": "Azul", "excelente": "Roxo", "raro": "Amarelo", "laranja": "Laranja", "lendario": "Relíquia"}
 
-func _coletor_marca(v: VBoxContainer, txt: String, marcado: bool, chave: Array) -> void:
+func _coletor_marca(v: Container, txt: String, marcado: bool, chave: Array) -> void:
 	var cb := CheckBox.new(); cb.text = txt; cb.button_pressed = marcado
 	cb.add_theme_font_override("font", Tema.FONTE_TEXTO); cb.add_theme_font_size_override("font_size", 14)
 	cb.toggled.connect(func(on: bool):
-		var valor = [chave[1], on] if chave.size() > 1 else on   # raridade e joia levam o id junto
+		var valor = [chave[1], on] if chave.size() > 1 else on   # joia leva o id junto
 		game.cmd("coletor", ["filtro", chave[0], valor]))
 	v.add_child(cb)
+
+## Armadura ou arma: liga/desliga e a raridade mínima (o botão anda Branco, Verde, Azul, ... Relíquia).
+func _coletor_raridade(v: Container, txt: String, marcado: bool, chave: String, chave_min: String, minima: String) -> void:
+	var h := HBoxContainer.new(); h.add_theme_constant_override("separation", 6)
+	var cb := CheckBox.new(); cb.text = txt; cb.button_pressed = marcado; cb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	cb.add_theme_font_override("font", Tema.FONTE_TEXTO); cb.add_theme_font_size_override("font_size", 14)
+	cb.toggled.connect(func(on: bool): game.cmd("coletor", ["filtro", chave, on]))
+	h.add_child(cb)
+	var b := _auto_botao("de %s pra cima" % RARIDADE_NOME_COLETOR[minima], func():
+		var i := Coletor.RARIDADES.find(minima)
+		game.cmd("coletor", ["filtro", chave_min, Coletor.RARIDADES[(i + 1) % Coletor.RARIDADES.size()]]))
+	b.custom_minimum_size = Vector2(150, 28)
+	h.add_child(b)
+	v.add_child(h)
 
 func _auto_botao(txt: String, acao: Callable) -> Button:
 	var b := Button.new(); b.text = txt; b.custom_minimum_size = Vector2(0, 28)

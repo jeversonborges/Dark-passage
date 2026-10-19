@@ -1,5 +1,5 @@
 extends SceneTree
-## Teste headless do pet coletor (0.9.6): compra, filtro por checkbox, pega só o que passa, segue o dono, salva.
+## Teste headless do pet coletor (0.9.6): compra, filtro, pega só o que passa, até 5 por passo, segue o dono, salva.
 ## godot --headless --path . -s tools/teste_coletor.gd
 
 func rodar(sim: WorldSim, seg: float) -> void:
@@ -24,43 +24,60 @@ func _init() -> void:
 	pet_id = pet.id if pet != null else -1
 	# filtro padrão: junta tudo
 	if not Coletor.deve_pegar({"id": "pocao_vida_m", "raridade": "comum"}, Coletor.filtro(p)): falhas += 1; print("FALHA: padrão deveria pegar poção")
-	# desmarca comum, poções, joia de lágrima anjo, baú dourado e asas; marca de volta uma raridade
-	Coletor.cmd_cfg(sim, p, "raridade", ["comum", false])
+	# desmarca ouro, poções, joia de lágrima anjo, baú dourado, asas, missão; raridade mínima de armadura e de arma
+	Coletor.cmd_cfg(sim, p, "ouro", false)
 	Coletor.cmd_cfg(sim, p, "pocoes", false)
-	Coletor.cmd_cfg(sim, p, "joia", ["lagrima_anjo", false])
+	Coletor.cmd_cfg(sim, p, "joia", ["lagrima_angelica", false])
 	Coletor.cmd_cfg(sim, p, "baus", false)
 	Coletor.cmd_cfg(sim, p, "asas", false)
-	Coletor.cmd_cfg(sim, p, "raridade", ["lendario", false])
+	Coletor.cmd_cfg(sim, p, "missao", false)
+	Coletor.cmd_cfg(sim, p, "armadura_min", "raro")
+	Coletor.cmd_cfg(sim, p, "arma_min", "laranja")
+	Coletor.cmd_cfg(sim, p, "armadura_min", "nao_existe")   # inválido: ignorado
 	Coletor.cmd_cfg(sim, p, "joia", ["nao_existe", false])   # inválido: ignorado
 	var f := Coletor.filtro(p)
-	var casos := [
-		[{"id": "espada_teste", "raridade": "comum"}, false],
-		[{"id": "espada_teste", "raridade": "magico"}, true],
-		[{"id": "espada_teste", "raridade": "raro"}, true],
-		[{"id": "espada_teste", "raridade": "excelente"}, true],
-		[{"id": "espada_teste", "raridade": "lendario"}, false],
+	for c in [
+		[{"id": "_ouro", "raridade": "comum"}, false],
 		[{"id": "pocao_vida_m", "raridade": "comum"}, false],
-		[{"id": "lagrima_anjo", "raridade": "comum"}, false],
+		[{"id": "lagrima_angelica", "raridade": "comum"}, false],
 		[{"id": "bau_dourado", "raridade": "comum"}, false],
-		[{"id": "_ouro", "raridade": "comum"}, true],
-	]
-	for c in casos:
+		[{"id": "bobina_cobre", "raridade": "comum"}, false],
+		[{"id": "batina_remendada_peito", "raridade": "comum"}, false],
+		[{"id": "batina_remendada_peito", "raridade": "raro"}, true],
+		[{"id": "batina_remendada_peito", "raridade": "laranja"}, true],
+		[{"id": "espada_vigilia_rachada", "raridade": "excelente"}, false],
+		[{"id": "espada_vigilia_rachada", "raridade": "laranja"}, true],
+		[{"id": "espada_vigilia_rachada", "raridade": "lendario"}, true],
+	]:
 		if Coletor.deve_pegar(c[0], f) != c[1]: falhas += 1; print("FALHA: filtro %s deveria ser %s" % [c[0], c[1]])
-	# pela rede: o comando "coletor" chega como Array (o servidor confere os tipos)
+	# saves antigos (filtro por raridade) ganham as chaves novas com o padrão
+	p.aux["coletor"] = {"especie": "cao_de_vala", "filtro": {"raridade": {"comum": false}, "pocoes": false}}
+	if Coletor.filtro(p)["pocoes"] != false or Coletor.filtro(p)["ouro"] != true or Coletor.filtro(p)["arma_min"] != "comum": falhas += 1; print("FALHA: migração do filtro antigo")
+	Coletor.cmd_cfg(sim, p, "ouro", false)
+	Coletor.cmd_cfg(sim, p, "pocoes", true)
+	Coletor.cmd_cfg(sim, p, "armadura_min", "comum")
+	Coletor.cmd_cfg(sim, p, "asas", false)
 	Comandos.executar(sim, p, "coletor", ["filtro", "pocoes", true])
 	Comandos.executar(sim, p, "coletor", ["filtro", "pocoes", false])
 	Comandos.executar(sim, p, "coletor", ["filtro", 42, true])   # chave inválida: ignorada
 	if Coletor.filtro(p)["pocoes"] != false: falhas += 1; print("FALHA: comando coletor filtro")
-	# drops reais perto do dono: um que passa, um que não passa
-	var passa := Itens.novo("pocao_recurso_p")
+	# até 5 por passo: 8 poções que passam, um passo do pet junta só 5
+	Coletor.cmd_cfg(sim, p, "pocoes", true)
+	for i in 8: sim.soltar_no_chao(Itens.novo("pocao_recurso_p"), p.pos + Vector2(0.3, 0), p.id, p.pos)
+	var antes := Itens.contar(p.inv, "pocao_recurso_p")
+	Coletor.passo(sim, Coletor._meu(sim, p), WorldSim.TICK)
+	var pegas := Itens.contar(p.inv, "pocao_recurso_p") - antes
+	if pegas != Coletor.PEGAR_POR_PASSO: falhas += 1; print("FALHA: pet deveria pegar 5 por passo, pegou %d" % pegas)
+	# drops reais perto do dono: ouro (passa) e poção (o filtro recusa)
+	Coletor.cmd_cfg(sim, p, "pocoes", false)
+	Coletor.cmd_cfg(sim, p, "ouro", true)
+	var ouro_antes := p.ouro
 	var nao := Itens.novo("pocao_vida_m")
-	nao["raridade"] = "comum"
-	sim.soltar_no_chao(passa, p.pos + Vector2(2, 0), p.id, p.pos)
+	sim.soltar_no_chao({"uid": -1, "id": "_ouro", "qtd": 50, "raridade": "comum"}, p.pos + Vector2(2, 0), p.id, p.pos)
 	sim.soltar_no_chao(nao, p.pos + Vector2(2.5, 0), p.id, p.pos)
 	rodar(sim, 12.0)
-	var n_passa := Itens.contar(p.inv, "pocao_recurso_p")
 	var n_nao := Itens.contar(p.inv, "pocao_vida_m")
-	if n_passa < 1: falhas += 1; print("FALHA: pet não pegou o drop que passa")
+	if p.ouro <= ouro_antes: falhas += 1; print("FALHA: pet não pegou o ouro que passa")
 	if n_nao != 0: falhas += 1; print("FALHA: pet pegou poção que o filtro recusa")
 	if pet_id >= 0 and sim.ents.has(pet_id) and sim.ents[pet_id].pos.distance_to(p.pos) > Coletor.SEGUE_MAX: falhas += 1; print("FALHA: pet não segue o dono")
 	# invulnerável: golpe e dano por tempo não tocam o pet (hp 1, então qualquer dano mataria)

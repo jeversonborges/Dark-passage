@@ -455,7 +455,7 @@
   },
   "regras": {
     "ouro_formula": "aleatorio(2*L, 5*L) * mult_arquetipo_xp",
-    "ouro_chance": 0.55,
+    "ouro_chance": 0.3,
     "item_faixa": "faixa1 se L_mob <= 7; faixa2 de 7 a 18; faixa3 de 19 a 35; faixa4 de 36 a 55; faixa5 de 56 a 75 (no limite sorteia meio a meio). O item sorteado deve ter nivel entre L_mob-8 e L_mob+2 (16/10/2026).",
     "mob_muito_abaixo": "mob 6+ niveis abaixo do jogador nao solta equipamento, so ouro e consumivel",
     "pegar_item": "clique no item ou tecla Alt mostra nomes no chao; ouro e pego ao passar por cima",
