@@ -1367,12 +1367,13 @@ static func salvar(e: Ent, sim: WorldSim) -> Dictionary:
 		"ouro": e.ouro, "municao": e.municao, "inv": e.inv, "equip": e.equip, "armazem": e.armazem, "missoes": e.missoes,
 		"flags": e.flags, "vistas": e.vistas, "mapa": sim.mapa_id if Defs.eh_mapa_casa(sim.mapa_id) else Defs.mapa_casa(e.faccao),
 		"pos": [e.pos.x, e.pos.y] if Defs.eh_mapa_casa(sim.mapa_id) else [], "abates": e.abates, "pity": e.pity_raro, "uid": Itens._uid,
-		"auto": cfg_auto(e), "talentos": talentos(e)}
+		"auto": cfg_auto(e), "talentos": talentos(e), "hotbar_skills": e.hotbar_skills}
 
 static func carregar(e: Ent, s: Dictionary) -> void:
 	e.nivel = int(s.get("nivel", 1)); e.xp = int(s.get("xp", 0)); e.pontos = int(s.get("pontos", 0))
 	e.evolucao = str(s.get("evolucao", ""))
 	if e.evolucao != "" and Evolucao.defn(e.evolucao).get("classe_base", "") != e.classe: e.evolucao = ""   # save adulterado ou JSON mudou
+	e.hotbar_skills = Array(s.get("hotbar_skills", []))   # o Livro de Skills; Evolucao.montar_slots confere cada id
 	for k in s.get("stats", {}): e.stats[k] = float(s["stats"][k])
 	e.ouro = int(s.get("ouro", 0)); e.municao = int(s.get("municao", 0))
 	e.inv = s.get("inv", []); e.equip = s.get("equip", {}); e.armazem = s.get("armazem", [])

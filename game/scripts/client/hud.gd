@@ -61,7 +61,7 @@ var status_jog := {}          # s -> fim
 
 const MENU := ["personagem", "mochila", "habilidades", "missoes", "mapa", "menu"]
 const MENU_JANELA := {"personagem": "personagem", "mochila": "inventario", "habilidades": "habilidades", "missoes": "missoes"}
-const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "habilidades": "Habilidades (K)", "missoes": "Missões (J)", "mapa": "Mapa (M)", "menu": "Menu (Esc)"}
+const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "habilidades": "Livro de Skills (K)", "missoes": "Missões (J)", "mapa": "Mapa (M)", "menu": "Menu (Esc)"}
 const CINTO := [["vida", "Q"], ["recurso", "W"], ["antidoto", "E"], ["vela", "R"]]
 const CINTO_PAD := ["pocao_vida", "pocao_recurso", "antidoto", "vela"]   # ações do controle de cada slot do cinto
 const STATUS_NOME := {"atordoado": "Atordoado", "lento": "Lento", "queimadura": "Queimando", "sangramento": "Sangrando", "veneno": "Envenenado",
@@ -133,14 +133,12 @@ func _montar_barra() -> void:
 	barra.dentro = func(p: Vector2) -> bool:
 		if _evasao_rect().has_point(p): return true
 		if p.y > 66 and p.x > 0 and p.x < 1280: return true
-		if _n_slots() > 10 and p.y > 30 and p.x > 218 and p.x < 222 + 48 * (_n_slots() - 10): return true
 		return p.distance_to(Vector2(78, 78)) < 66 or p.distance_to(Vector2(1202, 78)) < 66
 	barra.entrada = _entrada_barra
 	barra.mouse_exited.connect(func(): hover_slot = -1; hover_cinto = -1; hover_menu = -1; esconder_tip())
 	raiz.add_child(barra)
 
 func _slot_rect(i: int) -> Rect2:
-	if i >= Evolucao.SLOT_EVO: return Rect2(222 + 48 * (i - Evolucao.SLOT_EVO), 34, 44, 44)   # fileira da evolução (Shift+1..5)
 	return Rect2(222 + 54 * i, 90, 52, 52)
 
 ## Slot da esquiva (botão direito): acima da barra, à esquerda do orbe do recurso.
@@ -148,7 +146,7 @@ func _evasao_rect() -> Rect2:
 	return Rect2(1082, 14, 48, 48)
 
 func _n_slots() -> int:
-	return maxi(10, game.jog.skills_slots.size()) if game.jog else 10
+	return Evolucao.N_SLOTS
 
 func _cinto_rect(i: int) -> Rect2:
 	return Rect2(792 + 52 * i, 94, 46, 46)
@@ -300,8 +298,7 @@ func _desenhar_barra(c: Painel) -> void:
 		elif i == hover_slot: mold = "slot_hover"
 		elif not h.is_empty() and j.buffer_skill.get("slot", -1) == i: mold = "slot_ativo"
 		c.draw_texture_rect(Tema.ui(mold), r, false)
-		if i < 10: _tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % ((i + 1) % 10), "skill_%d" % (i + 1))
-		elif not h.is_empty(): _txt(c, r.position + Vector2(4, 9), "⇧%d" % (i - 9), 8, Color("#d8c08a"), Tema.FONTE_PIXEL, -1, 2)
+		_tecla(c, r.position + Vector2(-4, -5), "tecla_%d" % (i + 1), "skill_%d" % (i + 1))
 		if not h.is_empty() and Jogador.skill_no_auto(j, i): _selo_auto(c, r)
 	_desenhar_evasao(c, j)
 	# modo automático (tecla Z): "AUTO" dourado sobre a barra de skills e moldura pulsando no slot da skill automática
@@ -311,7 +308,7 @@ func _desenhar_barra(c: Painel) -> void:
 		c.draw_arc(ca, 9.0, t * 3.0, t * 3.0 + TAU * 0.75, 18, Color(0.94, 0.78, 0.32, pulso), 2.0)
 		c.draw_circle(ca, 3.0, Color(0.94, 0.78, 0.32, pulso))
 		_txt(c, Vector2(540, 56), "AUTO", 16, Color(0.98, 0.82, 0.35, 0.75 + 0.25 * pulso), Tema.FONTE_TITULO, 0, 4)
-		for sa in mini(10, j.skills_slots.size()):
+		for sa in j.skills_slots.size():
 			if Jogador.skill_no_auto(j, sa):
 				c.draw_rect(_slot_rect(sa).grow(1.0 + 2.0 * pulso), Color(0.98, 0.8, 0.3, 0.5 + 0.4 * pulso), false, 2.0)
 	# cinto
@@ -368,9 +365,8 @@ func _posicionar_pet() -> void:
 	var j := _jog()
 	pet_ui.visible = j != null and j.classe == "cultista" and _meu_pet() != null
 	if not pet_ui.visible: return
-	var sobe := 48.0 if _n_slots() > 10 else 0.0   # com a fileira da evolução (Shift+1..5), a barra do pet sobe
 	pet_ui.offset_left = -640 + 185; pet_ui.offset_right = pet_ui.offset_left + 387
-	pet_ui.offset_top = -147 - sobe; pet_ui.offset_bottom = pet_ui.offset_top + 63
+	pet_ui.offset_top = -147; pet_ui.offset_bottom = pet_ui.offset_top + 63
 
 func _entrada_pet(ev: InputEvent) -> void:
 	if ev is InputEventMouseMotion:

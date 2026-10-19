@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor", "hotbar"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -22,6 +22,8 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _str(a, 0) and a[0] in ["vida", "recurso", "antidoto"]: Jogador.cmd_pocao(sim, e, a[0])
 		"skill":
 			if _int(a, 0) and _int(a, 1) and _v2(a, 2) and a[0] >= 0 and a[0] < 9: Jogador.cmd_skill(sim, e, a[0], a[1], a[2])
+		"hotbar":   # Livro de Skills: põe uma skill num dos 9 slots (o servidor confere nível, livro e repetição)
+			if _int(a, 0) and _str(a, 1) and a[0] >= 0 and a[0] < Evolucao.N_SLOTS: Evolucao.cmd_hotbar(sim, e, a[0], a[1])
 		"ponto":
 			if _str(a, 0): Jogador.cmd_ponto(sim, e, a[0])
 		"usar_item":

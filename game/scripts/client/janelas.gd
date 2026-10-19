@@ -868,16 +868,42 @@ func abrir_personagem() -> void:
 		c.add_child(_botao_menu("Escolher caminho de classe", escolha_evolucao))
 
 # =================================================================== habilidades
+## Livro de Skills (K): todas as skills que o personagem tem. Escolhe um dos 9 slots da barra em cima e
+## clica numa skill para pô-la nele (skill repetida troca de lugar). A barra não tem fileira separada.
+var livro_slot := 0   # slot escolhido no topo do livro (0 = tecla 1)
+
+func livro_mudou() -> void:
+	# o servidor confirma a troca no snapshot seguinte: redesenha quando ele chegar
+	if not aberta("habilidades"): return
+	if game.rede == null: abrir_habilidades.call_deferred()
+	else: get_tree().create_timer(0.1).timeout.connect(func(): if aberta("habilidades"): abrir_habilidades())
+
 func abrir_habilidades() -> void:
-	var c := _janela("habilidades", "HABILIDADES", Vector2(460, 560), "esquerda")
+	var c := _janela("habilidades", "LIVRO DE SKILLS", Vector2(460, 560), "esquerda")
 	_limpar(c)
 	var j := _jog()
+	livro_slot = clampi(livro_slot, 0, Evolucao.N_SLOTS - 1)
+	# os 9 slots da barra: clique para escolher o slot de destino
+	var fila := HBoxContainer.new(); fila.add_theme_constant_override("separation", 4)
+	fila.alignment = BoxContainer.ALIGNMENT_CENTER
+	for k in Evolucao.N_SLOTS:
+		var h := Jogador.skill_def(j, k)
+		var sb := Button.new()
+		sb.custom_minimum_size = Vector2(44, 46); sb.clip_text = true
+		sb.text = "%d\n%s" % [k + 1, String(h["nome"]).left(5) if not h.is_empty() else "—"]
+		sb.add_theme_font_size_override("font_size", 10)
+		sb.modulate = Color("#f0d48a") if k == livro_slot else Color.WHITE
+		sb.tooltip_text = "Slot %d%s" % [k + 1, (" · " + str(h["nome"])) if not h.is_empty() else " · vazio"]
+		var slot := k
+		sb.pressed.connect(func(): game.audio.tocar("ui/clique", null, -6.0); livro_slot = slot; abrir_habilidades())
+		fila.add_child(sb)
+	c.add_child(fila)
+	c.add_child(Tema.rotulo("Escolha o slot (1 a 9), depois clique numa skill para pôr nele. A skill de alternar a forma fica sempre na barra.", 12, Color("#a89f8c"), Tema.FONTE_ITALICO))
 	var sc := ScrollContainer.new(); sc.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	var v := VBoxContainer.new(); v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	v.add_theme_constant_override("separation", 10)
 	sc.add_child(v); c.add_child(sc)
-	var i := 0
 	for h in Evolucao.habilidades(j):
 		var sk := Defs.skill(j.classe, h["id"]) if not h.has("_evo") else {"nome": h["nome"], "descricao": h.get("descricao", "")}
 		var linha := HBoxContainer.new()
@@ -893,9 +919,10 @@ func abrir_habilidades() -> void:
 		linha.add_child(tr)
 		var col := VBoxContainer.new(); col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		col.add_theme_constant_override("separation", 2)
-		var nm := Tema.rotulo("%s · %s" % [("⇧%d" % (i + 1 - Defs.CLASSES[j.classe]["habilidades"].size())) if h.has("_evo") else str(i + 1), sk.get("nome", h["nome"])], 16, Color("#f0dca0") if not bloq else Color("#7d7466"), Tema.FONTE_TITULO)
-		col.add_child(nm)
+		var pos := j.skills_slots.find(h["id"])
+		col.add_child(Tema.rotulo(sk.get("nome", h["nome"]), 16, Color("#f0dca0") if not bloq else Color("#7d7466"), Tema.FONTE_TITULO))
 		var meta: Array = []
+		if pos >= 0: meta.append("na barra, slot %d" % (pos + 1))
 		if bloq: meta.append("nível %d" % int(h["nivel"]))
 		var cst := Jogador.custo(j, h)
 		if cst > 0: meta.append(("%d de vida" % roundi(cst)) if j.classe == "cultista" else ("custa %d" % roundi(cst)))
@@ -908,13 +935,18 @@ func abrir_habilidades() -> void:
 		for ef in sk.get("efeitos", []):
 			var e2 := Tema.rotulo("• " + ef, 12, Color("#9cc8ff")); e2.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; e2.custom_minimum_size.x = 340
 			col.add_child(e2)
+		var bp := Button.new()
+		bp.text = "Pôr no slot %d" % (livro_slot + 1)
+		bp.disabled = bloq or pos == livro_slot
+		var sid: String = h["id"]
+		bp.pressed.connect(func(): game.audio.tocar("ui/clique", null, -6.0); game.cmd("hotbar", [livro_slot, sid]))
+		col.add_child(bp)
 		linha.add_child(col)
 		v.add_child(linha)
-		i += 1
 	# passiva da classe (6ª habilidade do livro, ainda sem número de combate)
 	for sk2 in Defs.SKILLS.values():
 		if sk2.get("classe") == j.classe and not sk2.has("combate"):
-			var l := Tema.rotulo("Definitiva: %s (nível %d) — chega numa próxima versão." % [sk2["nome"], int(sk2.get("nivel", 20))], 12, Color("#7d7466"), Tema.FONTE_ITALICO)
+			var l := Tema.rotulo("Definitiva: %s (nível %d) — chega numa próxima versão." % [sk2["nome"], int(sk2.get("nivel", 20))], 13, Color("#7d7466"), Tema.FONTE_ITALICO)
 			l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; l.custom_minimum_size.x = 400
 			v.add_child(l)
 

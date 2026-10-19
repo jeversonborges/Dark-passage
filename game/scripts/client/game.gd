@@ -805,6 +805,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 		"ouro": hud.log_msg("%s%d de ouro" % ["+" if int(d["valor"]) >= 0 else "−", absi(int(d["valor"]))], Tema.COR_OURO)
 		"aviso": hud.aviso(d.get("texto", ""))
 		"auto_cfg": janelas.auto_mudou()
+		"hotbar": janelas.livro_mudou()
 		"talentos": janelas.talentos_mudou(); janelas.atualizar()
 		"grupo": hud.grupo_atualizar(d.get("membros", []))
 		"convite": hud.convite_mostrar(d)
@@ -1208,8 +1209,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 	elif ev is InputEventKey and ev.pressed and not ev.echo:
 		match ev.keycode:
 			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
-				if ev.shift_pressed and ev.keycode <= KEY_5: usar_skill(Evolucao.SLOT_EVO + ev.keycode - KEY_1)   # skills da evolução
-				else: usar_skill(ev.keycode - KEY_1)
+				usar_skill(ev.keycode - KEY_1)
 			KEY_Q: cmd("pocao", ["vida"])
 			KEY_W: cmd("pocao", ["recurso"])
 			KEY_E: cmd("pocao", ["antidoto"])
