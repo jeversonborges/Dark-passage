@@ -5,7 +5,7 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lib
-from lib import M, add, plate, cilindro, cone, corrente, ring
+from lib import M, add, plate, cilindro, cone, corrente, ring, caveira
 
 def build():
     objs = []
@@ -26,9 +26,8 @@ def build():
     for k in range(4):
         objs.append(add("primitive_torus_add", M["cobre"], (.03, 0, -.12 + k * .08), major_radius=.026,
                         minor_radius=.0045, major_segments=14, minor_segments=4))
-    objs.append(add("primitive_ico_sphere_add", M["osso"], (.04, 0, 0), scale=(.045, .036, .045), subdivisions=2))
+    objs += caveira((.04, 0, 0), .24, M["osso"], M["olho"])
     for s in (-1, 1):
-        objs.append(add("primitive_ico_sphere_add", M["olho"], (.04 + s * .0, -.034, .012 * s + .002), scale=(.009, .007, .008), subdivisions=1))
         cone(M["ferro"], (.04 + .02, 0, s * .05), direcao_deg_y=s * 40, raio=.013, comp=.06, lados=5)
     objs += corrente(M["cobre"], (.06, 0, -.07), (.1, 0, -.3), elos=7)
     objs.append(add("primitive_ico_sphere_add", M["osso"], (.1, 0, -.32), scale=(.016, .014, .018), subdivisions=1))

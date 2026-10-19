@@ -6,7 +6,7 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lib
-from lib import M, add, plate, cilindro, cone, corrente
+from lib import M, add, plate, cilindro, cone, corrente, caveira
 
 def build():
     objs = []
@@ -25,9 +25,8 @@ def build():
     objs.append(plate("ala_d_borda", [(x * .8, z) for x, z in ala], M["cobre"], .036, y=0))
     objs.append(plate("ala_e_borda", [(-x * .8, z) for x, z in ala], M["cobre"], .036, y=0))
     # caveira com brasas nos olhos e chifrinhos
-    objs.append(add("primitive_ico_sphere_add", M["osso"], (0, 0, .86), scale=(.04, .032, .046), subdivisions=2))
+    objs += caveira((0, 0, .86), .27, M["osso"], M["olho"])
     for s in (-1, 1):
-        objs.append(add("primitive_ico_sphere_add", M["olho"], (s * .015, -.03, .872), scale=(.009, .007, .008), subdivisions=1))
         cone(M["ferro"], (s * .04, 0, .9), direcao_deg_y=s * 40, raio=.014, comp=.06, lados=5)
     # corrente com caveirinha e pano rasgado
     objs += corrente(M["cobre"], (.05, 0, .6), (.05, 0, .36), elos=8)

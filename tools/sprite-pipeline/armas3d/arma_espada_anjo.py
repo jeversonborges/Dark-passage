@@ -6,7 +6,7 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import lib
-from lib import M, add, plate, cilindro, lado
+from lib import M, add, plate, cilindro, lado, caveira
 
 def meia_largura(z):
     if z < .35:
@@ -33,9 +33,7 @@ def build():
     # guarda: barra com chifres que sobem nas pontas
     guarda = [(-.2, 0), (.2, 0), (.24, .11), (.19, .075), (.16, .035), (-.16, .035), (-.19, .075), (-.24, .11)]
     objs.append(plate("guarda", guarda, M["cobre"], .04, y=0))
-    objs.append(add("primitive_ico_sphere_add", M["osso"], (0, 0, .05), scale=(.042, .03, .042), subdivisions=2))
-    for s in (-1, 1):
-        objs.append(add("primitive_ico_sphere_add", M["olho"], (s * .016, -.03, .058), scale=(.01, .008, .009), subdivisions=1))
+    objs += caveira((0, 0, .07), .3, M["osso"], M["olho"])
     # cabo com enrolamento
     objs.append(cilindro(M["couro"], (0, 0, -.2), (0, 0, -.01), .018, verts=10))
     for k in range(6):

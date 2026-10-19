@@ -147,3 +147,65 @@ def cone(m, loc, direcao_deg_y=0, rot_x=0, raio=.02, comp=.08, lados=6):
     """Espinho cônico com base em raio, ponta para +Z girado em Y (graus); rot_x=180 aponta para baixo."""
     return add("primitive_cone_add", m, loc, rot=(rot_x, direcao_deg_y, 0), vertices=lados,
                radius1=raio, radius2=.002, depth=comp)
+
+def _cubo(nome, loc, dims, m):
+    """Cubo unitário com as dimensões dadas, escala aplicada (o modificador trabalha no espaço local)."""
+    bpy.ops.mesh.primitive_cube_add(size=1, location=loc)
+    o = bpy.context.active_object
+    o.name = nome
+    o.scale = dims
+    bpy.ops.object.transform_apply(scale=True)
+    o.data.materials.append(m)
+    return o
+
+def _modifica(o, tipo, nome, **kw):
+    bpy.context.view_layer.objects.active = o
+    md = o.modifiers.new(name=nome, type=tipo)
+    for k, v in kw.items():
+        setattr(md, k, v)
+    bpy.ops.object.modifier_apply(modifier=md.name)
+
+def caveira(loc, tam, m_osso, m_olho):
+    """Caveira pela técnica do tutorial 'Easy Skull Modelling' (Blender): cubo chanfrado, subdivisão, órbitas e
+    abertura do nariz cortadas por booleano, mandíbula separada com fileira de dentes, olhos de brasa dentro das órbitas.
+    Retorna [objeto de osso (unido), olhos]. Tudo em metros, centro em `loc`, face para -Y, crânio para +Z."""
+    craneo = _cubo("craneo", loc, (.42 * tam, .38 * tam, .44 * tam), m_osso)
+    _modifica(craneo, 'BEVEL', "chanfro", width=.13 * tam, segments=3)
+    _modifica(craneo, 'SUBSURF', "suave", levels=2, render_levels=2)
+    # órbitas e nariz
+    x0, y0, z0 = loc
+    cortes = []
+    for s in (-1, 1):
+        bpy.ops.mesh.primitive_uv_sphere_add(radius=.105 * tam, location=(x0 + s * .14 * tam, y0 - .17 * tam, z0 + .03 * tam))
+        cortes.append(bpy.context.active_object)
+    bpy.ops.mesh.primitive_cube_add(size=1, location=(x0, y0 - .2 * tam, z0 - .07 * tam))
+    nariz = bpy.context.active_object
+    nariz.scale = (.09 * tam, .14 * tam, .12 * tam)
+    bpy.ops.object.transform_apply(scale=True)
+    cortes.append(nariz)
+    for c in cortes:
+        _modifica(craneo, 'BOOLEAN', "corte", operation='DIFFERENCE', object=c)
+        bpy.ops.object.select_all(action='DESELECT'); c.select_set(True); bpy.ops.object.delete()
+    # mandíbula separada
+    mandibula = _cubo("mandibula", (x0, y0 + .02 * tam, z0 - .34 * tam), (.34 * tam, .3 * tam, .15 * tam), m_osso)
+    _modifica(mandibula, 'BEVEL', "chanfro", width=.05 * tam, segments=2)
+    _modifica(mandibula, 'SUBSURF', "suave", levels=1, render_levels=1)
+    partes = [craneo, mandibula]
+    # dentes: fileira de blocos chanfrados na borda da mandíbula
+    for k in range(6):
+        x = x0 + (-.12 + k * .048) * tam
+        d = _cubo(f"dente_{k}", (x, y0 - .13 * tam, z0 - .25 * tam), (.035 * tam, .03 * tam, .06 * tam), m_osso)
+        _modifica(d, 'BEVEL', "chanfro", width=.008 * tam, segments=1)
+        partes.append(d)
+    # une tudo num objeto só
+    bpy.ops.object.select_all(action='DESELECT')
+    for p in partes:
+        p.select_set(True)
+    bpy.context.view_layer.objects.active = craneo
+    bpy.ops.object.join()
+    osso = bpy.context.active_object
+    osso.name = "caveira"
+    # olhos de brasa, dentro das órbitas
+    olhos = [add("primitive_uv_sphere_add", m_olho, (x0 + s * .14 * tam, y0 - .19 * tam, z0 + .03 * tam),
+                 scale=(.035 * tam, .03 * tam, .035 * tam)) for s in (-1, 1)]
+    return [osso] + olhos
