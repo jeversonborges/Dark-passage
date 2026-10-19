@@ -16,6 +16,9 @@ RES = int(os.environ.get("RES", 320))
 AMOSTRAS = int(os.environ.get("AMOSTRAS", 24))
 # Duas mãos: ponto do cabo (no sistema da arma) onde a mão esquerda segura; vazio = uma mão só.
 ALVO_MAO_ESQ = os.environ.get("ALVO_MAO_ESQ")
+DUAS_MAOS = ALVO_MAO_ESQ is not None
+# Ponto no mundo onde fica o cabo na pegada de duas mãos (frente do peito, mão direita no topo do cabo).
+PONTO_ARMA = tuple(float(v) for v in os.environ.get("PONTO_ARMA", "0,-0.3,1.0").split(","))
 
 def importa(caminho):
     antes = set(bpy.data.objects)
@@ -64,29 +67,28 @@ def main():
         tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
     def posiciona_arma():
         bpy.context.view_layer.update()
-        if ALVO_MAO_ESQ:
-            # arma vertical: o cabo segue o meio da mão direita (articulação do punho até a ponta dos dedos)
-            pb = arm.pose.bones[osso_nome]
-            meio = (arm.matrix_world @ pb.matrix @ Vector((0, 0, 0)) + arm.matrix_world @ pb.matrix @ Vector((0, pb.length, 0))) / 2
-            mao.matrix_world = Matrix.Translation(meio + Vector(OFFSET_LOC))
-            return
+        if DUAS_MAOS:
+            return   # pegada de duas mãos: arma parada na frente do peito, as mãos seguem por IK
         osso = arm.matrix_world @ arm.pose.bones[osso_nome].matrix
         mao.matrix_world = osso @ inv_repouso @ w_repouso
+    if DUAS_MAOS:
+        # arma parada, vertical, na frente do peito (PONTO_ARMA). Mão direita no cabo (origem da arma) e
+        # mão esquerda mais embaixo no cabo (ALVO_MAO_ESQ). IK com três ossos (antebraço, braço e mão).
+        mao.matrix_world = Matrix.Translation(Vector(PONTO_ARMA)) @ Euler(
+            tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
+        for osso_nome_ik, ponto in (("hand.R", (0, 0, 0)), ("hand.L", tuple(float(v) for v in ALVO_MAO_ESQ.split(",")))):
+            alvo_mao = bpy.data.objects.new(f"alvo_{osso_nome_ik}", None)
+            bpy.context.scene.collection.objects.link(alvo_mao)
+            alvo_mao.parent = mao
+            alvo_mao.location = ponto
+            ik = arm.pose.bones[osso_nome_ik].constraints.new('IK')
+            ik.target = alvo_mao
+            ik.chain_count = 3
+            ik.use_tail = True
+            ik.use_stretch = False
+            ik.iterations = 500
+            ik.influence = 1.0
     lib_objs = [o for o in armas if o.type == "MESH"]
-    if ALVO_MAO_ESQ:
-        # alvo da mão esquerda preso ao cabo; IK da mão esquerda pelo braço real do personagem
-        alvo_mao = bpy.data.objects.new("alvo_mao_esq", None)
-        bpy.context.scene.collection.objects.link(alvo_mao)
-        alvo_mao.parent = mao
-        alvo_mao.location = tuple(float(v) for v in ALVO_MAO_ESQ.split(","))
-        ik = arm.pose.bones["hand.L"].constraints.new('IK')
-        ik.target = alvo_mao
-        ik.chain_count = 2
-        ik.use_tail = True
-        ik.use_stretch = False
-        ik.iterations = 500
-        ik.weight = 1.0
-        ik.influence = 1.0
 
     cena = bpy.context.scene
     cena.render.engine = 'CYCLES'; cena.cycles.device = 'CPU'; cena.cycles.samples = AMOSTRAS
