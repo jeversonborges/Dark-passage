@@ -675,9 +675,10 @@ func _desenhar_chefe(c: Painel, b: Ent) -> void:
 	var r := Rect2(-80, 0, 560, 70)
 	c.draw_style_box(Tema.caixa(Color(0.06, 0.03, 0.03, 0.92), Color(0.55, 0.16, 0.1), 2, 3), r)
 	var tit: String = chefe_d.get("nome", b.nome)
-	_txt(c, Vector2(200, 28), tit, 26, Color("#ffcf9a"), Tema.FONTE_GOTICA, 0, 4)
+	_txt(c, Vector2(200, 28), tit, 17, Color("#ffcf9a"), Tema.FONTE_GOTICA, 0, 3)   # 0.9.8: menor, para não tapar a fala do chefe
 	var nf: String = chefe_d.get("nome_fase", "")
 	_txt(c, Vector2(462, 22), ("Fase %d" % int(chefe_d.get("fase", 1))) + ((" · " + nf) if nf != "" else ""), 11, Color("#c8a080"), Tema.FONTE_ITALICO, 1, 2)
+	c.draw_rect(r.grow(-4), Color(0.55, 0.16, 0.1, 0.7), false, 1.0)   # 0.9.8: moldura interna do chefe de área
 	var br := Rect2(-62, 36, 524, 14)
 	_barra(c, br, b.frac_hp(), Color(0.62, 0.06, 0.04))
 	for m in chefe_d.get("marcas", []):
@@ -899,7 +900,7 @@ func _desenhar_mapa_grande(c: Painel) -> void:
 		var p := _mundo_para_mini(somas[i][0] / float(somas[i][1]), cen, cm, k)
 		var conhecida: bool = j.vistas.has(zonas[i]["id"]) or zonas[i]["id"] == j.zona or Demiurgo.tem(j)   # Olho do Demiurgo: o mapa inteiro
 		var niv = zonas[i].get("nivel")
-		_txt(c, p, zonas[i]["nome"], 15, Color("#f6e2a8") if conhecida else Color("#a49a86"), Tema.FONTE_TITULO, 0, 5)
+		_txt(c, p, zonas[i]["nome"], 11, Color("#f6e2a8") if conhecida else Color("#a49a86"), Tema.FONTE_TITULO, 0, 5)
 		if niv is Array: _txt(c, p + Vector2(0, 15), "nível %d–%d" % [int(niv[0]), int(niv[1])], 11, Color("#c8b890") if conhecida else Color("#8a8070"), Tema.FONTE_ITALICO, 0, 3)
 		elif zonas[i].get("seguro", false): _txt(c, p + Vector2(0, 15), "área segura", 11, Color("#a8d890"), Tema.FONTE_ITALICO, 0, 3)
 	# passagens: para onde levam (a cripta e os chefes ficam atrás delas)

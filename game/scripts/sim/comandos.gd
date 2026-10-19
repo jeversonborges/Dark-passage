@@ -3,7 +3,7 @@ class_name Comandos
 ## Os argumentos vêm de fora (rede), então cada um é conferido antes de virar ação.
 
 const NOMES := ["mover", "atacar", "interagir", "pegar", "pocao", "skill", "ponto", "usar_item", "equipar", "desequipar",
-	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor"]
+	"mover_item", "soltar_item", "comprar", "vender", "refinar", "redistribuir", "escolher", "evoluir", "virar", "no_lugar", "fechar", "auto", "auto_skill", "auto_cfg", "talento", "esquecer_talentos", "voltar", "teleportar", "falar", "gesto", "estante", "ler", "pet", "evadir", "coletor", "organizar", "vender_lixo"]
 
 static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 	if e == null or not nome in NOMES: return
@@ -23,7 +23,7 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 		"skill":
 			if _int(a, 0) and _int(a, 1) and _v2(a, 2) and a[0] >= 0 and a[0] < 9: Jogador.cmd_skill(sim, e, a[0], a[1], a[2])
 		"ponto":
-			if _str(a, 0): Jogador.cmd_ponto(sim, e, a[0])
+			if _str(a, 0): Jogador.cmd_ponto(sim, e, a[0], int(a[1]) if a.size() > 1 and (a[1] is int or a[1] is float) else 1)
 		"usar_item":
 			if _int(a, 0): Jogador.usar_item(sim, e, a[0])
 		"equipar":
@@ -46,6 +46,10 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _str(a, 0) and _int(a, 1) and a[1] >= 1 and a[1] <= 99: Jogador.comprar(sim, e, a[0], a[1])
 		"vender":
 			if _int(a, 0): Jogador.vender(sim, e, a[0])
+		"vender_lixo":
+			if a.size() > 0 and a[0] is Array: Jogador.vender_lixo(sim, e, a[0])
+		"organizar":
+			Jogador.organizar(sim, e)
 		"refinar":
 			if _int(a, 0) and _str(a, 1): Jogador.refinar(sim, e, a[0], a[1])
 		"redistribuir":

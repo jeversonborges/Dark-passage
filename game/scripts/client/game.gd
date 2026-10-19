@@ -1622,13 +1622,9 @@ func _desenhar_sobre() -> void:
 			"monstro", "invocacao":
 				var ferido := e.hp < e.hp_max - 0.5
 				if id == hover_id or id == jog.alvo or ferido or e.arquetipo in ["elite", "raro"] or Ajustes.v("barras_sempre"):
-					var larg := 44.0
 					var cor_b := Color(0.75, 0.12, 0.08) if e.tipo == "monstro" else Color(0.3, 0.7, 0.3)
 					if e.tipo == "monstro" and e.aux.get("neutro", false) and e.estado in ["ocioso", "vagar", "voltar"]: cor_b = Color(0.85, 0.7, 0.15)
-					sobre.draw_rect(Rect2(topo.x - larg * 0.5 - 1, topo.y - 1, larg + 2, 6), Color(0, 0, 0, 0.8))
-					sobre.draw_rect(Rect2(topo.x - larg * 0.5, topo.y, larg * e.frac_hp(), 4), cor_b)
-					if e.postura < e.postura_max and e.postura_max > 0:
-						sobre.draw_rect(Rect2(topo.x - larg * 0.5, topo.y + 5, larg * (1.0 - e.postura / e.postura_max), 2), Color(0.85, 0.65, 0.2))
+					_barra_mob(sobre, topo, e, cor_b)
 				if id == hover_id or id == jog.alvo or mostrar_nomes or e.arquetipo in ["elite", "raro"]:
 					var cn := Color("#ff8a72")    # vermelho: ataca quem chegar perto
 					if e.aux.get("neutro", false): cn = Color("#f2d65a")   # amarelo: neutro, só reage se apanhar
@@ -1680,6 +1676,26 @@ func _desenhar_sobre() -> void:
 		if r.position.y + r.size.y < n.position.y - 44:   # subiu: um fio liga o nome ao item
 			sobre.draw_line(Vector2(n.position.x, r.end.y), n.position + Vector2(0, -30), Color(n.cor.r, n.cor.g, n.cor.b, 0.35), 1.0)
 		n.rotulo_r = _rotulo_item(p, n.nome, n.cor, id == hover_chao)
+
+## Barra sobre a cabeça (0.9.8), em 4 estilos por categoria: comum (simples), elite (moldura de ouro e
+## segmento amarelo de postura), especial (moldura azul, brilho e losango de categoria) e chefe (moldura dupla).
+func _barra_mob(sobre: CanvasItem, topo: Vector2, e: Ent, cor_b: Color) -> void:
+	var larg := 52.0
+	var x0 := topo.x - larg * 0.5
+	var moldura := Color(0.05, 0.04, 0.03, 0.9)
+	var borda := Color(0.42, 0.34, 0.2, 0.9)
+	match e.arquetipo:
+		"elite": borda = Color(0.85, 0.66, 0.25, 0.95)
+		"raro":
+			borda = Color(0.5, 0.72, 1.0, 0.95)
+			sobre.draw_circle(topo + Vector2(0, 2), larg * 0.62, Color(0.5, 0.72, 1.0, 0.10))
+			var l := Vector2(x0 - 7, topo.y + 2)
+			sobre.draw_colored_polygon(PackedVector2Array([l + Vector2(0, -4), l + Vector2(4, 0), l + Vector2(0, 4), l + Vector2(-4, 0)]), Color(0.6, 0.8, 1.0))
+	sobre.draw_rect(Rect2(x0 - 1, topo.y - 1, larg + 2, 7), moldura)
+	sobre.draw_rect(Rect2(x0 - 1, topo.y - 1, larg + 2, 7), borda, false, 1.0)
+	sobre.draw_rect(Rect2(x0, topo.y, larg * e.frac_hp(), 5), cor_b)
+	if e.postura < e.postura_max and e.postura_max > 0:
+		sobre.draw_rect(Rect2(x0, topo.y + 6, larg * (1.0 - e.postura / e.postura_max), 2), Color(0.85, 0.65, 0.2))
 
 func _nome(p: Vector2, txt: String, cor: Color, tam := 13, fonte: Font = null) -> void:
 	var fo := fonte if fonte else Tema.FONTE_TITULO

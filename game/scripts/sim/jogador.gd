@@ -573,10 +573,12 @@ static func cmd_pegar(sim: WorldSim, e: Ent, chao_id: int) -> void:
 	e.aux["pegar"] = chao_id
 	sim.ir_para(e, sim.chao[chao_id]["pos"])
 
-static func cmd_ponto(sim: WorldSim, e: Ent, stat: String) -> void:
-	if e.pontos <= 0 or not e.stats.has(stat): return
-	e.pontos -= 1
-	e.stats[stat] = float(e.stats[stat]) + float(Defs.FORM["peso_por_ponto"])
+## Gasta até `qtd` pontos num atributo (o botão +1 manda 1; o campo numérico manda o que foi digitado).
+static func cmd_ponto(sim: WorldSim, e: Ent, stat: String, qtd: int = 1) -> void:
+	var n := mini(clampi(qtd, 1, 9999), e.pontos)
+	if n <= 0 or not e.stats.has(stat): return
+	e.pontos -= n
+	e.stats[stat] = float(e.stats[stat]) + float(Defs.FORM["peso_por_ponto"]) * n
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "stats", {"id": e.id})
 
@@ -1272,6 +1274,31 @@ static func comprar(sim: WorldSim, e: Ent, id: String, qtd: int = 1) -> void:
 	dar_item(sim, e, it)
 	sim.emitir_a(e, "som_evento", {"ev": "comprar"})
 	sim.emitir_a(e, "ouro", {"valor": -p})
+
+## Organizar a mochila (0.9.8): junta pilhas e refaz a grade por tipo. Se não coubesse tudo, não mexe em nada.
+static func organizar(sim: WorldSim, e: Ent) -> void:
+	var nova := Itens.organizar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H)
+	if nova.is_empty() and not e.inv.is_empty():
+		sim.emitir_a(e, "aviso", {"texto": "Não coube tudo na grade; a mochila ficou como estava."}); return
+	e.inv.clear(); e.inv.append_array(nova)
+	sim.emitir_a(e, "inventario", {})
+
+## Vende de uma vez as peças das raridades marcadas (só no vendedor; vinculado e missão ficam).
+static func vender_lixo(sim: WorldSim, e: Ent, raridades: Array) -> void:
+	if e.aux.get("servico", {}).get("tipo") != "loja": return
+	var total := 0; var n := 0
+	for it in e.inv.duplicate():
+		if not str(it.get("raridade", "comum")) in raridades: continue
+		var v := Itens.preco_venda(it)
+		if v <= 0 or Itens.categoria(it) == "missao" or Itens.vinculado(it): continue
+		e.inv.erase(it); total += v; n += 1
+	if n == 0:
+		sim.emitir_a(e, "aviso", {"texto": "Nada para vender nas raridades marcadas."}); return
+	e.ouro += total
+	sim.emitir_a(e, "som_evento", {"ev": "vender"})
+	sim.emitir_a(e, "ouro", {"valor": total})
+	sim.emitir_a(e, "aviso", {"texto": "%d peças vendidas por %d de ouro." % [n, total]})
+	sim.emitir_a(e, "inventario", {})
 
 static func vender(sim: WorldSim, e: Ent, uid: int) -> void:
 	if e.aux.get("servico", {}).get("tipo") != "loja": return

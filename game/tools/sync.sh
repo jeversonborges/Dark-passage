@@ -58,6 +58,7 @@ cp $P/assets/ambiente/luzes/*.png $E/ambiente/luzes/
 for d in objetos assets; do [ -d $P/assets/ambiente/$d ] && cp $P/assets/ambiente/$d/*.{png,json} $E/ambiente/objetos/ 2>/dev/null || true; done
 # interface (barra de HUD) e fontes
 mkdir -p $E/ui $E/fontes; cp -r $P/assets/ui/hud/1x $P/assets/ui/hud/2x $P/assets/ui/hud/layout.json $E/ui/
+cp $P/assets/ui/slots_silhueta/silhueta_*.png $E/ui/1x/   # silhuetas dos slots vazios (0.9.8)
 mkdir -p $E/ui/carregamento; cp $P/assets/ui/carregamento/tela_carregamento_1920x1080.png $P/assets/ui/carregamento/tela_carregamento_1280x720.png $E/ui/carregamento/
 cp $P/assets/ui/hud/fontes/*.woff2 $P/design/mapas/fontes/*.ttf $E/fontes/
 # mapa aprovado

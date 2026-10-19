@@ -22,18 +22,22 @@ var estante_sel := ""
 var textos_lidos := {}           # id -> {titulo, texto}: só nesta sessão, nunca em disco
 
 const CEL := 30
-const POS_EQUIP := {
+const POS_EQUIP := {   # 0.9.8: asa no canto superior direito; amuleto e pet embaixo, nas pontas
 	"cabeca": Rect2(4, 4, 52, 52), "peito": Rect2(4, 62, 52, 66), "calcas": Rect2(4, 134, 52, 52),
+	"amuleto": Rect2(4, 190, 52, 52),
 	"arma": Rect2(60, 4, 52, 124), "anel1": Rect2(60, 134, 52, 52),
 	"segunda_mao": Rect2(268, 4, 52, 124), "anel2": Rect2(268, 134, 52, 52),
-	"amuleto": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52),
-	"asa": Rect2(146, 182, 88, 52)}   # asa (3x2 na mochila): embaixo do retrato, entre os anéis
-const AREA_EQUIP := Vector2(380, 236)
+	"asa": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52),
+	"pet": Rect2(324, 190, 52, 52)}
+const AREA_EQUIP := Vector2(380, 246)
+const VISIVEIS_MOCHILA := 6   # linhas da mochila à vista; o resto rola (a mochila tem Itens.MOCHILA_H)
 var _ganho_cache := {}        # uid -> quanto o Poder sobe ao equipar (cache por atualização do inventário)
 var _poder_cache := -1
 var _poder_flash := {}        # {v, t}: número que sobe da placa quando o Poder muda
 var _poder_visto := -1
 var _grade_mochila: Control
+var _ponto_qtd: LineEdit       # pontos a aplicar de uma vez (campo numérico, ao lado do botão +1 clássico)
+var _ponto_stat: OptionButton  # atributo que recebe os pontos digitados
 
 func _ready() -> void:
 	layer = 20
@@ -643,9 +647,13 @@ func _slot_equip(slot: String) -> Desenho:
 		if moldura: c.draw_style_box(moldura, rr)
 		else: c.draw_rect(rr, Color(0.03, 0.025, 0.02, 0.95))
 		var vazio: bool = it.is_empty() or (not mao.is_empty() and mao["it"] == it)
-		if vazio:
-			var gl := Tema.ui("menu_glifo_" + ("anel" if slot.begins_with("anel") else slot))
-			if gl: c.draw_texture(gl, (c.size - gl.get_size()) * 0.5, Color(1, 1, 1, 0.85))
+		var pet_ic: Array = []   # o familiar do Cultista aparece no slot do pet
+		if slot == "pet" and game.hud._meu_pet(): pet_ic = Tema.icone_item("cultista_familiar_pacto")
+		if pet_ic.size() == 2:
+			c.draw_texture_rect_region(pet_ic[0], rr.grow(-4), pet_ic[1])
+		elif vazio:   # silhueta leve do que vai nesse lugar (assets/ui/slots_silhueta)
+			var gl := Tema.ui("silhueta_" + ("anel" if slot.begins_with("anel") else slot))
+			if gl: c.draw_texture(gl, (c.size - gl.get_size()) * 0.5)
 		if not it.is_empty() and not (not mao.is_empty() and mao["it"] == it):
 			var cor := Defs.cor_raridade(it.get("raridade", "comum"))
 			if it.get("raridade", "comum") != "comum": c.draw_rect(rr, Color(cor.r, cor.g, cor.b, 0.12))
@@ -694,7 +702,7 @@ func _soltar_em_slot(slot: String) -> void:
 
 # =================================================================== mochila + equipamento
 func abrir_inventario() -> void:
-	var c := _janela("inventario", "EQUIPAMENTO", Vector2(416, 560), "direita")
+	var c := _janela("inventario", "EQUIPAMENTO", Vector2(416, 640), "direita")
 	if c.get_child_count() > 0: _atualizar_inventario(); return
 	c.add_theme_constant_override("separation", 4)
 	var eq := Desenho.new()
@@ -706,6 +714,18 @@ func abrir_inventario() -> void:
 	var at := GridContainer.new(); at.columns = 4; at.name = "Atributos"
 	at.add_theme_constant_override("h_separation", 6)
 	c.add_child(at)
+	# pontos: campo numérico + atributo + Aplicar/Tudo (o +1 de cada atributo continua valendo)
+	var pr := HBoxContainer.new(); pr.name = "Pontos"; pr.alignment = BoxContainer.ALIGNMENT_CENTER
+	pr.add_theme_constant_override("separation", 6)
+	_ponto_qtd = LineEdit.new(); _ponto_qtd.placeholder_text = "qtd"; _ponto_qtd.custom_minimum_size = Vector2(64, 0)
+	_ponto_qtd.add_theme_font_override("font", Tema.FONTE_TEXTO)
+	_ponto_qtd.text_submitted.connect(func(_t): _aplicar_pontos(false))
+	_ponto_stat = OptionButton.new()
+	for k in ["FOR", "AGI", "VIT", "ESP"]: _ponto_stat.add_item(k)
+	pr.add_child(_ponto_qtd); pr.add_child(_ponto_stat)
+	pr.add_child(_botao_menu("Aplicar", func(): _aplicar_pontos(false)))
+	pr.add_child(_botao_menu("Tudo", func(): _aplicar_pontos(true)))
+	c.add_child(pr)
 	var der := Tema.rotulo("", 13, Color("#c8bfa8")); der.name = "Derivados"
 	c.add_child(der)
 	var dv := Tema.ui("menu_divisor")
@@ -717,8 +737,29 @@ func abrir_inventario() -> void:
 		var tm := Tema.rotulo("MOCHILA", 15, Color("#e0c890"), Tema.FONTE_TITULO, 2)
 		tm.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		c.add_child(tm)
-	var cg := CenterContainer.new(); _grade_mochila = _grade("mochila"); cg.add_child(_grade_mochila); c.add_child(cg)
+	# 0.9.8: a mochila tem o dobro de linhas; a janela mostra VISIVEIS_MOCHILA com barra de rolagem
+	var sc := ScrollContainer.new()
+	sc.custom_minimum_size = Vector2(0, VISIVEIS_MOCHILA * CEL)
+	sc.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	var cg := CenterContainer.new(); _grade_mochila = _grade("mochila"); cg.add_child(_grade_mochila); sc.add_child(cg)
+	c.add_child(sc)
+	var barra := HBoxContainer.new(); barra.alignment = BoxContainer.ALIGNMENT_CENTER
+	barra.add_child(_botao_menu("Organizar", func(): game.cmd("organizar", []); game.audio.tocar("ui/clique", null, -6.0)))
+	c.add_child(barra)
 	_atualizar_inventario()
+
+## Aplica pontos de uma vez no atributo escolhido: o número digitado, ou todos (tudo = true).
+func _aplicar_pontos(tudo: bool) -> void:
+	var j := _jog()
+	var n := j.pontos
+	if not tudo:
+		n = int(_ponto_qtd.text) if _ponto_qtd.text.is_valid_int() else 0
+	if n <= 0:
+		game.hud.aviso("Digite quantos pontos aplicar.")
+		return
+	game.cmd("ponto", [["FOR", "AGI", "VIT", "ESP"][_ponto_stat.selected], mini(n, j.pontos)])
+	_ponto_qtd.text = ""
+	game.audio.tocar("ui/clique", null, -6.0)
 
 ## Retrato no pedestal, placa de Poder e o aviso de melhorias na mochila.
 func _desenhar_boneco(cc: Desenho) -> void:
@@ -774,6 +815,9 @@ func _desenhar_boneco(cc: Desenho) -> void:
 	cc.queue_redraw()
 
 func _tip_slot_vazio(slot: String) -> String:
+	if slot == "pet":
+		if game.hud._meu_pet(): return "[font_size=16][color=#e0c890]Pet[/color][/font_size]\n[color=#a89f8c]Seu familiar está com você. Comande pela barra de pet.[/color]"
+		return "[font_size=16][color=#e0c890]Pet[/color][/font_size]\n[i][color=#a89f8c]Sem pet. O Cultista ganha um familiar ao criar o personagem.[/color][/i]"
 	var s := "[font_size=16][color=#e0c890]%s[/color][/font_size]\n" % Itens.NOME_SLOT[slot]
 	var melhor := {}; var g := 0
 	for it in _jog().inv:
@@ -808,6 +852,7 @@ func _atualizar_inventario() -> void:
 			h.add_child(mais)
 		b.add_child(h)
 		at.add_child(b)
+	c.get_node("Pontos").visible = j.pontos > 0
 	var der: Label = c.get_node("Derivados")
 	var txt := "Dano %d–%d    Defesa %d    Crítico %d%%" % [roundi(j.dano_min), roundi(j.dano_max), roundi(j.defesa), roundi(j.critico * 100.0)]
 	if j.pontos > 0: txt += "\n[%d pontos para distribuir]" % j.pontos
@@ -1223,17 +1268,28 @@ func _abrir_loja(d: Dictionary) -> void:
 	for id in d.get("itens", []):
 		var it := Itens.novo(id)
 		var b := Button.new()
-		b.custom_minimum_size = Vector2(0, 40)
+		b.custom_minimum_size = Vector2(0, 52)
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		var ic := Tema.icone_item(id)
-		if ic.size() == 2:
+		# 0.9.8: o mesmo ícone da mochila (Tema.icone_mochila, pintado); sem ele, o atlas de 64 px (não o de 40 px esticado)
+		var tm := Tema.icone_mochila(id)
+		var ic := Tema.icone_item(id, true)
+		if tm != null:
+			b.icon = tm; b.expand_icon = false
+			b.add_theme_constant_override("icon_max_width", 48)
+		elif ic.size() == 2:
 			var at := AtlasTexture.new(); at.atlas = ic[0]; at.region = ic[1]
 			b.icon = at; b.expand_icon = false
-			b.add_theme_constant_override("icon_max_width", 32)
+			b.add_theme_constant_override("icon_max_width", 48)
 		var preco := Itens.preco(it)
 		b.text = "  %s   —   %d ouro" % [Itens.nome(it), preco]
 		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 15)
 		var cor := Defs.cor_raridade(it.get("raridade", "comum"))
+		for estado in ["normal", "hover", "pressed"]:   # moldura da cor da raridade
+			var sb := StyleBoxFlat.new()
+			sb.bg_color = Color(0.09, 0.075, 0.06, 0.95) if estado != "hover" else Color(0.14, 0.11, 0.08, 0.95)
+			sb.border_color = cor if it.get("raridade", "comum") != "comum" else Color(0.42, 0.37, 0.3)
+			sb.set_border_width_all(2); sb.set_corner_radius_all(3)
+			b.add_theme_stylebox_override(estado, sb)
 		b.add_theme_color_override("font_color", cor if it.get("raridade", "comum") != "comum" else Color("#e8dfc9"))
 		b.mouse_entered.connect(func(): game.hud.mostrar_tip_item(it, tip_item(it, "loja_compra")))
 		b.mouse_exited.connect(func(): game.hud.esconder_tip())
@@ -1242,8 +1298,39 @@ func _abrir_loja(d: Dictionary) -> void:
 			game.cmd("comprar", [id, q])
 			_atualizar_inventario())
 		v.add_child(b)
+	c.add_child(_painel_lixo())
 	c.add_child(Tema.rotulo("Clique compra (Shift compra 10). Botão direito na mochila vende.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
 	abrir_inventario()
+
+## Vender lixo (0.9.8): marque as raridades que contam como lixo e venda tudo de uma vez, só no vendedor.
+func _painel_lixo() -> Control:
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 4)
+	box.add_child(Tema.rotulo("Vender lixo: marque as raridades", 14, Color("#e8dfc9"), Tema.FONTE_TEXTO))
+	var fl := HFlowContainer.new()
+	var marcas := {}
+	for r in ["comum", "magico", "raro", "excelente", "lendario", "demiurgico"]:
+		var cb := CheckBox.new()
+		cb.text = Defs.nome_raridade(r)
+		cb.button_pressed = r == "comum"
+		cb.add_theme_color_override("font_color", Defs.cor_raridade(r))
+		fl.add_child(cb)
+		marcas[r] = cb
+	box.add_child(fl)
+	var linha := HBoxContainer.new(); linha.alignment = BoxContainer.ALIGNMENT_CENTER
+	linha.add_theme_constant_override("separation", 8)
+	linha.add_child(_botao_menu("Vender marcadas", func():
+		var sel := []
+		for r in marcas:
+			if marcas[r].button_pressed: sel.append(r)
+		if sel.is_empty():
+			game.hud.aviso("Marque pelo menos uma raridade.")
+			return
+		game.cmd("vender_lixo", [sel])
+		_atualizar_inventario()))
+	linha.add_child(_botao_menu("Organizar", func(): game.cmd("organizar", [])))
+	box.add_child(linha)
+	return box
 
 # =================================================================== forja (refino)
 var _refino_sel := {}   # item escolhido na forja: {uid, onde}

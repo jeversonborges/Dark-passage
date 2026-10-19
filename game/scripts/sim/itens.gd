@@ -2,12 +2,12 @@ class_name Itens
 ## Itens: instâncias (raridade rolada, opções, refino), mochila em grade estilo MU, preços e bônus.
 
 const MOCHILA_W := 12
-const MOCHILA_H := 6
+const MOCHILA_H := 12   # 0.9.8: o dobro de linhas (a janela mostra 8 com rolagem)
 const ARMAZEM_W := 12
 const ARMAZEM_H := 12
 const SLOTS := ["arma", "segunda_mao", "cabeca", "peito", "luvas", "calcas", "botas", "amuleto", "anel1", "anel2", "asa"]
 const NOME_SLOT := {"arma": "Arma", "segunda_mao": "2ª mão", "cabeca": "Cabeça", "peito": "Peito", "luvas": "Luvas",
-	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel", "asa": "Asa"}
+	"calcas": "Calças", "botas": "Botas", "amuleto": "Amuleto", "anel1": "Anel", "anel2": "Anel", "asa": "Asa", "pet": "Pet"}
 const ATTR := {"for": "FOR", "agi": "AGI", "vit": "VIT", "esp": "ESP"}
 
 static var _uid := 1
@@ -29,8 +29,14 @@ static func novo(id: String, qtd: int = 1) -> Dictionary:
 	if it["raridade"] == "unico": it["raridade"] = "lendario"
 	return it
 
+## Ocupação na mochila por tipo (0.9.8): cada lugar tem o seu tamanho, para o ícone não ficar pequeno.
 static func grade(it: Dictionary) -> Vector2i:
-	var g = defn(it["id"]).get("grade", [1, 1])
+	var d := defn(it["id"])
+	match slot_de(it):
+		"arma": return Vector2i(2, 4) if int(d.get("maos", 1)) == 2 else Vector2i(1, 3)
+		"segunda_mao", "cabeca", "peito", "calcas", "botas", "luvas", "asa": return Vector2i(2, 2)
+		"amuleto", "anel": return Vector2i(1, 1)
+	var g = d.get("grade", [1, 1])
 	return Vector2i(int(g[0]), int(g[1]))
 
 static func nome(it: Dictionary) -> String:
@@ -282,6 +288,40 @@ static func achar_lugar(lista: Array, w: int, h: int, it: Dictionary) -> Vector2
 				if not ok: break
 			if ok: return Vector2i(x, y)
 	return Vector2i(-1, -1)
+
+## Organizar (0.9.8): junta as pilhas, agrupa por tipo e raridade e refaz a grade. Devolve a lista nova (cópia),
+## ou [] se não coubesse tudo: nesse caso a mochila fica como estava.
+const ORDEM_TIPO := ["arma", "segunda_mao", "cabeca", "peito", "calcas", "luvas", "botas", "asa", "amuleto", "anel",
+	"consumivel", "material", "joia", "leitura", "chave", "montaria", "bau", "missao"]
+const ORDEM_RARIDADE := ["demiurgico", "lendario", "excelente", "raro", "magico", "comum"]
+
+static func organizar(lista: Array, w: int, h: int) -> Array:
+	var por_id := {}
+	var todas := []
+	for orig in lista:
+		var it: Dictionary = orig.duplicate(true)
+		if pilha(it) > 1 and por_id.has(it["id"]):
+			var base: Dictionary = por_id[it["id"]]
+			var cabe := mini(pilha(it) - int(base["qtd"]), int(it["qtd"]))
+			base["qtd"] = int(base["qtd"]) + cabe
+			it["qtd"] = int(it["qtd"]) - cabe
+			if int(it["qtd"]) <= 0: continue
+		if pilha(it) > 1: por_id[it["id"]] = it
+		todas.append(it)
+	todas.sort_custom(func(a, b): return _chave_ordem(a) < _chave_ordem(b))
+	var out := []
+	for it in todas:
+		var p := achar_lugar(out, w, h, it)
+		if p.x < 0: return []
+		it["x"] = p.x; it["y"] = p.y
+		out.append(it)
+	return out
+
+static func _chave_ordem(it: Dictionary) -> String:
+	var t := slot_de(it) if equipavel(it) else categoria(it)
+	var tipo := ORDEM_TIPO.find(t)
+	var rar := ORDEM_RARIDADE.find(str(it.get("raridade", "comum")))
+	return "%02d%02d%s%08d" % [99 if tipo < 0 else tipo, 99 if rar < 0 else rar, Itens.nome(it), int(it["uid"])]
 
 ## Coloca na lista (empilhando quando dá). Devolve a quantidade que NÃO coube.
 static func guardar(lista: Array, w: int, h: int, it: Dictionary) -> int:
