@@ -106,9 +106,14 @@ static func _kit(e: Ent) -> Array:
 	var k := "kit_" + str(e.aux["kit"])
 	if not _skills_cache.has(k):
 		var lst: Array = []
+		var nivel_forma := 0
 		for h in de(e).get("habilidades", []):
-			if h.get("alterna", false): lst.append(_copia_evo(h, e))
-		for h in de(e).get(k, []): lst.append(_copia_evo(h, e))
+			if h.get("alterna", false):
+				lst.append(_copia_evo(h, e)); nivel_forma = int(h.get("nivel", 0))
+		for h in de(e).get(k, []):
+			var c := _copia_evo(h, e)
+			if not c.has("nivel"): c["nivel"] = nivel_forma   # o kit libera junto com a forma
+			lst.append(c)
 		_skills_cache[k] = lst
 	return _skills_cache[k]
 
