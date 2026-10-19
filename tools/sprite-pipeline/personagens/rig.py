@@ -2,8 +2,11 @@
 # (Skin modifier) pesado automaticamente nos ossos, peças rígidas presas a
 # ossos, materiais "sujos" e um sistema simples de poses por quadro-chave.
 # Eixos: personagem olha para -Y, X é a sua esquerda, Z para cima. Altura ~1,8.
-import bpy, bmesh, math, random
+import os, bpy, bmesh, math, random
 from mathutils import Vector, Quaternion, Matrix
+
+# Orçamento low-poly (ver skills_lib.ORCAMENTO): DP_LOWPOLY=1 corta subdivisão e segmentos.
+LOWPOLY = os.environ.get("DP_LOWPOLY") == "1"
 
 # ---------------------------------------------------------------- materiais
 def mat(name, rgb, metal=0.0, rough=0.6, emit=None, strength=0.0, dirt=0.55, grime=1.0):
@@ -90,6 +93,7 @@ def make_armature(name="rig", wings=False, extra=None):
 # ---------------------------------------------------------------- malhas
 def skin_mesh(name, joints, edges, m, levels=2):
     """joints: {nome: (x,y,z,raio) ou (x,y,z,rx,ry)}. Gera malha orgânica e aplica modificadores."""
+    levels = 1 if LOWPOLY else levels
     keys = list(joints)
     me = bpy.data.meshes.new(name + "_src")
     me.from_pydata([joints[k][:3] for k in keys], [(keys.index(a), keys.index(b)) for a, b in edges], [])
@@ -134,6 +138,7 @@ def skirt(name, m, rings, open_front=0.0, seg=64, jag=0.0, seed=1, thick=.012, f
     rnd = random.Random(seed); bm = bmesh.new()
     a0 = -math.pi/2 + open_front; a1 = 3*math.pi/2 - open_front  # frente é -Y
     closed = open_front <= 0
+    seg = min(seg, 20) if LOWPOLY else seg
     n = seg if closed else seg + 1
     grid = []
     for ri, (z, rx, ry, yo) in enumerate(rings):
@@ -161,7 +166,12 @@ def skirt(name, m, rings, open_front=0.0, seg=64, jag=0.0, seed=1, thick=.012, f
         for p in me.polygons: p.use_smooth = True
     return o
 
+LOW_SEG = {"primitive_uv_sphere_add": dict(segments=8, ring_count=6), "primitive_cylinder_add": dict(vertices=8),
+           "primitive_cone_add": dict(vertices=8), "primitive_torus_add": dict(major_segments=16, minor_segments=4)}
+
 def prim(op, m, loc, scale=(1,1,1), rot=(0,0,0), smooth=True, **kw):
+    if LOWPOLY:
+        for k, v in LOW_SEG.get(op, {}).items(): kw[k] = min(kw.get(k, v), v)
     getattr(bpy.ops.mesh, op)(location=loc, rotation=[math.radians(r) for r in rot], **kw)
     o = bpy.context.object; o.scale = scale; o.data.materials.append(m)
     if smooth:
@@ -171,6 +181,8 @@ def prim(op, m, loc, scale=(1,1,1), rot=(0,0,0), smooth=True, **kw):
 def along(op, m, a, b, r, **kw):
     """Peça cilíndrica/cônica do ponto a ao ponto b."""
     a, b = Vector(a), Vector(b); d = b - a
+    if LOWPOLY:
+        for k, v in LOW_SEG.get(op, {}).items(): kw[k] = min(kw.get(k, v), v)
     getattr(bpy.ops.mesh, op)(location=(a+b)/2, **kw)
     o = bpy.context.object; o.rotation_euler = d.to_track_quat('Z','Y').to_euler()
     o.scale = (r, r, d.length/2); o.data.materials.append(m)

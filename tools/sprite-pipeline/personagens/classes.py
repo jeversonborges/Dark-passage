@@ -3,6 +3,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 from rig import *
+from rig import LOWPOLY
 
 def J():
     j = {k: P(k) for k in BONES}
@@ -253,7 +254,7 @@ def anjo():
 # ====================================================================== HUMANO
 def hat_brim(m, z, r0=.1, r1=.27, curl=.09, dip=.03, seed=7):
     """Aba de chapéu de cowboy gasta: laterais viradas para cima, frente e trás caídas, borda irregular."""
-    rnd = random.Random(seed); bm = bmesh.new(); seg = 40; rings = 5; grid = []
+    rnd = random.Random(seed); bm = bmesh.new(); seg = 24 if LOWPOLY else 40; rings = 5; grid = []
     for i in range(rings+1):
         t = i/rings; r = r0 + (r1-r0)*t; row = []
         for k in range(seg):
