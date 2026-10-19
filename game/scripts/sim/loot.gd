@@ -24,13 +24,17 @@ static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, 
 		var f := 1 if tag.ends_with("1") else 2
 		return Itens.gerar_equip(id, sim.rng, minima, f)
 	if tag.begins_with("lendario:"):
+		if sim.rng.randf() >= float(Defs.DROPS["balanco"].get("lendario_chance", 1.0)): return {}
 		var pool: Array = Defs.ITENS_DOC["pools_lendarios"].get(tag, [])
 		if pool.is_empty(): return {}
 		var it := Itens.novo(pool[sim.rng.randi_range(0, pool.size() - 1)])
 		it["raridade"] = "lendario"
 		return it
 	if tag.begins_with("missao:"):
-		return Itens.novo(tag.substr(7))
+		var mid := tag.substr(7)
+		# item de missão vermelho também passa pelo sorteio de vermelho (não cai em todo abate)
+		if str(Defs.ITENS.get(mid, {}).get("raridade", "")) == "lendario" and sim.rng.randf() >= float(Defs.DROPS["balanco"].get("lendario_chance", 1.0)): return {}
+		return Itens.novo(mid)
 	var ids2: Array = Defs.POR_TAG.get(tag, [])
 	if ids2.is_empty(): return {}
 	var it2 := Itens.novo(ids2[sim.rng.randi_range(0, ids2.size() - 1)])

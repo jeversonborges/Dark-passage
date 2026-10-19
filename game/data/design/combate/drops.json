@@ -1637,7 +1637,9 @@
       "chefe_top": 0.3,
       "nivel_chefe_top": 45,
       "_doc": "chefe_top = chefe de nível igual ou acima de nivel_chefe_top (a Egito e o Gadiro)."
-    }
+    },
+    "lendario_chance": 0.05,
+    "_lendario_chance_doc": "Chance de um vermelho (lendario/Reliquia) sair quando a tabela pede um (rolagem lendario:, garantido ou missao de item vermelho). Sem isso, chefe e bau davam vermelho todo abate."
   },
   "materiais_asa": {
     "_doc": "Rolagem pessoal por abate, fora da tabela do mob. Chance pela tag do mob (vale a maior). Mesmos multiplicadores das lágrimas.",
