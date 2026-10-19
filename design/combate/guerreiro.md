@@ -24,11 +24,11 @@
 |---|---|---|---|---|---|
 | 1 | Corte do Recruta | Ativa | 10 | 3 s | Ataque físico em alvo único, mais forte que o básico (1,6x) |
 | 1 | Determinação do Recruta | Passiva | — | — | +8% HP máximo e +5% ataque físico, permanente |
-| 3 | Varredura de Aço | Área | 12 | 2 s | Giro de 360º em volta do guerreiro (estilo hack and slash), 0,9x em todos num raio de 5 tiles |
+| 3 | Varredura de Aço | Área | 12 | 2 s | O guerreiro ajoelha e a espada faz um giro de 360º em volta dele (hack and slash), 0,9x em todos num raio de 5 tiles |
 | 6 | Guarda Firme | Buff | 15 | 20 s | +30% defesa física por 8 s (em si) |
 | 9 | Quebra-Guarda | Debuff | 15 | 15 s | Alvo perde 25% de defesa física por 6 s (0,8x de dano) |
 
-**Visual da Varredura:** giro completo do corpo com a espada passando por todos os ângulos e um rastro luminoso fechando o círculo. Referência do Jefin em `design/arte/skills/rodar_espada_ref/` (GIF e JPG). Mesmo tratamento para o Redemoinho de Aço do Warlord e para futuras skills de rodopio.
+**Visual da Varredura:** o personagem ajoelha (pose agachada curta) e só a espada faz o giro de 360º em volta dele, com rastro luminoso fechando o círculo. A camada do corpo não gira. Referência do Jefin em `design/arte/skills/rodar_espada_ref/` (GIF e JPG). Mesmo tratamento para o Redemoinho de Aço do Warlord e para futuras skills de rodopio.
 
 **Obs.:** os níveis de desbloqueio (1, 1, 3, 6, 9) são escolha minha, seguindo a escala do Anjo e do Demônio. Os tempos de recarga e duração são os do kit do Jefin.
 
