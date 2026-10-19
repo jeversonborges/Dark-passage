@@ -70,6 +70,15 @@
     "nivel_mob": 300
    }
   ],
+  "farm": {
+   "_doc": "Jefin 18/10: depois da entrada, contagem de 3 min na tela de todos; depois os Vigilantes surgem como spot de farm por 10 min (sem PvP, mesmo lado); os anjos dão 3x o XP de um mob do mesmo nível e 0,5% de baú dourado; ao fim, todos contra todos",
+   "contagem_s": 180,
+   "dur_s": 600,
+   "xp_mult": 3.0,
+   "bau": {"item": "bau_dourado", "chance": 0.005},
+   "reposicao_s": 14,
+   "max_vivos": 30
+  },
   "espera": {
    "_doc": "durante os 5 min de entrada: quem já subiu espera no cume; sem PvP, Vigilantes ajoelhados (estátuas, não atacam nem são atacados)",
    "pvp": false,
@@ -184,6 +193,7 @@
   },
   "falas": {
    "abriu": "O Hermon chama. Rompa o lacre do Convite dos Vigilantes para subir. (5 min)",
+   "comecou_farm": "Os Vigilantes se levantam. Cacem enquanto o cume aguenta.",
    "fechou": "Os duzentos se ajoelham. O juramento começa.",
    "comecou": "\"Que o fim fique onde está.\" Sobreviva ao juramento.",
    "aviso_anel": "O cume racha: a borda cai em 20 segundos.",

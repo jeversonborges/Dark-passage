@@ -1036,6 +1036,7 @@ func matar(e: Ent, assassino: Ent) -> void:
 				if j.aux.get("agrak_espectador", false): continue   # Agrak: quem já caiu só assiste, sem XP nem loot
 				Jogador.abateu(self, j, e)
 				Loot.dropar_mob(self, e, j)
+				if hermon != null and e.aux.get("vigilante", false): hermon.rolar_bau(j)
 		if e.spawn_ref >= 0 and e.spawn_ref < spawns.size():
 			var g: Dictionary = spawns[e.spawn_ref]
 			g["ents"].erase(e.id)

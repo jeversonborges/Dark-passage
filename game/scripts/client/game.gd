@@ -650,6 +650,7 @@ func _ev(tipo: String, d: Dictionary) -> void:
 			if v and float(d.get("valor", 0)) >= 1.0 and not d.get("silencioso", false):
 				fx.numero(v.position + Vector2(0, -v.altura_px), int(d["valor"]), "cura", v.id)
 		"morreu": _morreu(d)
+		"hermon": _hermon_fase(d)
 		"hermon_aviso": _hermon_aviso(str(d["anel"]))
 		"hermon_anel_caiu": _hermon_caiu(str(d["anel"]))
 		"hermon_queda":
@@ -1715,6 +1716,16 @@ static func carregar_save() -> Dictionary:
 	return d if d is Dictionary else {}
 
 # =================================================================== cume do Hermon (evento O Cume dos Vigilantes)
+## Fases do cume na tela de todos: contagem de 3 min (um aviso por segundo), spot de farm e juramento.
+func _hermon_fase(d: Dictionary) -> void:
+	match str(d.get("fase", "")):
+		"contagem":
+			hud.banner_mostrar("Os Vigilantes despertam", "em %d s" % int(d.get("resta", 0)))
+		"farm":
+			hud.banner_mostrar("O cume é de vocês", str(d.get("texto", "")))
+		"juramento":
+			hud.banner_mostrar("Todos contra todos", "O último de pé vence")
+
 ## Aviso: as fendas do anel acendem na luz do juramento e pulsam; a terra treme.
 func _hermon_aviso(anel: String) -> void:
 	for s: Sprite2D in rachas.get(anel, []):
