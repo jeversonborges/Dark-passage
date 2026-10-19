@@ -80,6 +80,7 @@ var ia_t := 0.0
 var aux := {}             # memória livre da IA / chefe
 var dono := -1            # invocações
 var lado_forcado := ""      # Arena do Agrak: "agrak" ou "g_<id>" (vazio = lado normal)
+var pvp_t := 0.0            # PvP livre (0.9.8.2): s que este jogador ainda está marcado por ter batido em outro jogador
 var dura_t := -1.0
 var alvo := -1
 
@@ -132,6 +133,9 @@ func mod(chave: String) -> float:
 
 func eh_inimigo_de(o: Ent) -> bool:
 	if o == null or o == self: return false
+	# jogador contra jogador só com PvP livre ligado (CTRL ou marcado por 10 s, Jogador.pvp_ctrl); facção diferente
+	if tipo == "jogador" and o.tipo == "jogador" and lado_forcado == "" and o.lado_forcado == "":
+		return faccao != o.faccao and (pvp_t > 0.0 or o.pvp_t > 0.0)
 	var a := lado()
 	var b := o.lado()
 	return a != b and a != "neutro" and b != "neutro"

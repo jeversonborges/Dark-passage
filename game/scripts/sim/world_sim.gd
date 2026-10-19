@@ -447,6 +447,7 @@ func _passo_ent(e: Ent, dt: float) -> void:
 		e.hitstop -= dt
 		return
 	e.em_combate_t += dt
+	if e.pvp_t > 0.0: e.pvp_t = 0.0 if mapa_id == Jogador.PVP_MAPA_PROIBIDO else e.pvp_t - dt   # PvP livre: 10 s depois do último golpe
 	if e.imune_t > 0.0: e.imune_t -= dt
 	if e.invuln_t > 0.0: e.invuln_t -= dt
 	if e.escudo_t > 0.0:
@@ -845,6 +846,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 		emitir("dano", {"id": alvo.id, "de": atk.id, "valor": 0, "estilo": "errou"})
 		if r.get("bloqueio", false): Evolucao.bloqueou(self, alvo, atk)
 		return r
+	if atk.tipo == "jogador" and alvo.tipo == "jogador": atk.pvp_t = Jogador.PVP_FLAG_S   # quem bate em jogador fica marcado (PvP livre)
 	if atk.tipo == "jogador": _efeitos_de_item(atk, alvo)   # gelo e invocação de Relíquia (18/10)
 	var dano: int = r["dano"]
 	if alvo.tipo == "jogador" and atk.tipo == "monstro": dano = maxi(1, roundi(dano * fator_novato(alvo)))
@@ -1048,7 +1050,7 @@ func matar(e: Ent, assassino: Ent) -> void:
 	emitir("morreu", {"id": e.id, "de": assassino.id if assassino else -1, "tipo": e.tipo, "chefe": e.tipo == "chefe"})
 	if hermon != null and hermon.ao_morrer(e, assassino): return   # morte no evento: sem penalidade, volta para casa
 	if e.tipo == "jogador":
-		Jogador.morreu(self, e)
+		Jogador.morreu(self, e, assassino)
 		return
 	var killer := assassino
 	if killer != null and killer.tipo == "invocacao": killer = ents.get(killer.dono)

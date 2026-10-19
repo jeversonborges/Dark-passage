@@ -551,9 +551,11 @@ static func cmd_mover(sim: WorldSim, e: Ent, p: Vector2) -> void:
 	if not e.acao.is_empty() and e.acao["fase"] == "rec": e.acao = {}
 	sim.ir_para(e, p)
 
-static func cmd_atacar(sim: WorldSim, e: Ent, alvo_id: int) -> void:
+static func cmd_atacar(sim: WorldSim, e: Ent, alvo_id: int, ctrl := false) -> void:
 	var al := sim.valido(alvo_id)
-	if al == null or not e.vivo or not e.eh_inimigo_de(al): return
+	if al == null or not e.vivo: return
+	if ctrl: pvp_ctrl(sim, e, al)
+	if not e.eh_inimigo_de(al): return
 	desligar_auto(sim, e)
 	e.aux.erase("interagir"); e.aux.erase("pegar")
 	if not e.interagindo.is_empty(): cancelar_canal(sim, e)
@@ -582,8 +584,9 @@ static func cmd_ponto(sim: WorldSim, e: Ent, stat: String, qtd: int = 1) -> void
 	Regras.recalc_jogador(e)
 	sim.emitir_a(e, "stats", {"id": e.id})
 
-static func cmd_skill(sim: WorldSim, e: Ent, slot: int, alvo: int, ponto: Vector2) -> void:
+static func cmd_skill(sim: WorldSim, e: Ent, slot: int, alvo: int, ponto: Vector2, ctrl := false) -> void:
 	if not e.vivo: return
+	if ctrl: pvp_ctrl(sim, e, sim.valido(alvo))
 	if not _tentar_skill(sim, e, slot, alvo, ponto, false):
 		pass
 
@@ -851,15 +854,54 @@ static func ganhar_xp(sim: WorldSim, e: Ent, q: int, fonte: String = "") -> void
 		sim.emitir("nivel", {"id": e.id, "nivel": e.nivel, "skill_nova": nova})   # o cliente abre os cards da evolução ao ver o nível 30
 		if e.nivel % TALENTO_NIVEIS == 0: sim.emitir_a(e, "aviso", {"texto": "Ponto de talento novo! Aperte T para usar."})
 
+# =================================================================== PvP livre (0.9.8.2)
+const PVP_FLAG_S := 10.0          ## segundos marcado depois de bater num jogador (refresca a cada golpe)
+const PVP_PERDA_FRAC := 0.15      ## morte para outro jogador: essa fração dos itens cai no chão
+const PVP_MAPA_PROIBIDO := "area_inicial"   ## Cidade de São Lázaro: CTRL em jogador é ignorado
+
+## CTRL + ataque ou skill num jogador: liga o PvP livre (qualquer lugar, menos a Cidade). Quem bate fica marcado (aplicar_golpe).
+static func pvp_ctrl(sim: WorldSim, e: Ent, al: Ent) -> void:
+	if al == null or al.tipo != "jogador" or al == e or not al.vivo or not e.vivo: return
+	if sim.mapa_id == PVP_MAPA_PROIBIDO or e.faccao == al.faccao: return
+	if e.lado_forcado != "" or al.lado_forcado != "": return   # Hermon e Agrak têm regra própria
+	e.pvp_t = PVP_FLAG_S
+
+## Morte para outro jogador (não para mob, nem em evento): 15% dos itens, sorteados entre equipados e mochila, caem no chão.
+## Item de missão e vinculado não saem (mesma regra do soltar).
+static func _perder_itens_pvp(sim: WorldSim, e: Ent, k: Ent) -> void:
+	var pool: Array = []   # {slot, it}: slot "" = mochila
+	for slot in e.equip.keys():
+		var eq: Dictionary = e.equip[slot]
+		if Itens.categoria(eq) != "missao" and not Itens.vinculado(eq): pool.append({"slot": slot, "it": eq})
+	for it in e.inv:
+		if Itens.categoria(it) != "missao" and not Itens.vinculado(it): pool.append({"slot": "", "it": it})
+	if pool.is_empty(): return
+	var n := ceili(pool.size() * PVP_PERDA_FRAC)
+	var tirou_equip := false
+	for i in n:
+		var p: Dictionary = pool.pop_at(sim.rng.randi_range(0, pool.size() - 1))
+		var it: Dictionary = p["it"]
+		if p["slot"] == "": e.inv.erase(it)
+		else: e.equip.erase(p["slot"]); tirou_equip = true
+		var cid := sim.soltar_no_chao(it, e.pos, k.id, e.pos)
+		sim.chao[cid]["jogado_fora"] = true   # o pet coletor não pega de volta o que caiu numa briga
+	if tirou_equip: Regras.recalc_jogador(e)
+	sim.emitir_a(e, "aviso", {"texto": "%s tirou %d itens de você." % [k.nome, n]})
+	sim.emitir_a(k, "aviso", {"texto": "Você tirou %d itens de %s." % [n, e.nome]})
+	sim.emitir_a(e, "inventario", {}); sim.emitir_a(e, "stats", {"id": e.id})
+
 # =================================================================== morte
-static func morreu(sim: WorldSim, e: Ent) -> void:
+static func morreu(sim: WorldSim, e: Ent, assassino: Ent = null) -> void:
 	var perda := 0
 	if e.nivel > int(Defs.FORM["morte"]["sem_perda_ate_nivel"]):
 		perda = int(Defs.xp_para_proximo(e.nivel) * float(Defs.FORM["morte"]["perda_xp_frac_do_nivel"]) * (1.0 - float(e.aux.get("bonus", {}).get("perda_xp_menos", 0.0))))
 		e.xp = maxi(0, e.xp - perda)
 	e.renascer_t = float(Defs.FORM["morte"]["tempo_para_renascer_s"])
-	e.alvo = -1; e.buffer_skill = {}; e.interagindo = {}
+	e.alvo = -1; e.buffer_skill = {}; e.interagindo = {}; e.pvp_t = 0.0
 	desligar_auto(sim, e)
+	var k: Ent = assassino
+	if k != null and k.tipo == "invocacao": k = sim.ents.get(k.dono)
+	if k != null and k.tipo == "jogador" and k != e and e.lado_forcado == "": _perder_itens_pvp(sim, e, k)
 	sim.emitir_a(e, "jogador_morreu", {"perda": perda, "t": e.renascer_t})
 	if sim.chefe != null: sim.chefe.jogador_morreu()
 
