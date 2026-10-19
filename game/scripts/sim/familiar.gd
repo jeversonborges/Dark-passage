@@ -129,7 +129,7 @@ static func passo(sim: WorldSim, fam: Ent, dt: float) -> void:
 	_sincronizar(fam, dono)
 	var f := forma_para(dono.nivel)
 	if not f.is_empty() and f["id"] != fam.kind:
-		_evoluir(fam, dono, f); return
+		_evoluir(sim, fam, dono, f); return
 	var d := fam.pos.distance_to(dono.pos)
 	if d > SEGUE_MAX:
 		fam.pos = sim.celula_livre_perto(dono.pos + Vector2(-1.2, 0.6)); fam.caminho.clear(); return
@@ -196,8 +196,9 @@ static func _respingo(sim: WorldSim, fam: Ent, alvo: Ent) -> void:
 		sim.aplicar_golpe(fam, o, {"mult": 1.0, "nunca_erra": true})
 
 ## Troca de forma: casulo de 2 s em que o familiar fica invulnerável, e sai com vida cheia.
-static func _evoluir(fam: Ent, dono: Ent, f: Dictionary) -> void:
+static func _evoluir(sim: WorldSim, fam: Ent, dono: Ent, f: Dictionary) -> void:
 	_aplicar_forma(fam, dono, f, true)
+	sim.emitir("visual", {"id": fam.id, "kind": fam.kind})   # o cliente troca o desenho (sem isso o pet fica com a forma antiga na tela)
 	fam.invuln_t = 2.0   # casulo de 2 s
 	fam.caminho.clear()
 
@@ -252,6 +253,7 @@ static func renascer(sim: WorldSim, fam: Ent) -> void:
 	fam.pos = sim.celula_livre_perto(dono.pos + Vector2(-1.2, 0.6)); fam.casa = fam.pos
 	fam.caminho.clear(); fam.alvo = -1
 	_aplicar_forma(fam, dono, forma_para(dono.nivel), true)
+	sim.emitir("visual", {"id": fam.id, "kind": fam.kind})   # o dono pode ter subido de nível enquanto o pet estava morto
 	fam.invuln_t = 0.0
 	fam.aux.erase("ordem_alvo"); fam.aux.erase("ultimo_agressor")
 	sim.emitir("reviveu", {"id": fam.id})   # o cliente tira a view do estado de morto (antes só voltava trocando de área)
