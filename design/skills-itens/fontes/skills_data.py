@@ -70,7 +70,7 @@ sk(id="cultista_familiar_pacto", classe="cultista", nome="Pacto do Familiar", ti
    custo=0, recarga=0, conjuracao=0.0, alcance=0, area=0, duracao=0, elemento="fogo", escala=["ESP","VIT"],
    racial=True, slot=None,
    efeitos=["familiar demoníaco permanente que anda com o Cultista", "ataca quem bater no mestre; nunca puxa briga sozinho",
-            "racial: não ocupa slot de skill nem tecla", "muito resistente (3x vida e defesa) e cura 10% do dano que o mestre causa", "se morrer, volta sozinho em 30 s",
+            "racial: não ocupa slot de skill nem tecla", "muito resistente (3x vida e defesa) e cura o Cultista em 10% do dano que ele causa", "se morrer, volta sozinho em 30 s",
             "barra do pet: Atacar, Proteger, Teleportar, Modo agressivo, Modo passivo",
             "é dano (DPS): todas as formas batem em área",
             "evolui com o nível do mestre: Diabrete de Fuligem (1), Algoz de Enxofre (6), Tirano da Fornalha (16), Líder dos Demônios (60)"],

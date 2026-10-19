@@ -113,12 +113,12 @@ static func comando(sim: WorldSim, dono: Ent, acao: String) -> void:
 		fam.aux["ordem_alvo"] = a.id
 		fam.alvo = a.id
 
-## 10% do dano que o dono causa cura o familiar (Jefin, 2026-10-17). Chamado pelo world_sim nos golpes e no dano por tempo.
+## 10% do dano que o Cultista causa volta para ele como cura (sustain do dono, 0.9.4; antes curava o familiar).
+## Chamado pelo world_sim nos golpes e no dano por tempo.
 static func ao_dono_bater(sim: WorldSim, dono: Ent, dano: float) -> void:
 	if dono.classe != "cultista" or dano <= 0.0: return
-	var fam := de(sim, dono)
-	if fam == null or fam.hp >= fam.hp_max: return
-	sim.curar(fam, dano * float(dados().get("cura_por_dano_do_dono", 0.10)), dono, true)
+	if dono.hp >= dono.hp_max: return
+	sim.curar(dono, dano * float(dados().get("cura_por_dano_do_dono", 0.10)), dono, true)
 
 ## Passo do familiar (chamado pelo world_sim para invocações com aux["familiar"]).
 static func passo(sim: WorldSim, fam: Ent, dt: float) -> void:
