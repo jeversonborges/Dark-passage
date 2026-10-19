@@ -36,6 +36,7 @@ var _poder_cache := -1
 var _poder_flash := {}        # {v, t}: número que sobe da placa quando o Poder muda
 var _poder_visto := -1
 var _grade_mochila: Control
+var _slots_equip: Array = []   # slots do boneco, para redesenhar quando o pet do vendedor muda
 var _ponto_qtd: LineEdit       # pontos a aplicar de uma vez (campo numérico, ao lado do botão +1 clássico)
 var _ponto_stat: OptionButton  # atributo que recebe os pontos digitados
 
@@ -738,7 +739,10 @@ func abrir_inventario() -> void:
 	var eq := Desenho.new()
 	eq.custom_minimum_size = AREA_EQUIP
 	eq.desenhar = _desenhar_boneco
-	for slot in POS_EQUIP: eq.add_child(_slot_equip(slot))
+	_slots_equip.clear()
+	for slot in POS_EQUIP:
+		var s := _slot_equip(slot)
+		_slots_equip.append(s); eq.add_child(s)
 	c.add_child(eq)
 	# atributos
 	var at := GridContainer.new(); at.columns = 4; at.name = "Atributos"
@@ -1907,6 +1911,8 @@ func _abrir_coletor(d: Dictionary) -> void:
 	abrir_inventario()
 
 func coletor_mudou() -> void:
+	for s in _slots_equip:
+		if is_instance_valid(s): s.queue_redraw()
 	if aberta("servico") and servico_d.get("tipo") == "coletor": _corpo_coletor()
 
 func _corpo_coletor() -> void:
