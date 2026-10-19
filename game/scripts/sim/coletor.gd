@@ -149,8 +149,7 @@ static func _proximo(sim: WorldSim, dono: Ent, pet: Ent) -> Dictionary:
 
 static func _cabe(dono: Ent, it: Dictionary) -> bool:
 	if it["id"] == "_ouro": return true
-	if Itens.pilha(it) > 1 and dono.inv.any(func(o): return o["id"] == it["id"]): return true
-	return Itens.achar_lugar(dono.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it).x >= 0
+	return Itens.cabe_inteiro(dono.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it)
 
 static func _pegar(sim: WorldSim, dono: Ent, id: int) -> void:
 	var c: Dictionary = sim.chao.get(id, {})

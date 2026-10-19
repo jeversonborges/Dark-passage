@@ -414,8 +414,7 @@ static func _drop_para_juntar(sim: WorldSim, e: Ent, centro: Vector2, raio: floa
 			if modo == "joias" and not it["id"] in Defs.POR_TAG.get("joia:refino", []): continue
 			if modo == "baus" and it["id"] != "bau_dourado": continue
 			if modo == "bons" and str(it.get("raridade", "comum")) == "comum" and not it["id"] in POCOES_VIDA + POCOES_RECURSO: continue
-			var empilha := Itens.pilha(it) > 1 and e.inv.any(func(o): return o["id"] == it["id"])
-			if not empilha and Itens.achar_lugar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it).x < 0:
+			if not Itens.cabe_inteiro(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it):
 				nao_cabe.append(c["id"]); e.aux["auto_nao_cabe"] = nao_cabe
 				sim.emitir_a(e, "aviso", {"texto": "Mochila cheia: o automático parou de juntar itens."})
 				continue
@@ -1055,9 +1054,7 @@ static func pegar_chao(sim: WorldSim, e: Ent, id: int) -> void:
 	if c["dono"] != e.id and c["t"] < float(Defs.DROPS["regras"]["dono_do_drop_s"]): return
 	var it: Dictionary = c["item"]
 	if it["id"] != "_ouro":
-		var p := Itens.achar_lugar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it)
-		var empilha := Itens.pilha(it) > 1 and e.inv.any(func(o): return o["id"] == it["id"])
-		if p.x < 0 and not empilha and not (e.classe == "humano" and Defs.ITENS.get(it["id"], {}).get("efeito") is Dictionary and Defs.ITENS[it["id"]]["efeito"].has("municao")):
+		if not Itens.cabe_inteiro(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it) and not (e.classe == "humano" and Defs.ITENS.get(it["id"], {}).get("efeito") is Dictionary and Defs.ITENS[it["id"]]["efeito"].has("municao")):
 			sim.emitir_a(e, "aviso", {"texto": "Mochila cheia."}); return
 	sim.chao.erase(id)
 	sim.emitir("chao_sumiu", {"id": id, "pego": true, "por": e.id})

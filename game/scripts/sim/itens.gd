@@ -345,6 +345,11 @@ static func _chave_ordem(it: Dictionary) -> String:
 static func _rank_raridade(r: String) -> int:
 	return maxi(0, Defs.DROPS["raridades"].keys().find(r))
 
+## true se o item inteiro entra na lista (mesma conta do guardar, sem mexer na lista).
+## Pilha cheia não conta como espaço: quem decide se pega precisa usar esta função, senão o item volta ao chão.
+static func cabe_inteiro(lista: Array, w: int, h: int, it: Dictionary) -> bool:
+	return guardar(lista.duplicate(true), w, h, it.duplicate(true)) == 0
+
 ## Coloca na lista (empilhando quando dá). Devolve a quantidade que NÃO coube.
 static func guardar(lista: Array, w: int, h: int, it: Dictionary) -> int:
 	var mx := pilha(it)
