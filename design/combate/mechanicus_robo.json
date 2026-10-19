@@ -1,0 +1,58 @@
+{
+ "_doc": "Ultimate do Mechanicus (evolução do Tecnomancer, nível 30). Números PROVISÓRIOS. Design em design/combate/mechanicus_robo.md. Fase 2 (modelo 3D) aguarda aprovação do Jefin.",
+ "classe": "mechanicus",
+ "evolui_de": "tecnomancer",
+ "nivel_evolucao": 30,
+ "habilidades": [
+  {
+   "id": "mechanicus_juizo_de_ferro",
+   "nome": "Juízo de Ferro",
+   "nivel": 30,
+   "tipo": "suprema",
+   "custo": 60,
+   "recurso": "Carga",
+   "recarga": 120.0,
+   "duracao": 30.0,
+   "max": 1,
+   "invoca": "robo_juizo_de_ferro",
+   "invocacao": {
+    "altura_tiles": 4,
+    "hp_base": 1800,
+    "hp_por_nivel": 40,
+    "regen": 0,
+    "distancia_seguir_tiles": 2,
+    "alcance_ataque_tiles": 8,
+    "ataques": [
+     {
+      "id": "canhao_ferrugem",
+      "mult": 2.4,
+      "escala": "ESP",
+      "intervalo": 3.0,
+      "splash_raio": 1.5,
+      "elemento": "fisico"
+     },
+     {
+      "id": "descarga_visor",
+      "mult": 1.1,
+      "intervalo": 5.0,
+      "forma": "cone_frente",
+      "elemento": "eletrico"
+     }
+    ],
+    "pisao": {
+     "a_cada_passos": 4,
+     "raio_tiles": 2.0,
+     "mult": 0.9,
+     "chance_atordoar": 0.2,
+     "atordoar_s": 0.5,
+     "elemento": "fisico"
+    },
+    "aggro": "nao puxa mobs fora de combate"
+   },
+   "area_segura": "nao invoca",
+   "sensacao": "invocacao",
+   "fx": "fumaca dos exaustores, luz vermelha nos olhos, faiscas nas juntas, poeira e estilhaco nos pisoes, tremor leve de tela",
+   "som": "pisada metalica grave, zumbido eletrico baixo, chiado de valvula, voz robotica curta no inicio e no fim"
+  }
+ ]
+}
