@@ -1511,6 +1511,7 @@ func _abrir_armazem(d: Dictionary) -> void:
 	livre.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	rod.add_child(livre)
 	rod.add_child(_botao_menu("Guardar materiais", _guardar_materiais))
+	rod.add_child(_botao_menu("Organizar", func(): game.cmd("organizar", ["armazem"])))
 	c.add_child(rod)
 	_atualizar_arca()
 	abrir_inventario()

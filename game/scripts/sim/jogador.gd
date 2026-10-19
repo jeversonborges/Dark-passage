@@ -1276,11 +1276,15 @@ static func comprar(sim: WorldSim, e: Ent, id: String, qtd: int = 1) -> void:
 	sim.emitir_a(e, "ouro", {"valor": -p})
 
 ## Organizar a mochila (0.9.8): junta pilhas e refaz a grade por tipo. Se não coubesse tudo, não mexe em nada.
-static func organizar(sim: WorldSim, e: Ent) -> void:
-	var nova := Itens.organizar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H)
-	if nova.is_empty() and not e.inv.is_empty():
-		sim.emitir_a(e, "aviso", {"texto": "Não coube tudo na grade; a mochila ficou como estava."}); return
-	e.inv.clear(); e.inv.append_array(nova)
+## `onde` é "mochila" ou "armazem" (o baú do Armazém tem a mesma grade e a mesma ocupação por tipo).
+static func organizar(sim: WorldSim, e: Ent, onde: String = "mochila") -> void:
+	var lista: Array = e.armazem if onde == "armazem" else e.inv
+	var W := Itens.ARMAZEM_W if onde == "armazem" else Itens.MOCHILA_W
+	var H := Itens.ARMAZEM_H if onde == "armazem" else Itens.MOCHILA_H
+	var nova := Itens.organizar(lista, W, H)
+	if nova.is_empty() and not lista.is_empty():
+		sim.emitir_a(e, "aviso", {"texto": "Não coube tudo na grade; ficou como estava."}); return
+	lista.clear(); lista.append_array(nova)
 	sim.emitir_a(e, "inventario", {})
 
 ## Vende de uma vez as peças das raridades marcadas (só no vendedor; vinculado e missão ficam).

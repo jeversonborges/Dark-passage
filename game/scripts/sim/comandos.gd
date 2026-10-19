@@ -49,7 +49,7 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 		"vender_lixo":
 			if a.size() > 0 and a[0] is Array: Jogador.vender_lixo(sim, e, a[0])
 		"organizar":
-			Jogador.organizar(sim, e)
+			Jogador.organizar(sim, e, "armazem" if a.size() > 0 and a[0] == "armazem" else "mochila")
 		"refinar":
 			if _int(a, 0) and _str(a, 1): Jogador.refinar(sim, e, a[0], a[1])
 		"redistribuir":
