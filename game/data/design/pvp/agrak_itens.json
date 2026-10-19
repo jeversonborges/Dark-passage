@@ -301,7 +301,13 @@
     "agrak_arma_demonio",
     "agrak_arma_humano",
     "agrak_arma_mutante",
-    "agrak_arma_tecnomancer"
+    "agrak_arma_tecnomancer",
+    "arma_pvp_anjo",
+    "arma_pvp_cultista",
+    "arma_pvp_humano",
+    "arma_pvp_demonio",
+    "arma_pvp_warlord",
+    "arma_pvp_mutante"
    ]
   }
  ]

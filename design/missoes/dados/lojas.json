@@ -163,6 +163,25 @@
         "arma_pvp_warlord"
       ],
       "fala_ao_abrir": "Sangue não tem preço. Tem ficha."
+    },
+    {
+      "id": "loja_sariel",
+      "npc": "sariel_porta",
+      "nome": "Porta Dourada: Armas de Arena",
+      "moeda": "ficha_sangue",
+      "precos": {
+        "armadura": 5,
+        "arma": 10
+      },
+      "itens": [
+        "arma_pvp_anjo",
+        "arma_pvp_cultista",
+        "arma_pvp_humano",
+        "arma_pvp_demonio",
+        "arma_pvp_warlord",
+        "arma_pvp_mutante"
+      ],
+      "fala_ao_abrir": "A porta não abre para quem sangra à toa. Fichas, e você entra."
     }
   ],
   "ferreiros": [

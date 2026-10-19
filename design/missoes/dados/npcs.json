@@ -244,7 +244,9 @@
         "subzona": "jerusalem",
         "ponto": "porta_dourada"
       },
-      "servicos": [],
+      "servicos": [
+        "loja"
+      ],
       "dialogo": "dlg_sariel_porta",
       "aparencia": "Anjo alta e magra, sobretudo de couro preto com fivelas de ouro velho, uma asa inteira e a outra substituída por uma armação de latão e lona. Máscara de gás pendurada no pescoço. Uma brasa pequena acesa no olho esquerdo, o único ponto que brilha.",
       "personalidade": "Seca, leal ao Coro até onde o Coro é leal ao fim. Conta tudo: dentes, riscos, mortos. Não gosta de rezar em voz alta.",
@@ -253,7 +255,8 @@
         "Mais um risco no batente.",
         "A porta está aberta. O fim é que não entra.",
         "Conte seus mortos. Ninguém vai contar por você."
-      ]
+      ],
+      "loja": "loja_sariel"
     },
     {
       "id": "hulda_escada",

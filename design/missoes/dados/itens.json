@@ -2138,7 +2138,7 @@
       "classe": [
         "anjo"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
@@ -2160,7 +2160,7 @@
       "classe": [
         "cultista"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
@@ -2182,7 +2182,7 @@
       "classe": [
         "mutante"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
@@ -2204,7 +2204,7 @@
       "classe": [
         "demonio"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
@@ -2226,7 +2226,7 @@
       "classe": [
         "humano"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
@@ -2270,7 +2270,7 @@
       "classe": [
         "warlord"
       ],
-      "raridade": "raro",
+      "raridade": "unico",
       "nivel": 10,
       "atributos": {
         "dano": [
