@@ -90,27 +90,15 @@ func _aviso(peer: int, txt: String, cor := "#ffd9a0") -> void:
 	srv._para(peer, "aviso", {"texto": txt, "cor": cor})
 
 ## Pedido do Cartaz do Agrak ou do diálogo de Caim e Abel (evento "agrak_pedido" do sim).
+## A entrada agora é só pelo Bilhete do Agrak (item, ver servidor.gd); aqui só dá para sair da lista.
 func pedido(peer: int, a: String) -> void:
 	if peer < 0 or not srv.sessoes.has(peer): return
-	var e: Ent = srv.sessoes[peer]["jog"]
-	if e == null: return
 	if a == "sair":
 		if peer in inscritos:
 			inscritos.erase(peer)
-			e.ouro += _custo()
-			_aviso(peer, "Você saiu da lista do Agrak. O ouro voltou.")
+			_aviso(peer, "Você saiu da lista do Agrak. O bilhete continua com você.")
 		return
-	if peer in inscritos:
-		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return
-	if not aberta():
-		_aviso(peer, "A lista do Agrak abre %d minutos antes da luta. Próxima: %s (horário de Brasília)." % [int(cfg.get("inscricao", {}).get("abre_min_antes", 10)), _hora_txt()]); return
-	if e.nivel < _nivel_min():
-		_aviso(peer, "O Agrak só aceita gladiadores do nível %d para cima." % _nivel_min()); return
-	if e.ouro < _custo():
-		_aviso(peer, "A entrada custa %d de ouro." % _custo()); return
-	e.ouro -= _custo()
-	inscritos.append(peer)
-	_aviso(peer, "Seu nome está na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
+	_aviso(peer, "A entrada no Agrak agora é pelo Bilhete do Agrak, vendido pela Sariel e pelo Zaqueu.")
 
 func _falta_txt() -> String:
 	var s := maxi(0, inicio - _agora())
