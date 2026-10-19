@@ -1,8 +1,8 @@
-# Frames do horse_video.mp4
+# Frames de vídeo (não versionados)
 
-Os 588 PNGs (10 fps, 360x640, cerca de 90 MB) não foram versionados, para não pesar o repositório.
-Para gerar de novo, a partir da pasta `referencias/locomocao/`:
+Os frames não entram no repositório, para não pesar. Só vale extrair quando houver um vídeo real de cavalo em locomoção.
+Comando, a partir da pasta `referencias/locomocao/` com o vídeo ao lado:
 
-    mkdir -p video_frames && ffmpeg -i horse_video.mp4 -vf fps=10 video_frames/frame_%04d.png
+    mkdir -p video_frames && ffmpeg -i <video>.mp4 -vf fps=10 video_frames/frame_%04d.png
 
-Nos frames de galope, o intervalo de 100 ms (10 fps) é o usado para comparar quadro a quadro.
+O vídeo enviado em 2026-10-19 é uma escultura de capacete em ZBrush, não um cavalo. Foi removido do repositório e serve só para acabamento de placa de barda.
