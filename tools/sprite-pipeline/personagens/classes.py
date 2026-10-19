@@ -335,7 +335,7 @@ def humano():
             sp.append(along("primitive_cone_add", brass, c_, c_ + Vector((0, .032*math.cos(ang), .032*math.sin(ang))), 1, radius1=.005, radius2=0, vertices=4))
         parts.append(rigid(sp, arm, f"foot.{n}"))
     # cabeça: barba por fazer, lenço contra o pó, cabelo comprido, chapéu de cowboy gasto com óculos
-    hd = [prim("primitive_uv_sphere_add", skin, (0,-.012,1.67), (.08,.09,.105))]
+    hd = [prim("primitive_uv_sphere_add", skin, (0,-.012,1.67), (.088,.1,.116))]
     hd.append(prim("primitive_uv_sphere_add", skin, (0,-.098,1.665), (.013,.015,.022)))
     hd.append(prim("primitive_cube_add", dark, (0,-.094,1.695), (.058,.008,.012)))            # sombra do chapéu nos olhos
     hd.append(prim("primitive_uv_sphere_add", steel, (0,-.035,1.61), (.097,.094,.07)))
