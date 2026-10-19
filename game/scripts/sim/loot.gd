@@ -125,7 +125,10 @@ static func _equip_qualquer(sim: WorldSim, rar: String, nivel_mob: int) -> Dicti
 	var ids := []
 	for i in Defs.ITENS:
 		var d: Dictionary = Defs.ITENS[i]
-		if str(d.get("raridade", "rolada")) != "rolada" or str(d.get("slot", "")) == "" or d.has("variante_de"): continue
+		var fixa := str(d.get("raridade", "rolada")) != "rolada"
+		# raridade fixa (ex.: as espadas roxas) só cai no sorteio roxo e até o nível do mob
+		if fixa and (rar != "excelente" or int(d.get("nivel", 1)) > nivel_mob): continue
+		if str(d.get("slot", "")) == "" or d.has("variante_de"): continue
 		if Itens.vinculado(Itens.novo(i)): continue
 		ids.append(i)
 	if ids.is_empty(): return {}
@@ -136,6 +139,7 @@ static func _equip_qualquer(sim: WorldSim, rar: String, nivel_mob: int) -> Dicti
 	for i in ids:
 		x -= float(Defs.ITENS[i].get("peso_drop", 1.0))
 		if x <= 0.0: id = i; break
+	if str(Defs.ITENS[id].get("raridade", "rolada")) != "rolada": return Itens.novo(id)
 	return Itens.gerar_equip(id, sim.rng, "comum", Itens.faixa(nivel_mob, sim.rng), rar)
 
 static func _mob_comum(e: Ent) -> bool:
