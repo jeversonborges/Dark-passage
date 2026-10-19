@@ -516,7 +516,7 @@
       "arma_de": "anjo:arma_inicial",
       "fonte_numeros": "design/combate/classes_base.json",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -583,7 +583,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -618,7 +618,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -655,7 +655,7 @@
       "arma_de": "cultista:arma_inicial",
       "fonte_numeros": "design/combate/classes_base.json",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -756,7 +756,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -1110,7 +1110,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png",
       "tipos_arma": [
-        "distancia"
+        "fisica"
       ]
     },
     {
@@ -1182,7 +1182,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png",
       "tipos_arma": [
-        "distancia"
+        "fisica"
       ]
     },
     {
@@ -1217,7 +1217,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png",
       "tipos_arma": [
-        "distancia"
+        "fisica"
       ]
     },
     {
@@ -1359,7 +1359,6 @@
       "arma_de": "tecnomancer:arma_inicial",
       "fonte_numeros": "design/combate/classes_base.json",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -1395,8 +1394,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -1431,8 +1429,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "distancia"
       ]
     },
     {
@@ -1467,7 +1464,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -4369,7 +4365,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -4414,7 +4409,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -4500,7 +4495,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -5011,8 +5006,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png",
       "tipos_arma": [
-        "fisica",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -5067,8 +5061,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -6338,9 +6331,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/khopesh_de_ramesses.png",
       "tipos_arma": [
-        "distancia",
-        "fisica",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -6383,8 +6374,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_was_do_pesador.png",
       "tipos_arma": [
-        "distancia",
-        "fisica",
         "magica"
       ]
     },
@@ -6499,7 +6488,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/arpao_do_juncal.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -6543,7 +6531,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_da_cheia.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -6692,7 +6679,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lamina_da_pergunta.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -6736,7 +6722,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/ferrao_de_bronze.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -6780,7 +6765,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_que_abre_a_garganta.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -6933,7 +6917,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/presas_do_massacre.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -7082,7 +7065,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bastao_que_virou_serpente.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -7231,7 +7213,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cimitarra_de_janes.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -7313,8 +7294,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/arco_de_qebehsenuef.png",
       "tipos_arma": [
-        "distancia",
-        "fisica"
+        "distancia"
       ]
     },
     {
@@ -7428,7 +7408,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_dos_quatro.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -7543,7 +7522,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/remo_da_barca_de_ra.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -7587,8 +7565,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/brasa_da_proa.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -7808,7 +7785,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/garra_de_ammit.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -7852,7 +7828,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_das_dez_pragas.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -7896,7 +7871,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/khopesh_do_coracao_duro.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -8641,7 +8615,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_primeiro_juramento.png",
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -8874,8 +8848,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/bobina_de_baraquiel.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -9030,8 +9003,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/chave_mestra_primarca.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -10715,8 +10687,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
       "tipos_arma": [
-        "distancia",
-        "fisica",
         "magica"
       ]
     },
@@ -10784,7 +10754,7 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -11664,7 +11634,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -11885,7 +11854,7 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -12325,7 +12294,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -12987,7 +12955,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -13298,7 +13265,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -13908,7 +13874,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -14218,7 +14183,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -14914,7 +14878,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -15567,7 +15530,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -15675,7 +15637,6 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -15723,7 +15684,6 @@
       "lore": "Cimitarra dourada com um sol cravado na guarda e penas de cobre presas ao cabo.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -15822,7 +15782,6 @@
       "lore": "Garra de quatro dentes sobre um crânio de ave, com fios de sangue seco.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -15870,7 +15829,6 @@
       "lore": "Remo de madeira escura e latão, com um olho pintado e relâmpagos azuis descendo pelo cabo.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -15969,7 +15927,6 @@
       "lore": "Cajado de ferro com lanternas verdes de peste que escorrem.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -16118,7 +16075,6 @@
       "lore": "Cajado com crânio cercado de serpentes verdes e névoa de raio.",
       "icone_provisorio": true,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -16161,7 +16117,6 @@
       "variante_de": "cetro_do_raio_partido",
       "multiplicador_atributos": 1.35,
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -17846,7 +17801,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/castical_de_quatro_bracos.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -17886,7 +17840,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lanca_das_fitas_vermelhas.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -18046,7 +17999,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_espiral.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -18978,7 +18930,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/alabarda_dourada.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -19157,7 +19108,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/maca_do_pulso_azul.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -19197,7 +19147,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_da_pupila_de_vidro.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -19519,7 +19468,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_de_sino_enferrujado.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -19879,7 +19827,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_de_aco_velho.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -20339,7 +20286,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/faca_de_trilha.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -20415,7 +20361,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_de_linho.png",
       "tipos_arma": [
-        "distancia",
         "magica"
       ]
     },
@@ -21425,7 +21370,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/lamina_vermelha_da_cruz.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -21505,8 +21449,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_dourada_da_estrela.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -21545,8 +21488,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/foice_sangrenta.png",
       "tipos_arma": [
-        "fisica",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -21659,7 +21601,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/machado_azul_com_gema.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -21699,9 +21640,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/adaga_serrilhada.png",
       "tipos_arma": [
-        "distancia",
-        "fisica",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -21740,8 +21679,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_de_cano_duplo.png",
       "tipos_arma": [
-        "distancia",
-        "fisica"
+        "distancia"
       ]
     },
     {
@@ -21780,8 +21718,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/mosquete_com_sino.png",
       "tipos_arma": [
-        "distancia",
-        "fisica"
+        "distancia"
       ]
     },
     {
@@ -21820,7 +21757,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_com_fita.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -21860,8 +21796,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/besta_de_trilho.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "distancia"
       ]
     },
     {
@@ -21900,8 +21835,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/haste_espiral_de_metal.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -21977,8 +21911,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pistola_eletrica.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "distancia"
       ]
     },
     {
@@ -22017,8 +21950,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/fuzil_de_cobre.png",
       "tipos_arma": [
-        "distancia",
-        "fisica"
+        "distancia"
       ]
     },
     {
@@ -22057,8 +21989,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/tubo_de_vidro_com_volante.png",
       "tipos_arma": [
-        "distancia",
-        "magica"
+        "fisica"
       ]
     },
     {
@@ -22391,8 +22322,7 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/canhao_de_cano_marrom.png",
       "tipos_arma": [
-        "distancia",
-        "fisica"
+        "distancia"
       ]
     },
     {
@@ -22431,7 +22361,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cimitarra_enferrujada.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
@@ -22723,7 +22652,6 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/pa_de_ferro.png",
       "tipos_arma": [
-        "distancia",
         "fisica"
       ]
     },
