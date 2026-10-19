@@ -22,5 +22,11 @@
     "repo": "upload do Jefin 2026-10-18 (não versionado)",
     "commit": "",
     "trecho": "cavalo com armadura de placas no pescoço e flanco, capa de tecido rasgado"
+  },
+  {
+    "arquivo": "creature_artist.md",
+    "repo": "texto colado pelo Jefin (arjun988, MIT)",
+    "commit": "",
+    "trecho": "fluxo de criatura: blockout, músculo, superfície, retopo, rig; regras de cavalo/quadrúpede"
   }
 ]
