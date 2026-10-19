@@ -253,7 +253,18 @@ static func pode_usar(it: Dictionary, e: Ent) -> String:
 		return "Só para a %s." % ("Vigília" if d["faccao"] == "vigilia" else "Arautos do Juízo")
 	if int(d.get("nivel", 1)) > e.nivel:
 		return "Requer nível %d." % int(d["nivel"])
+	if not _tipo_ok(d, "tipos_armadura", "armadura", e) or not _tipo_ok(d, "tipos_arma", "arma", e):
+		return "Esse tipo de equipamento não é para a sua classe."
 	return ""
+
+## Tipo de equipamento (drops.json / classes_base.json tipos_equipamento): a classe, ou a evolução que ela escolheu, precisa estar num dos tipos da peça.
+static func _tipo_ok(d: Dictionary, campo: String, cat: String, e: Ent) -> bool:
+	if not d.has(campo): return true
+	var quem: String = e.evolucao if e.evolucao != "" else e.classe
+	var mapa: Dictionary = Defs.TIPOS_EQUIP.get(cat, {})
+	for t in d[campo]:
+		if quem in mapa.get(t, []): return true
+	return false
 
 # ------------------------------------------------------------------ grade da mochila
 static func _ocupado(lista: Array, w: int, h: int, ignora: int = -1) -> Array:

@@ -517,7 +517,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "arma_de": "anjo:arma_inicial",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "escudo_porta_capela",
@@ -549,7 +552,10 @@
         "40": "assets/icones/itens/40/escudo_porta_capela.png",
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "lanca_procissao",
@@ -584,7 +590,10 @@
         "40": "assets/icones/itens/40/lanca_procissao.png",
         "32": "assets/icones/itens/32/lanca_procissao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png"
+      "icone_mochila": "assets/icones/itens/mochila/lanca_procissao.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "espada_sineiro",
@@ -619,7 +628,10 @@
         "40": "assets/icones/itens/40/espada_sineiro.png",
         "32": "assets/icones/itens/32/espada_sineiro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_sineiro.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "adaga_ritual_cega",
@@ -656,7 +668,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/adaga_ritual_cega.png",
       "arma_de": "cultista:arma_inicial",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "cajado_vertebras",
@@ -691,7 +706,10 @@
         "40": "assets/icones/itens/40/cajado_vertebras.png",
         "32": "assets/icones/itens/32/cajado_vertebras.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_vertebras.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_vertebras.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "grimorio_acorrentado",
@@ -722,7 +740,10 @@
         "40": "assets/icones/itens/40/grimorio_acorrentado.png",
         "32": "assets/icones/itens/32/grimorio_acorrentado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/grimorio_acorrentado.png"
+      "icone_mochila": "assets/icones/itens/mochila/grimorio_acorrentado.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "adaga_ossuario",
@@ -757,7 +778,10 @@
         "40": "assets/icones/itens/40/adaga_ossuario.png",
         "32": "assets/icones/itens/32/adaga_ossuario.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png"
+      "icone_mochila": "assets/icones/itens/mochila/adaga_ossuario.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "machado_placa_transito",
@@ -794,7 +818,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/machado_placa_transito.png",
       "arma_de": "mutante:arma_inicial",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "punhos_sucata",
@@ -829,7 +856,10 @@
         "40": "assets/icones/itens/40/punhos_sucata.png",
         "32": "assets/icones/itens/32/punhos_sucata.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/punhos_sucata.png"
+      "icone_mochila": "assets/icones/itens/mochila/punhos_sucata.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "cutelo_matadouro",
@@ -865,7 +895,10 @@
         "40": "assets/icones/itens/40/cutelo_matadouro.png",
         "32": "assets/icones/itens/32/cutelo_matadouro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cutelo_matadouro.png"
+      "icone_mochila": "assets/icones/itens/mochila/cutelo_matadouro.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "garras_ossario",
@@ -900,7 +933,10 @@
         "40": "assets/icones/itens/40/garras_ossario.png",
         "32": "assets/icones/itens/32/garras_ossario.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/garras_ossario.png"
+      "icone_mochila": "assets/icones/itens/mochila/garras_ossario.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "foice_serrilhada",
@@ -937,7 +973,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/foice_serrilhada.png",
       "arma_de": "demonio:arma_inicial",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "espada_serrilhada",
@@ -972,7 +1011,10 @@
         "40": "assets/icones/itens/40/espada_serrilhada.png",
         "32": "assets/icones/itens/32/espada_serrilhada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "corrente_gancho",
@@ -1007,7 +1049,10 @@
         "40": "assets/icones/itens/40/corrente_gancho.png",
         "32": "assets/icones/itens/32/corrente_gancho.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/corrente_gancho.png"
+      "icone_mochila": "assets/icones/itens/mochila/corrente_gancho.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "foice_sepultura",
@@ -1042,7 +1087,10 @@
         "40": "assets/icones/itens/40/foice_sepultura.png",
         "32": "assets/icones/itens/32/foice_sepultura.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/foice_sepultura.png"
+      "icone_mochila": "assets/icones/itens/mochila/foice_sepultura.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "besta_sucata",
@@ -1077,7 +1125,10 @@
         "40": "assets/icones/itens/40/besta_sucata.png",
         "32": "assets/icones/itens/32/besta_sucata.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/besta_sucata.png"
+      "icone_mochila": "assets/icones/itens/mochila/besta_sucata.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "espada_larga_sucata",
@@ -1112,7 +1163,10 @@
         "40": "assets/icones/itens/40/espada_larga_sucata.png",
         "32": "assets/icones/itens/32/espada_larga_sucata.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "escopeta_cano_serrado",
@@ -1149,7 +1203,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_serrado.png",
       "arma_de": "humano:arma_secundaria",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "espada_larga_carrasco",
@@ -1184,7 +1241,10 @@
         "40": "assets/icones/itens/40/espada_larga_carrasco.png",
         "32": "assets/icones/itens/32/espada_larga_carrasco.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_larga_carrasco.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "montante_vigilia",
@@ -1219,7 +1279,10 @@
         "40": "assets/icones/itens/40/montante_vigilia.png",
         "32": "assets/icones/itens/32/montante_vigilia.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png"
+      "icone_mochila": "assets/icones/itens/mochila/montante_vigilia.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "escopeta_cano_duplo",
@@ -1254,7 +1317,10 @@
         "40": "assets/icones/itens/40/escopeta_cano_duplo.png",
         "32": "assets/icones/itens/32/escopeta_cano_duplo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_duplo.png"
+      "icone_mochila": "assets/icones/itens/mochila/escopeta_cano_duplo.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "mosquete_pederneira",
@@ -1289,7 +1355,10 @@
         "40": "assets/icones/itens/40/mosquete_pederneira.png",
         "32": "assets/icones/itens/32/mosquete_pederneira.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/mosquete_pederneira.png"
+      "icone_mochila": "assets/icones/itens/mochila/mosquete_pederneira.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "besta_repeticao",
@@ -1324,7 +1393,10 @@
         "40": "assets/icones/itens/40/besta_repeticao.png",
         "32": "assets/icones/itens/32/besta_repeticao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/besta_repeticao.png"
+      "icone_mochila": "assets/icones/itens/mochila/besta_repeticao.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "cajado_antena_torto",
@@ -1361,7 +1433,10 @@
       },
       "icone_mochila": "assets/icones/itens/mochila/cajado_antena_torto.png",
       "arma_de": "tecnomancer:arma_inicial",
-      "fonte_numeros": "design/combate/classes_base.json"
+      "fonte_numeros": "design/combate/classes_base.json",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "luva_voltaica",
@@ -1396,7 +1471,10 @@
         "40": "assets/icones/itens/40/luva_voltaica.png",
         "32": "assets/icones/itens/32/luva_voltaica.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png"
+      "icone_mochila": "assets/icones/itens/mochila/luva_voltaica.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "pistola_raios",
@@ -1431,7 +1509,10 @@
         "40": "assets/icones/itens/40/pistola_raios.png",
         "32": "assets/icones/itens/32/pistola_raios.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png"
+      "icone_mochila": "assets/icones/itens/mochila/pistola_raios.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "cajado_valvulas",
@@ -1466,7 +1547,10 @@
         "40": "assets/icones/itens/40/cajado_valvulas.png",
         "32": "assets/icones/itens/32/cajado_valvulas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_valvulas.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "batina_remendada_cabeca",
@@ -1499,7 +1583,11 @@
         "40": "assets/icones/itens/40/batina_remendada_cabeca.png",
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_remendada_peito",
@@ -1532,7 +1620,11 @@
         "40": "assets/icones/itens/40/batina_remendada_peito.png",
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_remendada_luvas",
@@ -1565,7 +1657,11 @@
         "40": "assets/icones/itens/40/batina_remendada_luvas.png",
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_remendada_calcas",
@@ -1598,7 +1694,11 @@
         "40": "assets/icones/itens/40/batina_remendada_calcas.png",
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_remendada_botas",
@@ -1631,7 +1731,11 @@
         "40": "assets/icones/itens/40/batina_remendada_botas.png",
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "couro_sobrevivente_cabeca",
@@ -1665,7 +1769,12 @@
         "40": "assets/icones/itens/40/couro_sobrevivente_cabeca.png",
         "32": "assets/icones/itens/32/couro_sobrevivente_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_cabeca.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couro_sobrevivente_peito",
@@ -1699,7 +1808,12 @@
         "40": "assets/icones/itens/40/couro_sobrevivente_peito.png",
         "32": "assets/icones/itens/32/couro_sobrevivente_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_peito.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couro_sobrevivente_luvas",
@@ -1733,7 +1847,12 @@
         "40": "assets/icones/itens/40/couro_sobrevivente_luvas.png",
         "32": "assets/icones/itens/32/couro_sobrevivente_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_luvas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couro_sobrevivente_calcas",
@@ -1767,7 +1886,12 @@
         "40": "assets/icones/itens/40/couro_sobrevivente_calcas.png",
         "32": "assets/icones/itens/32/couro_sobrevivente_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_calcas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couro_sobrevivente_botas",
@@ -1801,7 +1925,12 @@
         "40": "assets/icones/itens/40/couro_sobrevivente_botas.png",
         "32": "assets/icones/itens/32/couro_sobrevivente_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couro_sobrevivente_botas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "placas_sino_cabeca",
@@ -1834,7 +1963,10 @@
         "40": "assets/icones/itens/40/placas_sino_cabeca.png",
         "32": "assets/icones/itens/32/placas_sino_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/placas_sino_cabeca.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "placas_sino_peito",
@@ -1867,7 +1999,10 @@
         "40": "assets/icones/itens/40/placas_sino_peito.png",
         "32": "assets/icones/itens/32/placas_sino_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/placas_sino_peito.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "placas_sino_luvas",
@@ -1900,7 +2035,10 @@
         "40": "assets/icones/itens/40/placas_sino_luvas.png",
         "32": "assets/icones/itens/32/placas_sino_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/placas_sino_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/placas_sino_luvas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "placas_sino_calcas",
@@ -1933,7 +2071,10 @@
         "40": "assets/icones/itens/40/placas_sino_calcas.png",
         "32": "assets/icones/itens/32/placas_sino_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/placas_sino_calcas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "placas_sino_botas",
@@ -1966,7 +2107,10 @@
         "40": "assets/icones/itens/40/placas_sino_botas.png",
         "32": "assets/icones/itens/32/placas_sino_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/placas_sino_botas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "coro_mudo_cabeca",
@@ -1999,7 +2143,11 @@
         "40": "assets/icones/itens/40/coro_mudo_cabeca.png",
         "32": "assets/icones/itens/32/coro_mudo_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "coro_mudo_peito",
@@ -2032,7 +2180,11 @@
         "40": "assets/icones/itens/40/coro_mudo_peito.png",
         "32": "assets/icones/itens/32/coro_mudo_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "coro_mudo_luvas",
@@ -2065,7 +2217,11 @@
         "40": "assets/icones/itens/40/coro_mudo_luvas.png",
         "32": "assets/icones/itens/32/coro_mudo_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "coro_mudo_calcas",
@@ -2098,7 +2254,11 @@
         "40": "assets/icones/itens/40/coro_mudo_calcas.png",
         "32": "assets/icones/itens/32/coro_mudo_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "coro_mudo_botas",
@@ -2131,7 +2291,11 @@
         "40": "assets/icones/itens/40/coro_mudo_botas.png",
         "32": "assets/icones/itens/32/coro_mudo_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "couraca_acougueiro_oco_cabeca",
@@ -2165,7 +2329,12 @@
         "40": "assets/icones/itens/40/couraca_acougueiro_oco_cabeca.png",
         "32": "assets/icones/itens/32/couraca_acougueiro_oco_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couraca_acougueiro_oco_peito",
@@ -2199,7 +2368,12 @@
         "40": "assets/icones/itens/40/couraca_acougueiro_oco_peito.png",
         "32": "assets/icones/itens/32/couraca_acougueiro_oco_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couraca_acougueiro_oco_luvas",
@@ -2233,7 +2407,12 @@
         "40": "assets/icones/itens/40/couraca_acougueiro_oco_luvas.png",
         "32": "assets/icones/itens/32/couraca_acougueiro_oco_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couraca_acougueiro_oco_calcas",
@@ -2267,7 +2446,12 @@
         "40": "assets/icones/itens/40/couraca_acougueiro_oco_calcas.png",
         "32": "assets/icones/itens/32/couraca_acougueiro_oco_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "couraca_acougueiro_oco_botas",
@@ -2301,7 +2485,12 @@
         "40": "assets/icones/itens/40/couraca_acougueiro_oco_botas.png",
         "32": "assets/icones/itens/32/couraca_acougueiro_oco_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "juramento_quebrado_cabeca",
@@ -2334,7 +2523,10 @@
         "40": "assets/icones/itens/40/juramento_quebrado_cabeca.png",
         "32": "assets/icones/itens/32/juramento_quebrado_cabeca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png"
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "juramento_quebrado_peito",
@@ -2367,7 +2559,10 @@
         "40": "assets/icones/itens/40/juramento_quebrado_peito.png",
         "32": "assets/icones/itens/32/juramento_quebrado_peito.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png"
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "juramento_quebrado_luvas",
@@ -2400,7 +2595,10 @@
         "40": "assets/icones/itens/40/juramento_quebrado_luvas.png",
         "32": "assets/icones/itens/32/juramento_quebrado_luvas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas.png"
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "juramento_quebrado_calcas",
@@ -2433,7 +2631,10 @@
         "40": "assets/icones/itens/40/juramento_quebrado_calcas.png",
         "32": "assets/icones/itens/32/juramento_quebrado_calcas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png"
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "juramento_quebrado_botas",
@@ -2466,7 +2667,10 @@
         "40": "assets/icones/itens/40/juramento_quebrado_botas.png",
         "32": "assets/icones/itens/32/juramento_quebrado_botas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png"
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "anel_prego_caixao",
@@ -4321,7 +4525,10 @@
         "40": "assets/icones/itens/40/escopeta_badalada.png",
         "32": "assets/icones/itens/32/escopeta_badalada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escopeta_badalada.png"
+      "icone_mochila": "assets/icones/itens/mochila/escopeta_badalada.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "machado_bonde",
@@ -4364,7 +4571,10 @@
         "40": "assets/icones/itens/40/machado_bonde.png",
         "32": "assets/icones/itens/32/machado_bonde.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/machado_bonde.png"
+      "icone_mochila": "assets/icones/itens/mochila/machado_bonde.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "cajado_lampiao",
@@ -4407,7 +4617,10 @@
         "40": "assets/icones/itens/40/cajado_lampiao.png",
         "32": "assets/icones/itens/32/cajado_lampiao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_lampiao.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "espada_escudeiro",
@@ -4451,7 +4664,10 @@
         "40": "assets/icones/itens/40/espada_escudeiro.png",
         "32": "assets/icones/itens/32/espada_escudeiro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_escudeiro.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "foice_penhor",
@@ -4494,7 +4710,10 @@
         "40": "assets/icones/itens/40/foice_penhor.png",
         "32": "assets/icones/itens/32/foice_penhor.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/foice_penhor.png"
+      "icone_mochila": "assets/icones/itens/mochila/foice_penhor.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "adaga_chaga",
@@ -4537,7 +4756,10 @@
         "40": "assets/icones/itens/40/adaga_chaga.png",
         "32": "assets/icones/itens/32/adaga_chaga.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png"
+      "icone_mochila": "assets/icones/itens/mochila/adaga_chaga.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "badalo_de_guerra",
@@ -4738,7 +4960,12 @@
         "40": "assets/icones/itens/40/dragonas_general.png",
         "32": "assets/icones/itens/32/dragonas_general.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/dragonas_general.png"
+      "icone_mochila": "assets/icones/itens/mochila/dragonas_general.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "veu_carpideira",
@@ -4782,7 +5009,12 @@
         "40": "assets/icones/itens/40/veu_carpideira.png",
         "32": "assets/icones/itens/32/veu_carpideira.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/veu_carpideira.png"
+      "icone_mochila": "assets/icones/itens/mochila/veu_carpideira.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "estilhaco_lacre",
@@ -4988,7 +5220,10 @@
         "40": "assets/icones/itens/40/gancho_capataz.png",
         "32": "assets/icones/itens/32/gancho_capataz.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/gancho_capataz.png"
+      "icone_mochila": "assets/icones/itens/mochila/gancho_capataz.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "estandarte_legiao",
@@ -5043,7 +5278,11 @@
         "40": "assets/icones/itens/40/estandarte_legiao.png",
         "32": "assets/icones/itens/32/estandarte_legiao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png"
+      "icone_mochila": "assets/icones/itens/mochila/estandarte_legiao.png",
+      "tipos_arma": [
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "bacula_femur",
@@ -5100,7 +5339,11 @@
         "40": "assets/icones/itens/40/bacula_femur.png",
         "32": "assets/icones/itens/32/bacula_femur.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png"
+      "icone_mochila": "assets/icones/itens/mochila/bacula_femur.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "halo_incandescente",
@@ -5144,7 +5387,12 @@
         "40": "assets/icones/itens/40/halo_incandescente.png",
         "32": "assets/icones/itens/32/halo_incandescente.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/halo_incandescente.png"
+      "icone_mochila": "assets/icones/itens/mochila/halo_incandescente.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "valvula_radio",
@@ -5715,7 +5963,12 @@
         "40": "assets/icones/itens/40/elmo_rafael.png",
         "32": "assets/icones/itens/32/elmo_rafael.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png"
+      "icone_mochila": "assets/icones/itens/mochila/elmo_rafael.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "pao_de_cevada",
@@ -6315,7 +6568,12 @@
         "40": "assets/icones/itens/40/balanca_de_barnabe.png",
         "32": "assets/icones/itens/32/balanca_de_barnabe.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/balanca_de_barnabe.png"
+      "icone_mochila": "assets/icones/itens/mochila/balanca_de_barnabe.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "khopesh_de_ramesses",
@@ -6356,7 +6614,12 @@
         "40": "assets/icones/itens/40/khopesh_de_ramesses.png",
         "32": "assets/icones/itens/32/khopesh_de_ramesses.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/khopesh_de_ramesses.png"
+      "icone_mochila": "assets/icones/itens/mochila/khopesh_de_ramesses.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "cetro_was_do_pesador",
@@ -6397,7 +6660,12 @@
         "40": "assets/icones/itens/40/cetro_was_do_pesador.png",
         "32": "assets/icones/itens/32/cetro_was_do_pesador.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cetro_was_do_pesador.png"
+      "icone_mochila": "assets/icones/itens/mochila/cetro_was_do_pesador.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "argola_do_deus_crocodilo",
@@ -6464,7 +6732,12 @@
         "40": "assets/icones/itens/40/escama_dourada_de_sobek.png",
         "32": "assets/icones/itens/32/escama_dourada_de_sobek.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escama_dourada_de_sobek.png"
+      "icone_mochila": "assets/icones/itens/mochila/escama_dourada_de_sobek.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "arpao_do_juncal",
@@ -6509,7 +6782,11 @@
         "40": "assets/icones/itens/40/arpao_do_juncal.png",
         "32": "assets/icones/itens/32/arpao_do_juncal.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/arpao_do_juncal.png"
+      "icone_mochila": "assets/icones/itens/mochila/arpao_do_juncal.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cajado_da_cheia",
@@ -6554,7 +6831,11 @@
         "40": "assets/icones/itens/40/cajado_da_cheia.png",
         "32": "assets/icones/itens/32/cajado_da_cheia.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_da_cheia.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_da_cheia.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "diadema_do_enigma",
@@ -6588,7 +6869,12 @@
         "40": "assets/icones/itens/40/diadema_do_enigma.png",
         "32": "assets/icones/itens/32/diadema_do_enigma.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/diadema_do_enigma.png"
+      "icone_mochila": "assets/icones/itens/mochila/diadema_do_enigma.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "garras_da_esfinge",
@@ -6700,7 +6986,11 @@
         "40": "assets/icones/itens/40/lamina_da_pergunta.png",
         "32": "assets/icones/itens/32/lamina_da_pergunta.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lamina_da_pergunta.png"
+      "icone_mochila": "assets/icones/itens/mochila/lamina_da_pergunta.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "ferrao_de_bronze",
@@ -6745,7 +7035,11 @@
         "40": "assets/icones/itens/40/ferrao_de_bronze.png",
         "32": "assets/icones/itens/32/ferrao_de_bronze.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/ferrao_de_bronze.png"
+      "icone_mochila": "assets/icones/itens/mochila/ferrao_de_bronze.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cetro_que_abre_a_garganta",
@@ -6790,7 +7084,11 @@
         "40": "assets/icones/itens/40/cetro_que_abre_a_garganta.png",
         "32": "assets/icones/itens/32/cetro_que_abre_a_garganta.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cetro_que_abre_a_garganta.png"
+      "icone_mochila": "assets/icones/itens/mochila/cetro_que_abre_a_garganta.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "couraca_de_quitina",
@@ -6824,7 +7122,12 @@
         "40": "assets/icones/itens/40/couraca_de_quitina.png",
         "32": "assets/icones/itens/32/couraca_de_quitina.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/couraca_de_quitina.png"
+      "icone_mochila": "assets/icones/itens/mochila/couraca_de_quitina.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "ankh_de_serket",
@@ -6891,7 +7194,12 @@
         "40": "assets/icones/itens/40/juba_da_leoa.png",
         "32": "assets/icones/itens/32/juba_da_leoa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/juba_da_leoa.png"
+      "icone_mochila": "assets/icones/itens/mochila/juba_da_leoa.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "presas_do_massacre",
@@ -6936,7 +7244,11 @@
         "40": "assets/icones/itens/40/presas_do_massacre.png",
         "32": "assets/icones/itens/32/presas_do_massacre.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/presas_do_massacre.png"
+      "icone_mochila": "assets/icones/itens/mochila/presas_do_massacre.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "taca_de_cerveja_ocre",
@@ -6970,7 +7282,12 @@
         "40": "assets/icones/itens/40/taca_de_cerveja_ocre.png",
         "32": "assets/icones/itens/32/taca_de_cerveja_ocre.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/taca_de_cerveja_ocre.png"
+      "icone_mochila": "assets/icones/itens/mochila/taca_de_cerveja_ocre.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "disco_do_sol_terco",
@@ -7082,7 +7399,11 @@
         "40": "assets/icones/itens/40/bastao_que_virou_serpente.png",
         "32": "assets/icones/itens/32/bastao_que_virou_serpente.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bastao_que_virou_serpente.png"
+      "icone_mochila": "assets/icones/itens/mochila/bastao_que_virou_serpente.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "anel_de_jambres",
@@ -7149,7 +7470,12 @@
         "40": "assets/icones/itens/40/manto_dos_magos_de_farao.png",
         "32": "assets/icones/itens/32/manto_dos_magos_de_farao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manto_dos_magos_de_farao.png"
+      "icone_mochila": "assets/icones/itens/mochila/manto_dos_magos_de_farao.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "luvas_da_imitacao",
@@ -7228,7 +7554,11 @@
         "40": "assets/icones/itens/40/cimitarra_de_janes.png",
         "32": "assets/icones/itens/32/cimitarra_de_janes.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cimitarra_de_janes.png"
+      "icone_mochila": "assets/icones/itens/mochila/cimitarra_de_janes.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "tampa_de_hapi",
@@ -7262,7 +7592,12 @@
         "40": "assets/icones/itens/40/tampa_de_hapi.png",
         "32": "assets/icones/itens/32/tampa_de_hapi.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/tampa_de_hapi.png"
+      "icone_mochila": "assets/icones/itens/mochila/tampa_de_hapi.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "arco_de_qebehsenuef",
@@ -7307,7 +7642,11 @@
         "40": "assets/icones/itens/40/arco_de_qebehsenuef.png",
         "32": "assets/icones/itens/32/arco_de_qebehsenuef.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/arco_de_qebehsenuef.png"
+      "icone_mochila": "assets/icones/itens/mochila/arco_de_qebehsenuef.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "escudo_de_duamutef",
@@ -7341,7 +7680,12 @@
         "40": "assets/icones/itens/40/escudo_de_duamutef.png",
         "32": "assets/icones/itens/32/escudo_de_duamutef.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_de_duamutef.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_duamutef.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "vaso_de_imseti",
@@ -7419,7 +7763,11 @@
         "40": "assets/icones/itens/40/cetro_dos_quatro.png",
         "32": "assets/icones/itens/32/cetro_dos_quatro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cetro_dos_quatro.png"
+      "icone_mochila": "assets/icones/itens/mochila/cetro_dos_quatro.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "escama_do_caos",
@@ -7453,7 +7801,12 @@
         "40": "assets/icones/itens/40/escama_do_caos.png",
         "32": "assets/icones/itens/32/escama_do_caos.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escama_do_caos.png"
+      "icone_mochila": "assets/icones/itens/mochila/escama_do_caos.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "olho_que_apaga",
@@ -7531,7 +7884,11 @@
         "40": "assets/icones/itens/40/remo_da_barca_de_ra.png",
         "32": "assets/icones/itens/32/remo_da_barca_de_ra.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/remo_da_barca_de_ra.png"
+      "icone_mochila": "assets/icones/itens/mochila/remo_da_barca_de_ra.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "brasa_da_proa",
@@ -7576,7 +7933,11 @@
         "40": "assets/icones/itens/40/brasa_da_proa.png",
         "32": "assets/icones/itens/32/brasa_da_proa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/brasa_da_proa.png"
+      "icone_mochila": "assets/icones/itens/mochila/brasa_da_proa.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "botas_da_setima_hora",
@@ -7644,7 +8005,12 @@
         "40": "assets/icones/itens/40/mascara_do_chacal.png",
         "32": "assets/icones/itens/32/mascara_do_chacal.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/mascara_do_chacal.png"
+      "icone_mochila": "assets/icones/itens/mochila/mascara_do_chacal.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "pena_de_maat_viva",
@@ -7711,7 +8077,12 @@
         "40": "assets/icones/itens/40/prato_do_coracao.png",
         "32": "assets/icones/itens/32/prato_do_coracao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/prato_do_coracao.png"
+      "icone_mochila": "assets/icones/itens/mochila/prato_do_coracao.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "faixas_do_embalsamador",
@@ -7790,7 +8161,11 @@
         "40": "assets/icones/itens/40/garra_de_ammit.png",
         "32": "assets/icones/itens/32/garra_de_ammit.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/garra_de_ammit.png"
+      "icone_mochila": "assets/icones/itens/mochila/garra_de_ammit.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cajado_das_dez_pragas",
@@ -7835,7 +8210,11 @@
         "40": "assets/icones/itens/40/cajado_das_dez_pragas.png",
         "32": "assets/icones/itens/32/cajado_das_dez_pragas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_das_dez_pragas.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_das_dez_pragas.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "khopesh_do_coracao_duro",
@@ -7880,7 +8259,11 @@
         "40": "assets/icones/itens/40/khopesh_do_coracao_duro.png",
         "32": "assets/icones/itens/32/khopesh_do_coracao_duro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/khopesh_do_coracao_duro.png"
+      "icone_mochila": "assets/icones/itens/mochila/khopesh_do_coracao_duro.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cartucho_sem_nome",
@@ -7947,7 +8330,12 @@
         "40": "assets/icones/itens/40/nemes_do_farao.png",
         "32": "assets/icones/itens/32/nemes_do_farao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/nemes_do_farao.png"
+      "icone_mochila": "assets/icones/itens/mochila/nemes_do_farao.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "anel_do_primogenito",
@@ -8015,7 +8403,12 @@
         "40": "assets/icones/itens/40/coroa_de_sobek.png",
         "32": "assets/icones/itens/32/coroa_de_sobek.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coroa_de_sobek.png"
+      "icone_mochila": "assets/icones/itens/mochila/coroa_de_sobek.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "peitoral_de_sobek",
@@ -8050,7 +8443,12 @@
         "40": "assets/icones/itens/40/peitoral_de_sobek.png",
         "32": "assets/icones/itens/32/peitoral_de_sobek.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_sobek.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_sobek.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "saiote_de_sobek",
@@ -8190,7 +8588,12 @@
         "40": "assets/icones/itens/40/pschent_do_farao.png",
         "32": "assets/icones/itens/32/pschent_do_farao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/pschent_do_farao.png"
+      "icone_mochila": "assets/icones/itens/mochila/pschent_do_farao.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "peitoral_de_ouro",
@@ -8225,7 +8628,12 @@
         "40": "assets/icones/itens/40/peitoral_de_ouro.png",
         "32": "assets/icones/itens/32/peitoral_de_ouro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_ouro.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_ouro.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "shendyt_real",
@@ -8433,7 +8841,12 @@
         "40": "assets/icones/itens/40/cetro_heka.png",
         "32": "assets/icones/itens/32/cetro_heka.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cetro_heka.png"
+      "icone_mochila": "assets/icones/itens/mochila/cetro_heka.png",
+      "tipos_arma": [
+        "distancia",
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "engrenagem_oricalco",
@@ -8600,7 +9013,10 @@
         "40": "assets/icones/itens/40/espada_primeiro_juramento.png",
         "32": "assets/icones/itens/32/espada_primeiro_juramento.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_primeiro_juramento.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_primeiro_juramento.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "cajado_estrelas_contadas",
@@ -8646,7 +9062,10 @@
         "40": "assets/icones/itens/40/cajado_estrelas_contadas.png",
         "32": "assets/icones/itens/32/cajado_estrelas_contadas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_estrelas_contadas.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_estrelas_contadas.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "falx_de_azazel",
@@ -8693,7 +9112,10 @@
         "40": "assets/icones/itens/40/falx_de_azazel.png",
         "32": "assets/icones/itens/32/falx_de_azazel.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/falx_de_azazel.png"
+      "icone_mochila": "assets/icones/itens/mochila/falx_de_azazel.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "escopeta_juramento_quebrado",
@@ -8740,7 +9162,10 @@
         "40": "assets/icones/itens/40/escopeta_juramento_quebrado.png",
         "32": "assets/icones/itens/32/escopeta_juramento_quebrado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escopeta_juramento_quebrado.png"
+      "icone_mochila": "assets/icones/itens/mochila/escopeta_juramento_quebrado.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "malho_de_tubal",
@@ -8787,7 +9212,10 @@
         "40": "assets/icones/itens/40/malho_de_tubal.png",
         "32": "assets/icones/itens/32/malho_de_tubal.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/malho_de_tubal.png"
+      "icone_mochila": "assets/icones/itens/mochila/malho_de_tubal.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "bobina_de_baraquiel",
@@ -8833,7 +9261,10 @@
         "40": "assets/icones/itens/40/bobina_de_baraquiel.png",
         "32": "assets/icones/itens/32/bobina_de_baraquiel.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bobina_de_baraquiel.png"
+      "icone_mochila": "assets/icones/itens/mochila/bobina_de_baraquiel.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "ficha_sangue",
@@ -8988,7 +9419,10 @@
         "40": "assets/icones/itens/40/chave_mestra_primarca.png",
         "32": "assets/icones/itens/32/chave_mestra_primarca.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/chave_mestra_primarca.png"
+      "icone_mochila": "assets/icones/itens/mochila/chave_mestra_primarca.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "livro_dos_vencidos",
@@ -9951,7 +10385,12 @@
         "40": "assets/icones/itens/40/manto_de_ohya.png",
         "32": "assets/icones/itens/32/manto_de_ohya.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manto_de_ohya.png"
+      "icone_mochila": "assets/icones/itens/mochila/manto_de_ohya.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "selo_das_aguas",
@@ -10006,7 +10445,12 @@
         "40": "assets/icones/itens/40/veu_de_naama.png",
         "32": "assets/icones/itens/32/veu_de_naama.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/veu_de_naama.png"
+      "icone_mochila": "assets/icones/itens/mochila/veu_de_naama.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "tabua_do_juramento",
@@ -10535,7 +10979,12 @@
         "40": "assets/icones/itens/40/diadema_do_escriba.png",
         "32": "assets/icones/itens/32/diadema_do_escriba.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/diadema_do_escriba.png"
+      "icone_mochila": "assets/icones/itens/mochila/diadema_do_escriba.png",
+      "tipos_armadura": [
+        "malha",
+        "pano",
+        "placas"
+      ]
     },
     {
       "id": "leitura_juramento_noivas",
@@ -10666,7 +11115,12 @@
         "40": "assets/icones/itens/40/cetro_do_demiurgo.png",
         "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png"
+      "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
+      "tipos_arma": [
+        "fisica",
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "bau_dourado",
@@ -10733,7 +11187,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "elmo_da_retirada",
@@ -10769,7 +11226,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "peitoral_do_sino_mudo",
@@ -10805,7 +11265,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "luvas_de_cera_quente",
@@ -10841,7 +11304,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "calcas_da_retirada",
@@ -10877,7 +11343,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_do_versiculo",
@@ -10913,7 +11382,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "escopeta_da_vela_acesa",
@@ -10953,7 +11425,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "chapeu_da_vela_acesa",
@@ -10989,7 +11464,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha"
+      ]
     },
     {
       "id": "casaco_da_vela_acesa",
@@ -11025,7 +11503,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha"
+      ]
     },
     {
       "id": "luvas_da_polvora",
@@ -11061,7 +11542,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha"
+      ]
     },
     {
       "id": "calcas_de_vigia",
@@ -11097,7 +11581,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha"
+      ]
     },
     {
       "id": "botas_de_turno",
@@ -11133,7 +11620,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha"
+      ]
     },
     {
       "id": "martelo_do_sino_derretido",
@@ -11173,7 +11663,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "capacete_do_sino_derretido",
@@ -11209,7 +11702,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "couraca_do_sino_derretido",
@@ -11245,7 +11741,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "manoplas_do_badalo",
@@ -11281,7 +11780,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "grevas_do_badalo",
@@ -11317,7 +11819,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_de_bronze_frio",
@@ -11353,7 +11858,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "foice_da_legiao_sem_general",
@@ -11393,7 +11901,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "elmo_da_legiao_sem_general",
@@ -11429,7 +11940,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "couraca_sem_divisa",
@@ -11465,7 +11979,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "garras_da_legiao",
@@ -11501,7 +12018,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "calcas_de_desertor",
@@ -11537,7 +12057,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_da_legiao",
@@ -11573,7 +12096,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "cajado_do_engenheiro_herege",
@@ -11613,7 +12139,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "oculos_de_solda_herege",
@@ -11649,7 +12178,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "avental_de_engenheiro_herege",
@@ -11685,7 +12217,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_bobina",
@@ -11721,7 +12256,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_fiacao",
@@ -11757,7 +12295,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "botas_de_piston",
@@ -11793,7 +12334,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "adaga_calice_da_comunhao",
@@ -11833,7 +12377,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "veu_da_comunhao",
@@ -11869,7 +12416,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "tunica_do_amargo_bebido",
@@ -11905,7 +12455,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_sangue_seco",
@@ -11941,7 +12494,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_procissao",
@@ -11977,7 +12533,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "sandalias_da_comunhao",
@@ -12013,7 +12572,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "gladio_da_cerca",
@@ -12053,7 +12615,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "elmo_da_cerca",
@@ -12089,7 +12654,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "couraca_da_cerca",
@@ -12125,7 +12693,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "manoplas_da_cerca",
@@ -12161,7 +12732,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "grevas_da_cerca",
@@ -12197,7 +12771,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_da_cerca",
@@ -12233,7 +12810,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "cajado_da_trombeta_calada",
@@ -12273,7 +12853,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "coroa_do_bocal",
@@ -12309,7 +12892,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "manto_da_trombeta",
@@ -12345,7 +12931,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "luvas_do_bocal",
@@ -12381,7 +12970,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "calcas_do_porao",
@@ -12417,7 +13009,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "botas_do_porao",
@@ -12453,7 +13048,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "bastao_de_amenti",
@@ -12493,7 +13091,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "mascara_de_amenti",
@@ -12529,7 +13130,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "peitoral_de_amenti",
@@ -12565,7 +13169,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_linho_de_amenti",
@@ -12601,7 +13208,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_linho_de_amenti",
@@ -12637,7 +13247,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "sandalias_de_amenti",
@@ -12673,7 +13286,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "machado_da_agua_verde",
@@ -12713,7 +13329,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "capuz_do_rio",
@@ -12749,7 +13368,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "colete_da_agua_verde",
@@ -12785,7 +13407,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "luvas_musgosas",
@@ -12821,7 +13446,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "calcas_de_juncos",
@@ -12857,7 +13485,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_de_lama_verde",
@@ -12893,7 +13524,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "facao_do_amargo_verde",
@@ -12935,7 +13569,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "lenco_do_absinto",
@@ -12972,7 +13610,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "colete_de_sela_gasta",
@@ -13009,7 +13651,11 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "luvas_de_rédea",
@@ -13046,7 +13692,11 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "calcas_de_areia_fina",
@@ -13083,7 +13733,11 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "botas_de_dunas",
@@ -13120,7 +13774,11 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "anel_de_sinete_do_absinto",
@@ -13246,7 +13904,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "veu_de_luto",
@@ -13284,7 +13946,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_da_trombeta",
@@ -13321,7 +13987,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_cera_fria",
@@ -13358,7 +14027,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_coro_mudo",
@@ -13395,7 +14067,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "botas_do_passo_lento",
@@ -13432,7 +14107,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "rosario_do_coro",
@@ -13557,7 +14235,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "capuz_de_granizo",
@@ -13594,7 +14275,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "gibao_de_couro_de_bode",
@@ -13631,7 +14315,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "manoplas_de_raiz",
@@ -13668,7 +14355,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "perneiras_de_granizo",
@@ -13705,7 +14395,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_de_crampons_cegos",
@@ -13742,7 +14435,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "anel_de_granizo_seco",
@@ -13867,7 +14563,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "capacete_de_operador",
@@ -13904,7 +14603,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "jaqueta_de_fio_cobre",
@@ -13941,7 +14644,11 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_isolante",
@@ -13978,7 +14685,11 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_operador_da_torre",
@@ -14015,7 +14726,11 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "botas_de_degrau_alto",
@@ -14052,7 +14767,11 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "anel_de_bobina_de_radio",
@@ -14177,7 +14896,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "chapeu_de_arena",
@@ -14214,7 +14937,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "gibao_de_arquibancada",
@@ -14251,7 +14978,11 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "luvas_de_porrete",
@@ -14288,7 +15019,11 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "calcas_de_gladiador_da_plateia",
@@ -14325,7 +15060,11 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "botas_de_arena_rachada",
@@ -14362,7 +15101,11 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "anel_de_palma_de_arena",
@@ -14487,7 +15230,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "diadema_de_linho",
@@ -14524,7 +15270,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "sobrepeliz_de_amenti",
@@ -14561,7 +15311,11 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_bandagem",
@@ -14598,7 +15352,11 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_linho_ritual",
@@ -14635,7 +15393,11 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "sandalias_de_linho",
@@ -14672,7 +15434,11 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "anel_de_sinete_de_amenti",
@@ -14834,7 +15600,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "pena_de_tinta_dura",
@@ -14876,7 +15645,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "chapeu_de_bibliotecario",
@@ -14913,7 +15686,11 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "manto_de_folhas_soltas",
@@ -14950,7 +15727,11 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_indice",
@@ -14987,7 +15768,11 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "calcas_de_estante",
@@ -15024,7 +15809,11 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "botas_de_passo_mudo",
@@ -15061,7 +15850,11 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "anel_de_marcador",
@@ -15186,7 +15979,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "elmo_de_quem_saiu",
@@ -15223,7 +16019,10 @@
         "32": "assets/icones/itens/32/batina_remendada_cabeca.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_cabeca.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "couraca_da_fronteira",
@@ -15260,7 +16059,10 @@
         "32": "assets/icones/itens/32/batina_remendada_peito.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_peito.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "manoplas_de_quem_saiu",
@@ -15297,7 +16099,10 @@
         "32": "assets/icones/itens/32/batina_remendada_luvas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_luvas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "calcas_da_estrada",
@@ -15334,7 +16139,10 @@
         "32": "assets/icones/itens/32/batina_remendada_calcas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_calcas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "botas_de_fronteira",
@@ -15371,7 +16179,10 @@
         "32": "assets/icones/itens/32/batina_remendada_botas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/batina_remendada_botas.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "anel_de_passagem",
@@ -15495,7 +16306,10 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "cajado_do_sino_parado",
@@ -15537,7 +16351,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "espada_serrilhada_sem_bandeira",
@@ -15572,7 +16390,10 @@
         "40": "assets/icones/itens/40/espada_serrilhada.png",
         "32": "assets/icones/itens/32/espada_serrilhada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_serrilhada.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "escudo_ferro_pintado",
@@ -15604,7 +16425,10 @@
         "40": "assets/icones/itens/40/escudo_porta_capela.png",
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "cetro_do_raio_partido",
@@ -15645,7 +16469,11 @@
         "32": "assets/icones/itens/32/espada_vigilia_rachada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_cimitarra_de_janes",
@@ -15694,7 +16522,11 @@
       "variante_de": "cimitarra_de_janes",
       "multiplicador_atributos": 1.35,
       "lore": "Cimitarra dourada com um sol cravado na guarda e penas de cobre presas ao cabo.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_malho_de_tubal",
@@ -15745,7 +16577,10 @@
       "variante_de": "malho_de_tubal",
       "multiplicador_atributos": 1.35,
       "lore": "Malho de pedra com veios de lava e um raio vermelho descendo pela cabeça.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "deus_garra_de_ammit",
@@ -15794,7 +16629,11 @@
       "variante_de": "garra_de_ammit",
       "multiplicador_atributos": 1.35,
       "lore": "Garra de quatro dentes sobre um crânio de ave, com fios de sangue seco.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_remo_da_barca_de_ra",
@@ -15843,7 +16682,11 @@
       "variante_de": "remo_da_barca_de_ra",
       "multiplicador_atributos": 1.35,
       "lore": "Remo de madeira escura e latão, com um olho pintado e relâmpagos azuis descendo pelo cabo.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_falx_de_azazel",
@@ -15894,7 +16737,10 @@
       "variante_de": "falx_de_azazel",
       "multiplicador_atributos": 1.35,
       "lore": "Foice de corvo com asas roxas e um cristal pendurado no cabo.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "deus_cajado_das_dez_pragas",
@@ -15943,7 +16789,11 @@
       "variante_de": "cajado_das_dez_pragas",
       "multiplicador_atributos": 1.35,
       "lore": "Cajado de ferro com lanternas verdes de peste que escorrem.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_cajado_estrelas_contadas",
@@ -15993,7 +16843,10 @@
       "variante_de": "cajado_estrelas_contadas",
       "multiplicador_atributos": 1.35,
       "lore": "Lâmina curva com estrelas douradas e faixas azuis de tecido estrelado.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "deus_escopeta_juramento_quebrado",
@@ -16044,7 +16897,10 @@
       "variante_de": "escopeta_juramento_quebrado",
       "multiplicador_atributos": 1.35,
       "lore": "Cano de bronze com caveira, cruz de ferro pendurada e fita vermelha.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "deus_bastao_que_virou_serpente",
@@ -16093,7 +16949,11 @@
       "variante_de": "bastao_que_virou_serpente",
       "multiplicador_atributos": 1.35,
       "lore": "Cajado com crânio cercado de serpentes verdes e névoa de raio.",
-      "icone_provisorio": true
+      "icone_provisorio": true,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "deus_cetro_do_raio_partido",
@@ -16136,7 +16996,11 @@
       "icone_mochila": "assets/icones/itens/mochila/espada_vigilia_rachada.png",
       "icone_provisorio": true,
       "variante_de": "cetro_do_raio_partido",
-      "multiplicador_atributos": 1.35
+      "multiplicador_atributos": 1.35,
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "escudo_da_cruz_remida",
@@ -16170,7 +17034,10 @@
         "40": "assets/icones/itens/40/escudo_da_cruz_remida.png",
         "32": "assets/icones/itens/32/escudo_da_cruz_remida.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_da_cruz_remida.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_da_cruz_remida.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "escudo_de_raizes_vivas",
@@ -16204,7 +17071,10 @@
         "40": "assets/icones/itens/40/escudo_de_raizes_vivas.png",
         "32": "assets/icones/itens/32/escudo_de_raizes_vivas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_de_raizes_vivas.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_raizes_vivas.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "serra_da_vala",
@@ -16243,7 +17113,10 @@
         "40": "assets/icones/itens/40/serra_da_vala.png",
         "32": "assets/icones/itens/32/serra_da_vala.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/serra_da_vala.png"
+      "icone_mochila": "assets/icones/itens/mochila/serra_da_vala.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "frasco_de_bilis_dourado",
@@ -16366,7 +17239,10 @@
         "40": "assets/icones/itens/40/escudo_do_coro_dourado.png",
         "32": "assets/icones/itens/32/escudo_do_coro_dourado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_do_coro_dourado.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_do_coro_dourado.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "ampulheta_do_juizo_travado",
@@ -16470,7 +17346,10 @@
         "40": "assets/icones/itens/40/cinto_de_caveira.png",
         "32": "assets/icones/itens/32/cinto_de_caveira.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cinto_de_caveira.png"
+      "icone_mochila": "assets/icones/itens/mochila/cinto_de_caveira.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "ampulheta_da_trombeta",
@@ -16895,7 +17774,10 @@
         "40": "assets/icones/itens/40/escudo_de_anubis.png",
         "32": "assets/icones/itens/32/escudo_de_anubis.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "livro_das_cordas_de_ankh",
@@ -16986,7 +17868,10 @@
         "40": "assets/icones/itens/40/elmo_do_manto_sangrento.png",
         "32": "assets/icones/itens/32/elmo_do_manto_sangrento.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/elmo_do_manto_sangrento.png"
+      "icone_mochila": "assets/icones/itens/mochila/elmo_do_manto_sangrento.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "luvas_do_lacre_partido",
@@ -17021,7 +17906,10 @@
         "40": "assets/icones/itens/40/luvas_do_lacre_partido.png",
         "32": "assets/icones/itens/32/luvas_do_lacre_partido.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luvas_do_lacre_partido.png"
+      "icone_mochila": "assets/icones/itens/mochila/luvas_do_lacre_partido.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "oculos_de_fumaca_de_latao",
@@ -17056,7 +17944,11 @@
         "40": "assets/icones/itens/40/oculos_de_fumaca_de_latao.png",
         "32": "assets/icones/itens/32/oculos_de_fumaca_de_latao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/oculos_de_fumaca_de_latao.png"
+      "icone_mochila": "assets/icones/itens/mochila/oculos_de_fumaca_de_latao.png",
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "cartucho_benzido",
@@ -17264,7 +18156,10 @@
         "40": "assets/icones/itens/40/ombreiras_de_engrenagem.png",
         "32": "assets/icones/itens/32/ombreiras_de_engrenagem.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/ombreiras_de_engrenagem.png"
+      "icone_mochila": "assets/icones/itens/mochila/ombreiras_de_engrenagem.png",
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "amuleto_de_pena_branca",
@@ -17645,7 +18540,11 @@
         "40": "assets/icones/itens/40/coroa_de_serpente.png",
         "32": "assets/icones/itens/32/coroa_de_serpente.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coroa_de_serpente.png"
+      "icone_mochila": "assets/icones/itens/mochila/coroa_de_serpente.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "cinturao_de_ametista",
@@ -17681,7 +18580,10 @@
         "40": "assets/icones/itens/40/cinturao_de_ametista.png",
         "32": "assets/icones/itens/32/cinturao_de_ametista.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cinturao_de_ametista.png"
+      "icone_mochila": "assets/icones/itens/mochila/cinturao_de_ametista.png",
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "escaravelho_de_latao",
@@ -17751,7 +18653,11 @@
         "40": "assets/icones/itens/40/peitoral_de_escamas_douradas.png",
         "32": "assets/icones/itens/32/peitoral_de_escamas_douradas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_escamas_douradas.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_escamas_douradas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "carapaca_roxa",
@@ -17786,7 +18692,10 @@
         "40": "assets/icones/itens/40/carapaca_roxa.png",
         "32": "assets/icones/itens/32/carapaca_roxa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/carapaca_roxa.png"
+      "icone_mochila": "assets/icones/itens/mochila/carapaca_roxa.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "castical_de_quatro_bracos",
@@ -17826,7 +18735,11 @@
         "40": "assets/icones/itens/40/castical_de_quatro_bracos.png",
         "32": "assets/icones/itens/32/castical_de_quatro_bracos.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/castical_de_quatro_bracos.png"
+      "icone_mochila": "assets/icones/itens/mochila/castical_de_quatro_bracos.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "lanca_das_fitas_vermelhas",
@@ -17866,7 +18779,11 @@
         "40": "assets/icones/itens/40/lanca_das_fitas_vermelhas.png",
         "32": "assets/icones/itens/32/lanca_das_fitas_vermelhas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lanca_das_fitas_vermelhas.png"
+      "icone_mochila": "assets/icones/itens/mochila/lanca_das_fitas_vermelhas.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "garras_de_latao",
@@ -17907,7 +18824,10 @@
         "40": "assets/icones/itens/40/garras_de_latao.png",
         "32": "assets/icones/itens/32/garras_de_latao.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/garras_de_latao.png"
+      "icone_mochila": "assets/icones/itens/mochila/garras_de_latao.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "foice_de_cordoalha",
@@ -17952,7 +18872,10 @@
         "40": "assets/icones/itens/40/foice_de_cordoalha.png",
         "32": "assets/icones/itens/32/foice_de_cordoalha.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/foice_de_cordoalha.png"
+      "icone_mochila": "assets/icones/itens/mochila/foice_de_cordoalha.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "estandarte_azul_da_vela",
@@ -17987,7 +18910,11 @@
         "40": "assets/icones/itens/40/estandarte_azul_da_vela.png",
         "32": "assets/icones/itens/32/estandarte_azul_da_vela.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/estandarte_azul_da_vela.png"
+      "icone_mochila": "assets/icones/itens/mochila/estandarte_azul_da_vela.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cajado_espiral",
@@ -18027,7 +18954,11 @@
         "40": "assets/icones/itens/40/cajado_espiral.png",
         "32": "assets/icones/itens/32/cajado_espiral.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_espiral.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_espiral.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "escudo_de_lava_solidificada",
@@ -18062,7 +18993,10 @@
         "40": "assets/icones/itens/40/escudo_de_lava_solidificada.png",
         "32": "assets/icones/itens/32/escudo_de_lava_solidificada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_de_lava_solidificada.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_de_lava_solidificada.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "escudo_do_batismo_azul",
@@ -18096,7 +19030,10 @@
         "40": "assets/icones/itens/40/escudo_do_batismo_azul.png",
         "32": "assets/icones/itens/32/escudo_do_batismo_azul.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_do_batismo_azul.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_do_batismo_azul.png",
+      "tipos_arma": [
+        "magica"
+      ]
     },
     {
       "id": "peitoral_do_orbe_roxo",
@@ -18131,7 +19068,10 @@
         "40": "assets/icones/itens/40/peitoral_do_orbe_roxo.png",
         "32": "assets/icones/itens/32/peitoral_do_orbe_roxo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_orbe_roxo.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_orbe_roxo.png",
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "peitoral_de_costelas",
@@ -18166,7 +19106,10 @@
         "40": "assets/icones/itens/40/peitoral_de_costelas.png",
         "32": "assets/icones/itens/32/peitoral_de_costelas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_costelas.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_costelas.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "bracadeira_de_gema_verde",
@@ -18201,7 +19144,11 @@
         "40": "assets/icones/itens/40/bracadeira_de_gema_verde.png",
         "32": "assets/icones/itens/32/bracadeira_de_gema_verde.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_gema_verde.png"
+      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_gema_verde.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "carta_do_sol_torto",
@@ -18359,7 +19306,10 @@
         "40": "assets/icones/itens/40/tridente_da_vala.png",
         "32": "assets/icones/itens/32/tridente_da_vala.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/tridente_da_vala.png"
+      "icone_mochila": "assets/icones/itens/mochila/tridente_da_vala.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "livro_dos_pesos",
@@ -18450,7 +19400,11 @@
         "40": "assets/icones/itens/40/bracadeiras_de_ouro_azul.png",
         "32": "assets/icones/itens/32/bracadeiras_de_ouro_azul.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bracadeiras_de_ouro_azul.png"
+      "icone_mochila": "assets/icones/itens/mochila/bracadeiras_de_ouro_azul.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "manto_de_juba",
@@ -18485,7 +19439,10 @@
         "40": "assets/icones/itens/40/manto_de_juba.png",
         "32": "assets/icones/itens/32/manto_de_juba.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manto_de_juba.png"
+      "icone_mochila": "assets/icones/itens/mochila/manto_de_juba.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "lenco_do_sudario",
@@ -18520,7 +19477,11 @@
         "40": "assets/icones/itens/40/lenco_do_sudario.png",
         "32": "assets/icones/itens/32/lenco_do_sudario.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lenco_do_sudario.png"
+      "icone_mochila": "assets/icones/itens/mochila/lenco_do_sudario.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "nemes_de_ouro_e_lapis",
@@ -18555,7 +19516,11 @@
         "40": "assets/icones/itens/40/nemes_de_ouro_e_lapis.png",
         "32": "assets/icones/itens/32/nemes_de_ouro_e_lapis.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/nemes_de_ouro_e_lapis.png"
+      "icone_mochila": "assets/icones/itens/mochila/nemes_de_ouro_e_lapis.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "peitoral_de_lapis_lazuli",
@@ -18590,7 +19555,11 @@
         "40": "assets/icones/itens/40/peitoral_de_lapis_lazuli.png",
         "32": "assets/icones/itens/32/peitoral_de_lapis_lazuli.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_lapis_lazuli.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_lapis_lazuli.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "peitoral_de_bronze_verde",
@@ -18625,7 +19594,11 @@
         "40": "assets/icones/itens/40/peitoral_de_bronze_verde.png",
         "32": "assets/icones/itens/32/peitoral_de_bronze_verde.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_verde.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_verde.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "sinete_da_coroa_partida",
@@ -18819,7 +19792,12 @@
         "40": "assets/icones/itens/40/peitoral_do_guardiao_das_velas.png",
         "32": "assets/icones/itens/32/peitoral_do_guardiao_das_velas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_guardiao_das_velas.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_guardiao_das_velas.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "veu_de_renda_velha",
@@ -18854,7 +19832,11 @@
         "40": "assets/icones/itens/40/veu_de_renda_velha.png",
         "32": "assets/icones/itens/32/veu_de_renda_velha.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/veu_de_renda_velha.png"
+      "icone_mochila": "assets/icones/itens/mochila/veu_de_renda_velha.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "elmo_cruzado_de_ferro",
@@ -18889,7 +19871,11 @@
         "40": "assets/icones/itens/40/elmo_cruzado_de_ferro.png",
         "32": "assets/icones/itens/32/elmo_cruzado_de_ferro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/elmo_cruzado_de_ferro.png"
+      "icone_mochila": "assets/icones/itens/mochila/elmo_cruzado_de_ferro.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "peitoral_de_faixas_de_ferro",
@@ -18925,7 +19911,11 @@
         "40": "assets/icones/itens/40/peitoral_de_faixas_de_ferro.png",
         "32": "assets/icones/itens/32/peitoral_de_faixas_de_ferro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_faixas_de_ferro.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_faixas_de_ferro.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "alabarda_dourada",
@@ -18965,7 +19955,11 @@
         "40": "assets/icones/itens/40/alabarda_dourada.png",
         "32": "assets/icones/itens/32/alabarda_dourada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/alabarda_dourada.png"
+      "icone_mochila": "assets/icones/itens/mochila/alabarda_dourada.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "coroa_de_espinhos_dourada",
@@ -19001,7 +19995,11 @@
         "40": "assets/icones/itens/40/coroa_de_espinhos_dourada.png",
         "32": "assets/icones/itens/32/coroa_de_espinhos_dourada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coroa_de_espinhos_dourada.png"
+      "icone_mochila": "assets/icones/itens/mochila/coroa_de_espinhos_dourada.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "manto_da_cruz_dourada",
@@ -19036,7 +20034,11 @@
         "40": "assets/icones/itens/40/manto_da_cruz_dourada.png",
         "32": "assets/icones/itens/32/manto_da_cruz_dourada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manto_da_cruz_dourada.png"
+      "icone_mochila": "assets/icones/itens/mochila/manto_da_cruz_dourada.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "elmo_de_chifres_serrados",
@@ -19070,7 +20072,10 @@
         "40": "assets/icones/itens/40/elmo_de_chifres_serrados.png",
         "32": "assets/icones/itens/32/elmo_de_chifres_serrados.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/elmo_de_chifres_serrados.png"
+      "icone_mochila": "assets/icones/itens/mochila/elmo_de_chifres_serrados.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "manoplas_de_espinhos",
@@ -19105,7 +20110,10 @@
         "40": "assets/icones/itens/40/manoplas_de_espinhos.png",
         "32": "assets/icones/itens/32/manoplas_de_espinhos.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_espinhos.png"
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_espinhos.png",
+      "tipos_armadura": [
+        "placas"
+      ]
     },
     {
       "id": "maca_do_pulso_azul",
@@ -19145,7 +20153,11 @@
         "40": "assets/icones/itens/40/maca_do_pulso_azul.png",
         "32": "assets/icones/itens/32/maca_do_pulso_azul.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/maca_do_pulso_azul.png"
+      "icone_mochila": "assets/icones/itens/mochila/maca_do_pulso_azul.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cajado_da_pupila_de_vidro",
@@ -19185,7 +20197,11 @@
         "40": "assets/icones/itens/40/cajado_da_pupila_de_vidro.png",
         "32": "assets/icones/itens/32/cajado_da_pupila_de_vidro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_da_pupila_de_vidro.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_da_pupila_de_vidro.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "mascara_de_faixas_sagradas",
@@ -19220,7 +20236,10 @@
         "40": "assets/icones/itens/40/mascara_de_faixas_sagradas.png",
         "32": "assets/icones/itens/32/mascara_de_faixas_sagradas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/mascara_de_faixas_sagradas.png"
+      "icone_mochila": "assets/icones/itens/mochila/mascara_de_faixas_sagradas.png",
+      "tipos_armadura": [
+        "pano"
+      ]
     },
     {
       "id": "peitoral_do_olho_de_bronze",
@@ -19255,7 +20274,11 @@
         "40": "assets/icones/itens/40/peitoral_do_olho_de_bronze.png",
         "32": "assets/icones/itens/32/peitoral_do_olho_de_bronze.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_olho_de_bronze.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_do_olho_de_bronze.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "capuz_de_musgo_do_amargo",
@@ -19290,7 +20313,11 @@
         "40": "assets/icones/itens/40/capuz_de_musgo_do_amargo.png",
         "32": "assets/icones/itens/32/capuz_de_musgo_do_amargo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/capuz_de_musgo_do_amargo.png"
+      "icone_mochila": "assets/icones/itens/mochila/capuz_de_musgo_do_amargo.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "colete_de_garrafas_do_amargo",
@@ -19326,7 +20353,11 @@
         "40": "assets/icones/itens/40/colete_de_garrafas_do_amargo.png",
         "32": "assets/icones/itens/32/colete_de_garrafas_do_amargo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/colete_de_garrafas_do_amargo.png"
+      "icone_mochila": "assets/icones/itens/mochila/colete_de_garrafas_do_amargo.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "lenco_musgoso_do_amargo",
@@ -19363,7 +20394,12 @@
         "40": "assets/icones/itens/40/lenco_musgoso_do_amargo.png",
         "32": "assets/icones/itens/32/lenco_musgoso_do_amargo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lenco_musgoso_do_amargo.png"
+      "icone_mochila": "assets/icones/itens/mochila/lenco_musgoso_do_amargo.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "colete_de_couro_costurado",
@@ -19400,7 +20436,12 @@
         "40": "assets/icones/itens/40/colete_de_couro_costurado.png",
         "32": "assets/icones/itens/32/colete_de_couro_costurado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/colete_de_couro_costurado.png"
+      "icone_mochila": "assets/icones/itens/mochila/colete_de_couro_costurado.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_couro_curtido",
@@ -19437,7 +20478,12 @@
         "40": "assets/icones/itens/40/luvas_de_couro_curtido.png",
         "32": "assets/icones/itens/32/luvas_de_couro_curtido.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luvas_de_couro_curtido.png"
+      "icone_mochila": "assets/icones/itens/mochila/luvas_de_couro_curtido.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "pingente_de_pedra_musgosa",
@@ -19513,7 +20559,11 @@
         "40": "assets/icones/itens/40/cajado_de_sino_enferrujado.png",
         "32": "assets/icones/itens/32/cajado_de_sino_enferrujado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_de_sino_enferrujado.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_de_sino_enferrujado.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "veu_de_correntes_de_lagrimas",
@@ -19549,7 +20599,11 @@
         "40": "assets/icones/itens/40/veu_de_correntes_de_lagrimas.png",
         "32": "assets/icones/itens/32/veu_de_correntes_de_lagrimas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/veu_de_correntes_de_lagrimas.png"
+      "icone_mochila": "assets/icones/itens/mochila/veu_de_correntes_de_lagrimas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "batina_do_calice_dourado",
@@ -19584,7 +20638,11 @@
         "40": "assets/icones/itens/40/batina_do_calice_dourado.png",
         "32": "assets/icones/itens/32/batina_do_calice_dourado.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/batina_do_calice_dourado.png"
+      "icone_mochila": "assets/icones/itens/mochila/batina_do_calice_dourado.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "terco_de_ossos",
@@ -19691,7 +20749,11 @@
         "40": "assets/icones/itens/40/peitoral_de_armadura_gasta.png",
         "32": "assets/icones/itens/32/peitoral_de_armadura_gasta.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_armadura_gasta.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_armadura_gasta.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "coroa_dourada_de_arena",
@@ -19728,7 +20790,11 @@
         "40": "assets/icones/itens/40/coroa_dourada_de_arena.png",
         "32": "assets/icones/itens/32/coroa_dourada_de_arena.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/coroa_dourada_de_arena.png"
+      "icone_mochila": "assets/icones/itens/mochila/coroa_dourada_de_arena.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "manto_dourado_de_arena",
@@ -19766,7 +20832,12 @@
         "40": "assets/icones/itens/40/manto_dourado_de_arena.png",
         "32": "assets/icones/itens/32/manto_dourado_de_arena.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manto_dourado_de_arena.png"
+      "icone_mochila": "assets/icones/itens/mochila/manto_dourado_de_arena.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "anel_dourado_da_marca",
@@ -19878,7 +20949,11 @@
         "40": "assets/icones/itens/40/espada_de_aco_velho.png",
         "32": "assets/icones/itens/32/espada_de_aco_velho.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_de_aco_velho.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_de_aco_velho.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "elmo_de_capa_vermelha",
@@ -19914,7 +20989,11 @@
         "40": "assets/icones/itens/40/elmo_de_capa_vermelha.png",
         "32": "assets/icones/itens/32/elmo_de_capa_vermelha.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/elmo_de_capa_vermelha.png"
+      "icone_mochila": "assets/icones/itens/mochila/elmo_de_capa_vermelha.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "manoplas_de_ferro_gasto",
@@ -19950,7 +21029,11 @@
         "40": "assets/icones/itens/40/manoplas_de_ferro_gasto.png",
         "32": "assets/icones/itens/32/manoplas_de_ferro_gasto.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_ferro_gasto.png"
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_ferro_gasto.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "botas_de_cano_alto",
@@ -19987,7 +21070,12 @@
         "40": "assets/icones/itens/40/botas_de_cano_alto.png",
         "32": "assets/icones/itens/32/botas_de_cano_alto.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/botas_de_cano_alto.png"
+      "icone_mochila": "assets/icones/itens/mochila/botas_de_cano_alto.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "anel_prateado_do_simbolo",
@@ -20094,7 +21182,11 @@
         "40": "assets/icones/itens/40/botas_do_escriba.png",
         "32": "assets/icones/itens/32/botas_do_escriba.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/botas_do_escriba.png"
+      "icone_mochila": "assets/icones/itens/mochila/botas_do_escriba.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "anel_com_palmeira",
@@ -20199,7 +21291,12 @@
         "40": "assets/icones/itens/40/luvas_amarelas_de_oficina.png",
         "32": "assets/icones/itens/32/luvas_amarelas_de_oficina.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luvas_amarelas_de_oficina.png"
+      "icone_mochila": "assets/icones/itens/mochila/luvas_amarelas_de_oficina.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "botas_de_sola_grossa",
@@ -20235,7 +21332,11 @@
         "40": "assets/icones/itens/40/botas_de_sola_grossa.png",
         "32": "assets/icones/itens/32/botas_de_sola_grossa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/botas_de_sola_grossa.png"
+      "icone_mochila": "assets/icones/itens/mochila/botas_de_sola_grossa.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "bracadeira_de_cobre",
@@ -20270,7 +21371,11 @@
         "40": "assets/icones/itens/40/bracadeira_de_cobre.png",
         "32": "assets/icones/itens/32/bracadeira_de_cobre.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_cobre.png"
+      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_cobre.png",
+      "tipos_armadura": [
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "pingente_de_lanterna",
@@ -20345,7 +21450,11 @@
         "40": "assets/icones/itens/40/faca_de_trilha.png",
         "32": "assets/icones/itens/32/faca_de_trilha.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/faca_de_trilha.png"
+      "icone_mochila": "assets/icones/itens/mochila/faca_de_trilha.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "chapeu_de_vaqueiro_do_amargo",
@@ -20382,7 +21491,11 @@
         "40": "assets/icones/itens/40/chapeu_de_vaqueiro_do_amargo.png",
         "32": "assets/icones/itens/32/chapeu_de_vaqueiro_do_amargo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/chapeu_de_vaqueiro_do_amargo.png"
+      "icone_mochila": "assets/icones/itens/mochila/chapeu_de_vaqueiro_do_amargo.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "cajado_de_linho",
@@ -20423,7 +21536,11 @@
         "40": "assets/icones/itens/40/cajado_de_linho.png",
         "32": "assets/icones/itens/32/cajado_de_linho.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cajado_de_linho.png"
+      "icone_mochila": "assets/icones/itens/mochila/cajado_de_linho.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "faixa_de_linho_com_gema",
@@ -20459,7 +21576,11 @@
         "40": "assets/icones/itens/40/faixa_de_linho_com_gema.png",
         "32": "assets/icones/itens/32/faixa_de_linho_com_gema.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/faixa_de_linho_com_gema.png"
+      "icone_mochila": "assets/icones/itens/mochila/faixa_de_linho_com_gema.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "luvas_de_bandagem_de_ritual",
@@ -20495,7 +21616,11 @@
         "40": "assets/icones/itens/40/luvas_de_bandagem_de_ritual.png",
         "32": "assets/icones/itens/32/luvas_de_bandagem_de_ritual.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luvas_de_bandagem_de_ritual.png"
+      "icone_mochila": "assets/icones/itens/mochila/luvas_de_bandagem_de_ritual.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "saia_de_linho_com_cinto",
@@ -20533,7 +21658,11 @@
         "40": "assets/icones/itens/40/saia_de_linho_com_cinto.png",
         "32": "assets/icones/itens/32/saia_de_linho_com_cinto.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/saia_de_linho_com_cinto.png"
+      "icone_mochila": "assets/icones/itens/mochila/saia_de_linho_com_cinto.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "bracadeira_de_anubis",
@@ -20568,7 +21697,11 @@
         "40": "assets/icones/itens/40/bracadeira_de_anubis.png",
         "32": "assets/icones/itens/32/bracadeira_de_anubis.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_anubis.png"
+      "icone_mochila": "assets/icones/itens/mochila/bracadeira_de_anubis.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "amuleto_de_linho_com_ankh",
@@ -20639,7 +21772,12 @@
         "40": "assets/icones/itens/40/peitoral_de_bronze_com_manto.png",
         "32": "assets/icones/itens/32/peitoral_de_bronze_com_manto.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_com_manto.png"
+      "icone_mochila": "assets/icones/itens/mochila/peitoral_de_bronze_com_manto.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "sino_de_bronze_com_estrela",
@@ -20711,7 +21849,12 @@
         "40": "assets/icones/itens/40/lenco_vermelho_de_flores.png",
         "32": "assets/icones/itens/32/lenco_vermelho_de_flores.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lenco_vermelho_de_flores.png"
+      "icone_mochila": "assets/icones/itens/mochila/lenco_vermelho_de_flores.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "tridente_de_lodo_verde",
@@ -20750,7 +21893,10 @@
         "40": "assets/icones/itens/40/tridente_de_lodo_verde.png",
         "32": "assets/icones/itens/32/tridente_de_lodo_verde.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/tridente_de_lodo_verde.png"
+      "icone_mochila": "assets/icones/itens/mochila/tridente_de_lodo_verde.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "medalhao_de_bronze_com_cruz",
@@ -20821,7 +21967,11 @@
         "40": "assets/icones/itens/40/faixa_vermelha_de_emblema.png",
         "32": "assets/icones/itens/32/faixa_vermelha_de_emblema.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/faixa_vermelha_de_emblema.png"
+      "icone_mochila": "assets/icones/itens/mochila/faixa_vermelha_de_emblema.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "fita_bege_com_sol_dourado",
@@ -20896,7 +22046,10 @@
         "40": "assets/icones/itens/40/gancho_vermelho_com_brasa.png",
         "32": "assets/icones/itens/32/gancho_vermelho_com_brasa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/gancho_vermelho_com_brasa.png"
+      "icone_mochila": "assets/icones/itens/mochila/gancho_vermelho_com_brasa.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "etiqueta_de_papel_com_cruz",
@@ -21441,7 +22594,11 @@
         "40": "assets/icones/itens/40/lamina_vermelha_da_cruz.png",
         "32": "assets/icones/itens/32/lamina_vermelha_da_cruz.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lamina_vermelha_da_cruz.png"
+      "icone_mochila": "assets/icones/itens/mochila/lamina_vermelha_da_cruz.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "lamina_curva_sangrenta",
@@ -21481,7 +22638,10 @@
         "40": "assets/icones/itens/40/lamina_curva_sangrenta.png",
         "32": "assets/icones/itens/32/lamina_curva_sangrenta.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/lamina_curva_sangrenta.png"
+      "icone_mochila": "assets/icones/itens/mochila/lamina_curva_sangrenta.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "espada_dourada_da_estrela",
@@ -21522,7 +22682,11 @@
         "40": "assets/icones/itens/40/espada_dourada_da_estrela.png",
         "32": "assets/icones/itens/32/espada_dourada_da_estrela.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_dourada_da_estrela.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_dourada_da_estrela.png",
+      "tipos_arma": [
+        "magica",
+        "distancia"
+      ]
     },
     {
       "id": "foice_sangrenta",
@@ -21562,7 +22726,11 @@
         "40": "assets/icones/itens/40/foice_sangrenta.png",
         "32": "assets/icones/itens/32/foice_sangrenta.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/foice_sangrenta.png"
+      "icone_mochila": "assets/icones/itens/mochila/foice_sangrenta.png",
+      "tipos_arma": [
+        "fisica",
+        "magica"
+      ]
     },
     {
       "id": "clava_de_osso_acorrentada",
@@ -21602,7 +22770,10 @@
         "40": "assets/icones/itens/40/clava_de_osso_acorrentada.png",
         "32": "assets/icones/itens/32/clava_de_osso_acorrentada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/clava_de_osso_acorrentada.png"
+      "icone_mochila": "assets/icones/itens/mochila/clava_de_osso_acorrentada.png",
+      "tipos_arma": [
+        "fisica"
+      ]
     },
     {
       "id": "escudo_vermelho_da_caveira",
@@ -21638,7 +22809,11 @@
         "40": "assets/icones/itens/40/escudo_vermelho_da_caveira.png",
         "32": "assets/icones/itens/32/escudo_vermelho_da_caveira.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/escudo_vermelho_da_caveira.png"
+      "icone_mochila": "assets/icones/itens/mochila/escudo_vermelho_da_caveira.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "machado_azul_com_gema",
@@ -21679,7 +22854,11 @@
         "40": "assets/icones/itens/40/machado_azul_com_gema.png",
         "32": "assets/icones/itens/32/machado_azul_com_gema.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/machado_azul_com_gema.png"
+      "icone_mochila": "assets/icones/itens/mochila/machado_azul_com_gema.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "adaga_serrilhada",
@@ -21720,7 +22899,11 @@
         "40": "assets/icones/itens/40/adaga_serrilhada.png",
         "32": "assets/icones/itens/32/adaga_serrilhada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/adaga_serrilhada.png"
+      "icone_mochila": "assets/icones/itens/mochila/adaga_serrilhada.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "pistola_de_cano_duplo",
@@ -21760,7 +22943,11 @@
         "40": "assets/icones/itens/40/pistola_de_cano_duplo.png",
         "32": "assets/icones/itens/32/pistola_de_cano_duplo.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/pistola_de_cano_duplo.png"
+      "icone_mochila": "assets/icones/itens/mochila/pistola_de_cano_duplo.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "mosquete_com_sino",
@@ -21800,7 +22987,11 @@
         "40": "assets/icones/itens/40/mosquete_com_sino.png",
         "32": "assets/icones/itens/32/mosquete_com_sino.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/mosquete_com_sino.png"
+      "icone_mochila": "assets/icones/itens/mochila/mosquete_com_sino.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "espada_com_fita",
@@ -21841,7 +23032,11 @@
         "40": "assets/icones/itens/40/espada_com_fita.png",
         "32": "assets/icones/itens/32/espada_com_fita.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/espada_com_fita.png"
+      "icone_mochila": "assets/icones/itens/mochila/espada_com_fita.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "besta_de_trilho",
@@ -21881,7 +23076,10 @@
         "40": "assets/icones/itens/40/besta_de_trilho.png",
         "32": "assets/icones/itens/32/besta_de_trilho.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/besta_de_trilho.png"
+      "icone_mochila": "assets/icones/itens/mochila/besta_de_trilho.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "haste_espiral_de_metal",
@@ -21921,7 +23119,10 @@
         "40": "assets/icones/itens/40/haste_espiral_de_metal.png",
         "32": "assets/icones/itens/32/haste_espiral_de_metal.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/haste_espiral_de_metal.png"
+      "icone_mochila": "assets/icones/itens/mochila/haste_espiral_de_metal.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "luva_eletrica_de_cobre",
@@ -21957,7 +23158,12 @@
         "40": "assets/icones/itens/40/luva_eletrica_de_cobre.png",
         "32": "assets/icones/itens/32/luva_eletrica_de_cobre.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luva_eletrica_de_cobre.png"
+      "icone_mochila": "assets/icones/itens/mochila/luva_eletrica_de_cobre.png",
+      "tipos_armadura": [
+        "placas",
+        "malha",
+        "pano"
+      ]
     },
     {
       "id": "pistola_eletrica",
@@ -21998,7 +23204,10 @@
         "40": "assets/icones/itens/40/pistola_eletrica.png",
         "32": "assets/icones/itens/32/pistola_eletrica.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/pistola_eletrica.png"
+      "icone_mochila": "assets/icones/itens/mochila/pistola_eletrica.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "fuzil_de_cobre",
@@ -22038,7 +23247,11 @@
         "40": "assets/icones/itens/40/fuzil_de_cobre.png",
         "32": "assets/icones/itens/32/fuzil_de_cobre.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/fuzil_de_cobre.png"
+      "icone_mochila": "assets/icones/itens/mochila/fuzil_de_cobre.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "tubo_de_vidro_com_volante",
@@ -22077,7 +23290,10 @@
         "40": "assets/icones/itens/40/tubo_de_vidro_com_volante.png",
         "32": "assets/icones/itens/32/tubo_de_vidro_com_volante.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/tubo_de_vidro_com_volante.png"
+      "icone_mochila": "assets/icones/itens/mochila/tubo_de_vidro_com_volante.png",
+      "tipos_arma": [
+        "distancia"
+      ]
     },
     {
       "id": "manoplas_de_bronze",
@@ -22114,7 +23330,11 @@
         "40": "assets/icones/itens/40/manoplas_de_bronze.png",
         "32": "assets/icones/itens/32/manoplas_de_bronze.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_bronze.png"
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_bronze.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "luvas_palidas_costuradas",
@@ -22150,7 +23370,11 @@
         "40": "assets/icones/itens/40/luvas_palidas_costuradas.png",
         "32": "assets/icones/itens/32/luvas_palidas_costuradas.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/luvas_palidas_costuradas.png"
+      "icone_mochila": "assets/icones/itens/mochila/luvas_palidas_costuradas.png",
+      "tipos_armadura": [
+        "placas",
+        "pano"
+      ]
     },
     {
       "id": "casaco_vermelho_de_ombreiras",
@@ -22186,7 +23410,11 @@
         "40": "assets/icones/itens/40/casaco_vermelho_de_ombreiras.png",
         "32": "assets/icones/itens/32/casaco_vermelho_de_ombreiras.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/casaco_vermelho_de_ombreiras.png"
+      "icone_mochila": "assets/icones/itens/mochila/casaco_vermelho_de_ombreiras.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "manoplas_de_aco_com_brasa",
@@ -22222,7 +23450,11 @@
         "40": "assets/icones/itens/40/manoplas_de_aco_com_brasa.png",
         "32": "assets/icones/itens/32/manoplas_de_aco_com_brasa.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_aco_com_brasa.png"
+      "icone_mochila": "assets/icones/itens/mochila/manoplas_de_aco_com_brasa.png",
+      "tipos_armadura": [
+        "placas",
+        "malha"
+      ]
     },
     {
       "id": "couro_curtido",
@@ -22417,7 +23649,11 @@
         "40": "assets/icones/itens/40/canhao_de_cano_marrom.png",
         "32": "assets/icones/itens/32/canhao_de_cano_marrom.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/canhao_de_cano_marrom.png"
+      "icone_mochila": "assets/icones/itens/mochila/canhao_de_cano_marrom.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "cimitarra_enferrujada",
@@ -22457,7 +23693,11 @@
         "40": "assets/icones/itens/40/cimitarra_enferrujada.png",
         "32": "assets/icones/itens/32/cimitarra_enferrujada.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/cimitarra_enferrujada.png"
+      "icone_mochila": "assets/icones/itens/mochila/cimitarra_enferrujada.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "bau_com_dentes",
@@ -22749,7 +23989,11 @@
         "40": "assets/icones/itens/40/pa_de_ferro.png",
         "32": "assets/icones/itens/32/pa_de_ferro.png"
       },
-      "icone_mochila": "assets/icones/itens/mochila/pa_de_ferro.png"
+      "icone_mochila": "assets/icones/itens/mochila/pa_de_ferro.png",
+      "tipos_arma": [
+        "fisica",
+        "distancia"
+      ]
     },
     {
       "id": "carretel_de_cobre_com_manivela",

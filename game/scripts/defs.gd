@@ -6,6 +6,7 @@ const DESIGN := "res://data/design/"
 
 static var FORM := {}        # combate/formulas.json
 static var CLASSES := {}     # combate/classes_base.json -> classes
+static var TIPOS_EQUIP := {}  # combate/classes_base.json -> tipos_equipamento: armadura (pano, malha, placas) e arma (fisica, magica, distancia)
 static var EVOLUCOES := {}   # combate/evolucoes.json (nível 50, Pedro o Exilado)
 static var MOBS := {}        # combate/mobs.json -> mobs (+ textos de missoes/monstros.json)
 static var MOBS_BASE := {}   # combate/mobs.json inteiro (curva, arquetipos, ia)
@@ -56,6 +57,7 @@ static func carregar() -> void:
 	carregado = true
 	FORM = ler(DESIGN + "combate/formulas.json")
 	CLASSES = ler(DESIGN + "combate/classes_base.json")["classes"]
+	TIPOS_EQUIP = ler(DESIGN + "combate/classes_base.json").get("tipos_equipamento", {})
 	EVOLUCOES = ler(DESIGN + "combate/evolucoes.json")
 	MOBS_BASE = ler(DESIGN + "combate/mobs.json")
 	MOBS = MOBS_BASE["mobs"]
