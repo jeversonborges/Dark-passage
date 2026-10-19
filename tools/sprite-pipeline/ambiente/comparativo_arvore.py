@@ -22,7 +22,7 @@ H = MARGEM_TOPO + CELL_H * LIN
 img = Image.new("RGB", (W, H), FUNDO)
 d = ImageDraw.Draw(img)
 d.text((30, 24), "Árvore morta: antiga x refeita em low-poly", font=f_tit, fill=(245, 232, 205))
-d.text((30, 72), "Esquerda: kit atual (assets.py)   ·   Direita: refeita, 1 228 tris, sombra + base + copa + oclusor", font=f_rot, fill=(235, 220, 195))
+d.text((30, 72), "Esquerda: kit atual (assets.py)   ·   Direita: refeita, 1 150 tris, sombra + base + copa + oclusor", font=f_rot, fill=(235, 220, 195))
 
 for k in range(8):
     cx0 = (k % COL) * CELL_W
