@@ -6,10 +6,10 @@ class_name Coletor
 ## Espécies são os animais de assets/monstros que viram pet.
 
 const ESPECIES := {
-	"cao_de_vala": {"nome": "Cão de Vala", "preco": 4000, "item": "pet_cao_vala"},
-	"corvo_de_cinza": {"nome": "Corvo de Cinza", "preco": 3000, "item": "pet_corvo_cinza"},
-	"cervo_de_lume": {"nome": "Cervo de Lume", "preco": 8000, "item": "pet_cervo_lume"},
-	"serpente_do_eden": {"nome": "Serpente do Éden", "preco": 6000, "item": "pet_serpente_eden"},
+	"cao_de_vala": {"nome": "Cão de Vala", "preco": 4000, "item": "pet_cao_de_vala", "filtro": "tudo"},
+	"corvo_de_cinza": {"nome": "Corvo de Cinza", "preco": 3000, "item": "pet_corvo_de_cinza", "filtro": "raridade_minima:raro"},
+	"cervo_de_lume": {"nome": "Cervo de Lume", "preco": 8000, "item": "pet_cervo_de_lume", "filtro": "ouro"},
+	"serpente_do_eden": {"nome": "Serpente do Éden", "preco": 6000, "item": "pet_serpente_do_eden", "filtro": "pocoes"},
 }
 const RARIDADES := ["comum", "magico", "raro", "excelente", "lendario"]   ## lendario é a Relíquia (vermelho)
 const POCOES := ["pocao_vida_m", "pocao_vida_p", "tonico_graxa", "hostia_negra", "caldo_cardo_comum", "pao_duro",
@@ -24,6 +24,17 @@ static func filtro_padrao() -> Dictionary:
 	var raridade := {}
 	for r in RARIDADES: raridade[r] = true
 	return {"raridade": raridade, "pocoes": true, "joias": {}, "asas": true, "baus": true}
+
+## Filtro de fábrica do item de pet (filtro_coleta da Drops). O jogador muda depois, no próprio item.
+static func filtro_inicial(esp: String) -> Dictionary:
+	var f := filtro_padrao()
+	var modo: String = ESPECIES[esp]["filtro"]
+	if modo == "tudo": return f
+	var minima := RARIDADES.find(modo.split(":")[1]) if modo.begins_with("raridade_minima") else RARIDADES.size()
+	for r in RARIDADES: f["raridade"][r] = RARIDADES.find(r) >= minima   # "ouro" e "pocoes" não juntam equipamento
+	f["pocoes"] = modo != "ouro"
+	f["joias"] = {}; f["asas"] = false; f["baus"] = false
+	return f
 
 ## Espécie de um item de pet ("" se não for item de pet).
 static func especie_do_item(id: String) -> String:
@@ -87,7 +98,7 @@ static func comprar(sim: WorldSim, e: Ent, esp: String) -> void:
 	if e.ouro < preco:
 		sim.emitir_a(e, "aviso", {"texto": "Ouro insuficiente."}); sim.emitir_a(e, "som_evento", {"ev": "erro"}); return
 	var it := Itens.novo(ESPECIES[esp]["item"])
-	it["filtro"] = filtro_padrao()
+	it["filtro"] = filtro_inicial(esp)
 	if Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it) > 0:
 		sim.emitir_a(e, "aviso", {"texto": "Mochila cheia."}); return
 	e.ouro -= preco

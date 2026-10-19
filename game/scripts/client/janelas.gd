@@ -1256,7 +1256,7 @@ func _candidatos_refino(j) -> Array:
 	for s in Itens.SLOTS:
 		if j.equip.has(s) and not j.equip[s].is_empty(): out.append([j.equip[s], s])
 	for it in j.inv:
-		if Itens.equipavel(it): out.append([it, "mochila"])
+		if Itens.equipavel(it) and Itens.slot_de(it) != "pet": out.append([it, "mochila"])   # pet não se refina
 	return out
 
 func _corpo_ferreiro() -> void:

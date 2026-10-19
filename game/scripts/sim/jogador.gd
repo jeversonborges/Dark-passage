@@ -1298,7 +1298,7 @@ static func _material_forja(e: Ent) -> String:
 ## Sanguínea +6..+15 com chance caindo; falha tira 1 nível (2 do +11 em diante, nunca abaixo de +6). Nunca quebra.
 static func refinar(sim: WorldSim, e: Ent, uid_item: int, onde: String) -> void:
 	var it: Dictionary = e.equip.get(onde, {}) if onde != "mochila" else Itens.por_uid(e.inv, uid_item)
-	if it.is_empty() or not Itens.equipavel(it): return
+	if it.is_empty() or not Itens.equipavel(it) or Itens.slot_de(it) == "pet": return   # pet não se refina
 	var R: Dictionary = Defs.DROPS["refino_com_lagrimas"]
 	var r := int(it.get("refino", 0))
 	var maximo := int(R.get("maximo", 15))
