@@ -547,8 +547,8 @@
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png",
-      "tipos_arma": [
-        "magica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -15634,8 +15634,8 @@
         "32": "assets/icones/itens/32/escudo_porta_capela.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_porta_capela.png",
-      "tipos_arma": [
-        "fisica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -16195,8 +16195,8 @@
         "32": "assets/icones/itens/32/escudo_da_cruz_remida.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_da_cruz_remida.png",
-      "tipos_arma": [
-        "magica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -16229,8 +16229,8 @@
         "32": "assets/icones/itens/32/escudo_de_raizes_vivas.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_de_raizes_vivas.png",
-      "tipos_arma": [
-        "fisica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -16391,8 +16391,8 @@
         "32": "assets/icones/itens/32/escudo_do_coro_dourado.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_do_coro_dourado.png",
-      "tipos_arma": [
-        "magica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -16919,8 +16919,8 @@
         "32": "assets/icones/itens/32/escudo_de_anubis.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_de_anubis.png",
-      "tipos_arma": [
-        "fisica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -18005,9 +18005,9 @@
         "32": "assets/icones/itens/32/estandarte_azul_da_vela.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/estandarte_azul_da_vela.png",
-      "tipos_arma": [
-        "distancia",
-        "fisica"
+      "tipos_armadura": [
+        "malha",
+        "placas"
       ]
     },
     {
@@ -18080,8 +18080,8 @@
         "32": "assets/icones/itens/32/escudo_de_lava_solidificada.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_de_lava_solidificada.png",
-      "tipos_arma": [
-        "fisica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -18114,8 +18114,8 @@
         "32": "assets/icones/itens/32/escudo_do_batismo_azul.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_do_batismo_azul.png",
-      "tipos_arma": [
-        "magica"
+      "tipos_armadura": [
+        "placas"
       ]
     },
     {
@@ -21618,9 +21618,9 @@
         "32": "assets/icones/itens/32/escudo_vermelho_da_caveira.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/escudo_vermelho_da_caveira.png",
-      "tipos_arma": [
-        "distancia",
-        "fisica"
+      "tipos_armadura": [
+        "malha",
+        "placas"
       ]
     },
     {
