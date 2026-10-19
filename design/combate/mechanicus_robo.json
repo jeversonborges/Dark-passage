@@ -26,12 +26,16 @@
     "alcance_ataque_tiles": 10,
     "ataques": [
      {
-      "id": "canhao_ferrugem",
-      "mult": 2.4,
+      "id": "metralhadoras_juizo",
+      "mult": 0.35,
       "escala": "ESP",
-      "intervalo": 3.0,
-      "splash_raio": 1.5,
-      "elemento": "fisico"
+      "rajada_projeteis": 5,
+      "intervalo_rajada": 2.5,
+      "intervalo_tiro_s": 0.15,
+      "recuo_visual": true,
+      "splash_raio": 0.0,
+      "elemento": "fisico",
+      "fx": "cartuchos e faiscas, recuo no braco"
      },
      {
       "id": "descarga_visor",

@@ -29,7 +29,7 @@ Em "Ferrugem Sagrada": aço enferrujado, bronze oxidado, placas soltas com remen
 
 - **Segue** o Mechanicus a 2 tiles. Anda devagar (mais lento que o jogador), para quando ele para.
 - **Incontrolável** (regra do Jefin): o jogador não escolhe alvo e não dá comando. Ataca o inimigo mais próximo num raio de 10 tiles e troca de alvo livremente sempre que outro ficar mais perto. Alterna dois golpes:
-  - **Canhão de Ferrugem:** projétil pesado, mult 2.4 (ESP), splash de raio 1.5 tile, 1 tiro a cada 3 s.
+  - **Metralhadoras do Juízo:** os braços são as armas, com canos múltiplos girando. Rajadas de 5 projéteis, mult 0.35 (ESP) cada, a cada 2.5 s. Cada tiro tem recuo visual no braço, faíscas e cartuchos caindo no chão. Dano por tiro baixo, DPS alto.
   - **Descarga do visor:** raio curto e largo na frente, mult 1.1, a cada 5 s.
 - **Pisão ao andar:** a cada 4 passos (ou 4 s andando), bate no chão numa área de raio 2 tiles. Mult 0.9, 20% de chance de atordoar 0.5 s. A tela treme (leve).
 - **Quem ele ataca:** qualquer inimigo no raio, inclusive mobs que já estão em combate com outros. Mobs neutros parados não são atacados. O robô **não chama vizinhos** para a briga: puxada em cadeia quebra a regra "menos Diablo, mais WoW". Esse é o risco da ulti: ele pode arrastar uma luta que o jogador não queria.
@@ -38,8 +38,8 @@ Em "Ferrugem Sagrada": aço enferrujado, bronze oxidado, placas soltas com remen
 
 ## Feedback visual e sonoro
 
-- **VFX:** fumaça e vapor dos exaustores nas costas, luz vermelha dos olhos, faíscas nas juntas, pisadas com poeira e estilhaço de ferrugem.
-- **Tremor de tela** só nos pisões e no tiro pesado (intensidade pequena).
+- **VFX:** fumaça e vapor dos exaustores nas costas, luz vermelha dos olhos, faíscas nas juntas, cartuchos e faíscas das metralhadoras, pisadas com poeira e estilhaço de ferrugem.
+- **Tremor de tela** só nos pisões e nas rajadas mais longas (intensidade pequena).
 - **Som:** pisada metálica grave e oca, zumbido elétrico baixo, chiado de válvula ao atirar, voz robótica distorcida e curta no início e no fim (não repetir a cada golpe).
 
 ## Pontos em aberto para o Jefin
