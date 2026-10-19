@@ -112,6 +112,21 @@ func pedido(peer: int, a: String) -> void:
 	inscritos.append(peer)
 	_aviso(peer, "Seu nome está na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
 
+## O Bilhete do Agrak entra na lista sem ouro. Se a lista não aceitar, o bilhete não é gasto (ver servidor.gd).
+func usar_bilhete(peer: int) -> bool:
+	if peer < 0 or not srv.sessoes.has(peer): return false
+	var e: Ent = srv.sessoes[peer]["jog"]
+	if e == null: return false
+	if peer in inscritos:
+		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return false
+	if not aberta():
+		_aviso(peer, "A lista do Agrak abre %d minutos antes da luta. Próxima: %s (horário de Brasília)." % [int(cfg.get("inscricao", {}).get("abre_min_antes", 10)), _hora_txt()]); return false
+	if e.nivel < _nivel_min():
+		_aviso(peer, "O Agrak só aceita gladiadores do nível %d para cima." % _nivel_min()); return false
+	inscritos.append(peer)
+	_aviso(peer, "Seu bilhete entrou na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
+	return true
+
 func _falta_txt() -> String:
 	var s := maxi(0, inicio - _agora())
 	return "%d:%02d" % [s / 60, s % 60]

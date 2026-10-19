@@ -339,7 +339,9 @@ func _ev(tipo: String, d: Dictionary, mapa_id: String) -> void:
 	if tipo == "agrak_pedido":   # Cartaz do Agrak e Caim e Abel: a lista fica no servidor
 		agrak.pedido(por_jog.get(int(d.get("_para", -1)), -1), str(d.get("a", "inscrever"))); return
 	if tipo == "usar_evento":
-		_usar_convite(d, mapa_id); return
+		if str(d.get("uso", "")) == "evento:agrak": _usar_bilhete(d)
+		else: _usar_convite(d, mapa_id)
+		return
 	if tipo == "chat":   # perto: mesmo mapa e perto; global: todos; pm: só o destinatário; grupo: membros do grupo
 		var dc = Sincro.limpo(d)
 		var canal := str(d.get("canal", "perto"))
@@ -584,6 +586,15 @@ func _salvar_jog(peer: int, gravar := true) -> void:
 func _sistema_todos(txt: String) -> void:
 	for p in sessoes:
 		if sessoes[p]["jog"] != null: _para(p, "chat", {"canal": "sistema", "texto": txt})
+
+## O jogador usou o Bilhete do Agrak: o servidor põe o nome na lista e só então gasta o bilhete.
+func _usar_bilhete(d: Dictionary) -> void:
+	var p = por_jog.get(int(d.get("_para", -1)))
+	if p == null or not sessoes.has(p): return
+	var e: Ent = sessoes[p]["jog"]
+	if e == null or not agrak.usar_bilhete(p): return
+	Itens.remover(e.inv, str(d.get("item", "bilhete_agrak")), 1)
+	_para(p, "inventario", {})
 
 ## O jogador clicou no Convite dos Vigilantes (Jogador.usar_item manda "usar_evento" para o servidor decidir).
 func _usar_convite(d: Dictionary, mapa_id: String) -> void:
