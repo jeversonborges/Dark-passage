@@ -14,6 +14,8 @@ OFFSET_LOC = tuple(float(v) for v in os.environ.get("OFF_LOC", "0,0,0").split(",
 OFFSET_ROT = tuple(float(v) for v in os.environ.get("OFF_ROT", "0,0,0").split(","))   # graus; arma na vertical
 RES = int(os.environ.get("RES", 320))
 AMOSTRAS = int(os.environ.get("AMOSTRAS", 24))
+# Duas mãos: ponto do cabo (no sistema da arma) onde a mão esquerda segura; vazio = uma mão só.
+ALVO_MAO_ESQ = os.environ.get("ALVO_MAO_ESQ")
 
 def importa(caminho):
     antes = set(bpy.data.objects)
@@ -62,9 +64,29 @@ def main():
         tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
     def posiciona_arma():
         bpy.context.view_layer.update()
+        if ALVO_MAO_ESQ:
+            # arma vertical: o cabo segue o meio da mão direita (articulação do punho até a ponta dos dedos)
+            pb = arm.pose.bones[osso_nome]
+            meio = (arm.matrix_world @ pb.matrix @ Vector((0, 0, 0)) + arm.matrix_world @ pb.matrix @ Vector((0, pb.length, 0))) / 2
+            mao.matrix_world = Matrix.Translation(meio + Vector(OFFSET_LOC))
+            return
         osso = arm.matrix_world @ arm.pose.bones[osso_nome].matrix
         mao.matrix_world = osso @ inv_repouso @ w_repouso
     lib_objs = [o for o in armas if o.type == "MESH"]
+    if ALVO_MAO_ESQ:
+        # alvo da mão esquerda preso ao cabo; IK da mão esquerda pelo braço real do personagem
+        alvo_mao = bpy.data.objects.new("alvo_mao_esq", None)
+        bpy.context.scene.collection.objects.link(alvo_mao)
+        alvo_mao.parent = mao
+        alvo_mao.location = tuple(float(v) for v in ALVO_MAO_ESQ.split(","))
+        ik = arm.pose.bones["hand.L"].constraints.new('IK')
+        ik.target = alvo_mao
+        ik.chain_count = 2
+        ik.use_tail = True
+        ik.use_stretch = False
+        ik.iterations = 500
+        ik.weight = 1.0
+        ik.influence = 1.0
 
     cena = bpy.context.scene
     cena.render.engine = 'CYCLES'; cena.cycles.device = 'CPU'; cena.cycles.samples = AMOSTRAS
@@ -115,6 +137,18 @@ def main():
     for arqs in quadros.values():
         for a in arqs:
             os.remove(a)
+    if ALVO_MAO_ESQ:
+        bpy.context.view_layer.update()
+        pbl = arm.pose.bones["hand.L"]
+        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation), "ik", [c.type for c in pbl.constraints], [round(c.influence,2) for c in pbl.constraints])
+    if ALVO_MAO_ESQ:
+        bpy.context.view_layer.update()
+        pbl = arm.pose.bones["hand.L"]
+        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation))
+    if ALVO_MAO_ESQ:
+        bpy.context.view_layer.update()
+        pbl = arm.pose.bones["hand.L"]
+        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation), "ikinfl", pbl.constraints[0].influence, "target", pbl.constraints[0].target)
     print("ok", out, nome)
 
 if __name__ == "__main__":
