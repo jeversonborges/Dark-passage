@@ -10686,7 +10686,15 @@
         "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
-      "classes": ["anjo", "cultista", "demonio", "humano", "mutante", "tecnomancer", "warlord"]
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ]
     },
     {
       "id": "bau_dourado",
@@ -23470,6 +23478,780 @@
       "tipos_arma": [
         "fisica"
       ]
+    },
+    {
+      "id": "juramento_quebrado_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Placas)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "elmo_pesado",
+      "tint": "ferro_negro",
+      "emissivo": "#ff7a1a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "cabeca",
+      "nivel": 11,
+      "tags": [],
+      "classes": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 3,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca_pvp.png"
+    },
+    {
+      "id": "juramento_quebrado_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Placas)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "peito_pesado",
+      "tint": "ferro_negro",
+      "emissivo": "#ff7a1a",
+      "grade": [
+        2,
+        3
+      ],
+      "raridade": "raro",
+      "slot": "peito",
+      "nivel": 11,
+      "tags": [],
+      "classes": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 7,
+      "defesa": 7,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito_pvp.png"
+    },
+    {
+      "id": "juramento_quebrado_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Placas)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "luvas_pesado",
+      "tint": "ferro_negro",
+      "emissivo": "#ff7a1a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "luvas",
+      "nivel": 11,
+      "tags": [],
+      "classes": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas_pvp.png"
+    },
+    {
+      "id": "juramento_quebrado_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Placas)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "calcas_pesado",
+      "tint": "ferro_negro",
+      "emissivo": "#ff7a1a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "calcas",
+      "nivel": 11,
+      "tags": [],
+      "classes": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 5,
+      "defesa": 5,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas_pvp.png"
+    },
+    {
+      "id": "juramento_quebrado_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Placas)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "botas_pesado",
+      "tint": "ferro_negro",
+      "emissivo": "#ff7a1a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "botas",
+      "nivel": 11,
+      "tags": [],
+      "classes": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 3,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas_pvp.png"
+    },
+    {
+      "id": "couraca_acougueiro_oco_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Malha)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "elmo_medio",
+      "tint": "sangue",
+      "emissivo": "#9cff3a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "cabeca",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca_pvp.png"
+    },
+    {
+      "id": "couraca_acougueiro_oco_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Malha)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "peito_medio",
+      "tint": "sangue",
+      "emissivo": "#9cff3a",
+      "grade": [
+        2,
+        3
+      ],
+      "raridade": "raro",
+      "slot": "peito",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 5,
+      "defesa": 7,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito_pvp.png"
+    },
+    {
+      "id": "couraca_acougueiro_oco_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Malha)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "luvas_medio",
+      "tint": "sangue",
+      "emissivo": "#9cff3a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "luvas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 2,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas_pvp.png"
+    },
+    {
+      "id": "couraca_acougueiro_oco_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Malha)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "calcas_medio",
+      "tint": "sangue",
+      "emissivo": "#9cff3a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "calcas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 3,
+      "defesa": 4,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas_pvp.png"
+    },
+    {
+      "id": "couraca_acougueiro_oco_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Malha)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "botas_medio",
+      "tint": "sangue",
+      "emissivo": "#9cff3a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "botas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas_pvp.png"
+    },
+    {
+      "id": "coro_mudo_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Pano)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "elmo_leve",
+      "tint": "osso",
+      "emissivo": "#ff3a2a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "cabeca",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca_pvp.png"
+    },
+    {
+      "id": "coro_mudo_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Pano)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "peito_leve",
+      "tint": "osso",
+      "emissivo": "#ff3a2a",
+      "grade": [
+        2,
+        3
+      ],
+      "raridade": "raro",
+      "slot": "peito",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 4,
+      "defesa": 7,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito_pvp.png"
+    },
+    {
+      "id": "coro_mudo_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Pano)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "luvas_leve",
+      "tint": "osso",
+      "emissivo": "#ff3a2a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "luvas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 1,
+      "defesa": 2,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas_pvp.png"
+    },
+    {
+      "id": "coro_mudo_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Pano)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "calcas_leve",
+      "tint": "osso",
+      "emissivo": "#ff3a2a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "calcas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 3,
+      "defesa": 4,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas_pvp.png"
+    },
+    {
+      "id": "coro_mudo_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Pano)",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "botas_leve",
+      "tint": "osso",
+      "emissivo": "#ff3a2a",
+      "grade": [
+        2,
+        2
+      ],
+      "raridade": "raro",
+      "slot": "botas",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "faccao": null,
+      "defesa_sugerida_missoes": 2,
+      "defesa": 3,
+      "atributos": {
+        "dano_recebido_jogadores": -0.04
+      },
+      "categoria": "armadura",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas_pvp.png"
+    },
+    {
+      "id": "arma_pvp_anjo",
+      "nome": "Espada do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "anjo"
+      ],
+      "faccao": null,
+      "dano": [
+        15,
+        21
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/espada.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/espada.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/espada.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_anjo.png"
+    },
+    {
+      "id": "arma_pvp_cultista",
+      "nome": "Cetro do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "cajado_osso",
+      "tint": "osso",
+      "emissivo": null,
+      "grade": [
+        1,
+        4
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "cultista"
+      ],
+      "faccao": null,
+      "dano": [
+        14,
+        20
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/cetro.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/cetro.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/cetro.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_cultista.png"
+    },
+    {
+      "id": "arma_pvp_mutante",
+      "nome": "Machado do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "machado_placa",
+      "tint": "placa",
+      "emissivo": null,
+      "grade": [
+        2,
+        3
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "mutante"
+      ],
+      "faccao": null,
+      "dano": [
+        17,
+        24
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/machado.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/machado.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/machado.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_mutante.png"
+    },
+    {
+      "id": "arma_pvp_demonio",
+      "nome": "Foice do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "foice",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        2,
+        4
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "demonio"
+      ],
+      "faccao": null,
+      "dano": [
+        16,
+        23
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/foice_longa.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/foice_longa.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/foice_longa.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_demonio.png"
+    },
+    {
+      "id": "arma_pvp_humano",
+      "nome": "Escopeta do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "besta",
+      "tint": "madeira",
+      "emissivo": null,
+      "grade": [
+        3,
+        2
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "humano"
+      ],
+      "faccao": null,
+      "dano": [
+        16,
+        23
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escopeta.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escopeta.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escopeta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_humano.png"
+    },
+    {
+      "id": "arma_pvp_tecnomancer",
+      "nome": "Besta do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "cajado_antena",
+      "tint": "latao",
+      "emissivo": null,
+      "grade": [
+        1,
+        4
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "tecnomancer"
+      ],
+      "faccao": null,
+      "dano": [
+        14,
+        20
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/besta.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/besta.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/besta.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_tecnomancer.png"
+    },
+    {
+      "id": "arma_pvp_warlord",
+      "nome": "Escudo do Gladiador Demoníaco",
+      "fonte": "design/missoes/dados/itens.json",
+      "motivo": "espada",
+      "tint": "aco",
+      "emissivo": null,
+      "grade": [
+        1,
+        3
+      ],
+      "raridade": "lendario",
+      "slot": "arma",
+      "nivel": 10,
+      "tags": [],
+      "classes": [
+        "warlord"
+      ],
+      "faccao": null,
+      "dano": [
+        17,
+        25
+      ],
+      "intervalo": 1.0,
+      "atributos": {
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "categoria": "arma",
+      "icone": {
+        "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escudo.png",
+        "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escudo.png",
+        "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escudo.png"
+      },
+      "icone_mochila": "assets/icones/itens/mochila/arma_pvp_warlord.png"
     }
   ]
 }
