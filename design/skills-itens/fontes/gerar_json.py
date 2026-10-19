@@ -128,6 +128,10 @@ for m in mis:
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}
+# ícones do Penitente (PvP): pinturas do Gladiador Demoníaco e sobras do pool (fontes/icones_pvp.json)
+ICONES_PVP = json.load(open(os.path.join(AQUI, "icones_pvp.json")))["icones"]
+for it in itens:
+    if it["id"] in ICONES_PVP: it["icone"] = {t: f"assets/icones/itens/{t}/{ICONES_PVP[it['id']]}.png" for t in (64, 40, 32)}
 json.dump({"versao":"0.2","aviso":AVISO,
   "raridades":"ver design/combate/drops.json (comum, magico, raro, excelente, lendario = Relíquia). Itens BASE têm raridade 'rolada' no drop.",
   "refino":{"no_drop":"+0 a +3 (drops.json, +8% de dano/defesa base por nível)", "joias":{"+1..+6":"Lágrima de Anjo, 100%", "+7..+9":"Fragmento de Alma, 55%; falha volta 1 nível"},

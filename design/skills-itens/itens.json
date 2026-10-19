@@ -6676,9 +6676,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/juramento_quebrado_cabeca_pvp.png",
-    "40": "assets/icones/itens/40/juramento_quebrado_cabeca_pvp.png",
-    "32": "assets/icones/itens/32/juramento_quebrado_cabeca_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_juramento_quebrado_cabeca.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_juramento_quebrado_cabeca.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_juramento_quebrado_cabeca.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca_pvp.png"
   },
@@ -6710,9 +6710,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/juramento_quebrado_peito_pvp.png",
-    "40": "assets/icones/itens/40/juramento_quebrado_peito_pvp.png",
-    "32": "assets/icones/itens/32/juramento_quebrado_peito_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_juramento_quebrado_peito.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_juramento_quebrado_peito.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_juramento_quebrado_peito.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito_pvp.png"
   },
@@ -6744,9 +6744,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/juramento_quebrado_luvas_pvp.png",
-    "40": "assets/icones/itens/40/juramento_quebrado_luvas_pvp.png",
-    "32": "assets/icones/itens/32/juramento_quebrado_luvas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_juramento_quebrado_luvas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_juramento_quebrado_luvas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_juramento_quebrado_luvas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas_pvp.png"
   },
@@ -6778,9 +6778,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/juramento_quebrado_calcas_pvp.png",
-    "40": "assets/icones/itens/40/juramento_quebrado_calcas_pvp.png",
-    "32": "assets/icones/itens/32/juramento_quebrado_calcas_pvp.png"
+    "64": "assets/icones/itens/64/grevas_da_cerca.png",
+    "40": "assets/icones/itens/40/grevas_da_cerca.png",
+    "32": "assets/icones/itens/32/grevas_da_cerca.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas_pvp.png"
   },
@@ -6812,9 +6812,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/juramento_quebrado_botas_pvp.png",
-    "40": "assets/icones/itens/40/juramento_quebrado_botas_pvp.png",
-    "32": "assets/icones/itens/32/juramento_quebrado_botas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_juramento_quebrado_botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_juramento_quebrado_botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_juramento_quebrado_botas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas_pvp.png"
   },
@@ -6847,9 +6847,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/couraca_acougueiro_oco_cabeca_pvp.png",
-    "40": "assets/icones/itens/40/couraca_acougueiro_oco_cabeca_pvp.png",
-    "32": "assets/icones/itens/32/couraca_acougueiro_oco_cabeca_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_couraca_acougueiro_oco_cabeca.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_couraca_acougueiro_oco_cabeca.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_couraca_acougueiro_oco_cabeca.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca_pvp.png"
   },
@@ -6882,9 +6882,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/couraca_acougueiro_oco_peito_pvp.png",
-    "40": "assets/icones/itens/40/couraca_acougueiro_oco_peito_pvp.png",
-    "32": "assets/icones/itens/32/couraca_acougueiro_oco_peito_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_couraca_acougueiro_oco_peito.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_couraca_acougueiro_oco_peito.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_couraca_acougueiro_oco_peito.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito_pvp.png"
   },
@@ -6917,9 +6917,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/couraca_acougueiro_oco_luvas_pvp.png",
-    "40": "assets/icones/itens/40/couraca_acougueiro_oco_luvas_pvp.png",
-    "32": "assets/icones/itens/32/couraca_acougueiro_oco_luvas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_couraca_acougueiro_oco_luvas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_couraca_acougueiro_oco_luvas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_couraca_acougueiro_oco_luvas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas_pvp.png"
   },
@@ -6952,9 +6952,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/couraca_acougueiro_oco_calcas_pvp.png",
-    "40": "assets/icones/itens/40/couraca_acougueiro_oco_calcas_pvp.png",
-    "32": "assets/icones/itens/32/couraca_acougueiro_oco_calcas_pvp.png"
+    "64": "assets/icones/itens/64/calcas_de_desertor.png",
+    "40": "assets/icones/itens/40/calcas_de_desertor.png",
+    "32": "assets/icones/itens/32/calcas_de_desertor.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas_pvp.png"
   },
@@ -6987,9 +6987,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/couraca_acougueiro_oco_botas_pvp.png",
-    "40": "assets/icones/itens/40/couraca_acougueiro_oco_botas_pvp.png",
-    "32": "assets/icones/itens/32/couraca_acougueiro_oco_botas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_couraca_acougueiro_oco_botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_couraca_acougueiro_oco_botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_couraca_acougueiro_oco_botas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas_pvp.png"
   },
@@ -7021,9 +7021,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/coro_mudo_cabeca_pvp.png",
-    "40": "assets/icones/itens/40/coro_mudo_cabeca_pvp.png",
-    "32": "assets/icones/itens/32/coro_mudo_cabeca_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_coro_mudo_cabeca.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_coro_mudo_cabeca.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_coro_mudo_cabeca.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca_pvp.png"
   },
@@ -7055,9 +7055,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/coro_mudo_peito_pvp.png",
-    "40": "assets/icones/itens/40/coro_mudo_peito_pvp.png",
-    "32": "assets/icones/itens/32/coro_mudo_peito_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_coro_mudo_peito.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_coro_mudo_peito.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_coro_mudo_peito.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito_pvp.png"
   },
@@ -7089,9 +7089,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/coro_mudo_luvas_pvp.png",
-    "40": "assets/icones/itens/40/coro_mudo_luvas_pvp.png",
-    "32": "assets/icones/itens/32/coro_mudo_luvas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_coro_mudo_luvas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_coro_mudo_luvas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_coro_mudo_luvas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas_pvp.png"
   },
@@ -7123,9 +7123,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/coro_mudo_calcas_pvp.png",
-    "40": "assets/icones/itens/40/coro_mudo_calcas_pvp.png",
-    "32": "assets/icones/itens/32/coro_mudo_calcas_pvp.png"
+    "64": "assets/icones/itens/64/calcas_de_procissao.png",
+    "40": "assets/icones/itens/40/calcas_de_procissao.png",
+    "32": "assets/icones/itens/32/calcas_de_procissao.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas_pvp.png"
   },
@@ -7157,9 +7157,9 @@
    },
    "categoria": "armadura",
    "icone": {
-    "64": "assets/icones/itens/64/coro_mudo_botas_pvp.png",
-    "40": "assets/icones/itens/40/coro_mudo_botas_pvp.png",
-    "32": "assets/icones/itens/32/coro_mudo_botas_pvp.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco_coro_mudo_botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco_coro_mudo_botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco_coro_mudo_botas.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas_pvp.png"
   },
@@ -7194,9 +7194,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_anjo.png",
-    "40": "assets/icones/itens/40/arma_pvp_anjo.png",
-    "32": "assets/icones/itens/32/arma_pvp_anjo.png"
+    "64": "assets/icones/itens/64/espada_de_aco_velho.png",
+    "40": "assets/icones/itens/40/espada_de_aco_velho.png",
+    "32": "assets/icones/itens/32/espada_de_aco_velho.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_anjo.png"
   },
@@ -7231,9 +7231,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_cultista.png",
-    "40": "assets/icones/itens/40/arma_pvp_cultista.png",
-    "32": "assets/icones/itens/32/arma_pvp_cultista.png"
+    "64": "assets/icones/itens/64/cetro_que_abre_a_garganta.png",
+    "40": "assets/icones/itens/40/cetro_que_abre_a_garganta.png",
+    "32": "assets/icones/itens/32/cetro_que_abre_a_garganta.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_cultista.png"
   },
@@ -7268,9 +7268,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_mutante.png",
-    "40": "assets/icones/itens/40/arma_pvp_mutante.png",
-    "32": "assets/icones/itens/32/arma_pvp_mutante.png"
+    "64": "assets/icones/itens/64/machado_de_gelo_sujo.png",
+    "40": "assets/icones/itens/40/machado_de_gelo_sujo.png",
+    "32": "assets/icones/itens/32/machado_de_gelo_sujo.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_mutante.png"
   },
@@ -7305,9 +7305,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_demonio.png",
-    "40": "assets/icones/itens/40/arma_pvp_demonio.png",
-    "32": "assets/icones/itens/32/arma_pvp_demonio.png"
+    "64": "assets/icones/itens/64/foice_sangrenta.png",
+    "40": "assets/icones/itens/40/foice_sangrenta.png",
+    "32": "assets/icones/itens/32/foice_sangrenta.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_demonio.png"
   },
@@ -7342,9 +7342,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_humano.png",
-    "40": "assets/icones/itens/40/arma_pvp_humano.png",
-    "32": "assets/icones/itens/32/arma_pvp_humano.png"
+    "64": "assets/icones/itens/64/besta_de_trilho.png",
+    "40": "assets/icones/itens/40/besta_de_trilho.png",
+    "32": "assets/icones/itens/32/besta_de_trilho.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_humano.png"
   },
@@ -7379,9 +7379,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_tecnomancer.png",
-    "40": "assets/icones/itens/40/arma_pvp_tecnomancer.png",
-    "32": "assets/icones/itens/32/arma_pvp_tecnomancer.png"
+    "64": "assets/icones/itens/64/antena_de_cajado.png",
+    "40": "assets/icones/itens/40/antena_de_cajado.png",
+    "32": "assets/icones/itens/32/antena_de_cajado.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_tecnomancer.png"
   },
@@ -7416,9 +7416,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/arma_pvp_warlord.png",
-    "40": "assets/icones/itens/40/arma_pvp_warlord.png",
-    "32": "assets/icones/itens/32/arma_pvp_warlord.png"
+    "64": "assets/icones/itens/64/espada_da_retirada.png",
+    "40": "assets/icones/itens/40/espada_da_retirada.png",
+    "32": "assets/icones/itens/32/espada_da_retirada.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_warlord.png"
   }

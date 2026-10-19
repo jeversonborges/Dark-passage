@@ -1,0 +1,27 @@
+{
+ "_doc": "Ícone PvP do Penitente por id de item. Caminho relativo a assets/icones/itens/<tamanho>/ (sem .png). Gerado a partir do pool livre e das pinturas do Gladiador Demoníaco (assets/icones/itens/*/pvp/).",
+ "icones": {
+  "juramento_quebrado_cabeca_pvp": "pvp/gladiador_demoniaco_juramento_quebrado_cabeca",
+  "juramento_quebrado_peito_pvp": "pvp/gladiador_demoniaco_juramento_quebrado_peito",
+  "juramento_quebrado_luvas_pvp": "pvp/gladiador_demoniaco_juramento_quebrado_luvas",
+  "juramento_quebrado_botas_pvp": "pvp/gladiador_demoniaco_juramento_quebrado_botas",
+  "couraca_acougueiro_oco_cabeca_pvp": "pvp/gladiador_demoniaco_couraca_acougueiro_oco_cabeca",
+  "couraca_acougueiro_oco_peito_pvp": "pvp/gladiador_demoniaco_couraca_acougueiro_oco_peito",
+  "couraca_acougueiro_oco_luvas_pvp": "pvp/gladiador_demoniaco_couraca_acougueiro_oco_luvas",
+  "couraca_acougueiro_oco_botas_pvp": "pvp/gladiador_demoniaco_couraca_acougueiro_oco_botas",
+  "coro_mudo_cabeca_pvp": "pvp/gladiador_demoniaco_coro_mudo_cabeca",
+  "coro_mudo_peito_pvp": "pvp/gladiador_demoniaco_coro_mudo_peito",
+  "coro_mudo_luvas_pvp": "pvp/gladiador_demoniaco_coro_mudo_luvas",
+  "coro_mudo_botas_pvp": "pvp/gladiador_demoniaco_coro_mudo_botas",
+  "juramento_quebrado_calcas_pvp": "grevas_da_cerca",
+  "couraca_acougueiro_oco_calcas_pvp": "calcas_de_desertor",
+  "coro_mudo_calcas_pvp": "calcas_de_procissao",
+  "arma_pvp_anjo": "espada_de_aco_velho",
+  "arma_pvp_cultista": "cetro_que_abre_a_garganta",
+  "arma_pvp_mutante": "machado_de_gelo_sujo",
+  "arma_pvp_demonio": "foice_sangrenta",
+  "arma_pvp_humano": "besta_de_trilho",
+  "arma_pvp_tecnomancer": "antena_de_cajado",
+  "arma_pvp_warlord": "espada_da_retirada"
+ }
+}
