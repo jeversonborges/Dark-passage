@@ -21,7 +21,7 @@ DIRS = ["S", "SE", "E", "NE", "N", "NW", "W", "SW"]  # direção para onde o per
 
 arm, info = getattr(classes, kind)()
 style = info.get("anim", "melee"); flash = info.get("flash"); flash_frames = None
-if style == "melee": acts = anims.anjo_anims(arm, info.get("extra"))
+if style == "melee": acts = anims.anjo_anims(arm, info.get("extra"), n=info.get("quadros", 12))
 elif style == "gun": acts, flash_frames = anims.humano_anims(arm, flash)
 elif style == "dual": acts, flash_frames = anims.humano_dual_anims(arm)
 else: acts, flash_frames = anims.caster_anims(arm, info.get("extra"), info.get("hold_extra"))

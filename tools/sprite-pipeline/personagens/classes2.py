@@ -303,7 +303,7 @@ def mutante():
     hd += mohawk(iron, acid, n=7, h=.11, seed=5)
     parts.append(rigid(hd, arm, "head"))
     # a arma da mão é o machado 3D (arma_gladiador.glb), colocado por render.py em cima do osso da mão
-    return arm, {"rim": (.6, 1, .35), "anim": "melee", "arma": ARMA_MUTANTE,
+    return arm, {"rim": (.6, 1, .35), "anim": "melee", "arma": ARMA_MUTANTE, "quadros": 8,
                  "extra": {"upper_arm.L": {"y": -14}, "spine": {"x": -6}, "neck": {"x": -10}}}
 
 # ====================================================================== TECNOMANCER

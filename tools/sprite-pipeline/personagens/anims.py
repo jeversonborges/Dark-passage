@@ -15,7 +15,7 @@ def walk_legs(t, amp=26):
     p["root"] = (0, 0, -drop)
     return p
 
-def anjo_anims(arm, extra=None):
+def anjo_anims(arm, extra=None, n=12):
     """Golpe corpo a corpo com arma de uma mão (Anjo, Demônio, Mutante)."""
     base = merge(ARMS_DOWN, {"forearm.R": {"bend": -8}, "upper_arm.R": {"x": 4, "y": -6}, "hand.R": {"bend": 32},
                              "wing.L": {"z": 12}, "wing.R": {"z": -12}})
@@ -27,8 +27,8 @@ def anjo_anims(arm, extra=None):
     # andar em 12 quadros: passada mais longa, quadril que balança e inclina, tronco em contra-rotação,
     # braço que balança com atraso no antebraço e asas que acompanham o sobe e desce com atraso
     walk = []
-    for i in range(12):
-        t = i/12*2*math.pi; s, c = math.sin(t), math.cos(t)
+    for i in range(n):
+        t = i/n*2*math.pi; s, c = math.sin(t), math.cos(t)
         lag = math.sin(t - .9); bob = math.cos(2*t)
         walk.append(merge(base, walk_legs(t, 30), {
             "hips": {"z": 4*s, "y": 4*c}, "spine": {"x": -5, "y": -2*c}, "chest": {"z": -6*s, "x": -1.5*bob},
@@ -57,8 +57,8 @@ def anjo_anims(arm, extra=None):
                 return [x + (y - x)*u for x, y in zip(a, b)]
         return KEYS[-1][1:]
     attack = []
-    for i in range(12):
-        ax, az, fb, cz, sx, wg, lg, cr = sample(i/12)
+    for i in range(n):
+        ax, az, fb, cz, sx, wg, lg, cr = sample(i/n)
         attack.append(merge(ARMS_DOWN, {
             "upper_arm.R": {"y": 34, "x": ax, "z": az}, "forearm.R": {"bend": fb}, "hand.R": {"bend": -.15*fb},
             "upper_arm.L": {"x": -15*lg + 10*cr, "y": -10*max(lg, 0) - 60*cr}, "forearm.L": {"bend": -30*max(lg, 0) - 200*cr},
