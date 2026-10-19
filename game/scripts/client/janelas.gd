@@ -902,7 +902,7 @@ func abrir_habilidades() -> void:
 		if h.has("recarga"): meta.append("recarga %.1fs" % float(h["recarga"]))
 		if h.has("cargas"): meta.append("%d cargas" % int(h["cargas"]))
 		col.add_child(Tema.rotulo(" · ".join(meta), 12, Color("#a89f8c"), Tema.FONTE_ITALICO))
-		var d := Tema.rotulo(sk.get("descricao", ""), 13, Color("#d8cfb8"))
+		var d := Tema.rotulo(sk.get("descricao", h.get("descricao", "")), 13, Color("#d8cfb8"))
 		d.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART; d.custom_minimum_size.x = 340
 		col.add_child(d)
 		for ef in sk.get("efeitos", []):
