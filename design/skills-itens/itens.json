@@ -7350,7 +7350,7 @@
   },
   {
    "id": "arma_pvp_tecnomancer",
-   "nome": "Arco-Foice do Gladiador Demoníaco",
+   "nome": "Besta do Gladiador Demoníaco",
    "fonte": "design/missoes/dados/itens.json",
    "motivo": "cajado_antena",
    "tint": "latao",
@@ -7379,15 +7379,15 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/foice_arco.png",
-    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/foice_arco.png",
-    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/foice_arco.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/besta.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/besta.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/besta.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_tecnomancer.png"
   },
   {
    "id": "arma_pvp_warlord",
-   "nome": "Espadão do Gladiador Demoníaco",
+   "nome": "Escudo do Gladiador Demoníaco",
    "fonte": "design/missoes/dados/itens.json",
    "motivo": "espada",
    "tint": "aco",
@@ -7416,9 +7416,9 @@
    },
    "categoria": "arma",
    "icone": {
-    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/estandarte.png",
-    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/estandarte.png",
-    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/estandarte.png"
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escudo.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escudo.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escudo.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/arma_pvp_warlord.png"
   }

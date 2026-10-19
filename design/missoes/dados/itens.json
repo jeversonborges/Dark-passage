@@ -2242,7 +2242,7 @@
     },
     {
       "id": "arma_pvp_tecnomancer",
-      "nome": "Arco-Foice do Gladiador Demoníaco",
+      "nome": "Besta do Gladiador Demoníaco",
       "tipo": "equipamento",
       "slot": "arma",
       "classe": [
@@ -2264,7 +2264,7 @@
     },
     {
       "id": "arma_pvp_warlord",
-      "nome": "Espadão do Gladiador Demoníaco",
+      "nome": "Escudo do Gladiador Demoníaco",
       "tipo": "equipamento",
       "slot": "arma",
       "classe": [
