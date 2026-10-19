@@ -45,6 +45,46 @@
    }
   }
  },
+ "abominacao_colossal": {
+  "frame": [
+   352,
+   352
+  ],
+  "anchor": [
+   176.0,
+   270.2
+  ],
+  "dirs": [
+   "S",
+   "SE",
+   "E",
+   "NE",
+   "N",
+   "NW",
+   "W",
+   "SW"
+  ],
+  "anims": {
+   "idle": {
+    "file": "res://assets/ext/personagens/abominacao_colossal/idle.png",
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "file": "res://assets/ext/personagens/abominacao_colossal/walk.png",
+    "frames": 12,
+    "fps": 15,
+    "loop": true
+   },
+   "attack": {
+    "file": "res://assets/ext/personagens/abominacao_colossal/attack.png",
+    "frames": 12,
+    "fps": 18,
+    "loop": false
+   }
+  }
+ },
  "ahmose_barqueiro": {
   "frame": [
    224,
