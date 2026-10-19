@@ -6,15 +6,66 @@
 import math
 import lider_dos_demonios as L
 from mrig import merge, lerp_pose, keys_to_frames
-from amenti import mote_pose
+from amenti import mote_pose, couro, aco, lava, glow, blade, spike, rest_uv
+from base_rig import along
+from mathutils import Vector
 
 L.SCALE = 1.8                      # 5,1 m no lorde -> ~3,3 m no pet
 INFO = dict(L.INFO, px=448, target_z=1.95, samples=int(L.INFO["samples"]),
             loops=("idle", "walk"), fps={"idle": 6, "walk": 9, "attack": 12, "hit": 12, "death": 9})
 def set_variant(name): pass
 
+def espadao(R):
+    """Espadão infernal (pedido do Jefin, 0.9.8): lâmina reta de ferro negro com rachaduras de lava, runas gravadas
+    em brasa e chamas nas bordas, presa na manopla direita. Cai reto da mão até quase o chão, como o Líder arrastando
+    a arma. Tudo na cor de lava do próprio Líder (um só emissivo)."""
+    o_, ax, u, sd = R.frame("hand.R")
+    d = (Vector((0, 0, -1)) + ax*.3).normalized()        # lâmina para baixo, puxada para fora
+    side = Vector((0, 1, 0)); side = (side - d*side.dot(d)).normalized()
+    nrm = d.cross(side).normalized()
+    g0 = o_ + ax*.06                                     # punho dentro da manopla
+    cabo = couro("fl_cabo", rgb=(.12, .05, .03), rough=.5)
+    guarda = aco("fl_guarda", rgb=(.2, .17, .15), rough=.45, dirt=.7)
+    ferro, s_fer = lava("fl_lamina", base=(.3, .29, .28), crack=L.LAVA, amount=.45, cscale=5.0, width=.02, seed=5.0,
+                        metal=.9, rough=.3, worn=(.55, .52, .5))
+    runa = glow("fl_runa", L.LAVA, 6.0)
+    chama = glow("fl_chama", L.LAVA, 3.0)
+    R.glow.append((s_fer, s_fer.default_value))
+    for m in (runa, chama):
+        sk_ = m.node_tree.nodes["Emission"].inputs["Strength"]; R.glow.append((sk_, sk_.default_value))
+    pegada = g0 + d*.14
+    g_c = pegada + d*.02                                 # linha do guarda
+    peças = [along("primitive_cylinder_add", cabo, g0, pegada, .03, vertices=12)]
+    for k in range(3):                                   # enrolado de couro no cabo
+        c = g0 + d*(.02 + .035*k)
+        peças.append(along("primitive_cylinder_add", cabo, c - side*.03, c + side*.03, .03, vertices=10))
+    peças.append(along("primitive_cylinder_add", guarda, g_c - side*.26, g_c + side*.26, .028, vertices=10))
+    for s in (-1, 1):                                    # pontas do guarda em espinho
+        ponta = g_c + side*.26*s
+        peças.append(spike(guarda, ponta, ponta + side*.09*s + d*.05, .03, verts=5))
+    peças.append(prim_sphere(guarda, g_c, .03))          # pomo do guarda
+    peças.append(blade("fl_lamina_obj", ferro, g_c + d*.03, d, side, .95, .075, .045, th=.02, n=18, tipf=.2))
+    # runas: traços em brasa gravados na lâmina, cruzando o fio
+    runas = []
+    for k, t in enumerate((.12, .26, .4, .54, .68)):
+        c = g_c + d*(.03 + .95*t)
+        larg = .06 if k % 2 == 0 else .042
+        runas.append(along("primitive_cylinder_add", runa, c - side*larg, c + side*larg, .009, vertices=6))
+        runas.append(along("primitive_cylinder_add", runa, c - d*.035, c + d*.035, .008, vertices=6))
+    # chamas infernais: línguas curvas nas bordas da lâmina, no terço de cima
+    chamas = []
+    for t, s in ((.45, -1), (.62, 1), (.78, -1)):
+        base = g_c + d*(.03 + .95*t) + side*(.035*s*(1 - t*.5))
+        chamas.append(L.flame_spike(f"fl_chama{int(t*100)}", chama, base, d, side*s, .16, .028, curl=.5, n=8))
+    for o in peças + runas + chamas: rest_uv(o)
+    R.rigid(peças + runas + chamas, "hand.R")
+
+def prim_sphere(m, c, r):
+    return L.prim("primitive_uv_sphere_add", m, c, (r, r, r), segments=10, ring_count=6)
+
 def build():
     R, _ = L.build()
+    espadao(R)
     return R, INFO
 
 def anims(R):

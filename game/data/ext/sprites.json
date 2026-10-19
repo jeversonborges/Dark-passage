@@ -5215,7 +5215,7 @@
     "loop": false
    }
   },
-  "escala": 1.0
+  "escala": 0.83
  },
  "familiar_diabrete": {
   "frame": [
@@ -5268,7 +5268,7 @@
     "loop": false
    }
   },
-  "escala": 1.0
+  "escala": 0.83
  },
  "familiar_lider": {
   "frame": [
@@ -5321,7 +5321,7 @@
     "loop": false
    }
   },
-  "escala": 1.0
+  "escala": 0.83
  },
  "familiar_tirano": {
   "frame": [
@@ -5374,7 +5374,7 @@
     "loop": false
    }
   },
-  "escala": 1.0
+  "escala": 0.83
  },
  "farao_sem_nome": {
   "frame": [
