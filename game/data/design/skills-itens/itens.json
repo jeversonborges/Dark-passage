@@ -10686,7 +10686,15 @@
         "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
       },
       "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png",
-      "classes": ["anjo", "cultista", "demonio", "humano", "mutante", "tecnomancer", "warlord"]
+      "classes": [
+        "anjo",
+        "cultista",
+        "demonio",
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "warlord"
+      ]
     },
     {
       "id": "bau_dourado",
@@ -23470,6 +23478,110 @@
       "tipos_arma": [
         "fisica"
       ]
+    },
+    {
+      "id": "pet_cao_de_vala",
+      "nome": "Cão de Vala",
+      "slot": "pet",
+      "categoria": "pet",
+      "tipo": "pet",
+      "raridade": "magico",
+      "nivel": 1,
+      "classes": [],
+      "tags": [],
+      "motivo": "pet",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Vira-lata da vala, magro e de olho vivo. Junta o que encontrar pelo caminho.",
+      "atributos": {
+        "especie": "cao_de_vala"
+      },
+      "filtro_coleta": "tudo",
+      "preco": 0,
+      "pilha": 1,
+      "vinculado": false
+    },
+    {
+      "id": "pet_corvo_de_cinza",
+      "nome": "Corvo de Cinza",
+      "slot": "pet",
+      "categoria": "pet",
+      "tipo": "pet",
+      "raridade": "magico",
+      "nivel": 10,
+      "classes": [],
+      "tags": [],
+      "motivo": "pet",
+      "tint": "ferro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Penas sujas de fuligem. Só pega o que brilha de verdade.",
+      "atributos": {
+        "especie": "corvo_de_cinza"
+      },
+      "filtro_coleta": "raridade_minima:raro",
+      "preco": 0,
+      "pilha": 1,
+      "vinculado": false
+    },
+    {
+      "id": "pet_cervo_de_lume",
+      "nome": "Cervo de Lume",
+      "slot": "pet",
+      "categoria": "pet",
+      "tipo": "pet",
+      "raridade": "excelente",
+      "nivel": 20,
+      "classes": [],
+      "tags": [],
+      "motivo": "pet",
+      "tint": "ouro",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Galhada de cobre e um brilho de lamparina. Anda atrás do dinheiro.",
+      "atributos": {
+        "especie": "cervo_de_lume"
+      },
+      "filtro_coleta": "ouro",
+      "preco": 0,
+      "pilha": 1,
+      "vinculado": false
+    },
+    {
+      "id": "pet_serpente_do_eden",
+      "nome": "Serpente do Éden",
+      "slot": "pet",
+      "categoria": "pet",
+      "tipo": "pet",
+      "raridade": "excelente",
+      "nivel": 25,
+      "classes": [],
+      "tags": [],
+      "motivo": "pet",
+      "tint": "verde",
+      "emissivo": null,
+      "grade": [
+        1,
+        1
+      ],
+      "lore": "Escama úmida, língua de latão. Guarda as poções como se fossem ovos.",
+      "atributos": {
+        "especie": "serpente_do_eden"
+      },
+      "filtro_coleta": "pocoes",
+      "preco": 0,
+      "pilha": 1,
+      "vinculado": false
     }
   ]
 }
