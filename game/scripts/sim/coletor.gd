@@ -140,6 +140,7 @@ static func _proximo(sim: WorldSim, dono: Ent, pet: Ent) -> Dictionary:
 	for c: Dictionary in sim.chao.values():
 		if c["pos"].distance_to(dono.pos) > RAIO_JUNTAR: continue
 		if c["dono"] != dono.id and float(c["t"]) < dono_s: continue
+		if c.get("de_jogador", false): continue   # o próprio dono jogou fora (ou desequipou): não é loot
 		var it: Dictionary = c["item"]
 		if not deve_pegar(it, f): continue
 		if not _cabe(dono, it): continue

@@ -1109,10 +1109,11 @@ func _passo_chao(dt: float) -> void:
 			if jog != null and (c["dono"] == jog.id or c["dono"] == -1 or c["t"] >= float(Defs.DROPS["regras"]["dono_do_drop_s"])):
 				Jogador.pegar_chao(self, jog, id)
 
-func soltar_no_chao(item: Dictionary, p: Vector2, dono: int, de: Vector2) -> void:
+## de_jogador: o item saiu da mochila (ou de um equipamento) do próprio dono. O pet coletor não junta esse tipo de drop.
+func soltar_no_chao(item: Dictionary, p: Vector2, dono: int, de: Vector2, de_jogador := false) -> void:
 	var id := novo_id()
 	var ang := rng.randf() * TAU
 	var alvo := p + Vector2(cos(ang), sin(ang)) * rng.randf_range(0.3, 1.2)
 	alvo = celula_livre_perto(alvo, 1.5)
-	chao[id] = {"id": id, "item": item, "pos": alvo, "dono": dono, "t": 0.0}
+	chao[id] = {"id": id, "item": item, "pos": alvo, "dono": dono, "t": 0.0, "de_jogador": de_jogador}
 	emitir("chao_novo", {"id": id, "de": de, "pos": alvo, "item": item, "dono": dono})

@@ -1041,7 +1041,7 @@ static func dar_item(sim: WorldSim, e: Ent, it: Dictionary) -> bool:
 	var sobra := Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it)
 	if sobra > 0:
 		var resto := it.duplicate(); resto["qtd"] = sobra
-		sim.soltar_no_chao(resto, e.pos, e.id, e.pos)
+		sim.soltar_no_chao(resto, e.pos, e.id, e.pos, true)
 		sim.emitir_a(e, "aviso", {"texto": "Mochila cheia."})
 		return false
 	sim.emitir_a(e, "item_ganho", {"id": it["id"], "qtd": int(it.get("qtd", 1)), "raridade": it.get("raridade", "comum"), "nome": Itens.nome(it)})
@@ -1174,7 +1174,7 @@ static func equipar(sim: WorldSim, e: Ent, uid: int, slot: String) -> void:
 	e.equip[s] = it
 	for t in tirar:
 		if Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, t) > 0:
-			sim.soltar_no_chao(t, e.pos, e.id, e.pos)
+			sim.soltar_no_chao(t, e.pos, e.id, e.pos, true)
 	Regras.recalc_jogador(e)
 	var cat := Itens.categoria(it)
 	sim.emitir_a(e, "som_evento", {"ev": "equipar_arma" if s == "arma" else ("equipar_joia" if cat == "acessorio" else "equipar_armadura")})
@@ -1212,7 +1212,7 @@ static func soltar_item(sim: WorldSim, e: Ent, uid: int) -> void:
 	if Itens.categoria(it) == "missao" or Itens.vinculado(it):
 		sim.emitir_a(e, "aviso", {"texto": "Item de missão: melhor não jogar fora."}); return
 	e.inv.erase(it)
-	sim.soltar_no_chao(it, e.pos, e.id, e.pos)
+	sim.soltar_no_chao(it, e.pos, e.id, e.pos, true)
 	sim.emitir_a(e, "som_evento", {"ev": "soltar"})
 	sim.emitir_a(e, "inventario", {})
 

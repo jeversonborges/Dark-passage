@@ -217,7 +217,7 @@ func _executar(t: Dictionary) -> void:
 			var sobra := Itens.guardar(e.inv, Itens.MOCHILA_W, Itens.MOCHILA_H, it)
 			if sobra > 0:   # não deveria acontecer (o ensaio passou); nunca some item: vai para o chão do dono
 				var resto: Dictionary = it.duplicate(true); resto["qtd"] = sobra
-				srv.mundos[srv.sessoes[a]["mapa"]].soltar_no_chao(resto, e.pos, e.id, e.pos)
+				srv.mundos[srv.sessoes[a]["mapa"]].soltar_no_chao(resto, e.pos, e.id, e.pos, true)
 	for p in [a, b]:
 		var e: Ent = _jog(p)
 		var sim := _sim(p)
