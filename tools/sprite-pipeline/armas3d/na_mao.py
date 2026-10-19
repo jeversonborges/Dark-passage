@@ -17,6 +17,8 @@ AMOSTRAS = int(os.environ.get("AMOSTRAS", 24))
 # Duas mãos: ponto do cabo (no sistema da arma) onde a mão esquerda segura; vazio = uma mão só.
 ALVO_MAO_ESQ = os.environ.get("ALVO_MAO_ESQ")
 DUAS_MAOS = ALVO_MAO_ESQ is not None
+# Arma diagonal cruzando o corpo, uma mão no meio do cabo e a outra solta (referência do machado).
+DIAGONAL = os.environ.get("DIAGONAL") == "1"
 # Ponto no mundo onde fica o cabo na pegada de duas mãos (frente do peito, mão direita no topo do cabo).
 PONTO_ARMA = tuple(float(v) for v in os.environ.get("PONTO_ARMA", "0,-0.3,1.0").split(","))
 
@@ -67,16 +69,19 @@ def main():
         tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
     def posiciona_arma():
         bpy.context.view_layer.update()
-        if DUAS_MAOS:
+        if DUAS_MAOS or DIAGONAL:
             return   # pegada de duas mãos: arma parada na frente do peito, as mãos seguem por IK
         osso = arm.matrix_world @ arm.pose.bones[osso_nome].matrix
         mao.matrix_world = osso @ inv_repouso @ w_repouso
-    if DUAS_MAOS:
+    if DUAS_MAOS or DIAGONAL:
         # arma parada, vertical, na frente do peito (PONTO_ARMA). Mão direita no cabo (origem da arma) e
         # mão esquerda mais embaixo no cabo (ALVO_MAO_ESQ). IK com três ossos (antebraço, braço e mão).
         mao.matrix_world = Matrix.Translation(Vector(PONTO_ARMA)) @ Euler(
             tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
-        for osso_nome_ik, ponto in (("hand.R", (0, 0, 0)), ("hand.L", tuple(float(v) for v in ALVO_MAO_ESQ.split(",")))):
+        pontos_ik = [("hand.R", (0, 0, 0))]
+        if DUAS_MAOS:
+            pontos_ik.append(("hand.L", tuple(float(v) for v in ALVO_MAO_ESQ.split(","))))
+        for osso_nome_ik, ponto in pontos_ik:
             alvo_mao = bpy.data.objects.new(f"alvo_{osso_nome_ik}", None)
             bpy.context.scene.collection.objects.link(alvo_mao)
             alvo_mao.parent = mao
