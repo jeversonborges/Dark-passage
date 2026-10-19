@@ -1657,8 +1657,12 @@ func mostrar_tip(bb: String) -> void:
 
 ## Detalhes de item: moldura gótica tingida pela raridade e texto mais largo (ver janelas.gd tip_item).
 func mostrar_tip_item(it: Dictionary, bb: String) -> void:
-	var sb := Tema.moldura_item(str(it.get("raridade", "comum")))
-	if sb == null: mostrar_tip(bb); return
+	# 0.9.8: card simples (como Halls of Torment): fundo preto translúcido e moldura fina na cor da raridade
+	var sb := StyleBoxFlat.new()
+	sb.bg_color = Color(0, 0, 0, 0.86)
+	sb.border_color = Color(0.75, 0.68, 0.5).lerp(Defs.cor_raridade(str(it.get("raridade", "comum"))), 0.6)
+	sb.set_border_width_all(1); sb.set_corner_radius_all(2)
+	sb.set_content_margin_all(8)
 	tooltip.add_theme_stylebox_override("panel", sb)
 	tip_lbl.custom_minimum_size.x = 230   # 0.9.8: ~30% menor (antes 330), com fonte menor
 	tip_lbl.tab_stops = PackedFloat32Array([160.0])   # linhas "nome<TAB>valor": o valor cai numa coluna fixa
