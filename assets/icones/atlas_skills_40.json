@@ -335,410 +335,422 @@
 40,
 40
 ],
-"humano_agua_benta_polvora": [
+"hoste_em_marcha": [
 320,
+120,
+40,
+40
+],
+"humano_agua_benta_polvora": [
+360,
 120,
 40,
 40
 ],
 "humano_armadilha_prata": [
-360,
+400,
 120,
 40,
 40
 ],
 "humano_arrancada": [
-400,
+440,
 120,
 40,
 40
 ],
 "humano_coquetel_querosene": [
-440,
+480,
 120,
 40,
 40
 ],
 "humano_corte_largo": [
-480,
+520,
 120,
 40,
 40
 ],
 "humano_rajada": [
-520,
+560,
 120,
 40,
 40
 ],
 "humano_tiro_certeiro": [
-560,
+600,
 120,
 40,
 40
 ],
 "humano_ultimo_suspiro": [
-600,
-120,
+0,
+160,
 40,
 40
 ],
 "julgamento_antecipado": [
-0,
+40,
 160,
 40,
 40
 ],
 "lamina_de_osso": [
-40,
+80,
 160,
 40,
 40
 ],
 "legiao_de_servos": [
-80,
+120,
 160,
 40,
 40
 ],
 "levanta_te": [
-120,
+160,
 160,
 40,
 40
 ],
 "machado_do_carrasco": [
-160,
+200,
 160,
 40,
 40
 ],
 "manto_de_sombra": [
-200,
+240,
 160,
 40,
 40
 ],
 "marca_do_ceifador": [
-240,
+280,
 160,
 40,
 40
 ],
 "martelo_de_bobina": [
-280,
+320,
 160,
 40,
 40
 ],
 "meio_dia": [
-320,
+360,
 160,
 40,
 40
 ],
 "montante_do_sol": [
-360,
+400,
 160,
 40,
 40
 ],
 "muralha_negra": [
-400,
+440,
 160,
 40,
 40
 ],
 "muro_de_vela": [
-440,
+480,
 160,
 40,
 40
 ],
 "mutante_carapaca": [
-480,
+520,
 160,
 40,
 40
 ],
 "mutante_forma_besta": [
-520,
+560,
 160,
 40,
 40
 ],
 "mutante_golpe_purulento": [
-560,
+600,
 160,
 40,
 40
 ],
 "mutante_investida_bestial": [
-600,
-160,
+0,
+200,
 40,
 40
 ],
 "mutante_regeneracao_profana": [
-0,
+40,
 200,
 40,
 40
 ],
 "mutante_rugido_praga": [
-40,
+80,
 200,
 40,
 40
 ],
 "mutante_terremoto_putrido": [
-80,
+120,
 200,
 40,
 40
 ],
 "noite_da_cacada": [
-120,
+160,
 200,
 40,
 40
 ],
 "o_amargo_venceu": [
-160,
+200,
 200,
 40,
 40
 ],
 "orbe_coracao": [
-200,
+240,
 200,
 40,
 40
 ],
 "orbitas_de_sangue": [
-240,
+280,
 200,
 40,
 40
 ],
 "orgao_de_vapor": [
-280,
+320,
 200,
 40,
 40
 ],
 "provocacao_celeste": [
-320,
+360,
 200,
 40,
 40
 ],
 "queda_do_arcanjo": [
-360,
+400,
 200,
 40,
 40
 ],
 "rede_de_prata": [
-400,
+440,
 200,
 40,
 40
 ],
 "rifle_de_alavanca": [
-440,
+480,
 200,
 40,
 40
 ],
 "rodas_de_olhos": [
-480,
+520,
 200,
 40,
 40
 ],
 "sacos_de_acido": [
-520,
+560,
 200,
 40,
 40
 ],
 "segundo_braco": [
-560,
+600,
 200,
 40,
 40
 ],
 "seis_asas": [
-600,
-200,
+0,
+240,
 40,
 40
 ],
 "sermao_do_fim": [
-0,
+40,
 240,
 40,
 40
 ],
 "sete_espadas_do_juizo": [
-40,
+80,
 240,
 40,
 40
 ],
 "setimo_versiculo": [
-80,
+120,
+240,
+40,
+40
+],
+"sino_derretido": [
+160,
 240,
 40,
 40
 ],
 "tecnomancer_arco_voltaico": [
-120,
+200,
 240,
 40,
 40
 ],
 "tecnomancer_campo_forca": [
-160,
+240,
 240,
 40,
 40
 ],
 "tecnomancer_maquina_juizo_reverso": [
-200,
+280,
 240,
 40,
 40
 ],
 "tecnomancer_nanoreparo": [
-240,
+320,
 240,
 40,
 40
 ],
 "tecnomancer_pulso_antidivino": [
-280,
+360,
 240,
 40,
 40
 ],
 "tecnomancer_rosario_voltaico": [
-320,
+400,
 240,
 40,
 40
 ],
 "tecnomancer_tempestade_bobina": [
-360,
+440,
 240,
 40,
 40
 ],
 "tecnomancer_torreta_sentinela": [
-400,
-240,
-40,
-40
-],
-"torreta_relicario": [
-440,
-240,
-40,
-40
-],
-"tres_aureolas": [
 480,
 240,
 40,
 40
 ],
-"trofeu": [
+"torreta_relicario": [
 520,
 240,
 40,
 40
 ],
-"trono_da_legiao": [
+"tres_aureolas": [
 560,
 240,
 40,
 40
 ],
-"trono_vazio": [
+"trofeu": [
 600,
 240,
 40,
 40
 ],
-"turibulo_do_amargo": [
+"trono_da_legiao": [
 0,
 280,
 40,
 40
 ],
-"virote_da_asa": [
+"trono_vazio": [
 40,
 280,
 40,
 40
 ],
-"warlord_coroa_de_ferro": [
+"turibulo_do_amargo": [
 80,
 280,
 40,
 40
 ],
-"warlord_corte_do_eclipse": [
+"virote_da_asa": [
 120,
 280,
 40,
 40
 ],
-"warlord_eclipse_do_senhor_da_guerra": [
+"warlord_coroa_de_ferro": [
 160,
 280,
 40,
 40
 ],
-"warlord_estandarte_da_ruina": [
+"warlord_corte_do_eclipse": [
 200,
 280,
 40,
 40
 ],
-"warlord_fenda_na_terra": [
+"warlord_eclipse_do_senhor_da_guerra": [
 240,
 280,
 40,
 40
 ],
-"warlord_investida_de_ferro": [
+"warlord_estandarte_da_ruina": [
 280,
 280,
 40,
 40
 ],
-"warlord_juramento_de_odio": [
+"warlord_fenda_na_terra": [
 320,
 280,
 40,
 40
 ],
-"warlord_marca_do_desprezo": [
+"warlord_investida_de_ferro": [
 360,
 280,
 40,
 40
 ],
-"warlord_muralha_de_escudo": [
+"warlord_juramento_de_odio": [
 400,
 280,
 40,
 40
 ],
-"warlord_redemoinho_de_aco": [
+"warlord_marca_do_desprezo": [
 440,
+280,
+40,
+40
+],
+"warlord_muralha_de_escudo": [
+480,
+280,
+40,
+40
+],
+"warlord_redemoinho_de_aco": [
+520,
 280,
 40,
 40

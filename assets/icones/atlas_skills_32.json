@@ -335,410 +335,422 @@
 32,
 32
 ],
-"humano_agua_benta_polvora": [
+"hoste_em_marcha": [
 256,
+96,
+32,
+32
+],
+"humano_agua_benta_polvora": [
+288,
 96,
 32,
 32
 ],
 "humano_armadilha_prata": [
-288,
+320,
 96,
 32,
 32
 ],
 "humano_arrancada": [
-320,
+352,
 96,
 32,
 32
 ],
 "humano_coquetel_querosene": [
-352,
+384,
 96,
 32,
 32
 ],
 "humano_corte_largo": [
-384,
+416,
 96,
 32,
 32
 ],
 "humano_rajada": [
-416,
+448,
 96,
 32,
 32
 ],
 "humano_tiro_certeiro": [
-448,
+480,
 96,
 32,
 32
 ],
 "humano_ultimo_suspiro": [
-480,
-96,
+0,
+128,
 32,
 32
 ],
 "julgamento_antecipado": [
-0,
+32,
 128,
 32,
 32
 ],
 "lamina_de_osso": [
-32,
+64,
 128,
 32,
 32
 ],
 "legiao_de_servos": [
-64,
+96,
 128,
 32,
 32
 ],
 "levanta_te": [
-96,
+128,
 128,
 32,
 32
 ],
 "machado_do_carrasco": [
-128,
+160,
 128,
 32,
 32
 ],
 "manto_de_sombra": [
-160,
+192,
 128,
 32,
 32
 ],
 "marca_do_ceifador": [
-192,
+224,
 128,
 32,
 32
 ],
 "martelo_de_bobina": [
-224,
+256,
 128,
 32,
 32
 ],
 "meio_dia": [
-256,
+288,
 128,
 32,
 32
 ],
 "montante_do_sol": [
-288,
+320,
 128,
 32,
 32
 ],
 "muralha_negra": [
-320,
+352,
 128,
 32,
 32
 ],
 "muro_de_vela": [
-352,
+384,
 128,
 32,
 32
 ],
 "mutante_carapaca": [
-384,
+416,
 128,
 32,
 32
 ],
 "mutante_forma_besta": [
-416,
+448,
 128,
 32,
 32
 ],
 "mutante_golpe_purulento": [
-448,
+480,
 128,
 32,
 32
 ],
 "mutante_investida_bestial": [
-480,
-128,
+0,
+160,
 32,
 32
 ],
 "mutante_regeneracao_profana": [
-0,
+32,
 160,
 32,
 32
 ],
 "mutante_rugido_praga": [
-32,
+64,
 160,
 32,
 32
 ],
 "mutante_terremoto_putrido": [
-64,
+96,
 160,
 32,
 32
 ],
 "noite_da_cacada": [
-96,
+128,
 160,
 32,
 32
 ],
 "o_amargo_venceu": [
-128,
+160,
 160,
 32,
 32
 ],
 "orbe_coracao": [
-160,
+192,
 160,
 32,
 32
 ],
 "orbitas_de_sangue": [
-192,
+224,
 160,
 32,
 32
 ],
 "orgao_de_vapor": [
-224,
+256,
 160,
 32,
 32
 ],
 "provocacao_celeste": [
-256,
+288,
 160,
 32,
 32
 ],
 "queda_do_arcanjo": [
-288,
+320,
 160,
 32,
 32
 ],
 "rede_de_prata": [
-320,
+352,
 160,
 32,
 32
 ],
 "rifle_de_alavanca": [
-352,
+384,
 160,
 32,
 32
 ],
 "rodas_de_olhos": [
-384,
+416,
 160,
 32,
 32
 ],
 "sacos_de_acido": [
-416,
+448,
 160,
 32,
 32
 ],
 "segundo_braco": [
-448,
+480,
 160,
 32,
 32
 ],
 "seis_asas": [
-480,
-160,
+0,
+192,
 32,
 32
 ],
 "sermao_do_fim": [
-0,
+32,
 192,
 32,
 32
 ],
 "sete_espadas_do_juizo": [
-32,
+64,
 192,
 32,
 32
 ],
 "setimo_versiculo": [
-64,
+96,
+192,
+32,
+32
+],
+"sino_derretido": [
+128,
 192,
 32,
 32
 ],
 "tecnomancer_arco_voltaico": [
-96,
+160,
 192,
 32,
 32
 ],
 "tecnomancer_campo_forca": [
-128,
+192,
 192,
 32,
 32
 ],
 "tecnomancer_maquina_juizo_reverso": [
-160,
+224,
 192,
 32,
 32
 ],
 "tecnomancer_nanoreparo": [
-192,
+256,
 192,
 32,
 32
 ],
 "tecnomancer_pulso_antidivino": [
-224,
+288,
 192,
 32,
 32
 ],
 "tecnomancer_rosario_voltaico": [
-256,
+320,
 192,
 32,
 32
 ],
 "tecnomancer_tempestade_bobina": [
-288,
+352,
 192,
 32,
 32
 ],
 "tecnomancer_torreta_sentinela": [
-320,
-192,
-32,
-32
-],
-"torreta_relicario": [
-352,
-192,
-32,
-32
-],
-"tres_aureolas": [
 384,
 192,
 32,
 32
 ],
-"trofeu": [
+"torreta_relicario": [
 416,
 192,
 32,
 32
 ],
-"trono_da_legiao": [
+"tres_aureolas": [
 448,
 192,
 32,
 32
 ],
-"trono_vazio": [
+"trofeu": [
 480,
 192,
 32,
 32
 ],
-"turibulo_do_amargo": [
+"trono_da_legiao": [
 0,
 224,
 32,
 32
 ],
-"virote_da_asa": [
+"trono_vazio": [
 32,
 224,
 32,
 32
 ],
-"warlord_coroa_de_ferro": [
+"turibulo_do_amargo": [
 64,
 224,
 32,
 32
 ],
-"warlord_corte_do_eclipse": [
+"virote_da_asa": [
 96,
 224,
 32,
 32
 ],
-"warlord_eclipse_do_senhor_da_guerra": [
+"warlord_coroa_de_ferro": [
 128,
 224,
 32,
 32
 ],
-"warlord_estandarte_da_ruina": [
+"warlord_corte_do_eclipse": [
 160,
 224,
 32,
 32
 ],
-"warlord_fenda_na_terra": [
+"warlord_eclipse_do_senhor_da_guerra": [
 192,
 224,
 32,
 32
 ],
-"warlord_investida_de_ferro": [
+"warlord_estandarte_da_ruina": [
 224,
 224,
 32,
 32
 ],
-"warlord_juramento_de_odio": [
+"warlord_fenda_na_terra": [
 256,
 224,
 32,
 32
 ],
-"warlord_marca_do_desprezo": [
+"warlord_investida_de_ferro": [
 288,
 224,
 32,
 32
 ],
-"warlord_muralha_de_escudo": [
+"warlord_juramento_de_odio": [
 320,
 224,
 32,
 32
 ],
-"warlord_redemoinho_de_aco": [
+"warlord_marca_do_desprezo": [
 352,
+224,
+32,
+32
+],
+"warlord_muralha_de_escudo": [
+384,
+224,
+32,
+32
+],
+"warlord_redemoinho_de_aco": [
+416,
 224,
 32,
 32
