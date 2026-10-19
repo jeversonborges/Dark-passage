@@ -139,16 +139,18 @@ func _testar(classe: String, caminho_idx: int) -> void:
 	print("%-32s hp %.0f -> %.0f (x%.3f)  defesa %.1f -> %.1f (x%.2f)  slots %d" % [tag, hp_antes, j.hp_max, hp_mult, def_antes, j.defesa, def_mult, j.skills_slots.size()])
 	if hp_sem >= j.hp_max and hp_mult > 1.0: falha(tag + ": hp não subiu com a evolução")
 	if def_mult > 1.0 and def_sem >= j.defesa: falha(tag + ": defesa não subiu com a evolução")
-	# ------------------------------------------------ barra: base + 5 da evolução nos slots 10..14
-	if j.skills_slots.size() != Evolucao.SLOT_EVO + 5: falha(tag + ": slots %d" % j.skills_slots.size())
+	# ------------------------------------------------ barra (Livro de Skills): as 5 da evolução são postas nos slots 1..5
+	subir(sim, j, 50)
+	for i in 5: Evolucao.cmd_hotbar(sim, j, i, d["habilidades"][i]["id"])
+	if j.skills_slots.size() != Evolucao.N_SLOTS: falha(tag + ": slots %d" % j.skills_slots.size())
 	for i in 5:
-		if j.skills_slots[Evolucao.SLOT_EVO + i] != d["habilidades"][i]["id"]: falha(tag + ": slot %d errado" % (Evolucao.SLOT_EVO + i))
+		if j.skills_slots[i] != d["habilidades"][i]["id"]: falha(tag + ": slot %d errado" % i)
 	# ------------------------------------------------ as 5 skills disparam e fazem efeito
 	subir(sim, j, 50)
 	var campo := _campo_aberto(sim, j.pos)   # fora da zona segura, senão os monstros ficam imunes
 	j.pos = campo
 	for i in 5:
-		var slot := Evolucao.SLOT_EVO + i
+		var slot := i
 		var h := Jogador.skill_def(j, slot)
 		if h.is_empty(): falha(tag + ": skill_def vazia no slot %d" % slot); continue
 		for o: Ent in sim.ents.values():
@@ -188,12 +190,14 @@ func _testar(classe: String, caminho_idx: int) -> void:
 		if h.get("alterna", false):   # Forma Abominável: liga troca a barra pelo kit e anda 30% mais devagar; desliga volta
 			var vel_on := j.vel
 			if not j.aux.has("kit"): falha(tag + ": %s não trocou a barra" % h["id"])
-			if j.skills_slots.size() != 7: falha(tag + ": kit com %d slots" % j.skills_slots.size())
+			if j.skills_slots.size() != Evolucao.N_SLOTS: falha(tag + ": kit com %d slots" % j.skills_slots.size())
+			if not "tentaculos" in j.skills_slots: falha(tag + ": kit não entrou na barra")
 			rodar(sim, 1.5)
-			Jogador.cmd_skill(sim, j, 0, alvo_m.id, alvo_m.pos)   # desliga: na barra do kit, a forma é o slot 0
+			Jogador.cmd_skill(sim, j, j.skills_slots.find("forma_abominacao"), alvo_m.id, alvo_m.pos)   # desliga pelo slot da skill de alternar
 			rodar(sim, 0.2)
 			if j.aux.has("kit") or j.aux.has("forma"): falha(tag + ": %s não desligou" % h["id"])
-			if j.skills_slots[Evolucao.SLOT_EVO + 3] != "forma_abominacao" or j.skills_slots[Evolucao.SLOT_EVO + 4] != "frenesi_da_carne": falha(tag + ": barra não voltou ao normal")
+			if not "forma_abominacao" in j.skills_slots: falha(tag + ": barra perdeu a skill de alternar")
+			if "tentaculos" in j.skills_slots: falha(tag + ": kit ficou na barra depois de desligar")
 			if absf(vel_on / j.vel - 0.7) > 0.01: falha(tag + ": forma deu velocidade %.2f (esperado 0,70)" % (vel_on / j.vel))
 			continue
 		if h.get("transformacao", false):
@@ -254,7 +258,8 @@ func _testar_passivas() -> void:
 	sim.matar(aliado, null)
 	if aliado.vivo: falha("aliado não morreu"); return
 	sera.rec = sera.rec_max; sera.cds.clear()
-	Jogador.cmd_skill(sim, sera, Evolucao.SLOT_EVO + 3, -1, sera.pos)   # Coro dos Seis Ais
+	Evolucao.cmd_hotbar(sim, sera, 3, "coro_dos_seis_ais")
+	Jogador.cmd_skill(sim, sera, 3, -1, sera.pos)   # Coro dos Seis Ais
 	rodar(sim, 1.0)
 	if not aliado.vivo: falha("Coro dos Seis Ais não levantou o aliado")
 	elif aliado.frac_hp() < 0.59: falha("Coro dos Seis Ais: voltou com %.0f%%" % (aliado.frac_hp() * 100))
@@ -262,7 +267,8 @@ func _testar_passivas() -> void:
 	rodar(sim, 4.5)
 	sim.matar(aliado, null)
 	sera.rec = sera.rec_max; sera.cds.clear()
-	Jogador.cmd_skill(sim, sera, Evolucao.SLOT_EVO + 4, -1, aliado.pos)   # Levanta-te (2 s de conjuração)
+	Evolucao.cmd_hotbar(sim, sera, 4, "levanta_te")
+	Jogador.cmd_skill(sim, sera, 4, -1, aliado.pos)   # Levanta-te (2 s de conjuração)
 	rodar(sim, 3.0)
 	if not aliado.vivo: falha("Levanta-te não levantou o aliado")
 	print("Levanta-te: aliado vivo=%s hp=%.0f%%" % [aliado.vivo, aliado.frac_hp() * 100])

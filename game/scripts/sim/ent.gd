@@ -109,7 +109,8 @@ var vistas := {}          # subzonas visitadas
 var pity_raro := 0
 var abates := {}          # mob -> total (estatística)
 var interagindo := {}     # canalização de baú {obj, t}
-var skills_slots: Array = []
+var skills_slots: Array = []   # os 9 slots da barra (ids, "" = vazio)
+var hotbar_skills: Array = []  # a escolha do jogador no Livro de Skills (vai no save; ver Evolucao.hotbar)
 
 func pronto() -> bool:
 	return vivo and acao.is_empty() and not tem("atordoado") and not tem("derrubado") and quebrado_t <= 0.0 and deslocando.is_empty()

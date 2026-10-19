@@ -10,7 +10,7 @@ const PRIV := ["xp", "pontos", "ouro", "municao", "folego", "inv", "equip", "arm
 	"alcance", "roubo_vida", "no_lugar", "zona", "abates", "skills_slots", "pity_raro"]
 ## chaves de aux que o cliente usa para desenhar entidades dos outros
 const AUX_PUB := ["neutro", "alfa", "titulo", "visual", "obj", "aberto", "requer_chefe", "visivel_se", "bau", "hist", "para",
-	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto", "forma", "aura", "vis"]
+	"mapa", "chegada", "nome", "texto", "enrage", "imune", "auto", "forma", "kit", "aura", "vis"]
 ## chaves de aux do próprio jogador que mudam todo quadro e o cliente não precisa
 const AUX_RUIDO := ["repath", "parado_t", "amargo_t", "ia_t"]
 

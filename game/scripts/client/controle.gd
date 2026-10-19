@@ -54,7 +54,7 @@ const ACOES := [
 	["inventario", "Mochila (I)", "Janelas", "lt+cima"],
 	["personagem", "Personagem (C)", "Janelas", "lt+direita"],
 	["missoes", "Missões (J)", "Janelas", "lt+baixo"],
-	["habilidades", "Habilidades (K)", "Janelas", "lt+esquerda"],
+	["habilidades", "Livro de Skills (K)", "Janelas", "lt+esquerda"],
 	["talentos", "Talentos (T)", "Janelas", "lt+lb"],
 	["auto_cfg", "Ajustes do automático (Shift+Z)", "Janelas", "lt+l3"],
 	["mapa", "Mapa (M)", "Sistema", "view"],
