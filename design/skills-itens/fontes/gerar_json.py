@@ -140,6 +140,12 @@ for it in itens:
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
 cobertura = {t: [i["id"] for i in itens if t in i.get("tags", [])] for t in tags_drops}
+# pets coletores: slot pet, sem ícone até a thread de ícones gerar
+pets = [dict(id=pet["id"], nome=pet["nome"], slot="pet", categoria="pet", tipo="pet", raridade=pet["raridade"], nivel=pet["nivel"], classes=[], tags=[], motivo="pet", tint=pet["tint"], emissivo=None, grade=[1,1], lore=pet["lore"], atributos={"especie": pet["especie"]}, filtro_coleta=pet["filtro_coleta"], preco=0, pilha=1, vinculado=False) for pet in I.PETS]
+# a fonte é o JSON do jogo: os itens existentes são mantidos e só entram pets que ainda não existem
+existentes = json.load(open(f"{OUT}/itens.json"))["itens"]
+ids_existentes = {i["id"] for i in existentes}
+saida = existentes + [p for p in pets if p["id"] not in ids_existentes]
 json.dump({"versao":"0.2","aviso":AVISO,
   "raridades":"ver design/combate/drops.json (comum, magico, raro, excelente, lendario = Relíquia). Itens BASE têm raridade 'rolada' no drop.",
   "refino":{"no_drop":"+0 a +3 (drops.json, +8% de dano/defesa base por nível)", "joias":{"+1..+6":"Lágrima de Anjo, 100%", "+7..+9":"Fragmento de Alma, 55%; falha volta 1 nível"},
@@ -148,9 +154,5 @@ json.dump({"versao":"0.2","aviso":AVISO,
                      "defesa_conjunto":"1,5 × nível no conjunto inteiro; cabeça 16%, peito 34%, luvas 12%, calças 22%, botas 16%; leve ×0,8, pesado ×1,25"},
   "grade_mochila":"células de 30 px (UI); grade = [largura, altura]",
   "conjuntos":[{k:v for k,v in c.items() if k != "pecas"} | {"pecas":[f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS],
-  "pools_lendarios":I.POOLS_LENDARIOS, "cobertura_tags_drops":cobertura, "itens":itens}, open(f"{OUT}/itens.json","w"), ensure_ascii=False, indent=1)
-# pets coletores: slot pet, sem ícone até a thread de ícones gerar
-for pet in I.PETS:
-    itens.append(dict(id=pet["id"], nome=pet["nome"], slot="pet", categoria="pet", tipo="pet", raridade=pet["raridade"], nivel=pet["nivel"], classes=[], tags=[], motivo="pet", tint=pet["tint"], emissivo=None, grade=[1,1], lore=pet["lore"], atributos={"especie": pet["especie"]}, filtro_coleta=pet["filtro_coleta"], preco=0, pilha=1, vinculado=False))
-
-print(len(skills), "skills;", len(itens), "itens"); print({t: len(v) for t, v in cobertura.items()})
+  "pools_lendarios":I.POOLS_LENDARIOS, "cobertura_tags_drops":cobertura, "itens":saida}, open(f"{OUT}/itens.json","w"), ensure_ascii=False, indent=1)
+print(len(skills), "skills;", len(saida), "itens"); print({t: len(v) for t, v in cobertura.items()})
