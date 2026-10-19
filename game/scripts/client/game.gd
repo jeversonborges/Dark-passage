@@ -1219,7 +1219,7 @@ func _unhandled_input(ev: InputEvent) -> void:
 	elif ev is InputEventKey and ev.pressed and not ev.echo:
 		match ev.keycode:
 			KEY_1, KEY_2, KEY_3, KEY_4, KEY_5, KEY_6, KEY_7, KEY_8, KEY_9:
-				usar_skill(ev.keycode - KEY_1)
+				usar_skill(ev.keycode - KEY_1, ev.ctrl_pressed)
 			KEY_Q: cmd("pocao", ["vida"])
 			KEY_W: cmd("pocao", ["recurso"])
 			KEY_E: cmd("pocao", ["antidoto"])
@@ -1276,7 +1276,7 @@ func _evasao(d: Dictionary) -> void:
 	if v and is_instance_valid(v): v.evasao(str(h.get("estilo", "")), dur)
 	if int(d["id"]) == jog.id: Controle.vibrar(0.3, 0.0, 0.08)
 
-func usar_skill(slot: int) -> void:
+func usar_skill(slot: int, ctrl := false) -> void:
 	if mira_ctl.ativo: mira_ctl.usar_skill(slot); return   # controle: mira pelo alvo automático e pelos sticks
 	# cura e suporte (Toque da Graça, Nanoreparo): vai no aliado sob o mouse; sem aliado, o servidor cura você mesmo
 	var h := Jogador.skill_def(jog, slot)
@@ -1287,6 +1287,12 @@ func usar_skill(slot: int) -> void:
 		if ea != null and ea.pos.distance_to(jog.pos) > Jogador._alcance_skill(h) + 0.5:
 			hud.aviso("%s está longe demais para %s." % [ea.nome, str(h["nome"])]); return
 		cmd("skill", [slot, am, mouse_mundo()]); return
+	if ctrl:   # CTRL + skill num jogador: liga o PvP livre (o servidor ignora na Cidade e entre a mesma facção)
+		var pj := hover_id
+		var ep: Ent = sim.ents.get(pj)
+		if ep == null or ep.tipo != "jogador": pj = _jogador_sob_mouse()
+		if pj != -1 and pj != jog.id:
+			cmd("skill", [slot, pj, mouse_mundo(), true]); return
 	var alvo := hover_id
 	if alvo == -1 or not sim.ents.has(alvo) or not jog.eh_inimigo_de(sim.ents[alvo]):
 		alvo = mira if mira != -1 and sim.ents.has(mira) and jog.eh_inimigo_de(sim.ents[mira]) else jog.alvo

@@ -12,7 +12,7 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 			if _v2(a, 0): Jogador.cmd_mover(sim, e, a[0])
 		"atacar":
 			if _int(a, 0):
-				Jogador.cmd_atacar(sim, e, a[0])
+				Jogador.cmd_atacar(sim, e, a[0], a.size() > 2 and a[2] == true)
 				if a.size() > 1 and a[1] is bool: e.no_lugar = a[1]
 		"interagir":
 			if _int(a, 0): Jogador.cmd_interagir(sim, e, a[0])
@@ -21,7 +21,7 @@ static func executar(sim: WorldSim, e: Ent, nome: String, a: Array) -> void:
 		"pocao":
 			if _str(a, 0) and a[0] in ["vida", "recurso", "antidoto"]: Jogador.cmd_pocao(sim, e, a[0])
 		"skill":
-			if _int(a, 0) and _int(a, 1) and _v2(a, 2) and a[0] >= 0 and a[0] < 9: Jogador.cmd_skill(sim, e, a[0], a[1], a[2])
+			if _int(a, 0) and _int(a, 1) and _v2(a, 2) and a[0] >= 0 and a[0] < 9: Jogador.cmd_skill(sim, e, a[0], a[1], a[2], a.size() > 3 and a[3] == true)
 		"hotbar":   # Livro de Skills: põe uma skill num dos 9 slots (o servidor confere nível, livro e repetição)
 			if _int(a, 0) and _str(a, 1) and a[0] >= 0 and a[0] < Evolucao.N_SLOTS: Evolucao.cmd_hotbar(sim, e, a[0], a[1])
 		"ponto":
