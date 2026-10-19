@@ -137,18 +137,6 @@ def main():
     for arqs in quadros.values():
         for a in arqs:
             os.remove(a)
-    if ALVO_MAO_ESQ:
-        bpy.context.view_layer.update()
-        pbl = arm.pose.bones["hand.L"]
-        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation), "ik", [c.type for c in pbl.constraints], [round(c.influence,2) for c in pbl.constraints])
-    if ALVO_MAO_ESQ:
-        bpy.context.view_layer.update()
-        pbl = arm.pose.bones["hand.L"]
-        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation))
-    if ALVO_MAO_ESQ:
-        bpy.context.view_layer.update()
-        pbl = arm.pose.bones["hand.L"]
-        print("DBGIK hand.L", tuple(round(v,2) for v in (arm.matrix_world @ pbl.matrix).translation), "alvo", tuple(round(v,2) for v in alvo_mao.matrix_world.translation), "ikinfl", pbl.constraints[0].influence, "target", pbl.constraints[0].target)
     print("ok", out, nome)
 
 if __name__ == "__main__":
