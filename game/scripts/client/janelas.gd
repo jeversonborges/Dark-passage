@@ -30,14 +30,12 @@ const POS_EQUIP := {   # 0.9.8: asa no canto superior direito; amuleto e pet emb
 	"asa": Rect2(324, 4, 52, 52), "luvas": Rect2(324, 62, 52, 66), "botas": Rect2(324, 134, 52, 52),
 	"pet": Rect2(324, 190, 52, 52)}
 const AREA_EQUIP := Vector2(380, 246)
-const VISIVEIS_MOCHILA := 6   # linhas da mochila à vista; o resto rola (a mochila tem Itens.MOCHILA_H)
+const VISIVEIS_MOCHILA := 8   # linhas da mochila à vista; o resto rola (a mochila tem Itens.MOCHILA_H)
 var _ganho_cache := {}        # uid -> quanto o Poder sobe ao equipar (cache por atualização do inventário)
 var _poder_cache := -1
 var _poder_flash := {}        # {v, t}: número que sobe da placa quando o Poder muda
 var _poder_visto := -1
 var _grade_mochila: Control
-var _ponto_qtd: LineEdit       # pontos a aplicar de uma vez (campo numérico, ao lado do botão +1 clássico)
-var _ponto_stat: OptionButton  # atributo que recebe os pontos digitados
 
 func _ready() -> void:
 	layer = 20
@@ -740,24 +738,13 @@ func abrir_inventario() -> void:
 	eq.desenhar = _desenhar_boneco
 	for slot in POS_EQUIP: eq.add_child(_slot_equip(slot))
 	c.add_child(eq)
-	# atributos
-	var at := GridContainer.new(); at.columns = 4; at.name = "Atributos"
-	at.add_theme_constant_override("h_separation", 6)
-	c.add_child(at)
-	# pontos: campo numérico + atributo + Aplicar/Tudo (o +1 de cada atributo continua valendo)
-	var pr := HBoxContainer.new(); pr.name = "Pontos"; pr.alignment = BoxContainer.ALIGNMENT_CENTER
-	pr.add_theme_constant_override("separation", 6)
-	_ponto_qtd = LineEdit.new(); _ponto_qtd.placeholder_text = "qtd"; _ponto_qtd.custom_minimum_size = Vector2(64, 0)
-	_ponto_qtd.add_theme_font_override("font", Tema.FONTE_TEXTO)
-	_ponto_qtd.text_submitted.connect(func(_t): _aplicar_pontos(false))
-	_ponto_stat = OptionButton.new()
-	for k in ["FOR", "AGI", "VIT", "ESP"]: _ponto_stat.add_item(k)
-	pr.add_child(_ponto_qtd); pr.add_child(_ponto_stat)
-	pr.add_child(_botao_menu("Aplicar", func(): _aplicar_pontos(false)))
-	pr.add_child(_botao_menu("Tudo", func(): _aplicar_pontos(true)))
-	c.add_child(pr)
-	var der := Tema.rotulo("", 13, Color("#c8bfa8")); der.name = "Derivados"
-	c.add_child(der)
+	# ficha de combate: atributos e pontos ficam na janela PERSONAGEM
+	var ficha := PanelContainer.new(); ficha.name = "Ficha"
+	ficha.add_theme_stylebox_override("panel", Tema.caixa_menu(4))
+	var der := VBoxContainer.new(); der.name = "Derivados"
+	der.add_theme_constant_override("separation", 2)
+	ficha.add_child(der)
+	c.add_child(ficha)
 	var dv := Tema.ui("menu_divisor")
 	if dv:
 		var tr := TextureRect.new(); tr.texture = dv; tr.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
@@ -779,16 +766,16 @@ func abrir_inventario() -> void:
 	_atualizar_inventario()
 
 ## Aplica pontos de uma vez no atributo escolhido: o número digitado, ou todos (tudo = true).
-func _aplicar_pontos(tudo: bool) -> void:
+func _aplicar_pontos(qtd: LineEdit, stat: OptionButton, tudo: bool) -> void:
 	var j := _jog()
 	var n := j.pontos
 	if not tudo:
-		n = int(_ponto_qtd.text) if _ponto_qtd.text.is_valid_int() else 0
+		n = int(qtd.text) if qtd.text.is_valid_int() else 0
 	if n <= 0:
 		game.hud.aviso("Digite quantos pontos aplicar.")
 		return
-	game.cmd("ponto", [["FOR", "AGI", "VIT", "ESP"][_ponto_stat.selected], mini(n, j.pontos)])
-	_ponto_qtd.text = ""
+	game.cmd("ponto", [["FOR", "AGI", "VIT", "ESP"][stat.selected], mini(n, j.pontos)])
+	qtd.text = ""
 	game.audio.tocar("ui/clique", null, -6.0)
 
 ## Retrato no pedestal, placa de Poder e o aviso de melhorias na mochila.
@@ -864,32 +851,21 @@ func _atualizar_inventario() -> void:
 	if not jan.has("inventario"): return
 	var c: Control = corpo["inventario"]
 	var j := _jog()
-	var at: GridContainer = c.get_node("Atributos")
-	_limpar(at)
-	for k in ["FOR", "AGI", "VIT", "ESP"]:
-		var b := PanelContainer.new()
-		var sb := Tema.caixa_menu(4)
-		b.add_theme_stylebox_override("panel", sb)
-		b.custom_minimum_size = Vector2(88, 40)
-		var h := HBoxContainer.new()
-		var v := VBoxContainer.new(); v.add_theme_constant_override("separation", -2)
-		v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		var l1 := Tema.rotulo(k, 10, Color("#a89f8c"), Tema.FONTE_PIXEL); l1.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		var bonus := float(j.aux.get("bonus", {}).get(k, 0.0))
-		var l2 := Tema.rotulo("%d" % roundi(float(j.stats[k]) + bonus), 18, Color("#9cc8ff") if bonus > 0 else Color("#f0dca0"), Tema.FONTE_TITULO); l2.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		v.add_child(l1); v.add_child(l2); h.add_child(v)
-		if j.pontos > 0:
-			var mais := Button.new(); mais.text = "+"; mais.custom_minimum_size = Vector2(22, 22)
-			mais.pressed.connect(func(): game.cmd("ponto", [k]); game.audio.tocar("ui/clique", null, -6.0))
-			h.add_child(mais)
-		b.add_child(h)
-		at.add_child(b)
-	c.get_node("Pontos").visible = j.pontos > 0
-	var der: Label = c.get_node("Derivados")
-	var txt := "Dano %d–%d    Defesa %d    Crítico %d%%" % [roundi(j.dano_min), roundi(j.dano_max), roundi(j.defesa), roundi(j.critico * 100.0)]
-	if j.pontos > 0: txt += "\n[%d pontos para distribuir]" % j.pontos
-	der.text = txt
-	der.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var der: VBoxContainer = c.get_node("Ficha/Derivados")
+	_limpar(der)
+	var linha := HBoxContainer.new(); linha.alignment = BoxContainer.ALIGNMENT_CENTER
+	linha.add_theme_constant_override("separation", 22)
+	var numeros := [["DANO", "%d–%d" % [roundi(j.dano_min), roundi(j.dano_max)]], ["DEFESA", "%d" % roundi(j.defesa)], ["CRÍTICO", "%d%%" % roundi(j.critico * 100.0)]]
+	for par in numeros:
+		var v := VBoxContainer.new(); v.add_theme_constant_override("separation", -3)
+		var rot := Tema.rotulo(par[0], 10, Color("#a89f8c"), Tema.FONTE_PIXEL); rot.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		var val := Tema.rotulo(par[1], 16, Color("#f0dca0"), Tema.FONTE_TITULO, 2); val.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		v.add_child(rot); v.add_child(val); linha.add_child(v)
+	der.add_child(linha)
+	if j.pontos > 0:
+		var falta := Tema.rotulo("%d pontos livres · janela PERSONAGEM" % j.pontos, 12, Color("#ffd27a"), Tema.FONTE_ITALICO)
+		falta.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		der.add_child(falta)
 	_redesenhar(jan["inventario"])
 
 # =================================================================== personagem
@@ -922,7 +898,20 @@ func abrir_personagem() -> void:
 			b.pressed.connect(func(): game.cmd("ponto", [k]))
 			h.add_child(b)
 		c.add_child(h)
-	if j.pontos > 0: c.add_child(Tema.rotulo("Pontos livres: %d" % j.pontos, 15, Color("#ffd27a"), Tema.FONTE_TITULO))
+	if j.pontos > 0:
+		c.add_child(Tema.rotulo("Pontos livres: %d" % j.pontos, 15, Color("#ffd27a"), Tema.FONTE_TITULO))
+		# pontos com quantidade: campo numérico + atributo + Aplicar/Tudo (o +1 de cada atributo continua valendo)
+		var pr := HBoxContainer.new(); pr.alignment = BoxContainer.ALIGNMENT_CENTER
+		pr.add_theme_constant_override("separation", 6)
+		var qtd := LineEdit.new(); qtd.placeholder_text = "qtd"; qtd.custom_minimum_size = Vector2(64, 0)
+		qtd.add_theme_font_override("font", Tema.FONTE_TEXTO)
+		var stat := OptionButton.new()
+		for k in ["FOR", "AGI", "VIT", "ESP"]: stat.add_item(k)
+		qtd.text_submitted.connect(func(_t): _aplicar_pontos(qtd, stat, false))
+		pr.add_child(qtd); pr.add_child(stat)
+		pr.add_child(_botao_menu("Aplicar", func(): _aplicar_pontos(qtd, stat, false)))
+		pr.add_child(_botao_menu("Tudo", func(): _aplicar_pontos(qtd, stat, true)))
+		c.add_child(pr)
 	var linha := ColorRect.new(); linha.color = Color(0.42, 0.34, 0.2, 0.5); linha.custom_minimum_size.y = 1; c.add_child(linha)
 	var g := GridContainer.new(); g.columns = 2
 	g.add_theme_constant_override("h_separation", 24)
