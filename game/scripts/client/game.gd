@@ -427,7 +427,8 @@ func _criar_obj(e: Ent) -> void:
 		"portal":
 			# entrada de dungeon: arco de véu (0.8.4); estrada entre mapas: o marco do kit (design/mapas/mundo/fontes/ligacoes.py)
 			var vis := str(e.aux.get("visual", ""))
-			k = vis if vis.begins_with("portal_dungeon") or vis in VISUAIS_ESTRADA else "escada_descida"
+			# sem_marco: a saída continua funcionando, mas sem marco visual (Hermon: não parecer portal de evento)
+			k = "" if e.aux.get("sem_marco", false) else (vis if vis.begins_with("portal_dungeon") or vis in VISUAIS_ESTRADA else "escada_descida")
 		"pilha_de_mortos": k = "pilha_cranios"
 		"cadaver_fresco": k = "ossos_espalhados"
 		"interativo":
