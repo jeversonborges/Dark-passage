@@ -17,7 +17,6 @@ var levando := -1.0         # > 0: esperando os gladiadores chegarem ao mapa par
 var ids_levados: Array = []
 var minimo := 1          # regra do Jefin (18/10): com 1 gladiador a arena começa e vai até o fim
 var aberta_manual := false  # a agenda só abre a lista; quem começa a luta é o GM (Painel F8)
-var pelo_bilhete := {}      # peer -> id do bilhete_agrak: entrou com bilhete (sem ouro); o bilhete só some se a luta começar
 
 func _ready() -> void:
 	srv = get_parent()
@@ -98,12 +97,8 @@ func pedido(peer: int, a: String) -> void:
 	if a == "sair":
 		if peer in inscritos:
 			inscritos.erase(peer)
-			if pelo_bilhete.has(peer):
-				pelo_bilhete.erase(peer)
-				_aviso(peer, "Você saiu da lista do Agrak. O bilhete continua com você.")
-			else:
-				e.ouro += _custo()
-				_aviso(peer, "Você saiu da lista do Agrak. O ouro voltou.")
+			e.ouro += _custo()
+			_aviso(peer, "Você saiu da lista do Agrak. O ouro voltou.")
 		return
 	if peer in inscritos:
 		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return
@@ -116,22 +111,6 @@ func pedido(peer: int, a: String) -> void:
 	e.ouro -= _custo()
 	inscritos.append(peer)
 	_aviso(peer, "Seu nome está na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
-
-## Bilhete do Agrak (vendido pela Sariel e pelo Zaqueu, como o Convite de Hermon): usar o item põe o jogador na lista.
-## O bilhete só é gasto quando a luta começa; se a luta for cancelada, ele fica com o jogador.
-func usar_bilhete(peer: int, item: String) -> void:
-	if peer < 0 or not srv.sessoes.has(peer): return
-	var e: Ent = srv.sessoes[peer]["jog"]
-	if e == null: return
-	if peer in inscritos:
-		_aviso(peer, "Você já está na lista. A luta começa %s." % _quando()); return
-	if not aberta():
-		_aviso(peer, "A lista do Agrak abre %d minutos antes da luta. Próxima: %s (horário de Brasília)." % [int(cfg.get("inscricao", {}).get("abre_min_antes", 10)), _hora_txt()]); return
-	if e.nivel < _nivel_min():
-		_aviso(peer, "O Agrak só aceita gladiadores do nível %d para cima." % _nivel_min()); return
-	inscritos.append(peer)
-	pelo_bilhete[peer] = item
-	_aviso(peer, "Seu bilhete foi aceito. Seu nome está na lista do Agrak. A luta começa %s." % _quando(), "#ffb070")
 
 func _falta_txt() -> String:
 	var s := maxi(0, inicio - _agora())
@@ -146,27 +125,23 @@ func _hora_txt() -> String:
 func _hora() -> String:
 	aberta_manual = false
 	var lista: Array = inscritos.filter(func(p): return srv.sessoes.has(p) and srv.sessoes[p]["jog"] != null)
-	var bil := pelo_bilhete.duplicate()
-	pelo_bilhete.clear()
 	inscritos.clear()
 	_agendar()
 	if lista.is_empty(): return "não começou: ninguém na lista."
 	if lista.size() < minimo:
 		for p in lista:
-			if not bil.has(p): srv.sessoes[p]["jog"].ouro += _custo()   # quem entrou com bilhete não pagou ouro
-			_aviso(p, "O Agrak foi cancelado: gladiadores de menos. O ouro voltou." if not bil.has(p) else "O Agrak foi cancelado: gladiadores de menos. Seu bilhete continua com você.")
+			srv.sessoes[p]["jog"].ouro += _custo()
+			_aviso(p, "O Agrak foi cancelado: gladiadores de menos. O ouro voltou.")
 		if not lista.is_empty(): _sistema("O Agrak de hoje foi cancelado: a plateia veio, os gladiadores não.")
 		return "cancelado: %d na lista, mínimo %d. Ouro devolvido." % [lista.size(), minimo]
 	var maxn := int(cfg.get("inscricao", {}).get("max_por_arena", 20))
 	if srv.mundos.has(MAPA) and srv.mundos[MAPA].chefe != null and srv.mundos[MAPA].chefe.etapa_i >= 0:
 		return "não começou: ainda tem um Agrak rodando."
 	for i in range(maxn, lista.size()):   # acima do máximo (uma arena por vez nesta versão): devolve
-		if not bil.has(lista[i]): srv.sessoes[lista[i]]["jog"].ouro += _custo()
-		_aviso(lista[i], "O Agrak lotou antes do seu nome. O ouro voltou; tente na próxima." if not bil.has(lista[i]) else "O Agrak lotou antes do seu nome. Seu bilhete continua com você.")
+		srv.sessoes[lista[i]]["jog"].ouro += _custo()
+		_aviso(lista[i], "O Agrak lotou antes do seu nome. O ouro voltou; tente na próxima.")
 	lista = lista.slice(0, maxn)
 	if lista.is_empty(): return "não começou: ninguém na lista."
-	for p in lista:   # a luta começou: o bilhete é gasto
-		if bil.has(p): Itens.remover(srv.sessoes[p]["jog"].inv, str(bil[p]), 1)
 	var ent: Array = Defs.ler("res://data/mapas/%s.json" % MAPA).get("agrak", {}).get("entrada_fosso", [23, 13.5])
 	ids_levados.clear()
 	for p in lista:

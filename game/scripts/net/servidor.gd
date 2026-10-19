@@ -339,8 +339,6 @@ func _ev(tipo: String, d: Dictionary, mapa_id: String) -> void:
 	if tipo == "agrak_pedido":   # Cartaz do Agrak e Caim e Abel: a lista fica no servidor
 		agrak.pedido(por_jog.get(int(d.get("_para", -1)), -1), str(d.get("a", "inscrever"))); return
 	if tipo == "usar_evento":
-		if str(d.get("uso", "")) == "evento:agrak":   # bilhete do Agrak (agrak.gd usar_bilhete)
-			agrak.usar_bilhete(por_jog.get(int(d.get("_para", -1)), -1), str(d.get("item", "bilhete_agrak"))); return
 		_usar_convite(d, mapa_id); return
 	if tipo == "chat":   # perto: mesmo mapa e perto; global: todos; pm: só o destinatário; grupo: membros do grupo
 		var dc = Sincro.limpo(d)
