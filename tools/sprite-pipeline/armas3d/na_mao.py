@@ -78,7 +78,7 @@ def main():
         # mão esquerda mais embaixo no cabo (ALVO_MAO_ESQ). IK com três ossos (antebraço, braço e mão).
         mao.matrix_world = Matrix.Translation(Vector(PONTO_ARMA)) @ Euler(
             tuple(math.radians(v) for v in OFFSET_ROT)).to_matrix().to_4x4()
-        pontos_ik = [("hand.R", (0, 0, 0))]
+        pontos_ik = [("hand.R", tuple(float(v) for v in os.environ.get("PONTO_MAO_DIR", "0,0,0").split(",")))]
         if DUAS_MAOS:
             pontos_ik.append(("hand.L", tuple(float(v) for v in ALVO_MAO_ESQ.split(","))))
         for osso_nome_ik, ponto in pontos_ik:
