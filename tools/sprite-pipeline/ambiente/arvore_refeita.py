@@ -87,16 +87,26 @@ def _malha(nome, bm, mats):
     for p in me.polygons: p.use_smooth = False
     return ob
 
+# Nós da casca: (centro no tronco, raio do tronco ali, ângulo em torno do eixo). Pequenos bojos de 5 lados.
+NOS = []   # bojos de casca testados: davam aspecto de disco claro no topo; fora por enquanto
+
 def arvore_nova(seed=7):
-    """Versão nova em duas camadas: (base, copa). Tronco de 8 lados, galhos de 6, ramos de 5.
-    A corda de enforcado fica na base (está na altura do player)."""
+    """Versão nova em três camadas: (base, copa, oclusor).
+    base: tronco com nós, raízes, galhos baixos e corda. copa: galhos acima de ALTURA_COPA.
+    oclusor: raízes e a alargada da base, desenhadas por cima de quem está na frente."""
     rnd = random.Random(seed)
-    bm_base, bm_copa = bmesh.new(), bmesh.new()
+    bm_base, bm_copa, bm_oc = bmesh.new(), bmesh.new(), bmesh.new()
     tubo(bm_base, TRONCO, LADOS_TRONCO, 0, rnd=rnd, ruido=.08, ponta_quebrada=True)
+    for c, r, ang in NOS:
+        d = Vector((math.cos(ang), math.sin(ang), 0))
+        p = c + d*r*.85
+        tubo(bm_base, [(p + Vector((0, 0, -.06)), .05), (p, .065), (p + Vector((0, 0, .06)), .05)], 5, 0)
     for ang in RAIZES:
         d = Vector((math.cos(ang + rnd.uniform(-.3, .3)), math.sin(ang + rnd.uniform(-.3, .3)), 0))
-        tubo(bm_base, [(d*.2 + Vector((0, 0, .2)), .24), (d*.7 + Vector((0, 0, .06)), .11), (d*1.25 + Vector((0, 0, .01)), .03)],
-             LADOS_RAMO, 0, rnd=rnd, ruido=.12)
+        raiz = [(d*.2 + Vector((0, 0, .2)), .24), (d*.7 + Vector((0, 0, .06)), .11), (d*1.25 + Vector((0, 0, .01)), .03)]
+        tubo(bm_base, raiz, LADOS_RAMO, 0, rnd=rnd, ruido=.12)
+        tubo(bm_oc, raiz, LADOS_RAMO, 0, rnd=rnd, ruido=.12)
+    tubo(bm_oc, TRONCO[:3], LADOS_TRONCO, 0, rnd=rnd, ruido=.08)   # alargada da base, na frente do player
     for g in GALHOS:
         bm = bm_base if g[0][0][2] < ALTURA_COPA else bm_copa
         tubo(bm, g, LADOS_GALHO, 0, rnd=rnd)
@@ -116,7 +126,8 @@ def arvore_nova(seed=7):
     tubo(bm_base, laço, 4, 1, fechado=True)
     casca = K.mat_wood("casca_lp", (.085, .062, .045))
     corda = K.mat_solid("corda", (.1, .08, .05), 0, .9)
-    return _malha("arvore_base", bm_base, [casca, corda]), _malha("arvore_copa", bm_copa, [casca])
+    return (_malha("arvore_base", bm_base, [casca, corda]), _malha("arvore_copa", bm_copa, [casca]),
+            _malha("arvore_oclusor", bm_oc, [casca]))
 
 def tris(obs):
     dg = bpy.context.evaluated_depsgraph_get(); n = 0
@@ -142,35 +153,41 @@ def render_antiga(tag, ang, out, samples=64):
     return K.render_asset(f"{out}/{tag}", objs, samples=samples)
 
 def render_nova(out, ang, samples=64):
-    """Renderiza as duas camadas da árvore nova no mesmo quadro (mesma âncora e mesmo tamanho)."""
+    """Quatro saídas da árvore nova no mesmo quadro (mesma âncora e tamanho): base, copa, oclusor e sombra."""
     K._cache.clear(); K.DUST = (.26, .19, .115); K.CLAMP = True
     K.reset(); K.make_cam(); K.lights(False)
     bpy.context.scene.cycles.use_denoising = False
-    K.shadow_catcher()
-    base, copa = arvore_nova()
-    for o in (base, copa): o.rotation_euler.z = math.radians(ang)
+    catcher = K.shadow_catcher()
+    arvores = arvore_nova()
+    for o in arvores: o.rotation_euler.z = math.radians(ang)
     bpy.context.view_layer.update()
-    pts = K.project_bounds([base, copa])     # quadro comum às duas camadas, com a sombra inteira dentro
+    pts = K.project_bounds(list(arvores))     # quadro comum às camadas, com a sombra inteira dentro
     extra = pts + K.shadow_pts(pts)
     metas = {}
-    for nome, ob, outro in (("base", base, copa), ("copa", copa, base)):
-        outro.hide_render = True
+    # camadas de objeto: só a camada visível, sem o chão que recebe sombra
+    catcher.hide_render = True
+    for nome, ob in zip(("base", "copa", "oclusor"), arvores):
+        for o in arvores: o.hide_render = o is not ob
         metas[nome] = K.render_asset(f"{out}/nova_{nome}_{ang}", [ob], samples=samples, shadows=False, extra=extra)
-        outro.hide_render = False
+    # sombra: árvore inteira invisível para a câmera, mas ainda projeta sombra no chão
+    catcher.hide_render = False
+    for o in arvores: o.hide_render = False; o.visible_camera = False
+    metas["sombra"] = K.render_asset(f"{out}/nova_sombra_{ang}", [], samples=samples, shadows=False, extra=extra)
     return metas
 
 if __name__ == "__main__":
     argv = sys.argv[sys.argv.index("--") + 1:]
     out = argv[0]; os.makedirs(out, exist_ok=True)
     lo, hi = orcamento("prop")
-    meta = {"antiga": {}, "nova_base": {}, "nova_copa": {}}
+    meta = {"antiga": {}, "nova_base": {}, "nova_copa": {}, "nova_oclusor": {}, "nova_sombra": {}}
     for k in range(8):
         ang = 45*k
         meta["antiga"][k] = render_antiga(f"antiga_{k}", ang, out)
         m = render_nova(out, ang)
-        meta["nova_base"][k] = m["base"]; meta["nova_copa"][k] = m["copa"]
+        for nome in ("base", "copa", "oclusor", "sombra"):
+            meta[f"nova_{nome}"][k] = m[nome]
         print("OK direcao", k, flush=True)
     K._cache.clear(); K.reset(); K.make_cam(); K.lights(False)
-    n_tris = tris(arvore_nova())
+    n_tris = tris(list(arvore_nova()))
     print(f"tris nova={n_tris} (prop {lo}-{hi}; meta da thread 500-2000)", flush=True)
     json.dump({"tris_nova": n_tris, "meta": meta}, open(f"{out}/meta.json", "w"), ensure_ascii=False, indent=1)
