@@ -1,0 +1,85 @@
+{
+ "monstro": "cavalo_guerra",
+ "frame_size": [
+  384,
+  384
+ ],
+ "dirs": [
+  "S",
+  "SE",
+  "E",
+  "NE",
+  "N",
+  "NW",
+  "W",
+  "SW"
+ ],
+ "anchor": [
+  192.0,
+  236.3
+ ],
+ "pixels_per_meter": 64,
+ "camera": {
+  "elevation": 30,
+  "azimuth": 45
+ },
+ "anims": {
+  "idle": {
+   "frames": 6,
+   "fps": 6,
+   "loop": true
+  },
+  "walk": {
+   "frames": 8,
+   "fps": 10,
+   "loop": true
+  },
+  "attack": {
+   "frames": 8,
+   "fps": 12,
+   "loop": false
+  },
+  "hit": {
+   "frames": 3,
+   "fps": 12,
+   "loop": false
+  },
+  "death": {
+   "frames": 10,
+   "fps": 10,
+   "loop": false
+  }
+ },
+ "sheets": {
+  "idle": {
+   "file": "cavalo_guerra_idle.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "walk": {
+   "file": "cavalo_guerra_walk.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "attack": {
+   "file": "cavalo_guerra_attack.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "hit": {
+   "file": "cavalo_guerra_hit.png",
+   "rows": "dirs",
+   "cols": "frames"
+  },
+  "death": {
+   "file": "cavalo_guerra_death.png",
+   "rows": "dirs",
+   "cols": "frames"
+  }
+ },
+ "post": {
+  "colors": 40,
+  "outline": "#0a0808",
+  "shadow_width_m": 1.1
+ }
+}
