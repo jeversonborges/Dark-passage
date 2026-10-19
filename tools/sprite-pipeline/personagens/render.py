@@ -2,7 +2,7 @@
 # Uso: blender -b -P render.py -- <anjo|humano> <saida_dir> [teste]
 #   teste: renderiza só alguns quadros para conferir pose e luz.
 import bpy, math, sys, os, json
-from mathutils import Vector
+from mathutils import Vector, Matrix, Euler
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 argv = sys.argv[sys.argv.index("--")+1:]
 kind, out = argv[0], argv[1]; test = len(argv) > 2
@@ -27,6 +27,30 @@ elif style == "dual": acts, flash_frames = anims.humano_dual_anims(arm)
 else: acts, flash_frames = anims.caster_anims(arm, info.get("extra"), info.get("hold_extra"))
 if flash and not flash_frames: flash_frames = [0]*8
 if flash and not isinstance(flash_frames, dict): flash_frames = {"attack": flash_frames}
+
+# arma na mão (machado do Mutante): o modelo 3D segue o osso da mão em cada quadro e direção. A referência é a pose
+# de repouso (quadro 1 da parada): ali a arma fica vertical, cabo para baixo, lâmina para cima, com a origem ARMA_OFF
+# acima do pulso (a pegada fica no cabo, como no print aprovado).
+ARMA_OFF, ARMA_ROT = (0, 0, .15), (0, 0, 0)
+arma_objs = []
+if info.get("arma"):
+    antes = set(bpy.data.objects)
+    bpy.ops.import_scene.gltf(filepath=info["arma"])
+    arma_objs = [o for o in bpy.data.objects if o not in antes]
+    mao = bpy.data.objects.new("mao_arma", None); sc.collection.objects.link(mao)
+    for o in arma_objs:
+        if o.parent is None:
+            mundo = o.matrix_world.copy(); o.parent = mao; o.matrix_parent_inverse.identity(); o.matrix_basis = mundo
+    arma_objs.append(mao)
+    osso_mao = arm.pose.bones["hand.R"]
+    arm.animation_data_create(); arm.animation_data.action = acts["idle"]
+    sc.frame_set(1); bpy.context.view_layer.update()
+    inv_repouso = osso_mao.matrix.inverted()
+    w_repouso = Matrix.Translation(osso_mao.matrix.translation + Vector(ARMA_OFF)) @ Euler(
+        tuple(math.radians(v) for v in ARMA_ROT)).to_matrix().to_4x4()
+    def segue_mao():
+        bpy.context.view_layer.update()
+        mao.matrix_world = arm.matrix_world @ (osso_mao.matrix @ inv_repouso @ w_repouso)
 
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam)
 cam.data.type = 'ORTHO'; cam.data.ortho_scale = PX/PPU
@@ -66,6 +90,7 @@ for name, act in acts.items():
         for fo, fa, ff in info.get("fx", []): fo.hide_render = not (name == fa and ff[f-1])
         for k in dirs:
             arm.rotation_euler = (0, 0, math.radians((k+1)*45))
+            if arma_objs: segue_mao()
             sc.render.filepath = f"{out}/{name}/{DIRS[k]}_{f-1:02d}.png"
             bpy.ops.render.render(write_still=True)
 json.dump(meta, open(f"{out}/meta.json", "w"), indent=1)
@@ -73,6 +98,6 @@ if not test:
     arm.rotation_euler = (0, 0, 0)
     if flash: flash.hide_render = False
     bpy.ops.wm.save_as_mainfile(filepath=f"{out}/{kind}.blend")
-    for o in sc.objects: o.select_set(o.type in ('ARMATURE', 'MESH') and o not in [flash] + [fx[0] for fx in info.get('fx', [])])
+    for o in sc.objects: o.select_set(o.type in ('ARMATURE', 'MESH') and o not in [flash] + [fx[0] for fx in info.get('fx', [])] + arma_objs)
     bpy.ops.export_scene.gltf(filepath=f"{out}/{kind}.glb", use_selection=True, export_animations=True,
                               export_force_sampling=True)

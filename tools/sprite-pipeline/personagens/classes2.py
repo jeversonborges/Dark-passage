@@ -2,6 +2,7 @@
 import bpy, bmesh, math, random
 from mathutils import Vector, Matrix
 from rig import *
+ARMA_MUTANTE = "/mnt/project-files/entregas/armas_3d_fieis/machado_gladiador_demoniaco/machado_gladiador_demoniaco.glb"
 from classes import (bone_frame, L, body_parts, feather, wing, arc_tube, pauldron, chain_links, _apply_mods)
 
 def curve_tube(m, pts, r0, r1, verts=8):
@@ -301,20 +302,9 @@ def mutante():
         hd.append(prim("primitive_uv_sphere_add", acid, (.033*s,-.092,1.685), (.012,.006,.009)))
     hd += mohawk(iron, acid, n=7, h=.11, seed=5)
     parts.append(rigid(hd, arm, "head"))
-    # machado de placa de trânsito
-    fr, bd, g = weapon_frame(); o, ax, up, sd = fr
-    perp = bd.cross(sd).normalized()
-    w = [along("primitive_cylinder_add", iron, g - bd*.15, g + bd*.8, .016, vertices=8)]
-    for k in range(3): w.append(prim("primitive_torus_add", boot, g + bd*(-.05 + .04*k), (1,1,1), major_radius=.02, minor_radius=.006))
-    pc = g + bd*.68 - perp*.11
-    plate = prim("primitive_cylinder_add", sign, pc, (.15,.15,.006), vertices=8)
-    plate.rotation_euler = sd.to_track_quat('Z','Y').to_euler(); w.append(plate)
-    edge = prim("primitive_cylinder_add", iron, pc, (.16,.16,.004), vertices=8)
-    edge.rotation_euler = sd.to_track_quat('Z','Y').to_euler(); w.append(edge)
-    for k in range(2): w.append(prim("primitive_uv_sphere_add", iron, g + bd*(.6 + .14*k) - perp*.015, (.012,)*3, segments=6, ring_count=4))
-    stripe = along("primitive_cube_add", rubber, pc - perp*.1 + bd*.08, pc + perp*.1 - bd*.08, 1); stripe.scale = (.02, .0075, .13); w.append(stripe)
-    parts.append(rigid(w, arm, "hand.R"))
-    return arm, {"rim": (.6, 1, .35), "anim": "melee", "extra": {"upper_arm.L": {"y": -14}, "spine": {"x": -6}, "neck": {"x": -10}}}
+    # a arma da mão é o machado 3D (arma_gladiador.glb), colocado por render.py em cima do osso da mão
+    return arm, {"rim": (.6, 1, .35), "anim": "melee", "arma": ARMA_MUTANTE,
+                 "extra": {"upper_arm.L": {"y": -14}, "spine": {"x": -6}, "neck": {"x": -10}}}
 
 # ====================================================================== TECNOMANCER
 def tecnomancer():
