@@ -167,7 +167,8 @@ static func bonus(equip: Dictionary) -> Dictionary:
 	var b := {"FOR": 0.0, "AGI": 0.0, "VIT": 0.0, "ESP": 0.0, "defesa": 0.0, "hp": 0.0, "dano_plano": 0.0, "critico": 0.0,
 		"velocidade_ataque": 0.0, "roubo_de_vida": 0.0, "excelente": 0.0, "excelente_dano": 0.0, "reduz_dano": 0.0,
 		"ouro": 0.0, "res": {}, "dano_magico_extra": 0.0, "bloqueio": 0.0, "efeitos": [],
-		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": [], "dano_pct": 0.0, "perda_xp_menos": 0.0}
+		"evasao": 0.0, "dano_fogo": 0.0, "dano_gelo": 0.0, "invocar": [], "dano_pct": 0.0, "perda_xp_menos": 0.0,
+			"dano_em_jogadores": 0.0, "dano_recebido_jogadores": 0.0}
 	var conj := {}
 	for s in equip:
 		var it: Dictionary = equip[s]
@@ -186,6 +187,7 @@ static func bonus(equip: Dictionary) -> Dictionary:
 			for k in at:
 				if ATTR.has(k): b[ATTR[k]] += float(at[k])
 				elif k == "hp": b["hp"] += float(at[k])
+				elif k in ["critico", "velocidade_ataque", "dano_em_jogadores", "dano_recebido_jogadores"]: b[k] += float(at[k])   # Penitente (PvP, tier 1)
 		var bf = d.get("bonus_fixo")
 		if typeof(bf) == TYPE_DICTIONARY:
 			for k in bf:

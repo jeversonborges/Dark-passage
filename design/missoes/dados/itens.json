@@ -1842,6 +1842,447 @@
         "texto": "Onde ele pisa, a tosse vem depois.",
         "autor": "Rádio São Lázaro"
       }
+    },
+    {
+      "id": "ficha_sangue",
+      "nome": "Ficha de Sangue",
+      "tipo": "missao",
+      "pilha": 99,
+      "vinculado": true,
+      "descricao": "Ficha de latão cunhada com um dente de leão no meio. No Agrak, é o único dinheiro que compra respeito.",
+      "citacao": {
+        "texto": "Ouro qualquer um acha na areia. Isto aqui você tem que tirar de alguém.",
+        "autor": "Saulo, o Penitente"
+      }
+    },
+    {
+      "id": "juramento_quebrado_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Placas)",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "defesa": 3,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "juramento_quebrado_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Placas)",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "defesa": 7,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "juramento_quebrado_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Placas)",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "juramento_quebrado_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Placas)",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "defesa": 5,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "juramento_quebrado_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Placas)",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "anjo",
+        "demonio",
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 11,
+      "atributos": {
+        "defesa": 3,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "couraca_acougueiro_oco_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Malha)",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "couraca_acougueiro_oco_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Malha)",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 5,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "couraca_acougueiro_oco_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Malha)",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "couraca_acougueiro_oco_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Malha)",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 3,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "couraca_acougueiro_oco_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Malha)",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "humano",
+        "mutante",
+        "tecnomancer",
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "coro_mudo_cabeca_pvp",
+      "nome": "Elmo do Gladiador Demoníaco (Pano)",
+      "tipo": "equipamento",
+      "slot": "cabeca",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "coro_mudo_peito_pvp",
+      "nome": "Peitoral do Gladiador Demoníaco (Pano)",
+      "tipo": "equipamento",
+      "slot": "peito",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 4,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "coro_mudo_luvas_pvp",
+      "nome": "Manoplas do Gladiador Demoníaco (Pano)",
+      "tipo": "equipamento",
+      "slot": "luvas",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 1,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "coro_mudo_calcas_pvp",
+      "nome": "Grevas do Gladiador Demoníaco (Pano)",
+      "tipo": "equipamento",
+      "slot": "calcas",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 3,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "coro_mudo_botas_pvp",
+      "nome": "Botas do Gladiador Demoníaco (Pano)",
+      "tipo": "equipamento",
+      "slot": "botas",
+      "classe": [
+        "cultista",
+        "tecnomancer",
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "defesa": 2,
+        "dano_recebido_jogadores": -0.04
+      },
+      "descricao": "Versão de Arena: mesmo tipo e classe da peça original, com redução de dano contra jogador."
+    },
+    {
+      "id": "arma_pvp_anjo",
+      "nome": "Espada do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "anjo"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          15,
+          21
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_cultista",
+      "nome": "Cetro do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "cultista"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          14,
+          20
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_mutante",
+      "nome": "Machado do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "mutante"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          17,
+          24
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_demonio",
+      "nome": "Foice do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "demonio"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          16,
+          23
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_humano",
+      "nome": "Besta do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "humano"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          16,
+          23
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_tecnomancer",
+      "nome": "Cajado-Antena do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "tecnomancer"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          14,
+          20
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
+    },
+    {
+      "id": "arma_pvp_warlord",
+      "nome": "Espadão do Gladiador Demoníaco",
+      "tipo": "equipamento",
+      "slot": "arma",
+      "classe": [
+        "warlord"
+      ],
+      "raridade": "raro",
+      "nivel": 10,
+      "atributos": {
+        "dano": [
+          17,
+          25
+        ],
+        "velocidade_ataque": 0.1,
+        "critico": 0.05,
+        "dano_em_jogadores": 0.15
+      },
+      "numeros_fixos": true,
+      "descricao": "Arma de Arena. Mais rápida, mais cruel contra gladiador. Contra monstro, nada de especial."
     }
   ]
 }

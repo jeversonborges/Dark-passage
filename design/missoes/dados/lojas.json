@@ -128,6 +128,41 @@
         "hostia_negra"
       ],
       "fala_ao_abrir": "Vendo para os dois lados. Pelo mesmo preço. Anoto tudo."
+    },
+    {
+      "id": "loja_pedro",
+      "npc": "pedro_penitente",
+      "nome": "Banca do Penitente Pedro",
+      "moeda": "ficha_sangue",
+      "precos": {
+        "armadura": 5,
+        "arma": 10
+      },
+      "itens": [
+        "juramento_quebrado_cabeca_pvp",
+        "juramento_quebrado_peito_pvp",
+        "juramento_quebrado_luvas_pvp",
+        "juramento_quebrado_calcas_pvp",
+        "juramento_quebrado_botas_pvp",
+        "couraca_acougueiro_oco_cabeca_pvp",
+        "couraca_acougueiro_oco_peito_pvp",
+        "couraca_acougueiro_oco_luvas_pvp",
+        "couraca_acougueiro_oco_calcas_pvp",
+        "couraca_acougueiro_oco_botas_pvp",
+        "coro_mudo_cabeca_pvp",
+        "coro_mudo_peito_pvp",
+        "coro_mudo_luvas_pvp",
+        "coro_mudo_calcas_pvp",
+        "coro_mudo_botas_pvp",
+        "arma_pvp_anjo",
+        "arma_pvp_cultista",
+        "arma_pvp_mutante",
+        "arma_pvp_demonio",
+        "arma_pvp_humano",
+        "arma_pvp_tecnomancer",
+        "arma_pvp_warlord"
+      ],
+      "fala_ao_abrir": "Sangue não tem preço. Tem ficha."
     }
   ],
   "ferreiros": [

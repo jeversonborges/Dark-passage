@@ -120,7 +120,7 @@ for m in mis:
             d["defesa_sugerida_missoes"] = at.pop("defesa"); d["defesa"] = max(1, round(1.5*m["nivel"]*frac*MULT_RAR[rar]*1.2))
         d["atributos"] = at
         if "efeito" in m: d["efeito"] = m["efeito"]
-        add("arma" if slot == "arma" else ("armadura" if slot in ("cabeca","peito") else "acessorio"), d)
+        add("arma" if slot == "arma" else ("armadura" if slot in ("cabeca","peito","luvas","calcas","botas") else "acessorio"), d)
     else:
         d["tipo_missao"] = m["tipo"]
         add({"missao":"missao","consumivel":"consumivel","leitura":"leitura","montaria":"montaria"}[m["tipo"]], d)
