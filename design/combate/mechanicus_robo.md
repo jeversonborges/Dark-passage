@@ -42,6 +42,13 @@ Em "Ferrugem Sagrada": aço enferrujado, bronze oxidado, placas soltas com remen
 - **Tremor de tela** só nos pisões e nas rajadas mais longas (intensidade pequena).
 - **Som:** pisada metálica grave e oca, zumbido de motor das metralhadoras que sobe ao varrer, chiado de válvula, voz robótica distorcida e curta no início e no fim (não repetir a cada golpe).
 
+## Padrão de animação (fase 2)
+
+- Qualidade alta, sem sprite básico. Inclui a animação dos tiros: tracers, impacto, cartuchos ejetados e faíscas.
+- Seguir a skill de animação e de VFX da biblioteca vendorizada em `tools/sprite-pipeline/vendor/blender-skills-arjun988/`.
+- QA pass antes de entregar. Referência de qualidade: o kit do Egito.
+- Nada começa antes da aprovação do design.
+
 ## Pontos em aberto para o Jefin
 
 1. Nome: **Juízo de Ferro** (sugestão) ou Avatar Mecânico?
