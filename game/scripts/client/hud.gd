@@ -65,7 +65,7 @@ const MENU_NOME := {"personagem": "Personagem (C)", "mochila": "Mochila (I)", "h
 const CINTO := [["vida", "Q"], ["recurso", "W"], ["antidoto", "E"], ["vela", "R"]]
 const CINTO_PAD := ["pocao_vida", "pocao_recurso", "antidoto", "vela"]   # ações do controle de cada slot do cinto
 const STATUS_NOME := {"atordoado": "Atordoado", "lento": "Lento", "queimadura": "Queimando", "sangramento": "Sangrando", "veneno": "Envenenado",
-	"agarrado": "Agarrado", "silenciado": "Silenciado", "derrubado": "Derrubado", "medo": "Medo", "cego": "Cego", "enraizado": "Preso"}
+	"agarrado": "Agarrado", "silenciado": "Silenciado", "derrubado": "Derrubado", "medo": "Medo", "cego": "Cego", "enraizado": "Preso", "marcado_pelo_general": "Marcado pelo General"}
 
 func _ready() -> void:
 	layer = 10
@@ -621,10 +621,11 @@ func _desenhar_retrato_simples(c: Painel, j: Ent) -> void:
 func _desenhar_buffs(c: Painel, j: Ent, y: float) -> void:
 	var x := 0.0
 	var agora := []
-	for b in j.buffs: agora.append([b["id"], float(b["t"]), Color(0.4, 0.75, 0.35)])
+	for b in j.buffs: agora.append([b["id"], float(b["t"]), Color(0.4, 0.75, 0.35), int(b.get("pilhas", 0))])
 	for s in j.status: agora.append([s, float(j.status[s].get("t", 0.0)), Color(0.85, 0.25, 0.2)])
 	for a in agora:
 		var nome: String = STATUS_NOME.get(a[0], Defs.ITENS.get(a[0], {}).get("nome", str(a[0]).replace("_", " ").capitalize()))
+		if a.size() > 3 and a[3] > 0: nome += " x%d (+%d%%)" % [a[3], a[3] * 3]   # Marcado pelo General: pilhas e dano extra
 		var w := Tema.FONTE_TEXTO.get_string_size(nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 12).x + 30
 		var rr := Rect2(x, y, w, 18)
 		c.draw_rect(rr, Color(0.06, 0.05, 0.04, 0.85))

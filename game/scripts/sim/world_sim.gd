@@ -846,6 +846,7 @@ func aplicar_golpe(atk: Ent, alvo: Ent, op: Dictionary) -> Dictionary:
 	var sens: String = op.get("sensacao", "golpe_leve")
 	emitir("dano", {"id": alvo.id, "de": atk.id, "valor": dano, "estilo": estilo, "sens": sens, "elem": op.get("elemento", atk.elemento),
 		"crit": r["crit"], "exc": r["exc"], "hp": alvo.hp, "hp_max": alvo.hp_max})
+	if atk.tipo == "chefe" and alvo.tipo == "jogador": ChefeCtl.marcar_golpe(self, atk, alvo)   # Andras: cada acerto soma pilha no jogador
 	# ameaça
 	if alvo.tipo in ["monstro", "chefe"]:
 		var mult: float = Defs.FORM["aggro"]["mult_classe"].get(atk.classe, 1.0) * float(atk.aux.get("ameaca_mult", 1.0))

@@ -40,6 +40,13 @@
       "visual": "So o tronco: se arrasta com os bracos enormes, a parte de baixo e um toco cauterizado em brasa com tripas de corrente arrastando. Usa o estandarte quebrado do proprio exercito como arma. Dragonas de general podres nos ombros.",
       "arena": "Vala da Grande Batalha: fosso 14x14 tiles cheio de ossos e armaduras velhas, com 6 Pilhas de Mortos espalhadas (cadaveres de guerreiros).",
       "fala_entrada": "Mais um soldado... Eu comandei mil de voces. Comi todos. Senta. O jantar e voce.",
+      "passiva": {
+        "nome": "Marcado pelo General",
+        "_doc": "cada golpe que acerta o jogador soma uma pilha; cada pilha aumenta em 3% o dano que o JOGADOR toma (nao o do General). Dez segundos sem acertar zera. Teto de pilhas e escolha de design (Prévia/coordenação).",
+        "por_golpe": 0.03,
+        "reset_s": 10.0,
+        "max_pilhas": 10
+      },
       "mecanica_central": {
         "nome": "Pilhas de Mortos",
         "regra": "Ele se cura e fica mais forte devorando cadaveres. Cada Pilha de Mortos e um objeto com HP que o jogador pode destruir (fogo e sagrado dao dano dobrado). Pilha destruida nao pode ser comida. Assim o jogador escolhe: bater no chefe ou negar a comida dele.",

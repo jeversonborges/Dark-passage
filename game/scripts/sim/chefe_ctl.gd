@@ -41,6 +41,19 @@ func _init(p_sim: WorldSim, c: Dictionary) -> void:
 		estado = "morto"; return
 	_criar_chefe()
 
+const MARCA_GENERAL := "marcado_pelo_general"
+
+## Passiva do Andras (chefes.json > passiva): cada golpe que acerta o jogador soma uma pilha, e cada pilha
+## aumenta o dano que ele toma. O buff é renovado a cada acerto; quando expira, a pilha volta a zero.
+static func marcar_golpe(sim: WorldSim, atk: Ent, alvo: Ent) -> void:
+	var p: Dictionary = Defs.CHEFES.get(atk.kind, {}).get("passiva", {})
+	if p.is_empty(): return
+	var pilhas := 1
+	for b in alvo.buffs:
+		if b["id"] == MARCA_GENERAL: pilhas = mini(int(b.get("pilhas", 0)) + 1, int(p["max_pilhas"]))
+	Jogador.add_buff(sim, alvo, MARCA_GENERAL, float(p["reset_s"]), {"dano_recebido": float(p["por_golpe"]) * pilhas})
+	alvo.buffs[-1]["pilhas"] = pilhas   # add_buff acabou de anexar o buff novo no fim da lista
+
 func _criar_chefe() -> void:
 	var e := Ent.new()
 	e.id = sim.novo_id(); e.tipo = "chefe"; e.kind = cfg["id"]; e.nome = d["nome"]

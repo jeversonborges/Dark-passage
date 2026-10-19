@@ -281,6 +281,8 @@ func telegrafo(d: Dictionary) -> void:
 	var dono: Ent = game.sim.ents.get(int(d.get("dono", -1)))
 	if dono != null and dono.tipo == "chefe":
 		tg.cor_borda = Color("#ff3a1c")
+	if bool(tg.p.get("seguro", false)):   # zona azul: o único lugar onde o jogador deve ficar
+		tg.cor_borda = Color("#7fb8ff"); tg.cor_fill = Color("#1f3f7a")
 	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "zacarias_arauto":
 		tg.cor_borda = Color("#ffe08a"); tg.cor_fill = Color("#c89a2a")
 	if dono != null and dono.tipo == "chefe" and Defs.mecanica_chefe(dono.kind) == "irma_celeste":
