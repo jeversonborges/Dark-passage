@@ -1620,24 +1620,28 @@ func _desenhar_sobre() -> void:
 		match e.tipo:
 			"npc":
 				var marca := Missoes.marcador_npc(jog, e.kind)
+				var tipo := NpcTipo.de(e.kind)
+				var icone := NpcTipo.textura(tipo["icone"])
 				v.destaque = 1.0 if marca != "" else 0.0
+				# pulso de 1 s (1.0 ↔ 1.2): halo do ícone de função e da marca de missão
+				var pulso := 0.5 + 0.5 * sin(t * TAU)
+				if icone != null:
+					var cen_i := topo + Vector2(0, -28)
+					sobre.draw_circle(cen_i, 16.0 + 2.0 * pulso, Color(0.95, 0.75, 0.35, 0.10 + 0.06 * pulso))
+					sobre.draw_texture_rect(icone, Rect2(cen_i - Vector2(13, 13), Vector2(26, 26)), false)
 				if marca != "":
-					# pulso de 1 s (1.0 ↔ ~1.12), halo atrás da letra e flutuando acima da cabeça
-					var pulso := 0.5 + 0.5 * sin(t * TAU)
 					var cor_m := Color(1.0, 0.82, 0.25) if marca == "!" else Color(0.6, 0.86, 1.0)
-					var sobe := 26.0 + 6.0 * sin(t * 3.0)
+					var sobe := (52.0 if icone != null else 26.0) + 6.0 * sin(t * 3.0)
 					var ponto := topo + Vector2(0, -sobe)
-					sobre.draw_circle(ponto + Vector2(0, -8), 18.0 + 4.0 * pulso, Color(cor_m.r, cor_m.g, cor_m.b, 0.12 + 0.1 * pulso))
-					sobre.draw_circle(ponto + Vector2(0, -8), 11.0, Color(cor_m.r, cor_m.g, cor_m.b, 0.22))
-					Unidade._elipse(sobre, v.position, Iso.elipse(0.7 + 0.05 * pulso), Color(cor_m.r, cor_m.g, cor_m.b, 0.35 + 0.25 * pulso), false, 2.0)
-					var tam := int(round(40.0 * (1.0 + 0.12 * pulso)))
+					sobre.draw_circle(ponto + Vector2(0, -8), 20.0 + 6.0 * pulso, Color(cor_m.r, cor_m.g, cor_m.b, 0.14 + 0.14 * pulso))
+					sobre.draw_circle(ponto + Vector2(0, -8), 12.0, Color(cor_m.r, cor_m.g, cor_m.b, 0.24))
+					Unidade._elipse(sobre, v.position, Iso.elipse(0.7 + 0.08 * pulso), Color(cor_m.r, cor_m.g, cor_m.b, 0.35 + 0.3 * pulso), false, 2.0)
+					var tam := int(round(50.0 * (1.0 + 0.2 * pulso)))
 					var pos_txt := ponto + Vector2(-tam * 0.22, 0)
 					sobre.draw_string_outline(Tema.FONTE_GOTICA, pos_txt, marca, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, 8, Color(0, 0, 0, 0.95))
 					sobre.draw_string(Tema.FONTE_GOTICA, pos_txt, marca, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, Color(cor_m.r, cor_m.g, cor_m.b, 1.0))
-				if id == hover_id or mostrar_nomes or e.pos.distance_to(jog.pos) < 5.0:
-					_nome(topo, e.nome, Color("#f0dca0"), 13)
-					var tit: String = e.aux.get("titulo", "")
-					if tit != "": _nome(topo + Vector2(0, 14), tit, Color("#a89f8c"), 11, Tema.FONTE_ITALICO)
+				# nome sempre visível; sem função definida, mostra o título de lore como antes
+				_nome_npc(topo, e.nome, tipo["funcao"] if tipo["funcao"] != "" else e.aux.get("titulo", ""))
 			"monstro", "invocacao":
 				if e.aux.get("coletor", false): continue   # pet coletor (0.9.6): sem nome e sem barra de vida
 				var ferido := e.hp < e.hp_max - 0.5
@@ -1722,6 +1726,13 @@ func _nome(p: Vector2, txt: String, cor: Color, tam := 13, fonte: Font = null) -
 	var w := fo.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, tam).x
 	sobre.draw_string_outline(fo, p + Vector2(-w * 0.5, 0), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, 4, Color(0, 0, 0, 0.85))
 	sobre.draw_string(fo, p + Vector2(-w * 0.5, 0), txt, HORIZONTAL_ALIGNMENT_LEFT, -1, tam, cor)
+
+## nome do NPC com halo dourado leve e a função embaixo (o título de lore fica no diálogo)
+func _nome_npc(p: Vector2, nome: String, funcao: String) -> void:
+	var w := Tema.FONTE_TITULO.get_string_size(nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 14).x
+	sobre.draw_string_outline(Tema.FONTE_TITULO, p + Vector2(-w * 0.5, 0), nome, HORIZONTAL_ALIGNMENT_LEFT, -1, 14, 7, Color(0.95, 0.75, 0.35, 0.22))
+	_nome(p, nome, Color("#f5e2a8"), 14)
+	if funcao != "": _nome(p + Vector2(0, 14), funcao, Color("#c9b98a"), 11, Tema.FONTE_ITALICO)
 
 func _caixa_rotulo(p: Vector2, txt: String) -> Rect2:
 	var w := Tema.FONTE_TEXTO.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, 13).x
