@@ -147,11 +147,11 @@ func _hora() -> String:
 	for p in lista:
 		var s: Dictionary = srv.sessoes[p]
 		var e: Ent = s["jog"]
-		if s["mapa"] == MAPA: continue
-		e.aux["agrak_volta"] = [s["mapa"], e.pos.x, e.pos.y]
-		if not e.vivo: Jogador.renascer(srv.mundos[s["mapa"]], e)
+		if s["mapa"] != MAPA:   # quem já está no coliseu entra na luta sem ser levado de novo
+			e.aux["agrak_volta"] = [s["mapa"], e.pos.x, e.pos.y]
+			if not e.vivo: Jogador.renascer(srv.mundos[s["mapa"]], e)
+			srv.movimentos.append([e.id, MAPA, Vector2(ent[0], ent[1])])
 		ids_levados.append(e.id)
-		srv.movimentos.append([e.id, MAPA, Vector2(ent[0], ent[1])])
 	_sistema("O AGRAK COMEÇOU! %d gladiadores na areia." % ids_levados.size())
 	levando = 1.0
 	return "começou com %d gladiadores." % ids_levados.size()
