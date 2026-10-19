@@ -24,7 +24,7 @@
   "elevation": 30,
   "azimuth": 45
  },
- "palette_colors": 64,
+ "palette_colors": 40,
  "anims": {
   "idle": {
    "file": "idle.png",
