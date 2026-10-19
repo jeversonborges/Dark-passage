@@ -47,13 +47,14 @@
       "nome": "Varredura de Aco",
       "nivel": 3,
       "custo": 12,
-      "recarga": 2.0,
+      "sem_recarga": true,
+      "cadencia": "velocidade_ataque",
       "mult": 0.9,
       "elemento": "fisico",
       "area_raio": 5.0,
       "postura": 18,
       "sensacao": "area",
-      "_doc": "o guerreiro ajoelha (pose agachada curta) e so a espada faz um giro de 360 graus em volta do personagem, com rastro luminoso fechando o circulo. A camada do corpo nao gira.",
+      "_doc": "pseudo-basico em area: sem recarga, dispara no ritmo da velocidade de ataque do jogador (como o ataque basico). O guerreiro ajoelha e so a espada faz um giro de 360 graus em volta do personagem, com rastro luminoso fechando o circulo. A camada do corpo nao gira.",
       "visual": {"corpo": "ajoelhar_curto", "arma": "giro_360", "rastro": "circulo_luminoso_completo", "referencia": "design/arte/skills/rodar_espada_ref/"}
     },
     {
