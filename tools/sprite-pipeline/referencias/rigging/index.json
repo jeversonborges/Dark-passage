@@ -1,0 +1,14 @@
+[
+  {
+    "arquivo": "vendor/blender-skills-el4cteo/skills/blender-character-rigging/SKILL.md",
+    "repo": "EL4CTEO/blender-skills",
+    "commit": "71d031d",
+    "trecho": "pipeline de skinning: heat com fallback em proxy, stress test, rig_check; regras de pesos"
+  },
+  {
+    "arquivo": "vendor/blender-skills-el4cteo/skills/blender-character-rigging/scripts/bind_mesh.py",
+    "repo": "EL4CTEO/blender-skills",
+    "commit": "71d031d",
+    "trecho": "skinning com fallback automático e limpeza para 4 influências"
+  }
+]

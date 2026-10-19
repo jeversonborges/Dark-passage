@@ -1,0 +1,26 @@
+[
+  {
+    "arquivo": "vendor/blender-game-skills-majid/skills/blender-image-to-3d/references/categories.md",
+    "repo": "majidmanzarpour/blender-game-skills",
+    "commit": "f0ef293",
+    "trecho": "linhas 123-151: cavalo 1,6 m na cernelha, articulações do posterior (jarrete), aceitação de criatura"
+  },
+  {
+    "arquivo": "vendor/blender-game-skills-majid/skills/blender-image-to-3d/references/rigging-animation.md",
+    "repo": "majidmanzarpour/blender-game-skills",
+    "commit": "f0ef293",
+    "trecho": "quadrúpede: idle, walk, run, bite, recoil, death com contato de pé correto"
+  },
+  {
+    "arquivo": "/mnt/project-files/uploads/hearth/86c02c98-c380-4808-a947-ef1113d9c9cd",
+    "repo": "upload do Jefin 2026-10-18 (não versionado)",
+    "commit": "",
+    "trecho": "cavalo escuro com barda de placas, gualdrapa e sela; referência de anatomia e armadura"
+  },
+  {
+    "arquivo": "/mnt/project-files/uploads/hearth/3719a388-121a-4c0a-937c-7a4f3c6e11dc",
+    "repo": "upload do Jefin 2026-10-18 (não versionado)",
+    "commit": "",
+    "trecho": "cavalo com armadura de placas no pescoço e flanco, capa de tecido rasgado"
+  }
+]

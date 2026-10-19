@@ -1,0 +1,14 @@
+[
+  {
+    "arquivo": "vendor/blender-lpm-ozanzeng/skills/blender-lpm-skill/references/budgets-and-style.md",
+    "repo": "ozanzeng/blender-LPM-skill",
+    "commit": "687d0a4",
+    "trecho": "orçamento de triângulos por tipo de asset, estilo e paleta"
+  },
+  {
+    "arquivo": "vendor/blender-lpm-ozanzeng/skills/blender-lpm-skill/references/qa-checklist.md",
+    "repo": "ozanzeng/blender-LPM-skill",
+    "commit": "687d0a4",
+    "trecho": "checklist de QA para asset low-poly"
+  }
+]
