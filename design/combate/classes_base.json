@@ -57,14 +57,16 @@
           "nivel": 1,
           "custo": 12,
           "recarga": 4.0,
-          "mult": 1.8,
+          "mult": 2.16,
           "elemento": "sagrado",
           "alcance": 1.4,
           "postura": 30,
           "bonus_vs": {
             "tag:praga": 1.25
           },
-          "sensacao": "golpe_pesado"
+          "sensacao": "golpe_pesado",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "toque_graca",
@@ -191,7 +193,7 @@
           "nivel": 1,
           "custo": 0.03,
           "recarga": 2.5,
-          "mult": 1.2,
+          "mult": 1.44,
           "alcance": 7,
           "projetil_vel": 10,
           "efeito": {
@@ -202,7 +204,9 @@
           },
           "elemento": "sangue",
           "postura": 10,
-          "sensacao": "projetil"
+          "sensacao": "projetil",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "pacto_rubro",
@@ -566,7 +570,7 @@
           "custo": 0,
           "gera": 10,
           "recarga": 5.0,
-          "mult": 1.7,
+          "mult": 2.04,
           "alcance": 1.4,
           "efeito": {
             "veneno": {
@@ -576,7 +580,9 @@
           },
           "elemento": "veneno",
           "postura": 35,
-          "sensacao": "golpe_pesado"
+          "sensacao": "golpe_pesado",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "rugido_praga",
@@ -705,11 +711,13 @@
           "gera": 18,
           "recarga": 3.5,
           "golpes": 3,
-          "mult_por_golpe": 0.65,
+          "mult_por_golpe": 0.715,
           "intervalo_golpes": 0.12,
           "alcance": 1.4,
           "postura_por_golpe": 10,
-          "sensacao": "combo"
+          "sensacao": "combo",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "corrente_danacao",
@@ -828,13 +836,15 @@
           "nivel": 1,
           "custo": 20,
           "recarga": 5.0,
-          "mult": 2.0,
+          "mult": 2.4,
           "critico_extra": 0.2,
           "alcance": 9,
           "conjuracao": 0.3,
           "postura": 30,
           "empurrao": 0.6,
-          "sensacao": "tiro_pesado"
+          "sensacao": "tiro_pesado",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "corte_largo",
@@ -1023,14 +1033,16 @@
           "nivel": 1,
           "custo": 15,
           "recarga": 3.0,
-          "mult": 1.4,
+          "mult": 1.68,
           "saltos": 3,
           "queda_por_salto": 0.25,
           "raio_salto": 3,
           "alcance": 7,
           "elemento": "eletrico",
           "postura": 12,
-          "sensacao": "raio"
+          "sensacao": "raio",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "torreta_sentinela",
@@ -1189,12 +1201,14 @@
           "custo": 0,
           "gera": 14,
           "recarga": 3.5,
-          "mult": 1.6,
+          "mult": 1.92,
           "arco_graus": 120,
           "alcance": 1.6,
           "postura": 28,
           "sensacao": "golpe_pesado",
-          "_doc": "golpe largo de espada em meia-lua; gera Ódio"
+          "_doc": "golpe largo de espada em meia-lua; gera Ódio",
+          "splash_raio": 1.2,
+          "splash_mult": 0.5
         },
         {
           "id": "juramento_de_odio",

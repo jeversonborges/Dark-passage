@@ -12,6 +12,7 @@
  },
  "xp_mob": {
   "formula": "(10 + 5*L_mob) * mult_arquetipo",
+  "mult_abate": 1.4,
   "chefe": "(10 + 5*L) * 25 na primeira vitoria do dia; 8 nas seguintes",
   "modificador_diferenca_nivel": {
    "_doc": "d = nivel_mob - nivel_jogador",

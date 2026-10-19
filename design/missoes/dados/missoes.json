@@ -21,7 +21,7 @@
         }
       ],
       "recompensas": {
-        "xp": 300,
+        "xp": 900,
         "ouro": 20,
         "itens": [
           {
@@ -61,7 +61,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 30,
         "itens": [
           {
@@ -93,7 +93,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1260,
+        "xp": 3780,
         "ouro": 40,
         "escolha_por_classe": {
           "humano": "escopeta_badalada",
@@ -135,7 +135,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1890,
+        "xp": 5670,
         "ouro": 50,
         "itens": [
           {
@@ -165,7 +165,7 @@
         }
       ],
       "recompensas": {
-        "xp": 300,
+        "xp": 900,
         "ouro": 20,
         "itens": [
           {
@@ -205,7 +205,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 30,
         "itens": [
           {
@@ -237,7 +237,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1260,
+        "xp": 3780,
         "ouro": 40,
         "escolha_por_classe": {
           "anjo": "espada_escudeiro",
@@ -279,7 +279,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1890,
+        "xp": 5670,
         "ouro": 50,
         "itens": [
           {
@@ -312,7 +312,7 @@
         }
       ],
       "recompensas": {
-        "xp": 2640,
+        "xp": 7920,
         "ouro": 60,
         "itens": [
           {
@@ -366,7 +366,7 @@
         }
       ],
       "recompensas": {
-        "xp": 3480,
+        "xp": 10440,
         "ouro": 90,
         "itens": [
           {
@@ -405,7 +405,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4410,
+        "xp": 13230,
         "ouro": 0
       },
       "texto_conclusao": "A porta rangeu como um animal. O cheiro que subiu tinha gosto de ferro e açúcar. Atrás de você, no alto da escada, ninguém. Mas a vela do coveiro estava acesa no degrau."
@@ -436,7 +436,7 @@
         }
       ],
       "recompensas": {
-        "xp": 5460,
+        "xp": 16380,
         "ouro": 150,
         "itens": [
           {
@@ -473,7 +473,7 @@
         }
       ],
       "recompensas": {
-        "xp": 7860,
+        "xp": 23580,
         "ouro": 200,
         "itens": [
           {
@@ -529,7 +529,7 @@
         }
       ],
       "recompensas": {
-        "xp": 10710,
+        "xp": 32130,
         "ouro": 400
       },
       "texto_conclusao": "Simão segurou o bocal por um longo tempo, com o polegar em cima do lacre de chumbo. Depois devolveu. \"Esperei muito tempo para ser julgado. Espero mais um pouco.\" Ele não disse quanto tempo."
@@ -561,7 +561,7 @@
             "bocal_destruido"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 300,
             "itens": [
               {
@@ -578,7 +578,7 @@
             "bocal_estudo_vigilia"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 300,
             "itens": [
               {
@@ -625,7 +625,7 @@
             "bocal_anjos"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 300,
             "itens": [
               {
@@ -642,7 +642,7 @@
             "bocal_demonios"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 600,
             "itens": [
               {
@@ -677,7 +677,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 25,
         "itens": [
           {
@@ -728,7 +728,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1500,
+        "xp": 4500,
         "ouro": 50,
         "itens": [
           {
@@ -772,7 +772,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1980,
+        "xp": 5940,
         "ouro": 60,
         "itens": [
           {
@@ -832,7 +832,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 80
       },
       "texto_conclusao": "Tobias deu corda na caixinha e ouviu as três notas com os olhos fechados. Depois disse que era só para revender. Não revendeu."
@@ -869,7 +869,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 40,
         "itens": [
           {
@@ -909,7 +909,7 @@
       ],
       "pode_falhar": true,
       "recompensas": {
-        "xp": 1500,
+        "xp": 4500,
         "ouro": 30,
         "itens": [
           {
@@ -947,7 +947,7 @@
         "lucio_denunciado"
       ],
       "recompensas": {
-        "xp": 1500,
+        "xp": 4500,
         "ouro": 60,
         "itens": [
           {
@@ -987,7 +987,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 40,
         "itens": [
           {
@@ -1020,7 +1020,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4500,
+        "xp": 13500,
         "ouro": 80,
         "itens": [
           {
@@ -1058,7 +1058,7 @@
         }
       ],
       "recompensas": {
-        "xp": 450,
+        "xp": 1350,
         "ouro": 40,
         "itens": [
           {
@@ -1091,7 +1091,7 @@
         }
       ],
       "recompensas": {
-        "xp": 450,
+        "xp": 1350,
         "ouro": 55,
         "itens": [
           {
@@ -1136,7 +1136,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército que mora na torre enterrada. Ela não pareceu surpresa ao ver alguém da Vela. \"O Doutor ainda escuta na frequência de serviço\", disse. \"Ele sempre escutou.\""
     },
@@ -1174,7 +1174,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "A voz é de Isaura, uma velha de farda do exército. Ela ofereceu chá e disse: \"A Madre ainda acha que foi Deus? Senta. Vai demorar.\""
     },
@@ -1220,7 +1220,7 @@
             "qtd": 3
           }
         ],
-        "xp": 3480
+        "xp": 10440
       },
       "texto_conclusao": "Com a antena viva, Isaura contou a primeira parte: ela era a radiotelegrafista do Comando Sul, e o Silo São Lázaro ficava a poucos quilômetros dali. Ela disse \"silo\" como quem diz o nome de um morto."
     },
@@ -1258,7 +1258,7 @@
             "qtd": 1
           }
         ],
-        "xp": 4410
+        "xp": 13230
       },
       "texto_conclusao": "A ordem está inteira. Alvo: formação alada sobre a capital. Arma: Ogiva Absinto-1. No rodapé, carimbado: LIDO E CONFIRMADO, 03H11. OP. I. VALENTE. Isaura desliga o microfone antes de você terminar de ler o nome."
     },
@@ -1308,7 +1308,7 @@
             "qtd": 1
           }
         ],
-        "xp": 5460
+        "xp": 16380
       },
       "texto_conclusao": "O contador estalou igual para as três amostras e para o pó que cai do céu. O Amargo é a radiação da bomba, trazida pelo vento da cratera lá longe. A praga, as mutações, o rio que quase secou: tudo veio do mesmo botão. Isaura não leu os números naquela noite. Leu um salmo."
     },
@@ -1346,7 +1346,7 @@
             "qtd": 5
           }
         ],
-        "xp": 7860
+        "xp": 23580
       },
       "texto_conclusao": "Num dos fragmentos, a sombra de uma mulher de fones de ouvido segura a sombra de um menino. Isaura olhou muito tempo e disse que era só uma coincidência. Naquela noite, o boletim atrasou onze minutos."
     },
@@ -1404,7 +1404,7 @@
                 "qtd": 1
               }
             ],
-            "xp": 10710
+            "xp": 32130
           }
         },
         {
@@ -1421,7 +1421,7 @@
                 "qtd": 1
               }
             ],
-            "xp": 10710
+            "xp": 32130
           }
         }
       ],
@@ -1468,7 +1468,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "Nenhum corpo de general no campo. Corvina riu quando ouviu o nome de Malfas: \"Ele quer o general morto? Que curioso. A Legião quer ele vivo.\""
     },
@@ -1512,7 +1512,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "É briga de verdade. O general da Legião Blasfema sumiu na Grande Batalha, e a aliança dos Arautos está apodrecendo por dentro. Corvina cobrou caro, mas deu o nome: Andras. Odete ouviu o nome e foi, sem dizer nada, olhar o bonde da linha 7."
     },
@@ -1551,7 +1551,7 @@
             "qtd": 3
           }
         ],
-        "xp": 3480
+        "xp": 10440
       },
       "texto_conclusao": "Atrás de cada insígnia, a mesma costura: \"A Andras, até o fim.\" Eles não desertaram da Legião. Desertaram da aliança que deixou o general para trás."
     },
@@ -1595,7 +1595,7 @@
           ],
           "recompensas": {
             "ouro": 120,
-            "xp": 4410
+            "xp": 13230
           }
         },
         {
@@ -1606,7 +1606,7 @@
           ],
           "recompensas": {
             "ouro": 120,
-            "xp": 4410
+            "xp": 13230
           }
         },
         {
@@ -1617,7 +1617,7 @@
           ],
           "recompensas": {
             "ouro": 200,
-            "xp": 4410
+            "xp": 13230
           }
         }
       ],
@@ -1670,7 +1670,7 @@
             "qtd": 1
           }
         ],
-        "xp": 5460
+        "xp": 16380
       },
       "texto_conclusao": "Meia dragona, cortada reto. Unhas cravadas no trilho. Um rastro de arrasto indo para o leste. O general não morreu no campo. Ele saiu dali se arrastando."
     },
@@ -1722,7 +1722,7 @@
                 "qtd": 5
               }
             ],
-            "xp": 5460
+            "xp": 16380
           }
         },
         {
@@ -1733,7 +1733,7 @@
           ],
           "recompensas": {
             "ouro": 400,
-            "xp": 5460
+            "xp": 16380
           }
         }
       ],
@@ -1788,7 +1788,7 @@
                 "qtd": 5
               }
             ],
-            "xp": 5460
+            "xp": 16380
           }
         },
         {
@@ -1805,7 +1805,7 @@
                 "qtd": 5
               }
             ],
-            "xp": 5460
+            "xp": 16380
           }
         }
       ],
@@ -1839,7 +1839,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 40,
         "itens": [
           {
@@ -1877,7 +1877,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 40,
         "itens": [
           {
@@ -1918,7 +1918,7 @@
         }
       ],
       "recompensas": {
-        "xp": 2640,
+        "xp": 7920,
         "ouro": 60
       },
       "texto_conclusao": "A imagem de São Lázaro no andor é de madeira escura, entalhada em 1714. Alta demais, magra demais, faixas de linho nos pulsos. Na mão direita, onde todo santo segura uma palma, ela segura uma pá. O rosto é o do coveiro. Ninguém errou nada: é o mesmo rosto, e a mesma idade."
@@ -1952,7 +1952,7 @@
         }
       ],
       "recompensas": {
-        "xp": 3480,
+        "xp": 10440,
         "ouro": 80,
         "itens": [
           {
@@ -1991,7 +1991,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4200,
+        "xp": 12600,
         "ouro": 90
       },
       "texto_conclusao": "Anacleto passou o dedo de fantasma na marca do tijolo: um nome riscado à unha, LAZARVS, e embaixo, em letra mais nova, SIMÃO. \"Ele me disse: não tenha medo, irmão. Eu sei o que é esperar dentro da pedra. E sei que alguém chama.\" Anacleto ficou calado um tempo. \"Trezentos anos depois, ele ainda passa aqui embaixo, às vezes. Do outro lado da parede. Eu ouço a pá.\""
@@ -2037,7 +2037,7 @@
             "lazaro_segredo_guardado"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 150,
             "itens": [
               {
@@ -2054,7 +2054,7 @@
             "lazaro_pediu_cova"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 150,
             "itens": [
               {
@@ -2071,7 +2071,7 @@
             "lazaro_revelado"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 400
           }
         }
@@ -2111,7 +2111,7 @@
         }
       ],
       "recompensas": {
-        "xp": 12000,
+        "xp": 36000,
         "ouro": 500,
         "itens": [
           {
@@ -2141,7 +2141,7 @@
         }
       ],
       "recompensas": {
-        "xp": 300,
+        "xp": 900,
         "ouro": 20,
         "itens": [
           {
@@ -2182,7 +2182,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 30,
         "itens": [
           {
@@ -2215,7 +2215,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1260,
+        "xp": 3780,
         "ouro": 40,
         "escolha_por_classe": {
           "humano": "escopeta_badalada",
@@ -2258,7 +2258,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1890,
+        "xp": 5670,
         "ouro": 50,
         "itens": [
           {
@@ -2297,7 +2297,7 @@
             "jh_bocal_destruido"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 300,
             "itens": [
               {
@@ -2314,7 +2314,7 @@
             "jh_bocal_estudo_vigilia"
           ],
           "recompensas": {
-            "xp": 10710,
+            "xp": 32130,
             "ouro": 300,
             "itens": [
               {
@@ -2350,7 +2350,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 25,
         "itens": [
           {
@@ -2402,7 +2402,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1500,
+        "xp": 4500,
         "ouro": 50,
         "itens": [
           {
@@ -2447,7 +2447,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1980,
+        "xp": 5940,
         "ouro": 60,
         "itens": [
           {
@@ -2508,7 +2508,7 @@
         }
       ],
       "recompensas": {
-        "xp": 720,
+        "xp": 2160,
         "ouro": 80
       },
       "texto_conclusao": "Bartimeu passou o dedo na flauta, achou a rachadura e sorriu. \"Ainda toca torto. Como eu.\"",
@@ -2542,7 +2542,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 40,
         "itens": [
           {
@@ -2576,7 +2576,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4500,
+        "xp": 13500,
         "ouro": 80,
         "itens": [
           {
@@ -2615,7 +2615,7 @@
         }
       ],
       "recompensas": {
-        "xp": 450,
+        "xp": 1350,
         "ouro": 40,
         "itens": [
           {
@@ -2648,7 +2648,7 @@
         }
       ],
       "recompensas": {
-        "xp": 2640,
+        "xp": 7920,
         "ouro": 60,
         "itens": [
           {
@@ -2703,7 +2703,7 @@
         }
       ],
       "recompensas": {
-        "xp": 3480,
+        "xp": 10440,
         "ouro": 90,
         "itens": [
           {
@@ -2743,7 +2743,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4410,
+        "xp": 13230,
         "ouro": 0
       },
       "texto_conclusao": "A porta de pedra se abriu para dentro e o ar que subiu era quente, como respiração de bicho grande dormindo.",
@@ -2775,7 +2775,7 @@
         }
       ],
       "recompensas": {
-        "xp": 5460,
+        "xp": 16380,
         "ouro": 150,
         "itens": [
           {
@@ -2813,7 +2813,7 @@
         }
       ],
       "recompensas": {
-        "xp": 7860,
+        "xp": 23580,
         "ouro": 200,
         "itens": [
           {
@@ -2870,7 +2870,7 @@
         }
       ],
       "recompensas": {
-        "xp": 10710,
+        "xp": 32130,
         "ouro": 400
       },
       "texto_conclusao": "O Escriba passou a mão sobre os duzentos nomes sem encostar. \"Eu escrevi o pedido deles uma vez\", disse. \"Não foi atendido. Este também não vai ser.\"",
@@ -2910,7 +2910,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "Jael tirou o fone de latão do ouvido e te ofereceu, sem dizer nada. Na estática, alguém contava: um, dois, três... até duzentos, e começava de novo.",
       "espelho_de": "d01v"
@@ -2956,7 +2956,7 @@
             "qtd": 3
           }
         ],
-        "xp": 3480
+        "xp": 10440
       },
       "texto_conclusao": "A antena estalou e, por um instante, toda a encosta ouviu a contagem: duzentos, e de novo.",
       "espelho_de": "d02"
@@ -2995,7 +2995,7 @@
             "qtd": 1
           }
         ],
-        "xp": 4410
+        "xp": 13230
       },
       "texto_conclusao": "Jael juntou as páginas e leu em voz alta: NA SEXTA HORA DO PRIMEIRO DIA, AFROUXEM-SE AS CORRENTES DOS DUZENTOS. Assinado pelo Coro de Sião. A letra era dela.",
       "espelho_de": "d03"
@@ -3046,7 +3046,7 @@
             "qtd": 1
           }
         ],
-        "xp": 5460
+        "xp": 16380
       },
       "texto_conclusao": "No posto de escuta, os três frascos cantaram juntos. Era a mesma nota da contagem: os Vigilantes estavam debaixo da água também.",
       "espelho_de": "d04"
@@ -3085,7 +3085,7 @@
             "qtd": 5
           }
         ],
-        "xp": 7860
+        "xp": 23580
       },
       "texto_conclusao": "Todos os cinco elos tinham a mesma marca: o selo do Coro, batido a frio, por dentro.",
       "espelho_de": "d05"
@@ -3144,7 +3144,7 @@
                 "qtd": 1
               }
             ],
-            "xp": 10710
+            "xp": 32130
           }
         },
         {
@@ -3161,7 +3161,7 @@
                 "qtd": 1
               }
             ],
-            "xp": 10710
+            "xp": 32130
           }
         }
       ],
@@ -3209,7 +3209,7 @@
             "qtd": 3
           }
         ],
-        "xp": 2640
+        "xp": 7920
       },
       "texto_conclusao": "Zaqueu ouviu tudo sentado num degrau, com o livro de dívidas no colo. \"Estandarte caído é dívida sem dono\", disse. \"Eu gosto de dívida sem dono.\"",
       "espelho_de": "e01v"
@@ -3248,7 +3248,7 @@
             "qtd": 3
           }
         ],
-        "xp": 3480
+        "xp": 10440
       },
       "texto_conclusao": "Zaqueu enfileirou as insígnias e anotou um nome ao lado de cada uma. Nenhum era da Vigília.",
       "espelho_de": "e02"
@@ -3293,7 +3293,7 @@
           ],
           "recompensas": {
             "ouro": 120,
-            "xp": 4410
+            "xp": 13230
           }
         },
         {
@@ -3304,7 +3304,7 @@
           ],
           "recompensas": {
             "ouro": 120,
-            "xp": 4410
+            "xp": 13230
           }
         },
         {
@@ -3315,7 +3315,7 @@
           ],
           "recompensas": {
             "ouro": 200,
-            "xp": 4410
+            "xp": 13230
           }
         }
       ],
@@ -3369,7 +3369,7 @@
             "qtd": 1
           }
         ],
-        "xp": 5460
+        "xp": 16380
       },
       "texto_conclusao": "Tubal pegou a meia coroa, mediu na própria cabeça e devolveu. \"Não serve em mim. Serve em quem só tem meio corpo.\"",
       "espelho_de": "e04"
@@ -3422,7 +3422,7 @@
                 "qtd": 5
               }
             ],
-            "xp": 5460
+            "xp": 16380
           }
         },
         {
@@ -3439,7 +3439,7 @@
                 "qtd": 5
               }
             ],
-            "xp": 5460
+            "xp": 16380
           }
         }
       ],
@@ -3474,7 +3474,7 @@
         }
       ],
       "recompensas": {
-        "xp": 1080,
+        "xp": 3240,
         "ouro": 40,
         "itens": [
           {
@@ -3515,7 +3515,7 @@
         }
       ],
       "recompensas": {
-        "xp": 2640,
+        "xp": 7920,
         "ouro": 60
       },
       "texto_conclusao": "Na pedra havia duas pegadas, não uma. A segunda era mais antiga, e alguém tinha escrito do lado, em argila: AQUI EU SUBI. AQUI EU VOLTEI.",
@@ -3550,7 +3550,7 @@
         }
       ],
       "recompensas": {
-        "xp": 3480,
+        "xp": 10440,
         "ouro": 80,
         "itens": [
           {
@@ -3590,7 +3590,7 @@
         }
       ],
       "recompensas": {
-        "xp": 4200,
+        "xp": 12600,
         "ouro": 90
       },
       "texto_conclusao": "A linha dizia: E ELE ANDOU COM DEUS, E JÁ NÃO ERA. E DEPOIS VOLTOU, PORQUE O FIM TRAVOU. A letra era a das tabuinhas.",
@@ -3637,7 +3637,7 @@
             "jh_lazaro_segredo_guardado"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 150,
             "itens": [
               {
@@ -3654,7 +3654,7 @@
             "jh_lazaro_pediu_cova"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 150,
             "itens": [
               {
@@ -3671,7 +3671,7 @@
             "jh_lazaro_revelado"
           ],
           "recompensas": {
-            "xp": 8820,
+            "xp": 26460,
             "ouro": 400
           }
         }
@@ -3712,7 +3712,7 @@
         }
       ],
       "recompensas": {
-        "xp": 12000,
+        "xp": 36000,
         "ouro": 500,
         "itens": [
           {
@@ -3752,7 +3752,7 @@
         }
       ],
       "recompensas": {
-        "xp": 10700,
+        "xp": 32100,
         "ouro": 480
       },
       "texto_conclusao": "O Escriba leu a página cheia e virou para a seguinte, em branco. \"Ainda tem muito fim pela frente\", disse.",

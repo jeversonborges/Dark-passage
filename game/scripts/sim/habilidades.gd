@@ -35,9 +35,16 @@ static func cura_valor(e: Ent, mult: float) -> float:
 	if "pena_zacarias" in e.aux.get("bonus", {}).get("efeitos", []): v *= 1.12
 	return v
 
+## Skill 1 com respingo (0.9.8): os inimigos a até splash_raio do alvo levam splash_mult do golpe. Área pequena, nunca erra.
+static func _splash(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent) -> void:
+	var golpe := float(h["mult"]) if h.has("mult") else float(h["mult_por_golpe"]) * float(h["golpes"])
+	for o in sim.inimigos_de(e, alvo.pos, float(h["splash_raio"])):
+		if o != alvo: sim.aplicar_golpe(e, o, _op(e, h, {"mult": golpe * float(h["splash_mult"]), "area": true, "nunca_erra": true, "sem_recurso": true}))
+
 static func usar(sim: WorldSim, e: Ent, h: Dictionary, alvo: Ent, ponto: Vector2) -> void:
 	if h.has("_evo"):
 		Evolucao.usar(sim, e, h, alvo, ponto); return
+	if h.has("splash_raio") and alvo != null: _splash(sim, e, h, alvo)
 	var id: String = h["id"]
 	var conj := float(h.get("conjuracao", 0.0))
 	var prep := maxf(conj, 0.18)
