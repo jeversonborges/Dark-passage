@@ -1,0 +1,221 @@
+{
+ "_doc": "Guerreiro Iniciante (Arautos do Juizo), nivel 1 a 30, e as duas evolucoes do nivel 30: Paladino e Duelista. Mesmo formato de classes_base.json. Nao esta em classes_base.json de proposito: incluir la torna a classe selecionavel no servidor (servidor.gd, Defs.CLASSES). Para entrar no jogo, mover o bloco 'guerreiro' para classes_base.json depois da aprovacao do Jefin e rodar fontes/gerar_json.py. Numeros são pontos de partida (escala do Anjo e do Demonio). Tempos em segundos, distancias em tiles.",
+ "versao": "0.1",
+ "guerreiro": {
+  "faccao": "arautos",
+  "papel": "tanque e dano fisico corpo a corpo, sem magia",
+  "atributos_iniciais": {"FOR": 26, "AGI": 18, "VIT": 24, "ESP": 12},
+  "build_sugerida_por_nivel": {"FOR": 2, "AGI": 0, "VIT": 2, "ESP": 0},
+  "hp": {"base": 120, "por_nivel": 2.2, "por_vit": 3.0},
+  "perfil_dano": "fisico",
+  "elemento_ataque": "fisico",
+  "alcance_basico": 1.3,
+  "ataque_basico": {"nome": "Golpe de Espada", "sem_recarga": true, "descricao": "Ataque fisico corpo a corpo em alvo unico"},
+  "arma_inicial": {"nome": "Espada Curta do Recruta", "min": 5, "max": 8, "intervalo": 1.0, "postura": 12, "maos": 1},
+  "recurso": {
+    "nome": "Impeto",
+    "max": 100,
+    "inicial": 0,
+    "regen_por_s": 0,
+    "decai_por_s_fora_de_combate": 4,
+    "ganho": {"golpe_acertado": 6, "golpe_recebido": 4}
+  },
+  "habilidades": [
+    {
+      "id": "corte_recruta",
+      "nome": "Corte do Recruta",
+      "nivel": 1,
+      "custo": 10,
+      "recarga": 3.0,
+      "mult": 1.6,
+      "elemento": "fisico",
+      "alcance": 1.4,
+      "postura": 22,
+      "sensacao": "golpe_pesado"
+    },
+    {
+      "id": "determinacao_recruta",
+      "nome": "Determinacao do Recruta",
+      "nivel": 1,
+      "passiva": true,
+      "hp_maximo_mais": 0.08,
+      "ataque_fisico_mais": 0.05,
+      "sensacao": "passiva"
+    },
+    {
+      "id": "varredura_aco",
+      "nome": "Varredura de Aco",
+      "nivel": 3,
+      "custo": 12,
+      "recarga": 2.0,
+      "mult": 0.9,
+      "elemento": "fisico",
+      "area_raio": 2.0,
+      "postura": 18,
+      "sensacao": "area",
+      "_doc": "area circular em volta do guerreiro, atinge todos os inimigos proximos"
+    },
+    {
+      "id": "guarda_firme",
+      "nome": "Guarda Firme",
+      "nivel": 6,
+      "custo": 15,
+      "recarga": 20.0,
+      "duracao": 8.0,
+      "efeito": {"defesa_fisica_mais": 0.3},
+      "alvo": "self",
+      "sensacao": "buff"
+    },
+    {
+      "id": "quebra_guarda",
+      "nome": "Quebra-Guarda",
+      "nivel": 9,
+      "custo": 15,
+      "recarga": 15.0,
+      "mult": 0.8,
+      "elemento": "fisico",
+      "alcance": 1.5,
+      "efeito": {"defesa_fisica_menos": 0.25, "duracao": 6.0},
+      "postura": 20,
+      "sensacao": "debuff"
+    }
+  ],
+  "evolucao": {"nivel": 30, "opcoes": ["paladino", "duelista"]}
+ },
+ "paladino": {
+  "_doc": "Evolucao do Guerreiro no nivel 30. Espadao de duas maos, tanque da linha de frente. Mantem o Impeto do Guerreiro.",
+  "evolui_de": "guerreiro",
+  "faccao": "arautos",
+  "papel": "tanque pesado e controle de area",
+  "hp": {"bonus_pct": 0.25, "por_vit": 4.0},
+  "arma_inicial": {"nome": "Espadao do Juramento", "min": 10, "max": 15, "intervalo": 1.7, "postura": 20, "maos": 2},
+  "recurso": {"herda": "guerreiro.recurso"},
+  "habilidades": [
+    {
+      "id": "golpe_devastador",
+      "nome": "Golpe Devastador",
+      "nivel": 30,
+      "custo": 25,
+      "recarga": 8.0,
+      "mult": 2.8,
+      "elemento": "fisico",
+      "alcance": 1.8,
+      "postura": 35,
+      "chance_atordoar": 0.3,
+      "atordoar_s": 1.0,
+      "sensacao": "golpe_pesado"
+    },
+    {
+      "id": "juramento_ferro",
+      "nome": "Juramento de Ferro",
+      "nivel": 30,
+      "custo": 20,
+      "recarga": 18.0,
+      "cura_pct_hp_max": 0.1,
+      "provoca_s": 6.0,
+      "alvo": "self",
+      "sensacao": "cura"
+    },
+    {
+      "id": "reflexo_aco",
+      "nome": "Reflexo de Aco",
+      "nivel": 33,
+      "custo": 20,
+      "recarga": 14.0,
+      "duracao": 3.0,
+      "efeito": {"reflete_dano": 0.5},
+      "alvo": "self",
+      "sensacao": "buff"
+    },
+    {
+      "id": "investida_couraca",
+      "nome": "Investida da Couraca",
+      "nivel": 36,
+      "custo": 25,
+      "recarga": 12.0,
+      "mult": 1.5,
+      "avanco_tiles": 4,
+      "atordoar_s": 1.5,
+      "sensacao": "mobilidade"
+    }
+  ],
+  "passiva": {
+    "id": "couraca_paladino",
+    "nome": "Couraca do Paladino",
+    "nivel": 30,
+    "defesa_fisica_mais": 0.1,
+    "sensacao": "passiva"
+  }
+ },
+ "duelista": {
+  "_doc": "Evolucao do Guerreiro no nivel 30. Assassino de dupla lamina: maior velocidade de ataque do jogo, burst e golpe pelas costas. Jogo de dano por segundo alto, pouca defesa. Pensado em cima das skills de burst, stealth e golpe pelas costas do Duelista do Lineage 2.",
+  "evolui_de": "guerreiro",
+  "faccao": "arautos",
+  "papel": "assassino de dupla lamina, maior velocidade de ataque",
+  "hp": {"bonus_pct": -0.15, "por_vit": 2.0},
+  "velocidade_ataque_mais": 0.35,
+  "arma_inicial": {"nome": "Lamina Gemea", "min": 3, "max": 5, "intervalo": 0.5, "postura": 8, "maos": 1, "par": 2, "_doc": "duas espadas de uma mao, uma em cada mao; cada golpe sai com uma delas"},
+  "recurso": {"herda": "guerreiro.recurso"},
+  "habilidades": [
+    {
+      "id": "passo_sombrio",
+      "nome": "Passo Sombrio",
+      "nivel": 30,
+      "custo": 15,
+      "recarga": 8.0,
+      "alcance": 6,
+      "teleporta_atras_do_alvo": true,
+      "furtivo_s": 1.5,
+      "sensacao": "mobilidade"
+    },
+    {
+      "id": "golpe_mortal",
+      "nome": "Golpe Mortal",
+      "nivel": 30,
+      "custo": 20,
+      "recarga": 6.0,
+      "mult": 1.8,
+      "elemento": "fisico",
+      "alcance": 1.4,
+      "postura": 20,
+      "critico_pelas_costas": 2.0,
+      "sensacao": "golpe_pesado"
+    },
+    {
+      "id": "relampago_lamina",
+      "nome": "Relampago de Lamina",
+      "nivel": 33,
+      "custo": 15,
+      "recarga": 5.0,
+      "golpes": 3,
+      "mult_por_golpe": 0.6,
+      "intervalo_golpe": 0.15,
+      "elemento": "fisico",
+      "alcance": 1.4,
+      "postura": 12,
+      "sensacao": "golpe_leve"
+    },
+    {
+      "id": "rajada_gemea",
+      "nome": "Rajada Gemea",
+      "nivel": 36,
+      "custo": 30,
+      "recarga": 14.0,
+      "golpes": 6,
+      "duracao_s": 1.5,
+      "mult_por_golpe": 0.5,
+      "elemento": "fisico",
+      "area_raio": 1.6,
+      "postura": 25,
+      "sensacao": "area"
+    }
+  ],
+  "passiva": {
+    "id": "dupla_lamina",
+    "nome": "Dupla Lamina",
+    "nivel": 30,
+    "ataque_por_mao_alternada_mais": 0.1,
+    "sensacao": "passiva"
+  }
+ }
+}

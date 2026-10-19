@@ -17,7 +17,7 @@ Duas facções disputam o que resta da Terra:
 
 ## 2. Divisão das classes (definida pelo Jefin)
 
-Anjo, Demônio e Cultista estão juntos a favor do fim. Humano, Mutante e Tecnomancer lutam para sobreviver no mundo apocalíptico. Cada classe pertence a **uma** facção só, e cada lado tem um tanque, um dano e um suporte.
+Anjo, Demônio, Cultista e Guerreiro estão juntos a favor do fim (o Guerreiro é a quarta classe dos Arautos, 19/10/2026). Humano, Mutante e Tecnomancer lutam para sobreviver no mundo apocalíptico. Cada classe pertence a **uma** facção só, e cada lado tem um tanque, um dano e um suporte.
 
 | Papel | Arautos do Juízo | Vigília |
 |---|---|---|
@@ -50,6 +50,7 @@ Cada classe tem um **recurso próprio** além do HP:
 | Cultista | Sangue | Gasta o próprio HP para lançar magias; regenera ao matar |
 | Mutante | Fúria | Sobe ao receber dano; cai fora de combate |
 | Demônio | Brasa Infernal | Sobe ao causar dano; queima o próprio HP se transbordar |
+| Guerreiro | Ímpeto | Sobe ao acertar e ao apanhar; cai fora de combate (v0.1, a confirmar) |
 | Humano | Munição + Fôlego | Munição consumível (crafting/compra) e fôlego para habilidades |
 | Tecnomancer | Carga | Bateria que recarrega devagar; módulos aumentam a capacidade |
 
@@ -65,6 +66,8 @@ Missões de evolução no **nível 150** e no **nível 400** (estilo MU).
 | Demônio | Diabrete | Senhor do Abismo | Arquidemônio |
 | Humano | Sobrevivente | Caçador | Último Guardião |
 | Tecnomancer | Engenheiro Herege | Tecnomante | Arquiteto do Amanhã |
+
+**Guerreiro (Arautos):** não segue essa tabela. Evolui uma vez, no **nível 30**, em **Paladino** (espadão, tanque) ou **Duelista** (dupla lâmina, assassino). Detalhes em `design/combate/guerreiro.md`.
 
 ## 5. As classes
 
@@ -124,6 +127,22 @@ Missões de evolução no **nível 150** e no **nível 400** (estilo MU).
 | Banquete | Passiva | Roubo de vida aumentado em alvos com pouco HP |
 | Portão do Inferno (Estágio 3) | Suprema | Abre uma fenda que queima tudo em volta; dano extra em Humanos |
 
+### 5.4a Guerreiro (Arautos do Juízo)
+**Papel:** tanque e dano físico corpo a corpo, sem magia. **Atributos principais:** FOR > VIT > AGI.
+**Armas:** espada curta de 1 mão no início; no nível 30, espadão (Paladino) ou duas espadas (Duelista).
+**Armadura:** sobretudo vermelho, placas e couro de recruta; a evolução troca a armadura por couraça espinhada (Paladino) ou manto azul e dourado (Duelista).
+**Fantasia:** o recruta mandado para a linha de frente do Juízo, que nunca recuou.
+
+| Habilidade | Tipo | Efeito |
+|---|---|---|
+| Corte do Recruta | Ativa | Golpe mais forte que o básico |
+| Determinação do Recruta | Passiva | Mais HP máximo e ataque físico |
+| Varredura de Aço | Área | Golpe em volta do guerreiro |
+| Guarda Firme | Buff | Mais defesa física por um tempo |
+| Quebra-Guarda | Debuff | Reduz a defesa física do alvo |
+| Paladino (nível 30) | Evolução | Espadão, tanque pesado e controle de área |
+| Duelista (nível 30) | Evolução | Dupla lâmina, maior velocidade de ataque, burst e golpe pelas costas |
+
 ### 5.5 Humano (Vigília)
 **Papel:** dano físico à distância e versatilidade. **Atributos principais:** AGI > FOR > VIT.
 **Armas:** bestas, mosquetes, escopetas, espada curta de apoio. **Armadura:** couro, cotas de malha, sobretudos.
@@ -169,7 +188,7 @@ Pequenos bônus para criar rivalidades naturais, sem pedra-papel-tesoura rígido
 - Sprites isométricos de **8 direções** com paleta de 16 cores (ver `tools/sprite-pipeline`).
 - Cada facção tem uma sub-paleta para que o jogador identifique amigo ou inimigo de longe:
   Arautos com tons de osso, ouro e vermelho (Demônios puxando para o preto e brasa); Vigília com aço, verde ácido e laranja.
-- Silhuetas precisam ser distintas mesmo pequenas: asas (Anjo), capuz e cajado (Cultista), corpo largo e assimétrico (Mutante), chifres (Demônio), sobretudo e arma longa (Humano), mochila com antenas (Tecnomancer).
+- Silhuetas precisam ser distintas mesmo pequenas: asas (Anjo), capuz e cajado (Cultista), corpo largo e assimétrico (Mutante), chifres (Demônio), sobretudo vermelho e espada (Guerreiro), sobretudo e arma longa (Humano), mochila com antenas (Tecnomancer).
 - Equipamento troca o visual (estilo MU), e o estágio 3 de cada classe tem silhueta própria.
 
 ## 8. Pontos em aberto
