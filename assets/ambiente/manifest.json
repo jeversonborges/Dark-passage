@@ -928,11 +928,11 @@
   },
   "arvore_morta": {
    "png": "objetos/arvore_morta.png",
-   "w": 466,
-   "h": 270,
+   "w": 692,
+   "h": 428,
    "anchor": [
-    131,
-    244
+    127,
+    338
    ],
    "footprint_tiles": [
     3,
