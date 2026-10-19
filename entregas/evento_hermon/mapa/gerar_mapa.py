@@ -84,13 +84,7 @@ def main():
             ang = 2 * math.pi * (k + .5 * (i % 2)) / n + .05 * math.sin(k * 1.7)
             a.prop("fenda", CX + rr * math.cos(ang), CY + rr * math.sin(ang), chao=True, racha=r["id"])
 
-    # ---- a Laje do Juramento: anel de pilares partidos, braseiros sagrados, velas e o lacre no chão
-    for k in range(6):
-        ang = 2 * math.pi * k / 6 + .26
-        px_, py_ = CX + 4.1 * math.cos(ang), CY + 4.1 * math.sin(ang)     # pilar de 2x2: trava a pegada toda
-        a.prop("pilar_porcelana", px_, py_, anel="anel_5")
-        for yy in range(int(py_ - 1), int(py_ + 1)):
-            for xx in range(int(px_ - 1), int(px_ + 1)): a.extra_blk.add((xx, yy))
+    # ---- a Laje do Juramento: braseiros sagrados, velas e o lacre no chão (sem pilares desde 0.9.8.2)
     for k in range(4):
         ang = 2 * math.pi * k / 4 + math.pi / 4
         a.prop("braseiro_sagrado", CX + 2.3 * math.cos(ang), CY + 2.3 * math.sin(ang), bloqueia=.35, luz=SANTO + [6])
