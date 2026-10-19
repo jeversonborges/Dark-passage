@@ -122,15 +122,7 @@ func comecar(ids: Array) -> void:
 		sim.emitir("teleporte", {"id": e.id, "pos": e.pos})
 	if gladiadores.is_empty(): return
 	estado = "luta"
-	# "Começar agora": pula a contagem e a apresentação. Os leões saem da grade e a luta começa já.
-	var idx := 0
-	for i in etapas.size():
-		if etapas[i]["id"] == "luta_leoes": idx = i
-	_fala("caim", "SOLTEM OS LEÕES!", "anunciar")
-	_portao("portao_leoes", true)
-	sim.emitir("agrak_som", {"som": "agrak/grade_sobe", "pos": _pos_portao("portao_leoes")})
-	_criar_leoes()
-	_etapa(idx)
+	_etapa(0)
 
 func porta_fechada() -> bool:
 	return etapa_i >= 0 and fim_t < 0.0
