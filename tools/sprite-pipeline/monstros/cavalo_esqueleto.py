@@ -30,6 +30,7 @@ def build():
     mane = mat("ca_crina", (.08, .06, .05), 0, .85, dirt=.6)
     leather = stained("ca_sela", (.13, .07, .04), stain=(.2, .03, .01), amount=.5, scale=4, rough=.4, grime=.8)
     iron = stained("ca_ferro", (.12, .1, .09), stain=(.3, .1, .03), amount=.55, scale=6, metal=.8, rough=.5, grime=.5)
+    steel = stained("ca_aco", (.42, .4, .38), stain=(.25, .05, .02), amount=.45, scale=6, metal=.95, rough=.32, grime=.35)
     eye = mat("ca_brasa", (1, .42, .1), emit=(1, .42, .1), strength=12)
     hole = mat("ca_buraco", (.01, .006, .005), 0, .9)
 
@@ -57,6 +58,14 @@ def build():
     neck_keys = [(-.5, 1.05, .2, .18), (-.65, 1.27, .16, .14), (-.8, 1.42, .13, .12), (-.92, 1.52, .11, .1)]
     neck = loft("cavalo_pescoco", ring_path(neck_keys, .015), hide, seg=24)
     parts.append(neck)
+    # barda: placas de ferro sobre o tronco e o pescoço, com rebites; chanfro de ferro na cabeça
+    torso = [i for i, r in enumerate(rings) if -.6 < r[0].y < .5]
+    parts.append(loft("cavalo_barda_tronco", [rings[i] for i in torso], iron, seg=36, rad=lambda i, a, r: 1.09))
+    parts.append(loft("cavalo_barda_pescoco", ring_path(neck_keys, .015), iron, seg=24, rad=lambda i, a, r: 1.2))
+    for k in range(0, len(torso), 2):   # rebites da barda ao longo da cinta
+        p, nrm = surf(rings[torso[k]], math.radians(60))
+        parts.append(prim("primitive_uv_sphere_add", steel, p + nrm*.03, (.012, .012, .012), segments=6, ring_count=4))
+    parts.append(prim("primitive_cube_add", iron, (-1.18, 1.32, 1.32), scale=(.07, .16, .1)))   # chanfro
     head = join([prim("primitive_uv_sphere_add", bone, (-1.16, 1.4, 1.36), (.13, .26, .14), segments=14, ring_count=10),
                  prim("primitive_uv_sphere_add", bone, (-1.3, 1.2, 1.26), (.1, .17, .09), segments=12, ring_count=8)])
     parts.append(head)
