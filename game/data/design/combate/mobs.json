@@ -1,9 +1,9 @@
 {
   "_doc": "Monstros comuns, elite e raro. Nomes canonicos vindos da thread Missoes, NPCs e historia. Os atributos saem da curva base pelo nivel, vezes o multiplicador do arquetipo, vezes o ajuste do mob. Tempos em s, distancias em tiles.",
-  "versao": "0.2",
+  "versao": "0.1",
   "curva_base": {
     "_doc": "Mob 'normal' no nivel L.",
-    "hp": "41.6 + 9.1*L",
+    "hp": "32 + 7*L",
     "dano_min": "5 + 1.6*L",
     "dano_max": "8 + 2.2*L",
     "defesa": "2 + 1.5*L",
@@ -11,10 +11,9 @@
     "velocidade_mov": 2.4,
     "xp": "10 + 5*L",
     "ouro": [
-      "2.6*L",
-      "6.5*L"
-    ],
-    "_v02": "v0.2 (Jefin 2026-10-15): HP dos monstros +30% (era 32 + 7*L) e ouro +30% (era 2*L a 5*L), para o gasto de pocao por minuto nao subir junto com o tempo de abate. Chefes nao mudam (HP proprio em chefes.json)."
+      "2*L",
+      "5*L"
+    ]
   },
   "velocidade_mov_jogador": 3.2,
   "arquetipos": {
@@ -42,9 +41,8 @@
       "defesa": 1.4,
       "intervalo": 2.4,
       "mov": 0.8,
-      "xp": 2.4,
-      "postura": "bruto",
-      "_v02": "xp 2.0 -> 2.4: com HP 2.2x e dano 1.8x o bruto pagava menos XP por HP que o normal (0.91); agora paga 1.09, premio pelo risco."
+      "xp": 2.0,
+      "postura": "bruto"
     },
     "atirador": {
       "hp": 0.8,
@@ -101,12 +99,6 @@
     "aggro_social": 4,
     "renascimento_s": 25,
     "_aggro_social": "mobs do mesmo tipo dentro desse raio entram juntos quando um e atacado"
-  },
-  "spots": {
-    "_doc": "Spots de farm (0.9.5, Jefin 18/10: 'spot deve ter muito mais nascimento de mob'). Vale para grupos com 'spot' e respawn abaixo de 60 s (elite fica de fora). O mob nasce mesmo com jogador no spot, em célula a pelo menos dist_min_jogador tiles dele.",
-    "respawn_s": 6,
-    "mob_extra": 1,
-    "dist_min_jogador": 3.0
   },
   "mobs": {
     "corvo_de_cinza": {
@@ -204,7 +196,7 @@
       ],
       "arquetipo": "rasteiro",
       "ajuste": {
-        "hp": 1.1,
+        "hp": 1.3,
         "dano": 1.2
       },
       "tags": [
@@ -238,8 +230,7 @@
           "recarga": 8
         }
       ],
-      "drop": "inicial_animal",
-      "_v02": "ajuste de HP 1.3 -> 1.1 (com o +30% geral ficava esponja demais para um rasteiro de 0.6 de XP; Fosso dos Caes rendia 19% menos que a Procissao)."
+      "drop": "inicial_animal"
     },
     "nao_julgado": {
       "nome": "Nao-Julgado",
@@ -908,6 +899,195 @@
           "id": "espada_enferrujada",
           "mult": 1.0,
           "preparo": 0.6
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_fome": {
+      "nome": "Cavaleiro da Fome",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "fome"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Cavalga magro e faminto. Morde e arranca carne de quem está perto (sangramento). Voa por cima da cidade antes de descer.",
+      "ataques": [
+        {
+          "id": "mordida",
+          "mult": 1.1,
+          "preparo": 0.6,
+          "a_cada": 3,
+          "efeito": {
+            "sangramento": {
+              "duracao": 5,
+              "dano_por_s_mult": 0.15
+            }
+          }
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_guerra": {
+      "nome": "Cavaleiro da Guerra",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "guerra"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Empunha a espada larga e corta em arco. A cada terceiro golpe investe contra o alvo.",
+      "ataques": [
+        {
+          "id": "golpe_arco",
+          "mult": 1.2,
+          "preparo": 0.7
+        },
+        {
+          "id": "investida",
+          "mult": 1.6,
+          "preparo": 0.9
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_conquista": {
+      "nome": "Cavaleiro da Conquista",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "conquista"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Arco de chifre em punho. Dispara a flecha que zune antes de cada golpe corpo a corpo.",
+      "ataques": [
+        {
+          "id": "chifrada",
+          "mult": 1.0,
+          "preparo": 0.6
+        },
+        {
+          "id": "flecha",
+          "mult": 1.3,
+          "preparo": 0.8
+        }
+      ],
+      "drop": null
+    },
+    "cavaleiro_peste": {
+      "nome": "Cavaleiro da Peste",
+      "area": "cavaleiros",
+      "niveis": [
+        30,
+        30
+      ],
+      "arquetipo": "elite",
+      "ajuste": {
+        "mov": 1.25,
+        "hp": 1.3
+      },
+      "tags": [
+        "cavaleiro",
+        "apocalipse",
+        "peste"
+      ],
+      "grupo": [
+        1,
+        1
+      ],
+      "res": {
+        "sagrado": -0.3
+      },
+      "alcance": 1.6,
+      "ia": {
+        "padrao": "teimoso",
+        "raio_aggro": 6,
+        "raio_coleira": 10
+      },
+      "comportamento": "Lanterna de peste na mão. Ao morrer solta nuvem de veneno; a cada golpe espalha a praga.",
+      "ataques": [
+        {
+          "id": "arranhao",
+          "mult": 1.0,
+          "preparo": 0.5
+        },
+        {
+          "id": "nuvem_praga",
+          "mult": 1.1,
+          "preparo": 0.8,
+          "a_cada": 4,
+          "efeito": {
+            "veneno": {
+              "duracao": 6,
+              "dano_por_s_mult": 0.2
+            }
+          }
         }
       ],
       "drop": null

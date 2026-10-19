@@ -28,6 +28,7 @@ var spawns: Array = []
 var jogador_id := -1
 var chefe: ChefeCtl = null
 var hermon: HermonCtl = null       # evento O Cume dos Vigilantes (mapa com "hermon")
+var cavaleiros: Array = []         # Os Cavaleiros do Apocalipse: um CavaleirosCtl por capital neste mapa (GM, Painel F8)
 var dia := 0                        # para missões diárias (r01, r02)
 var agenda: Array = []
 var alvos_ia: Array = []            # jogador + invocações (recalculado a cada passo)              # [tempo, Callable]: golpes atrasados, fim de buff etc.
@@ -99,7 +100,7 @@ func remover_jogador(e: Ent) -> void:
 ## Cliente de rede: só a geometria do mapa (grade, zonas, caminhos). As entidades chegam do servidor.
 func carregar_geometria(id: String) -> void:
 	ents.clear(); chao.clear(); spawns.clear(); agenda.clear()
-	chefe = null; hermon = null
+	chefe = null; hermon = null; cavaleiros.clear()
 	_ler_grade(id)
 
 # =================================================================== mapa
@@ -111,7 +112,7 @@ func descarregar() -> void:
 	for e: Ent in ents.values():
 		e.aux.clear(); e.acao = {}; e.deslocando = {}; e.status.clear(); e.buffs.clear()   # lambdas que se prendem à própria entidade
 	ents.clear(); chao.clear(); spawns.clear()
-	chefe = null; hermon = null
+	chefe = null; hermon = null; cavaleiros.clear()
 
 func carregar_mapa(id: String) -> void:
 	# limpa tudo menos o jogador
@@ -119,7 +120,7 @@ func carregar_mapa(id: String) -> void:
 	for k in ents.keys():
 		if k != jogador_id: emitir("sumiu", {"id": k})
 	ents.clear(); agenda.clear(); projeteis.clear(); areas.clear(); telegrafos.clear(); chao.clear(); spawns.clear()
-	chefe = null; hermon = null
+	chefe = null; hermon = null; cavaleiros.clear()
 	_ler_grade(id)
 	if jog != null: ents[jogador_id] = jog
 	# NPCs, objetos, baús, spawns, chefe
@@ -428,6 +429,8 @@ func passo(dt: float) -> void:
 	_passo_spawns(dt)
 	if chefe != null: chefe.passo(dt)
 	if hermon != null: hermon.passo(dt)
+	for c in cavaleiros: c.passo(dt)
+	cavaleiros = cavaleiros.filter(func(c): return not c.acabou())
 
 func _passo_ent(e: Ent, dt: float) -> void:
 	if not e.vivo:
@@ -1041,6 +1044,7 @@ func matar(e: Ent, assassino: Ent) -> void:
 			g["ents"].erase(e.id)
 			g["timers"].append(e.renasce_s)
 		if chefe != null: chefe.ao_morrer_ent(e, killer)
+		for c in cavaleiros: c.ao_morrer(e, killer)
 	elif e.tipo == "objeto":
 		if chefe != null: chefe.ao_morrer_ent(e, killer)
 		remover(e.id)
