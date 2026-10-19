@@ -146,6 +146,11 @@ pets = [dict(id=pet["id"], nome=pet["nome"], slot="pet", categoria="pet", tipo="
 existentes = json.load(open(f"{OUT}/itens.json"))["itens"]
 ids_existentes = {i["id"] for i in existentes}
 saida = existentes + [p for p in pets if p["id"] not in ids_existentes]
+# conjuntos: mantém os do JSON do jogo e acrescenta só os que faltarem
+anteriores = json.load(open(f"{OUT}/itens.json"))["conjuntos"]
+ids_conjuntos = {c["id"] for c in anteriores}
+gerados = [{k:v for k,v in c.items() if k != "pecas"} | {"pecas":[f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS]
+conjuntos = anteriores + [c for c in gerados if c["id"] not in ids_conjuntos]
 json.dump({"versao":"0.2","aviso":AVISO,
   "raridades":"ver design/combate/drops.json (comum, magico, raro, excelente, lendario = Relíquia). Itens BASE têm raridade 'rolada' no drop.",
   "refino":{"no_drop":"+0 a +3 (drops.json, +8% de dano/defesa base por nível)", "joias":{"+1..+6":"Lágrima de Anjo, 100%", "+7..+9":"Fragmento de Alma, 55%; falha volta 1 nível"},
@@ -153,6 +158,6 @@ json.dump({"versao":"0.2","aviso":AVISO,
   "formulas_usadas":{"dano_arma":"média 5 + 1,2 × nível (classes_base.json), mín/máx ±30%; itens com nome: ×1,1 raro, ×1,25 Relíquia",
                      "defesa_conjunto":"1,5 × nível no conjunto inteiro; cabeça 16%, peito 34%, luvas 12%, calças 22%, botas 16%; leve ×0,8, pesado ×1,25"},
   "grade_mochila":"células de 30 px (UI); grade = [largura, altura]",
-  "conjuntos":[{k:v for k,v in c.items() if k != "pecas"} | {"pecas":[f"{c['id']}_{s}" for s in c["pecas"]]} for c in I.CONJUNTOS],
+  "conjuntos":conjuntos,
   "pools_lendarios":I.POOLS_LENDARIOS, "cobertura_tags_drops":cobertura, "itens":saida}, open(f"{OUT}/itens.json","w"), ensure_ascii=False, indent=1)
 print(len(skills), "skills;", len(saida), "itens"); print({t: len(v) for t, v in cobertura.items()})
