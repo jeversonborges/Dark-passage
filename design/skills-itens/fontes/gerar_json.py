@@ -123,7 +123,7 @@ for m in mis:
         add("arma" if slot == "arma" else ("armadura" if slot in ("cabeca","peito") else "acessorio"), d)
     else:
         d["tipo_missao"] = m["tipo"]
-        add({"missao":"missao","consumivel":"consumivel","leitura":"leitura"}[m["tipo"]], d)
+        add({"missao":"missao","consumivel":"consumivel","leitura":"leitura","montaria":"montaria"}[m["tipo"]], d)
 
 ids = [i["id"] for i in itens]; assert len(ids) == len(set(ids)), [x for x in ids if ids.count(x) > 1]
 tags_drops = sorted({r["tag"] for t in drops["tabelas"].values() for r in t.get("rolagens", [])})
