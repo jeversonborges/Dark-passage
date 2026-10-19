@@ -163,7 +163,7 @@ B = {
               [("sapador_herege", 2, 4, "territorial"), ("chacal_de_josafa", 2, 2, "neutro")], "acampamento_desertores")),
     "FON2":  (88, 110, 8, "fontes_jordao", None),
     "NEVE":  (42, 136, 10, "cume_hermon", ("neve_de_cinza", "Neve de Cinza", [9, 12],
-              [("levantado_das_oliveiras", 3, 2, "neutro"), ("vigilante_acorrentado", 3, 2, "territorial")], "beira_da_tempestade")),
+              [("levantado_das_oliveiras", 3, 2, "neutro")], "beira_da_tempestade")),
     "CUM2":  (62, 126, 8, "cume_hermon", None),
     "JAEL":  (26, 122, 6, "cume_hermon", None),
 }

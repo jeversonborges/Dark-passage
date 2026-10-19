@@ -75,7 +75,7 @@
    "contagem_s": 180,
    "dur_s": 600,
    "xp_mult": 3.0,
-   "bau": {"item": "bau_dourado", "chance": 0.005},
+   "bau": {"item": "bau_dourado", "chance": 0.01},
    "reposicao_s": 14,
    "max_vivos": 30
   },
