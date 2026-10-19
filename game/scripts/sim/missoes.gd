@@ -85,6 +85,12 @@ static func precisa_item(jog: Ent, mid: String, item: String) -> bool:
 			return Itens.contar(jog.inv, item) < int(o.get("qtd", 1))
 	return false
 
+## Alguma missão ativa do jogador ainda precisa deste item (coletar), qualquer que seja a missão.
+static func precisa_item_qualquer(jog: Ent, item: String) -> bool:
+	for mid in Defs.MISSOES:
+		if precisa_item(jog, mid, item): return true
+	return false
+
 static func aceitar(sim: WorldSim, jog: Ent, mid: String) -> void:
 	var d := def(mid)
 	if d.is_empty(): return

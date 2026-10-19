@@ -680,7 +680,14 @@
       ],
       "garantido": [
         "missao:veu_da_comunhao"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "chefe_zacarias": {
       "rolagens_garantidas": 5,
@@ -719,7 +726,14 @@
       ],
       "garantido": [
         "missao:martelo_do_sino_derretido"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "chefe_general": {
       "rolagens_garantidas": 4,
@@ -753,7 +767,14 @@
       ],
       "garantido": [
         "missao:elmo_da_legiao_sem_general"
-      ]
+      ],
+      "raridade_pesos": {
+        "magico": 40,
+        "excelente": 40,
+        "raro": 15,
+        "lendario": 5
+      },
+      "_raridade_pesos_doc": "Chefe de andar (0.9.8): 1 item garantido, sorteado por estes pesos (azul, roxo, amarelo, vermelho). Equipamento das rolagens fica de fora."
     },
     "jerusalem_elite": {
       "item_chance": 0.25,
@@ -1244,7 +1265,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_hawara_2": {
       "garantido": [
@@ -1270,7 +1292,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_hawara_3": {
       "garantido": [
@@ -1296,7 +1319,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_1": {
       "garantido": [
@@ -1322,7 +1346,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_2": {
       "garantido": [
@@ -1348,7 +1373,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_3": {
       "garantido": [
@@ -1374,7 +1400,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_4": {
       "garantido": [
@@ -1400,7 +1427,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_5": {
       "garantido": [
@@ -1426,7 +1454,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "chefe_coracao_6": {
       "garantido": [
@@ -1452,7 +1481,8 @@
           "tag": "lendario:egito",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     },
     "drop_ohya": {
       "garantido": [
@@ -1556,7 +1586,8 @@
           "tag": "lendario:celeste",
           "peso": 3
         }
-      ]
+      ],
+      "vermelho_garantido": true
     }
   },
   "baus": {
@@ -1637,7 +1668,9 @@
       "chefe_top": 0.3,
       "nivel_chefe_top": 45,
       "_doc": "chefe_top = chefe de nível igual ou acima de nivel_chefe_top (a Egito e o Gadiro)."
-    }
+    },
+    "lendario_chance": 0.05,
+    "_lendario_chance_doc": "Chance de vermelho sair quando a tabela pede um (rolagem lendario: ou garantido lendario:). Tabela com vermelho_garantido pula. Itens de missao vermelhos caem só com a missao ativa que precisa deles."
   },
   "materiais_asa": {
     "_doc": "Rolagem pessoal por abate, fora da tabela do mob. Chance pela tag do mob (vale a maior). Mesmos multiplicadores das lágrimas.",
