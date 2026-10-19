@@ -53,7 +53,8 @@
       "area_raio": 2.0,
       "postura": 18,
       "sensacao": "area",
-      "_doc": "area circular em volta do guerreiro, atinge todos os inimigos proximos"
+      "_doc": "giro de 360 graus em volta do guerreiro, estilo hack and slash (tipo whirlwind do Diablo): o corpo roda inteiro e a espada passa por todos os angulos",
+      "visual": {"animacao": "giro_360", "rastro": "circulo_luminoso_completo", "referencia": "design/arte/skills/rodar_espada_ref/"}
     },
     {
       "id": "guarda_firme",
