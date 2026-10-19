@@ -101,11 +101,11 @@
     },
     "primordial": {
       "nome_exibido": "Lendário",
-      "cor": "#a05cff",
+      "cor": "#20c9b8",
       "unico": true,
       "feixe": true,
       "peso_base": 0,
-      "_doc": "roxo; acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
+      "_doc": "turquesa (0.9.8, antes roxo); acima da Relíquia. Itens de homenagem feitos à mão e vinculados à conta (Chave-Mestra do Primarca, para o jogador GUSTAVO). Nunca sai no sorteio de drop."
     },
     "demiurgico": {
       "nome_exibido": "Demiúrgico",
