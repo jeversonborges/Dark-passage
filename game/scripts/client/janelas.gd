@@ -676,8 +676,11 @@ func _slot_equip(slot: String) -> Desenho:
 		var vazio: bool = it.is_empty() or (not mao.is_empty() and mao["it"] == it)
 		var pet_ic: Array = []   # o familiar do Cultista aparece no slot do pet
 		if slot == "pet" and game.hud._meu_pet(): pet_ic = Tema.icone_item("cultista_familiar_pacto")
+		var pet_comprado = game.hud._meu_pet_coletor() if slot == "pet" else null   # 0.9.9: o pet do vendedor também
 		if pet_ic.size() == 2:
 			c.draw_texture_rect_region(pet_ic[0], rr.grow(-4), pet_ic[1])
+		elif pet_comprado != null:
+			_desenhar_pet(c, pet_comprado.kind, rr.grow(-4))
 		elif vazio:   # silhueta leve do que vai nesse lugar (assets/ui/slots_silhueta)
 			var gl := Tema.ui("silhueta_" + ("anel" if slot.begins_with("anel") else slot))
 			if gl: c.draw_texture(gl, (c.size - gl.get_size()) * 0.5)
@@ -844,6 +847,8 @@ func _desenhar_boneco(cc: Desenho) -> void:
 func _tip_slot_vazio(slot: String) -> String:
 	if slot == "pet":
 		if game.hud._meu_pet(): return "[font_size=16][color=#e0c890]Pet[/color][/font_size]\n[color=#a89f8c]Seu familiar está com você. Comande pela barra de pet.[/color]"
+		var comprado = game.hud._meu_pet_coletor()
+		if comprado != null: return "[font_size=16][color=#e0c890]Pet[/color][/font_size]\n[color=#a89f8c]%s. Ele junta o que você marcou no vendedor.[/color]" % comprado.nome
 		return "[font_size=16][color=#e0c890]Pet[/color][/font_size]\n[i][color=#a89f8c]Sem pet. O Cultista ganha um familiar ao criar o personagem.[/color][/i]"
 	var s := "[font_size=16][color=#e0c890]%s[/color][/font_size]\n" % Itens.NOME_SLOT[slot]
 	var melhor := {}; var g := 0
@@ -1920,11 +1925,7 @@ func _corpo_coletor() -> void:
 	v.add_child(Tema.rotulo("Pet atual: %s    Ouro: %d" % [Coletor.ESPECIES[atual]["nome"] if atual != "" else "nenhum", j.ouro], 14, Tema.COR_OURO, Tema.FONTE_TITULO))
 	v.add_child(Tema.rotulo("Compra", 13, Color("#c8bfa8")))
 	for esp in Coletor.ESPECIES:
-		var b := Button.new(); b.custom_minimum_size = Vector2(0, 36)
-		b.text = "  %s   —   %d ouro%s" % [Coletor.ESPECIES[esp]["nome"], Coletor.ESPECIES[esp]["preco"], "   (atual)" if esp == atual else ""]
-		b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 15)
-		b.pressed.connect(func(): game.cmd("coletor", ["comprar", esp]))
-		v.add_child(b)
+		v.add_child(_cartao_pet(esp, esp == atual))
 	if atual != "":
 		v.add_child(_auto_botao("Dispensar o pet (o filtro fica salvo)", func(): game.cmd("coletor", ["dispensar"])))
 	v.add_child(Tema.rotulo("O que ele junta", 13, Color("#c8bfa8")))
@@ -1936,6 +1937,42 @@ func _corpo_coletor() -> void:
 	_coletor_marca(v, "Materiais de asas", f["asas"], ["asas"])
 	_coletor_marca(v, "Baús dourados", f["baus"], ["baus"])
 	v.add_child(Tema.rotulo("Ouro sempre é juntado.", 12, Color("#7d7466"), Tema.FONTE_ITALICO))
+
+## Cartão de uma espécie no vendedor: retrato do pet (sprite idle), nome e preço pequeno embaixo.
+func _cartao_pet(esp: String, atual: bool) -> Control:
+	var p := PanelContainer.new()
+	p.add_theme_stylebox_override("panel", Tema.caixa_menu(6))
+	var h := HBoxContainer.new(); h.add_theme_constant_override("separation", 10)
+	p.add_child(h)
+	var retrato := Desenho.new()
+	retrato.custom_minimum_size = Vector2(86, 86)
+	retrato.desenhar = func(g: Control):
+		g.draw_rect(Rect2(Vector2.ZERO, g.size), Color(0.03, 0.025, 0.02))
+		_desenhar_pet(g, esp, Rect2(Vector2.ZERO, g.size))
+	h.add_child(retrato)
+	var col := VBoxContainer.new(); col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	col.alignment = BoxContainer.ALIGNMENT_CENTER
+	h.add_child(col)
+	col.add_child(Tema.rotulo(Coletor.ESPECIES[esp]["nome"] + ("  · atual" if atual else ""), 16, Color("#f0dca0"), Tema.FONTE_TITULO, 2))
+	col.add_child(Tema.rotulo("%d ouro" % Coletor.ESPECIES[esp]["preco"], 11, Color("#a89f8c"), Tema.FONTE_TEXTO))
+	var b := Button.new(); b.text = "Comprar"; b.custom_minimum_size = Vector2(0, 26)
+	b.add_theme_font_override("font", Tema.FONTE_TEXTO); b.add_theme_font_size_override("font_size", 13)
+	b.pressed.connect(func(): game.cmd("coletor", ["comprar", esp]))
+	col.add_child(b)
+	return p
+
+## Primeiro quadro do idle (lado S) de um pet, centralizado e quadrado dentro de r.
+func _desenhar_pet(g: CanvasItem, kind: String, r: Rect2) -> void:
+	var meta: Dictionary = Defs.SPR.get(kind, {})
+	if meta.is_empty(): return
+	var tex := Tema.tex(meta["anims"]["idle"]["file"])
+	if tex == null: return
+	var fs: Array = meta["frame"]
+	var fw := float(fs[0]); var fh := float(fs[1])
+	var src := Rect2(fw * 0.05, fh * 0.05, fw * 0.9, fh * 0.9)   # a figura fica no meio do quadro; o resto é margem
+	var lado := minf(r.size.x, r.size.y) - 6.0
+	var dest := Rect2(r.position + (r.size - Vector2(lado, lado)) * 0.5, Vector2(lado, lado))
+	g.draw_texture_rect_region(tex, dest, src)
 
 const RARIDADE_NOME_COLETOR := {"comum": "Branco", "verde": "Verde", "magico": "Azul", "excelente": "Roxo", "raro": "Amarelo", "laranja": "Laranja", "lendario": "Relíquia"}
 

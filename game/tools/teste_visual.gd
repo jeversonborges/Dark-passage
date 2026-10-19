@@ -39,6 +39,9 @@ func _ready() -> void:
 		"ferreiro":   # forja: lista, detalhe com antes/depois, custo e chance; a segunda peça com +9 (sangrenta, quebra possível)
 			roteiro = [[2.5, "preparar_forja", ""], [0.2, "abrir_forja", ""], [1.0, "foto", "forja_1"],
 				[0.1, "forja_sel", ""], [0.6, "foto", "forja_2_sel"], [0.3, "fim", ""]]
+		"vendedor_pets":   # vendedor de pets: cartões com o pet, depois um comprado no slot Pet do inventário
+			roteiro = [[2.5, "preparar_pets", ""], [0.2, "abrir_pets", ""], [1.2, "foto", "pets_1_vendedor"],
+				[0.2, "comprar_pet", "cervo_de_lume"], [0.4, "janela", "inventario"], [1.0, "foto", "pets_2_slot"], [0.3, "fim", ""]]
 		"chefe":
 			roteiro = [[1.5, "forte", ""], [0.1, "lutar_chefe", ""], [6.0, "foto", "c1"], [6.0, "foto", "c2"], [8.0, "foto", "c3"], [0.5, "fim", ""]]
 		"tour":
@@ -152,6 +155,13 @@ func _process(dt: float) -> void:
 			for it in j.inv:
 				if Itens.equipavel(it) and Itens.slot_de(it) == "arma": it["refino"] = 9; break
 			Regras.recalc_jogador(j)
+		"preparar_pets":
+			_preparar_menu()
+			jogo.jog.ouro = 20000
+		"abrir_pets":
+			jogo.janelas.servico({"tipo": "coletor", "titulo": "Dulce Gaiola", "fala": "Eles sabem onde estão as coisas boas. Só falta alguém que pague.", "npc": jogo.jog.id})
+		"comprar_pet":
+			jogo.cmd("coletor", ["comprar", p[2]])
 		"abrir_forja":
 			jogo.janelas.servico({"tipo": "ferreiro", "titulo": "Forja de Tubal", "fala": "Ferro bom não se joga fora. Ele só pede mais fogo.", "npc": jogo.jog.id})
 		"forja_sel":

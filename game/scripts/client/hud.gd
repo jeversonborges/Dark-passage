@@ -361,6 +361,14 @@ func _meu_pet() -> Ent:
 		if e.tipo == "invocacao" and e.dono == j.id and String(e.kind).begins_with("familiar_"): return e
 	return null
 
+## Pet comprado no vendedor (coletor). Ele aparece no slot Pet do inventário.
+func _meu_pet_coletor() -> Ent:
+	var j := _jog()
+	if j == null: return null
+	for e: Ent in game.sim.ents.values():
+		if e.tipo == "invocacao" and e.dono == j.id and e.aux.get("coletor", false): return e
+	return null
+
 func _posicionar_pet() -> void:
 	var j := _jog()
 	pet_ui.visible = j != null and j.classe == "cultista" and _meu_pet() != null
