@@ -901,8 +901,8 @@
    "emissivo": null,
    "lore": "Chapa de trilho batida até virar lâmina. Abre caminho quando a munição acaba. Ela sempre acaba.",
    "dano": [
-    6,
-    10
+    4,
+    8
    ],
    "intervalo": 1.25,
    "categoria": "arma",
@@ -911,9 +911,7 @@
     "40": "assets/icones/itens/40/espada_larga_sucata.png",
     "32": "assets/icones/itens/32/espada_larga_sucata.png"
    },
-   "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png",
-   "arma_de": "humano:arma_inicial",
-   "fonte_numeros": "design/combate/classes_base.json"
+   "icone_mochila": "assets/icones/itens/mochila/espada_larga_sucata.png"
   },
   {
    "id": "escopeta_cano_serrado",
@@ -5306,7 +5304,7 @@
     "esp": 99,
     "hp": 9999
    },
-   "efeito": "Verbo: cada ataque básico atinge todos os inimigos a 8 m. Juízo do Demiurgo: 10% de chance por golpe de apagar um inimigo comum na hora; chefes perdem 10% da vida máxima. Como em Cima, Assim Embaixo: devolve 100% de todo dano recebido ao agressor e ignora todos os status. Sopro do Primeiro Dia: recupera 10% da vida e do recurso por segundo. A Mão que Mede: recarga de todas as skills -90% e custo zero. Olho do Demiurgo: o mapa inteiro revelado, vê o invisível, e nenhuma criatura ataca quem a fez (só revida). Aura Demiúrgica: todos veem a aura; aliados a 10 m ganham +50% de dano e +50% de experiência; inimigos a 10 m causam -50% de dano. Vinculado à conta: não se vende, não se troca, não cai.",
+   "efeito": "Ataque básico atinge todos os inimigos a 8 m. 10% de chance por golpe de apagar um inimigo comum; chefes perdem 10% da vida máxima. Devolve 100% do dano recebido. Regenera 10% de vida e recurso por segundo. Recarga das skills -90%. Aura: aliados a 10 m ganham +50% de dano e XP; inimigos a 10 m, -50% de dano. Vinculado à conta.",
    "categoria": "arma",
    "icone": {
     "64": "assets/icones/itens/64/cetro_do_demiurgo.png",
@@ -5314,6 +5312,1221 @@
     "32": "assets/icones/itens/32/cetro_do_demiurgo.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/cetro_do_demiurgo.png"
+  },
+  {
+   "id": "azeite_do_lagar",
+   "nome": "Azeite do Lagar",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "A Brasa come qualquer óleo. Este ela come com gosto.",
+    "autor": "Hulda da Escada"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/azeite_do_lagar.png",
+    "40": "assets/icones/itens/40/azeite_do_lagar.png",
+    "32": "assets/icones/itens/32/azeite_do_lagar.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/azeite_do_lagar.png"
+  },
+  {
+   "id": "vela_do_escriba",
+   "nome": "Vela de Cera do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Os mortos respeitam quem sabe o nome deles.",
+    "autor": "o Escriba"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/vela_do_escriba.png",
+    "40": "assets/icones/itens/40/vela_do_escriba.png",
+    "32": "assets/icones/itens/32/vela_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/vela_do_escriba.png"
+  },
+  {
+   "id": "lasca_da_tabua",
+   "nome": "Lasca da Tábua",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Queimamos o juramento. O fim deu um passo. Eu senti.",
+    "autor": "Sariel, Guardiã da Porta"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "vit": 6,
+    "esp": 3
+   },
+   "efeito": "Reduz em 12% o dano sagrado recebido. Anjos e Querubins que atacam você ficam silenciados por 1 s (recarga 20 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/lasca_da_tabua.png",
+    "40": "assets/icones/itens/40/lasca_da_tabua.png",
+    "32": "assets/icones/itens/32/lasca_da_tabua.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/lasca_da_tabua.png"
+  },
+  {
+   "id": "selo_do_coro",
+   "nome": "Selo do Coro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Guardado não é perdoado. É guardado.",
+    "autor": "Hulda da Escada"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "esp": 6,
+    "agi": 3
+   },
+   "efeito": "Suas habilidades em área causam 10% a mais de dano. Um zumbido grave avisa quando um chefe vai canalizar.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_do_coro.png",
+    "40": "assets/icones/itens/40/selo_do_coro.png",
+    "32": "assets/icones/itens/32/selo_do_coro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_do_coro.png"
+  },
+  {
+   "id": "raiz_de_hissopo",
+   "nome": "Raiz de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/raiz_de_hissopo.png",
+    "40": "assets/icones/itens/40/raiz_de_hissopo.png",
+    "32": "assets/icones/itens/32/raiz_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/raiz_de_hissopo.png"
+  },
+  {
+   "id": "cha_de_hissopo",
+   "nome": "Chá de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Purifica-me com hissopo, e ficarei limpo. Ficar limpo dói.",
+    "autor": "Zilpa, a Hissopeira"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/cha_de_hissopo.png",
+    "40": "assets/icones/itens/40/cha_de_hissopo.png",
+    "32": "assets/icones/itens/32/cha_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cha_de_hissopo.png"
+  },
+  {
+   "id": "infusao_de_hissopo",
+   "nome": "Infusão de Hissopo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/infusao_de_hissopo.png",
+    "40": "assets/icones/itens/40/infusao_de_hissopo.png",
+    "32": "assets/icones/itens/32/infusao_de_hissopo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/infusao_de_hissopo.png"
+  },
+  {
+   "id": "medalha_de_joas",
+   "nome": "Medalha de Joás",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/medalha_de_joas.png",
+    "40": "assets/icones/itens/40/medalha_de_joas.png",
+    "32": "assets/icones/itens/32/medalha_de_joas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/medalha_de_joas.png"
+  },
+  {
+   "id": "veu_de_zilpa",
+   "nome": "Véu Bordado da Zilpa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ele usava para dormir. Agora você usa para não morrer.",
+    "autor": "Zilpa, a Hissopeira"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "hp": 40
+   },
+   "efeito": "Comida e sopas curam 25% a mais.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_de_zilpa.png",
+    "40": "assets/icones/itens/40/veu_de_zilpa.png",
+    "32": "assets/icones/itens/32/veu_de_zilpa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_de_zilpa.png"
+  },
+  {
+   "id": "elo_de_corrente",
+   "nome": "Elo de Corrente",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_de_corrente.png",
+    "40": "assets/icones/itens/40/elo_de_corrente.png",
+    "32": "assets/icones/itens/32/elo_de_corrente.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_de_corrente.png"
+  },
+  {
+   "id": "elo_de_vigilante",
+   "nome": "Elo de Vigilante",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_de_vigilante.png",
+    "40": "assets/icones/itens/40/elo_de_vigilante.png",
+    "32": "assets/icones/itens/32/elo_de_vigilante.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_de_vigilante.png"
+  },
+  {
+   "id": "martelo_de_tubal",
+   "nome": "Martelo de Tubal",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ferro de Vigilante não enferruja. Só lembra.",
+    "autor": "Tubal, o Malho"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 5,
+   "tags": [],
+   "classes": null,
+   "faccao": "arautos",
+   "atributos": {
+    "vit": 3,
+    "for": 2
+   },
+   "efeito": "Ao receber um golpe crítico, emite uma badalada que atordoa inimigos próximos por 1 s (recarga 30 s).",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/martelo_de_tubal.png",
+    "40": "assets/icones/itens/40/martelo_de_tubal.png",
+    "32": "assets/icones/itens/32/martelo_de_tubal.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/martelo_de_tubal.png"
+  },
+  {
+   "id": "flauta_de_osso",
+   "nome": "Flauta de Osso",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/flauta_de_osso.png",
+    "40": "assets/icones/itens/40/flauta_de_osso.png",
+    "32": "assets/icones/itens/32/flauta_de_osso.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/flauta_de_osso.png"
+  },
+  {
+   "id": "leitura_mapa_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_mapa_bartimeu.png",
+    "40": "assets/icones/itens/40/leitura_mapa_bartimeu.png",
+    "32": "assets/icones/itens/32/leitura_mapa_bartimeu.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_mapa_bartimeu.png"
+  },
+  {
+   "id": "mapa_de_bartimeu",
+   "nome": "Mapa de Bartimeu",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/mapa_de_bartimeu.png",
+    "40": "assets/icones/itens/40/mapa_de_bartimeu.png",
+    "32": "assets/icones/itens/32/mapa_de_bartimeu.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/mapa_de_bartimeu.png"
+  },
+  {
+   "id": "pa_do_escriba",
+   "nome": "Pá do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pa_do_escriba.png",
+    "40": "assets/icones/itens/40/pa_do_escriba.png",
+    "32": "assets/icones/itens/32/pa_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pa_do_escriba.png"
+  },
+  {
+   "id": "pao_de_rispa",
+   "nome": "Pão de Rispa",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Do começo da sega até a chuva. Eu fico.",
+    "autor": "Rispa, a Que Vigia"
+   },
+   "tipo_missao": "consumivel",
+   "categoria": "consumivel",
+   "icone": {
+    "64": "assets/icones/itens/64/pao_de_rispa.png",
+    "40": "assets/icones/itens/40/pao_de_rispa.png",
+    "32": "assets/icones/itens/32/pao_de_rispa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pao_de_rispa.png"
+  },
+  {
+   "id": "cinza_de_tofete",
+   "nome": "Cinza de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/cinza_de_tofete.png",
+    "40": "assets/icones/itens/40/cinza_de_tofete.png",
+    "32": "assets/icones/itens/32/cinza_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/cinza_de_tofete.png"
+  },
+  {
+   "id": "chave_de_pa",
+   "nome": "Chave de Pã",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "PANEAS · PORTA DOS QUE DESCEM",
+    "autor": "inscrição no cordão"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/chave_de_pa.png",
+    "40": "assets/icones/itens/40/chave_de_pa.png",
+    "32": "assets/icones/itens/32/chave_de_pa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/chave_de_pa.png"
+  },
+  {
+   "id": "leitura_contas_de_tofete",
+   "nome": "Contas de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_contas_de_tofete.png",
+    "40": "assets/icones/itens/40/leitura_contas_de_tofete.png",
+    "32": "assets/icones/itens/32/leitura_contas_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_contas_de_tofete.png"
+  },
+  {
+   "id": "livro_de_contas_de_tofete",
+   "nome": "Livro de Contas de Tofete",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/livro_de_contas_de_tofete.png",
+    "40": "assets/icones/itens/40/livro_de_contas_de_tofete.png",
+    "32": "assets/icones/itens/32/livro_de_contas_de_tofete.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/livro_de_contas_de_tofete.png"
+  },
+  {
+   "id": "selo_do_sonho",
+   "nome": "Selo do Sonho",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sonha com água. É o que eles todos sonham.",
+    "autor": "Rispa, a Que Vigia"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_do_sonho.png",
+    "40": "assets/icones/itens/40/selo_do_sonho.png",
+    "32": "assets/icones/itens/32/selo_do_sonho.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_do_sonho.png"
+  },
+  {
+   "id": "manto_de_ohya",
+   "nome": "Manto de Ohya",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Sonhei que vinha alguém pequeno. Sonhei errado no tamanho.",
+    "autor": "Ohya, o Gigante que Sonhou"
+   },
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 28,
+   "defesa": 5,
+   "atributos": {
+    "vit": 5,
+    "for": 2
+   },
+   "efeito": "Matar um inimigo recupera 3% do HP.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/manto_de_ohya.png",
+    "40": "assets/icones/itens/40/manto_de_ohya.png",
+    "32": "assets/icones/itens/32/manto_de_ohya.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/manto_de_ohya.png"
+  },
+  {
+   "id": "selo_das_aguas",
+   "nome": "Selo das Águas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/selo_das_aguas.png",
+    "40": "assets/icones/itens/40/selo_das_aguas.png",
+    "32": "assets/icones/itens/32/selo_das_aguas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/selo_das_aguas.png"
+  },
+  {
+   "id": "veu_de_naama",
+   "nome": "Véu de Naamá",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eles eram grandes. Eram meus.",
+    "autor": "Naamá, a Noiva dos Vigilantes"
+   },
+   "raridade": "raro",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "defesa_sugerida_missoes": 14,
+   "defesa": 3,
+   "atributos": {
+    "esp": 5
+   },
+   "efeito": "Ao ficar abaixo de 30% de HP, solta um lamento que causa medo em inimigos próximos por 2 s (recarga 60 s).",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/veu_de_naama.png",
+    "40": "assets/icones/itens/40/veu_de_naama.png",
+    "32": "assets/icones/itens/32/veu_de_naama.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/veu_de_naama.png"
+  },
+  {
+   "id": "tabua_do_juramento",
+   "nome": "Tábua do Juramento",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Que o fim fique onde está.",
+    "autor": "a frase gravada duzentas vezes"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/tabua_do_juramento.png",
+    "40": "assets/icones/itens/40/tabua_do_juramento.png",
+    "32": "assets/icones/itens/32/tabua_do_juramento.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tabua_do_juramento.png"
+  },
+  {
+   "id": "valvula_da_escuta",
+   "nome": "Válvula da Escuta",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/valvula_da_escuta.png",
+    "40": "assets/icones/itens/40/valvula_da_escuta.png",
+    "32": "assets/icones/itens/32/valvula_da_escuta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/valvula_da_escuta.png"
+  },
+  {
+   "id": "pagina_do_decreto",
+   "nome": "Página do Decreto",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/pagina_do_decreto.png",
+    "40": "assets/icones/itens/40/pagina_do_decreto.png",
+    "32": "assets/icones/itens/32/pagina_do_decreto.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pagina_do_decreto.png"
+  },
+  {
+   "id": "leitura_decreto_sexta_hora",
+   "nome": "O Decreto da Sexta Hora (cópia)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_decreto_sexta_hora.png",
+    "40": "assets/icones/itens/40/leitura_decreto_sexta_hora.png",
+    "32": "assets/icones/itens/32/leitura_decreto_sexta_hora.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_decreto_sexta_hora.png"
+  },
+  {
+   "id": "agua_de_degelo",
+   "nome": "Água de Degelo",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/agua_de_degelo.png",
+    "40": "assets/icones/itens/40/agua_de_degelo.png",
+    "32": "assets/icones/itens/32/agua_de_degelo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/agua_de_degelo.png"
+  },
+  {
+   "id": "orelha_de_jael",
+   "nome": "Orelha de Latão da Jael",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Eles falam baixo. Quem não escuta acha que é vento.",
+    "autor": "Jael, a Escuta"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 2
+   },
+   "efeito": "Reduz em 30% o dano do Amargo e das tempestades. Estala mais rápido perto de baús enterrados pela maré de areia.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/orelha_de_jael.png",
+    "40": "assets/icones/itens/40/orelha_de_jael.png",
+    "32": "assets/icones/itens/32/orelha_de_jael.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/orelha_de_jael.png"
+  },
+  {
+   "id": "elo_partido",
+   "nome": "Elo Partido",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/elo_partido.png",
+    "40": "assets/icones/itens/40/elo_partido.png",
+    "32": "assets/icones/itens/32/elo_partido.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/elo_partido.png"
+  },
+  {
+   "id": "astrolabio_de_kokabiel",
+   "nome": "Astrolábio de Kokabiel",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/astrolabio_de_kokabiel.png",
+    "40": "assets/icones/itens/40/astrolabio_de_kokabiel.png",
+    "32": "assets/icones/itens/32/astrolabio_de_kokabiel.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/astrolabio_de_kokabiel.png"
+  },
+  {
+   "id": "estrela_contada",
+   "nome": "A Estrela Contada",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Apaguei a conta. Agora ninguém sabe quantas noites faltam. Nem eles.",
+    "autor": "Jael, a Escuta"
+   },
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "esp": 6,
+    "vit": 4
+   },
+   "efeito": "Habilidades em área causam 8% a mais de dano. Inimigos mortos por elas deixam uma poça de Amargo que fere outros inimigos por 3 s.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/estrela_contada.png",
+    "40": "assets/icones/itens/40/estrela_contada.png",
+    "32": "assets/icones/itens/32/estrela_contada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/estrela_contada.png"
+  },
+  {
+   "id": "astrolabio_do_coro",
+   "nome": "Astrolábio do Coro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "lendario",
+   "slot": "amuleto",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 2
+   },
+   "efeito": "Ao matar um chefe ou elite, ganha 10% de dano por 30 s. Sua facção lembra que foi você quem trouxe a chave.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/astrolabio_do_coro.png",
+    "40": "assets/icones/itens/40/astrolabio_do_coro.png",
+    "32": "assets/icones/itens/32/astrolabio_do_coro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/astrolabio_do_coro.png"
+  },
+  {
+   "id": "insignia_da_cerca",
+   "nome": "Insígnia da Cerca",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/insignia_da_cerca.png",
+    "40": "assets/icones/itens/40/insignia_da_cerca.png",
+    "32": "assets/icones/itens/32/insignia_da_cerca.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/insignia_da_cerca.png"
+  },
+  {
+   "id": "leitura_carta_do_sineiro",
+   "nome": "Carta do Sineiro (decifrada)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_carta_do_sineiro.png",
+    "40": "assets/icones/itens/40/leitura_carta_do_sineiro.png",
+    "32": "assets/icones/itens/32/leitura_carta_do_sineiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_carta_do_sineiro.png"
+  },
+  {
+   "id": "carta_do_sineiro",
+   "nome": "Carta do Sineiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/carta_do_sineiro.png",
+    "40": "assets/icones/itens/40/carta_do_sineiro.png",
+    "32": "assets/icones/itens/32/carta_do_sineiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/carta_do_sineiro.png"
+  },
+  {
+   "id": "coroa_partida",
+   "nome": "Coroa de Ferro Partida",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/coroa_partida.png",
+    "40": "assets/icones/itens/40/coroa_partida.png",
+    "32": "assets/icones/itens/32/coroa_partida.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coroa_partida.png"
+  },
+  {
+   "id": "divisa_da_geena",
+   "nome": "Divisa da Geena",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "O trono está vazio. A divisa, não.",
+    "autor": "Tubal, o Malho"
+   },
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 8,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 3,
+    "vit": 3
+   },
+   "efeito": "Desertores da Legião não atacam você primeiro.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/divisa_da_geena.png",
+    "40": "assets/icones/itens/40/divisa_da_geena.png",
+    "32": "assets/icones/itens/32/divisa_da_geena.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/divisa_da_geena.png"
+  },
+  {
+   "id": "tabuinha_de_argila",
+   "nome": "Tabuinha de Argila",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/tabuinha_de_argila.png",
+    "40": "assets/icones/itens/40/tabuinha_de_argila.png",
+    "32": "assets/icones/itens/32/tabuinha_de_argila.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/tabuinha_de_argila.png"
+  },
+  {
+   "id": "folha_do_livro",
+   "nome": "Folha do Livro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/folha_do_livro.png",
+    "40": "assets/icones/itens/40/folha_do_livro.png",
+    "32": "assets/icones/itens/32/folha_do_livro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/folha_do_livro.png"
+  },
+  {
+   "id": "leitura_livro_de_henoc",
+   "nome": "O Livro do Escriba (folha primeira)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_livro_de_henoc.png",
+    "40": "assets/icones/itens/40/leitura_livro_de_henoc.png",
+    "32": "assets/icones/itens/32/leitura_livro_de_henoc.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_livro_de_henoc.png"
+  },
+  {
+   "id": "ultima_linha",
+   "nome": "A Última Linha",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/ultima_linha.png",
+    "40": "assets/icones/itens/40/ultima_linha.png",
+    "32": "assets/icones/itens/32/ultima_linha.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/ultima_linha.png"
+  },
+  {
+   "id": "pena_do_escriba",
+   "nome": "Pena do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "raridade": "raro",
+   "slot": "amuleto",
+   "nivel": 11,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "vit": 4,
+    "esp": 3
+   },
+   "efeito": "Uma vez a cada 10 minutos, um golpe que mataria você deixa você com 1 de HP.",
+   "categoria": "acessorio",
+   "icone": {
+    "64": "assets/icones/itens/64/pena_do_escriba.png",
+    "40": "assets/icones/itens/40/pena_do_escriba.png",
+    "32": "assets/icones/itens/32/pena_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/pena_do_escriba.png"
+  },
+  {
+   "id": "nome_verdadeiro",
+   "nome": "O Nome Verdadeiro",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/nome_verdadeiro.png",
+    "40": "assets/icones/itens/40/nome_verdadeiro.png",
+    "32": "assets/icones/itens/32/nome_verdadeiro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/nome_verdadeiro.png"
+  },
+  {
+   "id": "diadema_do_escriba",
+   "nome": "Diadema do Escriba",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Andou com Deus e já não era. Depois voltou, porque o fim travou.",
+    "autor": "Livro do Escriba, última folha"
+   },
+   "raridade": "lendario",
+   "slot": "cabeca",
+   "nivel": 12,
+   "tags": [],
+   "classes": null,
+   "faccao": null,
+   "atributos": {
+    "for": 4,
+    "agi": 4,
+    "vit": 4,
+    "esp": 4,
+    "hp": 50
+   },
+   "efeito": "Dano recebido de jogadores reduzido em 14%.",
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/diadema_do_escriba.png",
+    "40": "assets/icones/itens/40/diadema_do_escriba.png",
+    "32": "assets/icones/itens/32/diadema_do_escriba.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/diadema_do_escriba.png"
+  },
+  {
+   "id": "leitura_juramento_noivas",
+   "nome": "Votos na Parede",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_juramento_noivas.png",
+    "40": "assets/icones/itens/40/leitura_juramento_noivas.png",
+    "32": "assets/icones/itens/32/leitura_juramento_noivas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_juramento_noivas.png"
+  },
+  {
+   "id": "leitura_hulda",
+   "nome": "Diário da Hulda",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_hulda.png",
+    "40": "assets/icones/itens/40/leitura_hulda.png",
+    "32": "assets/icones/itens/32/leitura_hulda.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_hulda.png"
+  },
+  {
+   "id": "leitura_canto_das_noivas",
+   "nome": "Canto das Noivas",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_canto_das_noivas.png",
+    "40": "assets/icones/itens/40/leitura_canto_das_noivas.png",
+    "32": "assets/icones/itens/32/leitura_canto_das_noivas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_canto_das_noivas.png"
+  },
+  {
+   "id": "leitura_juramento_duzentos",
+   "nome": "O Juramento dos Duzentos (cópia)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "papel",
+   "tint": "pano",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "tipo_missao": "leitura",
+   "categoria": "leitura",
+   "icone": {
+    "64": "assets/icones/itens/64/leitura_juramento_duzentos.png",
+    "40": "assets/icones/itens/40/leitura_juramento_duzentos.png",
+    "32": "assets/icones/itens/32/leitura_juramento_duzentos.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/leitura_juramento_duzentos.png"
   },
   {
    "id": "montaria_fome",
@@ -5410,6 +6623,804 @@
     "32": "assets/icones/itens/32/montaria_peste.png"
    },
    "icone_mochila": "assets/icones/itens/mochila/montaria_peste.png"
+  },
+  {
+   "id": "ficha_sangue",
+   "nome": "Ficha de Sangue",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "medalha",
+   "tint": "latao",
+   "emissivo": null,
+   "grade": [
+    1,
+    1
+   ],
+   "citacao": {
+    "texto": "Ouro qualquer um acha na areia. Isto aqui você tem que tirar de alguém.",
+    "autor": "Saulo, o Penitente"
+   },
+   "tipo_missao": "missao",
+   "categoria": "missao",
+   "icone": {
+    "64": "assets/icones/itens/64/ficha_sangue.png",
+    "40": "assets/icones/itens/40/ficha_sangue.png",
+    "32": "assets/icones/itens/32/ficha_sangue.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/ficha_sangue.png"
+  },
+  {
+   "id": "juramento_quebrado_cabeca_pvp",
+   "nome": "Elmo do Gladiador Demoníaco (Placas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "elmo_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "cabeca",
+   "nivel": 11,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_cabeca_pvp.png"
+  },
+  {
+   "id": "juramento_quebrado_peito_pvp",
+   "nome": "Peitoral do Gladiador Demoníaco (Placas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "peito_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 11,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 7,
+   "defesa": 7,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_peito_pvp.png"
+  },
+  {
+   "id": "juramento_quebrado_luvas_pvp",
+   "nome": "Manoplas do Gladiador Demoníaco (Placas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "luvas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "luvas",
+   "nivel": 11,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_luvas_pvp.png"
+  },
+  {
+   "id": "juramento_quebrado_calcas_pvp",
+   "nome": "Grevas do Gladiador Demoníaco (Placas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "calcas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "calcas",
+   "nivel": 11,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 5,
+   "defesa": 5,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_calcas_pvp.png"
+  },
+  {
+   "id": "juramento_quebrado_botas_pvp",
+   "nome": "Botas do Gladiador Demoníaco (Placas)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "botas_pesado",
+   "tint": "ferro_negro",
+   "emissivo": "#ff7a1a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "botas",
+   "nivel": 11,
+   "tags": [],
+   "classes": [
+    "anjo",
+    "demonio",
+    "mutante"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/juramento_quebrado_botas_pvp.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_cabeca_pvp",
+   "nome": "Elmo do Gladiador Demoníaco (Malha)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "elmo_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_cabeca_pvp.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_peito_pvp",
+   "nome": "Peitoral do Gladiador Demoníaco (Malha)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "peito_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 5,
+   "defesa": 7,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_peito_pvp.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_luvas_pvp",
+   "nome": "Manoplas do Gladiador Demoníaco (Malha)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "luvas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "luvas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 2,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_luvas_pvp.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_calcas_pvp",
+   "nome": "Grevas do Gladiador Demoníaco (Malha)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "calcas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "calcas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_calcas_pvp.png"
+  },
+  {
+   "id": "couraca_acougueiro_oco_botas_pvp",
+   "nome": "Botas do Gladiador Demoníaco (Malha)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "botas_medio",
+   "tint": "sangue",
+   "emissivo": "#9cff3a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "botas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano",
+    "mutante",
+    "tecnomancer",
+    "demonio"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/couraca_acougueiro_oco_botas_pvp.png"
+  },
+  {
+   "id": "coro_mudo_cabeca_pvp",
+   "nome": "Elmo do Gladiador Demoníaco (Pano)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "elmo_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "cabeca",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/elmo.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/elmo.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/elmo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_cabeca_pvp.png"
+  },
+  {
+   "id": "coro_mudo_peito_pvp",
+   "nome": "Peitoral do Gladiador Demoníaco (Pano)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "peito_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "peito",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 4,
+   "defesa": 7,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/peitoral.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/peitoral.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/peitoral.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_peito_pvp.png"
+  },
+  {
+   "id": "coro_mudo_luvas_pvp",
+   "nome": "Manoplas do Gladiador Demoníaco (Pano)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "luvas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "luvas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 1,
+   "defesa": 2,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/manoplas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/manoplas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/manoplas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_luvas_pvp.png"
+  },
+  {
+   "id": "coro_mudo_calcas_pvp",
+   "nome": "Grevas do Gladiador Demoníaco (Pano)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "calcas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "calcas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 3,
+   "defesa": 4,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/pernas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/pernas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/pernas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_calcas_pvp.png"
+  },
+  {
+   "id": "coro_mudo_botas_pvp",
+   "nome": "Botas do Gladiador Demoníaco (Pano)",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "botas_leve",
+   "tint": "osso",
+   "emissivo": "#ff3a2a",
+   "grade": [
+    2,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "botas",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista",
+    "tecnomancer",
+    "anjo"
+   ],
+   "faccao": null,
+   "defesa_sugerida_missoes": 2,
+   "defesa": 3,
+   "atributos": {
+    "dano_recebido_jogadores": -0.04
+   },
+   "categoria": "armadura",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/botas.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/botas.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/botas.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/coro_mudo_botas_pvp.png"
+  },
+  {
+   "id": "arma_pvp_anjo",
+   "nome": "Espada do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "espada",
+   "tint": "aco",
+   "emissivo": null,
+   "grade": [
+    1,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "anjo"
+   ],
+   "faccao": null,
+   "dano": [
+    15,
+    21
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/espada.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/espada.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/espada.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_anjo.png"
+  },
+  {
+   "id": "arma_pvp_cultista",
+   "nome": "Cetro do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "cajado_osso",
+   "tint": "osso",
+   "emissivo": null,
+   "grade": [
+    1,
+    4
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "cultista"
+   ],
+   "faccao": null,
+   "dano": [
+    14,
+    20
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/cetro.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/cetro.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/cetro.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_cultista.png"
+  },
+  {
+   "id": "arma_pvp_mutante",
+   "nome": "Machado do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "machado_placa",
+   "tint": "placa",
+   "emissivo": null,
+   "grade": [
+    2,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "mutante"
+   ],
+   "faccao": null,
+   "dano": [
+    17,
+    24
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/machado.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/machado.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/machado.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_mutante.png"
+  },
+  {
+   "id": "arma_pvp_demonio",
+   "nome": "Foice do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "foice",
+   "tint": "aco",
+   "emissivo": null,
+   "grade": [
+    2,
+    4
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "demonio"
+   ],
+   "faccao": null,
+   "dano": [
+    16,
+    23
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/foice_longa.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/foice_longa.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/foice_longa.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_demonio.png"
+  },
+  {
+   "id": "arma_pvp_humano",
+   "nome": "Escopeta do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "besta",
+   "tint": "madeira",
+   "emissivo": null,
+   "grade": [
+    3,
+    2
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "humano"
+   ],
+   "faccao": null,
+   "dano": [
+    16,
+    23
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escopeta.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escopeta.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escopeta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_humano.png"
+  },
+  {
+   "id": "arma_pvp_tecnomancer",
+   "nome": "Besta do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "cajado_antena",
+   "tint": "latao",
+   "emissivo": null,
+   "grade": [
+    1,
+    4
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "tecnomancer"
+   ],
+   "faccao": null,
+   "dano": [
+    14,
+    20
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/besta.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/besta.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/besta.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_tecnomancer.png"
+  },
+  {
+   "id": "arma_pvp_warlord",
+   "nome": "Escudo do Gladiador Demoníaco",
+   "fonte": "design/missoes/dados/itens.json",
+   "motivo": "espada",
+   "tint": "aco",
+   "emissivo": null,
+   "grade": [
+    1,
+    3
+   ],
+   "raridade": "raro",
+   "slot": "arma",
+   "nivel": 10,
+   "tags": [],
+   "classes": [
+    "warlord"
+   ],
+   "faccao": null,
+   "dano": [
+    17,
+    25
+   ],
+   "intervalo": 1.0,
+   "atributos": {
+    "velocidade_ataque": 0.1,
+    "critico": 0.05,
+    "dano_em_jogadores": 0.15
+   },
+   "categoria": "arma",
+   "icone": {
+    "64": "assets/icones/itens/64/pvp/gladiador_demoniaco/escudo.png",
+    "40": "assets/icones/itens/40/pvp/gladiador_demoniaco/escudo.png",
+    "32": "assets/icones/itens/32/pvp/gladiador_demoniaco/escudo.png"
+   },
+   "icone_mochila": "assets/icones/itens/mochila/arma_pvp_warlord.png"
   }
  ]
 }

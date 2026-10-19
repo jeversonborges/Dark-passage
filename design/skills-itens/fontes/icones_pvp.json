@@ -1,0 +1,27 @@
+{
+ "_doc": "Ícone PvP do Penitente por id de item. Caminho relativo a assets/icones/itens/<tamanho>/ (sem .png). Peças e armas do Gladiador Demoníaco: sheets pintadas (pvp/gladiador_demoniaco/).",
+ "icones": {
+  "juramento_quebrado_cabeca_pvp": "pvp/gladiador_demoniaco/elmo",
+  "juramento_quebrado_peito_pvp": "pvp/gladiador_demoniaco/peitoral",
+  "juramento_quebrado_luvas_pvp": "pvp/gladiador_demoniaco/manoplas",
+  "juramento_quebrado_calcas_pvp": "pvp/gladiador_demoniaco/pernas",
+  "juramento_quebrado_botas_pvp": "pvp/gladiador_demoniaco/botas",
+  "couraca_acougueiro_oco_cabeca_pvp": "pvp/gladiador_demoniaco/elmo",
+  "couraca_acougueiro_oco_peito_pvp": "pvp/gladiador_demoniaco/peitoral",
+  "couraca_acougueiro_oco_luvas_pvp": "pvp/gladiador_demoniaco/manoplas",
+  "couraca_acougueiro_oco_calcas_pvp": "pvp/gladiador_demoniaco/pernas",
+  "couraca_acougueiro_oco_botas_pvp": "pvp/gladiador_demoniaco/botas",
+  "coro_mudo_cabeca_pvp": "pvp/gladiador_demoniaco/elmo",
+  "coro_mudo_peito_pvp": "pvp/gladiador_demoniaco/peitoral",
+  "coro_mudo_luvas_pvp": "pvp/gladiador_demoniaco/manoplas",
+  "coro_mudo_calcas_pvp": "pvp/gladiador_demoniaco/pernas",
+  "coro_mudo_botas_pvp": "pvp/gladiador_demoniaco/botas",
+  "arma_pvp_anjo": "pvp/gladiador_demoniaco/espada",
+  "arma_pvp_mutante": "pvp/gladiador_demoniaco/machado",
+  "arma_pvp_cultista": "pvp/gladiador_demoniaco/cetro",
+  "arma_pvp_humano": "pvp/gladiador_demoniaco/escopeta",
+  "arma_pvp_warlord": "pvp/gladiador_demoniaco/escudo",
+  "arma_pvp_tecnomancer": "pvp/gladiador_demoniaco/besta",
+  "arma_pvp_demonio": "pvp/gladiador_demoniaco/foice_longa"
+ }
+}

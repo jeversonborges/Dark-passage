@@ -154,3 +154,29 @@ POOLS_LENDARIOS = {
   "lendario:celeste":  ["bacula_femur", "veu_carpideira"],
   "lendario:zacarias": ["halo_incandescente"],
 }
+
+# Penitente (PvP, tier 1): mesma aparência das peças de origem
+MISSOES['juramento_quebrado_cabeca_pvp'] = ('elmo_pesado', 'ferro_negro', '#ff7a1a', [2, 2])
+MISSOES['juramento_quebrado_peito_pvp'] = ('peito_pesado', 'ferro_negro', '#ff7a1a', [2, 3])
+MISSOES['juramento_quebrado_luvas_pvp'] = ('luvas_pesado', 'ferro_negro', '#ff7a1a', [2, 2])
+MISSOES['juramento_quebrado_calcas_pvp'] = ('calcas_pesado', 'ferro_negro', '#ff7a1a', [2, 2])
+MISSOES['juramento_quebrado_botas_pvp'] = ('botas_pesado', 'ferro_negro', '#ff7a1a', [2, 2])
+MISSOES['couraca_acougueiro_oco_cabeca_pvp'] = ('elmo_medio', 'sangue', '#9cff3a', [2, 2])
+MISSOES['couraca_acougueiro_oco_peito_pvp'] = ('peito_medio', 'sangue', '#9cff3a', [2, 3])
+MISSOES['couraca_acougueiro_oco_luvas_pvp'] = ('luvas_medio', 'sangue', '#9cff3a', [2, 2])
+MISSOES['couraca_acougueiro_oco_calcas_pvp'] = ('calcas_medio', 'sangue', '#9cff3a', [2, 2])
+MISSOES['couraca_acougueiro_oco_botas_pvp'] = ('botas_medio', 'sangue', '#9cff3a', [2, 2])
+MISSOES['coro_mudo_cabeca_pvp'] = ('elmo_leve', 'osso', '#ff3a2a', [2, 2])
+MISSOES['coro_mudo_peito_pvp'] = ('peito_leve', 'osso', '#ff3a2a', [2, 3])
+MISSOES['coro_mudo_luvas_pvp'] = ('luvas_leve', 'osso', '#ff3a2a', [2, 2])
+MISSOES['coro_mudo_calcas_pvp'] = ('calcas_leve', 'osso', '#ff3a2a', [2, 2])
+MISSOES['coro_mudo_botas_pvp'] = ('botas_leve', 'osso', '#ff3a2a', [2, 2])
+MISSOES['arma_pvp_anjo'] = ('espada', 'aco', None, [1, 3])
+MISSOES['arma_pvp_cultista'] = ('cajado_osso', 'osso', None, [1, 4])
+MISSOES['arma_pvp_mutante'] = ('machado_placa', 'placa', None, [2, 3])
+MISSOES['arma_pvp_demonio'] = ('foice', 'aco', None, [2, 4])
+MISSOES['arma_pvp_humano'] = ('besta', 'madeira', None, [3, 2])
+MISSOES['arma_pvp_tecnomancer'] = ('cajado_antena', 'latao', None, [1, 4])
+MISSOES['arma_pvp_warlord'] = ('espada', 'aco', None, [1, 3])
+
+MISSOES["ficha_sangue"] = ("medalha", "latao", None, [1, 1])
