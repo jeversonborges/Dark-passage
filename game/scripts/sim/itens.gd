@@ -64,13 +64,30 @@ static func faixa(nivel_mob: int, rng: RandomNumberGenerator) -> int:
 	if nivel_mob > 7: return 2
 	return 1 + rng.randi_range(0, 1)
 
-static func rolar_raridade(rng: RandomNumberGenerator, minima: String) -> String:
+## bonus_azul_verde: multiplica a chance de Mágico (azul) e Excelente (verde) em drops de mob comum; o que sobra vai para Comum e Raro, na mesma proporção.
+static func rolar_raridade(rng: RandomNumberGenerator, minima: String, bonus_azul_verde: float = 1.0) -> String:
 	var ordem := ["comum", "magico", "raro", "excelente"]
 	var pesos := []
 	var tot := 0.0
 	for r in ordem:
 		var p := float(Defs.DROPS["raridades"][r]["peso_base"]) if ordem.find(r) >= ordem.find(minima) else 0.0
 		pesos.append(p); tot += p
+	if bonus_azul_verde != 1.0 and tot > 0.0:
+		var pr := []
+		var alvo := 0.0
+		var resto := 0.0
+		for i in ordem.size():
+			pr.append(pesos[i] / tot)
+			if ordem[i] == "magico" or ordem[i] == "excelente": alvo += pr[i]
+			else: resto += pr[i]
+		if alvo > 0.0 and resto > 0.0:
+			var novo_alvo := minf(alvo * bonus_azul_verde, 0.999)
+			var fator_resto := (1.0 - novo_alvo) / resto
+			for i in ordem.size():
+				if ordem[i] == "magico" or ordem[i] == "excelente": pr[i] *= bonus_azul_verde
+				else: pr[i] *= fator_resto
+			pesos = pr
+			tot = 1.0
 	var x := rng.randf() * tot
 	for i in ordem.size():
 		x -= pesos[i]
@@ -101,12 +118,12 @@ static func _opcao(tipo: String, f: int, rng: RandomNumberGenerator) -> Dictiona
 	return o
 
 ## Gera um equipamento base com raridade, opções e refino.
-static func gerar_equip(id: String, rng: RandomNumberGenerator, minima: String, f: int) -> Dictionary:
+static func gerar_equip(id: String, rng: RandomNumberGenerator, minima: String, f: int, bonus_azul_verde: float = 1.0) -> Dictionary:
 	var it := novo(id)
 	var d := defn(id)
 	if d.get("raridade", "rolada") != "rolada":
 		return it
-	var r := rolar_raridade(rng, minima)
+	var r := rolar_raridade(rng, minima, bonus_azul_verde)
 	it["raridade"] = r
 	it["refino"] = rolar_refino(rng)
 	var rr: Dictionary = Defs.DROPS["raridades"][r]

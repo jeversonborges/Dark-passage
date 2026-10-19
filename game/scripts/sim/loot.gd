@@ -5,7 +5,7 @@ static func tabela_por_nivel(nivel: int) -> String:
 	return "inicial_humanoide" if nivel < 6 else "cripta_humanoide"
 
 ## Escolhe um item que satisfaz uma tag de drop.
-static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, jog: Ent) -> Dictionary:
+static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, jog: Ent, bonus_azul_verde: float = 1.0) -> Dictionary:
 	if tag.begins_with("equip:"):
 		var ids: Array = Defs.POR_TAG.get(tag, [])
 		# prefere itens que a classe do jogador usa (70%)
@@ -22,7 +22,7 @@ static func item_da_tag(sim: WorldSim, tag: String, nivel: int, minima: String, 
 			x -= float(Defs.ITENS[i].get("peso_drop", 1.0))
 			if x <= 0.0: id = i; break
 		var f := 1 if tag.ends_with("1") else 2
-		return Itens.gerar_equip(id, sim.rng, minima, f)
+		return Itens.gerar_equip(id, sim.rng, minima, f, bonus_azul_verde)
 	if tag.begins_with("lendario:"):
 		var pool: Array = Defs.ITENS_DOC["pools_lendarios"].get(tag, [])
 		if pool.is_empty(): return {}
@@ -97,6 +97,8 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 	if tab.has("rolagens_garantidas"): n = int(tab["rolagens_garantidas"])
 	elif sim.rng.randf() < float(tab.get("item_chance", 0.0)): n = 1
 	var minima: String = tab.get("raridade_minima", "comum")
+	# azul (Mágico) e verde (Excelente) +40% só em mob comum: não vale para elite, raro nem chefe
+	var bonus_comum := float(Defs.DROPS["balanco"].get("azul_verde_mob_comum", 1.0)) if _mob_comum(e) else 1.0
 	jog.pity_raro += 1
 	var f_itens := float(Defs.DROPS["balanco"]["itens_de_mob"])   # balanço 18/10: cada rolagem de item tem 65% (drop mais baixo)
 	var f_joias := float(Defs.DROPS["balanco"]["joias"])
@@ -108,10 +110,13 @@ static func dropar_mob(sim: WorldSim, e: Ent, jog: Ent) -> void:
 		if tag.begins_with("joia:") and sim.rng.randf() >= f_joias: continue   # joias de refino pela metade
 		var mn := minima
 		if jog.pity_raro >= int(Defs.DROPS["pity"]["raro_garantido_apos_abates_sem_raro"]) and tag.begins_with("equip"): mn = "raro"
-		var it := _trocar_por_deus(sim, item_da_tag(sim, tag, e.nivel, mn, jog))
+		var it := _trocar_por_deus(sim, item_da_tag(sim, tag, e.nivel, mn, jog, bonus_comum))
 		if it.is_empty(): continue
 		if it.get("raridade", "comum") in ["raro", "excelente", "lendario"]: jog.pity_raro = 0
 		sim.soltar_no_chao(it, e.pos, jog.id, e.pos)
+
+static func _mob_comum(e: Ent) -> bool:
+	return e.tipo == "monstro" and e.arquetipo in ["rasteiro", "normal", "bruto", "atirador", "conjurador"]
 
 ## Chance base da curva das lágrimas (drops.json "lagrimas"): 0,08% no nível 1 -> 0,8% no 50, depois sobe devagar até o teto.
 static func chance_lagrima(nivel: int) -> float:

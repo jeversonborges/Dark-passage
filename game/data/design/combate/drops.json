@@ -1614,7 +1614,8 @@
       "chefe_top": 0.3,
       "nivel_chefe_top": 45,
       "_doc": "chefe_top = chefe de nível igual ou acima de nivel_chefe_top (a Egito e o Gadiro)."
-    }
+    },
+    "azul_verde_mob_comum": 1.4
   },
   "materiais_asa": {
     "_doc": "Rolagem pessoal por abate, fora da tabela do mob. Chance pela tag do mob (vale a maior). Mesmos multiplicadores das lágrimas.",
