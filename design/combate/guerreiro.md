@@ -24,7 +24,7 @@
 |---|---|---|---|---|---|
 | 1 | Corte do Recruta | Ativa | 10 | 3 s | Ataque físico em alvo único, mais forte que o básico (1,6x) |
 | 1 | Determinação do Recruta | Passiva | — | — | +8% HP máximo e +5% ataque físico, permanente |
-| 3 | Varredura de Aço | Área | 12 | 2 s | Giro de 360º em volta do guerreiro (estilo hack and slash), 0,9x em todos num raio de 2 tiles |
+| 3 | Varredura de Aço | Área | 12 | 2 s | Giro de 360º em volta do guerreiro (estilo hack and slash), 0,9x em todos num raio de 5 tiles |
 | 6 | Guarda Firme | Buff | 15 | 20 s | +30% defesa física por 8 s (em si) |
 | 9 | Quebra-Guarda | Debuff | 15 | 15 s | Alvo perde 25% de defesa física por 6 s (0,8x de dano) |
 
