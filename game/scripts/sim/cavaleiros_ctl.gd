@@ -1,6 +1,6 @@
 class_name CavaleirosCtl
 extends RefCounted
-## Evento "Os Cavaleiros do Apocalipse": Fome, Guerra, Conquista e Peste. Um controlador por capital
+## Evento "Os Cavaleiros do Apocalipse": Agonia, Danação, Perdição e Lamento (Fome, Guerra, Conquista e Peste). Um controlador por capital
 ## (design/combate/cavaleiros.json > capitais), dentro do WorldSim do mapa dela. Os quatro nascem juntos:
 ## em Jerusalém voam por cima da cidade e descem no pouso; nas outras capitais descem do céu direto.
 ## Enquanto voam não podem ser atacados. Depois de pousados, ficam juntos perto do pouso (a coleira é o

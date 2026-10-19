@@ -308,7 +308,7 @@ func _iniciar_cavaleiros() -> void:
 		c.iniciar()
 	for p in srv.sessoes:
 		if srv.sessoes[p]["jog"] != null:
-			srv._para(p, "chat", {"canal": "sistema", "texto": "Os Cavaleiros do Apocalipse cruzam os céus. Fome, Guerra, Conquista e Peste descem sobre as capitais."})
+			srv._para(p, "chat", {"canal": "sistema", "texto": "Os Cavaleiros do Apocalipse cruzam os céus. Agonia, Danação, Perdição e Lamento descem sobre as capitais."})
 
 func _ok(peer: int, txt: String) -> void:
 	srv._para(peer, "gm_ok", {"texto": txt})

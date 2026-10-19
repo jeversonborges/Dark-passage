@@ -904,7 +904,7 @@
       "drop": null
     },
     "cavaleiro_fome": {
-      "nome": "Cavaleiro da Fome",
+      "nome": "Cavaleiro da Agonia",
       "area": "cavaleiros",
       "niveis": [
         30,
@@ -951,7 +951,7 @@
       "drop": null
     },
     "cavaleiro_guerra": {
-      "nome": "Cavaleiro da Guerra",
+      "nome": "Cavaleiro da Danação",
       "area": "cavaleiros",
       "niveis": [
         30,
@@ -996,7 +996,7 @@
       "drop": null
     },
     "cavaleiro_conquista": {
-      "nome": "Cavaleiro da Conquista",
+      "nome": "Cavaleiro da Perdição",
       "area": "cavaleiros",
       "niveis": [
         30,
@@ -1041,7 +1041,7 @@
       "drop": null
     },
     "cavaleiro_peste": {
-      "nome": "Cavaleiro da Peste",
+      "nome": "Cavaleiro do Lamento",
       "area": "cavaleiros",
       "niveis": [
         30,

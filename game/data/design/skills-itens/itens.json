@@ -23145,7 +23145,7 @@
     },
     {
       "id": "montaria_fome",
-      "nome": "Cavalo da Fome",
+      "nome": "Cavalo da Agonia",
       "fonte": "design/missoes/dados/itens.json",
       "motivo": "papel",
       "tint": "pano",
@@ -23169,7 +23169,7 @@
     },
     {
       "id": "montaria_guerra",
-      "nome": "Cavalo da Guerra",
+      "nome": "Cavalo da Danação",
       "fonte": "design/missoes/dados/itens.json",
       "motivo": "papel",
       "tint": "pano",
@@ -23193,7 +23193,7 @@
     },
     {
       "id": "montaria_conquista",
-      "nome": "Cavalo da Conquista",
+      "nome": "Cavalo da Perdição",
       "fonte": "design/missoes/dados/itens.json",
       "motivo": "papel",
       "tint": "pano",
@@ -23217,7 +23217,7 @@
     },
     {
       "id": "montaria_peste",
-      "nome": "Cavalo da Peste",
+      "nome": "Cavalo do Lamento",
       "fonte": "design/missoes/dados/itens.json",
       "motivo": "papel",
       "tint": "pano",

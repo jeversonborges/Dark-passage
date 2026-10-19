@@ -1801,7 +1801,7 @@
     },
     {
       "id": "montaria_fome",
-      "nome": "Cavalo da Fome",
+      "nome": "Cavalo da Agonia",
       "tipo": "montaria",
       "pilha": 1,
       "descricao": "Montaria do Cavaleiro da Fome. Magra até os ossos, come o capim e a própria rédea.",
@@ -1812,7 +1812,7 @@
     },
     {
       "id": "montaria_guerra",
-      "nome": "Cavalo da Guerra",
+      "nome": "Cavalo da Danação",
       "tipo": "montaria",
       "pilha": 1,
       "descricao": "Montaria do Cavaleiro da Guerra. Ferrada de chumbo e coberta de fuligem.",
@@ -1823,7 +1823,7 @@
     },
     {
       "id": "montaria_conquista",
-      "nome": "Cavalo da Conquista",
+      "nome": "Cavalo da Perdição",
       "tipo": "montaria",
       "pilha": 1,
       "descricao": "Montaria do Cavaleiro da Conquista. Sela de couro cru e um arco preso ao arção.",
@@ -1834,7 +1834,7 @@
     },
     {
       "id": "montaria_peste",
-      "nome": "Cavalo da Peste",
+      "nome": "Cavalo do Lamento",
       "tipo": "montaria",
       "pilha": 1,
       "descricao": "Montaria do Cavaleiro da Peste. Respira fumaça verde e deixa rastro de pó amarelo.",

@@ -1,5 +1,5 @@
 {
-  "_doc": "Evento Os Cavaleiros do Apocalipse. O GM abre pelo Painel (F8). Cada capital recebe os quatro juntos (Fome, Guerra, Conquista, Peste). Em Jerusalém eles voam por cima da cidade antes de descer. Derrotar um cavaleiro dá a chance de cair a montaria dele. Coordenadas de pouso e de voo são de primeira estimativa: conferir no mapa e ajustar aqui. Os mobs estão em combate/mobs.json (cavaleiro_*). Os ids das montarias são provisórios até a thread das montarias entregar os itens.",
+  "_doc": "Evento Os Cavaleiros do Apocalipse. O GM abre pelo Painel (F8). Cada capital recebe os quatro juntos (Agonia, Danação, Perdição, Lamento). Em Jerusalém eles voam por cima da cidade antes de descer. Derrotar um cavaleiro dá a chance de cair a montaria dele. Coordenadas de pouso e de voo são de primeira estimativa: conferir no mapa e ajustar aqui. Os mobs estão em combate/mobs.json (cavaleiro_*). Os ids das montarias são provisórios até a thread das montarias entregar os itens.",
   "versao": "0.1",
   "nivel": 30,
   "chance_montaria": 0.10,

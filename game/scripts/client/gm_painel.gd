@@ -414,7 +414,7 @@ static func _aba_eventos(game, corpo: Control) -> void:
 	hm[1].add_child(_botao("Início imediato", func(): pedir(game, "hermon", {"modo": "iniciar"})))
 	hm[1].add_child(_botao("Abrir em 5 min (com avisos)", func(): pedir(game, "hermon", {"modo": "5min"})))
 	hm[1].add_child(_botao("Voltar à agenda normal", func(): pedir(game, "hermon", {"modo": "fechar"})))
-	var cv := _cartao("Os Cavaleiros do Apocalipse", "Fome, Guerra, Conquista e Peste descem juntos sobre as capitais. Cada um pode deixar a sua montaria.")
+	var cv := _cartao("Os Cavaleiros do Apocalipse", "Agonia, Danação, Perdição e Lamento descem juntos sobre as capitais. Cada um pode deixar a sua montaria.")
 	cv[0].size_flags_horizontal = Control.SIZE_EXPAND_FILL; h.add_child(cv[0])
 	cv[1].add_child(_botao("Chamar os Cavaleiros agora", func(): pedir(game, "cavaleiros", {"modo": "iniciar"})))
 	var dica := Tema.rotulo("A Torre e as dungeons: use \"Reviver o chefe desta dungeon\" na aba Invocar, de dentro do andar.", 13, Color("#7d7466"), Tema.FONTE_ITALICO)
