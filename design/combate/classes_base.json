@@ -1208,7 +1208,8 @@
           "sensacao": "golpe_pesado",
           "_doc": "golpe largo de espada em meia-lua; gera Ódio",
           "splash_raio": 1.2,
-          "splash_mult": 0.5
+          "splash_mult": 0.5,
+          "descricao": "Golpe largo de espada em meia-lua, a 1,6 m, com 120 graus. Gera 14 de Ódio. Quem está a até 1,2 m do alvo leva metade do dano."
         },
         {
           "id": "juramento_de_odio",
@@ -1223,7 +1224,8 @@
           },
           "gera": 30,
           "sensacao": "buff",
-          "_doc": "ajoelha e crava a espada: anel vermelho; +20% de dano e -10% de dano recebido"
+          "_doc": "ajoelha e crava a espada: anel vermelho; +20% de dano e -10% de dano recebido",
+          "descricao": "Ajoelha e crava a espada, deixando um anel vermelho por 8 s: +20% de dano e -10% de dano recebido. Gera 30 de Ódio."
         },
         {
           "id": "warlord_fenda_na_terra",
@@ -1242,7 +1244,8 @@
           "forma": "cone",
           "cone_graus": 110,
           "raio": 3.2,
-          "_doc": "skill em leque do nível 5 (regra do Jefin: é a do modo automático). Crava a espada e o chão racha em leque à frente."
+          "_doc": "skill em leque do nível 5 (regra do Jefin: é a do modo automático). Crava a espada e o chão racha em leque à frente.",
+          "descricao": "Crava a espada e o chão racha em leque à frente (110 graus, 3,2 m). Dano físico que nunca erra. É a skill do modo automático no nível 5."
         },
         {
           "id": "investida_de_ferro",
@@ -1258,7 +1261,8 @@
           "postura": 55,
           "empurrao": 1.2,
           "sensacao": "investida",
-          "_doc": "avança de escudo erguido atravessando a capa no vento"
+          "_doc": "avança de escudo erguido atravessando a capa no vento",
+          "descricao": "Avança de escudo erguido, empurra o alvo e o deixa atordoado por 1 s. Dano 1,4x."
         },
         {
           "id": "marca_do_desprezo",
@@ -1274,7 +1278,8 @@
           "dano_recebido_extra": 0.1,
           "postura": 15,
           "sensacao": "grito",
-          "_doc": "provoca tudo em volta e marca: o grupo bate 10% mais nos marcados"
+          "_doc": "provoca tudo em volta e marca: o grupo bate 10% mais nos marcados",
+          "descricao": "Provoca tudo em 4 m e marca os inimigos por 6 s: o grupo bate 10% mais nos marcados."
         },
         {
           "id": "muralha_de_escudo",
@@ -1289,7 +1294,8 @@
             "imune_derrubar": true
           },
           "sensacao": "buff",
-          "_doc": "finca o escudo: -40% de dano, devolve 20% e não cai"
+          "_doc": "finca o escudo: -40% de dano, devolve 20% e não cai",
+          "descricao": "Finca o escudo por 6 s: -40% de dano recebido, devolve 20% do dano sofrido e não cai."
         },
         {
           "id": "redemoinho_de_aco",
@@ -1304,7 +1310,8 @@
           "postura": 10,
           "empurrao": 0.8,
           "sensacao": "area",
-          "_doc": "gira com a espada, a capa rasgada abrindo como um leque"
+          "_doc": "gira com a espada, a capa rasgada abrindo como um leque",
+          "descricao": "Gira a espada e acerta tudo em 2,4 m quatro vezes, com 55% do dano em cada golpe. Empurra os inimigos."
         },
         {
           "id": "coroa_de_ferro",
@@ -1315,7 +1322,8 @@
             "defesa_por_inimigo_perto": 0.03,
             "max_inimigos": 5
           },
-          "_doc": "passiva: +3% de defesa por inimigo a até 3 m (até 5)"
+          "_doc": "passiva: +3% de defesa por inimigo a até 3 m (até 5)",
+          "descricao": "Passiva: +3% de defesa para cada inimigo a até 3 m, até 5 inimigos (+15% no máximo)."
         },
         {
           "id": "estandarte_da_ruina",
@@ -1337,7 +1345,8 @@
             }
           },
           "sensacao": "invocacao",
-          "_doc": "crava um estandarte rasgado: aura para o grupo e contra os inimigos"
+          "_doc": "crava um estandarte rasgado: aura para o grupo e contra os inimigos",
+          "descricao": "Crava um estandarte rasgado por 15 s, com aura de 5 m: +10% de dano e +3% de roubo de vida para o grupo, e -10% de dano para os inimigos. Só um por vez."
         },
         {
           "id": "eclipse_do_senhor_da_guerra",
@@ -1356,7 +1365,8 @@
           "consome_todo_odio": true,
           "mult_por_10_odio": 0.25,
           "sensacao": "golpe_pesado",
-          "_doc": "sol negro sobre a espada erguida; cai com toda a raiva acumulada"
+          "_doc": "sol negro sobre a espada erguida; cai com toda a raiva acumulada",
+          "descricao": "Ergue a espada sob um sol negro e cai com toda a raiva acumulada: 4,5x de dano em 4 m, atordoa por 2 s e consome todo o Ódio (+25% de dano por 10 de Ódio)."
         }
       ]
     }
