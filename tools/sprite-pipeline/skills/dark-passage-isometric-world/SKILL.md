@@ -128,4 +128,17 @@ Require:
 Before finishing:
 1. Inspect existing scenes and assets.
 2. Establish visual and technical constraints.
-3. Produce an is
+3. Produce an isolated prototype.
+4. Review it visually using screenshots or renders.
+5. Test a character walking behind trees and pillars.
+6. Test entering/exiting buildings and roof fading.
+7. Check Y-sort and elevation across eight directions.
+8. Check multiplayer local visibility.
+9. Verify FPS, draw calls, and alpha transitions.
+10. Preserve original scenes until validated.
+
+Never claim that an asset is visually correct based
+only on successful script execution.
+
+Do not silently rewrite functioning game systems.
+Document every proposed integration change.
