@@ -59,8 +59,8 @@ def build():
     R = QRig("cavalo", bones(), ground=.03, ground_bones=PAWS)
 
     # ---- tronco: peito fundo, costelas à mostra, dorso reto, barriga recolhida, anca em degrau
-    keys = [(.85, 1.2, .14, .14), (.7, 1.27, .26, .27), (.4, 1.3, .3, .3), (0, 1.28, .3, .31),
-            (-.4, 1.27, .3, .3), (-.65, 1.25, .27, .28), (-.82, 1.2, .2, .2)]
+    keys = [(.85, 1.16, .16, .17), (.7, 1.2, .3, .32), (.4, 1.22, .34, .36), (0, 1.2, .34, .36),
+            (-.4, 1.2, .34, .35), (-.65, 1.18, .3, .32), (-.82, 1.14, .22, .24)]
     rings = ring_path(keys, .015)
     def rad(i, a, r):
         y = r[0].y; sn = math.sin(a); f = 1.0
@@ -79,8 +79,8 @@ def build():
     parts += tufts(neck_rings, mane, 40, (-40, 80), (.3, 1.0), .14, .013, 34, back=.7, down=.0)
 
     # ---- cabeça: crânio, focinho, órbitas com brasa, dentes (eixos: x lateral, y frente, z altura)
-    parts.append(along("primitive_cylinder_add", bone, (0, -1.0, 1.80), (0, -1.3, 1.6), .11, vertices=12))   # crânio
-    parts.append(along("primitive_cylinder_add", bone, (0, -1.3, 1.6), (0, -1.5, 1.42), .085, vertices=12))  # focinho
+    parts.append(along("primitive_cylinder_add", bone, (0, -1.0, 1.80), (0, -1.3, 1.6), .14, vertices=12))   # crânio
+    parts.append(along("primitive_cylinder_add", bone, (0, -1.3, 1.6), (0, -1.5, 1.42), .11, vertices=12))  # focinho
     parts.append(prim("primitive_uv_sphere_add", bone, (0, -.98, 1.82), (.12, .12, .12), segments=12, ring_count=8))  # nuca
     for s in (-1, 1):   # órbitas: buraco escuro e brasa no fundo
         parts.append(prim("primitive_uv_sphere_add", hole, (s*.095, -1.12, 1.74), (.04, .04, .04), segments=8, ring_count=6))
@@ -90,8 +90,8 @@ def build():
 
     # ---- sela com cilha, arção e estribos
     sp, nrm = surf(rings[int(.5*(len(rings)-1))], math.radians(90))
-    parts.append(prim("primitive_cube_add", leather, sp + Vector((0, 0, .08)), scale=(.17, .3, .05)))
-    parts.append(prim("primitive_cube_add", leather, sp + Vector((0, .3, .02)), scale=(.12, .06, .05)))
+    parts.append(prim("primitive_cube_add", leather, sp + Vector((0, 0, .15)), scale=(.2, .32, .05)))
+    parts.append(prim("primitive_cube_add", leather, sp + Vector((0, .32, .1)), scale=(.12, .06, .06)))
     for s in (-1, 1):
         parts.append(along("primitive_cylinder_add", leather, sp + Vector((s*.16, -.02, .0)), sp + Vector((s*.16, -.02, -.3)), .012, vertices=6))
         parts.append(prim("primitive_torus_add", iron, sp + Vector((s*.18, -.02, -.36)), (1, 1, 1), major_radius=.07,
@@ -111,8 +111,8 @@ def build():
 
     # ---- pernas: osso fino e articulado, com cascos
     for s, n in ((1, "L"), (-1, "R")):
-        fr = [(.15*s*.9, ESC[0], ESC[1], .05), (.15*s, COT[0], COT[1], .04), (.15*s, CAR[0], CAR[1], .038), (.15*s, BOL[0], BOL[1], .03)]
-        tr = [(.14*s*.9, QUA[0], QUA[1], .055), (.14*s, JOE[0], JOE[1], .045), (.14*s, JAR[0], JAR[1], .04), (.14*s, BOL2[0], BOL2[1], .03)]
+        fr = [(.15*s*.9, ESC[0], ESC[1], .07), (.15*s, COT[0], COT[1], .06), (.15*s, CAR[0], CAR[1], .055), (.15*s, BOL[0], BOL[1], .04)]
+        tr = [(.14*s*.9, QUA[0], QUA[1], .08), (.14*s, JOE[0], JOE[1], .065), (.14*s, JAR[0], JAR[1], .055), (.14*s, BOL2[0], BOL2[1], .04)]
         R.bind(limb(f"cavalo_perna_f_{n}", fr, bone, levels=2), [f"upper_arm.{n}", f"forearm.{n}", f"hand.{n}"])
         R.bind(limb(f"cavalo_perna_t_{n}", tr, bone, levels=2), [f"thigh.{n}", f"shin.{n}", f"foot.{n}"])
         R.bind(prim("primitive_cylinder_add", hoof, (.15*s, BOL[0] - .01, .025), (.035, .03, .025), vertices=10), [f"hand.{n}"], power=2)
