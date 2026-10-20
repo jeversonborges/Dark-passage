@@ -46,10 +46,12 @@ if info.get("arma"):
     arm.animation_data_create(); arm.animation_data.action = acts["idle"]
     sc.frame_set(1); bpy.context.view_layer.update()
     rot_arma = Euler(tuple(math.radians(v) for v in ARMA_ROT)).to_matrix().to_4x4()
-    def segue_mao():
-        # só a posição segue a mão: a arma mantém a orientação do repouso (lâmina para cima) em todos os quadros
+    def segue_mao(giro=0.0):
+        # só a posição segue a mão: a arma mantém a orientação do repouso (lâmina para cima) em todos os quadros.
+        # giro (graus, em torno do eixo da tela) é o corte em meia-lua do ataque (MEIALUA=1)
         bpy.context.view_layer.update()
-        mao.matrix_world = arm.matrix_world @ (Matrix.Translation(osso_mao.matrix.translation + Vector(ARMA_OFF)) @ rot_arma)
+        rot_giro = Euler((0, math.radians(giro), 0)).to_matrix().to_4x4()
+        mao.matrix_world = arm.matrix_world @ (Matrix.Translation(osso_mao.matrix.translation + Vector(ARMA_OFF)) @ rot_giro @ rot_arma)
 
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); sc.collection.objects.link(cam)
 cam.data.type = 'ORTHO'; cam.data.ortho_scale = PX/PPU
@@ -89,7 +91,8 @@ for name, act in acts.items():
         for fo, fa, ff in info.get("fx", []): fo.hide_render = not (name == fa and ff[f-1])
         for k in dirs:
             arm.rotation_euler = (0, 0, math.radians((k+1)*45))
-            if arma_objs: segue_mao()
+            giro = 180*(f-1)/(n-1) if os.environ.get("MEIALUA") and name == "attack" else 0.0
+            if arma_objs: segue_mao(giro)
             sc.render.filepath = f"{out}/{name}/{DIRS[k]}_{f-1:02d}.png"
             bpy.ops.render.render(write_still=True)
 json.dump(meta, open(f"{out}/meta.json", "w"), indent=1)
